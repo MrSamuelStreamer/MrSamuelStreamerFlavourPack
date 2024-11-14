@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <!-- Rememer to prefix all of your defs! put Mr_Samuel_Streamer_Flavour_Pack_ at the start of all your def names and use MayRequire where needed -->
+    
+    <!-- <ThingDef ParentName="BuildingBase">
+        <defName>Mr_Samuel_Streamer_Flavour_Pack_ExampleBuilding</defName>
+        <label>Mr Samuel Streamer Flavour Pack building</label>
+        <description>An example cookie cutter building from Mr Samuel Streamer Flavour Pack.</description>
+        <costList>
+            <Steel>200</Steel>
+            <AnimusStone MayRequire="Ludeon.RimWorld.Royalty">1</AnimusStone>
+        </costList>
+        ...
+    </ThingDef> -->
+</Defs>
