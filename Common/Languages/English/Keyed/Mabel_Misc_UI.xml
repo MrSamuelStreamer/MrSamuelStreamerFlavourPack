@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+    <Mabel_SettingsCategory>Mabel</Mabel_SettingsCategory>
+    <Mabel_Settings_DestroyFloors>Allow Mabel to Destroy floors</Mabel_Settings_DestroyFloors>
+    <Mabel_FloorDestructionMessage>Mabel has dug up the floor... again.</Mabel_FloorDestructionMessage>
+    <Mabel_FloorDestructionDisabled>Must be player faction and obedience trained</Mabel_FloorDestructionDisabled>
+    <Mabel_FloorDestructionCommand>Dig up floor</Mabel_FloorDestructionCommand>
+    <Mabel_FloorDestructionCommandDesc>Dig up the floor in a radius</Mabel_FloorDestructionCommandDesc>
+</LanguageData>
