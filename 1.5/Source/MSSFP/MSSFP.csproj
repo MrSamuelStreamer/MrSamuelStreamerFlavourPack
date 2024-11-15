@@ -4,8 +4,8 @@
     <TargetFramework>net48</TargetFramework>
     <OutputType>Library</OutputType>
     <LangVersion>latest</LangVersion>
-    <RootNamespace>Mr_Samuel_Streamer_Flavour_Pack</RootNamespace>
-    <AssemblyName>Mr_Samuel_Streamer_Flavour_Pack</AssemblyName>
+    <RootNamespace>MSSFP</RootNamespace>
+    <AssemblyName>MSSFP</AssemblyName>
     <OutputPath>../../Assemblies/</OutputPath>
     <ZipFilePath>../../../$(AssemblyName).zip</ZipFilePath>
     <ReleasePath>../../../Release</ReleasePath>
@@ -32,6 +32,10 @@
       <HintPath>../../../../../RimWorldWin64_Data/Managed/UnityEngine.CoreModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="UnityEngine.IMGUIModule">
+      <HintPath>..\..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.IMGUIModule.dll</HintPath>
+        <Private>False</Private>
+    </Reference>
     <Reference Include="UnityEngine.TextRenderingModule">
       <HintPath>../../../../../RimWorldWin64_Data/Managed/UnityEngine.TextRenderingModule.dll</HintPath>
       <Private>False</Private>
@@ -49,7 +53,7 @@
     <ItemGroup>
     <PackageReference Include="Lib.Harmony" Version="2.*" ExcludeAssets="runtime"/>
   </ItemGroup>
-  
+
   <ItemGroup Condition="'@(Reference->WithMetadataValue('Identity', 'Assembly-CSharp')->Metadata('HintPath')->Exists())' == ''">
     <PackageReference Include="Krafs.Rimworld.Ref" Version="1.5-*"/>
   </ItemGroup>
@@ -62,7 +66,7 @@
     <AboutFiles Include="../../../About/**" Exclude="../../../About/*.png~"/>
     <CommonFiles Include="../../../Common/**" />
     <CompatibilityFiles Include="../../../Compatibility/**" />
-    
+
     <ExtraFiles Include="../../../LoadFolders.xml;../../../LICENSE;../../../README.md" />
   </ItemGroup>
   <Target Name="PostBuild" AfterTargets="Build" Condition=" '$(Configuration)' == 'Release' ">
@@ -71,7 +75,7 @@
     <Copy SourceFiles="@(AboutFiles)" DestinationFiles="@(AboutFiles->'../../../Release/About/%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="true" />
     <Copy SourceFiles="@(CommonFiles)" DestinationFiles="@(CommonFiles->'../../../Release/Common/%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="true" />
     <Copy SourceFiles="@(CompatibilityFiles)" DestinationFiles="@(CompatibilityFiles->'../../../Release/Compatibility/%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="true" />
-    
+
     <Copy SourceFiles="@(ReleaseFiles)" DestinationFiles="@(ReleaseFiles->'../../../Release/%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="false" />
     <Copy SourceFiles="@(ExtraFiles)" DestinationFolder="../../../Release/" SkipUnchangedFiles="false" />
     <ZipDirectory DestinationFile="../../../$(AssemblyName).zip" SourceDirectory="../../../Release" />

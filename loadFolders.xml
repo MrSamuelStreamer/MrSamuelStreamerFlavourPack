@@ -3,6 +3,5 @@
 	<v1.5>
 		<li>Common</li>
 		<li>1.5</li>
-		<li IfModActive="Ludeon.RimWorld.Royalty">Compatibility/Ludeon.RimWorld.Royalty</li>
 	</v1.5>
 </loadFolders>

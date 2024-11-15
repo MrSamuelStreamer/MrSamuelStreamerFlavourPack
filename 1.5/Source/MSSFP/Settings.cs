@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using Verse;
 
-namespace Mabel;
+namespace MSSFP;
 
 public class Settings : ModSettings
 {
@@ -12,7 +12,7 @@ public class Settings : ModSettings
         Listing_Standard options = new();
         options.Begin(wrect);
 
-        options.CheckboxLabeled("Mabel_Settings_DestroyFloors".Translate(), ref destroyFloors);
+        options.CheckboxLabeled("MSS_Mabel_Settings_DestroyFloors".Translate(), ref destroyFloors);
         options.Gap();
 
         options.End();

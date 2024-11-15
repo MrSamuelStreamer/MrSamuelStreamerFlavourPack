@@ -2,21 +2,22 @@
 using UnityEngine;
 using HarmonyLib;
 
-namespace Mabel;
+namespace MSSFP;
 
-public class MabelMod : Mod
+public class MSSFPMod : Mod
 {
     public static Settings settings;
 
-    public MabelMod(ModContentPack content) : base(content)
+    public MSSFPMod(ModContentPack content) : base(content)
     {
+        Log.Message("Hello world from Mr Samuel Streamer Flavour Pack");
 
         // initialize settings
         settings = GetSettings<Settings>();
 #if DEBUG
         Harmony.DEBUG = true;
 #endif
-        Harmony harmony = new Harmony("Taggerung.rimworld.Mabel.main");	
+        Harmony harmony = new Harmony("MrSamuelStreamer.rimworld.MSSFP.main");
         harmony.PatchAll();
     }
 
@@ -28,6 +29,6 @@ public class MabelMod : Mod
 
     public override string SettingsCategory()
     {
-        return "Mabel_SettingsCategory".Translate();
+        return "MSSFP_SettingsCategory".Translate();
     }
 }

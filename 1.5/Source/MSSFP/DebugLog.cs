@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using System;
 
-namespace Mr_Samuel_Streamer_Flavour_Pack;
+namespace MSSFP;
 
 static class ModLog
 {

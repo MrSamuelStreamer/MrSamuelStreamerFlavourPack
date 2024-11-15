@@ -6,7 +6,7 @@ using UnityEngine;
 using Verse;
 using Verse.AI;
 
-namespace Mabel;
+namespace MSSFP;
 
 public class CompProperties_FloorKiller : CompProperties
 {
@@ -43,7 +43,7 @@ public class CompFloorKiller : ThingComp
 
     public bool TryDestroyFloor()
     {
-        if (!MabelMod.settings.destroyFloors) return true; // If the setting is off, skip the destruction
+        if (!MSSFPMod.settings.destroyFloors) return true; // If the setting is off, skip the destruction
         if (!CanDestroy) return false;
         IntVec3 cell = parent.Position;
         Map parentMap = parent.Map;
@@ -52,7 +52,7 @@ public class CompFloorKiller : ThingComp
         FilthMaker.RemoveAllFilth(cell, parentMap);
         FilthMaker.TryMakeFilth(cell.RandomAdjacentCell8Way(), parentMap, ThingDefOf.Filth_Dirt, 2, FilthSourceFlags.Terrain);
         FilthMaker.TryMakeFilth(cell.RandomAdjacentCell8Way(), parentMap, ThingDefOf.Filth_Vomit, 1, FilthSourceFlags.Pawn);
-        Messages.Message("Mabel_FloorDestructionMessage".Translate(parent.LabelShort), parent, MessageTypeDefOf.NegativeEvent, historical: false);
+        Messages.Message("MSS_Mabel_FloorDestructionMessage".Translate(parent.LabelShort), parent, MessageTypeDefOf.NegativeEvent, historical: false);
         return true;
     }
 
@@ -78,9 +78,9 @@ public class CompFloorKiller : ThingComp
         yield return new Command_TargetRadius
         {
             Disabled = !enabled,
-            disabledReason = enabled ? null : "Mabel_FloorDestructionDisabled".Translate(),
-            defaultLabel = "Mabel_FloorDestructionCommand".Translate(),
-            defaultDesc = "Mabel_FloorDestructionCommandDesc".Translate(),
+            disabledReason = enabled ? null : "MSS_Mabel_FloorDestructionDisabled".Translate(),
+            defaultLabel = "MSS_Mabel_FloorDestructionCommand".Translate(),
+            defaultDesc = "MSS_Mabel_FloorDestructionCommandDesc".Translate(),
             icon = ContentFinder<Texture2D>.Get("UI/Designators/RemoveFloor"),
             radius = Props.digFloorCommandRadius,
             targetingParams = new TargetingParameters

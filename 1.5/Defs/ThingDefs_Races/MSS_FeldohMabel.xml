@@ -109,7 +109,7 @@
       <li>AnimalPet</li>
     </tradeTags>
     <comps>
-        <li Class="Mabel.CompProperties_FloorKiller">
+        <li Class="MSSFP.CompProperties_FloorKiller">
             <ticksBetweenFloorDestruction>30000~300000</ticksBetweenFloorDestruction>
             <digFloorCommandRadius>4</digFloorCommandRadius>
         </li>
