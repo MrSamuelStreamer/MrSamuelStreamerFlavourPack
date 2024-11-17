@@ -1,0 +1,386 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+     <!--Haunt Defs Begin-->
+    <!--Frog Def-->
+    <HediffDef>
+        <defName>MSS_FP_FrogHaunt</defName>
+        <label>Haunted by Frog</label>
+        <description>Where is Frog? Why, she never left.</description>
+        <hediffClass>HediffWithComps</hediffClass>
+        <defaultLabelColor>(0.1,0.2,0.8)</defaultLabelColor>
+        <maxSeverity>1.0</maxSeverity>
+        <scenarioCanAdd>true</scenarioCanAdd>
+        <isBad>false</isBad>
+        <stages>
+            <li>
+                <minSeverity>0</minSeverity>
+                <label>presence</label>
+                <statFactors>
+                    <RestFallRateFactor>0.8</RestFallRateFactor>
+                    <NegotiationAbility>1.2</NegotiationAbility>
+                    <WorkSpeedGlobal>0.9</WorkSpeedGlobal>
+                </statFactors>
+            </li>
+        </stages>
+        <comps>
+            <li Class="MSSFP.Hediffs.HediffCompProperties_Haunt">
+                <graphicData>
+                    <texPath>Haunts/Frog/Frog</texPath>
+                    <graphicClass>Graphic_Multi</graphicClass>
+                    <drawSize>1.7</drawSize>
+                    <shaderType>MoteGlow</shaderType>
+                </graphicData>
+                <offsets>
+                    <li>(0.3, 1.6, -0.55)</li> <!-- North -->
+                    <li>(-0.5, 1.1, -0.35)</li> <!-- East -->
+                    <li>(0.3, -1.6, 0.65)</li> <!-- South -->
+                    <li>(0.5, 1.1, -0.35)</li> <!-- West -->
+                </offsets>
+                <onlyRenderWhenDrafted>true</onlyRenderWhenDrafted>
+            </li>
+        </comps>
+    </HediffDef>
+    <!--Grignr Def-->
+    <HediffDef>
+        <defName>MSS_FP_GrignrHaunt</defName>
+        <label>Empowered by Grignr</label>
+        <description>Through some great feat of combat, this person has been chosen by the spirit of Grignr Grignrson.</description>
+        <hediffClass>HediffWithComps</hediffClass>
+        <defaultLabelColor>(0.1,0.2,0.8)</defaultLabelColor>
+        <maxSeverity>1.0</maxSeverity>
+        <scenarioCanAdd>true</scenarioCanAdd>
+        <isBad>false</isBad>
+        <stages>
+            <li>
+                <minSeverity>0</minSeverity>
+                <label>presence</label>
+                <statFactors>
+                    <Mass>1.5</Mass>
+                    <MeleeDamageFactor>1.2</MeleeDamageFactor>
+                    <MeleeDodgeChance>0.8</MeleeDodgeChance>
+                    <IncomingDamageFactor>0.8</IncomingDamageFactor>
+                </statFactors>
+            </li>
+        </stages>
+        <comps>
+            <li Class="MSSFP.Hediffs.HediffCompProperties_Haunt">
+                <graphicData>
+                    <texPath>Haunts/Grignr/Grignr</texPath>
+                    <graphicClass>Graphic_Multi</graphicClass>
+                    <drawSize>1.7</drawSize>
+                    <shaderType>MoteGlow</shaderType>
+                </graphicData>
+                <offsets>
+                    <li>(0.3, 1.6, -0.55)</li> <!-- North -->
+                    <li>(-0.5, 1.1, -0.35)</li> <!-- East -->
+                    <li>(0.3, -1.6, 0.65)</li> <!-- South -->
+                    <li>(0.5, 1.1, -0.35)</li> <!-- West -->
+                </offsets>
+                <onlyRenderWhenDrafted>true</onlyRenderWhenDrafted>
+            </li>
+        </comps>
+    </HediffDef>
+    <!--Kekvit Def-->
+    <HediffDef>
+        <defName>MSS_FP_KekvitHaunt</defName>
+        <label>Harassed by Kekvit</label>
+        <description>After some terrible deeds, this person has attracted the spirit of Kekvit the Gingerbread haunt.</description>
+        <hediffClass>HediffWithComps</hediffClass>
+        <defaultLabelColor>(0.1,0.2,0.8)</defaultLabelColor>
+        <maxSeverity>1.0</maxSeverity>
+        <scenarioCanAdd>true</scenarioCanAdd>
+        <isBad>false</isBad>
+        <stages>
+            <li>
+                <minSeverity>0</minSeverity>
+                <label>presence</label>
+                <painFactor>0.5</painFactor>
+                <statFactors>
+                    <IncomingDamageFactor>0.8</IncomingDamageFactor>
+                    <SlaveSuppressionOffset>0.15</SlaveSuppressionOffset>
+                    <Flammability>0.6</Flammability>
+                </statFactors>
+            </li>
+        </stages>
+        <comps>
+            <li Class="MSSFP.Hediffs.HediffCompProperties_Haunt">
+                <graphicData>
+                    <texPath>Haunts/Kekvit/Kekvit</texPath>
+                    <graphicClass>Graphic_Multi</graphicClass>
+                    <drawSize>1.7</drawSize>
+                    <shaderType>MoteGlow</shaderType>
+                </graphicData>
+                <offsets>
+                    <li>(0.3, 1.6, -0.55)</li> <!-- North -->
+                    <li>(-0.5, 1.1, -0.35)</li> <!-- East -->
+                    <li>(0.3, -1.6, 0.65)</li> <!-- South -->
+                    <li>(0.5, 1.1, -0.35)</li> <!-- West -->
+                </offsets>
+                <onlyRenderWhenDrafted>true</onlyRenderWhenDrafted>
+            </li>
+        </comps>
+    </HediffDef>
+    <!--Oskar Def-->
+    <HediffDef>
+        <defName>MSS_FP_OskarHaunt</defName>
+        <label>Nuzzled by Oskar</label>
+        <description>Amidst the boundless expanse of a cosmic symphony, where resplendent stars illuminate the celestial stage and grand civilizations grace the universe's opulent canvas, emerges the haunting tale of Oskar, a bewitching apparition born from the enigmatic race of "Highmates." Ingeniously fashioned to embody the very essence of genuine intimacy, these ethereal beings were gifted to illustrious nobles within a futuristic, feudal society, their exquisite allure destined to intertwine with the destinies of the privileged elite.\n\nYet, Oskar, a peerless enigma among his spectral brethren, bore within his radiant facade a heart-rending chronicle of triumph and tragedy, forever etching his name upon the cosmos in a tapestry of resounding infamy. For, as cosmic tempests of darkness and brilliance clashed in a cataclysmic ballet, the enigmatic Highmate made a fateful choice that seared his soul: fleeing from the haunting specter of space pirates, he abandoned his fellow companions to the inferno's embrace, casting himself adrift amidst the endless expanse in search of solace and redemption.\n\nAmong those he left behind were the amiable vampires, led by the illustrious Anne Guine, whose somber grace and dark elegance were eclipsed by her seething anger and heartache as she beheld Oskar abandoning them in their hour of dire need. A bond, once formed in the celestial twilight of mutual understanding and acceptance, was shattered like stars colliding, leaving Anne Guine and her kin in a state of melancholic loss, their trust betrayed, and their sanctuary ablaze in the wake of Oskar's departure.</description>
+        <hediffClass>HediffWithComps</hediffClass>
+        <defaultLabelColor>(0.1,0.2,0.8)</defaultLabelColor>
+        <maxSeverity>1.0</maxSeverity>
+        <scenarioCanAdd>true</scenarioCanAdd>
+        <isBad>false</isBad>
+        <stages>
+            <li>
+                <minSeverity>0</minSeverity>
+                <label>disturbed</label>
+                <statFactors>
+                    <WorkSpeedGlobal>0.420</WorkSpeedGlobal>
+                    <NegotiationAbility>0.420</NegotiationAbility>
+                    <DrugSellPriceImprovement>1.420</DrugSellPriceImprovement>
+                    <ToxicEnvironmentResistance MayRequire="Ludeon.RimWorld.Biotech">1.420</ToxicEnvironmentResistance>
+                    <PawnBeauty>1.69</PawnBeauty>
+                    <SocialImpact>0.69</SocialImpact>
+                    <DeepDrillingSpeed>1.69</DeepDrillingSpeed>
+                    <MentalBreakThreshold>1.69</MentalBreakThreshold>
+                    <Fertility MayRequire="Ludeon.RimWorld.Biotech">1.69</Fertility>
+                </statFactors>
+                <statOffsets>
+                    <SlaveSuppressionOffset MayRequire="Ludeon.RimWorld.Ideology">-0.2</SlaveSuppressionOffset>
+                    <MeleeHitChance>-0.420</MeleeHitChance>
+                    <MeleeDodgeChance>-0.420</MeleeDodgeChance>
+                    <AimingDelayFactor>0.0420</AimingDelayFactor>
+                    <MoveSpeed>-0.0420</MoveSpeed>
+                    <RestFallRateFactor>-0.069</RestFallRateFactor>
+                    <PsychicSensitivity>0.0420</PsychicSensitivity>
+                    <RestRateMultiplier>0.069</RestRateMultiplier>
+                    <MeditationFocusGain MayRequire="Ludeon.RimWorld.Royalty">-0.0420</MeditationFocusGain>
+                    <PsychicEntropyMax MayRequire="Ludeon.RimWorld.Royalty">0.420</PsychicEntropyMax>
+                    <PsychicEntropyRecoveryRate MayRequire="Ludeon.RimWorld.Royalty">0.420</PsychicEntropyRecoveryRate>
+                </statOffsets>
+
+                <capMods>
+                    <li>
+                        <capacity>Moving</capacity>
+                        <offset>-0.069</offset>
+                    </li>
+                    <li>
+                        <capacity>BloodPumping</capacity>
+                        <offset>0.069</offset>
+                    </li>
+                    <li>
+                        <capacity>Consciousness</capacity>
+                        <offset>-0.0420</offset>
+                    </li>
+                    <li>
+                        <capacity>Breathing</capacity>
+                        <offset>-0.0420</offset>
+                    </li>
+                </capMods>
+            </li>
+        </stages>
+        <comps>
+            <li Class="MSSFP.Hediffs.HediffCompProperties_Haunt">
+                <graphicData>
+                    <texPath>Haunts/Oskar/Oskar</texPath>
+                    <graphicClass>Graphic_Multi</graphicClass>
+                    <drawSize>1.7</drawSize>
+                    <shaderType>MoteGlow</shaderType>
+                </graphicData>
+                <offsets>
+                    <li>(0.3, 1.6, -0.55)</li> <!-- North -->
+                    <li>(-0.5, 1.1, -0.35)</li> <!-- East -->
+                    <li>(0.3, -1.6, 0.65)</li> <!-- South -->
+                    <li>(0.5, 1.1, -0.35)</li> <!-- West -->
+                </offsets>
+                <onlyRenderWhenDrafted>true</onlyRenderWhenDrafted>
+            </li>
+        </comps>
+    </HediffDef>
+    <!--Phil Def-->
+    <HediffDef>
+        <defName>MSS_FP_PhilHaunt</defName>
+        <label>Tormented by Phil</label>
+        <description>This pawn is tormented by the spirit of Phil, the doctor in disguise, and embodiment of betrayal.</description>
+        <hediffClass>HediffWithComps</hediffClass>
+        <defaultLabelColor>(0.1,0.2,0.8)</defaultLabelColor>
+        <maxSeverity>1.0</maxSeverity>
+        <scenarioCanAdd>true</scenarioCanAdd>
+        <isBad>false</isBad>
+        <stages>
+            <li>
+                <minSeverity>0</minSeverity>
+                <label>petty</label>
+                <statFactors>
+                    <WorkSpeedGlobal>0.9</WorkSpeedGlobal>
+                    <SocialImpact>0.9</SocialImpact>
+                    <Fertility MayRequire="Ludeon.RimWorld.Biotech">0.2</Fertility>
+                </statFactors>
+                <statOffsets>
+                    <RestRateMultiplier>-0.1</RestRateMultiplier>
+                </statOffsets>
+            </li>
+        </stages>
+        <comps>
+            <li Class="MSSFP.Hediffs.HediffCompProperties_Haunt">
+                <graphicData>
+                    <texPath>Haunts/Phil/Phil</texPath>
+                    <graphicClass>Graphic_Multi</graphicClass>
+                    <drawSize>1.7</drawSize>
+                    <shaderType>MoteGlow</shaderType>
+                </graphicData>
+                <offsets>
+                    <li>(0.3, 1.6, -0.55)</li> <!-- North -->
+                    <li>(-0.5, 1.1, -0.35)</li> <!-- East -->
+                    <li>(0.3, -1.6, 0.65)</li> <!-- South -->
+                    <li>(0.5, 1.1, -0.35)</li> <!-- West -->
+                </offsets>
+                <onlyRenderWhenDrafted>true</onlyRenderWhenDrafted>
+            </li>
+        </comps>
+    </HediffDef>
+    <HediffDef>
+        <defName>MSS_FP_JadeHaunt</defName>
+        <label>Tormented by Jade</label>
+        <description>This pawn is perturbed by the spirit of Jade, enormous abominable yeti, slain by Santa.</description>
+        <hediffClass>HediffWithComps</hediffClass>
+        <defaultLabelColor>(0.1,0.2,0.8)</defaultLabelColor>
+        <maxSeverity>1.0</maxSeverity>
+        <scenarioCanAdd>true</scenarioCanAdd>
+        <isBad>false</isBad>
+        <stages>
+            <li>
+                <minSeverity>0</minSeverity>
+                <label>petty</label>
+                <hungerRateFactor>1.5</hungerRateFactor>
+                <statFactors>
+                    <Mass>2.5</Mass>
+                    <MeleeDamageFactor>2.5</MeleeDamageFactor>
+                </statFactors>
+            </li>
+        </stages>
+        <comps>
+            <li Class="MSSFP.Hediffs.HediffCompProperties_Haunt">
+                <graphicData>
+                    <texPath>Haunts/Jade/Jade</texPath>
+                    <graphicClass>Graphic_Multi</graphicClass>
+                    <drawSize>2.5</drawSize>
+                    <shaderType>MoteGlow</shaderType>
+                </graphicData>
+                <offsets>
+                    <li>(0.3, 1.6, -0.55)</li> <!-- North -->
+                    <li>(-0.5, 1.1, -0.35)</li> <!-- East -->
+                    <li>(0.3, -1.6, 0.65)</li> <!-- South -->
+                    <li>(0.5, 1.1, -0.35)</li> <!-- West -->
+                </offsets>
+                <onlyRenderWhenDrafted>true</onlyRenderWhenDrafted>
+            </li>
+        </comps>
+    </HediffDef>
+    <!--Haunt Defs End-->
+    <AbilityGroupDef>
+        <defName>MSS_FP_Stand</defName>
+        <cooldownTicks>180</cooldownTicks>
+        <ritualRoleIds />
+    </AbilityGroupDef>
+
+    <AbilityDef ParentName="PsycastBase">
+        <defName>MSS_FP_ShowStand</defName>
+        <label>show stand</label>
+        <description>Focus on the inner spirit travelling with you.</description>
+        <iconPath>UI/Abilities/BerserkTrance</iconPath>
+        <jobDef>CastAbilityOnThing</jobDef>
+        <targetRequired>False</targetRequired>
+        <canUseAoeToGetTargets>False</canUseAoeToGetTargets>
+        <stunTargetWhileCasting>True</stunTargetWhileCasting>
+        <showPsycastEffects>False</showPsycastEffects>
+        <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+        <disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+        <groupDef>MSS_FP_Stand</groupDef>
+        <warmupStartSound>CombatCommand_Warmup</warmupStartSound>
+        <statBases>
+            <Ability_EffectRadius>0</Ability_EffectRadius>
+            <Ability_EntropyGain>0</Ability_EntropyGain>
+            <Ability_PsyfocusCost>0.0</Ability_PsyfocusCost>
+            <Ability_Duration>120</Ability_Duration>
+        </statBases>
+        <level>1</level>
+        <hostile>false</hostile>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <warmupTime>0.5</warmupTime>
+            <drawAimPie>False</drawAimPie>
+            <requireLineOfSight>False</requireLineOfSight>
+            <targetParams>
+                <canTargetSelf>true</canTargetSelf>
+                <canTargetPawns>false</canTargetPawns>
+                <canTargetBuildings>false</canTargetBuildings>
+                <canTargetAnimals>false</canTargetAnimals>
+                <canTargetHumans>false</canTargetHumans>
+                <canTargetMechs>false</canTargetMechs>
+            </targetParams>
+            <range>0</range>
+        </verbProperties>
+
+        <warmupMoteSocialSymbol>UI/Abilities/BerserkTrance</warmupMoteSocialSymbol>
+        <comps>
+            <li Class="CompProperties_AbilityGiveHediff">
+                <compClass>CompAbilityEffect_GiveHediff</compClass>
+                <hediffDef>MSS_FP_FrogHaunt</hediffDef>
+                <psychic>True</psychic>
+                <applicableToMechs>False</applicableToMechs>
+                <applyToSelf>true</applyToSelf>
+                <replaceExisting>true</replaceExisting>
+            </li>
+        </comps>
+    </AbilityDef>
+
+    <AbilityDef ParentName="PsycastBase">
+        <defName>MSS_FP_HideStand</defName>
+        <label>hide stand</label>
+        <description>Allow the inner spirit travelling with you to fade into your unconscious.</description>
+        <iconPath>UI/Abilities/BerserkTrance</iconPath>
+        <jobDef>CastAbilityOnThing</jobDef>
+        <targetRequired>False</targetRequired>
+        <canUseAoeToGetTargets>False</canUseAoeToGetTargets>
+        <stunTargetWhileCasting>True</stunTargetWhileCasting>
+        <showPsycastEffects>False</showPsycastEffects>
+        <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+        <disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+        <groupDef>MSS_FP_Stand</groupDef>
+        <warmupStartSound>CombatCommand_Warmup</warmupStartSound>
+        <statBases>
+            <Ability_EffectRadius>0</Ability_EffectRadius>
+            <Ability_EntropyGain>0</Ability_EntropyGain>
+            <Ability_PsyfocusCost>0.0</Ability_PsyfocusCost>
+            <Ability_Duration>120</Ability_Duration>
+        </statBases>
+        <level>1</level>
+        <hostile>false</hostile>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <warmupTime>0.5</warmupTime>
+            <drawAimPie>False</drawAimPie>
+            <requireLineOfSight>False</requireLineOfSight>
+            <targetParams>
+                <canTargetSelf>true</canTargetSelf>
+                <canTargetPawns>false</canTargetPawns>
+                <canTargetBuildings>false</canTargetBuildings>
+                <canTargetAnimals>false</canTargetAnimals>
+                <canTargetHumans>false</canTargetHumans>
+                <canTargetMechs>false</canTargetMechs>
+            </targetParams>
+            <range>0</range>
+        </verbProperties>
+
+        <warmupMoteSocialSymbol>UI/Abilities/BerserkTrance</warmupMoteSocialSymbol>
+        <comps>
+            <li Class="CompProperties_AbilityRemoveHediff">
+                <compClass>CompAbilityEffect_RemoveHediff</compClass>
+                <hediffDef>MSS_FP_FrogHaunt</hediffDef>
+                <applyToSelf>true</applyToSelf>
+                <applyToTarget>false</applyToTarget>
+            </li>
+        </comps>
+    </AbilityDef>
+</Defs>
