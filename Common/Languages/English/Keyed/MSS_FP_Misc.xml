@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
     <MSSFP_SettingsCategory>Mr Samuel Streamer Flavour Pack</MSSFP_SettingsCategory>
+    <MSS_FP_Settings_OverrideRelicPool>Override the possible pool of relics with this mods list</MSS_FP_Settings_OverrideRelicPool>
 </LanguageData>
