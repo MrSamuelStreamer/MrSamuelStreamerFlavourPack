@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Defs>
+    <AchievementsExpanded.AchievementDef>
+        <defName>MSS_Frogge</defName>
+        <label>frogge</label>
+        <description>frogge</description>
+        <tab>MSS_MrSamStreamer</tab>
+        <tracker Class="AchievementsExpanded.KindDefTracker">
+            <kindDefs>
+                <li>
+                    <key>MSSFP_Frogge</key>
+                    <value>1</value>
+                </li>
+            </kindDefs>
+        </tracker>
+        <texPath>Things/Pawn/Animal/Frogge/MSSFP_Frogge_south</texPath>
+        <points>5</points>
+    </AchievementsExpanded.AchievementDef>
+</Defs>

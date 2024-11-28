@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Defs>
+    <AchievementsExpanded.AchievementDef>
+        <defName>MSS_Mabel</defName>
+        <label>Mabel!</label>
+        <description>Look at the sweet little doggy.</description>
+        <tab>MSS_MrSamStreamer</tab>
+        <tracker Class="AchievementsExpanded.KindDefTracker">
+            <kindDefs>
+                <li>
+                    <key>MSS_Mabel</key>
+                    <value>1</value>
+                </li>
+            </kindDefs>
+        </tracker>
+        <texPath>Things/Pawn/Animal/Mabel/Mabel_east</texPath>
+        <points>5</points>
+    </AchievementsExpanded.AchievementDef>
+</Defs>

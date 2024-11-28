@@ -45,11 +45,20 @@
             <HintPath Condition="Exists('../../../../../Contents/Resources/Data/Managed/UnityEngine.TextRenderingModule.dll')">../../../../../Contents/Resources/Data/Managed/UnityEngine.TextRenderingModule.dll</HintPath>
             <Private>False</Private>
         </Reference>
+        <Reference Include="VanillaAchievments">
+            <HintPath Condition="Exists('../../../../VanillaAchievementsExpanded/1.5/Assemblies/AchievementsExpanded.dll')">../../../../VanillaAchievementsExpanded/1.5/Assemblies/AchievementsExpanded.dll</HintPath>
+            <HintPath Condition="Exists('../../../../2288125657/1.5/Assemblies/AchievementsExpanded.dll')">../../../../2288125657/1.5/Assemblies/AchievementsExpanded.dll</HintPath>
+            <HintPath Condition="Exists('../../../../../../../workshop/content/294100/2288125657/1.5/Assemblies/AchievementsExpanded.dll')">../../../../../../../workshop/content/294100/2288125657/1.5/Assemblies/AchievementsExpanded.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
     </ItemGroup>
     <ItemGroup>
         <Content Condition="Exists('../../../../../Data')" Include="../../../../../Data/**/*">
             <Link>Attached/Rimworld/%(RecursiveDir)/%(FileName)%(Extension)</Link>
             <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+        </Content>
+        <Content Include="..\..\..\modlist.xml">
+          <Link>MrSamuelStreamerFlavourPack\modlist.xml</Link>
         </Content>
     </ItemGroup>
     <ItemGroup>

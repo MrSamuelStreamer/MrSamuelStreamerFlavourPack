@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Defs>
+    <AchievementsExpanded.AchievementDef>
+        <defName>MSS_SweetBabyBoy</defName>
+        <label>Oh my sweet baby boy</label>
+        <description>Have a pawn form a relationship with another pawn of inappropriate age.</description>
+        <tab>MSS_MrSamStreamer</tab>
+        <tracker Class="MSSFP.Achievements.SweetBabyBoyTracker"/>
+        <texPath>Misc/mss_codex_sweet_baby_boy</texPath>
+        <points>5</points>
+    </AchievementsExpanded.AchievementDef>
+
+    <TraitDef>
+        <defName>MSS_SweetBabyBoy</defName>
+        <commonality>0</commonality>
+        <degreeDatas>
+            <li>
+                <label>sweet baby boy</label>
+                <description>{PAWN_nameDef} knows what they did. -6 Social, because everyone else knows what they did too.</description>
+                <skillGains>
+                    <Social>-6</Social>
+                </skillGains>
+            </li>
+        </degreeDatas>
+    </TraitDef>
+</Defs>
