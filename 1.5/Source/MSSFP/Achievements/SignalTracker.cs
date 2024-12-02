@@ -1,8 +1,5 @@
-﻿using System;
-using System.Linq;
-using System.Reflection;
+﻿using System.Linq;
 using AchievementsExpanded;
-using HarmonyLib;
 using RimWorld;
 using Verse;
 
@@ -11,22 +8,25 @@ namespace MSSFP.Achievements;
 public class SignalTracker: TrackerBase, ISignalReceiver
 {
     public string Signal;
+    public bool Triggered = false;
 
     public SignalTracker()
     {
-        Find.SignalManager.RegisterReceiver(this);
+        if(!Triggered)
+            Find.SignalManager.RegisterReceiver(this);
     }
-
 
     public SignalTracker(SweetBabyBoyTracker reference) : base(reference)
     {
-        Find.SignalManager.RegisterReceiver(this);
+        if(!Triggered)
+            Find.SignalManager.RegisterReceiver(this);
     }
 
     public override void ExposeData()
     {
         base.ExposeData();
         Scribe_Values.Look(ref Signal, "Signal");
+        Scribe_Values.Look(ref Triggered, "Triggered", false);
     }
 
     public override string Key
@@ -40,8 +40,7 @@ public class SignalTracker: TrackerBase, ISignalReceiver
     public override bool Trigger()
     {
         base.Trigger();
-
-        return true;
+        return Triggered;
     }
 
     public void Notify_SignalReceived(Signal signal)
@@ -55,6 +54,9 @@ public class SignalTracker: TrackerBase, ISignalReceiver
         {
             return;
         }
+
+        Find.SignalManager.DeregisterReceiver(this);
+        Triggered = true;
 
         AchievementCard card = AchievementPointManager.GetCards<SignalTracker>().FirstOrDefault(card => card.tracker == this);
 

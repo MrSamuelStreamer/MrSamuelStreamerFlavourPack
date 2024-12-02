@@ -26,7 +26,7 @@
             <li Class="MSSFP.Hediffs.HediffCompProperties_Haunt">
                 <graphicData>
                     <texPath>Haunts/Frog/Frog</texPath>
-                    <graphicClass>Graphic_Multi</graphicClass>
+                    <graphicClass>MSSFP.PawnHauntGraphic</graphicClass>
                     <drawSize>1.7</drawSize>
                     <shaderType>MoteGlow</shaderType>
                 </graphicData>

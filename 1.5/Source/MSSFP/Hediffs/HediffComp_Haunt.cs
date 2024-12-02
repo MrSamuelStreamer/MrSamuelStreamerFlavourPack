@@ -5,6 +5,8 @@ namespace MSSFP.Hediffs;
 
 public class HediffComp_Haunt: HediffComp
 {
+    public Pawn pawnToDraw;
+
     private HediffCompProperties_Haunt Props => props as HediffCompProperties_Haunt;
 
     public virtual void DrawAt(Vector3 drawPos)
@@ -14,7 +16,7 @@ public class HediffComp_Haunt: HediffComp
             return;
         }
 
-        Vector3 offset = new Vector3();
+        Vector3 offset = new();
 
         if (Props.offsets != null)
         {
@@ -46,6 +48,8 @@ public class HediffComp_Haunt: HediffComp
     public override void CompExposeData()
     {
         base.CompExposeData();
+
+        Scribe_References.Look(ref pawnToDraw, "pawnToDraw");
 
         if (Scribe.mode == LoadSaveMode.ResolvingCrossRefs)
         {
