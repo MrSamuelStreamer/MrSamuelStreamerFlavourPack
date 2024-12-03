@@ -49,10 +49,7 @@ public class SignalTracker: TrackerBase, ISignalReceiver
 
     public override bool Trigger()
     {
-        bool extraConditions = ExtraConditions();
-
-        ModLog.Log($"SignalTracker extra conditions returned: {extraConditions}");
-        return Triggered && extraConditions;
+        return Triggered && ExtraConditions();
     }
 
     public virtual HashSet<AchievementCard> Cards => AchievementPointManager.GetCards<SignalTracker>();
@@ -66,13 +63,11 @@ public class SignalTracker: TrackerBase, ISignalReceiver
             {
                 if (!signal.args.TryGetArg(i, out string arg))
                 {
-                    ModLog.Debug($"CheckSignal didn't find arg {i}");
                     return;
                 }
 
                 if (arg != SignalArgs[i])
                 {
-                    ModLog.Debug($"CheckSignal expected arg {i} to be {SignalArgs[i]} but was {arg}");
                     return;
                 }
             }
@@ -91,13 +86,11 @@ public class SignalTracker: TrackerBase, ISignalReceiver
 
                 if (!signal.args.TryGetArg(split[0], out object sigArg))
                 {
-                    ModLog.Error($"CheckSignal didn't find arg {split[0]}");
                     return;
                 }
 
                 if (sigArg.ToString() != split[1])
                 {
-                    ModLog.Error($"CheckSignal expected arg {split[1]} but was {sigArg} for {split[0]}");
                     return;
                 }
             }
@@ -105,11 +98,9 @@ public class SignalTracker: TrackerBase, ISignalReceiver
 
         if (Current.ProgramState != ProgramState.Playing)
         {
-            ModLog.Debug($"CheckSignal expected program state {ProgramState.Playing}, but was {Current.ProgramState}");
             return;
         }
 
-        ModLog.Debug("CheckSignal triggering");
         Triggered = true;
 
         if (Trigger())

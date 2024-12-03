@@ -16,7 +16,6 @@ public class AchievementSignalWorldComponent(World world) : WorldComponent(world
 
         foreach (RaceDefAndSignalTracker tracker in trackers)
         {
-            ModLog.Log("tracker: " + tracker);
             Find.SignalManager.RegisterReceiver(tracker);
         }
     }
