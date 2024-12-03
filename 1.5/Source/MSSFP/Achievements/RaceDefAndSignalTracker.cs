@@ -6,30 +6,23 @@ using Verse;
 
 namespace MSSFP.Achievements;
 
-public class RaceDefAndSignalTracker : TrackerBase, ISignalReceiver
+public class RaceDefAndSignalTracker : SignalTracker
 {
-    public string Signal;
-    public List<string> SignalArgs;
-    public bool Triggered = false;
     public List<ThingDef> RaceDefs;
 
-    public RaceDefAndSignalTracker()
+    public RaceDefAndSignalTracker() : base()
     {
-        if (!Triggered)
-            Find.SignalManager.RegisterReceiver(this);
     }
 
     public RaceDefAndSignalTracker(RaceDefAndSignalTracker reference) : base(reference)
     {
-        if (!Triggered)
-            Find.SignalManager.RegisterReceiver(this);
+        RaceDefs = reference.RaceDefs;
     }
 
     public override void ExposeData()
     {
         base.ExposeData();
-        Scribe_Values.Look(ref Signal, "Signal");
-        Scribe_Values.Look(ref Triggered, "Triggered", false);
+        Scribe_Collections.Look(ref RaceDefs, "RaceDefs", LookMode.Def);
     }
 
     public override string Key
@@ -38,41 +31,23 @@ public class RaceDefAndSignalTracker : TrackerBase, ISignalReceiver
         set { }
     }
 
-    protected override string[] DebugText => [$"MSS_RaceDefAndSignalTracker: {Signal} + [{string.Join(", ", RaceDefs.Select(def=>def.defName))}]"];
-
-    public override bool Trigger()
+    protected override string[] DebugText
     {
-        base.Trigger();
-
-        return Triggered && PawnsFinder.AllMapsCaravansAndTravelingTransportPods_Alive_OfPlayerFaction.Any(pawn => RaceDefs.Contains(pawn.def));
+        get
+        {
+            if (RaceDefs.NullOrEmpty())
+                return [$"MSS_RaceDefAndSignalTracker: {Signal} + [<empty>]"];;
+            return [$"MSS_RaceDefAndSignalTracker: {Signal} + [{string.Join(", ", RaceDefs.Select(def => def.defName))}]"];
+        }
     }
 
-    public void Notify_SignalReceived(Signal signal)
+    public override bool ExtraConditions()
     {
-        if (signal.tag != Signal)
-        {
-            return;
-        }
-
-        for (int i = 0; i < SignalArgs.Count; i++)
-        {
-            if (!signal.args.TryGetArg(i, out string arg)) return;
-            if(arg != SignalArgs[i]) return;
-        }
-
-        if (Current.ProgramState != ProgramState.Playing)
-        {
-            return;
-        }
-
-        Triggered = true;
-        Find.SignalManager.DeregisterReceiver(this);
-
-        AchievementCard card = AchievementPointManager.GetCards<SignalTracker>().FirstOrDefault(card => card.tracker == this);
-
-        if (card != null && Trigger())
-        {
-            card.UnlockCard();
-        }
+        if (RaceDefs.NullOrEmpty())
+            return false;
+        ModLog.Log($"MSS_RaceDefAndSignalTracker: {Signal} + [ExtraConditions]");
+        return PawnsFinder.AllMapsCaravansAndTravelingTransportPods_Alive_OfPlayerFaction.Any(pawn => RaceDefs.Contains(pawn.def));
     }
+
+    public override HashSet<AchievementCard> Cards => AchievementPointManager.GetCards<RaceDefAndSignalTracker>();
 }

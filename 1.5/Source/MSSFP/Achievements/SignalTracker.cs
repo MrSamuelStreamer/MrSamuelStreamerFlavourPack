@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using AchievementsExpanded;
 using RimWorld;
 using Verse;
@@ -8,18 +10,19 @@ namespace MSSFP.Achievements;
 public class SignalTracker: TrackerBase, ISignalReceiver
 {
     public string Signal;
+    public List<string> SignalArgs;
+    public List<string> NamedSignalArgs;
     public bool Triggered = false;
 
-    public SignalTracker()
+    public SignalTracker() : base()
     {
-        if(!Triggered)
-            Find.SignalManager.RegisterReceiver(this);
     }
 
-    public SignalTracker(SweetBabyBoyTracker reference) : base(reference)
+    public SignalTracker(SignalTracker reference) : base(reference)
     {
-        if(!Triggered)
-            Find.SignalManager.RegisterReceiver(this);
+        Signal = reference.Signal;
+        SignalArgs = reference.SignalArgs;
+        NamedSignalArgs = reference.NamedSignalArgs;
     }
 
     public override void ExposeData()
@@ -27,6 +30,7 @@ public class SignalTracker: TrackerBase, ISignalReceiver
         base.ExposeData();
         Scribe_Values.Look(ref Signal, "Signal");
         Scribe_Values.Look(ref Triggered, "Triggered", false);
+        Scribe_Collections.Look(ref SignalArgs, "SignalArgs", LookMode.Value);
     }
 
     public override string Key
@@ -37,32 +41,80 @@ public class SignalTracker: TrackerBase, ISignalReceiver
 
     protected override string[] DebugText => [$"SignalTracker: {Signal}]"];
 
+
+    public virtual bool ExtraConditions()
+    {
+        return true;
+    }
+
     public override bool Trigger()
     {
-        base.Trigger();
-        return Triggered;
+        bool extraConditions = ExtraConditions();
+
+        ModLog.Log($"SignalTracker extra conditions returned: {extraConditions}");
+        return Triggered && extraConditions;
     }
+
+    public virtual HashSet<AchievementCard> Cards => AchievementPointManager.GetCards<SignalTracker>();
 
     public void Notify_SignalReceived(Signal signal)
     {
-        if (signal.tag != Signal)
+        if(signal.tag != Signal) return;
+        if (!SignalArgs.NullOrEmpty())
         {
-            return;
+            for (int i = 0; i < SignalArgs.Count; i++)
+            {
+                if (!signal.args.TryGetArg(i, out string arg))
+                {
+                    ModLog.Debug($"CheckSignal didn't find arg {i}");
+                    return;
+                }
+
+                if (arg != SignalArgs[i])
+                {
+                    ModLog.Debug($"CheckSignal expected arg {i} to be {SignalArgs[i]} but was {arg}");
+                    return;
+                }
+            }
+        }
+
+        if (NamedSignalArgs != null)
+        {
+            foreach (string arg in NamedSignalArgs)
+            {
+                string[] split = arg.Split(':');
+                if (split.Length != 2)
+                {
+                    ModLog.Error($"Invalid arg format: {arg}");
+                    return;
+                }
+
+                if (!signal.args.TryGetArg(split[0], out object sigArg))
+                {
+                    ModLog.Error($"CheckSignal didn't find arg {split[0]}");
+                    return;
+                }
+
+                if (sigArg.ToString() != split[1])
+                {
+                    ModLog.Error($"CheckSignal expected arg {split[1]} but was {sigArg} for {split[0]}");
+                    return;
+                }
+            }
         }
 
         if (Current.ProgramState != ProgramState.Playing)
         {
+            ModLog.Debug($"CheckSignal expected program state {ProgramState.Playing}, but was {Current.ProgramState}");
             return;
         }
 
-        Find.SignalManager.DeregisterReceiver(this);
+        ModLog.Debug("CheckSignal triggering");
         Triggered = true;
 
-        AchievementCard card = AchievementPointManager.GetCards<SignalTracker>().FirstOrDefault(card => card.tracker == this);
-
-        if (card != null && Trigger())
+        if (Trigger())
         {
-            card.UnlockCard();
+            Cards.FirstOrDefault(card=>card.def.tracker == this)?.UnlockCard();
         }
     }
 }
