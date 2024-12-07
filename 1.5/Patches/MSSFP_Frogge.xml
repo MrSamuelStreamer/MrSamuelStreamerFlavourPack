@@ -4,7 +4,7 @@
         <xpath>Defs/StorytellerDef[@Name="BaseStoryteller"]/comps</xpath>
         <value>
             <li Class="MSSFP.StorytellerCompProperties_FroggeSpawn">
-                <mtbDays>60</mtbDays>
+                <mtbDays>120</mtbDays>
                 <incident>MSSFP_FroggeJoin</incident>
                 <allowedTargetTags>
                     <li>Map_PlayerHome</li>
@@ -12,9 +12,6 @@
                     <li>Map_Misc</li>
                     <li>Map_RaidBeacon</li>
                 </allowedTargetTags>
-                <enableIfAnyModActive>
-                    <li>Ludeon.RimWorld.Anomaly</li>
-                </enableIfAnyModActive>
             </li>
         </value>
     </Operation>
