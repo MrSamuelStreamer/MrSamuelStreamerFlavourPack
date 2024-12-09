@@ -257,7 +257,7 @@
         <workerClass>MSSFP.IncidentWorker_FroggeJoin</workerClass>
         <letterLabel>frogge</letterLabel>
         <letterText>frogge</letterText>
-        <baseChance>3</baseChance>
+        <baseChance>0.4</baseChance>
         <minRefireDays>60</minRefireDays>
         <minGreatestPopulation>3</minGreatestPopulation>
         <pawnKind>MSSFP_Frogge</pawnKind>
