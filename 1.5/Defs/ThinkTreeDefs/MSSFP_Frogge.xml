@@ -28,11 +28,11 @@
                 </li>
 
                 <!-- Consume leap a target -->
-                <li Class="JobGiver_AIAbilityFight">
+                <!-- <li Class="JobGiver_AIAbilityFight">
                     <targetAcquireRadius>65</targetAcquireRadius>
                     <targetKeepRadius>72</targetKeepRadius>
                     <ability>MSSFP_ConsumeLeap_Frogge</ability>
-                </li>
+                </li> -->
 
                 <!-- React to close melee threat -->
                 <li Class="JobGiver_ReactToCloseMeleeThreat"/>
