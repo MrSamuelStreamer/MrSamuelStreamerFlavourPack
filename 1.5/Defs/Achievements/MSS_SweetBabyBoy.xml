@@ -7,7 +7,7 @@
         <tab>MSS_MrSamStreamer</tab>
         <tracker Class="MSSFP.Achievements.SweetBabyBoyTracker"/>
         <texPath>Misc/mss_codex_sweet_baby_boy</texPath>
-        <points>5</points>
+        <points>15</points>
     </AchievementsExpanded.AchievementDef>
 
     <TraitDef>
