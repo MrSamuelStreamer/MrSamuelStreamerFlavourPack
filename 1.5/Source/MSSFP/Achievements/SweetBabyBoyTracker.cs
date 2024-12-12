@@ -13,7 +13,7 @@ public class SweetBabyBoyTracker: TrackerBase
     public override MethodInfo PatchMethod => AccessTools.Method(typeof(SweetBabyBoyTracker), "AddDirectRelation_Patch");
     public override PatchType PatchType => PatchType.Postfix;
 
-    public static Lazy<FieldInfo> GetPawn = new Lazy<FieldInfo>(()=>AccessTools.Field(typeof(Pawn_RelationsTracker), "pawn"));
+    public static Lazy<FieldInfo> GetPawn = new(()=>AccessTools.Field(typeof(Pawn_RelationsTracker), "pawn"));
 
     public Pawn SweetBabyBoy;
     public Pawn Victim;
@@ -27,55 +27,65 @@ public class SweetBabyBoyTracker: TrackerBase
     {
     }
 
-    public static void AddDirectRelation_Patch(Pawn_RelationsTracker __instance, PawnRelationDef def, Pawn otherPawn)
+    public static void CheckPawnRelations(Pawn pawnA)
     {
-        if(def != PawnRelationDefOf.Lover || def != PawnRelationDefOf.Fiance || def != PawnRelationDefOf.Spouse) return;
-        Pawn parent = GetPawn.Value.GetValue(__instance) as Pawn;
-
-        if(parent == null) return;
-        if(otherPawn == null) return;
-
-        Pawn eldest;
-        Pawn youngest;
-
-        if (parent.ageTracker.AgeBiologicalYears > otherPawn.ageTracker.AgeBiologicalYears)
+        foreach (DirectPawnRelation directPawnRelation in pawnA.GetLoveRelations(false))
         {
-            eldest = parent;
-            youngest = otherPawn;
-        }
-        else
-        {
-            eldest = otherPawn;
-            youngest = parent;
-        }
+            Pawn eldest;
+            Pawn youngest;
 
-        if ((eldest.ageTracker.AgeBiologicalYears / 2) + 7 > youngest.ageTracker.AgeBiologicalYears)
-        {
-            // Sweet baby boy time
-            if (Current.ProgramState == ProgramState.Playing)
+            if (pawnA.ageTracker.AgeBiologicalYears > directPawnRelation.otherPawn.ageTracker.AgeBiologicalYears)
             {
-                foreach (AchievementCard card in AchievementPointManager.GetCards<SweetBabyBoyTracker>())
+                eldest = pawnA;
+                youngest = directPawnRelation.otherPawn;
+            }
+            else
+            {
+                eldest = directPawnRelation.otherPawn;
+                youngest = pawnA;
+            }
+
+            if ((eldest.ageTracker.AgeBiologicalYears / 2) + 7 <= youngest.ageTracker.AgeBiologicalYears)
+            {
+                continue;
+            }
+
+            // Sweet baby boy time
+            if (Current.ProgramState != ProgramState.Playing)
+            {
+                continue;
+            }
+
+            foreach (AchievementCard card in AchievementPointManager.GetCards<SweetBabyBoyTracker>())
+            {
+                try
                 {
-                    try
+                    if (card.tracker is not SweetBabyBoyTracker sbb || !sbb.Trigger())
                     {
-                        if(card.tracker is SweetBabyBoyTracker sbb && sbb.Trigger()){
-                            card.UnlockCard();
-
-                            sbb.SweetBabyBoy = eldest;
-                            sbb.Victim = youngest;
-
-                            eldest.story.traits.GainTrait(new Trait(MSSFPDefOf.MSS_SweetBabyBoy, 1, true));
-                        }
+                        continue;
                     }
 
-                    catch (Exception ex)
-                    {
-                        Log.Error($"Unable to trigger event for card validation. To avoid further errors {card.def.LabelCap} has been automatically unlocked.\n\nException={ex.Message}");
-                        card.UnlockCard();
-                    }
+                    card.UnlockCard();
+
+                    sbb.SweetBabyBoy = eldest;
+                    sbb.Victim = youngest;
+
+                    eldest.story.traits.GainTrait(new Trait(MSSFPDefOf.MSS_SweetBabyBoy, 1, true));
+                }
+
+                catch (Exception ex)
+                {
+                    Log.Error($"Unable to trigger event for card validation. To avoid further errors {card.def.LabelCap} has been automatically unlocked.\n\nException={ex.Message}");
+                    card.UnlockCard();
                 }
             }
         }
+    }
+
+    public static void AddDirectRelation_Patch(Pawn_RelationsTracker __instance)
+    {
+        if(GetPawn.Value.GetValue(__instance) is not Pawn parent) return;
+        CheckPawnRelations(parent);
     }
 
     public override void ExposeData()
