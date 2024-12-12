@@ -14,6 +14,6 @@
             </kindDefs>
         </tracker>
         <texPath>Things/Pawn/Animal/Frogge/MSSFP_Frogge_south</texPath>
-        <points>15</points>
+        <points>25</points>
     </AchievementsExpanded.AchievementDef>
 </Defs>
