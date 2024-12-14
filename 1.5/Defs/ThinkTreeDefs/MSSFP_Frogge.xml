@@ -27,13 +27,6 @@
                     <treeDef>MentalStateCritical</treeDef>
                 </li>
 
-                <!-- Consume leap a target -->
-                <!-- <li Class="JobGiver_AIAbilityFight">
-                    <targetAcquireRadius>65</targetAcquireRadius>
-                    <targetKeepRadius>72</targetKeepRadius>
-                    <ability>MSSFP_ConsumeLeap_Frogge</ability>
-                </li> -->
-
                 <!-- React to close melee threat -->
                 <li Class="JobGiver_ReactToCloseMeleeThreat"/>
 
@@ -153,6 +146,37 @@
                                                     </subNodes>
                                                 </li>
                                             </subNodes>
+                                        </li>
+                                    </subNodes>
+                                </li>
+                            </subNodes>
+                        </li>
+                    </subNodes>
+                </li>
+
+                <!-- Eat some gems -->
+                <li Class="ThinkNode_ConditionalNoLord">
+                    <subNodes>
+                        <li Class="ThinkNode_ChancePerHour_Constant">
+                            <mtbHours>12</mtbHours>
+                            <subNodes>
+                                <li Class="ThinkNode_Tagger">
+                                    <tagToGive>Misc</tagToGive>
+                                    <subNodes>
+                                        <li Class="MSSFP.JobGiver_EatGems">
+                                            <EdibleGems>
+                                                <li>Gold</li>
+                                                <li>Silver</li>
+                                                <li>Ruby</li>
+                                                <li>Sapphire</li>
+                                                <li>Diamond</li>
+                                                <li>DankPyon_Citrine</li>
+                                                <li>DankPyon_Amber</li>
+                                                <li>DankPyon_Onyx</li>
+                                                <li>DankPyon_Emerald</li>
+                                                <li>DankPyon_Sapphire</li>
+                                                <li>DankPyon_Ruby</li>
+                                            </EdibleGems>
                                         </li>
                                     </subNodes>
                                 </li>

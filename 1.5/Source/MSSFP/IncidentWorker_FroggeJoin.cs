@@ -33,6 +33,8 @@ public class IncidentWorker_FroggeJoin : IncidentWorker
 
     protected override bool TryExecuteWorker(IncidentParms parms)
     {
+        if (MSSFPMod.settings.disableFroggeNom) return false;
+
         Map target = (Map) parms.target;
         if (!TryFindEntryCell(target, out IntVec3 _))
         {

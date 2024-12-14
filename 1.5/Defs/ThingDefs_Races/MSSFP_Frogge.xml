@@ -93,8 +93,8 @@
             <li Class="CompProperties_EggLayer">
                 <eggUnfertilizedDef>MSSFP_EggFroggeUnfertilized</eggUnfertilizedDef>
                 <eggFertilizedDef>MSSFP_EggFroggeFertilized</eggFertilizedDef>
-                <eggFertilizationCountMax>6</eggFertilizationCountMax>
-                <eggLayIntervalDays>30</eggLayIntervalDays>
+                <eggFertilizationCountMax>3</eggFertilizationCountMax>
+                <eggLayIntervalDays>60</eggLayIntervalDays>
                 <eggProgressUnfertilizedMax>0.5</eggProgressUnfertilizedMax>
                 <eggCountRange>4~12</eggCountRange>
             </li>
@@ -154,7 +154,7 @@
         </statBases>
         <comps>
             <li Class="CompProperties_Hatcher">
-                <hatcherDaystoHatch>8</hatcherDaystoHatch>
+                <hatcherDaystoHatch>24</hatcherDaystoHatch>
                 <hatcherPawn>MSSFP_Frogge</hatcherPawn>
             </li>
         </comps>
