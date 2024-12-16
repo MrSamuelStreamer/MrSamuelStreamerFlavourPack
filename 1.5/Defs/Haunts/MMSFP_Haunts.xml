@@ -445,4 +445,60 @@
              </li>
          </stages>
      </ThoughtDef>
+
+     <!--PawnDisplayer-->
+     <HediffDef>
+         <defName>MSS_FP_PawnDisplayer</defName>
+         <label>Haunted</label>
+         <description>Haunted</description>
+         <hediffClass>HediffWithComps</hediffClass>
+         <defaultLabelColor>(0.1,0.2,0.8)</defaultLabelColor>
+         <maxSeverity>1.0</maxSeverity>
+         <scenarioCanAdd>true</scenarioCanAdd>
+         <isBad>false</isBad>
+         <stages>
+             <li>
+                 <minSeverity>0</minSeverity>
+                 <label>presence</label>
+                 <statFactors>
+                     <RestFallRateFactor>0.8</RestFallRateFactor>
+                     <NegotiationAbility>1.2</NegotiationAbility>
+                     <WorkSpeedGlobal>0.9</WorkSpeedGlobal>
+                 </statFactors>
+             </li>
+         </stages>
+         <comps>
+             <li Class="MSSFP.Hediffs.HediffCompProperties_Haunt">
+                 <thought>MSS_FP_Haunted</thought>
+                 <graphicData>
+                     <texPath>Haunts/Frog/Frog</texPath>
+                     <graphicClass>MSSFP.PawnHauntGraphic</graphicClass>
+                     <drawSize>1.7</drawSize>
+                     <shaderType>MoteGlow</shaderType>
+                 </graphicData>
+                 <offsets>
+                     <li>(0.3, 1.6, -0.55)</li> <!-- North -->
+                     <li>(-0.5, 1.1, -0.35)</li> <!-- East -->
+                     <li>(0.3, -1.6, 0.65)</li> <!-- South -->
+                     <li>(0.5, 1.1, -0.35)</li> <!-- West -->
+                 </offsets>
+                 <onlyRenderWhenDrafted>false</onlyRenderWhenDrafted>
+             </li>
+             <li Class="HediffCompProperties_SeverityPerDay">
+                 <severityPerDay>-2</severityPerDay>
+             </li>
+         </comps>
+     </HediffDef>
+
+     <ThoughtDef>
+         <defName>MSS_FP_Haunted</defName>
+         <thoughtClass>Thought_Memory</thoughtClass>
+         <stages>
+             <li>
+                 <label>ghostly warmth ({1})</label>
+                 <description>{0} is here. I feel their presence. It's warm and comforting.</description>
+                 <baseMoodEffect>3</baseMoodEffect>
+             </li>
+         </stages>
+     </ThoughtDef>
 </Defs>
