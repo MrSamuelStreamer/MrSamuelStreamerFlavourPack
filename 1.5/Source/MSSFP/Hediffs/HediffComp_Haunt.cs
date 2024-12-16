@@ -11,7 +11,8 @@ public class HediffComp_Haunt: HediffComp
 
     public virtual void DrawAt(Vector3 drawPos)
     {
-        if (Props.onlyRenderWhenDrafted && (Pawn.drafter == null || !Pawn.drafter.Drafted))
+        if(!MSSFPMod.settings.ShowHaunts) return;
+        if (Props.onlyRenderWhenDrafted && Pawn.drafter is not { Drafted: true })
         {
             return;
         }

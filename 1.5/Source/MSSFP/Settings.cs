@@ -8,6 +8,7 @@ public class Settings : ModSettings
     public bool destroyFloors = true;
     public bool overrideRelicPool = false;
     public bool disableFroggeNom = false;
+    public bool ShowHaunts = true;
 
     public void DoWindowContents(Rect wrect)
     {
@@ -23,6 +24,9 @@ public class Settings : ModSettings
         options.CheckboxLabeled("MSS_FP_Settings_disableFroggeNom".Translate(), ref disableFroggeNom);
         options.Gap();
 
+        options.CheckboxLabeled("MSS_FP_Settings_ShowHaunts".Translate(), ref ShowHaunts);
+        options.Gap();
+
         options.End();
     }
 
@@ -31,5 +35,6 @@ public class Settings : ModSettings
         Scribe_Values.Look(ref destroyFloors, "destroyFloors", true);
         Scribe_Values.Look(ref overrideRelicPool, "overrideRelicPool", false);
         Scribe_Values.Look(ref disableFroggeNom, "disableFrogge", false);
+        Scribe_Values.Look(ref ShowHaunts, "ShowHaunts", true);
     }
 }

@@ -167,15 +167,15 @@
                                             <EdibleGems>
                                                 <li>Gold</li>
                                                 <li>Silver</li>
-                                                <li>Ruby</li>
-                                                <li>Sapphire</li>
-                                                <li>Diamond</li>
-                                                <li>DankPyon_Citrine</li>
-                                                <li>DankPyon_Amber</li>
-                                                <li>DankPyon_Onyx</li>
-                                                <li>DankPyon_Emerald</li>
-                                                <li>DankPyon_Sapphire</li>
-                                                <li>DankPyon_Ruby</li>
+                                                <li MayRequire="kikohi.jewelry">Ruby</li>
+                                                <li MayRequire="kikohi.jewelry">Sapphire</li>
+                                                <li MayRequire="kikohi.jewelry">Diamond</li>
+                                                <li MayRequire="DankPyon.Medieval.Overhaul">DankPyon_Citrine</li>
+                                                <li MayRequire="DankPyon.Medieval.Overhaul">DankPyon_Amber</li>
+                                                <li MayRequire="DankPyon.Medieval.Overhaul">DankPyon_Onyx</li>
+                                                <li MayRequire="DankPyon.Medieval.Overhaul">DankPyon_Emerald</li>
+                                                <li MayRequire="DankPyon.Medieval.Overhaul">DankPyon_Sapphire</li>
+                                                <li MayRequire="DankPyon.Medieval.Overhaul">DankPyon_Ruby</li>
                                             </EdibleGems>
                                         </li>
                                     </subNodes>
