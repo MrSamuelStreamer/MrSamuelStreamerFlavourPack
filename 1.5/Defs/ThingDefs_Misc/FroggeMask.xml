@@ -3,7 +3,7 @@
     <ThingDef ParentName="HatMakeableBase">
         <defName>MSS_FP_Apparel_FroggeVisageMask</defName>
         <label>frogge visage mask</label>
-        <description>mask of Frogge. look like Frogge. am Frogge.</description>
+        <description>mask of Frogge. look like Frogge. am Frogge. must find jewels.</description>
         <techLevel>Neolithic</techLevel>
         <graphicData>
             <texPath>Things/Pawn/Apparel/FroggeMask/MSS_FP_FroggeMask</texPath>
