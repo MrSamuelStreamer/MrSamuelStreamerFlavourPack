@@ -277,6 +277,68 @@
             </li>
         </comps>
     </HediffDef>
+    
+    <!--Frogge Def-->
+     <HediffDef>
+         <defName>MSS_FP_FroggeHaunt</defName>
+         <label>Spirit of Frogge</label>
+         <description>Frogge gone, but frogge still here. Miss frogge.</description>
+         <hediffClass>HediffWithComps</hediffClass>
+         <defaultLabelColor>(0.1,0.2,0.8)</defaultLabelColor>
+         <maxSeverity>1.0</maxSeverity>
+         <initialSeverity>1.0</initialSeverity>
+         <alwaysShowSeverity>false</alwaysShowSeverity>
+         <scenarioCanAdd>false</scenarioCanAdd>
+         <tendable>false</tendable>
+         <isBad>false</isBad>
+         <stages>
+             <li>
+                 <minSeverity>0</minSeverity>
+                 <label>presence</label>
+                 <statFactors>
+                     <RestFallRateFactor>0.8</RestFallRateFactor>
+                     <NegotiationAbility>1.2</NegotiationAbility>
+                     <WorkSpeedGlobal>0.9</WorkSpeedGlobal>
+                 </statFactors>
+             </li>
+         </stages>
+         <comps>
+             <li Class="MSSFP.Hediffs.HediffCompProperties_Haunt">
+                 <graphicData>
+                     <texPath>Haunts/Frogge/MSSFP_Frogge</texPath>
+                     <graphicClass>Graphic_Multi</graphicClass>
+                     <drawSize>2.5</drawSize>
+                     <shaderType>MoteGlow</shaderType>
+                 </graphicData>
+                 <offsets>
+                     <li>(0.3, 2.4, -0.55)</li> <!-- North -->
+                     <li>(-0.5, 1.65, -0.35)</li> <!-- East -->
+                     <li>(0.3, -2.4, 0.65)</li> <!-- South -->
+                     <li>(0.5, 1.65, -0.35)</li> <!-- West -->
+                 </offsets>
+                 <onlyRenderWhenDrafted>false</onlyRenderWhenDrafted>
+             </li>
+             <li Class="HediffCompProperties_ThoughtSetter">
+                 <thought>MSS_FP_FroggeHaunt</thought>
+             </li>
+             <li Class="HediffCompProperties_SeverityPerDay">
+                 <severityPerDay>-2</severityPerDay>
+             </li>
+         </comps>
+     </HediffDef>
+
+     <ThoughtDef>
+         <defName>MSS_FP_FroggeHaunt</defName>
+         <thoughtClass>Thought_Memory</thoughtClass>
+         <stages>
+             <li>
+                 <label>frogge warmth</label>
+                 <description>Frogge gone, but frogge still here. Miss frogge.</description>
+                 <baseMoodEffect>3</baseMoodEffect>
+             </li>
+         </stages>
+     </ThoughtDef>
+
     <!--Haunt Defs End-->
     <AbilityGroupDef>
         <defName>MSS_FP_Stand</defName>
@@ -383,68 +445,6 @@
             </li>
         </comps>
     </AbilityDef>
-
-
-     <!--Frogge Def-->
-     <HediffDef>
-         <defName>MSS_FP_FroggeHaunt</defName>
-         <label>Spirit of Frogge</label>
-         <description>Frogge gone, but frogge still here. Miss frogge.</description>
-         <hediffClass>HediffWithComps</hediffClass>
-         <defaultLabelColor>(0.1,0.2,0.8)</defaultLabelColor>
-         <maxSeverity>1.0</maxSeverity>
-         <initialSeverity>1.0</initialSeverity>
-         <alwaysShowSeverity>false</alwaysShowSeverity>
-         <scenarioCanAdd>false</scenarioCanAdd>
-         <tendable>false</tendable>
-         <isBad>false</isBad>
-         <stages>
-             <li>
-                 <minSeverity>0</minSeverity>
-                 <label>presence</label>
-                 <statFactors>
-                     <RestFallRateFactor>0.8</RestFallRateFactor>
-                     <NegotiationAbility>1.2</NegotiationAbility>
-                     <WorkSpeedGlobal>0.9</WorkSpeedGlobal>
-                 </statFactors>
-             </li>
-         </stages>
-         <comps>
-             <li Class="MSSFP.Hediffs.HediffCompProperties_Haunt">
-                 <graphicData>
-                     <texPath>Haunts/Frogge/MSSFP_Frogge</texPath>
-                     <graphicClass>Graphic_Multi</graphicClass>
-                     <drawSize>2.5</drawSize>
-                     <shaderType>MoteGlow</shaderType>
-                 </graphicData>
-                 <offsets>
-                     <li>(0.3, 2.4, -0.55)</li> <!-- North -->
-                     <li>(-0.5, 1.65, -0.35)</li> <!-- East -->
-                     <li>(0.3, -2.4, 0.65)</li> <!-- South -->
-                     <li>(0.5, 1.65, -0.35)</li> <!-- West -->
-                 </offsets>
-                 <onlyRenderWhenDrafted>false</onlyRenderWhenDrafted>
-             </li>
-             <li Class="HediffCompProperties_ThoughtSetter">
-                 <thought>MSS_FP_FroggeHaunt</thought>
-             </li>
-             <li Class="HediffCompProperties_SeverityPerDay">
-                 <severityPerDay>-2</severityPerDay>
-             </li>
-         </comps>
-     </HediffDef>
-
-     <ThoughtDef>
-         <defName>MSS_FP_FroggeHaunt</defName>
-         <thoughtClass>Thought_Memory</thoughtClass>
-         <stages>
-             <li>
-                 <label>frogge warmth</label>
-                 <description>Frogge gone, but frogge still here. Miss frogge.</description>
-                 <baseMoodEffect>3</baseMoodEffect>
-             </li>
-         </stages>
-     </ThoughtDef>
 
      <!--PawnDisplayer-->
      <HediffDef>
