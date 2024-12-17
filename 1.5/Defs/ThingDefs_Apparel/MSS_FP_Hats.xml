@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<Defs>
+    <ThingDef ParentName="HatMakeableBase" Name="CowboyHat">
+        <defName>MSS_FP_Apparel_Frogge_Hat</defName>
+        <label>frogge hat</label>
+        <description>Styled after the ruggedly handsome good looks of our beloved Frogge. A very thick, soft, and luxurious piece of headwear, providing plenty of protection from bonks to the head. Less so on the stabby stabby front.</description>
+        <possessionCount>1</possessionCount>
+        <recipeMaker>
+            <researchPrerequisite>ComplexClothing</researchPrerequisite>
+            <displayPriority>100</displayPriority>
+        </recipeMaker>
+        <graphicData>
+            <texPath>Things/Apparel/Headwear/MSS_Frogge_Hat</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(0.9, 0.9)</drawSize>
+        </graphicData>
+        <costList>
+            <Cloth>120</Cloth>
+            <WoodLog>20</WoodLog>
+            <Ruby MayRequire="DankPyon.Medieval.Overhaul">15</Ruby>
+        </costList>
+        <stuffCategories Inherit="False"></stuffCategories>
+        <comps Inherit="False">
+            <li Class="CompProperties_Forbiddable" />
+            <li>
+                <compClass>CompQuality</compClass>
+            </li>
+            <li Class="MSSFP.Comps.CompProperties_Haunted">
+                <graphicData>
+                    <texPath>Haunts/Frogge/MSSFP_Frogge</texPath>
+                    <graphicClass>Graphic_Multi</graphicClass>
+                    <drawSize>1.75</drawSize>
+                    <shaderType>MoteGlow</shaderType>
+                </graphicData>
+                <offsets>
+                    <li>(0.3, 2.4, 0.55)</li> <!-- North -->
+                    <li>(-0.5, 1.65, 0.35)</li> <!-- East -->
+                    <li>(0.3, -2.4, -0.65)</li> <!-- South -->
+                    <li>(0.5, 1.65, 0.35)</li> <!-- West -->
+                </offsets>
+                <onlyRenderWhenDrafted>true</onlyRenderWhenDrafted>
+            </li>
+        </comps>
+        <statBases>
+            <MaxHitPoints>120</MaxHitPoints>
+            <WorkToMake>1800</WorkToMake>
+            <Mass>0.5</Mass>
+            <ArmorRating_Sharp>0.05</ArmorRating_Sharp>
+            <ArmorRating_Blunt>0.9</ArmorRating_Blunt>
+            <StuffEffectMultiplierArmor>0.2</StuffEffectMultiplierArmor>
+            <StuffEffectMultiplierInsulation_Cold>0.30</StuffEffectMultiplierInsulation_Cold>
+            <StuffEffectMultiplierInsulation_Heat>0.60</StuffEffectMultiplierInsulation_Heat>
+            <EquipDelay>2.8</EquipDelay>
+        </statBases>
+        <equippedStatOffsets>
+            <SocialImpact>0.75</SocialImpact>
+            <SlaveSuppressionOffset MayRequire="Ludeon.RimWorld.Ideology">-0.05</SlaveSuppressionOffset>
+        </equippedStatOffsets>
+        <apparel>
+            <countsAsClothingForNudity>false</countsAsClothingForNudity>
+            <developmentalStageFilter>Child, Adult</developmentalStageFilter>
+            <bodyPartGroups>
+                <li>UpperHead</li>
+            </bodyPartGroups>
+            <wornGraphicPath>Things/Apparel/Headwear/MSS_Frogge_Hat</wornGraphicPath>
+            <layers>
+                <li>Overhead</li>
+            </layers>
+            <tags>
+                <li>IndustrialBasic</li>
+                <li>Western</li>
+            </tags>
+            <defaultOutfitTags>
+                <li>Worker</li>
+            </defaultOutfitTags>
+        </apparel>
+        <tradeTags>
+            <li>BasicClothing</li>
+        </tradeTags>
+    </ThingDef>
+</Defs>

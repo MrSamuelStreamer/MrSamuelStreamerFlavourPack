@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Defs>
+  <PreceptDef ParentName="PreceptRoleSingleBase">
+    <defName>MSS_FP_IdeoRole_FroggeWarrior</defName>
+    <label>frogge warrior</label>
+    <description>A warrior trained in the ways of the frogge.</description>
+    <iconPath>UI/MSSFP_Frogge_Warrior</iconPath>
+    <nameMaker>NamerRoleMoralist</nameMaker>
+    <displayOrderInImpact>100</displayOrderInImpact>
+    <restrictToSupremeGenderChance>0.5</restrictToSupremeGenderChance>
+    <convertPowerFactor>2</convertPowerFactor>
+    <expectationsOffset>2</expectationsOffset>
+    <canRemoveInUI>false</canRemoveInUI>
+    <roleApparelRequirements>
+      <li MayRequire="Ludeon.RimWorld.Royalty">
+        <requirement>
+            <bodyPartGroupsMatchAny>
+                <li>UpperHead</li>
+                <li>FullHead</li>
+            </bodyPartGroupsMatchAny>
+            <requiredDefs>
+                <li>MSS_FP_Apparel_Frogge_Hat</li>
+            </requiredDefs>
+        </requirement>
+      </li>
+    </roleApparelRequirements>
+      <roleEffects>
+          <li Class="RoleEffect_NoRangedWeapons" />
+          <li Class="RoleEffect_PawnStatOffset">
+              <statDef>MeleeHitChance</statDef>
+              <modifier>7</modifier>
+          </li>
+          <li Class="RoleEffect_PawnStatOffset">
+              <statDef>MeleeDodgeChance</statDef>
+              <modifier>7</modifier>
+          </li>
+      </roleEffects>
+    <roleApparelRequirementCountCurve>
+      <points>
+        <li>(0.5, 1)</li>
+        <li>(1.0, 2)</li>
+      </points>
+    </roleApparelRequirementCountCurve>
+    <grantedAbilities>
+        <li>CombatCommand</li>
+        <li>ImmunityDrive</li>
+        <li>BerserkTrance</li>
+        <li>AnimalCalm</li>
+    </grantedAbilities>
+      <roleRequiredWorkTags><li>Violent</li></roleRequiredWorkTags>
+    <roleTags><li>mss_fp_froggewarrior</li></roleTags>
+  </PreceptDef>
+</Defs>
