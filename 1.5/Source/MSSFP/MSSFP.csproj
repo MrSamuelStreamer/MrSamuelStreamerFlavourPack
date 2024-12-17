@@ -82,6 +82,10 @@
         <CompatibilityFiles Include="../../../Compatibility/**" />
 
         <ExtraFiles Include="../../../LoadFolders.xml;../../../LICENSE;../../../README.md" />
+
+        <ReleaseFiles Update="..\..\Defs\ThingDefs_Apparel\MSS_FP_Hats.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Defs\ThingDefs_Apparel\MSS_FP_Hats.xml</Link>
+        </ReleaseFiles>
     </ItemGroup>
     <Target Name="PostBuild" AfterTargets="Build" Condition=" '$(Configuration)' == 'Release' ">
         <RemoveDir Condition="Exists('../../../Release')" Directories="../../../Release" />
