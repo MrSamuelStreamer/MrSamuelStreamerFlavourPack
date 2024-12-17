@@ -25,7 +25,7 @@
         </statBases>
         <apparel>
           <bodyPartGroups>
-            <li>FullHead</li>
+            <li>Mouth</li>
           </bodyPartGroups>
           <wornGraphicPath>Things/Pawn/Apparel/FroggeMask/MSS_FP_FroggeMask</wornGraphicPath>
           <layers>

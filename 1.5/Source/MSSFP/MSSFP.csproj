@@ -86,6 +86,10 @@
         <ReleaseFiles Update="..\..\Defs\ThingDefs_Apparel\MSS_FP_Hats.xml">
           <Link>MrSamuelStreamerFlavourPack\1.5\Defs\ThingDefs_Apparel\MSS_FP_Hats.xml</Link>
         </ReleaseFiles>
+
+        <ReleaseFiles Update="..\..\Defs\ThingDefs_Misc\FroggeMask.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Defs\ThingDefs_Misc\FroggeMask.xml</Link>
+        </ReleaseFiles>
     </ItemGroup>
     <Target Name="PostBuild" AfterTargets="Build" Condition=" '$(Configuration)' == 'Release' ">
         <RemoveDir Condition="Exists('../../../Release')" Directories="../../../Release" />

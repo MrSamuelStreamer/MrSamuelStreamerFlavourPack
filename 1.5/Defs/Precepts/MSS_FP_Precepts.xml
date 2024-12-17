@@ -16,10 +16,19 @@
         <requirement>
             <bodyPartGroupsMatchAny>
                 <li>UpperHead</li>
-                <li>FullHead</li>
             </bodyPartGroupsMatchAny>
             <requiredDefs>
                 <li>MSS_FP_Apparel_Frogge_Hat</li>
+            </requiredDefs>
+        </requirement>
+      </li>
+      <li MayRequire="Ludeon.RimWorld.Royalty">
+        <requirement>
+            <bodyPartGroupsMatchAny>
+                <li>Mouth</li>
+            </bodyPartGroupsMatchAny>
+            <requiredDefs>
+                <li>MSS_FP_Apparel_FroggeVisageMask</li>
             </requiredDefs>
         </requirement>
       </li>

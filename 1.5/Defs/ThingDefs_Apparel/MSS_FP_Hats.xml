@@ -30,14 +30,14 @@
                 <graphicData>
                     <texPath>Haunts/Frogge/MSSFP_Frogge</texPath>
                     <graphicClass>Graphic_Multi</graphicClass>
-                    <drawSize>1.75</drawSize>
+                    <drawSize>(1.5, 1.75)</drawSize>
                     <shaderType>MoteGlow</shaderType>
                 </graphicData>
                 <offsets>
-                    <li>(0.3, 2.4, 0.55)</li> <!-- North -->
-                    <li>(-0.5, 1.65, 0.35)</li> <!-- East -->
-                    <li>(0.3, -2.4, -0.65)</li> <!-- South -->
-                    <li>(0.5, 1.65, 0.35)</li> <!-- West -->
+                    <li>(0.6, 0, 0.55)</li> <!-- North -->
+                    <li>(-1, 0, 0.35)</li> <!-- East -->
+                    <li>(0.6, 0, -0.65)</li> <!-- South -->
+                    <li>(1, 0, 0.35)</li> <!-- West -->
                 </offsets>
                 <onlyRenderWhenDrafted>true</onlyRenderWhenDrafted>
             </li>
