@@ -37,3 +37,4 @@ Portions of the materials used to create this content/mod are trademarks and/or 
 * Ludeon for the Game
 * Marnador for the [Rimworld Font](https://github.com/spdskatr/RWModdingResources/raw/master/RimWordFont.ttf)
 * Haunts implementation heavily inspired by [Athena Framework](https://github.com/SmArtKar/AthenaFramework)
+* Ghastlyskull for the Frogge visage mask
