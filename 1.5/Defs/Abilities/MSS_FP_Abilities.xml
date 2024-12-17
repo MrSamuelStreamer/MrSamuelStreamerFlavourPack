@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Defs>
+    <AbilityGroupDef>
+        <defName>MSS_FP_FroggeWarrior</defName>
+        <cooldownTicks>180000</cooldownTicks>
+        <sendMessageOnCooldownComplete>true</sendMessageOnCooldownComplete>
+        <ritualRoleIds>
+            <li>mss_fp_froggewarrior</li>
+        </ritualRoleIds>
+    </AbilityGroupDef>
+</Defs>

@@ -277,7 +277,7 @@
             </li>
         </comps>
     </HediffDef>
-    
+
     <!--Frogge Def-->
      <HediffDef>
          <defName>MSS_FP_FroggeHaunt</defName>

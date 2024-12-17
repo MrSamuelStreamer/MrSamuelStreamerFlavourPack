@@ -18,13 +18,28 @@
         <costList>
             <Cloth>120</Cloth>
             <WoodLog>20</WoodLog>
-            <Ruby MayRequire="DankPyon.Medieval.Overhaul">5</Ruby>
+            <Ruby MayRequire="DankPyon.Medieval.Overhaul">15</Ruby>
         </costList>
         <stuffCategories Inherit="False"></stuffCategories>
         <comps Inherit="False">
             <li Class="CompProperties_Forbiddable" />
             <li>
                 <compClass>CompQuality</compClass>
+            </li>
+            <li Class="MSSFP.Comps.CompProperties_Haunted">
+                <graphicData>
+                    <texPath>Haunts/Frogge/MSSFP_Frogge</texPath>
+                    <graphicClass>Graphic_Multi</graphicClass>
+                    <drawSize>1.75</drawSize>
+                    <shaderType>MoteGlow</shaderType>
+                </graphicData>
+                <offsets>
+                    <li>(0.3, 2.4, 0.55)</li> <!-- North -->
+                    <li>(-0.5, 1.65, 0.35)</li> <!-- East -->
+                    <li>(0.3, -2.4, -0.65)</li> <!-- South -->
+                    <li>(0.5, 1.65, 0.35)</li> <!-- West -->
+                </offsets>
+                <onlyRenderWhenDrafted>true</onlyRenderWhenDrafted>
             </li>
         </comps>
         <statBases>
