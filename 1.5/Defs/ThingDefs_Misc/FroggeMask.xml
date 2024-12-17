@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
     <ThingDef ParentName="HatMakeableBase">
-        <defName>Apparel_FroggeVisageMask</defName>
+        <defName>MSS_FP_Apparel_FroggeVisageMask</defName>
         <label>frogge visage mask</label>
-        <description>A hard facial mask that resembles a stylized frogge face.</description>
+        <description>mask of Frogge. look like Frogge. am Frogge.</description>
         <techLevel>Neolithic</techLevel>
         <graphicData>
-            <texPath>Things/Pawn/Apparel/FroggeMask/FroggeMask</texPath>
+            <texPath>Things/Pawn/Apparel/FroggeMask/MSS_FP_FroggeMask</texPath>
         <graphicClass>Graphic_Single</graphicClass>
         </graphicData>
         <stuffCategories>
@@ -27,7 +27,7 @@
           <bodyPartGroups>
             <li>FullHead</li>
           </bodyPartGroups>
-          <wornGraphicPath>Things/Pawn/Apparel/FroggeMask/FroggeMask</wornGraphicPath>
+          <wornGraphicPath>Things/Pawn/Apparel/FroggeMask/MSS_FP_FroggeMask</wornGraphicPath>
           <layers>
             <li>Overhead</li>
           </layers>
