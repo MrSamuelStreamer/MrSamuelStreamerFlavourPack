@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using RimWorld;
 using UnityEngine;
 using Verse;
@@ -10,8 +11,36 @@ public class HediffComp_Haunt: HediffComp
 {
     public static Texture2D icon = ContentFinder<Texture2D>.Get("UI/MSS_FP_Haunts_Toggle");
     public Pawn pawnToDraw;
+    protected Dictionary<SkillDef, int> aptitudesCached = new Dictionary<SkillDef, int>();
 
     private HediffCompProperties_Haunt Props => props as HediffCompProperties_Haunt;
+
+
+    public override string CompLabelInBracketsExtra
+    {
+        get
+        {
+            return pawnToDraw == null ? null : "MSS_FP_HauntedBy".Translate(pawnToDraw.NameShortColored);
+        }
+    }
+
+    public override string CompDescriptionExtra
+    {
+        get
+        {
+            if (pawnToDraw == null) return null;
+            if (aptitudesCached.NullOrEmpty())
+            {
+                foreach (SkillRecord skillsSkill in pawnToDraw.skills.skills)
+                {
+                    AptitudeFor(skillsSkill.def);
+                }
+            };
+            KeyValuePair<SkillDef, int> maxSkill = aptitudesCached.MaxBy(x => x.Value);
+
+            return pawnToDraw == null ? null : "\n\n" + "MSS_FP_HauntedBuff".Translate(pawnToDraw.NameShortColored, maxSkill.Key.skillLabel, maxSkill.Value);
+        }
+    }
 
     public virtual void DrawAt(Vector3 drawPos)
     {
@@ -51,6 +80,20 @@ public class HediffComp_Haunt: HediffComp
         HauntsCache.AddHaunt(Pawn.thingIDNumber, this);
     }
 
+    public virtual void SetPawnToDraw(Pawn pawn)
+    {
+        pawnToDraw = pawn;
+        aptitudesCached.Clear();
+        if (Pawn.needs?.mood?.thoughts?.memories?.GetFirstMemoryOfDef(Props.thought) is Thought_Memory thought)
+        {
+            thought.otherPawn = pawnToDraw;
+        }
+        else
+        {
+            TryAddMemory();
+        }
+    }
+
     public override void CompPostPostRemoved()
     {
         base.CompPostPostRemoved();
@@ -84,15 +127,7 @@ public class HediffComp_Haunt: HediffComp
         showPawn.icon = icon;
         showPawn.action = (info =>
         {
-            pawnToDraw = info.Pawn;
-            if (Pawn.needs?.mood?.thoughts?.memories?.GetFirstMemoryOfDef(Props.thought) is Thought_Memory thought)
-            {
-                thought.otherPawn = pawnToDraw;
-            }
-            else
-            {
-                TryAddMemory();
-            }
+            SetPawnToDraw(info.Pawn);
         });
 
         yield return showPawn;
@@ -115,5 +150,26 @@ public class HediffComp_Haunt: HediffComp
         Thought_Memory newThought = (Thought_Memory) ThoughtMaker.MakeThought(Props.thought);
         newThought.permanent = true;
         Pawn.needs?.mood?.thoughts?.memories?.TryGainMemory(newThought, pawnToDraw);
+    }
+
+    public int AptitudeFor(SkillDef skill)
+    {
+        if(pawnToDraw is null) return 0;
+
+        if(aptitudesCached.TryGetValue(skill, out int aptitudes)) return aptitudes;
+
+        SkillRecord maxSkill = pawnToDraw.skills.skills.MaxBy(pawnSkill => pawnSkill.Level);
+
+        if (maxSkill.def != skill)
+        {
+            aptitudesCached[skill] = 0;
+            return 0;
+        }
+
+        int modifier = Mathf.CeilToInt(maxSkill.Level / 3f);
+
+        aptitudesCached[skill] = modifier;
+
+        return modifier;
     }
 }

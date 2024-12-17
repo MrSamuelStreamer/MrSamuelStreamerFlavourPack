@@ -48,7 +48,7 @@ public class HauntedMapComponent(Map map) : MapComponent(map)
 
                 if (hediff.TryGetComp(out HediffComp_Haunt comp))
                 {
-                    comp.pawnToDraw = pawn;
+                    comp.SetPawnToDraw(pawn);
                 }
             }
         }

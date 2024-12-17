@@ -450,23 +450,12 @@
      <HediffDef>
          <defName>MSS_FP_PawnDisplayer</defName>
          <label>Haunted</label>
-         <description>Haunted</description>
+         <description>Haunted by a mysterious spirit.\n\nBuffs a skill based on the max skill of the haunting spirit.</description>
          <hediffClass>HediffWithComps</hediffClass>
          <defaultLabelColor>(0.1,0.2,0.8)</defaultLabelColor>
          <maxSeverity>1.0</maxSeverity>
          <scenarioCanAdd>true</scenarioCanAdd>
          <isBad>false</isBad>
-         <stages>
-             <li>
-                 <minSeverity>0</minSeverity>
-                 <label>presence</label>
-                 <statFactors>
-                     <RestFallRateFactor>0.8</RestFallRateFactor>
-                     <NegotiationAbility>1.2</NegotiationAbility>
-                     <WorkSpeedGlobal>0.9</WorkSpeedGlobal>
-                 </statFactors>
-             </li>
-         </stages>
          <comps>
              <li Class="MSSFP.Hediffs.HediffCompProperties_Haunt">
                  <thought>MSS_FP_Haunted</thought>
