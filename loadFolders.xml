@@ -3,5 +3,6 @@
 	<v1.5>
 		<li>Common</li>
 		<li>1.5</li>
+        <li IfModActive="redmattis.dryads">Compatibility/RedMattis.Dryads</li>
 	</v1.5>
 </loadFolders>

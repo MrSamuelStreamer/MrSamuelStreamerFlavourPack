@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Defs>
+    <Dryad.TreeTier ParentName="Dryad_StandardTierSettings">
+        <defName>MSS_FP_FroggeDryads</defName>
+        <label>frogge</label>
+        <tierColor>0.2,0.8,0.2</tierColor>
+        <localHarmony>10</localHarmony>
+        <globalHarmony>40</globalHarmony>
+        <localWealth>15000</localWealth>
+        <gauranlenSpacing>14</gauranlenSpacing>
+
+        <connectedHediffSeverity>1</connectedHediffSeverity>
+        <dryadHediffSeverity>1</dryadHediffSeverity>
+        <dryadCount>4</dryadCount>
+        <greaterDryadCount>1</greaterDryadCount>
+        <plants>
+            <li>
+                <plantDef>Dryad_Bulb</plantDef>
+                <count>2</count>
+            </li>
+            <li>
+                <plantDef>Dryad_Thornlauncher</plantDef>
+                <count>2</count>
+            </li>
+            <li>
+                <plantDef>Dryad_Thorncaster</plantDef>
+                <count>3</count>
+            </li>
+        </plants>
+    </Dryad.TreeTier>
+
+    <GauranlenTreeModeDef>
+        <defName>MSS_FP_Froggeling</defName>
+        <label>froggeling</label>
+        <description>A dryad caste apprenticing in fungal magicks.</description>
+        <pawnKindDef>MSS_FP_Froggeling</pawnKindDef>
+        <drawPosition>(0, 0.333)</drawPosition>
+        <displayedStats>
+            <li>MaxHitPoints</li>
+            <li>MoveSpeed</li>
+            <li>ArmorRating_Blunt</li>
+            <li>ArmorRating_Sharp</li>
+            <li>PlantWorkSpeed</li>
+        </displayedStats>
+        <hyperlinks>
+            <ThingDef>MSS_FP_Froggeling</ThingDef>
+        </hyperlinks>
+    </GauranlenTreeModeDef>
+
+  <ThingDef ParentName="DryadBase">
+    <defName>MSS_FP_Froggeling</defName>
+    <label>froggeling</label>
+    <description>Froggeling.</description>
+    <statBases>
+      <MoveSpeed>4</MoveSpeed>
+        <PlantWorkSpeed>0.4</PlantWorkSpeed>
+    </statBases>
+    <uiIconScale>1.25</uiIconScale>
+    <race>
+      <useMeatFrom>Dryad_Basic</useMeatFrom>
+      <lifeStageAges>
+        <li>
+          <def>AnimalAdult</def>
+          <soundWounded>Pawn_MSS_FP_Froggeling_Wounded</soundWounded>
+          <soundCall>Pawn_MSS_FP_Froggeling_Call</soundCall>
+        </li>
+      </lifeStageAges>
+      <baseHealthScale>0.7</baseHealthScale>
+      <trainability>Intermediate</trainability>
+      <trainableTags>
+        <li>Basic</li>
+        <li>Combat</li>
+      </trainableTags>
+      <untrainableTags>
+        <li>Work</li>
+        <li>Help</li>
+      </untrainableTags>
+      <headPosPerRotation>
+        <li>(0.0, 0, 0.12)</li>
+        <li>(0.2, 0, 0.03)</li>
+        <li>(0, 0, 0.1)</li>
+        <li>(-0.2, 0, 0.03)</li>
+      </headPosPerRotation>
+    </race>
+    <tools Inherit="False">
+      <li>
+        <label>left claw</label>
+        <capacities>
+          <li>Scratch</li>
+        </capacities>
+        <power>18</power>
+        <cooldownTime>1.5</cooldownTime>
+        <linkedBodyPartsGroup>FrontLeftPaw</linkedBodyPartsGroup>
+        <armorPenetration>0.8</armorPenetration>
+        <surpriseAttack>
+          <extraMeleeDamages>
+            <li>
+              <def>Stun</def>
+              <amount>16</amount>
+            </li>
+          </extraMeleeDamages>
+        </surpriseAttack>
+      </li>
+      <li>
+        <label>right claw</label>
+        <capacities>
+          <li>Scratch</li>
+        </capacities>
+        <power>18</power>
+        <cooldownTime>1.5</cooldownTime>
+        <linkedBodyPartsGroup>FrontRightPaw</linkedBodyPartsGroup>
+        <armorPenetration>0.8</armorPenetration>
+        <surpriseAttack>
+          <extraMeleeDamages>
+            <li>
+              <def>Stun</def>
+              <amount>16</amount>
+            </li>
+          </extraMeleeDamages>
+        </surpriseAttack>
+      </li>
+      <li>
+        <capacities>
+          <li>Bite</li>
+        </capacities>
+        <power>9</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+        <chanceFactor>0.3</chanceFactor>
+        <surpriseAttack>
+          <extraMeleeDamages>
+            <li>
+              <def>Stun</def>
+              <amount>14</amount>
+            </li>
+          </extraMeleeDamages>
+        </surpriseAttack>
+      </li>
+      <li>
+        <label>head</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>4</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+        <chanceFactor>0.1</chanceFactor>
+      </li>
+    </tools>
+  </ThingDef>
+
+  <PawnKindDef ParentName="DryadKindBase">
+    <defName>MSS_FP_Froggeling</defName>
+    <label>clawer dryad</label>
+    <race>MSS_FP_Froggeling</race>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Animal/MSS_FP_Froggeling/MSS_FP_Froggeling</texPath>
+          <drawSize>1.5</drawSize>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+          <texPath>Things/Pawn/Animal/MSS_FP_Froggeling/Dessicated_DryadClawer</texPath>
+          <drawSize>1.5</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+    </lifeStages>
+  </PawnKindDef>
+</Defs>
