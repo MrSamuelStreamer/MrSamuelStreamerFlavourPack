@@ -108,6 +108,10 @@
         <CompatibilityFiles Update="..\..\..\Compatibility\RedMattis.Dryads\Patches\MSS_FP_Dryads.xml">
           <Link>MrSamuelStreamerFlavourPack\Compatibility\RedMattis.Dryads\Patches\MSS_FP_Dryads.xml</Link>
         </CompatibilityFiles>
+
+        <ReleaseFiles Update="..\..\Defs\MSS_FP_Memes.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Defs\MSS_FP_Memes.xml</Link>
+        </ReleaseFiles>
     </ItemGroup>
     <Target Name="PostBuild" AfterTargets="Build" Condition=" '$(Configuration)' == 'Release' ">
         <RemoveDir Condition="Exists('../../../Release')" Directories="../../../Release" />

@@ -15,7 +15,7 @@
         <description>Infuses a gauranlen tree with fungal spores.</description>
         <targetRequired>True</targetRequired>
         <gizmoClass>Command_Ability</gizmoClass>
-        <iconPath>UI/Abilities/MSSFP_FungalConversion</iconPath>
+        <iconPath>Things/Plant/MSS_FroganlenTreeA</iconPath>
         <uiOrder>1</uiOrder>
         <statBases>
             <Ability_EffectRadius>10.9</Ability_EffectRadius>

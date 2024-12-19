@@ -11,6 +11,9 @@
     <convertPowerFactor>2</convertPowerFactor>
     <expectationsOffset>2</expectationsOffset>
     <canRemoveInUI>false</canRemoveInUI>
+      <requiredMemes>
+          <li>MSS_FP_Frooge</li>
+      </requiredMemes>
     <roleApparelRequirements>
       <li MayRequire="Ludeon.RimWorld.Royalty">
         <requirement>
@@ -55,6 +58,7 @@
         <li>ImmunityDrive</li>
         <li>BerserkTrance</li>
         <li>AnimalCalm</li>
+        <li MayRequire="redmattis.dryads">MSSFP_FungalConversion</li>
     </grantedAbilities>
       <roleRequiredWorkTags><li>Violent</li></roleRequiredWorkTags>
     <roleTags><li>mss_fp_froggewarrior</li></roleTags>

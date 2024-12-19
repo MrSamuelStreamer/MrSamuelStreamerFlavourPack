@@ -34,7 +34,7 @@
         <label>froggeling</label>
         <description>A dryad caste apprenticing in fungal magicks.</description>
         <pawnKindDef>MSS_FP_Froggeling</pawnKindDef>
-        <drawPosition>(0, 0.333)</drawPosition>
+        <drawPosition>(0.833, 0.666)</drawPosition>
         <displayedStats>
             <li>MaxHitPoints</li>
             <li>MoveSpeed</li>
@@ -61,8 +61,8 @@
       <lifeStageAges>
         <li>
           <def>AnimalAdult</def>
-          <soundWounded>Pawn_MSS_FP_Froggeling_Wounded</soundWounded>
-          <soundCall>Pawn_MSS_FP_Froggeling_Call</soundCall>
+            <soundWounded>Pawn_Dryad_Wounded</soundWounded>
+            <soundCall>Pawn_Dryad_Call</soundCall>
         </li>
       </lifeStageAges>
       <baseHealthScale>0.7</baseHealthScale>
