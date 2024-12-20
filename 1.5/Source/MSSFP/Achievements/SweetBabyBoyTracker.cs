@@ -70,7 +70,7 @@ public class SweetBabyBoyTracker: TrackerBase
                     sbb.SweetBabyBoy = eldest;
                     sbb.Victim = youngest;
 
-                    eldest.story.traits.GainTrait(new Trait(MSSFPDefOf.MSS_SweetBabyBoy, 1, true));
+                    eldest.story.traits.GainTrait(new Trait(MSSFPDefOf.MSS_SweetBabyBoy, 0, true));
                 }
 
                 catch (Exception ex)
