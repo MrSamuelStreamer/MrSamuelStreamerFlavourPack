@@ -1,4 +1,5 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
 <Defs>
     <AbilityGroupDef>
         <defName>MSSFP_FungalConversion</defName>
@@ -30,7 +31,7 @@
             </targetParams>
         </verbProperties>
         <comps>
-            <li Class = "MSSFP.Comps.CompProperties_AbilityFungalConversion">
+            <li Class="MSSFP.Comps.CompProperties_AbilityFungalConversion">
             </li>
 
         </comps>

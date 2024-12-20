@@ -1,4 +1,5 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
 <Defs>
     <Dryad.TreeTier ParentName="Dryad_StandardTierSettings">
         <defName>MSS_FP_FroggeDryads</defName>
@@ -30,10 +31,10 @@
     </Dryad.TreeTier>
 
     <GauranlenTreeModeDef>
-        <defName>MSS_FP_Froggeling</defName>
-        <label>froggeling</label>
-        <description>A dryad caste apprenticing in fungal magicks.</description>
-        <pawnKindDef>MSS_FP_Froggeling</pawnKindDef>
+        <defName>MSS_FP_Froggomancer</defName>
+        <label>froggomancer</label>
+        <description>A dryad caste specialising in fungal magicks.</description>
+        <pawnKindDef>MSS_FP_Froggomancer</pawnKindDef>
         <drawPosition>(0.833, 0.666)</drawPosition>
         <displayedStats>
             <li>MaxHitPoints</li>
@@ -43,128 +44,264 @@
             <li>PlantWorkSpeed</li>
         </displayedStats>
         <hyperlinks>
-            <ThingDef>MSS_FP_Froggeling</ThingDef>
+            <ThingDef>MSS_FP_Froggomancer</ThingDef>
         </hyperlinks>
     </GauranlenTreeModeDef>
 
-  <ThingDef ParentName="DryadBase">
-    <defName>MSS_FP_Froggeling</defName>
-    <label>froggeling</label>
-    <description>Froggeling.</description>
-    <statBases>
-      <MoveSpeed>4</MoveSpeed>
-        <PlantWorkSpeed>0.4</PlantWorkSpeed>
-    </statBases>
-    <uiIconScale>1.25</uiIconScale>
-    <race>
-      <useMeatFrom>Dryad_Basic</useMeatFrom>
-      <lifeStageAges>
-        <li>
-          <def>AnimalAdult</def>
-            <soundWounded>Pawn_Dryad_Wounded</soundWounded>
-            <soundCall>Pawn_Dryad_Call</soundCall>
-        </li>
-      </lifeStageAges>
-      <baseHealthScale>0.7</baseHealthScale>
-      <trainability>Intermediate</trainability>
-      <trainableTags>
-        <li>Basic</li>
-        <li>Combat</li>
-      </trainableTags>
-      <untrainableTags>
-        <li>Work</li>
-        <li>Help</li>
-      </untrainableTags>
-      <headPosPerRotation>
-        <li>(0.0, 0, 0.12)</li>
-        <li>(0.2, 0, 0.03)</li>
-        <li>(0, 0, 0.1)</li>
-        <li>(-0.2, 0, 0.03)</li>
-      </headPosPerRotation>
-    </race>
-    <tools Inherit="False">
-      <li>
-        <label>left claw</label>
-        <capacities>
-          <li>Scratch</li>
-        </capacities>
-        <power>18</power>
-        <cooldownTime>1.5</cooldownTime>
-        <linkedBodyPartsGroup>FrontLeftPaw</linkedBodyPartsGroup>
-        <armorPenetration>0.8</armorPenetration>
-        <surpriseAttack>
-          <extraMeleeDamages>
+    <ThingDef ParentName="DryadBase">
+        <defName>MSS_FP_Froggeling</defName>
+        <label>froggeling</label>
+        <description>Froggeling.</description>
+        <statBases>
+            <MoveSpeed>4</MoveSpeed>
+            <PlantWorkSpeed>0.4</PlantWorkSpeed>
+        </statBases>
+        <uiIconScale>1.25</uiIconScale>
+        <race>
+            <baseBodySize>2.5</baseBodySize>
+            <useMeatFrom>Dryad_Basic</useMeatFrom>
+            <lifeStageAges>
+                <li>
+                    <def>AnimalAdult</def>
+                    <soundWounded>Pawn_Dryad_Wounded</soundWounded>
+                    <soundCall>Pawn_Dryad_Call</soundCall>
+                </li>
+            </lifeStageAges>
+            <baseHealthScale>0.7</baseHealthScale>
+            <trainability>Intermediate</trainability>
+            <trainableTags>
+                <li>Basic</li>
+                <li>Combat</li>
+            </trainableTags>
+            <untrainableTags>
+                <li>Work</li>
+                <li>Help</li>
+            </untrainableTags>
+            <headPosPerRotation>
+                <li>(0.0, 0, 0.12)</li>
+                <li>(0.2, 0, 0.03)</li>
+                <li>(0, 0, 0.1)</li>
+                <li>(-0.2, 0, 0.03)</li>
+            </headPosPerRotation>
+        </race>
+        <tools Inherit="False">
             <li>
-              <def>Stun</def>
-              <amount>16</amount>
+                <label>left claw</label>
+                <capacities>
+                    <li>Scratch</li>
+                </capacities>
+                <power>18</power>
+                <cooldownTime>1.5</cooldownTime>
+                <linkedBodyPartsGroup>FrontLeftPaw</linkedBodyPartsGroup>
+                <armorPenetration>0.8</armorPenetration>
+                <surpriseAttack>
+                    <extraMeleeDamages>
+                        <li>
+                            <def>Stun</def>
+                            <amount>16</amount>
+                        </li>
+                    </extraMeleeDamages>
+                </surpriseAttack>
             </li>
-          </extraMeleeDamages>
-        </surpriseAttack>
-      </li>
-      <li>
-        <label>right claw</label>
-        <capacities>
-          <li>Scratch</li>
-        </capacities>
-        <power>18</power>
-        <cooldownTime>1.5</cooldownTime>
-        <linkedBodyPartsGroup>FrontRightPaw</linkedBodyPartsGroup>
-        <armorPenetration>0.8</armorPenetration>
-        <surpriseAttack>
-          <extraMeleeDamages>
             <li>
-              <def>Stun</def>
-              <amount>16</amount>
+                <label>right claw</label>
+                <capacities>
+                    <li>Scratch</li>
+                </capacities>
+                <power>18</power>
+                <cooldownTime>1.5</cooldownTime>
+                <linkedBodyPartsGroup>FrontRightPaw</linkedBodyPartsGroup>
+                <armorPenetration>0.8</armorPenetration>
+                <surpriseAttack>
+                    <extraMeleeDamages>
+                        <li>
+                            <def>Stun</def>
+                            <amount>16</amount>
+                        </li>
+                    </extraMeleeDamages>
+                </surpriseAttack>
             </li>
-          </extraMeleeDamages>
-        </surpriseAttack>
-      </li>
-      <li>
-        <capacities>
-          <li>Bite</li>
-        </capacities>
-        <power>9</power>
-        <cooldownTime>2</cooldownTime>
-        <linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
-        <chanceFactor>0.3</chanceFactor>
-        <surpriseAttack>
-          <extraMeleeDamages>
             <li>
-              <def>Stun</def>
-              <amount>14</amount>
+                <capacities>
+                    <li>Bite</li>
+                </capacities>
+                <power>9</power>
+                <cooldownTime>2</cooldownTime>
+                <linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+                <chanceFactor>0.3</chanceFactor>
+                <surpriseAttack>
+                    <extraMeleeDamages>
+                        <li>
+                            <def>Stun</def>
+                            <amount>14</amount>
+                        </li>
+                    </extraMeleeDamages>
+                </surpriseAttack>
             </li>
-          </extraMeleeDamages>
-        </surpriseAttack>
-      </li>
-      <li>
-        <label>head</label>
-        <capacities>
-          <li>Blunt</li>
-        </capacities>
-        <power>4</power>
-        <cooldownTime>2</cooldownTime>
-        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
-        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
-        <chanceFactor>0.1</chanceFactor>
-      </li>
-    </tools>
-  </ThingDef>
+            <li>
+                <label>head</label>
+                <capacities>
+                    <li>Blunt</li>
+                </capacities>
+                <power>4</power>
+                <cooldownTime>2</cooldownTime>
+                <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+                <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+                <chanceFactor>0.1</chanceFactor>
+            </li>
+        </tools>
+        <comps>
+            <li Class="CompProperties_MoteEmitter">
+                <mote>Mote_PsychicEmanatorEffect</mote>
+                <emissionInterval>350</emissionInterval>
+            </li>
+        </comps>
+    </ThingDef>
 
-  <PawnKindDef ParentName="DryadKindBase">
-    <defName>MSS_FP_Froggeling</defName>
-    <label>clawer dryad</label>
-    <race>MSS_FP_Froggeling</race>
-    <lifeStages>
-      <li>
-        <bodyGraphicData>
-          <texPath>Things/Pawn/Animal/MSS_FP_Froggeling/MSS_FP_Froggeling</texPath>
-          <drawSize>1.5</drawSize>
-        </bodyGraphicData>
-        <dessicatedBodyGraphicData>
-          <texPath>Things/Pawn/Animal/MSS_FP_Froggeling/Dessicated_DryadClawer</texPath>
-          <drawSize>1.5</drawSize>
-        </dessicatedBodyGraphicData>
-      </li>
-    </lifeStages>
-  </PawnKindDef>
+    <PawnKindDef ParentName="DryadKindBase">
+        <defName>MSS_FP_Froggeling</defName>
+        <label>clawer dryad</label>
+        <race>MSS_FP_Froggeling</race>
+        <lifeStages>
+            <li>
+                <bodyGraphicData>
+                    <texPath>Things/Pawn/Animal/MSS_FP_Froggeling/MSS_FP_Froggeling</texPath>
+                    <drawSize>3.5</drawSize>
+                </bodyGraphicData>
+                <dessicatedBodyGraphicData>
+                    <texPath>Things/Pawn/Animal/MSS_FP_Froggeling/MSS_FP_Froggeling_Dessicated</texPath>
+                    <drawSize>3.5</drawSize>
+                </dessicatedBodyGraphicData>
+            </li>
+        </lifeStages>
+    </PawnKindDef>
+
+    <ThingDef ParentName="DryadBase">
+        <defName>MSS_FP_Froggomancer</defName>
+        <label>froggomancer</label>
+        <description>Froggomancer.</description>
+        <statBases>
+            <MoveSpeed>5</MoveSpeed>
+            <PlantWorkSpeed>0.7</PlantWorkSpeed>
+            <ComfyTemperatureMin>-30</ComfyTemperatureMin>
+        </statBases>
+        <uiIconScale>1.25</uiIconScale>
+        <race>
+            <baseBodySize>3</baseBodySize>
+            <useMeatFrom>Dryad_Basic</useMeatFrom>
+            <lifeStageAges>
+                <li>
+                    <def>AnimalAdult</def>
+                    <soundWounded>Pawn_Dryad_Wounded</soundWounded>
+                    <soundCall>Pawn_Dryad_Call</soundCall>
+                </li>
+            </lifeStageAges>
+            <baseHealthScale>1.3</baseHealthScale>
+            <trainability>Advanced</trainability>
+            <trainableTags>
+                <li>Basic</li>
+                <li>Combat</li>
+                <li>Work</li>
+                <li>Help</li>
+            </trainableTags>
+            <untrainableTags>
+            </untrainableTags>
+            <headPosPerRotation>
+                <li>(0.0, 0, 0.12)</li>
+                <li>(0.2, 0, 0.03)</li>
+                <li>(0, 0, 0.1)</li>
+                <li>(-0.2, 0, 0.03)</li>
+            </headPosPerRotation>
+        </race>
+        <tools Inherit="False">
+            <li>
+                <label>left claw</label>
+                <capacities>
+                    <li>Scratch</li>
+                </capacities>
+                <power>25</power>
+                <cooldownTime>1.5</cooldownTime>
+                <linkedBodyPartsGroup>FrontLeftPaw</linkedBodyPartsGroup>
+                <armorPenetration>0.8</armorPenetration>
+                <surpriseAttack>
+                    <extraMeleeDamages>
+                        <li>
+                            <def>Stun</def>
+                            <amount>22</amount>
+                        </li>
+                    </extraMeleeDamages>
+                </surpriseAttack>
+            </li>
+            <li>
+                <label>right claw</label>
+                <capacities>
+                    <li>Scratch</li>
+                </capacities>
+                <power>25</power>
+                <cooldownTime>1.5</cooldownTime>
+                <linkedBodyPartsGroup>FrontRightPaw</linkedBodyPartsGroup>
+                <armorPenetration>0.8</armorPenetration>
+                <surpriseAttack>
+                    <extraMeleeDamages>
+                        <li>
+                            <def>Stun</def>
+                            <amount>22</amount>
+                        </li>
+                    </extraMeleeDamages>
+                </surpriseAttack>
+            </li>
+            <li>
+                <capacities>
+                    <li>Bite</li>
+                </capacities>
+                <power>13</power>
+                <cooldownTime>2</cooldownTime>
+                <linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+                <chanceFactor>0.3</chanceFactor>
+                <surpriseAttack>
+                    <extraMeleeDamages>
+                        <li>
+                            <def>Stun</def>
+                            <amount>18</amount>
+                        </li>
+                    </extraMeleeDamages>
+                </surpriseAttack>
+            </li>
+            <li>
+                <label>head</label>
+                <capacities>
+                    <li>Blunt</li>
+                </capacities>
+                <power>6</power>
+                <cooldownTime>2</cooldownTime>
+                <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+                <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+                <chanceFactor>0.1</chanceFactor>
+            </li>
+        </tools>
+        <comps>
+            <li Class="CompProperties_MoteEmitter">
+                <mote>Mote_PsychicEmanatorEffect</mote>
+                <emissionInterval>250</emissionInterval>
+            </li>
+        </comps>
+    </ThingDef>
+
+    <PawnKindDef ParentName="DryadKindBase">
+        <defName>MSS_FP_Froggomancer</defName>
+        <label>froggomancer</label>
+        <race>MSS_FP_Froggomancer</race>
+        <lifeStages>
+            <li>
+                <bodyGraphicData>
+                    <texPath>Things/Pawn/Animal/MSS_FP_Froggomancer/MSS_FP_Froggomancer</texPath>
+                    <drawSize>4</drawSize>
+                </bodyGraphicData>
+                <dessicatedBodyGraphicData>
+                    <texPath>Things/Pawn/Animal/MSS_FP_Froggomancer/MSS_FP_Froggomancer_Dessicated</texPath>
+                    <drawSize>4</drawSize>
+                </dessicatedBodyGraphicData>
+            </li>
+        </lifeStages>
+    </PawnKindDef>
 </Defs>

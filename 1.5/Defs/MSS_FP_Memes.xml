@@ -29,28 +29,19 @@
             <rules>
                 <rulesStrings>
                     <!-- theist myth -->
-                    <li>creation(tag=meme_MSS_FP_Frooge)        ->[deity0_name] needed friend. [deity0_name] made frogge. frogge was friend.</li>
                     <li>episode(uses=1,tag=meme_MSS_FP_Frooge)  ->[deity0_name] liked frogge.</li>
 
                     <!-- theist founder -->
-                    <li>intro(tag=meme_MSS_FP_Frooge)           ->frogge wandered into [place_summary] [place_name]. frogge liked [place_name].</li>
-                    <li>conflict(tag=meme_MSS_FP_Frooge)        ->but frogge was alone.</li>
-                    <li>founderJoin(tag=meme_MSS_FP_Frooge)     ->[founderName] wandered in.</li>
-                    <li>victory(tag=meme_MSS_FP_Frooge)         ->frogge made new friend.</li>
+                    <li>victory(tag=meme_MSS_FP_Frooge)         ->frogge discovered [founderName], and made new friend.</li>
 
-                    <!-- theist founder -->
-                    <li>setup(tag=meme_MSS_FP_Frooge)           ->frogge wandered into [place_summary] [place_name]. frogge liked [place_name]. but frogge was alone.</li>
-                    <li>story(tag=meme_MSS_FP_Frooge)           ->[founderName] wandered in. frogge made new friend.</li>
+                    <!-- ideological founder -->
+                    <li>story(tag=meme_MSS_FP_Frooge)           ->frogge discovered [founderName], and made new friend.</li>
 
                     <!-- ideological lesson -->
-                    <li>lessonIntro(tag=meme_MSS_FP_Frooge)         ->frogge wandered into [place_summary] [place_name].</li>
-                    <li>lesson(tag=meme_MSS_FP_Frooge)              ->frogge liked [place_name]. but frogge was alone.</li>
-                    <li>lessonReinforcement(tag=meme_MSS_FP_Frooge) ->people wandered in. frogge made new friend.</li>
+                    <li>lessonReinforcement(tag=meme_MSS_FP_Frooge) ->frogge liked [place_name]. frogge made new friend.</li>
 
                     <!-- archist -->
-                    <li>archistBasis(tag=meme_MSS_FP_Frooge)    ->frogge wandered into [place_summary] [place_name].</li>
-                    <li>archistFact(tag=meme_MSS_FP_Frooge)     ->frogge liked [place_name]. but frogge was alone.</li>
-                    <li>archistProphecy(tag=meme_MSS_FP_Frooge) ->people wandered in. frogge made new friend.</li>
+                    <li>archistProphecy(tag=meme_MSS_FP_Frooge) ->frogge liked [place_name]. frogge made new friend.</li>
 
                     <!-- animist -->
                     <li>animistFact(tag=meme_MSS_FP_Frooge)     ->frogge wandered into [place_summary] [place_name]. frogge liked [place_name]. but frogge was alone. people wandered in. frogge made new friend.</li>
