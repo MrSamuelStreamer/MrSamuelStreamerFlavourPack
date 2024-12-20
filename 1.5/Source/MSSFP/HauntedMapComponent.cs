@@ -12,6 +12,8 @@ public class HauntedMapComponent(Map map) : MapComponent(map)
 
     public override void MapComponentTick()
     {
+        if(!MSSFPMod.settings.ShowHaunts) return;
+
         //It's ok if we miss some ticks, so the simple check is fine
         if (LastFiredTick + 2 * GenDate.TicksPerDay < Find.TickManager.TicksGame)
         {

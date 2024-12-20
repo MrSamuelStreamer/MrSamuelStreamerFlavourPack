@@ -14,6 +14,7 @@ public class CompHaunted: ThingComp
     {
         base.CompDrawWornExtras();
 
+        if(!MSSFPMod.settings.ShowHaunts) return;
         if (pawn == null || Props.onlyRenderWhenDrafted && pawn.drafter is not { Drafted: true }) return;
 
         if (!pawn.ideo.Ideo.HasPrecept(MSSFPDefOf.MSS_FP_IdeoRole_FroggeWarrior)) return;
