@@ -1,11 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using AchievementsExpanded;
-using RimWorld;
 using RimWorld.Planet;
 using Verse;
 
-namespace MSSFP.Achievements;
+namespace MSSFP.VAE.Achievements;
 
 public class AchievementSignalWorldComponent(World world) : WorldComponent(world)
 {

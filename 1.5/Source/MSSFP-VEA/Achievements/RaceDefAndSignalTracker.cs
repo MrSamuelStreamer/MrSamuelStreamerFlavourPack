@@ -4,7 +4,7 @@ using AchievementsExpanded;
 using RimWorld;
 using Verse;
 
-namespace MSSFP.Achievements;
+namespace MSSFP.VAE.Achievements;
 
 public class RaceDefAndSignalTracker : SignalTracker
 {

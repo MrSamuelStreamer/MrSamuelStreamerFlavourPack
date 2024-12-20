@@ -1,7 +1,7 @@
-﻿using MSSFP.Achievements;
+﻿using MSSFP.VAE.Achievements;
 using Verse;
 
-namespace MSSFP;
+namespace MSSFP.VAE;
 
 public class RelationCheckingMapComponent(Map map) : MapComponent(map)
 {
