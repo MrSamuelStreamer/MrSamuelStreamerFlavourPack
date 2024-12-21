@@ -112,6 +112,18 @@
         <ReleaseFiles Update="..\..\Defs\MSS_FP_Memes.xml">
           <Link>MrSamuelStreamerFlavourPack\1.5\Defs\MSS_FP_Memes.xml</Link>
         </ReleaseFiles>
+
+        <CompatibilityFiles Update="..\..\..\Compatibility\RedMattis.Dryads\Defs\MSS_Froggomancer_Abilities.xml">
+          <Link>MrSamuelStreamerFlavourPack\Compatibility\RedMattis.Dryads\Defs\MSS_Froggomancer_Abilities.xml</Link>
+        </CompatibilityFiles>
+
+        <ReleaseFiles Update="..\..\Defs\ThingDefs_Misc\MSSFP_Pod.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Defs\ThingDefs_Misc\MSSFP_Pod.xml</Link>
+        </ReleaseFiles>
+
+        <ReleaseFiles Update="..\..\Defs\ThingDefs_Items\MSS_FP_Mushris.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Defs\ThingDefs_Items\MSS_FP_Mushris.xml</Link>
+        </ReleaseFiles>
     </ItemGroup>
     <Target Name="PostBuild" AfterTargets="Build" Condition=" '$(Configuration)' == 'Release' ">
         <RemoveDir Condition="Exists('../../../Release')" Directories="../../../Release" />

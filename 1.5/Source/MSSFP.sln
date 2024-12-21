@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MSSFP", "MSSFP\MSSFP.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MSSFP-VAE", "MSSFP-VEA\MSSFP-VAE.csproj", "{9591E4BB-A8A6-49CC-BBCA-61AD28B7B9F7}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MSSFP-Dryads", "MSSFP-Dryads\MSSFP-Dryads.csproj", "{daea6e80-661a-4641-8353-db31000bfa90}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{9591E4BB-A8A6-49CC-BBCA-61AD28B7B9F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9591E4BB-A8A6-49CC-BBCA-61AD28B7B9F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9591E4BB-A8A6-49CC-BBCA-61AD28B7B9F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{daea6e80-661a-4641-8353-db31000bfa90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{daea6e80-661a-4641-8353-db31000bfa90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{daea6e80-661a-4641-8353-db31000bfa90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{daea6e80-661a-4641-8353-db31000bfa90}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

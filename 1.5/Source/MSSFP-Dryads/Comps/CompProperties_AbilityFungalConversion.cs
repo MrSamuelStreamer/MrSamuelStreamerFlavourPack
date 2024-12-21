@@ -1,12 +1,12 @@
 ﻿using RimWorld;
 
-namespace MSSFP.Comps;
+namespace MSSFP.Dryads.Comps;
 
 public class CompProperties_AbilityFungalConversion: CompProperties_AbilityEffect
 {
     public CompProperties_AbilityFungalConversion()
     {
-        compClass = typeof(CompAbilityFungalConversion);
+        compClass = typeof(Dryads.Comps.CompAbilityFungalConversion);
     }
 
 }

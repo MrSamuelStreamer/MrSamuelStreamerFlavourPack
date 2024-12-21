@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
-<Patch>
-    <Operation Class="PatchOperationAdd">
-        <xpath>Defs/StatDef[defName="PlantWorkSpeed"]/showOnPawnKind</xpath>
-        <value>
-            <li>MSS_FP_Froggeling</li>
-        </value>
-    </Operation>
-</Patch>
