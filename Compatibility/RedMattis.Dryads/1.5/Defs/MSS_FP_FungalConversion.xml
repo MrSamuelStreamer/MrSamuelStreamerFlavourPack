@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<Defs>
+    <AbilityGroupDef>
+        <defName>MSSFP_FungalConversion</defName>
+        <cooldownTicks>60000</cooldownTicks>
+    </AbilityGroupDef>
+
+    <AbilityDef>
+        <defName>MSSFP_FungalConversion</defName>
+        <label>fungal conversion</label>
+        <jobDef>CastAbilityOnThing</jobDef>
+        <groupDef>MSSFP_FungalConversion</groupDef>
+        <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+        <disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+        <description>Infuses a gauranlen tree with fungal spores.</description>
+        <targetRequired>True</targetRequired>
+        <gizmoClass>Command_Ability</gizmoClass>
+        <iconPath>Things/Plant/MSS_FroganlenTreeA</iconPath>
+        <uiOrder>1</uiOrder>
+        <statBases>
+            <Ability_EffectRadius>10.9</Ability_EffectRadius>
+        </statBases>
+        <verbProperties>
+            <violent>false</violent>
+            <verbClass>Verb_CastAbility</verbClass>
+            <warmupTime>5</warmupTime>
+            <range>30</range>
+            <targetParams>
+                <canTargetPlants>true</canTargetPlants>
+                <canTargetLocations>false</canTargetLocations>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="MSSFP.Dryads.Comps.CompProperties_AbilityFungalConversion">
+            </li>
+        </comps>
+        <requiredMemes>
+            <li>MSS_FP_Frooge</li>
+        </requiredMemes>
+    </AbilityDef>
+</Defs>

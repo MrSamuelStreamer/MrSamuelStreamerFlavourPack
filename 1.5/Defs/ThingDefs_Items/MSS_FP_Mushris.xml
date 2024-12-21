@@ -9,7 +9,7 @@
             <texPath>Things/Plant/MSS_FP_Mushris</texPath>
         </graphicData>
         <statBases>
-            <Nutrition>0.15</Nutrition>
+            <Nutrition>0.5</Nutrition>
             <MarketValue>3</MarketValue>
             <FoodPoisonChanceFixedHuman>0</FoodPoisonChanceFixedHuman>
             <Mass>0.02</Mass>
@@ -23,7 +23,7 @@
         <ingestible>
             <preferability>RawTasty</preferability>
             <tasteThought>MSSFP_Ate_Mushris</tasteThought>
-            <foodType>VegetableOrFruit</foodType>
+            <foodType>Fungus</foodType>
         </ingestible>
     </ThingDef>
 
