@@ -11,7 +11,7 @@
         <restrictToSupremeGenderChance>0.5</restrictToSupremeGenderChance>
         <convertPowerFactor>2</convertPowerFactor>
         <expectationsOffset>2</expectationsOffset>
-        <canRemoveInUI>false</canRemoveInUI>
+        <canRemoveInUI>true</canRemoveInUI>
         <requiredMemes>
             <li>MSS_FP_Frooge</li>
         </requiredMemes>
