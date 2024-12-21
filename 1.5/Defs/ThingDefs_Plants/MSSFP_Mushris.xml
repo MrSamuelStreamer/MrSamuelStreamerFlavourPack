@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Defs>
+    <ThingDef ParentName="PlantBase">
+        <defName>MSS_FP_Plant_Mushris</defName>
+        <label>mushris</label>
+        <description>A rare mushroom variety, said to be favoured by polar bears.</description>
+        <statBases>
+            <MaxHitPoints>85</MaxHitPoints>
+            <Nutrition>0.5</Nutrition>
+            <Beauty>5</Beauty>
+            <BeautyOutdoors>5</BeautyOutdoors>
+        </statBases>
+        <graphicData>
+            <texPath>Things/Plant/MSS_FP_Mushris</texPath>
+            <graphicClass>Graphic_Random</graphicClass>
+        </graphicData>
+        <selectable>true</selectable>
+        <pathCost>14</pathCost>
+        <ingestible />
+        <plant>
+            <purpose>Food</purpose>
+            <humanFoodPlant>true</humanFoodPlant>
+            <treeLoversCareIfChopped>false</treeLoversCareIfChopped>
+            <immatureGraphicPath>Things/Plant/MSS_FP_Mushris_Immature</immatureGraphicPath>
+            <growDays>8</growDays>
+            <sowWork>250</sowWork>
+            <dieIfLeafless>true</dieIfLeafless>
+            <harvestTag>Standard</harvestTag>
+            <harvestedThingDef>MSS_FP_Mushris</harvestedThingDef>
+            <harvestYield>6</harvestYield>
+            <neverBlightable>true</neverBlightable>
+            <sowTags>
+                <li>Ground</li>
+            </sowTags>
+            <sowMinSkill>10</sowMinSkill>
+            <topWindExposure>0.1</topWindExposure>
+            <visualSizeRange>0.5~1.0</visualSizeRange>
+            <wildOrder>2</wildOrder>
+            <pollution>Any</pollution>
+            <fertilityMin>0.50</fertilityMin>
+        </plant>
+    </ThingDef>
+</Defs>

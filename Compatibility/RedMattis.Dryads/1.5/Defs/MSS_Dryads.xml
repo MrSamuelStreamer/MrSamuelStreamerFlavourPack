@@ -1,0 +1,345 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <GauranlenTreeModeDef>
+        <defName>MSS_FP_Froggeling</defName>
+        <label>froggeling</label>
+        <description>A dryad caste specialising in fungal magicks. The can occasionally summon precious metals and gems.</description>
+        <pawnKindDef>MSS_FP_Froggeling</pawnKindDef>
+        <drawPosition>(0.833, 0.666)</drawPosition>
+        <displayedStats>
+            <li>MaxHitPoints</li>
+            <li>MoveSpeed</li>
+            <li>ArmorRating_Blunt</li>
+            <li>ArmorRating_Sharp</li>
+            <li>PlantWorkSpeed</li>
+        </displayedStats>
+        <hyperlinks>
+            <ThingDef>MSS_FP_Froggeling</ThingDef>
+        </hyperlinks>
+    </GauranlenTreeModeDef>
+
+    <ThingDef ParentName="DryadBase">
+        <defName>MSS_FP_Froggeling</defName>
+        <label>froggeling</label>
+        <description>Froggeling are a dryad caste specialising in fungal magicks. The can occasionally summon precious metals and gems.</description>
+        <statBases>
+            <MoveSpeed>4</MoveSpeed>
+            <PlantWorkSpeed>0.4</PlantWorkSpeed>
+        </statBases>
+        <uiIconScale>1.25</uiIconScale>
+        <race>
+            <baseBodySize>2.5</baseBodySize>
+            <useMeatFrom>Dryad_Basic</useMeatFrom>
+            <lifeStageAges>
+                <li>
+                    <def>AnimalAdult</def>
+                    <soundWounded>Pawn_Dryad_Wounded</soundWounded>
+                    <soundCall>Pawn_Dryad_Call</soundCall>
+                </li>
+            </lifeStageAges>
+            <baseHealthScale>0.7</baseHealthScale>
+            <trainability>Intermediate</trainability>
+            <trainableTags>
+                <li>Basic</li>
+                <li>Combat</li>
+            </trainableTags>
+            <untrainableTags>
+                <li>Work</li>
+                <li>Help</li>
+            </untrainableTags>
+            <headPosPerRotation>
+                <li>(0.0, 0, 0.12)</li>
+                <li>(0.2, 0, 0.03)</li>
+                <li>(0, 0, 0.1)</li>
+                <li>(-0.2, 0, 0.03)</li>
+            </headPosPerRotation>
+        </race>
+        <tools Inherit="False">
+            <li>
+                <label>left claw</label>
+                <capacities>
+                    <li>Scratch</li>
+                </capacities>
+                <power>18</power>
+                <cooldownTime>1.5</cooldownTime>
+                <linkedBodyPartsGroup>FrontLeftPaw</linkedBodyPartsGroup>
+                <armorPenetration>0.8</armorPenetration>
+                <surpriseAttack>
+                    <extraMeleeDamages>
+                        <li>
+                            <def>Stun</def>
+                            <amount>16</amount>
+                        </li>
+                    </extraMeleeDamages>
+                </surpriseAttack>
+            </li>
+            <li>
+                <label>right claw</label>
+                <capacities>
+                    <li>Scratch</li>
+                </capacities>
+                <power>18</power>
+                <cooldownTime>1.5</cooldownTime>
+                <linkedBodyPartsGroup>FrontRightPaw</linkedBodyPartsGroup>
+                <armorPenetration>0.8</armorPenetration>
+                <surpriseAttack>
+                    <extraMeleeDamages>
+                        <li>
+                            <def>Stun</def>
+                            <amount>16</amount>
+                        </li>
+                    </extraMeleeDamages>
+                </surpriseAttack>
+            </li>
+            <li>
+                <capacities>
+                    <li>Bite</li>
+                </capacities>
+                <power>9</power>
+                <cooldownTime>2</cooldownTime>
+                <linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+                <chanceFactor>0.3</chanceFactor>
+                <surpriseAttack>
+                    <extraMeleeDamages>
+                        <li>
+                            <def>Stun</def>
+                            <amount>14</amount>
+                        </li>
+                    </extraMeleeDamages>
+                </surpriseAttack>
+            </li>
+            <li>
+                <label>head</label>
+                <capacities>
+                    <li>Blunt</li>
+                </capacities>
+                <power>4</power>
+                <cooldownTime>2</cooldownTime>
+                <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+                <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+                <chanceFactor>0.1</chanceFactor>
+            </li>
+        </tools>
+        <comps>
+            <li Class="CompProperties_MoteEmitter">
+                <mote>Mote_PsychicEmanatorEffect</mote>
+                <emissionInterval>350</emissionInterval>
+            </li>
+            <li Class="VanillaIdeologyExpanded_Dryads.CompProperties_PawnMerge">
+                <requiredCount>3</requiredCount>
+                <podToBuild>MSSFP_FroggomancerAwakeningCocoon</podToBuild>
+                <gizmoImage>Things/Building/MSSFP_FroggelingAwakeningCocoon</gizmoImage>
+                <gizmoLabel>VDE_Awaken</gizmoLabel>
+                <gizmoDesc>VDE_AwakenDesc</gizmoDesc>
+            </li>
+            <li Class="MSSFP.Comps.CompProperties_SpawnerThings">
+                <thingsPool>
+                    <li>Gold</li>
+                    <li>Silver</li>
+                    <li MayRequire="kikohi.jewelry">Ruby</li>
+                    <li MayRequire="kikohi.jewelry">Sapphire</li>
+                    <li MayRequire="kikohi.jewelry">Diamond</li>
+                    <li MayRequire="DankPyon.Medieval.Overhaul">DankPyon_Citrine</li>
+                    <li MayRequire="DankPyon.Medieval.Overhaul">DankPyon_Amber</li>
+                    <li MayRequire="DankPyon.Medieval.Overhaul">DankPyon_Onyx</li>
+                    <li MayRequire="DankPyon.Medieval.Overhaul">DankPyon_Emerald</li>
+                    <li MayRequire="DankPyon.Medieval.Overhaul">DankPyon_Sapphire</li>
+                    <li MayRequire="DankPyon.Medieval.Overhaul">DankPyon_Ruby</li>
+                </thingsPool>
+                <spawnCountRange>1~10</spawnCountRange>
+                <spawnIntervalRange>60000~240000</spawnIntervalRange>
+                <writeTimeLeftToSpawn>true</writeTimeLeftToSpawn>
+                <showMessageIfOwned>true</showMessageIfOwned>
+            </li>
+        </comps>
+    </ThingDef>
+
+    <PawnKindDef ParentName="DryadKindBase">
+        <defName>MSS_FP_Froggeling</defName>
+        <label>clawer dryad</label>
+        <race>MSS_FP_Froggeling</race>
+        <lifeStages>
+            <li>
+                <bodyGraphicData>
+                    <texPath>Things/Pawn/Animal/MSS_FP_Froggeling/MSS_FP_Froggeling</texPath>
+                    <drawSize>3.5</drawSize>
+                </bodyGraphicData>
+                <dessicatedBodyGraphicData>
+                    <texPath>Things/Pawn/Animal/MSS_FP_Froggeling_Dessicated/MSS_FP_Froggeling_Dessicated</texPath>
+                    <drawSize>3.5</drawSize>
+                </dessicatedBodyGraphicData>
+            </li>
+        </lifeStages>
+    </PawnKindDef>
+
+    <ThingDef ParentName="AnimalThingBase">
+        <defName>MSS_FP_Froggomancer</defName>
+        <label>froggomancer</label>
+        <description>Froggomancer.</description>
+        <statBases>
+            <MoveSpeed>5</MoveSpeed>
+            <PlantWorkSpeed>0.7</PlantWorkSpeed>
+            <ComfyTemperatureMin>-30</ComfyTemperatureMin>
+        </statBases>
+        <uiIconScale>1.25</uiIconScale>
+        <tradeTags>
+            <li>VDE_Dryad</li>
+        </tradeTags>
+        <race>
+            <baseBodySize>3</baseBodySize>
+            <herdAnimal>true</herdAnimal>
+            <body>QuadrupedAnimalWithPawsAndTail</body>
+            <canBePredatorPrey>false</canBePredatorPrey>
+            <baseHealthScale>1.75</baseHealthScale>
+            <baseHungerRate>0.001</baseHungerRate>
+            <hediffGiverSets Inherit="False"/>
+            <foodType>OmnivoreRoughAnimal</foodType>
+            <useMeatFrom>Dryad_Basic</useMeatFrom>
+            <giveNonToolUserBeatFireVerb>true</giveNonToolUserBeatFireVerb>
+            <useLeatherFrom>Dryad_Basic</useLeatherFrom>
+            <mateMtbHours>100000</mateMtbHours>
+            <herdMigrationAllowed>false</herdMigrationAllowed>
+            <wildness>0.5</wildness>
+            <petness>0</petness>
+            <trainability>Advanced</trainability>
+            <packAnimal>true</packAnimal>
+            <lifeExpectancy>2</lifeExpectancy>
+            <manhunterOnDamageChance>1</manhunterOnDamageChance>
+            <lifeStageAges>
+                <li>
+                    <def>AnimalAdult</def>
+                    <minAge>0</minAge>
+                    <soundWounded>Pawn_Dryad_Wounded</soundWounded>
+                    <soundCall>Pawn_Dryad_Call</soundCall>
+                </li>
+            </lifeStageAges>
+            <soundMeleeHitPawn>Pawn_Melee_BigBash_HitPawn</soundMeleeHitPawn>
+            <soundMeleeHitBuilding>Pawn_Melee_BigBash_HitBuilding</soundMeleeHitBuilding>
+            <soundMeleeMiss>Pawn_Melee_BigBash_Miss</soundMeleeMiss>
+        </race>
+        <tools Inherit="False">
+            <li>
+                <label>left claw</label>
+                <capacities>
+                    <li>Scratch</li>
+                </capacities>
+                <power>25</power>
+                <cooldownTime>1.5</cooldownTime>
+                <linkedBodyPartsGroup>FrontLeftPaw</linkedBodyPartsGroup>
+                <armorPenetration>0.8</armorPenetration>
+                <surpriseAttack>
+                    <extraMeleeDamages>
+                        <li>
+                            <def>Stun</def>
+                            <amount>22</amount>
+                        </li>
+                    </extraMeleeDamages>
+                </surpriseAttack>
+            </li>
+            <li>
+                <label>right claw</label>
+                <capacities>
+                    <li>Scratch</li>
+                </capacities>
+                <power>25</power>
+                <cooldownTime>1.5</cooldownTime>
+                <linkedBodyPartsGroup>FrontRightPaw</linkedBodyPartsGroup>
+                <armorPenetration>0.8</armorPenetration>
+                <surpriseAttack>
+                    <extraMeleeDamages>
+                        <li>
+                            <def>Stun</def>
+                            <amount>22</amount>
+                        </li>
+                    </extraMeleeDamages>
+                </surpriseAttack>
+            </li>
+            <li>
+                <capacities>
+                    <li>Bite</li>
+                </capacities>
+                <power>13</power>
+                <cooldownTime>2</cooldownTime>
+                <linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+                <chanceFactor>0.3</chanceFactor>
+                <surpriseAttack>
+                    <extraMeleeDamages>
+                        <li>
+                            <def>Stun</def>
+                            <amount>18</amount>
+                        </li>
+                    </extraMeleeDamages>
+                </surpriseAttack>
+            </li>
+            <li>
+                <label>head</label>
+                <capacities>
+                    <li>Blunt</li>
+                </capacities>
+                <power>6</power>
+                <cooldownTime>2</cooldownTime>
+                <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+                <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+                <chanceFactor>0.1</chanceFactor>
+            </li>
+        </tools>
+        <comps>
+            <li Class="CompProperties_MoteEmitter">
+                <mote>Mote_PsychicEmanatorEffect</mote>
+                <emissionInterval>250</emissionInterval>
+            </li>
+            <li Class="AnimalBehaviours.CompProperties_DiseasesAfterPeriod">
+                <timeToApplyInTicks>7200000</timeToApplyInTicks>
+                <hediffsToApply>
+                    <li>VDE_SeparationSickness</li>
+                </hediffsToApply>
+                <percentageOfMaxToReapply>0.95</percentageOfMaxToReapply>
+            </li>
+            <li Class="MSSFP.Comps.CompProperties_SpawnerThings">
+                <thingsPool>
+                    <li>Gold</li>
+                    <li>Silver</li>
+                    <li MayRequire="kikohi.jewelry">Ruby</li>
+                    <li MayRequire="kikohi.jewelry">Sapphire</li>
+                    <li MayRequire="kikohi.jewelry">Diamond</li>
+                    <li MayRequire="DankPyon.Medieval.Overhaul">DankPyon_Citrine</li>
+                    <li MayRequire="DankPyon.Medieval.Overhaul">DankPyon_Amber</li>
+                    <li MayRequire="DankPyon.Medieval.Overhaul">DankPyon_Onyx</li>
+                    <li MayRequire="DankPyon.Medieval.Overhaul">DankPyon_Emerald</li>
+                    <li MayRequire="DankPyon.Medieval.Overhaul">DankPyon_Sapphire</li>
+                    <li MayRequire="DankPyon.Medieval.Overhaul">DankPyon_Ruby</li>
+                </thingsPool>
+                <spawnCountRange>1~20</spawnCountRange>
+                <spawnIntervalRange>60000~180000</spawnIntervalRange>
+                <writeTimeLeftToSpawn>true</writeTimeLeftToSpawn>
+                <showMessageIfOwned>true</showMessageIfOwned>
+            </li>
+            <li Class="CompProperties_Shearable">
+                <woolDef>MSS_FP_Mushris</woolDef>
+                <shearIntervalDays>5</shearIntervalDays>
+                <woolAmount>25</woolAmount>
+            </li>
+        </comps>
+    </ThingDef>
+
+    <PawnKindDef ParentName="AnimalKindBase">
+        <defName>MSS_FP_Froggomancer</defName>
+        <label>froggomancer</label>
+        <race>MSS_FP_Froggomancer</race>
+        <combatPower>40</combatPower>
+        <canArriveManhunter>false</canArriveManhunter>
+        <ecoSystemWeight>1.1</ecoSystemWeight>
+        <lifeStages>
+            <li>
+                <bodyGraphicData>
+                    <texPath>Things/Pawn/Animal/MSS_FP_Froggomancer/MSS_FP_Froggomancer</texPath>
+                    <drawSize>4</drawSize>
+                </bodyGraphicData>
+                <dessicatedBodyGraphicData>
+                    <texPath>Things/Pawn/Animal/MSS_FP_Froggomancer_Dessicated/MSS_FP_Froggomancer_Dessicated</texPath>
+                    <drawSize>4</drawSize>
+                </dessicatedBodyGraphicData>
+            </li>
+        </lifeStages>
+    </PawnKindDef>
+</Defs>

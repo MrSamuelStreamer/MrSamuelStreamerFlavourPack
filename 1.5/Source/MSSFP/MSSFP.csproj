@@ -90,6 +90,68 @@
         <ReleaseFiles Update="..\..\Defs\ThingDefs_Misc\FroggeMask.xml">
           <Link>MrSamuelStreamerFlavourPack\1.5\Defs\ThingDefs_Misc\FroggeMask.xml</Link>
         </ReleaseFiles>
+
+        <ReleaseFiles Remove="..\..\..\Compatability\**" />
+
+        <CompatibilityFiles Update="..\..\..\Compatibility\RedMattis.Dryads\Defs\MSS_Dryads.xml">
+          <Link>MrSamuelStreamerFlavourPack\Compatibility\RedMattis.Dryads\Defs\MSS_Dryads.xml</Link>
+        </CompatibilityFiles>
+
+        <CompatibilityFiles Update="..\..\..\Compatibility\RedMattis.Dryads\Defs\MSS_FP_FungalConversion.xml">
+          <Link>MrSamuelStreamerFlavourPack\Compatibility\RedMattis.Dryads\Defs\MSS_FP_FungalConversion.xml</Link>
+        </CompatibilityFiles>
+
+        <CompatibilityFiles Update="..\..\..\Compatibility\RedMattis.Dryads\Defs\MSS_Tree.xml">
+          <Link>MrSamuelStreamerFlavourPack\Compatibility\RedMattis.Dryads\Defs\MSS_Tree.xml</Link>
+        </CompatibilityFiles>
+
+        <CompatibilityFiles Update="..\..\..\Compatibility\RedMattis.Dryads\Patches\MSS_FP_Dryads.xml">
+          <Link>MrSamuelStreamerFlavourPack\Compatibility\RedMattis.Dryads\Patches\MSS_FP_Dryads.xml</Link>
+        </CompatibilityFiles>
+
+        <ReleaseFiles Update="..\..\Defs\MSS_FP_Memes.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Defs\MSS_FP_Memes.xml</Link>
+        </ReleaseFiles>
+
+        <CompatibilityFiles Update="..\..\..\Compatibility\RedMattis.Dryads\Defs\MSS_Froggomancer_Abilities.xml">
+          <Link>MrSamuelStreamerFlavourPack\Compatibility\RedMattis.Dryads\Defs\MSS_Froggomancer_Abilities.xml</Link>
+        </CompatibilityFiles>
+
+        <ReleaseFiles Update="..\..\Defs\ThingDefs_Misc\MSSFP_Pod.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Defs\ThingDefs_Misc\MSSFP_Pod.xml</Link>
+        </ReleaseFiles>
+
+        <ReleaseFiles Update="..\..\Defs\ThingDefs_Items\MSS_FP_Mushris.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Defs\ThingDefs_Items\MSS_FP_Mushris.xml</Link>
+        </ReleaseFiles>
+
+        <CompatibilityFiles Update="..\..\..\Compatibility\RedMattis.Dryads\1.5\Assemblies\MSSFP.Dryads.dll">
+          <Link>MrSamuelStreamerFlavourPack\Compatibility\RedMattis.Dryads\1.5\Assemblies\MSSFP.Dryads.dll</Link>
+        </CompatibilityFiles>
+
+        <CompatibilityFiles Update="..\..\..\Compatibility\RedMattis.Dryads\1.5\Defs\MSS_Dryads.xml">
+          <Link>MrSamuelStreamerFlavourPack\Compatibility\RedMattis.Dryads\1.5\Defs\MSS_Dryads.xml</Link>
+        </CompatibilityFiles>
+
+        <CompatibilityFiles Update="..\..\..\Compatibility\RedMattis.Dryads\1.5\Defs\MSS_FP_FungalConversion.xml">
+          <Link>MrSamuelStreamerFlavourPack\Compatibility\RedMattis.Dryads\1.5\Defs\MSS_FP_FungalConversion.xml</Link>
+        </CompatibilityFiles>
+
+        <CompatibilityFiles Update="..\..\..\Compatibility\RedMattis.Dryads\1.5\Defs\MSS_Tree.xml">
+          <Link>MrSamuelStreamerFlavourPack\Compatibility\RedMattis.Dryads\1.5\Defs\MSS_Tree.xml</Link>
+        </CompatibilityFiles>
+
+        <CompatibilityFiles Update="..\..\..\Compatibility\RedMattis.Dryads\1.5\Patches\MSS_FP_Dryads.xml">
+          <Link>MrSamuelStreamerFlavourPack\Compatibility\RedMattis.Dryads\1.5\Patches\MSS_FP_Dryads.xml</Link>
+        </CompatibilityFiles>
+
+        <CompatibilityFiles Update="..\..\..\Compatibility\RedMattis.Dryads\1.5\Defs\MSSFP_Pods.xml">
+          <Link>MrSamuelStreamerFlavourPack\Compatibility\RedMattis.Dryads\1.5\Defs\MSSFP_Pods.xml</Link>
+        </CompatibilityFiles>
+
+        <ReleaseFiles Update="..\..\Defs\ThingDefs_Plants\MSSFP_Mushris.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Defs\ThingDefs_Plants\MSSFP_Mushris.xml</Link>
+        </ReleaseFiles>
     </ItemGroup>
     <Target Name="PostBuild" AfterTargets="Build" Condition=" '$(Configuration)' == 'Release' ">
         <RemoveDir Condition="Exists('../../../Release')" Directories="../../../Release" />
