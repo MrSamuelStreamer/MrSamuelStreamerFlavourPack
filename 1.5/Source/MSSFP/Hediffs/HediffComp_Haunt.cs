@@ -29,16 +29,18 @@ public class HediffComp_Haunt: HediffComp
         get
         {
             if (pawnToDraw == null) return null;
-            if (aptitudesCached.NullOrEmpty())
-            {
-                foreach (SkillRecord skillsSkill in pawnToDraw.skills.skills)
-                {
-                    AptitudeFor(skillsSkill.def);
-                }
-            };
-            KeyValuePair<SkillDef, int> maxSkill = aptitudesCached.MaxBy(x => x.Value);
+            return pawnToDraw == null ? null : "\n\n" + "MSS_FP_HauntedUnBuff".Translate(pawnToDraw.NameShortColored, parent.pawn.NameShortColored);
 
-            return pawnToDraw == null ? null : "\n\n" + "MSS_FP_HauntedBuff".Translate(pawnToDraw.NameShortColored, maxSkill.Key.skillLabel, maxSkill.Value);
+            // if (aptitudesCached.NullOrEmpty())
+            // {
+            //     foreach (SkillRecord skillsSkill in pawnToDraw.skills.skills)
+            //     {
+            //         AptitudeFor(skillsSkill.def);
+            //     }
+            // };
+            // KeyValuePair<SkillDef, int> maxSkill = aptitudesCached.MaxBy(x => x.Value);
+            //
+            // return pawnToDraw == null ? null : "\n\n" + "MSS_FP_HauntedBuff".Translate(pawnToDraw.NameShortColored, maxSkill.Key.skillLabel, maxSkill.Value);
         }
     }
 
@@ -152,24 +154,26 @@ public class HediffComp_Haunt: HediffComp
         Pawn.needs?.mood?.thoughts?.memories?.TryGainMemory(newThought, pawnToDraw);
     }
 
-    public int AptitudeFor(SkillDef skill)
-    {
-        if(pawnToDraw is null) return 0;
-
-        if(aptitudesCached.TryGetValue(skill, out int aptitudes)) return aptitudes;
-
-        SkillRecord maxSkill = pawnToDraw.skills.skills.MaxBy(pawnSkill => pawnSkill.Level);
-
-        if (maxSkill.def != skill)
-        {
-            aptitudesCached[skill] = 0;
-            return 0;
-        }
-
-        int modifier = Mathf.CeilToInt(maxSkill.Level / 3f);
-
-        aptitudesCached[skill] = modifier;
-
-        return modifier;
-    }
+    // public int AptitudeFor(SkillDef skill)
+    // {
+    //     ModLog.Debug("HediffComp_Haunt.AptitudeFor:Start");
+    //     if(pawnToDraw is null) return 0;
+    //
+    //     if(aptitudesCached.TryGetValue(skill, out int aptitudes)) return aptitudes;
+    //
+    //     SkillRecord maxSkill = pawnToDraw.skills.skills.MaxBy(pawnSkill => pawnSkill.Level);
+    //
+    //     if (maxSkill.def != skill)
+    //     {
+    //         aptitudesCached[skill] = 0;
+    //         return 0;
+    //     }
+    //
+    //     int modifier = Mathf.CeilToInt(maxSkill.Level / 3f);
+    //
+    //     aptitudesCached[skill] = modifier;
+    //
+    //     ModLog.Debug("HediffComp_Haunt.AptitudeFor:End");
+    //     return modifier;
+    // }
 }

@@ -7,4 +7,5 @@
     <MSS_FP_ToggleHaunts>Toggle Haunts</MSS_FP_ToggleHaunts>
     <MSS_FP_HauntedBy>{0}'s spirit</MSS_FP_HauntedBy>
     <MSS_FP_HauntedBuff>{0}'s spirit is boosting {1} by {2}</MSS_FP_HauntedBuff>
+    <MSS_FP_HauntedUnBuff>{0}'s spirit is haunting {1}</MSS_FP_HauntedUnBuff>
 </LanguageData>
