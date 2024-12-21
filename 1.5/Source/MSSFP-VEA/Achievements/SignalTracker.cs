@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using AchievementsExpanded;
 using RimWorld;
 using Verse;
 
-namespace MSSFP.Achievements;
+namespace MSSFP.VAE.Achievements;
 
 public class SignalTracker: TrackerBase, ISignalReceiver
 {

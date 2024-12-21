@@ -4,5 +4,6 @@
 		<li>Common</li>
 		<li>1.5</li>
         <li IfModActive="redmattis.dryads">Compatibility/RedMattis.Dryads</li>
+        <li IfModActive="vanillaexpanded.achievements">Compatibility/vanillaexpanded.achievements/1.5</li>
 	</v1.5>
 </loadFolders>

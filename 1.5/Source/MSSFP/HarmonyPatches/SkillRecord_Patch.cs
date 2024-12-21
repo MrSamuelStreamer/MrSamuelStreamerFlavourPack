@@ -14,6 +14,6 @@ public static class SkillRecord_Patch
     [HarmonyPostfix]
     public static void AptitudeFor(SkillRecord __instance, ref int __result)
     {
-        __result += __instance.Pawn.health.hediffSet.hediffs.OfType<HediffWithComps>().SelectMany(hediff => hediff.comps).OfType<HediffComp_Haunt>().Where(comp=>comp.Pawn != null).Sum(comp => comp.AptitudeFor(__instance.def));
+        // __result += __instance.Pawn.health.hediffSet.hediffs.OfType<HediffWithComps>().SelectMany(hediff => hediff.comps).OfType<HediffComp_Haunt>().Where(comp=>comp.Pawn != null).Sum(comp => comp.AptitudeFor(__instance.def));
     }
 }

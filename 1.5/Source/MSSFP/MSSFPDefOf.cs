@@ -1,5 +1,6 @@
 ﻿using RimWorld;
 using Verse;
+// ReSharper disable UnassignedReadonlyField
 
 namespace MSSFP;
 
@@ -7,7 +8,6 @@ namespace MSSFP;
 public static class MSSFPDefOf
 {
     public static readonly ThingDef MSSFP_Frogge;
-    public static readonly TraitDef MSS_SweetBabyBoy;
     public static readonly HediffDef MSS_FP_FroggeHaunt;
     public static readonly HediffDef MSS_FP_PawnDisplayer;
     public static readonly PreceptDef MSS_FP_IdeoRole_FroggeWarrior;

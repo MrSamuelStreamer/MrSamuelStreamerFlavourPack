@@ -5,7 +5,7 @@ using HarmonyLib;
 using RimWorld;
 using Verse;
 
-namespace MSSFP.Achievements;
+namespace MSSFP.VAE.Achievements;
 
 public class SweetBabyBoyTracker: TrackerBase
 {
@@ -17,6 +17,8 @@ public class SweetBabyBoyTracker: TrackerBase
 
     public Pawn SweetBabyBoy;
     public Pawn Victim;
+
+    public bool HasTriggered = false;
 
     public SweetBabyBoyTracker()
     {
@@ -60,17 +62,18 @@ public class SweetBabyBoyTracker: TrackerBase
             {
                 try
                 {
-                    if (card.tracker is not SweetBabyBoyTracker sbb || !sbb.Trigger())
+                    if (card.tracker is not SweetBabyBoyTracker sbb || !sbb.Trigger() || sbb.HasTriggered)
                     {
                         continue;
                     }
 
+                    sbb.HasTriggered = true;
                     card.UnlockCard();
 
                     sbb.SweetBabyBoy = eldest;
                     sbb.Victim = youngest;
 
-                    eldest.story.traits.GainTrait(new Trait(MSSFPDefOf.MSS_SweetBabyBoy, 1, true));
+                    // eldest.story.traits.GainTrait(new Trait(MSSFPDefOf.MSS_SweetBabyBoy, 0, true));
                 }
 
                 catch (Exception ex)
@@ -93,6 +96,7 @@ public class SweetBabyBoyTracker: TrackerBase
         base.ExposeData();
         Scribe_References.Look(ref SweetBabyBoy, "SweetBabyBoy");
         Scribe_References.Look(ref Victim, "Victim");
+        Scribe_Values.Look(ref HasTriggered, "HasTriggered", false);
     }
 
     public override string Key
