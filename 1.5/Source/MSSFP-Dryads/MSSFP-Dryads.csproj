@@ -7,7 +7,7 @@
         <LangVersion>latest</LangVersion>
         <RootNamespace>MSSFP.Dryads</RootNamespace>
         <AssemblyName>MSSFP.Dryads</AssemblyName>
-        <OutputPath>../../../Compatibility/RedMattis.Dryads/1.5/Assemblies</OutputPath>
+        <OutputPath>../../../Compatibility/RedMattis.Dryads.Greater/1.5/Assemblies</OutputPath>
         <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
         <SteamModsPath>$(RIMWORLD_STEAM_MODS_PATH)</SteamModsPath>

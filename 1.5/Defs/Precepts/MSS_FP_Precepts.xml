@@ -59,7 +59,7 @@
             <li>ImmunityDrive</li>
             <li>BerserkTrance</li>
             <li>AnimalCalm</li>
-            <li MayRequire="redmattis.dryads">MSSFP_FungalConversion</li>
+            <li MayRequire="RedMattis.Dryads.Greater">MSSFP_FungalConversion</li>
         </grantedAbilities>
         <roleRequiredWorkTags>
             <li>Violent</li>
