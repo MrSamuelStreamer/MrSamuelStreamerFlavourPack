@@ -3,7 +3,7 @@
     <ThingDef ParentName="PlantBase">
         <defName>MSS_FP_Plant_Mushris</defName>
         <label>mushris</label>
-        <description>A rare mushroom variety, said to be favoured by polar bears.</description>
+        <description>A rare mushroom variety, said to be favoured by polar bears. Can be consumed, and can be used as an inferior alternative to devilstrand.</description>
         <statBases>
             <MaxHitPoints>85</MaxHitPoints>
             <Nutrition>0.5</Nutrition>
@@ -38,6 +38,9 @@
             <wildOrder>2</wildOrder>
             <pollution>Any</pollution>
             <fertilityMin>0.50</fertilityMin>
+            <sowResearchPrerequisites>
+                <li>MSS_Resource_tree</li>
+            </sowResearchPrerequisites>
         </plant>
     </ThingDef>
 </Defs>

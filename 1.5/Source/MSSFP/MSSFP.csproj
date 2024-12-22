@@ -152,6 +152,10 @@
         <ReleaseFiles Update="..\..\Defs\ThingDefs_Plants\MSSFP_Mushris.xml">
           <Link>MrSamuelStreamerFlavourPack\1.5\Defs\ThingDefs_Plants\MSSFP_Mushris.xml</Link>
         </ReleaseFiles>
+
+        <ReleaseFiles Update="..\..\Patches\MSS_FP_Biomes.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Patches\MSS_FP_Biomes.xml</Link>
+        </ReleaseFiles>
     </ItemGroup>
     <Target Name="PostBuild" AfterTargets="Build" Condition=" '$(Configuration)' == 'Release' ">
         <RemoveDir Condition="Exists('../../../Release')" Directories="../../../Release" />
