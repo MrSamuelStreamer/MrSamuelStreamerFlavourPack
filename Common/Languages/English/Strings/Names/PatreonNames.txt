@@ -19,7 +19,7 @@ Detectivebone
 Swole Quackers
 Clogged Artery
 Grand
-Fetid Dingus 
+Fetid Dingus
 Kleetus
 Butte Sharpay
 Flyingflamingo
@@ -38,7 +38,7 @@ Grubjub
 Aloda Crock
 Daegon Chelien
 West
-Tobina 
+Tobina
 Sneaky Pete
 Nate Hedgecutter
 Moe Lester
@@ -46,6 +46,7 @@ Crim Bloodmoon
 Sig Becksy
 Guernsey
 Yeetus McGeetus
+New Lines = New Names
 Simplicius
 Ed Formerly
 Shykick Sock
@@ -74,7 +75,7 @@ Ruc
 KingSnitch
 Al Uminum F. Oil
 Comrade Nome
-Ashnjack 
+Ashnjack
 Zoni
 Judonome
 Luce Morrals
