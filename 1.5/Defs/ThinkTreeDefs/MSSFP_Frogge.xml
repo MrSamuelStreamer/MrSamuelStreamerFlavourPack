@@ -158,7 +158,7 @@
                 <li Class="ThinkNode_ConditionalNoLord">
                     <subNodes>
                         <li Class="ThinkNode_ChancePerHour_Constant">
-                            <mtbHours>12</mtbHours>
+                            <mtbHours>48</mtbHours>
                             <subNodes>
                                 <li Class="ThinkNode_Tagger">
                                     <tagToGive>Misc</tagToGive>
