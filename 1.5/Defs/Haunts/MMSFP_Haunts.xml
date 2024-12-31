@@ -490,4 +490,35 @@
              </li>
          </stages>
      </ThoughtDef>
+
+     <HediffDef>
+         <defName>MSS_FP_PawnDisplayerPossession</defName>
+         <label>Haunted</label>
+         <description>Haunted by spirit of the possessed body.</description>
+         <hediffClass>HediffWithComps</hediffClass>
+         <defaultLabelColor>(0.1,0.2,0.8)</defaultLabelColor>
+         <maxSeverity>1.0</maxSeverity>
+         <scenarioCanAdd>true</scenarioCanAdd>
+         <isBad>false</isBad>
+         <comps>
+             <li Class="MSSFP.Hediffs.HediffCompProperties_Haunt">
+                 <thought>MSS_FP_Haunted</thought>
+                 <graphicData>
+                     <graphicClass>MSSFP.PawnHauntGraphic</graphicClass>
+                     <drawSize>1.7</drawSize>
+                     <shaderType>MoteGlow</shaderType>
+                 </graphicData>
+                 <offsets>
+                     <li>(0.3, 1.6, -0.55)</li> <!-- North -->
+                     <li>(-0.5, 1.1, -0.35)</li> <!-- East -->
+                     <li>(0.3, -1.6, 0.65)</li> <!-- South -->
+                     <li>(0.5, 1.1, -0.35)</li> <!-- West -->
+                 </offsets>
+                 <onlyRenderWhenDrafted>false</onlyRenderWhenDrafted>
+             </li>
+             <li Class="HediffCompProperties_SeverityPerDay">
+                 <severityPerDay>-2</severityPerDay>
+             </li>
+         </comps>
+     </HediffDef>
 </Defs>

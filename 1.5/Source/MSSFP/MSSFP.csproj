@@ -44,6 +44,11 @@
             <HintPath Condition="Exists('../../../../../RimWorldWin64_Data/Managed/UnityEngine.TextRenderingModule.dll')">../../../../../RimWorldWin64_Data/Managed/UnityEngine.TextRenderingModule.dll</HintPath>
             <HintPath Condition="Exists('../../../../../Contents/Resources/Data/Managed/UnityEngine.TextRenderingModule.dll')">../../../../../Contents/Resources/Data/Managed/UnityEngine.TextRenderingModule.dll</HintPath>
             <Private>False</Private>
+        </Reference>        
+        <Reference Include="UnityEngine.ImageConversionModule">
+            <HintPath Condition="Exists('../../../../../RimWorldWin64_Data/Managed/UnityEngine.ImageConversionModule.dll')">../../../../../RimWorldWin64_Data/Managed/UnityEngine.ImageConversionModule.dll</HintPath>
+            <HintPath Condition="Exists('../../../../../Contents/Resources/Data/Managed/UnityEngine.ImageConversionModule.dll')">../../../../../Contents/Resources/Data/Managed/UnityEngine.ImageConversionModule.dll</HintPath>
+            <Private>False</Private>
         </Reference>
         <Reference Include="VanillaAchievments">
             <HintPath Condition="Exists('../../../../VanillaAchievementsExpanded/1.5/Assemblies/AchievementsExpanded.dll')">../../../../VanillaAchievementsExpanded/1.5/Assemblies/AchievementsExpanded.dll</HintPath>
@@ -156,6 +161,11 @@
         <ReleaseFiles Update="..\..\Patches\MSS_FP_Biomes.xml">
           <Link>MrSamuelStreamerFlavourPack\1.5\Patches\MSS_FP_Biomes.xml</Link>
         </ReleaseFiles>
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="..\..\..\Compatibility\metalocif.coolerpsycasts\1.5\Assemblies\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\metalocif.coolerpsycasts\1.5\Assemblies</Link>
+      </Folder>
     </ItemGroup>
     <Target Name="PostBuild" AfterTargets="Build" Condition=" '$(Configuration)' == 'Release' ">
         <RemoveDir Condition="Exists('../../../Release')" Directories="../../../Release" />

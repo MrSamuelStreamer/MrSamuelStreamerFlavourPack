@@ -3,20 +3,24 @@ using System.Collections.Generic;
 using System.Reflection;
 using HarmonyLib;
 using RimWorld;
+using Unity.Collections;
 using UnityEngine;
+using UnityEngine.Rendering;
 using Verse;
 
 namespace MSSFP;
 
-public class PawnHauntGraphic: Graphic_Multi
+public class PawnHauntGraphic : Graphic_Multi
 {
-    public static Lazy<FieldInfo> matsInfo = new Lazy<FieldInfo>(()=>AccessTools.Field(typeof(PawnHauntGraphic), "mats"));
+    public static Lazy<FieldInfo> matsInfo = new Lazy<FieldInfo>(() => AccessTools.Field(typeof(PawnHauntGraphic), "mats"));
     public Material[] _mats;
     public float zoom = 0.9f;
     protected Shader _shader;
     protected int _renderQueue;
     protected List<ShaderParameter> _shaderParameters;
     protected Pawn _pawn;
+
+    public Material overrideMat;
 
     public override void Init(GraphicRequest req)
     {
@@ -49,14 +53,31 @@ public class PawnHauntGraphic: Graphic_Multi
         _pawn = pawn;
     }
 
+    public void SetOverrideMaterial(Texture2D tex)
+    {
+        MaterialRequest req1 = new()
+        {
+            mainTex = tex,
+            shader = _shader,
+            color = color,
+            colorTwo = colorTwo,
+            renderQueue = _renderQueue,
+            shaderParameters = _shaderParameters
+        };
+
+        overrideMat = MaterialPool.MatFrom(req1);
+    }
+
     public override Material MatAt(Rot4 rot, Thing thing = null)
     {
-        if(thing is not Pawn pawn) return BaseContent.BadMat;
+        if (overrideMat != null) return overrideMat;
+        if (thing is not Pawn pawn) return BaseContent.BadMat;
 
-        if(_mats[rot.AsInt] is null) SetMaterial(pawn, rot);
-        if(pawn != _pawn) SetMaterial(pawn, rot);
+        if (_mats[rot.AsInt] is null) SetMaterial(pawn, rot);
+        if (pawn != _pawn) SetMaterial(pawn, rot);
 
         return _mats[rot.AsInt];
     }
+
 
 }

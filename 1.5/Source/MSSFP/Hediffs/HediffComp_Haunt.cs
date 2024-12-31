@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using RimWorld;
 using UnityEngine;
@@ -11,6 +12,26 @@ public class HediffComp_Haunt: HediffComp
 {
     public static Texture2D icon = ContentFinder<Texture2D>.Get("UI/MSS_FP_Haunts_Toggle");
     public Pawn pawnToDraw;
+    public string name;
+    public string texPath;
+    public Texture2D pawnTexture;
+
+    public string TexPath
+    {
+        get => texPath;
+        set
+        {
+            texPath = value;
+            pawnTexture = Resources.Load<Texture2D>(Path.Combine(PawnGraphicUtils.SaveDataPath, texPath));
+            if (Props.graphicData?.Graphic is not PawnHauntGraphic gfx)
+            {
+                return;
+            }
+
+            gfx.SetOverrideMaterial(pawnTexture);
+        }
+    }
+
     protected Dictionary<SkillDef, int> aptitudesCached = new Dictionary<SkillDef, int>();
 
     private HediffCompProperties_Haunt Props => props as HediffCompProperties_Haunt;
@@ -20,6 +41,7 @@ public class HediffComp_Haunt: HediffComp
     {
         get
         {
+            if(name != null) return "MSS_FP_HauntedBy".Translate(name);
             return pawnToDraw == null ? null : "MSS_FP_HauntedBy".Translate(pawnToDraw.NameShortColored);
         }
     }
@@ -46,13 +68,19 @@ public class HediffComp_Haunt: HediffComp
 
     public virtual void DrawAt(Vector3 drawPos)
     {
-        if(!MSSFPMod.settings.ShowHaunts) return;
+            if(!MSSFPMod.settings.ShowHaunts) return;
         if (Props.onlyRenderWhenDrafted && Pawn.drafter is not { Drafted: true })
         {
             return;
         }
 
-        if(Props.graphicData.Graphic is PawnHauntGraphic && pawnToDraw == null) return;
+        if(Props.graphicData.Graphic is PawnHauntGraphic && pawnToDraw == null && texPath == null) return;
+
+        if (Props.graphicData?.Graphic is PawnHauntGraphic gfx && texPath != null && pawnTexture == null)
+        {
+            pawnTexture = PawnGraphicUtils.LoadTexture(Path.Combine(PawnGraphicUtils.SaveDataPath, texPath));
+            gfx.SetOverrideMaterial(pawnTexture);
+        }
 
         Vector3 offset = new();
 
@@ -73,7 +101,7 @@ public class HediffComp_Haunt: HediffComp
         {
             rot = Rot4.North;
         }
-        Props.graphicData?.Graphic.Draw(new Vector3(drawPos.x, AltitudeLayer.Pawn.AltitudeFor(), drawPos.z) + offset, rot, pawnToDraw);
+        Props.graphicData?.Graphic.Draw(new Vector3(drawPos.x, AltitudeLayer.Pawn.AltitudeFor(), drawPos.z) + offset, rot, pawnToDraw ?? parent.pawn);
     }
 
     public override void CompPostMake()
@@ -108,6 +136,8 @@ public class HediffComp_Haunt: HediffComp
         base.CompExposeData();
 
         Scribe_References.Look(ref pawnToDraw, "pawnToDraw");
+        Scribe_Values.Look(ref texPath, "texPath");
+        Scribe_Values.Look(ref name, "name");
 
         if (Scribe.mode == LoadSaveMode.ResolvingCrossRefs)
         {

@@ -14,6 +14,8 @@ public static class MSSFPDefOf
     public static readonly FleckDef PsycastPsychicEffect;
     public static readonly ThingDef MSSFP_Plant_TreeFroganlen;
 
+    public static readonly HediffDef MSS_FP_PawnDisplayerPossession;
+
 
     static MSSFPDefOf() => DefOfHelper.EnsureInitializedInCtor(typeof(MSSFPDefOf));
 }
