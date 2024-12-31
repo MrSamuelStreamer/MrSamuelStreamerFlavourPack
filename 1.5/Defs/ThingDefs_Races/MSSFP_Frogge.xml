@@ -6,9 +6,13 @@
         <label>frogge</label>
         <description>frogge.</description>
         <statBases>
-            <MoveSpeed>5.0</MoveSpeed>
-            <MarketValue>120</MarketValue>
-            <ComfyTemperatureMin>-30</ComfyTemperatureMin>
+            <MoveSpeed>4.5</MoveSpeed>
+            <MarketValue>2400</MarketValue>
+            <ComfyTemperatureMax>45</ComfyTemperatureMax>
+            <ComfyTemperatureMin>-35</ComfyTemperatureMin>
+            <ArmorRating_Sharp>0.40</ArmorRating_Sharp>
+            <ArmorRating_Blunt>0.80</ArmorRating_Blunt>
+            <ArmorRating_Heat>0.40</ArmorRating_Heat>
         </statBases>
         <tools>
             <li>
@@ -55,7 +59,7 @@
             <overrideShouldHaveAbilityTracker>true</overrideShouldHaveAbilityTracker>
             <baseHungerRate>0.215</baseHungerRate>
             <baseHealthScale>0.9</baseHealthScale>
-            <foodType>VegetarianRoughAnimal</foodType>
+            <foodType>VegetarianRoughAnimal, DendrovoreAnimal</foodType>
             <leatherDef>Leather_Light</leatherDef>
             <wildness>0</wildness>
             <trainability>Advanced</trainability>
@@ -63,7 +67,7 @@
             <mateMtbHours>8</mateMtbHours>
             <gestationPeriodDays>12</gestationPeriodDays>
             <soundEating>Rodent_Eat</soundEating>
-            <lifeExpectancy>30</lifeExpectancy>
+            <lifeExpectancy>120</lifeExpectancy>
             <lifeStageAges>
                 <li>
                     <def>AnimalBaby</def>
@@ -122,7 +126,7 @@
             <!-- </li> -->
         </comps>
         <tradeTags>
-            <li>AnimalCommon</li>
+            <li>AnimalExotic</li>
         </tradeTags>
     </ThingDef>
 
