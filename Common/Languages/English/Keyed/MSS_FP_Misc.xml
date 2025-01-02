@@ -4,6 +4,7 @@
     <MSS_FP_Settings_OverrideRelicPool>Override the possible pool of relics with this mods list</MSS_FP_Settings_OverrideRelicPool>
     <MSS_FP_Settings_disableFroggeNom>Disable Frogge's Nom, you monster.</MSS_FP_Settings_disableFroggeNom>
     <MSS_FP_Settings_ShowHaunts>Show Haunts</MSS_FP_Settings_ShowHaunts>
+    <MSS_FP_Settings_NoSkylanternRaids>Disable skylantern raids</MSS_FP_Settings_NoSkylanternRaids>
     <MSS_FP_ToggleHaunts>Toggle Haunts</MSS_FP_ToggleHaunts>
     <MSS_FP_HauntedBy>{0}'s spirit</MSS_FP_HauntedBy>
     <MSS_FP_HauntedBuff>{0}'s spirit is boosting {1} by {2}</MSS_FP_HauntedBuff>
