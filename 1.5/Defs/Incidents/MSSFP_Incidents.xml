@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Defs>
+    <IncidentDef>
+        <defName>MSSFP_RaidEnemy_Skylantern</defName>
+        <label>enemy raid</label>
+        <category>Special</category>
+        <targetTags>
+            <li>Map_PlayerHome</li>
+        </targetTags>
+        <workerClass>MSSFP.IncidentWorker_RaidEnemySkylantern</workerClass>
+        <baseChance>0</baseChance> <!-- given by a special storyteller comp -->
+        <requireColonistsPresent>True</requireColonistsPresent>
+        <pointsScaleable>true</pointsScaleable>
+        <tale>Raid</tale>
+        <ignoreRecentSelectionWeighting>true</ignoreRecentSelectionWeighting>
+    </IncidentDef>
+</Defs>

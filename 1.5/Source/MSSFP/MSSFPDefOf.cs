@@ -16,6 +16,9 @@ public static class MSSFPDefOf
 
     public static readonly HediffDef MSS_FP_PawnDisplayerPossession;
 
+    public static readonly IncidentDef MSSFP_RaidEnemy_Skylantern;
+
+    public static readonly HediffDef Burn;
 
     static MSSFPDefOf() => DefOfHelper.EnsureInitializedInCtor(typeof(MSSFPDefOf));
 }

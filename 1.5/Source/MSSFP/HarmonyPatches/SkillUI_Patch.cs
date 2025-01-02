@@ -1,12 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using HarmonyLib;
-using MSSFP.Hediffs;
-using RimWorld;
-using Verse;
-
-namespace MSSFP.HarmonyPatches;
+﻿namespace MSSFP.HarmonyPatches;
 
 // [HarmonyPatch(typeof(SkillUI))]
 public static class SkillUI_Patch

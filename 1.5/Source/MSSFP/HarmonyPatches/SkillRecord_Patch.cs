@@ -1,9 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using HarmonyLib;
-using MSSFP.Hediffs;
+﻿using HarmonyLib;
 using RimWorld;
-using Verse;
 
 namespace MSSFP.HarmonyPatches;
 
