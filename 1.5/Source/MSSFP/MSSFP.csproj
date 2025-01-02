@@ -173,13 +173,14 @@
         <ReleaseFiles Update="..\..\Defs\RulePackDefs\MSS_Description_FroggeTome.xml">
           <Link>MrSamuelStreamerFlavourPack\1.5\Defs\RulePackDefs\MSS_Description_FroggeTome.xml</Link>
         </ReleaseFiles>
+
+        <CompatibilityFiles Update="..\..\..\Compatibility\metalocif.coolerpsycasts\1.5\Patches\MSSFP_BodyHop.xmkl">
+          <Link>MrSamuelStreamerFlavourPack\Compatibility\metalocif.coolerpsycasts\1.5\Patches\MSSFP_BodyHop.xmkl</Link>
+        </CompatibilityFiles>
     </ItemGroup>
     <ItemGroup>
       <Folder Include="..\..\..\Common\Textures\Things\Item\Book\MSS_FP_FroggeTome\">
         <Link>MrSamuelStreamerFlavourPack\Common\Textures\Things\Item\Book\MSS_FP_FroggeTome</Link>
-      </Folder>
-      <Folder Include="..\..\..\Compatibility\metalocif.coolerpsycasts\1.5\Assemblies\">
-        <Link>MrSamuelStreamerFlavourPack\Compatibility\metalocif.coolerpsycasts\1.5\Assemblies</Link>
       </Folder>
     </ItemGroup>
     <Target Name="PostBuild" AfterTargets="Build" Condition=" '$(Configuration)' == 'Release' ">
