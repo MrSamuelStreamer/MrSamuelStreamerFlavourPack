@@ -460,7 +460,6 @@
              <li Class="MSSFP.Hediffs.HediffCompProperties_Haunt">
                  <thought>MSS_FP_Haunted</thought>
                  <graphicData>
-                     <texPath>Haunts/Frog/Frog</texPath>
                      <graphicClass>MSSFP.PawnHauntGraphic</graphicClass>
                      <drawSize>1.7</drawSize>
                      <shaderType>MoteGlow</shaderType>
@@ -500,8 +499,14 @@
          <maxSeverity>1.0</maxSeverity>
          <scenarioCanAdd>true</scenarioCanAdd>
          <isBad>false</isBad>
+         <tendable>false</tendable>
+         <alwaysShowSeverity>false</alwaysShowSeverity>
+         <keepOnBodyPartRestoration>false</keepOnBodyPartRestoration>
+         <showGizmosOnCorpse>false</showGizmosOnCorpse>
+         <everCurableByItem>false</everCurableByItem>
+         <chronic>true</chronic>
          <comps>
-             <li Class="MSSFP.Hediffs.HediffCompProperties_Haunt">
+             <li Class="MSSFP.Hediffs.HediffCompProperties_BodyHopHaunt">
                  <thought>MSS_FP_Haunted</thought>
                  <graphicData>
                      <graphicClass>MSSFP.PawnHauntGraphic</graphicClass>

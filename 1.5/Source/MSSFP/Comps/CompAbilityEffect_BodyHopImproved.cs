@@ -30,6 +30,15 @@ public class CompAbilityEffect_BodyHopImproved : CompAbilityEffect
         host.story.Childhood = caster.story.Childhood;
         host.story.Adulthood = caster.story.Adulthood;
 
+        SkillRecord origSkill = host.skills.skills.MaxBy(skill => skill.levelInt);
+        SkillDef bestSkill = origSkill.def;
+        int skillOffset = origSkill.levelInt / 4;
+
+        int numTraits = host.story.traits.allTraits.Count();
+
+        List<TraitDef> traits = host.story.traits.allTraits.Where(trait=>trait.sourceGene==null).InRandomOrder().Take(numTraits * Rand.RangeInclusive(0,3)).Select(t=>t.def).ToList();
+
+
         foreach (Trait trait in caster.story.traits.allTraits)
         {
             host.story.traits.GainTrait(trait);
@@ -147,11 +156,18 @@ public class CompAbilityEffect_BodyHopImproved : CompAbilityEffect
         caster.health.AddHediff(Props.hediffOnSelf);
         Hediff hediff = host.health.AddHediff(MSSFPDefOf.MSS_FP_PawnDisplayerPossession);
 
-        HediffComp_Haunt haunt = hediff.TryGetComp<HediffComp_Haunt>();
+        HediffComp_BodyHopHaunt haunt = hediff.TryGetComp<HediffComp_BodyHopHaunt>();
 
         if(haunt is null) return;
         haunt.TexPath = texPath;
         haunt.name = originalName;
+
+        haunt.AddNewPawn(
+            originalName,
+            "",
+            bestSkill,
+            skillOffset,
+            traits);
 
         if (caster.story is not null)
         {
