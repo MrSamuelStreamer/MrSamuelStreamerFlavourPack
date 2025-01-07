@@ -521,9 +521,6 @@
                  </offsets>
                  <onlyRenderWhenDrafted>false</onlyRenderWhenDrafted>
              </li>
-             <li Class="HediffCompProperties_SeverityPerDay">
-                 <severityPerDay>-2</severityPerDay>
-             </li>
          </comps>
      </HediffDef>
 </Defs>
