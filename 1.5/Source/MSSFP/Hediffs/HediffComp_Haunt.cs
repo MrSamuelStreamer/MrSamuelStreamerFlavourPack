@@ -16,20 +16,23 @@ public class HediffComp_Haunt: HediffComp
     public string texPath;
     public Texture2D pawnTexture;
 
-    public string TexPath
+    public virtual string PawnName => name;
+
+    public virtual Texture2D PawnTexture
+    {
+        get
+        {
+            if (pawnTexture == null)
+            {
+                pawnTexture = PawnGraphicUtils.LoadTexture(Path.Combine(PawnGraphicUtils.SaveDataPath, TexPath));
+            }
+            return pawnTexture;
+        }
+    }
+
+    public virtual string TexPath
     {
         get => texPath;
-        set
-        {
-            texPath = value;
-            pawnTexture = Resources.Load<Texture2D>(Path.Combine(PawnGraphicUtils.SaveDataPath, texPath));
-            if (Props.graphicData?.Graphic is not PawnHauntGraphic gfx)
-            {
-                return;
-            }
-
-            gfx.SetOverrideMaterial(pawnTexture);
-        }
     }
 
     protected Dictionary<SkillDef, int> aptitudesCached = new Dictionary<SkillDef, int>();
@@ -41,7 +44,7 @@ public class HediffComp_Haunt: HediffComp
     {
         get
         {
-            if(name != null) return "MSS_FP_HauntedBy".Translate(name);
+            if(PawnName != null) return "MSS_FP_HauntedBy".Translate(PawnName);
             return pawnToDraw == null ? null : "MSS_FP_HauntedBy".Translate(pawnToDraw.NameShortColored);
         }
     }
@@ -68,17 +71,16 @@ public class HediffComp_Haunt: HediffComp
 
     public virtual void DrawAt(Vector3 drawPos)
     {
-            if(!MSSFPMod.settings.ShowHaunts) return;
+        if(!MSSFPMod.settings.ShowHaunts) return;
         if (Props.onlyRenderWhenDrafted && Pawn.drafter is not { Drafted: true })
         {
             return;
         }
 
-        if(Props.graphicData.Graphic is PawnHauntGraphic && pawnToDraw == null && texPath == null) return;
+        if(Props.graphicData.Graphic is PawnHauntGraphic && TexPath == null) return;
 
-        if (Props.graphicData?.Graphic is PawnHauntGraphic gfx && texPath != null && pawnTexture == null)
+        if (Props.graphicData?.Graphic is PawnHauntGraphic gfx && TexPath != null)
         {
-            pawnTexture = PawnGraphicUtils.LoadTexture(Path.Combine(PawnGraphicUtils.SaveDataPath, texPath));
             gfx.SetOverrideMaterial(pawnTexture);
         }
 
@@ -97,7 +99,7 @@ public class HediffComp_Haunt: HediffComp
         }
 
         Rot4 rot = Pawn.Rotation;
-        if (Props.graphicData.Graphic is PawnHauntGraphic)
+        if (Props.graphicData is { Graphic: PawnHauntGraphic })
         {
             rot = Rot4.North;
         }

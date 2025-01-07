@@ -92,6 +92,7 @@ public class CompAbilityEffect_BodyHopImproved : CompAbilityEffect
         List<Hediff> hediffs = caster.health.hediffSet.hediffs;
         foreach (Hediff item in hediffs)
         {
+            if (item.def == MSSFPDefOf.MSS_FP_PawnDisplayerPossession) continue;
             // if (!item.def.duplicationAllowed ||
             //     (item.Part != null && !host.health.hediffSet.HasBodyPart(item.Part)) ||
             //     (item is Hediff_AddedPart && !item.def.organicAddedBodypart) ||
@@ -154,20 +155,31 @@ public class CompAbilityEffect_BodyHopImproved : CompAbilityEffect
         }
 
         caster.health.AddHediff(Props.hediffOnSelf);
-        Hediff hediff = host.health.AddHediff(MSSFPDefOf.MSS_FP_PawnDisplayerPossession);
+        host.health.hediffSet.TryGetHediff(MSSFPDefOf.MSS_FP_PawnDisplayerPossession, out Hediff hostHediff);
+        caster.health.hediffSet.TryGetHediff(MSSFPDefOf.MSS_FP_PawnDisplayerPossession, out Hediff casterHediff);
 
-        HediffComp_BodyHopHaunt haunt = hediff.TryGetComp<HediffComp_BodyHopHaunt>();
+        hostHediff ??= host.health.AddHediff(MSSFPDefOf.MSS_FP_PawnDisplayerPossession);
+
+        HediffComp_BodyHopHaunt haunt = hostHediff.TryGetComp<HediffComp_BodyHopHaunt>();
 
         if(haunt is null) return;
-        haunt.TexPath = texPath;
-        haunt.name = originalName;
+
+        HediffComp_BodyHopHaunt casterHauntComp = casterHediff?.TryGetComp<HediffComp_BodyHopHaunt>();
+        if (casterHauntComp != null)
+        {
+            foreach (HediffComp_BodyHopHaunt.PawnInfo pawn in casterHauntComp.pawns.ToList())
+            {
+                haunt.AddNewPawn(pawn);
+            }
+        }
 
         haunt.AddNewPawn(
             originalName,
             "",
             bestSkill,
             skillOffset,
-            traits);
+            traits,
+            texturePath: texPath);
 
         if (caster.story is not null)
         {

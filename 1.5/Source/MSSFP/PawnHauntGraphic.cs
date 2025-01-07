@@ -20,6 +20,8 @@ public class PawnHauntGraphic : Graphic_Multi
     protected List<ShaderParameter> _shaderParameters;
     protected Pawn _pawn;
 
+    public Texture2D setTexture;
+
     public Material overrideMat;
 
     public override void Init(GraphicRequest req)
@@ -55,6 +57,8 @@ public class PawnHauntGraphic : Graphic_Multi
 
     public void SetOverrideMaterial(Texture2D tex)
     {
+        if(setTexture == tex) return;
+        setTexture = tex;
         MaterialRequest req1 = new()
         {
             mainTex = tex,

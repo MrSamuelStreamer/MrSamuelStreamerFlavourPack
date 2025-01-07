@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using RimWorld;
 using UnityEngine;
 using Verse;
 
@@ -8,9 +11,10 @@ public class PawnHistoryEditorWindow(HediffComp_BodyHopHaunt comp) : Window
 {
     public HediffComp_BodyHopHaunt hauntComp = comp;
 
-    public override Vector2 InitialSize => new Vector2(800f, 600f);
+    public override Vector2 InitialSize => new Vector2(1000f, 800f);
 
     public Vector2 scrollPosition = Vector2.zero;
+    public Vector2 traitScrollPosition = Vector2.zero;
 
     public HediffComp_BodyHopHaunt.PawnInfo Selected;
     public string buffer;
@@ -18,16 +22,46 @@ public class PawnHistoryEditorWindow(HediffComp_BodyHopHaunt comp) : Window
 
     public override void DoWindowContents(Rect inRect)
     {
+        #region RectDivider Setup
         RectDivider window = new RectDivider(inRect, 1241241241, Vector2.zero);
 
         RectDivider left = window.NewCol(200f);
-        RectDivider right = window.NewCol(600 - 36); // default x margin
+        RectDivider right = window.NewCol(800 - 36); // default x margin
 
         RectDivider newPawnButton = left.NewRow(40f);
         RectDivider pawnListScrollContainer = left.NewRow(660 - 136); // default y margin
 
         RectDivider title = right.NewRow(60f);
-        RectDivider pawnForm = right.NewRow(540 - 36); // default y margin
+        RectDivider pawnForm = right.NewRow(740 - 36); // default y margin
+
+        RectDivider name = pawnForm.NewRow(40f);
+        RectDivider nameLabel = name.NewCol(100f);
+        RectDivider nameEntry = name.NewCol(550f);
+
+        RectDivider description = pawnForm.NewRow(120f);
+        RectDivider descriptionLabel = description.NewCol(100f);
+        RectDivider descriptionEntry = description.NewCol(550f);
+
+        RectDivider bestSkill = pawnForm.NewRow(40f);
+        RectDivider skillLabel = bestSkill.NewCol(100f);
+        RectDivider skillEntry = bestSkill.NewCol(550f);
+
+        RectDivider skillLevel = pawnForm.NewRow(40f);
+        RectDivider skillLevelLabel = skillLevel.NewCol(100f);
+        RectDivider skillLevelEntry = skillLevel.NewCol(550f);
+
+        RectDivider traits = pawnForm.NewRow(60f);
+        RectDivider traitLabel = traits.NewCol(100f);
+        RectDivider traitEntry = traits.NewCol(550f);
+
+        RectDivider removeTraits = pawnForm.NewRow(184f);
+
+        RectDivider tickAdded = pawnForm.NewRow(60f);
+        RectDivider tickAddedLabel = tickAdded.NewCol(100f);
+        RectDivider tickAddedEntry = tickAdded.NewCol(550f);
+
+        RectDivider save = pawnForm.NewRow(60f);
+        #endregion
 
         #region PawnForm
 
@@ -35,78 +69,111 @@ public class PawnHistoryEditorWindow(HediffComp_BodyHopHaunt comp) : Window
 
         if (Selected != null)
         {
-            RectDivider name = pawnForm.NewRow(60f);
-            RectDivider description = pawnForm.NewRow(120f);
-            RectDivider bestSkill = pawnForm.NewRow(60f);
-            RectDivider skillLevel = pawnForm.NewRow(60f);
-            RectDivider traits = pawnForm.NewRow(60f);
-            RectDivider tickAdded = pawnForm.NewRow(60f);
-            RectDivider save = pawnForm.NewRow(60f);
-
-            RectDivider nameLabel = name.NewCol(100f);
-            RectDivider nameEntry = name.NewCol(350f);
 
             Widgets.Label(nameLabel.Rect.ContractedBy(10f), "Name: ");
-            Selected.name = Widgets.TextField(nameEntry.Rect.ContractedBy(10f), Selected.name);
-
-            RectDivider descriptionLabel = description.NewCol(100f);
-            RectDivider descriptionEntry = description.NewCol(350f);
+            Selected.name = Widgets.TextField(nameEntry.Rect.ContractedBy(4f), Selected.name);
 
             Widgets.Label(descriptionLabel.Rect.ContractedBy(10f), "Description: ");
-            Selected.description = Widgets.TextArea(descriptionEntry.Rect.ContractedBy(10f), Selected.description);
-
-            RectDivider skillLabel = bestSkill.NewCol(100f);
-            RectDivider skillEntry = bestSkill.NewCol(350f);
+            Selected.description = Widgets.TextArea(descriptionEntry.Rect.ContractedBy(4f), Selected.description);
 
             Widgets.Label(skillLabel.Rect.ContractedBy(10f), "Best Skill: ");
-            if (Widgets.ButtonText(skillEntry.Rect.ContractedBy(10f), Selected.bestSkill == null ? "Select skill" : Selected.bestSkill.label))
+            if (Widgets.ButtonText(skillEntry.Rect.ContractedBy(4f), Selected.bestSkill == null ? "Select skill" : Selected.bestSkill.label))
             {
                 // Show float
+                List<FloatMenuOption> options = new List<FloatMenuOption>();
+                foreach (SkillDef skillDef in DefDatabase<SkillDef>.AllDefsListForReading)
+                {
+                    FloatMenuOption opt = new FloatMenuOption(skillDef.skillLabel, () =>
+                    {
+                        Selected.bestSkill = skillDef;
+                    });
+                    options.Add(opt);
+                }
+
+                Find.WindowStack.Add(new FloatMenu(options));
             }
 
-            RectDivider skillLevelLabel = skillLevel.NewCol(100f);
-            RectDivider skillLevelEntry = skillLevel.NewCol(350f);
 
             Widgets.Label(skillLevelLabel.Rect.ContractedBy(10f), "Skill Boost: ");
-            Widgets.IntEntry(skillLevelEntry, ref Selected.skillOffset, ref buffer);
-
-            RectDivider traitLabel = traits.NewCol(100f);
-            RectDivider traitEntry = traits.NewCol(350f);
+            Widgets.IntEntry(skillLevelEntry.Rect.ContractedBy(4f), ref Selected.skillOffset, ref buffer);
 
             Widgets.Label(traitLabel.Rect.ContractedBy(10f), "Traits: ");
-            // if (Widgets.ButtonText(traitEntry.Rect.ContractedBy(10f), Selected.bestSkill == null ? "Select trait" : Selected.bestSkill.label))
-            // {
-            //     // Show float
-            // }
-
-            RectDivider tickAddedLabel = tickAdded.NewCol(100f);
-            RectDivider tickAddedEntry = tickAdded.NewCol(350f);
-
-            Widgets.Label(tickAddedLabel.Rect.ContractedBy(10f), "Tick Added: ");
-            Widgets.IntEntry(tickAddedEntry, ref Selected.swapTick, ref buffer2);
-
-            if (comp.pawns.Contains(Selected))
+            if (Widgets.ButtonText(traitEntry.Rect.ContractedBy(4f), "Select trait"))
             {
-                if (Widgets.ButtonText(save, "Close"))
+                if (Selected.passedTraits == null) Selected.passedTraits = new List<TraitDef>();
+
+                List<FloatMenuOption> options = new List<FloatMenuOption>();
+                IEnumerable<TraitDef> validTraits = DefDatabase<TraitDef>.AllDefsListForReading
+                    .Except(Selected.passedTraits)
+                    .Where(td=>!Selected.passedTraits.Any(t=>t.ConflictsWith(td)))
+                    .Where(td=>td.conflictingPassions.NullOrEmpty());
+
+                foreach (TraitDef traitDef in validTraits)
                 {
-                    Close();
+                    FloatMenuOption opt = new FloatMenuOption(traitDef.defName, () =>
+                    {
+                        Selected.passedTraits.Add(traitDef);
+                    });
+                    options.Add(opt);
+                }
+
+                Find.WindowStack.Add(new FloatMenu(options));
+            }
+
+            if (!Selected.passedTraits.NullOrEmpty())
+            {
+                try
+                {
+                    Rect traitScrollContainer = removeTraits.Rect;
+                    traitScrollContainer.yMax -= 30;
+                    traitScrollContainer.xMax -= 30;
+
+                    int scrollViewHeight = Selected.passedTraits.Count * 45;
+                    Rect scrollViewRect = new Rect(0f, 0f, traitScrollContainer.width, scrollViewHeight);
+                    Widgets.BeginScrollView(traitScrollContainer, ref traitScrollPosition, scrollViewRect);
+
+                    int currentHeight = 0;
+                    TraitDef toRemove = null;
+
+                    foreach (TraitDef traitDef in Selected.passedTraits)
+                    {
+                        if (Widgets.ButtonText(new Rect(0, currentHeight, 300f, 40), $"Remove: {traitDef.defName}"))
+                        {
+                            toRemove = traitDef;
+                        }
+
+                        currentHeight += 45;
+                    }
+
+                    if (toRemove != null)
+                        Selected.passedTraits.Remove(toRemove);
+                }
+                finally
+                {
+                    Widgets.EndScrollView();
                 }
             }
-            else
-            {
-                RectDivider saveRect = save.NewCol(200f);
-                RectDivider closeRect = save.NewCol(200f);
 
+            Widgets.Label(tickAddedLabel.Rect.ContractedBy(10f), "Tick Added: ");
+            Widgets.IntEntry(tickAddedEntry.Rect.ContractedBy(4f), ref Selected.swapTick, ref buffer2);
+
+            RectDivider saveRect = save.NewCol(200f);
+            RectDivider closeRect = save.NewCol(200f);
+
+            if (Selected != null)
+            {
                 if (Widgets.ButtonText(saveRect, "Save"))
                 {
-                    comp.pawns.Add(Selected);
+                    hauntComp.AddNewPawn(Selected);
                     Selected = null;
+                    buffer = null;
+                    buffer2 = null;
                 }
+            }
 
-                if (Widgets.ButtonText(closeRect, "Close"))
-                {
-                    Close();
-                }
+            if (Widgets.ButtonText(closeRect, "Close"))
+            {
+                Close();
             }
         }
 
@@ -118,6 +185,8 @@ public class PawnHistoryEditorWindow(HediffComp_BodyHopHaunt comp) : Window
         {
             // new pawn
             Selected = new HediffComp_BodyHopHaunt.PawnInfo();
+            buffer = null;
+            buffer2 = null;
         }
 
         int pawnCount = hauntComp.pawns.Count;
@@ -140,7 +209,9 @@ public class PawnHistoryEditorWindow(HediffComp_BodyHopHaunt comp) : Window
                 Rect Section = new Rect(0, currentHeight, pawnListRect.width, 100f);
                 if (Widgets.ButtonText(Section, "", false))
                 {
-                    Selected = pawn;
+                    Selected = pawn.Copy();
+                    buffer = null;
+                    buffer2 = null;
                 }
 
                 if (Selected == pawn)
