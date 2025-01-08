@@ -198,6 +198,9 @@
                 </bodyGraphicData>
             </li>
         </lifeStages>
+        <abilities>
+            <li>MSS_FP_Ability_Shoot_Thing</li>
+        </abilities>
         <!-- <abilities> -->
         <!--     <li>MSSFP_ConsumeLeap_Frogge</li> -->
         <!-- </abilities> -->

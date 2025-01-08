@@ -181,6 +181,10 @@
         <ReleaseFiles Update="..\..\Defs\Incidents\MSSFP_Incidents.xml">
           <Link>MrSamuelStreamerFlavourPack\1.5\Defs\Incidents\MSSFP_Incidents.xml</Link>
         </ReleaseFiles>
+
+        <ReleaseFiles Update="..\..\Defs\Abilities\MSS_FP_Frogge.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Defs\Abilities\MSS_FP_Frogge.xml</Link>
+        </ReleaseFiles>
     </ItemGroup>
     <ItemGroup>
       <Folder Include="..\..\..\Common\Textures\Things\Item\Book\MSS_FP_FroggeTome\">

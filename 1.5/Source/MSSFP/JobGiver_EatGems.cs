@@ -14,7 +14,11 @@ public class JobGiver_EatGems : ThinkNode_JobGiver
     protected override Job TryGiveJob(Pawn pawn)
     {
         if (MSSFPMod.settings.disableFroggeNom) return null;
-        if (EdibleGems.EnumerableNullOrEmpty()) return null;
+        if (EdibleGems.EnumerableNullOrEmpty())
+        {
+            EdibleGems = [ThingDefOf.Gold, ThingDefOf.Silver];
+        }
+
         if(pawn.Map == null) return null;
 
         IEnumerable<Thing> validThings = pawn.Map.listerThings.GetAllThings((thing) => EdibleGems.Contains(thing.def), true);
@@ -26,7 +30,7 @@ public class JobGiver_EatGems : ThinkNode_JobGiver
         if (!pawn.CanReserveAndReach((LocalTargetInfo)target, PathEndMode.Touch, Danger.Deadly) || target.IsBurning())
             return null;
 
-        int count = PawnUtility.GetMaxAllowedToPickUp(pawn, target.def);
+        int count = Rand.RangeInclusive(0, target.stackCount);
 
         if(count == 0) return null;
 

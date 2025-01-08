@@ -29,6 +29,7 @@
         <uiIconScale>1.25</uiIconScale>
         <race>
             <baseBodySize>2.5</baseBodySize>
+            <overrideShouldHaveAbilityTracker>true</overrideShouldHaveAbilityTracker>
             <useMeatFrom>Dryad_Basic</useMeatFrom>
             <lifeStageAges>
                 <li>
@@ -195,6 +196,7 @@
             <hediffGiverSets Inherit="False"/>
             <foodType>OmnivoreRoughAnimal</foodType>
             <useMeatFrom>Dryad_Basic</useMeatFrom>
+            <overrideShouldHaveAbilityTracker>true</overrideShouldHaveAbilityTracker>
             <giveNonToolUserBeatFireVerb>true</giveNonToolUserBeatFireVerb>
             <useLeatherFrom>Dryad_Basic</useLeatherFrom>
             <mateMtbHours>100000</mateMtbHours>
@@ -326,9 +328,12 @@
         <defName>MSS_FP_Froggomancer</defName>
         <label>froggomancer</label>
         <race>MSS_FP_Froggomancer</race>
-        <combatPower>40</combatPower>
+        <combatPower>80</combatPower>
         <canArriveManhunter>false</canArriveManhunter>
         <ecoSystemWeight>1.1</ecoSystemWeight>
+        <abilities>
+            <li>MSS_FP_Ability_Zap</li>
+        </abilities>
         <lifeStages>
             <li>
                 <bodyGraphicData>
