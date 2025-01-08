@@ -10,7 +10,6 @@
         <verbProperties>
             <range>30</range>
             <defaultProjectile>MSS_FP_ThingHoldingProjectile</defaultProjectile>
-            <minRange>3</minRange>
             <verbClass>MSSFP.Verb_AbilityShootThingHolder</verbClass>
             <!-- <warmupTime>0.5</warmupTime> -->
             <soundCast>Ability_SpineLaunch</soundCast>
@@ -43,9 +42,9 @@
         <cooldownTicksRange>120</cooldownTicksRange>
         <ai_IsOffensive>true</ai_IsOffensive>
         <aiCanUse>true</aiCanUse>
+        <ai_SearchAOEForTargets>true</ai_SearchAOEForTargets>
         <verbProperties>
             <aimingChargeMote>Mote_ChargingElectroCables</aimingChargeMote>
-            <minRange>3</minRange>
             <range>30</range>
             <noiseRadius>1.5</noiseRadius>
             <defaultProjectile>MSS_FP_Zap</defaultProjectile>
@@ -67,11 +66,35 @@
             <drawSize>2,2</drawSize>
         </graphicData>
         <projectile>
-            <damageDef>EnergyBolt</damageDef>
+            <damageDef>MSS_Zap</damageDef>
             <armorPenetrationBase>0.5</armorPenetrationBase>
             <stoppingPower>0.5</stoppingPower>
             <speed>25</speed>
-            <damageAmountBase>6</damageAmountBase>
         </projectile>
     </ThingDef>
+
+    <DamageDef>
+        <defName>MSS_Zap</defName>
+        <label>zap</label>
+        <workerClass>DamageWorker_AddInjury</workerClass>
+        <externalViolence>true</externalViolence>
+        <deathMessage>{0} has been zapped.</deathMessage>
+        <hediff>EnergyBolt</hediff>
+        <harmAllLayersUntilOutside>true</harmAllLayersUntilOutside>
+        <impactSoundType>Electric</impactSoundType>
+        <armorCategory>Sharp</armorCategory>
+        <overkillPctToDestroyPart>0~0.7</overkillPctToDestroyPart>
+        <isRanged>true</isRanged>
+        <isExplosive>true</isExplosive>
+        <explosionAffectOutsidePartsOnly>false</explosionAffectOutsidePartsOnly>
+        <explosionHeatEnergyPerCell>5</explosionHeatEnergyPerCell>
+        <explosionCellFleck>BlastDry</explosionCellFleck>
+        <explosionColorCenter>(1, 0.5, 0.3)</explosionColorCenter>
+        <explosionColorEdge>(0.6, 0.5, 0.4)</explosionColorEdge>
+        <soundExplosion>Explosion_Bomb</soundExplosion>
+        <combatLogRules>Damage_Bomb</combatLogRules>
+        <minDamageToFragment>15</minDamageToFragment>
+        <defaultDamage>50</defaultDamage>
+        <makesAnimalsFlee>true</makesAnimalsFlee>
+    </DamageDef>
 </Defs>
