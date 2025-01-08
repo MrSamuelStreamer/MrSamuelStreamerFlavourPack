@@ -55,7 +55,7 @@ public class ThingHoldingProjectile : Bullet, IThingHolder
         get
         {
             int baseDamage = base.DamageAmount;
-            return HeldThing == null ? 0 : Mathf.RoundToInt(baseDamage * HeldThing.GetStatValue(StatDefOf.Mass));
+            return HeldThing == null ? 0 : Math.Max(2, Mathf.RoundToInt(baseDamage * HeldThing.GetStatValue(StatDefOf.Mass)));
         }
     }
 

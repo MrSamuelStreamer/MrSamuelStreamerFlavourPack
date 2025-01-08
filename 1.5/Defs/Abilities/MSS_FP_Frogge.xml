@@ -31,7 +31,7 @@
             <armorPenetrationBase>0.75</armorPenetrationBase>
             <stoppingPower>0.75</stoppingPower>
             <speed>25</speed>
-            <damageAmountBase>6</damageAmountBase>
+            <damageAmountBase>12</damageAmountBase>
         </projectile>
     </ThingDef>
 
@@ -53,6 +53,7 @@
             <soundCast>PsychicShockLanceCast</soundCast>
             <ai_IsWeapon>false</ai_IsWeapon>
             <ticksBetweenBurstShots>15</ticksBetweenBurstShots>
+            <damageAmountBase>16</damageAmountBase>
         </verbProperties>
     </AbilityDef>
 
