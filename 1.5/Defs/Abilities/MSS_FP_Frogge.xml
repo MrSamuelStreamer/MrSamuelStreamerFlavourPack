@@ -4,17 +4,18 @@
         <defName>MSS_FP_Ability_Shoot_Thing</defName>
         <label>launch projectile</label>
         <description>Launch a thing at a target.</description>
-        <cooldownTicksRange>120</cooldownTicksRange>
         <ai_IsOffensive>true</ai_IsOffensive>
+        <cooldownTicksRange>30~120</cooldownTicksRange>
         <aiCanUse>true</aiCanUse>
         <verbProperties>
             <range>30</range>
+            <minRange>0</minRange>
             <defaultProjectile>MSS_FP_ThingHoldingProjectile</defaultProjectile>
             <verbClass>MSSFP.Verb_AbilityShootThingHolder</verbClass>
-            <!-- <warmupTime>0.5</warmupTime> -->
+            <warmupTime>0.5</warmupTime>
             <soundCast>Ability_SpineLaunch</soundCast>
             <ai_IsWeapon>false</ai_IsWeapon>
-            <ticksBetweenBurstShots>15</ticksBetweenBurstShots>
+            <!-- <ticksBetweenBurstShots>15</ticksBetweenBurstShots> -->
         </verbProperties>
     </AbilityDef>
 
@@ -30,7 +31,7 @@
             <damageDef>Thump</damageDef>
             <armorPenetrationBase>0.75</armorPenetrationBase>
             <stoppingPower>0.75</stoppingPower>
-            <speed>25</speed>
+            <speed>45</speed>
             <damageAmountBase>12</damageAmountBase>
         </projectile>
     </ThingDef>
@@ -39,21 +40,22 @@
         <defName>MSS_FP_Ability_Zap</defName>
         <label>zap!</label>
         <description>zap!</description>
-        <cooldownTicksRange>120</cooldownTicksRange>
         <ai_IsOffensive>true</ai_IsOffensive>
+        <cooldownTicksRange>30~120</cooldownTicksRange>
         <aiCanUse>true</aiCanUse>
         <ai_SearchAOEForTargets>true</ai_SearchAOEForTargets>
         <verbProperties>
+            <commandIcon>Misc/Projectiles/MSS_Zap/MSS_ZapE</commandIcon>
             <aimingChargeMote>Mote_ChargingElectroCables</aimingChargeMote>
             <range>30</range>
+            <minRange>0</minRange>
             <noiseRadius>1.5</noiseRadius>
             <defaultProjectile>MSS_FP_Zap</defaultProjectile>
             <verbClass>Verb_AbilityShoot</verbClass>
             <!-- <warmupTime>0.5</warmupTime> -->
-            <soundCast>PsychicShockLanceCast</soundCast>
+            <soundCast>Psych icShockLanceCast</soundCast>
             <ai_IsWeapon>false</ai_IsWeapon>
             <ticksBetweenBurstShots>15</ticksBetweenBurstShots>
-            <damageAmountBase>16</damageAmountBase>
         </verbProperties>
     </AbilityDef>
 
@@ -70,7 +72,8 @@
             <damageDef>MSS_Zap</damageDef>
             <armorPenetrationBase>0.5</armorPenetrationBase>
             <stoppingPower>0.5</stoppingPower>
-            <speed>25</speed>
+            <speed>45</speed>
+            <damageAmountBase>16</damageAmountBase>
         </projectile>
     </ThingDef>
 
