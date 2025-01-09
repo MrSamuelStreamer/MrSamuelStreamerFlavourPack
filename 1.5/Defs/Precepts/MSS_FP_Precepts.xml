@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <Defs>
-    <PreceptDef ParentName="PreceptRoleSingleBase">
+    <PreceptDef ParentName="PreceptRoleMultiBase">
         <defName>MSS_FP_IdeoRole_FroggeWarrior</defName>
         <label>frogge warrior</label>
         <description>A warrior trained in the ways of the frogge.</description>
