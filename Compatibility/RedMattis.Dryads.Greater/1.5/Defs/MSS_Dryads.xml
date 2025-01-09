@@ -163,11 +163,11 @@
             <li>
                 <bodyGraphicData>
                     <texPath>Things/Pawn/Animal/MSS_FP_Froggeling/MSS_FP_Froggeling</texPath>
-                    <drawSize>3.5</drawSize>
+                    <drawSize>1.75</drawSize>
                 </bodyGraphicData>
                 <dessicatedBodyGraphicData>
                     <texPath>Things/Pawn/Animal/MSS_FP_Froggeling_Dessicated/MSS_FP_Froggeling_Dessicated</texPath>
-                    <drawSize>3.5</drawSize>
+                    <drawSize>1.75</drawSize>
                 </dessicatedBodyGraphicData>
             </li>
         </lifeStages>
@@ -338,11 +338,11 @@
             <li>
                 <bodyGraphicData>
                     <texPath>Things/Pawn/Animal/MSS_FP_Froggomancer/MSS_FP_Froggomancer</texPath>
-                    <drawSize>4</drawSize>
+                    <drawSize>2</drawSize>
                 </bodyGraphicData>
                 <dessicatedBodyGraphicData>
                     <texPath>Things/Pawn/Animal/MSS_FP_Froggomancer_Dessicated/MSS_FP_Froggomancer_Dessicated</texPath>
-                    <drawSize>4</drawSize>
+                    <drawSize>2</drawSize>
                 </dessicatedBodyGraphicData>
             </li>
         </lifeStages>

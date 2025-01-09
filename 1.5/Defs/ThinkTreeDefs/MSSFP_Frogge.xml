@@ -201,7 +201,11 @@
                                         <li Class="ThinkNode_ConditionalShouldFollowMaster">
                                             <subNodes>
                                                 <li Class="JobGiver_AIDefendMaster">
-                                                    <attackMeleeThreatEvenIfNotHostile>true</attackMeleeThreatEvenIfNotHostile>
+                                                    <attackMeleeThreatEvenIfNotHostile>false</attackMeleeThreatEvenIfNotHostile>
+                                                    <targetAcquireRadius>35</targetAcquireRadius>
+                                                    <targetKeepRadius>55</targetKeepRadius>
+                                                    <chaseTarget>false</chaseTarget>
+                                                    <ignoreNonCombatants>true</ignoreNonCombatants>
                                                 </li>
                                                 <li Class="JobGiver_AIFollowMaster"/>
                                                 <li Class="JobGiver_WanderNearMaster"/>
