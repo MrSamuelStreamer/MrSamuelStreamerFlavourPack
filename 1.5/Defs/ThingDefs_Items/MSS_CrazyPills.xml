@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <RecipeDef>
+        <defName>MSS_MakeSamsCrazyPills</defName>
+        <label>make sams crazy pills</label>
+        <description>Makes some of Sams crazy pills for what make build base go fast now.</description>
+        <descriptionHyperlinks>
+            <HediffDef>MSS_BuildBase</HediffDef>
+            <ThingDef>MSS_SamsCrazyPills</ThingDef>
+        </descriptionHyperlinks>
+        <jobString>making crazy pills.</jobString>
+        <workSpeedStat>DrugCookingSpeed</workSpeedStat>
+        <effectWorking>Cook</effectWorking>
+        <soundWorking>Recipe_Machining</soundWorking>
+        <workAmount>500</workAmount>
+        <researchPrerequisite>WakeUpProduction</researchPrerequisite>
+        <recipeUsers>
+            <li>Campfire</li>
+            <li>ElectricStove</li>
+            <li>FueledStove</li>
+        </recipeUsers>
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>WakeUp</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+            <li>
+                <filter>
+                    <categories>
+                        <li>StoneChunks</li>
+                    </categories>
+                </filter>
+                <count>5</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>WakeUp</li>
+            </thingDefs>
+            <categories>
+                <li>StoneChunks</li>
+            </categories>
+        </fixedIngredientFilter>
+        <products>
+            <MSS_SamsCrazyPills>1</MSS_SamsCrazyPills>
+        </products>
+        <workSkill>Crafting</workSkill>
+        <skillRequirements>
+            <Cooking>4</Cooking>
+        </skillRequirements>
+    </RecipeDef>
+
+    <ThingDef ParentName="MedicineBase">
+        <defName>MSS_SamsCrazyPills</defName>
+        <label>Sams Crazy Pills</label>
+        <description>Banned by the Interplanetary Build Base Workgroup (IBBW) as a build-base enhancing drug, this concoction focuses the brain on manual labour tasks, and triggers the release of happy chemicals while building.\n\nIt is known by many names out in the rim, "constructo", "connie", "buildB", "beebee", but is most well known as "Sam's Crazy Pills" named for it's most prolific user.\n\n\n\nSide effects may include, but are not exclusive to:\n\nFeelings of negativity, increased productivity, broader creativity, spiking brain activity.\nElevated blood pressure, a desire for leisure, a yearning for pleasure, a trip on a stretcher.\nBone hurting, disconcerting, vision inverting, unstoppable flirting.\nIncreased heart rate, sub-optimal mental state, increased weight, doomed fate.\nSlightly enlarged tongue. feeling quite young, getting quite hung, with us you are among.\nMeningitis, womeningitis, catsingitis, rocks-in-your-stomach-itis,\nHypothermia, hyperthermia, hernias, a life in suburbia.\nAcid reflux, massive tea cups, lost epochs, finding yourself speechless.\nHeart attack, mars attack, snack attack, art attack.\nErectile dysfunction, increased erectile function, coordinating conjuction, a IBBW court injunction.</description>
+        <possessionCount>4</possessionCount>
+        <descriptionHyperlinks>
+            <HediffDef>MSS_BuildBase</HediffDef>
+            <HediffDef>WakeUpHigh</HediffDef>
+            <HediffDef>WakeUpAddiction</HediffDef>
+            <HediffDef>HeartAttack</HediffDef>
+            <RecipeDef>MSS_MakeSamsCrazyPills</RecipeDef>
+        </descriptionHyperlinks>
+        <graphicData>
+            <texPath>Things/MSS_SamsCrazyPills</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>0.85</drawSize>
+        </graphicData>
+        <techLevel>Industrial</techLevel>
+
+        <thingCategories>
+            <li>Drugs</li>
+        </thingCategories>
+
+        <tradeTags>
+            <li>Drugs</li>
+            <li>ItemsMisc</li>
+            <li>ExoticMisc</li>
+        </tradeTags>
+
+        <thingSetMakerTags>
+            <li>RewardStandardLowFreq</li>
+            <li>RewardStandardMidFreq</li>
+            <li>RewardStandardHighFreq</li>
+            <li>RewardStandardQualitySuper</li>
+        </thingSetMakerTags>
+
+        <statBases>
+            <MarketValue>60</MarketValue>
+            <Mass>0.45</Mass>
+            <Flammability>0.1</Flammability>
+        </statBases>
+        <tickerType>Rare</tickerType>
+        <allowedArchonexusCount>20</allowedArchonexusCount>
+
+        <socialPropernessMatters>true</socialPropernessMatters>
+        <ingestible>
+            <foodType>Processed</foodType>
+            <joyKind>Chemical</joyKind>
+            <joy>0.9</joy>
+            <preferability>NeverForNutrition</preferability>
+            <nurseable>true</nurseable>
+            <drugCategory>Social</drugCategory>
+            <ingestSound>Ingest_Pill</ingestSound>
+            <ingestHoldOffsetStanding>
+                <northDefault>
+                    <offset>(0.18,0,0)</offset>
+                </northDefault>
+            </ingestHoldOffsetStanding>
+            <ingestCommandString>Pop {0}</ingestCommandString>
+            <ingestReportString>Popping {0}.</ingestReportString>
+            <chairSearchRadius>25</chairSearchRadius>
+            <canAutoSelectAsFoodForCaravan>false</canAutoSelectAsFoodForCaravan>
+            <tableDesired>false</tableDesired>
+            <outcomeDoers>
+                <li Class="IngestionOutcomeDoer_GiveHediff">
+                    <hediffDef>MSS_BuildBase</hediffDef>
+                    <severity>1</severity>
+                    <toleranceChemical>WakeUp</toleranceChemical>
+                </li>
+                <li Class="IngestionOutcomeDoer_OffsetNeed">
+                    <need>Rest</need>
+                    <offset>0.4</offset>
+                    <toleranceChemical>Psychite</toleranceChemical>
+                </li>
+            </outcomeDoers>
+        </ingestible>
+
+        <comps>
+            <li Class="CompProperties_Drug">
+                <chemical>WakeUp</chemical>
+                <addictiveness>0.02</addictiveness>
+                <existingAddictionSeverityOffset>0.20</existingAddictionSeverityOffset>
+                <needLevelOffset>0.9</needLevelOffset>
+                <listOrder>210</listOrder>
+                <overdoseSeverityOffset>0.18~0.35</overdoseSeverityOffset>
+                <largeOverdoseChance>0.005</largeOverdoseChance>
+            </li>
+        </comps>
+
+    </ThingDef>
+
+    <HediffDef>
+        <defName>MSS_BuildBase</defName>
+        <label>build base buzz</label>
+        <description>Build base. Must build base. All I want to do is build base!</description>
+        <hediffClass>Hediff_High</hediffClass>
+        <defaultLabelColor>(1,0,0.5)</defaultLabelColor>
+        <maxSeverity>1.0</maxSeverity>
+        <isBad>false</isBad>
+        <comps>
+            <li Class="HediffCompProperties_SeverityPerDay">
+                <severityPerDay>-0.5</severityPerDay>
+                <showHoursToRecover>true</showHoursToRecover>
+            </li>
+            <li Class="MSSFP.Hediffs.HediffCompProperties_BuildBase">
+                <ConstructJobs>
+                    <li>PlaceNoCostFrame</li>
+                    <li>FinishFrame</li>
+                    <li>Deconstruct</li>
+                    <li>Uninstall</li>
+                    <li>Repair</li>
+                    <li>FixBrokenDownBuilding</li>
+                    <li>BuildRoof</li>
+                    <li>RemoveRoof</li>
+                    <li>PaintBuilding</li>
+                    <li>PaintFloor</li>
+                    <li>RemovePaintBuilding</li>
+                    <li>RemovePaintFloor</li>
+                    <li>SmoothFloor</li>
+                    <li>RemoveFloor</li>
+                    <li>SmoothWall</li>
+                </ConstructJobs>
+                <GoodThought>MSS_CrazyPillGoodThought</GoodThought>
+                <BadThought>MSS_CrazyPillBadThought</BadThought>
+            </li>
+        </comps>
+        <stages>
+            <li>
+                <capMods>
+                    <li>
+                        <capacity>Consciousness</capacity>
+                        <offset>0.2</offset>
+                    </li>
+                    <li>
+                        <capacity>Moving</capacity>
+                        <offset>0.1</offset>
+                    </li>
+                </capMods>
+                <statOffsets>
+                    <WorkSpeedGlobal>.25</WorkSpeedGlobal>
+                    <ConstructionSpeed>.75</ConstructionSpeed>
+                </statOffsets>
+                <statFactors>
+                    <RestFallRateFactor>0.75</RestFallRateFactor>
+                </statFactors>
+                <hediffGivers>
+                    <li Class="HediffGiver_Random">
+                        <hediff>HeartAttack</hediff>
+                        <mtbDays>120</mtbDays>
+                        <partsToAffect>
+                            <li>Heart</li>
+                        </partsToAffect>
+                    </li>
+                </hediffGivers>
+            </li>
+        </stages>
+    </HediffDef>
+
+    <ThoughtDef>
+        <defName>MSS_CrazyPillGoodThought</defName>
+        <thoughtClass>Thought_Memory</thoughtClass>
+        <stackLimit>1</stackLimit>
+        <validWhileDespawned>true</validWhileDespawned>
+        <durationDays>2</durationDays>
+        <developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
+        <stages>
+            <li>
+                <label>i build base</label>
+                <description>i build base</description>
+                <baseMoodEffect>20</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+
+    <ThoughtDef>
+        <defName>MSS_CrazyPillBadThought</defName>
+        <thoughtClass>Thought_Memory</thoughtClass>
+        <stackLimit>1</stackLimit>
+        <validWhileDespawned>true</validWhileDespawned>
+        <durationDays>2</durationDays>
+        <developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
+        <stages>
+            <li>
+                <label>i did not build base</label>
+                <description>i did not build base</description>
+                <baseMoodEffect>-20</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+</Defs>

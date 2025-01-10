@@ -189,6 +189,10 @@
         <ReleaseFiles Update="..\..\Patches\MSS_Porganante.xml">
           <Link>MrSamuelStreamerFlavourPack\1.5\Patches\MSS_Porganante.xml</Link>
         </ReleaseFiles>
+
+        <ReleaseFiles Update="..\..\Defs\ThingDefs_Items\MSS_CrazyPills.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Defs\ThingDefs_Items\MSS_CrazyPills</Link>
+        </ReleaseFiles>
     </ItemGroup>
     <ItemGroup>
       <Folder Include="..\..\..\Common\Textures\Things\Item\Book\MSS_FP_FroggeTome\">
