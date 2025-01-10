@@ -7,6 +7,7 @@
                 <ticks>600</ticks>
                 <letterLabels>
                     <li>Pregnant!</li>
+                    <li>Pregante!</li>
                     <li>Gregnant!</li>
                     <li>Grognant!</li>
                     <li>Pregnat!</li>
@@ -24,6 +25,7 @@
                 </letterLabels>
                 <letterTexts>
                     <li>{0} is pregnant!</li>
+                    <li>{0} is pregante!</li>
                     <li>{0} is gregnant!</li>
                     <li>{0} is pregnat!</li>
                     <li>{0} is grognant!</li>
