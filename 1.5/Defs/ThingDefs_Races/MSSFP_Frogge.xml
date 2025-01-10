@@ -15,6 +15,15 @@
             <ArmorRating_Heat>0.40</ArmorRating_Heat>
         </statBases>
         <tools>
+            <li  IfModActive="oskarpotocki.vanillafactionsexpanded.core">
+                <capacities>
+                    <li>MSS_SwallowWhole</li>
+                </capacities>
+                <power>20</power>
+                <cooldownTime>1.85</cooldownTime>
+                <linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+                <chanceFactor>0.6</chanceFactor>
+            </li>
             <li>
                 <capacities>
                     <li>Bite</li>
@@ -103,32 +112,56 @@
                 <eggProgressUnfertilizedMax>0.5</eggProgressUnfertilizedMax>
                 <eggCountRange>4~12</eggCountRange>
             </li>
-            <!-- <li Class="CompProperties_Devourer" MayRequire="Ludeon.RimWorld.Anomaly"> -->
-            <!--     <messageDigested>A frogge swallowed {PAWN_nameDef} whole! Kill the frogge before it digests {PAWN_nameDef}.</messageDigested> -->
-            <!--     <messageEmerged>{PAWN_nameDef} emerged from the frogge.</messageEmerged> -->
-            <!--     <messageEmergedCorpse>{PAWN_nameDef} emerged from the frogge's corpse.</messageEmergedCorpse> -->
-            <!--     <messageDigestionCompleted>The frogge has regurgitated {PAWN_nameDef}.</messageDigestionCompleted> -->
-            <!--     <digestingInspector>Digesting {PAWN_nameDef}: {SECONDS} seconds left</digestingInspector> -->
-            <!--     <completeDigestionDamage>200</completeDigestionDamage> -->
-            <!--     <bodySizeDigestTimeCurve> -->
-            <!--         <points> -->
-            <!--             <li>(0.2, 10)</li> -->
-            <!--             <li>(1, 30)</li> -->
-            <!--             <li>(3.5, 60)</li> -->
-            <!--         </points> -->
-            <!--     </bodySizeDigestTimeCurve> -->
-            <!--     <timeDamageCurve> -->
-            <!--         <points> -->
-            <!--             <li>(0, 10)</li> -->
-            <!--             <li>(60, 40)</li> -->
-            <!--         </points> -->
-            <!--     </timeDamageCurve> -->
-            <!-- </li> -->
+            <li IfModActive="oskarpotocki.vanillafactionsexpanded.core" Class="AnimalBehaviours.CompProperties_Draftable">
+                <makeNonFleeingToo>true</makeNonFleeingToo>
+            </li>
+            <li IfModActive="oskarpotocki.vanillafactionsexpanded.core" Class="AnimalBehaviours.CompProperties_LastStand">
+                <finalCoolDownMultiplier>6</finalCoolDownMultiplier>
+            </li>
+            <li IfModActive="oskarpotocki.vanillafactionsexpanded.core" Class="AnimalBehaviours.CompProperties_SwallowWhole">
+                <sendLetterWhenEating>true</sendLetterWhenEating>
+                <letterLabel>Colonist being eaten!</letterLabel>
+                <letterText>{0} is being eaten by a frogge!</letterText>
+                <playSoundWhenKilled>true</playSoundWhenKilled>
+                <createFilthWhenKilled>true</createFilthWhenKilled>
+            </li>
         </comps>
         <tradeTags>
             <li>AnimalExotic</li>
         </tradeTags>
     </ThingDef>
+
+    <ManeuverDef IfModActive="oskarpotocki.vanillafactionsexpanded.core" >
+        <defName>MSS_SwallowWhole</defName>
+        <requiredCapacity>MSS_SwallowWhole</requiredCapacity>
+        <verb>
+            <verbClass>Verb_MeleeAttackDamage</verbClass>
+            <meleeDamageDef>MSS_SwallowWhole</meleeDamageDef>
+        </verb>
+        <logEntryDef>MeleeAttack</logEntryDef>
+        <combatLogRulesHit>Maneuver_Stab_MeleeHit</combatLogRulesHit>
+        <combatLogRulesDeflect>Maneuver_Stab_MeleeDeflect</combatLogRulesDeflect>
+        <combatLogRulesMiss>Maneuver_Stab_MeleeMiss</combatLogRulesMiss>
+        <combatLogRulesDodge>Maneuver_Stab_MeleeDodge</combatLogRulesDodge>
+    </ManeuverDef>
+
+    <DamageDef  IfModActive="oskarpotocki.vanillafactionsexpanded.core">
+        <defName>MSS_SwallowWhole</defName>
+        <label>swallow whole</label>
+        <workerClass>DamageWorker_Cut</workerClass>
+        <externalViolence>true</externalViolence>
+        <deathMessage>{0} has been bitten to death.</deathMessage>
+        <hediff>Stab</hediff>
+        <hediffSolid>Crack</hediffSolid>
+        <harmAllLayersUntilOutside>true</harmAllLayersUntilOutside>
+        <impactSoundType>Slice</impactSoundType>
+        <armorCategory>Sharp</armorCategory>
+    </DamageDef>
+
+    <ToolCapacityDef  IfModActive="oskarpotocki.vanillafactionsexpanded.core">
+        <defName>MSS_SwallowWhole</defName>
+        <label>swallow whole</label>
+    </ToolCapacityDef>
 
     <ThingDef ParentName="EggUnfertBase">
         <defName>MSSFP_EggFroggeUnfertilized</defName>

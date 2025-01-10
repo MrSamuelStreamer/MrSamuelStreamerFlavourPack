@@ -323,6 +323,12 @@
                 <shearIntervalDays>5</shearIntervalDays>
                 <woolAmount>25</woolAmount>
             </li>
+            <li IfModActive="oskarpotocki.vanillafactionsexpanded.core" Class="AnimalBehaviours.CompProperties_Draftable">
+                <makeNonFleeingToo>true</makeNonFleeingToo>
+            </li>
+            <li IfModActive="oskarpotocki.vanillafactionsexpanded.core" Class="AnimalBehaviours.CompProperties_LastStand">
+                <finalCoolDownMultiplier>6</finalCoolDownMultiplier>
+            </li>
         </comps>
     </ThingDef>
 

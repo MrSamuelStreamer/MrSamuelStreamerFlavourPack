@@ -2,17 +2,18 @@
 <Defs>
     <AbilityDef>
         <defName>MSS_FP_Ability_Shoot_Thing</defName>
-        <label>launch projectile</label>
-        <description>Launch a thing at a target.</description>
+        <label>spit</label>
+        <description>frogge spits a thing. no hawk tuah jokes please.</description>
         <ai_IsOffensive>true</ai_IsOffensive>
         <aiCanUse>true</aiCanUse>
-        <cooldownTicksRange>0~30</cooldownTicksRange>
+        <cooldownTicksRange>180~360</cooldownTicksRange>
+        <iconPath>Things/Item/Resource/Gold/Gold_a</iconPath>
         <verbProperties>
             <range>30</range>
             <minRange>0</minRange>
             <defaultProjectile>MSS_FP_ThingHoldingProjectile</defaultProjectile>
             <verbClass>MSSFP.Verb_AbilityShootThingHolder</verbClass>
-            <warmupTime>0.5</warmupTime>
+            <warmupTime>2.5</warmupTime>
             <soundCast>Ability_SpineLaunch</soundCast>
             <ai_IsWeapon>false</ai_IsWeapon>
         </verbProperties>
@@ -38,10 +39,11 @@
     <AbilityDef>
         <defName>MSS_FP_Ability_Zap</defName>
         <label>zap!</label>
-        <description>zap!</description>
+        <description>forggomancer goes zap!</description>
         <ai_IsOffensive>true</ai_IsOffensive>
+        <iconPath>Misc/Projectiles/MSS_Zap/MSS_ZapE</iconPath>
         <aiCanUse>true</aiCanUse>
-        <cooldownTicksRange>0~30</cooldownTicksRange>
+        <cooldownTicksRange>180~360</cooldownTicksRange>
         <ai_SearchAOEForTargets>true</ai_SearchAOEForTargets>
         <verbProperties>
             <commandIcon>Misc/Projectiles/MSS_Zap/MSS_ZapE</commandIcon>
@@ -51,7 +53,7 @@
             <noiseRadius>1.5</noiseRadius>
             <defaultProjectile>MSS_FP_Zap</defaultProjectile>
             <verbClass>Verb_AbilityShoot</verbClass>
-            <warmupTime>0.5</warmupTime>
+            <warmupTime>1.5</warmupTime>
             <soundCast>Psych icShockLanceCast</soundCast>
             <ai_IsWeapon>false</ai_IsWeapon>
         </verbProperties>
