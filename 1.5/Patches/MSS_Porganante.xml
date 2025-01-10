@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Patch>
+    <Operation Class="PatchOperationReplace">
+        <xpath>Defs/HediffDef[defName="PregnantHuman"]/comps/li[@Class="HediffCompProperties_MessageAfterTicks"]</xpath>
+        <value>
+            <li Class="MSSFP.HediffCompProperties_RandomMessageAfterTicks">
+                <ticks>600</ticks>
+                <letterLabels>
+                    <li>Pregnant!</li>
+                    <li>Gregnant!</li>
+                    <li>Grognant!</li>
+                    <li>Pregnat!</li>
+                    <li>Perganancy!</li>
+                    <li>Prignot!</li>
+                    <li>Grognet!</li>
+                    <li>Prongant!</li>
+                    <li>Pargent!</li>
+                    <li>Prengan!</li>
+                    <li>Bregnant!</li>
+                    <li>Pegrent!</li>
+                    <li>Prefnat!</li>
+                    <li>Froggenant!</li>
+                    <li>Pringled!</li>
+                </letterLabels>
+                <letterTexts>
+                    <li>{0} is pregnant!</li>
+                    <li>{0} is gregnant!</li>
+                    <li>{0} is pregnat!</li>
+                    <li>{0} is grognant!</li>
+                    <li>{0} is perganancy!</li>
+                    <li>{0} is prignot!</li>
+                    <li>{0} is Grognet!</li>
+                    <li>{0} is prongant!</li>
+                    <li>{0} is pargent!</li>
+                    <li>{0} is prengan!</li>
+                    <li>{0} is bregnant!</li>
+                    <li>{0} is pegrent!</li>
+                    <li>{0} is prefnat!</li>
+                    <li>{0} is froggenant!</li>
+                    <li>{0} is pringled!</li>
+                    <li>{0} is progi... pragn.. preden... {0} has babby in belly!</li>
+                    <li>{0} is up the duff!</li>
+                    <li>{0} has a bub in the oven!</li>
+                    <li>{0} got laid!</li>
+                    <li>{0} got laid!</li>
+                </letterTexts>
+                <letterType>HumanPregnancy</letterType>
+            </li>
+        </value>
+    </Operation>
+</Patch>

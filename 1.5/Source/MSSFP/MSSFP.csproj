@@ -185,6 +185,10 @@
         <ReleaseFiles Update="..\..\Defs\Abilities\MSS_FP_Frogge.xml">
           <Link>MrSamuelStreamerFlavourPack\1.5\Defs\Abilities\MSS_FP_Frogge.xml</Link>
         </ReleaseFiles>
+
+        <ReleaseFiles Update="..\..\Patches\MSS_Porganante.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Patches\MSS_Porganante.xml</Link>
+        </ReleaseFiles>
     </ItemGroup>
     <ItemGroup>
       <Folder Include="..\..\..\Common\Textures\Things\Item\Book\MSS_FP_FroggeTome\">
