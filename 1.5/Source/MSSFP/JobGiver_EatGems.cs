@@ -10,10 +10,13 @@ namespace MSSFP;
 public class JobGiver_EatGems : ThinkNode_JobGiver
 {
     public List<ThingDef> EdibleGems;
+    public List<ThingDef> gemEaters;
 
     protected override Job TryGiveJob(Pawn pawn)
     {
         if (MSSFPMod.settings.disableFroggeNom) return null;
+        if (gemEaters.NullOrEmpty() || !gemEaters.Contains(pawn.def)) return null;
+
         if (EdibleGems.EnumerableNullOrEmpty())
         {
             EdibleGems = [ThingDefOf.Gold, ThingDefOf.Silver];

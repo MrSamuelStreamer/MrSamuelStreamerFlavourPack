@@ -5,8 +5,8 @@
         <label>launch projectile</label>
         <description>Launch a thing at a target.</description>
         <ai_IsOffensive>true</ai_IsOffensive>
-        <cooldownTicksRange>30~120</cooldownTicksRange>
         <aiCanUse>true</aiCanUse>
+        <cooldownTicksRange>0~30</cooldownTicksRange>
         <verbProperties>
             <range>30</range>
             <minRange>0</minRange>
@@ -15,7 +15,6 @@
             <warmupTime>0.5</warmupTime>
             <soundCast>Ability_SpineLaunch</soundCast>
             <ai_IsWeapon>false</ai_IsWeapon>
-            <!-- <ticksBetweenBurstShots>15</ticksBetweenBurstShots> -->
         </verbProperties>
     </AbilityDef>
 
@@ -41,8 +40,8 @@
         <label>zap!</label>
         <description>zap!</description>
         <ai_IsOffensive>true</ai_IsOffensive>
-        <cooldownTicksRange>30~120</cooldownTicksRange>
         <aiCanUse>true</aiCanUse>
+        <cooldownTicksRange>0~30</cooldownTicksRange>
         <ai_SearchAOEForTargets>true</ai_SearchAOEForTargets>
         <verbProperties>
             <commandIcon>Misc/Projectiles/MSS_Zap/MSS_ZapE</commandIcon>
@@ -52,10 +51,9 @@
             <noiseRadius>1.5</noiseRadius>
             <defaultProjectile>MSS_FP_Zap</defaultProjectile>
             <verbClass>Verb_AbilityShoot</verbClass>
-            <!-- <warmupTime>0.5</warmupTime> -->
+            <warmupTime>0.5</warmupTime>
             <soundCast>Psych icShockLanceCast</soundCast>
             <ai_IsWeapon>false</ai_IsWeapon>
-            <ticksBetweenBurstShots>15</ticksBetweenBurstShots>
         </verbProperties>
     </AbilityDef>
 

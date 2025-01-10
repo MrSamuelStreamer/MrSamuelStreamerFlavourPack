@@ -8,6 +8,7 @@
         <graphicData>
             <texPath>Things/Item/MSS_FP_Mushris</texPath>
             <graphicClass>Graphic_StackCount</graphicClass>
+            <drawSize>0.8,0.8</drawSize>
         </graphicData>
         <statBases>
             <Nutrition>0.15</Nutrition>

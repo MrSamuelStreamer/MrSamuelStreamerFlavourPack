@@ -13,6 +13,7 @@
         <graphicData>
             <texPath>Things/Plant/MSS_FP_Mushris</texPath>
             <graphicClass>Graphic_Random</graphicClass>
+            <drawSize>0.8,0.8</drawSize>
         </graphicData>
         <selectable>true</selectable>
         <pathCost>14</pathCost>

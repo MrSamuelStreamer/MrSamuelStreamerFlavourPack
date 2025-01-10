@@ -164,6 +164,9 @@
                                     <tagToGive>Misc</tagToGive>
                                     <subNodes>
                                         <li Class="MSSFP.JobGiver_EatGems">
+                                            <gemEaters>
+                                                <li>MSSFP_Frogge</li>
+                                            </gemEaters>
                                             <EdibleGems>
                                                 <li>Gold</li>
                                                 <li>Silver</li>
@@ -200,12 +203,15 @@
                                     <subNodes>
                                         <li Class="ThinkNode_ConditionalShouldFollowMaster">
                                             <subNodes>
-                                                <li Class="JobGiver_AIDefendMaster">
+                                                <li Class="MSSFP.JobGiver_AIFroggeDefendMaster">
                                                     <attackMeleeThreatEvenIfNotHostile>false</attackMeleeThreatEvenIfNotHostile>
                                                     <targetAcquireRadius>35</targetAcquireRadius>
                                                     <targetKeepRadius>55</targetKeepRadius>
                                                     <chaseTarget>false</chaseTarget>
                                                     <ignoreNonCombatants>true</ignoreNonCombatants>
+                                                    <rangedOnlyPawns>
+                                                        <li>MSS_FP_Froggomancer</li>
+                                                    </rangedOnlyPawns>
                                                 </li>
                                                 <li Class="JobGiver_AIFollowMaster"/>
                                                 <li Class="JobGiver_WanderNearMaster"/>

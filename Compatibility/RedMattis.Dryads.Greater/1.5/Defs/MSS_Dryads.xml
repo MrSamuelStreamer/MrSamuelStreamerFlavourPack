@@ -28,6 +28,7 @@
         </statBases>
         <uiIconScale>1.25</uiIconScale>
         <race>
+            <thinkTreeMain>MSSFP_Frogge</thinkTreeMain>
             <baseBodySize>2.5</baseBodySize>
             <overrideShouldHaveAbilityTracker>true</overrideShouldHaveAbilityTracker>
             <useMeatFrom>Dryad_Basic</useMeatFrom>
@@ -187,6 +188,7 @@
             <li>VDE_Dryad</li>
         </tradeTags>
         <race>
+            <thinkTreeMain>MSSFP_Frogge</thinkTreeMain>
             <baseBodySize>3</baseBodySize>
             <herdAnimal>true</herdAnimal>
             <body>QuadrupedAnimalWithPawsAndTail</body>

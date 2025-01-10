@@ -8,6 +8,7 @@ namespace MSSFP;
 public static class MSSFPDefOf
 {
     public static readonly ThingDef MSSFP_Frogge;
+    public static readonly ThingDef MSS_FP_Froggomancer;
     public static readonly HediffDef MSS_FP_FroggeHaunt;
     public static readonly HediffDef MSS_FP_PawnDisplayer;
     public static readonly PreceptDef MSS_FP_IdeoRole_FroggeWarrior;
