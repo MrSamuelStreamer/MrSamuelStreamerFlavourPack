@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Patch>
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs/InteractionDef[defName="BuildRapport"]/logRulesInitiator/rulesStrings</xpath>
+        <value>
+            <li>subject(p-2)->rimrim</li>
+            <li>subject(p-4)->rimrim being late</li>
+            <li>subject->frogge</li>
+            <li>subject->almighty frogge</li>
+            <li>subject->Joris</li>
+        </value>
+    </Operation>
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs/InteractionDef[defName="RomanceAttempt"]/logRulesInitiator/rulesStrings</xpath>
+        <value>
+            <li>wootactic->asking where rimrim?</li>
+            <li>subject->moaning about rimrim being late</li>
+            <li>subject->drawing pictures of frogge</li>
+        </value>
+    </Operation>
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs/RulePackDef[defName="GlobalUtility"]/rulePack/rulesStrings</xpath>
+        <value>
+            <li>ConceptPositive->rimrim</li>
+            <li>ConceptPositive->frogge</li>
+        </value>
+    </Operation>
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs/RulePackDef[defName="TalkTopicsUtility"]/rulePack/rulesStrings</xpath>
+        <value>
+            <li>TalkTopicAny->rimrim</li>
+            <li>TalkTopicAny->frogge</li>
+        </value>
+    </Operation>
+</Patch>
