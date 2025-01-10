@@ -42,7 +42,6 @@
                     <li>{0} is up the duff!</li>
                     <li>{0} has a bun in the oven!</li>
                     <li>{0} got laid!</li>
-                    <li>{0} got laid!</li>
                 </letterTexts>
                 <letterType>HumanPregnancy</letterType>
             </li>
