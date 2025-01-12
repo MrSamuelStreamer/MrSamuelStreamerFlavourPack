@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Defs>
+    <AbilityDef ParentName="PsycastBase">
+        <defName>MSS_Mark</defName>
+        <label>mark</label>
+        <description>"Marks" a target.</description>
+        <level>1</level>
+        <iconPath>UI/Abilities/MSS_Mark</iconPath>
+        <hotKey>Misc12</hotKey>
+        <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+        <targetRequired>true</targetRequired>
+        <cooldownTicksRange>60000~240000</cooldownTicksRange>
+        <statBases>
+            <Ability_PsyfocusCost>0.2</Ability_PsyfocusCost>
+            <Ability_EntropyGain>15</Ability_EntropyGain>
+        </statBases>
+        <verbProperties>
+            <warmupTime>3</warmupTime>
+            <range>20</range>
+            <targetParams>
+                <canTargetSelf>false</canTargetSelf>
+                <canTargetLocations>true</canTargetLocations>
+                <canTargetPawns>false</canTargetPawns>
+                <canTargetAnimals>false</canTargetAnimals>
+                <canTargetBuildings>false</canTargetBuildings>
+                <canTargetMechs>false</canTargetMechs>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="MSSFP.Psycasts.CompProperties_AbilityMark">
+            </li>
+        </comps>
+    </AbilityDef>
+
+    <ThoughtDef>
+        <defName>MSSFP_Marked</defName>
+        <thoughtClass>Thought_Memory</thoughtClass>
+        <validWhileDespawned>true</validWhileDespawned>
+        <stackLimit>2</stackLimit>
+        <durationDays>4</durationDays>
+        <developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
+        <stages>
+            <li>
+                <label>I was summoned!</label>
+                <description>The sheer audacity! I was minding my own business, and bam, now I'm here.</description>
+                <baseMoodEffect>-80</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+
+</Defs>

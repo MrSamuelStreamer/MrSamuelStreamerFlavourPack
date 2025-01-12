@@ -21,5 +21,7 @@ public static class MSSFPDefOf
 
     public static readonly HediffDef Burn;
 
+    public static readonly ThoughtDef MSSFP_Marked;
+
     static MSSFPDefOf() => DefOfHelper.EnsureInitializedInCtor(typeof(MSSFPDefOf));
 }
