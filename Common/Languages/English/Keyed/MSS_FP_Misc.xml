@@ -12,4 +12,7 @@
     <MSS_FP_CompSpawnThings>Next spawn in</MSS_FP_CompSpawnThings>
 
     <MSS_FP_RitualOutcomeExtraDesc_SkylanternRaid>Your skylanterns landed in a {0} colony, setting widespread fires and causing immense damage. They're here for revenge.</MSS_FP_RitualOutcomeExtraDesc_SkylanternRaid>
+
+    <MSS_MRStreamer>Rimworld by Mr Samuel Streamer</MSS_MRStreamer>
+    <MSS_FP_Settings_DrawByMrStreamer>Show "Rimworld by Mr Samuel Streamer" label</MSS_FP_Settings_DrawByMrStreamer>
 </LanguageData>
