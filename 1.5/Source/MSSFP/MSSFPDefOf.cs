@@ -23,5 +23,7 @@ public static class MSSFPDefOf
 
     public static readonly ThoughtDef MSSFP_Marked;
 
+    public static readonly IncidentDef MSS_FroggomancerRescue;
+
     static MSSFPDefOf() => DefOfHelper.EnsureInitializedInCtor(typeof(MSSFPDefOf));
 }

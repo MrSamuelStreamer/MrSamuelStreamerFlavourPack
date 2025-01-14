@@ -197,6 +197,14 @@
         <ReleaseFiles Update="..\..\Defs\ThingDefs_Items\MSS_Misc.xml">
           <Link>MrSamuelStreamerFlavourPack\1.5\Defs\ThingDefs_Items\MSS_Misc.xml</Link>
         </ReleaseFiles>
+
+        <ReleaseFiles Update="..\..\Defs\Incidents\MSSFP_Frogge.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Defs\Incidents\MSSFP_Frogge.xml</Link>
+        </ReleaseFiles>
+
+        <CompatibilityFiles Update="..\..\..\Compatibility\RedMattis.Dryads.Greater\1.5\Defs\MSS_Ability.xml">
+          <Link>MrSamuelStreamerFlavourPack\Compatibility\RedMattis.Dryads.Greater\1.5\Defs\MSS_Ability.xml</Link>
+        </CompatibilityFiles>
     </ItemGroup>
     <ItemGroup>
       <Folder Include="..\..\..\Common\Textures\Things\Item\Book\MSS_FP_FroggeTome\">

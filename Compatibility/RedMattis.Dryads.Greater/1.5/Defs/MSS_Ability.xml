@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Defs>
+
+    <JobDef ParentName="CastAbilityOnThing">
+        <defName>MSSFP_CastAbilityGoToThingThenDissapear</defName>
+        <driverClass>MSSFP.JobDriver_CastAbilityGoToThenDissapear</driverClass>
+        <neverShowWeapon>true</neverShowWeapon>
+        <playerInterruptible>false</playerInterruptible>
+    </JobDef>
+
+  <AbilityDef>
+    <defName>MSSFP_FroggoHeal</defName>
+    <label>froggomancer healing</label>
+      <showWhenDrafted>false</showWhenDrafted>
+      <showOnCharacterCard>false</showOnCharacterCard>
+    <description>Fully heals an ally.</description>
+    <iconPath>UI/Abilities/MechResurrection</iconPath>
+    <cooldownTicksRange>120</cooldownTicksRange>
+    <warmupStartSound>MechResurrect_Warmup</warmupStartSound>
+    <warmupEffecter>ApocrionAoeWarmup</warmupEffecter>
+    <jobDef>MSSFP_CastAbilityGoToThingThenDissapear</jobDef>
+    <useAverageTargetPositionForWarmupEffecter>true</useAverageTargetPositionForWarmupEffecter>
+    <hostile>false</hostile>
+      <aiCanUse>false</aiCanUse>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <drawAimPie>true</drawAimPie>
+      <range>9.9</range>
+      <warmupTime>4</warmupTime>
+      <soundCast>MechResurrect_Cast</soundCast>
+      <requireLineOfSight>false</requireLineOfSight>
+      <targetParams>
+        <canTargetPawns>true</canTargetPawns>
+        <canTargetBuildings>false</canTargetBuildings>
+        <canTargetCorpses>false</canTargetCorpses>
+        <canTargetAnimals>false</canTargetAnimals>
+        <canTargetHumans>false</canTargetHumans>
+        <canTargetMechs>false</canTargetMechs>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="MSSFP.Comps.CompProperties_FroggoHeal">
+      </li>
+    </comps>
+  </AbilityDef>
+</Defs>
