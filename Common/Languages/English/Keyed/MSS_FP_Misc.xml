@@ -13,6 +13,6 @@
 
     <MSS_FP_RitualOutcomeExtraDesc_SkylanternRaid>Your skylanterns landed in a {0} colony, setting widespread fires and causing immense damage. They're here for revenge.</MSS_FP_RitualOutcomeExtraDesc_SkylanternRaid>
 
-    <MSS_MRStreamer>Rimworld by Mr Samuel Streamer</MSS_MRStreamer>
-    <MSS_FP_Settings_DrawByMrStreamer>Show "Rimworld by Mr Samuel Streamer" label</MSS_FP_Settings_DrawByMrStreamer>
+    <MSS_MRStreamer>Generations II by Mr Samuel Streamer</MSS_MRStreamer>
+    <MSS_FP_Settings_DrawByMrStreamer>Show "By Mr Samuel Streamer" label (only used to disuade video theft and other digital larceny, leave disabled)</MSS_FP_Settings_DrawByMrStreamer>
 </LanguageData>
