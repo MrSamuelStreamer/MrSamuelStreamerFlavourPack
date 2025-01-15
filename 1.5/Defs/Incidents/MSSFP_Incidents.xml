@@ -14,4 +14,46 @@
         <tale>Raid</tale>
         <ignoreRecentSelectionWeighting>true</ignoreRecentSelectionWeighting>
     </IncidentDef>
+
+  <TaleDef>
+    <defName>MSSFP_Lovers_Retreat_Tale</defName>
+    <label>lovers retreat</label>
+    <taleClass>Tale_DoublePawn</taleClass>
+    <type>Volatile</type>
+    <baseInterest>5</baseInterest>
+      <firstPawnSymbol>LOVERA</firstPawnSymbol>
+      <secondPawnSymbol>LOVERB</secondPawnSymbol>
+      <usableForArt>true</usableForArt>
+    <rulePack>
+      <rulesStrings>
+        <li>tale_noun->[LOVERA_nameDef] whisked [LOVERB_nameDef] away for a romantic retreat</li>
+        <li>tale_noun->[LOVERA_nameDef] lead [LOVERB_nameDef] out of the colony for some personal time</li>
+        <li>tale_noun->[LOVERB_nameDef] caught [LOVERB_nameDef]'s eye with a cheeky grin before quickly sneaking off to a secluded location.</li>
+      </rulesStrings>
+    </rulePack>
+  </TaleDef>
+
+    <JobDef>
+        <defName>MSSFP_GoToThen</defName>
+        <driverClass>MSSFP.JobDriver_GoToThen</driverClass>
+        <reportString>moving.</reportString>
+        <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+        <carryThingAfterJob>true</carryThingAfterJob>
+        <dropThingBeforeJob>false</dropThingBeforeJob>
+    </JobDef>
+
+    <IncidentDef>
+        <defName>MSSFP_Lovers_Retreat</defName>
+        <label>lovers retreat</label>
+        <category>Special</category>
+        <minRefireDays>7</minRefireDays>
+        <baseChance>2</baseChance>
+        <targetTags>
+            <li>Map_PlayerHome</li>
+        </targetTags>
+        <workerClass>MSSFP.Incidents.IncidentWorker_LoversRetreat</workerClass>
+        <requireColonistsPresent>true</requireColonistsPresent>
+        <pointsScaleable>true</pointsScaleable>
+        <ignoreRecentSelectionWeighting>true</ignoreRecentSelectionWeighting>
+    </IncidentDef>
 </Defs>

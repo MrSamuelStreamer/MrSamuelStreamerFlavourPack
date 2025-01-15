@@ -15,4 +15,7 @@
 
     <MSS_MRStreamer>Generations II by Mr Samuel Streamer</MSS_MRStreamer>
     <MSS_FP_Settings_DrawByMrStreamer>Show "By Mr Samuel Streamer" label (only used to disuade video theft and other digital larceny, leave disabled)</MSS_FP_Settings_DrawByMrStreamer>
+
+    <MSSFP_LoversRetreatLabel>Lovers' Retreat</MSSFP_LoversRetreatLabel>
+    <MSSFP_LoversRetreadText>{0} and {1} have left the colony to spend some time alone. They'll be back in about {2} hours.</MSSFP_LoversRetreadText>
 </LanguageData>

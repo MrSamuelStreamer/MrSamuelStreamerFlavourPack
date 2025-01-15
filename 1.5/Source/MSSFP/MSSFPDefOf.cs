@@ -25,5 +25,9 @@ public static class MSSFPDefOf
 
     public static readonly IncidentDef MSS_FroggomancerRescue;
 
+    public static readonly TaleDef MSSFP_Lovers_Retreat_Tale;
+
+    public static readonly JobDef MSSFP_GoToThen;
+
     static MSSFPDefOf() => DefOfHelper.EnsureInitializedInCtor(typeof(MSSFPDefOf));
 }
