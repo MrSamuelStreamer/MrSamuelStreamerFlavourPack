@@ -60,12 +60,12 @@ public class LoversRetreatMapComponent(Map map) : MapComponent(map), IThingHolde
                     GenSpawn.Spawn(pair.secondLover, loc, map);
                     innerContainer.Remove(pair.firstLover);
                     innerContainer.Remove(pair.secondLover);
-                    if (Rand.Chance(1f))
+                    if (Rand.Chance(0.5f))
                     {
                         Hediff_Pregnant preg = pair.firstLover.health.AddHediff(HediffDefOf.PregnantHuman) as Hediff_Pregnant;
                         preg!.SetParents(pair.firstLover, pair.secondLover, PregnancyUtility.GetInheritedGeneSet(pair.secondLover, pair.firstLover));
                     }
-                    if (Rand.Chance(1f))
+                    if (Rand.Chance(0.5f))
                     {
                         Hediff_Pregnant preg = pair.secondLover.health.AddHediff(HediffDefOf.PregnantHuman) as Hediff_Pregnant;
                         preg!.SetParents(pair.secondLover, pair.firstLover, PregnancyUtility.GetInheritedGeneSet(pair.firstLover, pair.secondLover));
