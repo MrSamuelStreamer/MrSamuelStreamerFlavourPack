@@ -47,7 +47,7 @@
         <label>lovers retreat</label>
         <category>Special</category>
         <minRefireDays>15</minRefireDays>
-        <baseChance>2</baseChance>
+        <baseChance>5</baseChance>
         <targetTags>
             <li>Map_PlayerHome</li>
         </targetTags>
