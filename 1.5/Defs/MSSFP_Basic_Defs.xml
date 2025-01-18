@@ -2,7 +2,7 @@
 <Defs>
     <ThingDef ParentName="ApparelMakeableBase">
         <defName>MSS_FP_Apparel_Jorts</defName>
-        <label>jortss</label>
+        <label>jorts</label>
         <description>A simple set of jorts.</description>
         <recipeMaker>
             <researchPrerequisite>ComplexClothing</researchPrerequisite>
