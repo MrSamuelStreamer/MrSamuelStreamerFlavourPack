@@ -13,8 +13,29 @@ public class IncidentWorker_LoversRetreat: IncidentWorker
     public IntRange TimeAway = new IntRange(GenDate.TicksPerHour * 6, GenDate.TicksPerDay);
     public virtual bool ColonyHasRomanticCoupleAvailable(IncidentParms parms)
     {
-        return parms.target is Map map && Enumerable.Any(map.mapPawns.FreeAdultColonistsSpawned.Where(p=>!p.health.hediffSet.HasHediff(HediffDefOf.PregnantHuman)), pawn => pawn.GetSpouses(false).Where(p=>!p.health.hediffSet.HasHediff(HediffDefOf.PregnantHuman)).Any(spouse => spouse.Map == map));
+        if (parms.target is not Map map)
+        {
+            return false;
+        }
+
+        foreach (Pawn pawn in map.mapPawns.FreeAdultColonistsSpawned)
+        {
+            if (!pawn.health.hediffSet.HasHediff(HediffDefOf.PregnantHuman))
+            {
+                foreach (Pawn spouse in pawn.GetSpouses(false))
+                {
+                    if (!spouse.health.hediffSet.HasHediff(HediffDefOf.PregnantHuman) && spouse.Map == map)
+                    {
+                        return true;
+                    }
+                }
+            }
+        }
+
+        return false;
     }
+
+    public override float ChanceFactorNow(IIncidentTarget target) => 1f;
 
     protected override bool CanFireNowSub(IncidentParms parms)
     {

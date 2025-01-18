@@ -24,6 +24,7 @@ public static class MSSFPDefOf
     public static readonly ThoughtDef MSSFP_Marked;
 
     public static readonly IncidentDef MSS_FroggomancerRescue;
+    public static readonly IncidentDef MSSFP_Lovers_Retreat;
 
     public static readonly TaleDef MSSFP_Lovers_Retreat_Tale;
 

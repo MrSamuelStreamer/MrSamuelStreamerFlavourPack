@@ -1,4 +1,5 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
 <Defs>
     <IncidentDef>
         <defName>MSSFP_RaidEnemy_Skylantern</defName>
@@ -15,23 +16,23 @@
         <ignoreRecentSelectionWeighting>true</ignoreRecentSelectionWeighting>
     </IncidentDef>
 
-  <TaleDef>
-    <defName>MSSFP_Lovers_Retreat_Tale</defName>
-    <label>lovers retreat</label>
-    <taleClass>Tale_DoublePawn</taleClass>
-    <type>Volatile</type>
-    <baseInterest>5</baseInterest>
-      <firstPawnSymbol>LOVERA</firstPawnSymbol>
-      <secondPawnSymbol>LOVERB</secondPawnSymbol>
-      <usableForArt>true</usableForArt>
-    <rulePack>
-      <rulesStrings>
-        <li>tale_noun->[LOVERA_nameDef] whisked [LOVERB_nameDef] away for a romantic retreat</li>
-        <li>tale_noun->[LOVERA_nameDef] lead [LOVERB_nameDef] out of the colony for some personal time</li>
-        <li>tale_noun->[LOVERB_nameDef] caught [LOVERB_nameDef]'s eye with a cheeky grin before quickly sneaking off to a secluded location.</li>
-      </rulesStrings>
-    </rulePack>
-  </TaleDef>
+    <TaleDef>
+        <defName>MSSFP_Lovers_Retreat_Tale</defName>
+        <label>lovers retreat</label>
+        <taleClass>Tale_DoublePawn</taleClass>
+        <type>Volatile</type>
+        <baseInterest>5</baseInterest>
+        <firstPawnSymbol>LOVERA</firstPawnSymbol>
+        <secondPawnSymbol>LOVERB</secondPawnSymbol>
+        <usableForArt>true</usableForArt>
+        <rulePack>
+            <rulesStrings>
+                <li>tale_noun->[LOVERA_nameDef] whisked [LOVERB_nameDef] away for a romantic retreat</li>
+                <li>tale_noun->[LOVERA_nameDef] lead [LOVERB_nameDef] out of the colony for some personal time</li>
+                <li>tale_noun->[LOVERB_nameDef] caught [LOVERB_nameDef]'s eye with a cheeky grin before quickly sneaking off to a secluded location.</li>
+            </rulesStrings>
+        </rulePack>
+    </TaleDef>
 
     <JobDef>
         <defName>MSSFP_GoToThen</defName>
