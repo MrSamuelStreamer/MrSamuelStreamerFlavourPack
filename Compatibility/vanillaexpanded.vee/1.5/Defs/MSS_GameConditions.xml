@@ -19,6 +19,14 @@
             <li>Drought</li>
             <li>PsychicRain</li>
         </exclusiveConditions>
+        <modExtensions>
+            <li Class="MSSFP.VEE.EventPropsDefModExtension">
+                <FalloutCheckTicks>250</FalloutCheckTicks>
+                <GenesToAdd>1~10</GenesToAdd>
+                <ChanceForNewGenesEachCheck>0.1</ChanceForNewGenesEachCheck>
+                <ChanceForRemoveGeneEachCheck>0.025</ChanceForRemoveGeneEachCheck>
+            </li>
+        </modExtensions>
     </GameConditionDef>
 
     <IncidentDef>

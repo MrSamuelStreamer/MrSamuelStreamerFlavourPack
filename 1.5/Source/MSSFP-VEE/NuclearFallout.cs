@@ -8,8 +8,6 @@ namespace MSSFP.VEE;
 
 public class NuclearFallout: GameCondition
 {
-    public IntRange GeneCount = new IntRange(1, 10);
-
     public SkyColorSet FalloutRainColors = new(
         new ColorInt(20, 91, 17).ToColor,
         new ColorInt(7, 54, 5).ToColor,
@@ -18,6 +16,8 @@ public class NuclearFallout: GameCondition
     public readonly List<SkyOverlay> overlays = [new WeatherOverlay_Rain()];
 
     public override bool AllowEnjoyableOutsideNow(Map map) => false;
+
+    public EventPropsDefModExtension Props => def.GetModExtension<EventPropsDefModExtension>();
 
     public override WeatherDef ForcedWeather()
     {
@@ -46,7 +46,7 @@ public class NuclearFallout: GameCondition
     {
         foreach (Map affectedMap in AffectedMaps)
         {
-            if (Find.TickManager.TicksGame % 250 == 0)
+            if (Find.TickManager.TicksGame % Props.FalloutCheckTicks == 0)
                 DoFallout(affectedMap);
             foreach (SkyOverlay t in overlays)
                 t.TickOverlay(affectedMap);
@@ -60,23 +60,22 @@ public class NuclearFallout: GameCondition
         {
             if (!thing.Position.Roofed(map) && thing.def.race.IsFlesh && thing.genes != null)
             {
-                float rand = Rand.Value;
-                switch (rand)
+                if (Rand.Chance(Props.ChanceForNewGenesEachCheck))
                 {
-                    case > 0.05f and < 0.15f:
-                        // random genes
-                        bool addAsXeno = Rand.Chance(0.95f);
-                        foreach (GeneDef geneDef in RandomGeneSet(thing))
-                        {
-                            thing.genes.AddGene(geneDef,addAsXeno);
-                        }
-                        break;
-                    case > 0.025f and <= 0.05f:
-                        thing.genes.RemoveGene(thing.genes.Xenogenes.RandomElement());
-                        break;
-                    case <= 0.025f:
-                        //switch xenotype?
-                        break;
+                    // random genes
+                    bool addAsXeno = Rand.Chance(0.95f);
+                    foreach (GeneDef geneDef in RandomGeneSet(thing))
+                    {
+                        thing.genes.AddGene(geneDef,addAsXeno);
+                    }
+                }
+
+                if (Rand.Chance(Props.ChanceForRemoveGeneEachCheck))
+                {
+                    foreach (Gene gene in thing.genes.Xenogenes.Take(Props.GenesToAdd.RandomInRange))
+                    {
+                        thing.genes.RemoveGene(gene);
+                    }
                 }
             }
         }
@@ -91,7 +90,7 @@ public class NuclearFallout: GameCondition
 
             IEnumerable<GeneDef> validGenePool = DefDatabase<GeneDef>.AllDefs.Except(pawnGenes);
 
-            List<GeneDef> selected = validGenePool.Take(GeneCount.RandomInRange).ToList();
+            List<GeneDef> selected = validGenePool.Take(Props.GenesToAdd.RandomInRange).ToList();
 
             if(selected.Count <= 0) continue;
 
