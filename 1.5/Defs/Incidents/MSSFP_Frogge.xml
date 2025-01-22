@@ -5,7 +5,7 @@
         <label>froggomancer rescue</label>
         <category>Misc</category>
         <minRefireDays>15</minRefireDays>
-        <baseChance>0</baseChance>
+        <baseChance>3</baseChance>
         <targetTags>
             <li>Map_PlayerHome</li>
             <li>Map_TempIncident</li>
