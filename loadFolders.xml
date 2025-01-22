@@ -6,5 +6,6 @@
         <li IfModActive="redmattis.dryads.greater">Compatibility/RedMattis.Dryads.Greater/1.5</li>
         <li IfModActive="vanillaexpanded.achievements">Compatibility/vanillaexpanded.achievements/1.5</li>
         <li IfModActive="metalocif.coolerpsycasts">Compatibility/metalocif.coolerpsycasts/1.5</li>
+        <li IfModActive="vanillaexpanded.vee">Compatibility/vanillaexpanded.vee/1.5</li>
 	</v1.5>
 </loadFolders>

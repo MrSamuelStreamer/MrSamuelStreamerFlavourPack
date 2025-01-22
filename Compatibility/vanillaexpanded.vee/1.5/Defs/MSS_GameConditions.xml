@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <GameConditionDef>
+        <defName>MSS_NuclearFallout</defName>
+        <conditionClass>MSSFP.VEE.NuclearFallout</conditionClass>
+        <label>Nuclear Fallout</label>
+        <description>A distant faction taking their first steps into nuclear power made some very insignificantly small, catastrophic miscalculations.
+
+            The fallout from the rapid unplanned disassembly of their experimental reactor is heading your way.
+
+            It will last anywhere between a season to several years.</description>
+        <endMessage>The nuclear fallout is ending</endMessage>
+        <canBePermanent>true</canBePermanent>
+        <exclusiveConditions>
+            <li>GlobalWarming</li>
+            <li>IceAge</li>
+            <li>LongNight</li>
+            <li>PsychicBloom</li>
+            <li>Drought</li>
+            <li>PsychicRain</li>
+        </exclusiveConditions>
+    </GameConditionDef>
+
+    <IncidentDef>
+        <defName>MSS_NuclearFallout</defName>
+        <label>Nuclear Fallout</label>
+        <category>Misc</category>
+        <targetTags>
+            <li>World</li>
+        </targetTags>
+        <workerClass>VEE.IncidentWorker_MakeGameConditionPurple</workerClass>
+        <gameCondition>MSS_NuclearFallout</gameCondition>
+        <letterLabel>Nuclear Fallout</letterLabel>
+        <letterText>A distant faction taking their first steps into nuclear power made some very insignificantly small, catastrophic miscalculations.
+
+The fallout from the rapid unplanned disassembly of their experimental reactor is heading your way.
+
+It will last anywhere between a season to several years.</letterText>
+        <letterDef>PurpleEvent</letterDef>
+        <baseChance>0.4</baseChance>
+        <earliestDay>180</earliestDay>
+        <minRefireDays>40</minRefireDays>
+        <durationDays>
+            <min>15</min>
+            <max>120</max>
+        </durationDays>
+    </IncidentDef>
+</Defs>

@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MSSFP-VAE", "MSSFP-VEA\MSSF
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MSSFP-Dryads", "MSSFP-Dryads\MSSFP-Dryads.csproj", "{DAEA6E80-661A-4641-8353-DB31000BFA90}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MSSFP-VEE", "MSSFP-VEE\MSSFP-VEE.csproj", "{dde82a6a-7fac-4122-9750-90be5c58b14e}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{daea6e80-661a-4641-8353-db31000bfa90}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{daea6e80-661a-4641-8353-db31000bfa90}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{daea6e80-661a-4641-8353-db31000bfa90}.Release|Any CPU.Build.0 = Release|Any CPU
+		{dde82a6a-7fac-4122-9750-90be5c58b14e}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{dde82a6a-7fac-4122-9750-90be5c58b14e}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{dde82a6a-7fac-4122-9750-90be5c58b14e}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{dde82a6a-7fac-4122-9750-90be5c58b14e}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
