@@ -4,7 +4,7 @@
         <defName>MSS_PsychicRain</defName>
         <label>Psychic Rain Genes</label>
         <conditionActive>PsychicRain</conditionActive>
-        <type>Exposure</type>
+        <type>Worker</type>
         <chanceToApply>0.05</chanceToApply>
         <reasonString>Psychic rain exposure</reasonString>
         <mutatorWorker>MSSFP.ExposedWhileGameConditionActiveGeneMutatorWorker</mutatorWorker>
@@ -21,7 +21,7 @@
         <defName>MSS_NuclearFallout</defName>
         <label>Nuclear Fallout Genes</label>
         <conditionActive>MSS_NuclearFallout</conditionActive>
-        <type>Exposure</type>
+        <type>Worker</type>
         <chanceToApply>0.15</chanceToApply>
         <reasonString>Nuclear Fallout exposure</reasonString>
         <mutatorWorker>MSSFP.ExposedWhileGameConditionActiveGeneMutatorWorker</mutatorWorker>

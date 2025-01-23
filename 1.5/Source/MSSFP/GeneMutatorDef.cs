@@ -11,7 +11,7 @@ public class GeneMutatorDef : Def
     public enum MutatorType
     {
         Birth,
-        Exposure
+        Worker
     }
 
     public class GeneDefWeightClass : IExposable
@@ -80,9 +80,11 @@ public class GeneMutatorDef : Def
             yield return configError;
         if (conditionActive is null)
             yield return "conditionActive must not be null";
-        if (type == MutatorType.Exposure && mutatorWorker == null)
+        if (pinataMode && type != MutatorType.Worker)
+            yield return "can't enable pinataMode when not a Worker type";
+        if (type == MutatorType.Worker && mutatorWorker == null)
             yield return "mutatorWorker must be set if type is Exposure";
-        if (type == MutatorType.Exposure && mutatorWorker != null && !typeof(GeneMutatorWorker).IsAssignableFrom(mutatorWorker))
+        if (type == MutatorType.Worker && mutatorWorker != null && !typeof(GeneMutatorWorker).IsAssignableFrom(mutatorWorker))
             yield return "mutatorWorker must be GeneMutatorWorker or a subclass of it";
     }
 }
