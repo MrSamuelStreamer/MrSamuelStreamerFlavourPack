@@ -17,8 +17,6 @@ public class NuclearFallout: GameCondition
 
     public override bool AllowEnjoyableOutsideNow(Map map) => false;
 
-    public EventPropsDefModExtension Props => def.GetModExtension<EventPropsDefModExtension>();
-
     public override WeatherDef ForcedWeather()
     {
         Map currentMap = Find.CurrentMap;
@@ -46,87 +44,9 @@ public class NuclearFallout: GameCondition
     {
         foreach (Map affectedMap in AffectedMaps)
         {
-            if (Find.TickManager.TicksGame % Props.FalloutCheckTicks == 0)
-                DoFallout(affectedMap);
             foreach (SkyOverlay t in overlays)
                 t.TickOverlay(affectedMap);
         }
-    }
-
-    public virtual void DoFallout(Map map)
-    {
-        IReadOnlyList<Pawn> allPawnsSpawned = map.mapPawns.AllPawnsSpawned;
-        foreach (Pawn thing in allPawnsSpawned)
-        {
-            if (!thing.Position.Roofed(map) && thing.def.race.IsFlesh && thing.genes != null)
-            {
-                if (Rand.Chance(Props.ChanceForNewGenesEachCheck))
-                {
-                    // random genes
-                    bool addAsXeno = Rand.Chance(0.95f);
-                    foreach (GeneDef geneDef in RandomGeneSet(thing))
-                    {
-                        thing.genes.AddGene(geneDef,addAsXeno);
-                    }
-                }
-
-                if (Rand.Chance(Props.ChanceForRemoveGeneEachCheck))
-                {
-                    foreach (Gene gene in thing.genes.Xenogenes.Take(Props.GenesToAdd.RandomInRange))
-                    {
-                        thing.genes.RemoveGene(gene);
-                    }
-                }
-            }
-        }
-    }
-
-    public virtual List<GeneDef> RandomGeneSet(Pawn pawn)
-    {
-        int tries = 10;
-        while (tries-- > 0)
-        {
-            List<GeneDef> pawnGenes = pawn.genes.Endogenes.Select(g => g.def).Concat(pawn.genes.Xenogenes.Select(g => g.def)).ToList();
-
-            IEnumerable<GeneDef> validGenePool = DefDatabase<GeneDef>.AllDefs.Except(pawnGenes);
-
-            List<GeneDef> selected = validGenePool.Take(Props.GenesToAdd.RandomInRange).ToList();
-
-            if(selected.Count <= 0) continue;
-
-            List<GeneDef> prereqs = selected.Where(g => g.prerequisite != null).Select(g => g.prerequisite).ToList();
-
-            while (prereqs.Count > 0)
-            {
-                selected = selected.Concat(prereqs).ToList();
-                prereqs = selected.Where(g => g.prerequisite != null).Select(g => g.prerequisite).Except(prereqs).ToList();
-            }
-
-            List<GeneDef> conflicts = new List<GeneDef>();
-
-            foreach (GeneDef gene in selected)
-            {
-                if (!conflicts.Contains(gene))
-                {
-                    foreach (GeneDef otherGene in pawnGenes.Concat(conflicts).Except(gene).Except(conflicts))
-                    {
-                        if (gene.ConflictsWith(otherGene))
-                        {
-                            conflicts.Add(otherGene);
-                        }
-                    }
-                }
-            }
-
-            selected = selected.Except(conflicts).ToList();
-            if(selected.Count <= 0) continue;
-
-            return selected;
-        }
-
-        ModLog.Warn("Tried 10 times to generate a list of random genes and failed");
-
-        return [];
     }
 
     public override void GameConditionDraw(Map map)

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Defs>
+    <MSSFP.GeneMutatorDef>
+        <defName>MSS_PsychicRain</defName>
+        <label>Psychic Rain Genes</label>
+        <conditionActive>PsychicRain</conditionActive>
+        <type>Exposure</type>
+        <chanceToApply>0.05</chanceToApply>
+        <reasonString>Psychic rain exposure</reasonString>
+        <mutatorWorker>MSSFP.ExposedWhileGameConditionActiveGeneMutatorWorker</mutatorWorker>
+        <genes>
+            <PsychicBonding>0.05</PsychicBonding>
+            <PsychicAbility_Deaf>0.05</PsychicAbility_Deaf>
+            <PsychicAbility_Dull>0.5</PsychicAbility_Dull>
+            <PsychicAbility_Enhanced>0.5</PsychicAbility_Enhanced>
+            <PsychicAbility_Extreme>0.2</PsychicAbility_Extreme>
+        </genes>
+    </MSSFP.GeneMutatorDef>
+
+    <MSSFP.GeneMutatorDef>
+        <defName>MSS_NuclearFallout</defName>
+        <label>Nuclear Fallout Genes</label>
+        <conditionActive>MSS_NuclearFallout</conditionActive>
+        <type>Exposure</type>
+        <chanceToApply>0.15</chanceToApply>
+        <reasonString>Nuclear Fallout exposure</reasonString>
+        <mutatorWorker>MSSFP.ExposedWhileGameConditionActiveGeneMutatorWorker</mutatorWorker>
+        <genes /> <!-- any gene -->
+        <pinataMode>true</pinataMode>
+    </MSSFP.GeneMutatorDef>
+</Defs>

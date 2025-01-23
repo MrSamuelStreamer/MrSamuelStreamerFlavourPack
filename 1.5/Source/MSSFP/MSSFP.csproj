@@ -205,6 +205,14 @@
         <CompatibilityFiles Update="..\..\..\Compatibility\RedMattis.Dryads.Greater\1.5\Defs\MSS_Ability.xml">
           <Link>MrSamuelStreamerFlavourPack\Compatibility\RedMattis.Dryads.Greater\1.5\Defs\MSS_Ability.xml</Link>
         </CompatibilityFiles>
+
+        <ReleaseFiles Update="..\..\Defs\MSS_BirthGeneDef.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Defs\MSS_BirthGeneDef.xml</Link>
+        </ReleaseFiles>
+
+        <ReleaseFiles Include="..\..\..\Compatibility\vanillaexpanded.vee\1.5\Defs\MSS_GeneMutatorDef.xml">
+          <Link>MrSamuelStreamerFlavourPack\Compatibility\vanillaexpanded.vee\1.5\Defs\MSS_GeneMutatorDef.xml</Link>
+        </ReleaseFiles>
     </ItemGroup>
     <ItemGroup>
       <Folder Include="..\..\..\Common\Textures\Things\Item\Book\MSS_FP_FroggeTome\">

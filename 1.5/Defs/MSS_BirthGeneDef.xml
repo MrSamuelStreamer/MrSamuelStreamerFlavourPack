@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Defs>
+    <MSSFP.GeneMutatorDef>
+        <defName>MSS_GlobalWarming</defName>
+        <label>Global Warming Genes</label>
+        <conditionActive>GlobalWarming</conditionActive>
+        <type>Birth</type>
+        <chanceToApply>1</chanceToApply>
+        <genes>
+            <MaxTemp_SmallDecrease>0.25</MaxTemp_SmallDecrease>
+            <MaxTemp_SmallIncrease>0.75</MaxTemp_SmallIncrease>
+            <MaxTemp_LargeIncrease>0.1</MaxTemp_LargeIncrease>
+        </genes>
+    </MSSFP.GeneMutatorDef>
+    <MSSFP.GeneMutatorDef>
+        <defName>MSS_HeatWave</defName>
+        <label>Heat Wave Genes</label>
+        <conditionActive>HeatWave</conditionActive>
+        <type>Birth</type>
+        <chanceToApply>0.5</chanceToApply>
+        <genes>
+            <MaxTemp_SmallDecrease>0.25</MaxTemp_SmallDecrease>
+            <MaxTemp_SmallIncrease>0.75</MaxTemp_SmallIncrease>
+            <MaxTemp_LargeIncrease>0.1</MaxTemp_LargeIncrease>
+        </genes>
+    </MSSFP.GeneMutatorDef>
+    <MSSFP.GeneMutatorDef>
+        <defName>MSS_VolcanicWinter</defName>
+        <label>Volcanic Winter Genes</label>
+        <conditionActive>VolcanicWinter</conditionActive>
+        <type>Birth</type>
+        <chanceToApply>1</chanceToApply>
+        <genes>
+            <MinTemp_SmallIncrease>0.25</MinTemp_SmallIncrease>
+            <MinTemp_SmallDecrease>0.75</MinTemp_SmallDecrease>
+            <MinTemp_LargeDecrease>0.1</MinTemp_LargeDecrease>
+        </genes>
+    </MSSFP.GeneMutatorDef>
+    <MSSFP.GeneMutatorDef>
+        <defName>MSS_ColdSnap</defName>
+        <label>Cold Snap Genes</label>
+        <conditionActive>ColdSnap</conditionActive>
+        <type>Birth</type>
+        <chanceToApply>0.5</chanceToApply>
+        <genes>
+            <MinTemp_SmallIncrease>0.25</MinTemp_SmallIncrease>
+            <MinTemp_SmallDecrease>0.75</MinTemp_SmallDecrease>
+            <MinTemp_LargeDecrease>0.1</MinTemp_LargeDecrease>
+        </genes>
+    </MSSFP.GeneMutatorDef>
+    <MSSFP.GeneMutatorDef>
+        <defName>MSS_PsychicDrone</defName>
+        <label>Psychic Drone Genes</label>
+        <conditionActive>PsychicDrone</conditionActive>
+        <type>Birth</type>
+        <chanceToApply>0.5</chanceToApply>
+        <genes>
+            <Mood_Depressive>0.25</Mood_Depressive>
+            <Mood_Pessimist>0.75</Mood_Pessimist>
+            <Mood_Optimist>0.1</Mood_Optimist>
+        </genes>
+    </MSSFP.GeneMutatorDef>
+    <MSSFP.GeneMutatorDef>
+        <defName>MSS_PsychicSoothe</defName>
+        <label>Psychic Soothe Genes</label>
+        <conditionActive>PsychicSoothe</conditionActive>
+        <type>Birth</type>
+        <chanceToApply>0.5</chanceToApply>
+        <genes>
+            <Mood_Sanguine>0.25</Mood_Sanguine>
+            <Mood_Optimist>0.75</Mood_Optimist>
+            <Mood_Depressive>0.1</Mood_Depressive>
+        </genes>
+    </MSSFP.GeneMutatorDef>
+</Defs>

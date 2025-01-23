@@ -18,4 +18,7 @@
 
     <MSSFP_LoversRetreatLabel>Lovers' Retreat</MSSFP_LoversRetreatLabel>
     <MSSFP_LoversRetreadText>{0} and {1} have left the colony to spend some time alone. They'll be back in about {2} hours.</MSSFP_LoversRetreadText>
+
+    <MSS_GainedGeneFromCondition>{0} gained the {2} gene due to: {1}</MSS_GainedGeneFromCondition>
+    <MSS_LostGeneFromCondition>{0} lost the {2} gene due to: {1}</MSS_LostGeneFromCondition>
 </LanguageData>
