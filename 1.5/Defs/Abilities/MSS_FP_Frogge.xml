@@ -23,6 +23,8 @@
                 <stunTicks>18~60</stunTicks>
                 <clamorType>Ability</clamorType>
                 <clamorRadius>10</clamorRadius>
+                <LeapRange>10</LeapRange>
+                <ValueRequired>1000</ValueRequired>
                 <EdibleGems>
                     <li>Gold</li>
                     <li>Silver</li>
