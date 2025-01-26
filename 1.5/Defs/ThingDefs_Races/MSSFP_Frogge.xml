@@ -233,6 +233,7 @@
         </lifeStages>
         <abilities>
             <li>MSS_FP_Ability_Shoot_Thing</li>
+            <li>MSS_FP_WorldLeap</li>
         </abilities>
         <!-- <abilities> -->
         <!--     <li>MSSFP_ConsumeLeap_Frogge</li> -->

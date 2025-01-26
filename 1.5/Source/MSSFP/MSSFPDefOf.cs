@@ -30,5 +30,10 @@ public static class MSSFPDefOf
 
     public static readonly JobDef MSSFP_GoToThen;
 
+    public static readonly ResearchProjectDef MSS_FroggeLeapResearch;
+
+    public static readonly IncidentDef MSS_FroggeResearch;
+
+    public static readonly AbilityDef MSS_FP_WorldLeap;
     static MSSFPDefOf() => DefOfHelper.EnsureInitializedInCtor(typeof(MSSFPDefOf));
 }

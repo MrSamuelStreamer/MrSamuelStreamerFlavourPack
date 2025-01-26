@@ -1,6 +1,46 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <Defs>
     <AbilityDef>
+        <defName>MSS_FP_WorldLeap</defName>
+        <label>leap</label>
+        <description>leap long distances.</description>
+        <ai_IsOffensive>false</ai_IsOffensive>
+        <aiCanUse>false</aiCanUse>
+        <cooldownTicksRange>60000~60000</cooldownTicksRange>
+        <targetWorldCell>true</targetWorldCell>
+        <showGizmoOnWorldView>true</showGizmoOnWorldView>
+        <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+        <iconPath>Things/Pawn/Apparel/FroggeMask/MSS_FP_FroggeMask</iconPath>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <warmupTime>5</warmupTime>
+            <range>4.9</range>
+            <drawAimPie>False</drawAimPie>
+            <requireLineOfSight>False</requireLineOfSight>
+        </verbProperties>
+        <comps>
+            <li Class="MSSFP.Comps.CompProperties_AbilityWorldLeap">
+                <stunTicks>18~60</stunTicks>
+                <clamorType>Ability</clamorType>
+                <clamorRadius>10</clamorRadius>
+                <EdibleGems>
+                    <li>Gold</li>
+                    <li>Silver</li>
+                    <li MayRequire="kikohi.jewelry">Ruby</li>
+                    <li MayRequire="kikohi.jewelry">Sapphire</li>
+                    <li MayRequire="kikohi.jewelry">Diamond</li>
+                    <li MayRequire="DankPyon.Medieval.Overhaul">DankPyon_Citrine</li>
+                    <li MayRequire="DankPyon.Medieval.Overhaul">DankPyon_Amber</li>
+                    <li MayRequire="DankPyon.Medieval.Overhaul">DankPyon_Onyx</li>
+                    <li MayRequire="DankPyon.Medieval.Overhaul">DankPyon_Emerald</li>
+                    <li MayRequire="DankPyon.Medieval.Overhaul">DankPyon_Sapphire</li>
+                    <li MayRequire="DankPyon.Medieval.Overhaul">DankPyon_Ruby</li>
+                </EdibleGems>
+            </li>
+        </comps>
+    </AbilityDef>
+
+    <AbilityDef>
         <defName>MSS_FP_Ability_Shoot_Thing</defName>
         <label>spit</label>
         <description>frogge spits a thing. no hawk tuah jokes please.</description>
