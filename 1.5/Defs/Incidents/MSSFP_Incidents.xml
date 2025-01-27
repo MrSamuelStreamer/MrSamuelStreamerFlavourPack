@@ -47,7 +47,7 @@
         <defName>MSSFP_Lovers_Retreat</defName>
         <label>lovers retreat</label>
         <category>Special</category>
-        <minRefireDays>10</minRefireDays>
+        <minRefireDays>6</minRefireDays>
         <baseChance>5</baseChance>
         <targetTags>
             <li>Map_PlayerHome</li>
