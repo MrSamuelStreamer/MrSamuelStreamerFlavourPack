@@ -91,7 +91,7 @@
             <li>
                 <label>thong whip</label>
                 <capacities>
-                    <li>Cut</li>
+                    <li>ScratchToxic</li>
                 </capacities>
                 <power>18</power>
                 <cooldownTime>2</cooldownTime>
