@@ -210,6 +210,10 @@
           <Link>MrSamuelStreamerFlavourPack\1.5\Defs\MSS_BirthGeneDef.xml</Link>
         </ReleaseFiles>
 
+        <ReleaseFiles Include="..\..\..\Compatibility\OskarPotocki.VFE.Classical\1.5\Defs\TerrainDefs\MMS_ConkCreet.xml">
+          <Link>MrSamuelStreamerFlavourPack\Compatibility\OskarPotocki.VFE.Classical\1.5\Defs\TerrainDefs\MMS_ConkCreet.xml</Link>
+        </ReleaseFiles>
+
         <ReleaseFiles Include="..\..\..\Compatibility\vanillaexpanded.vee\1.5\Defs\MSS_GeneMutatorDef.xml">
           <Link>MrSamuelStreamerFlavourPack\Compatibility\vanillaexpanded.vee\1.5\Defs\MSS_GeneMutatorDef.xml</Link>
         </ReleaseFiles>
@@ -225,10 +229,17 @@
         <ReleaseFiles Update="..\..\Patches\MSSAgeUp.xml">
           <Link>MrSamuelStreamerFlavourPack\1.5\Patches\MSSAgeUp.xml</Link>
         </ReleaseFiles>
+
+        <ReleaseFiles Update="..\..\Defs\TerrainDefs\MMS_ConkCreet.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Defs\TerrainDefs\MMS_ConkCreet.xml</Link>
+        </ReleaseFiles>
     </ItemGroup>
     <ItemGroup>
       <Folder Include="..\..\..\Common\Textures\Things\Item\Book\MSS_FP_FroggeTome\">
         <Link>MrSamuelStreamerFlavourPack\Common\Textures\Things\Item\Book\MSS_FP_FroggeTome</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\OskarPotocki.VFE.Classical\1.5\Defs\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\OskarPotocki.VFE.Classical\1.5\Defs</Link>
       </Folder>
     </ItemGroup>
     <Target Name="PostBuild" AfterTargets="Build" Condition=" '$(Configuration)' == 'Release' ">

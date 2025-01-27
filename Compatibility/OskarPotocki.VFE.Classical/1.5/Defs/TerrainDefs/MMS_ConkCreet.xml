@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Defs>
+    <TerrainDef ParentName="FloorBase">
+        <defName>MSS_Conkedcrete</defName>
+        <label>conk'ed creet</label>
+        <description>The crete that has been thoroughly conked. It is now of superb quality, worthy of taking the feet of even the high stellarch.</description>
+        <texturePath>Terrain/MSS_ConkedCreet</texturePath>
+        <color>(160,160,160)</color>
+        <edgeType>Hard</edgeType>
+        <renderPrecedence>70</renderPrecedence>
+        <isPaintable>true</isPaintable>
+        <statBases>
+            <Beauty>4</Beauty>
+            <WorkToBuild>600</WorkToBuild>
+            <CleaningTimeFactor>0.3</CleaningTimeFactor>
+        </statBases>
+        <costList>
+            <MSS_BlocksConkedCreet>1</MSS_BlocksConkedCreet>
+        </costList>
+        <designationHotKey>Misc6</designationHotKey>
+        <researchPrerequisites>
+            <li>Stonecutting</li>
+        </researchPrerequisites>
+        <uiOrder>2021</uiOrder>
+    </TerrainDef>
+
+    <RecipeDef ParentName="MakeStoneBlocksBase">
+        <defName>MSS_Make_BlocksConkedCreet</defName>
+        <label>conk some creet</label>
+        <description>cement? das conk creet baybee!\n\nConk'ed creet is some of the finest building material in the entire empire. Adored by everyone.</description>
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>VFEC_BlocksConcrete</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Wood</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>VFEC_BlocksConcrete</li>
+                <li>Wood</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+        <workAmount>800</workAmount>
+        <products>
+            <MSS_BlocksConkedCreet>1</MSS_BlocksConkedCreet>
+        </products>
+    </RecipeDef>
+
+    <ThingDef ParentName="StoneBlocksBase">
+        <defName>MSS_BlocksConkedCreet</defName>
+        <label>conk'ed creet blocks</label>
+        <description>Blocks of the finest solid conk'ed creet.</description>
+        <graphicData>
+            <color>(107,108,109)</color>
+        </graphicData>
+        <statBases>
+            <Mass>1.15</Mass>
+            <MaxHitPoints>200</MaxHitPoints>
+            <MarketValue>0.9</MarketValue>
+            <SharpDamageMultiplier>0.6</SharpDamageMultiplier>
+            <BluntDamageMultiplier>1.0</BluntDamageMultiplier>
+            <Beauty>5</Beauty>
+            <ConstructionSpeedFactor>1.4</ConstructionSpeedFactor>
+        </statBases>
+        <stuffProps>
+            <color>(107,108,109)</color>
+            <soundImpactBullet>BulletImpact_Ground</soundImpactBullet>
+            <soundMeleeHitSharp>MeleeHit_Stone</soundMeleeHitSharp>
+            <soundMeleeHitBlunt>MeleeHit_Stone</soundMeleeHitBlunt>
+            <soundImpactMelee>Pawn_Melee_Punch_HitBuilding_Stone</soundImpactMelee>
+            <stuffAdjective>conk'ed creet</stuffAdjective>
+            <statFactors>
+                <MaxHitPoints>2.5</MaxHitPoints>
+                <MarketValue>0.8</MarketValue>
+                <Flammability>0</Flammability>
+                <WorkToBuild>10.0</WorkToBuild>
+                <WorkToMake>2</WorkToMake>
+                <DoorOpenSpeed>1</DoorOpenSpeed>
+                <BedRestEffectiveness>1.2</BedRestEffectiveness>
+            </statFactors>
+            <statOffsets>
+                <WorkToBuild>200</WorkToBuild>
+            </statOffsets>
+            <canSuggestUseDefaultStuff>true</canSuggestUseDefaultStuff>
+        </stuffProps>
+    </ThingDef>
+</Defs>
