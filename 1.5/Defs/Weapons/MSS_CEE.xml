@@ -8,9 +8,9 @@
         <weaponClasses>
             <li>Melee</li>
         </weaponClasses>
-        <costStuffCount>40</costStuffCount>
+        <costStuffCount>400</costStuffCount>
         <statBases>
-            <WorkToMake>1200</WorkToMake>
+            <WorkToMake>4500</WorkToMake>
             <Mass>2</Mass>
         </statBases>
         <equippedAngleOffset>-65</equippedAngleOffset>
@@ -32,7 +32,7 @@
                 <capacities>
                     <li>Poke</li>
                 </capacities>
-                <power>12</power>
+                <power>22</power>
                 <cooldownTime>2</cooldownTime>
             </li>
             <li>
@@ -41,7 +41,7 @@
                 <capacities>
                     <li>Blunt</li>
                 </capacities>
-                <power>16</power>
+                <power>20</power>
                 <cooldownTime>2</cooldownTime>
             </li>
         </tools>
@@ -55,9 +55,9 @@
             <texPath>Things/WeaponMelee/MSS_Longrat_Extended</texPath>
             <graphicClass>Graphic_Single</graphicClass>
         </graphicData>
-        <costStuffCount>60</costStuffCount>
+        <costStuffCount>400</costStuffCount>
         <statBases>
-            <WorkToMake>1500</WorkToMake>
+            <WorkToMake>5000</WorkToMake>
             <Mass>2</Mass>
         </statBases>
         <tools>
@@ -66,7 +66,7 @@
                 <capacities>
                     <li>Bite</li>
                 </capacities>
-                <power>14</power>
+                <power>18</power>
                 <cooldownTime>2</cooldownTime>
                 <soundMeleeHit>Pawn_Melee_HumanBite_Hit</soundMeleeHit>
                 <soundMeleeMiss>Pawn_Melee_HumanBite_Miss</soundMeleeMiss>
@@ -82,9 +82,9 @@
             <texPath>Things/WeaponMelee/MSS_Thongbat_Extended</texPath>
             <graphicClass>Graphic_Single</graphicClass>
         </graphicData>
-        <costStuffCount>60</costStuffCount>
+        <costStuffCount>400</costStuffCount>
         <statBases>
-            <WorkToMake>1500</WorkToMake>
+            <WorkToMake>5000</WorkToMake>
             <Mass>2</Mass>
         </statBases>
         <tools>
@@ -93,7 +93,7 @@
                 <capacities>
                     <li>Cut</li>
                 </capacities>
-                <power>14</power>
+                <power>18</power>
                 <cooldownTime>2</cooldownTime>
                 <soundMeleeHit>MeleeHit_BionicSlash</soundMeleeHit>
                 <soundMeleeMiss>MeleeMiss_BionicSlash</soundMeleeMiss>
@@ -109,9 +109,9 @@
             <texPath>Things/WeaponMelee/MSS_DongBat</texPath>
             <graphicClass>Graphic_Single</graphicClass>
         </graphicData>
-        <costStuffCount>60</costStuffCount>
+        <costStuffCount>400</costStuffCount>
         <statBases>
-            <WorkToMake>1500</WorkToMake>
+            <WorkToMake>5000</WorkToMake>
             <Mass>2</Mass>
         </statBases>
         <tools>
@@ -122,7 +122,7 @@
                     <li>Poke</li>
                     <li>Blunt</li>
                 </capacities>
-                <power>14</power>
+                <power>18</power>
                 <cooldownTime>2</cooldownTime>
                 <soundMeleeHit>MeleeHit_BionicSlash</soundMeleeHit>
                 <soundMeleeMiss>MeleeMiss_BionicSlash</soundMeleeMiss>
@@ -139,9 +139,9 @@
             <graphicClass>Graphic_Single</graphicClass>
             <drawSize>2</drawSize>
         </graphicData>
-        <costStuffCount>120</costStuffCount>
+        <costStuffCount>800</costStuffCount>
         <statBases>
-            <WorkToMake>3000</WorkToMake>
+            <WorkToMake>7000</WorkToMake>
             <Mass>4</Mass>
         </statBases>
         <tools Inherit="false">
@@ -150,7 +150,7 @@
                 <capacities>
                     <li>Poke</li>
                 </capacities>
-                <power>18</power>
+                <power>22</power>
                 <cooldownTime>3</cooldownTime>
             </li>
             <li>
@@ -159,7 +159,7 @@
                 <capacities>
                     <li>Blunt</li>
                 </capacities>
-                <power>22</power>
+                <power>26</power>
                 <cooldownTime>3</cooldownTime>
             </li>
         </tools>
@@ -198,8 +198,8 @@
                 <capacities>
                     <li>Blunt</li>
                 </capacities>
-                <power>13</power>
-                <cooldownTime>2.6</cooldownTime>
+                <power>19</power>
+                <cooldownTime>2.2</cooldownTime>
             </li>
         </tools>
         <recipeMaker>
