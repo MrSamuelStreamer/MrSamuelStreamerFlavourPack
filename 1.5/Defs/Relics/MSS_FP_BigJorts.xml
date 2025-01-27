@@ -61,9 +61,9 @@
                 <chance>0.8</chance>
             </li>
         </modExtensions>
-        <EquippedStatOffsets>
+        <equippedStatOffsets>
             <Fertility>1</Fertility>
-        </EquippedStatOffsets>
+        </equippedStatOffsets>
         <comps>
             <li Class="CompProperties_GeneratedName">
                 <nameMaker>MSS_FP_Apparel_BigJortsJortsNameMaker</nameMaker>

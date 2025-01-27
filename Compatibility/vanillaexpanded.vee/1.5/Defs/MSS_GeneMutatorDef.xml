@@ -9,11 +9,26 @@
         <reasonString>Psychic rain exposure</reasonString>
         <mutatorWorker>MSSFP.ExposedWhileGameConditionActiveGeneMutatorWorker</mutatorWorker>
         <genes>
-            <PsychicBonding>0.05</PsychicBonding>
-            <PsychicAbility_Deaf>0.05</PsychicAbility_Deaf>
-            <PsychicAbility_Dull>0.5</PsychicAbility_Dull>
-            <PsychicAbility_Enhanced>0.5</PsychicAbility_Enhanced>
-            <PsychicAbility_Extreme>0.2</PsychicAbility_Extreme>
+            <li>
+                <gene>PsychicBonding</gene>
+                <weight>0.05</weight>
+            </li>
+            <li>
+                <gene>PsychicAbility_Deaf</gene>
+                <weight>0.05</weight>
+            </li>
+            <li>
+                <gene>PsychicAbility_Dull</gene>
+                <weight>0.5</weight>
+            </li>
+            <li>
+                <gene>PsychicAbility_Enhanced</gene>
+                <weight>0.5</weight>
+            </li>
+            <li>
+                <gene>PsychicAbility_Extreme</gene>
+                <weight>0.2</weight>
+            </li>
         </genes>
     </MSSFP.GeneMutatorDef>
 

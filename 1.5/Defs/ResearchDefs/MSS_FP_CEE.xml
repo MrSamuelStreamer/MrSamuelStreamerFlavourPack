@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <ResearchProjectDef>
+        <defName>MSS_CEE</defName>
+        <label>Combat Extended: Extended</label>
+        <description>Extend your combat abilities!</description>
+        <baseCost>1500</baseCost>
+        <techLevel>Medieval</techLevel>
+        <researchViewX>7.00</researchViewX>
+        <researchViewY>7.60</researchViewY>
+    </ResearchProjectDef>
+</Defs>
