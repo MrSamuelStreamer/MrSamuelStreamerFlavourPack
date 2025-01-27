@@ -18,7 +18,7 @@ public class IncidentWorker_LoversRetreat: IncidentWorker
             return false;
         }
 
-        foreach (Pawn pawn in map.mapPawns.FreeAdultColonistsSpawned)
+        foreach (Pawn pawn in map.mapPawns.FreeAdultColonistsSpawned.Where(pawn => !pawn.Downed))
         {
             if (!pawn.health.hediffSet.HasHediff(HediffDefOf.PregnantHuman))
             {
@@ -44,7 +44,7 @@ public class IncidentWorker_LoversRetreat: IncidentWorker
 
     public virtual Pawn GetPawn(IncidentParms parms)
     {
-        return parms.target is not Map map ? null : map.mapPawns.FreeAdultColonistsSpawned.Where(pawn=>pawn.GetSpouses(false).Any(spouse => spouse.Map == map)).RandomElementWithFallback();
+        return parms.target is not Map map ? null : map.mapPawns.FreeAdultColonistsSpawned.Where(pawn => !pawn.Downed).Where(pawn=>pawn.GetSpouses(false).Any(spouse => spouse.Map == map)).RandomElementWithFallback();
     }
 
     protected override bool TryExecuteWorker(IncidentParms parms)
