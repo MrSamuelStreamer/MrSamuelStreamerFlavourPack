@@ -71,7 +71,7 @@ public static class Dialog_GrowthMomentChoices_Patch
 
     public static Lazy<FieldInfo> Letter = new(() => AccessTools.Field(typeof(Dialog_GrowthMomentChoices), "letter"));
 
-    public static IntRange GeneRange = new IntRange(2, 6);
+    public static IntRange GeneRange = new IntRange(2, 12);
     public static List<GeneClassification> GeneChoicesForPawn(Pawn pawn, bool good, out GeneType geneType)
     {
         GeneClassificationDef classification = DefDatabase<GeneClassificationDef>.AllDefs.RandomElementByWeight(g => g.selectionWeight);
