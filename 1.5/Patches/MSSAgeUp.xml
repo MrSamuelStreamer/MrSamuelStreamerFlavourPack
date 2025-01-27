@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Patch>
+    <Operation Class="PatchOperationAddModExtension">
+        <xpath>Defs/GeneDef[defName="Beauty_Pretty"]</xpath>
+        <value>
+            <li Class="MSSFP.AgeUpGeneModDefExtension">
+                <WeightingForRandomSelection>0.5</WeightingForRandomSelection>
+            </li>
+        </value>
+    </Operation>
+    <Operation Class="PatchOperationAddModExtension">
+        <xpath>Defs/GeneDef[defName="Beauty_Ugly"]</xpath>
+        <value>
+            <li Class="MSSFP.AgeUpGeneModDefExtension">
+                <WeightingForRandomSelection>0.5</WeightingForRandomSelection>
+            </li>
+        </value>
+    </Operation>
+    <Operation Class="PatchOperationAddModExtension">
+        <xpath>Defs/GeneDef[defName="Beauty_VeryUgly"]</xpath>
+        <value>
+            <li Class="MSSFP.AgeUpGeneModDefExtension">
+                <WeightingForRandomSelection>0.1</WeightingForRandomSelection>
+            </li>
+        </value>
+    </Operation>
+    <Operation Class="PatchOperationAddModExtension">
+        <xpath>Defs/GeneDef[defName="Beauty_Beautiful"]</xpath>
+        <value>
+            <li Class="MSSFP.AgeUpGeneModDefExtension">
+                <WeightingForRandomSelection>0.1</WeightingForRandomSelection>
+            </li>
+        </value>
+    </Operation>
+</Patch>

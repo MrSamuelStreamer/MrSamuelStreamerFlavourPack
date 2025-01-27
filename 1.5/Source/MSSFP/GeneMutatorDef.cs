@@ -14,36 +14,11 @@ public class GeneMutatorDef : Def
         Worker
     }
 
-    public class GeneDefWeightClass : IExposable
-    {
-        public GeneDef geneDef;
-        public float weight;
-
-        public GeneDefWeightClass() { }
-
-        public GeneDefWeightClass(GeneDef g, float w)
-        {
-            geneDef = g;
-            weight = w;
-        }
-
-        public void ExposeData()
-        {
-            Scribe_Defs.Look(ref geneDef, "geneDef");
-            Scribe_Values.Look(ref weight, "weight");
-        }
-
-        public void LoadDataFromXmlCustom(XmlNode xmlRoot)
-        {
-            DirectXmlCrossRefLoader.RegisterObjectWantsCrossRef(this, "geneDef", xmlRoot.Name);
-            weight = ParseHelper.FromString<float>(xmlRoot.FirstChild.InnerText);
-        }
-    }
-
     public GameConditionDef conditionActive;
     public string reasonString;
     public string ReasonString => reasonString ?? conditionActive.LabelCap;
-    public List<GeneDefWeightClass> genes;
+    public List<GeneClassification> genes;
+    public GeneClassificationDef geneClassificationDef;
     public float? chanceToApply;
     public MutatorType type = MutatorType.Birth;
     public Type mutatorWorker;
@@ -70,8 +45,24 @@ public class GeneMutatorDef : Def
     }
 
     // null or empty genes allows for choice from any gene
-    public GeneDef RandomGene => GenePool.RandomElementByWeight(g => g.weight).geneDef;
-    public List<GeneDefWeightClass> GenePool => genes.NullOrEmpty() ? DefDatabase<GeneDef>.AllDefs.Select(g=>new GeneDefWeightClass(g, 1f)).ToList() : genes;
+    public GeneClassification RandomGene => GenePool.RandomElementByWeight(g => g.weight);
+
+    public List<GeneClassification> GenePool
+    {
+        get
+        {
+            if (!genes.NullOrEmpty())
+            {
+                return genes;
+            }
+            if (geneClassificationDef != null)
+            {
+                return geneClassificationDef.genes;
+            }
+
+            return DefDatabase<GeneDef>.AllDefs.Select(g => new GeneClassification(g, 1f)).ToList();
+        }
+    }
 
 
     public override IEnumerable<string> ConfigErrors()
@@ -86,5 +77,7 @@ public class GeneMutatorDef : Def
             yield return "mutatorWorker must be set if type is Exposure";
         if (type == MutatorType.Worker && mutatorWorker != null && !typeof(GeneMutatorWorker).IsAssignableFrom(mutatorWorker))
             yield return "mutatorWorker must be GeneMutatorWorker or a subclass of it";
+        if (!genes.NullOrEmpty() && geneClassificationDef != null)
+            yield return "can't define both genes and geneClassificationDef";
     }
 }

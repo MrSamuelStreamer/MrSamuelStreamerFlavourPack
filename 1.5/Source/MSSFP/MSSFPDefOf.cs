@@ -35,5 +35,10 @@ public static class MSSFPDefOf
     public static readonly IncidentDef MSS_FroggeResearch;
 
     public static readonly AbilityDef MSS_FP_WorldLeap;
+
+    public static readonly GeneClassificationDef MSSFP_GoodGenes;
+    public static readonly GeneClassificationDef MSSFP_BadGenes;
+    public static readonly GeneClassificationDef MSSFP_NeutralGenes;
+
     static MSSFPDefOf() => DefOfHelper.EnsureInitializedInCtor(typeof(MSSFPDefOf));
 }

@@ -7,9 +7,18 @@
         <type>Birth</type>
         <chanceToApply>1</chanceToApply>
         <genes>
-            <MaxTemp_SmallDecrease>0.25</MaxTemp_SmallDecrease>
-            <MaxTemp_SmallIncrease>0.75</MaxTemp_SmallIncrease>
-            <MaxTemp_LargeIncrease>0.1</MaxTemp_LargeIncrease>
+            <li>
+                <gene>MaxTemp_SmallDecrease</gene>
+                <weight>0.25</weight>
+            </li>
+            <li>
+                <gene>MaxTemp_SmallIncrease</gene>
+                <weight>0.75</weight>
+            </li>
+            <li>
+                <gene>MaxTemp_LargeIncrease</gene>
+                <weight>0.1</weight>
+            </li>
         </genes>
     </MSSFP.GeneMutatorDef>
     <MSSFP.GeneMutatorDef>
@@ -19,9 +28,18 @@
         <type>Birth</type>
         <chanceToApply>0.5</chanceToApply>
         <genes>
-            <MaxTemp_SmallDecrease>0.25</MaxTemp_SmallDecrease>
-            <MaxTemp_SmallIncrease>0.75</MaxTemp_SmallIncrease>
-            <MaxTemp_LargeIncrease>0.1</MaxTemp_LargeIncrease>
+            <li>
+                <gene>MaxTemp_SmallDecrease</gene>
+                <weight>0.25</weight>
+            </li>
+            <li>
+                <gene>MaxTemp_SmallIncrease</gene>
+                <weight>0.75</weight>
+            </li>
+            <li>
+                <gene>MaxTemp_LargeIncrease</gene>
+                <weight>0.1</weight>
+            </li>
         </genes>
     </MSSFP.GeneMutatorDef>
     <MSSFP.GeneMutatorDef>
@@ -31,9 +49,18 @@
         <type>Birth</type>
         <chanceToApply>1</chanceToApply>
         <genes>
-            <MinTemp_SmallIncrease>0.25</MinTemp_SmallIncrease>
-            <MinTemp_SmallDecrease>0.75</MinTemp_SmallDecrease>
-            <MinTemp_LargeDecrease>0.1</MinTemp_LargeDecrease>
+            <li>
+                <gene>MinTemp_SmallIncrease</gene>
+                <weight>0.25</weight>
+            </li>
+            <li>
+                <gene>MinTemp_SmallDecrease</gene>
+                <weight>0.75</weight>
+            </li>
+            <li>
+                <gene>MinTemp_LargeDecrease</gene>
+                <weight>0.1</weight>
+            </li>
         </genes>
     </MSSFP.GeneMutatorDef>
     <MSSFP.GeneMutatorDef>
@@ -43,9 +70,18 @@
         <type>Birth</type>
         <chanceToApply>0.5</chanceToApply>
         <genes>
-            <MinTemp_SmallIncrease>0.25</MinTemp_SmallIncrease>
-            <MinTemp_SmallDecrease>0.75</MinTemp_SmallDecrease>
-            <MinTemp_LargeDecrease>0.1</MinTemp_LargeDecrease>
+            <li>
+                <gene>MinTemp_SmallIncrease</gene>
+                <weight>0.25</weight>
+            </li>
+            <li>
+                <gene>MinTemp_SmallDecrease</gene>
+                <weight>0.75</weight>
+            </li>
+            <li>
+                <gene>MinTemp_LargeDecrease</gene>
+                <weight>0.1</weight>
+            </li>
         </genes>
     </MSSFP.GeneMutatorDef>
     <MSSFP.GeneMutatorDef>
@@ -55,9 +91,18 @@
         <type>Birth</type>
         <chanceToApply>0.5</chanceToApply>
         <genes>
-            <Mood_Depressive>0.25</Mood_Depressive>
-            <Mood_Pessimist>0.75</Mood_Pessimist>
-            <Mood_Optimist>0.1</Mood_Optimist>
+            <li>
+                <gene>Mood_Depressive</gene>
+                <weight>0.25</weight>
+            </li>
+            <li>
+                <gene>Mood_Pessimist</gene>
+                <weight>0.75</weight>
+            </li>
+            <li>
+                <gene>Mood_Optimist</gene>
+                <weight>0.1</weight>
+            </li>
         </genes>
     </MSSFP.GeneMutatorDef>
     <MSSFP.GeneMutatorDef>
@@ -67,9 +112,18 @@
         <type>Birth</type>
         <chanceToApply>0.5</chanceToApply>
         <genes>
-            <Mood_Sanguine>0.25</Mood_Sanguine>
-            <Mood_Optimist>0.75</Mood_Optimist>
-            <Mood_Depressive>0.1</Mood_Depressive>
+            <li>
+                <gene>Mood_Sanguine</gene>
+                <weight>0.25</weight>
+            </li>
+            <li>
+                <gene>Mood_Optimist</gene>
+                <weight>0.75</weight>
+            </li>
+            <li>
+                <gene>Mood_Depressive</gene>
+                <weight>0.1</weight>
+            </li>
         </genes>
     </MSSFP.GeneMutatorDef>
 </Defs>

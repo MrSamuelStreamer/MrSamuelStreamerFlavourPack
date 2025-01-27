@@ -20,17 +20,21 @@ public static class QuestManager_Patch
         {
             if (ConditionActive(Find.World, pawn.Map, birthGeneDef.conditionActive) && (!birthGeneDef.chanceToApply.HasValue || Rand.Chance(birthGeneDef.chanceToApply.Value)))
             {
-                GeneDef gene =  birthGeneDef.RandomGene;
-                if (!pawn.genes.Xenogenes.Any(g => g.def.ConflictsWith(gene)) && !pawn.genes.Endogenes.Any(g => g.def.ConflictsWith(gene)))
+                GeneClassification gene =  birthGeneDef.RandomGene;
+                if (!pawn.genes.Xenogenes.Any(g => g.def.ConflictsWith(gene.gene)) && !pawn.genes.Endogenes.Any(g => g.def.ConflictsWith(gene.gene)))
                 {
-                    pawn.genes.AddGene(gene, true);
+                    foreach (GeneDef geneRequire in gene.requires)
+                    {
+                        pawn.genes.AddGene(geneRequire, true);
+                    }
+                    pawn.genes.AddGene(gene.gene, true);
                     LookTargets lookTargets = new LookTargets();
                     lookTargets.targets.Add(pawn);
-                    Messages.Message("MSS_GainedGeneFromCondition".Translate(pawn.Name, birthGeneDef.ReasonString, gene.LabelCap), lookTargets, MessageTypeDefOf.NeutralEvent, true);
+                    Messages.Message("MSS_GainedGeneFromCondition".Translate(pawn.Name, birthGeneDef.ReasonString, gene.gene.LabelCap), lookTargets, MessageTypeDefOf.NeutralEvent, true);
                 }
                 else
                 {
-                    ModLog.Log($"Couldn't add {gene.label} to {pawn.Name} due to conflicts");
+                    ModLog.Log($"Couldn't add {gene.gene.label} to {pawn.Name} due to conflicts");
                 }
             }
         }

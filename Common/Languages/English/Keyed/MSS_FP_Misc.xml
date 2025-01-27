@@ -25,4 +25,8 @@
     <MSSFP_LeapTooFar>frogge can't jump this far (max range {0} tiles)</MSSFP_LeapTooFar>
     <MSSFP_LeapTo>frogge leap here</MSSFP_LeapTo>
     <MSSFP_LeapNoFuel>frogge doesn't have enough gems to power their leap (only {0}/{1})</MSSFP_LeapNoFuel>
+
+    <MSS_BirthdayPickGene>Choose a {1} gene for {0_nameDef} to gain via mutation</MSS_BirthdayPickGene>
+
+    <MSS_Gen_RandomGene>{0} gained the {1} xenogene</MSS_Gen_RandomGene>
 </LanguageData>

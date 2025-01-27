@@ -217,6 +217,14 @@
         <ReleaseFiles Update="..\..\Defs\ResearchDefs\MSS_FP_Frogge.xml">
           <Link>MrSamuelStreamerFlavourPack\1.5\Defs\ResearchDefs\MSS_FP_Frogge.xml</Link>
         </ReleaseFiles>
+
+        <ReleaseFiles Update="..\..\Defs\MSSFP_GeneClassification.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Defs\MSSFP_GeneClassification</Link>
+        </ReleaseFiles>
+
+        <ReleaseFiles Update="..\..\Patches\MSSAgeUp.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Patches\MSSAgeUp.xml</Link>
+        </ReleaseFiles>
     </ItemGroup>
     <ItemGroup>
       <Folder Include="..\..\..\Common\Textures\Things\Item\Book\MSS_FP_FroggeTome\">
