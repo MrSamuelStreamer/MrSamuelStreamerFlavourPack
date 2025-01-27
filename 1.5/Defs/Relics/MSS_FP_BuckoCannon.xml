@@ -117,7 +117,7 @@
         </tools>
         <modExtensions>
             <li Class="MSSFP.ModExtensions.RelicModExtension">
-                <chance>1.0</chance>
+                <chance>0.8</chance>
             </li>
         </modExtensions>
     </ThingDef>

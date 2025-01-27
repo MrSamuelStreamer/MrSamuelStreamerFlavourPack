@@ -233,6 +233,10 @@
         <ReleaseFiles Update="..\..\Defs\TerrainDefs\MMS_ConkCreet.xml">
           <Link>MrSamuelStreamerFlavourPack\1.5\Defs\TerrainDefs\MMS_ConkCreet.xml</Link>
         </ReleaseFiles>
+
+        <ReleaseFiles Update="..\..\Defs\Relics\MSS_FP_BigJorts.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Defs\Relics\MSS_FP_BigJorts.xml</Link>
+        </ReleaseFiles>
     </ItemGroup>
     <ItemGroup>
       <Folder Include="..\..\..\Common\Textures\Things\Item\Book\MSS_FP_FroggeTome\">

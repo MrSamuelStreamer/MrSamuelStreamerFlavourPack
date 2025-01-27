@@ -16,8 +16,8 @@ public static class PreceptWorker_Relic_Patch
     {
         if (!MSSFPMod.settings.overrideRelicPool) return true;
 
-        __result = DefDatabase<ThingDef>.AllDefsListForReading.Where(thing => thing.HasModExtension<RelicModExtension>() && thing.GetModExtension<RelicModExtension>().chance > 0)
-            .Select(thing => new PreceptThingChance { def = thing, chance = thing.GetModExtension<RelicModExtension>().chance });
+        __result = DefDatabase<ThingDef>.AllDefsListForReading.Where(def=>def.HasComp<CompStyleable>() || def.HasModExtension<RelicModExtension>())
+            .Select(thing => new PreceptThingChance { def = thing, chance = thing.GetModExtension<RelicModExtension>()?.chance ?? 0.01f });
 
         return false;
     }
