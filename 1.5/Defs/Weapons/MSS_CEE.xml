@@ -3,7 +3,9 @@
     <ThingDef Name="MSS_BatBase" ParentName="BaseMeleeWeapon_Blunt" Abstract="True">
         <techLevel>Medieval</techLevel>
         <weaponTags>
-            <li>MedievalMeleeBasic</li>
+            <li>MedievalMeleeDecent</li>
+            <li>MedievalMeleeAdvanced</li>
+            <li>UltratechMelee</li>
         </weaponTags>
         <weaponClasses>
             <li>Melee</li>
@@ -19,6 +21,7 @@
             <li>Woody</li>
             <li>Stony</li>
         </stuffCategories>
+        <thingSetMakerTags><li>RewardStandardQualitySuper</li></thingSetMakerTags>
         <recipeMaker>
             <researchPrerequisite>MSS_CEE</researchPrerequisite>
             <recipeUsers>
@@ -53,6 +56,33 @@
         <description>Extend your combat abilities with a rat, on a bat.</description>
         <graphicData>
             <texPath>Things/WeaponMelee/MSS_Longrat_Extended</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <costStuffCount>400</costStuffCount>
+        <statBases>
+            <WorkToMake>5000</WorkToMake>
+            <Mass>2</Mass>
+        </statBases>
+        <tools>
+            <li>
+                <label>teeth</label>
+                <capacities>
+                    <li>Bite</li>
+                </capacities>
+                <power>18</power>
+                <cooldownTime>2</cooldownTime>
+                <soundMeleeHit>Pawn_Melee_HumanBite_Hit</soundMeleeHit>
+                <soundMeleeMiss>Pawn_Melee_HumanBite_Miss</soundMeleeMiss>
+            </li>
+        </tools>
+    </ThingDef>
+
+    <ThingDef ParentName="MSS_BatBase">
+        <defName>MSS_Wombat_Extended</defName>
+        <label>Wombat Extended</label>
+        <description>Extend your combat abilities with a wombat, on a bat.</description>
+        <graphicData>
+            <texPath>Things/WeaponMelee/MSS_WombatExtended</texPath>
             <graphicClass>Graphic_Single</graphicClass>
         </graphicData>
         <costStuffCount>400</costStuffCount>
@@ -174,7 +204,8 @@
             <graphicClass>Graphic_Single</graphicClass>
         </graphicData>
         <techLevel>Medieval</techLevel>
-        <weaponTags>
+        <weaponTags Inherit="False">
+            <li>RangedLight</li>
             <li>MedievalMeleeAdvanced</li>
             <li>Spear</li>
         </weaponTags>
