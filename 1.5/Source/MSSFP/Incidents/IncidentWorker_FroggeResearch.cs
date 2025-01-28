@@ -8,7 +8,7 @@ public class IncidentWorker_FroggeResearch: IncidentWorker
 {
     protected override bool TryExecuteWorker(IncidentParms parms)
     {
-        Pawn bestResearcher = Find.CurrentMap.mapPawns.FreeColonistsSpawned.OrderBy(p => p.skills.GetSkill(SkillDefOf.Intellectual)).FirstOrDefault();
+        Pawn bestResearcher = Find.CurrentMap.mapPawns.FreeColonistsSpawned.OrderByDescending(p => p.skills.GetSkill(SkillDefOf.Intellectual)).FirstOrDefault();
 
         if (bestResearcher == null) return false;
 
