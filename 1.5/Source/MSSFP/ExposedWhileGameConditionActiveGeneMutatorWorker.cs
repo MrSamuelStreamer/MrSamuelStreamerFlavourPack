@@ -31,7 +31,7 @@ public class ExposedWhileGameConditionActiveGeneMutatorWorker: GeneMutatorWorker
                     {
                         foreach (GeneDef geneRequire in gene.requires)
                         {
-                            pawn.genes.AddGene(geneRequire, true);
+                            pawn.genes.AddGene(geneRequire, Rand.Chance(0.95f));
                         }
                         pawn.genes.AddGene(gene.gene, true);
                         Messages.Message("MSS_GainedGeneFromCondition".Translate(pawn.Name, def.ReasonString, gene.gene.LabelCap), lookTargets, MessageTypeDefOf.NeutralEvent, true);
