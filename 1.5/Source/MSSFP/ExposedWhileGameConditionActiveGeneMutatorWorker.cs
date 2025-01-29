@@ -27,13 +27,14 @@ public class ExposedWhileGameConditionActiveGeneMutatorWorker: GeneMutatorWorker
                 if (!def.pinataMode)
                 {
                     GeneClassification gene = def.RandomGene;
+                    bool isXenoGene = Rand.Chance(0.95f);
                     if (!pawn.genes.Xenogenes.Any(g => g.def.ConflictsWith(gene.gene)) && !pawn.genes.Endogenes.Any(g => g.def.ConflictsWith(gene.gene)))
                     {
                         foreach (GeneDef geneRequire in gene.requires)
                         {
-                            pawn.genes.AddGene(geneRequire, Rand.Chance(0.95f));
+                            pawn.genes.AddGene(geneRequire, isXenoGene);
                         }
-                        pawn.genes.AddGene(gene.gene, true);
+                        pawn.genes.AddGene(gene.gene, isXenoGene);
                         Messages.Message("MSS_GainedGeneFromCondition".Translate(pawn.Name, def.ReasonString, gene.gene.LabelCap), lookTargets, MessageTypeDefOf.NeutralEvent, true);
                     }
                 }

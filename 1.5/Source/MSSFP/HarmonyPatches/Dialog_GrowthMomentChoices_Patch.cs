@@ -134,15 +134,16 @@ public static class Dialog_GrowthMomentChoices_Patch
 
         ChoiceLetter_GrowthMoment letter = (ChoiceLetter_GrowthMoment)Letter.Value.GetValue(instance);
 
+        bool isXenoGene = Rand.Chance(0.95f);
         if (!currentChoices.selectedGene.requires.NullOrEmpty())
         {
             foreach (GeneDef geneDef in currentChoices.selectedGene.requires)
             {
-                letter.pawn.genes.AddGene(geneDef, Rand.Chance(0.95f));
+                letter.pawn.genes.AddGene(geneDef, isXenoGene);
             }
         }
 
-        letter.pawn.genes.AddGene(currentChoices.selectedGene.gene, false);
+        letter.pawn.genes.AddGene(currentChoices.selectedGene.gene, isXenoGene);
 
         DialogLookup.Remove(instance);
     }
