@@ -37,12 +37,7 @@ public class CompAbilityWorldLeap: CompAbilityEffect_Farskip
 
     public bool HasEnoughGems(out float gems)
     {
-        gems = 0;
-
-        foreach (Thing thing in parent.pawn.inventory.innerContainer.InnerListForReading.Where(t=>Props.EdibleGems.Contains(t.def)))
-        {
-            gems += thing.MarketValue;
-        }
+        gems = parent.pawn.inventory.innerContainer.InnerListForReading.Where(t=>Props.EdibleGems.Contains(t.def)).Sum(t=>t.stackCount * t.MarketValue);
 
         return gems > Props.ValueRequired;
     }
