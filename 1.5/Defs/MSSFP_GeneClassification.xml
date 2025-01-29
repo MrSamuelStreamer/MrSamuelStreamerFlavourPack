@@ -3,7 +3,7 @@
     <MSSFP.GeneClassificationDef>
         <defName>MSSFP_GoodGenes</defName>
         <type>good</type>
-        <selectionWeight>0.2</selectionWeight>
+        <selectionWeight>0.33</selectionWeight>
         <genes>
             <li MayRequire="ludeon.rimworld.biotech">
                 <gene>FireSpew</gene>
@@ -2857,7 +2857,7 @@
     <MSSFP.GeneClassificationDef>
         <defName>MSSFP_BadGenes</defName>
         <type>bad</type>
-        <selectionWeight>0.6</selectionWeight>
+        <selectionWeight>0.33</selectionWeight>
         <genes>
             <li MayRequire="ludeon.rimworld.biotech">
                 <gene>WoundHealing_Slow</gene>
@@ -3496,7 +3496,7 @@
     <MSSFP.GeneClassificationDef>
         <defName>MSSFP_NeutralGenes</defName>
         <type>neutral</type>
-        <selectionWeight>0.2</selectionWeight>
+        <selectionWeight>0.33</selectionWeight>
         <genes>
             <li MayRequire="ludeon.rimworld">
                 <gene>Hair_SnowWhite</gene>

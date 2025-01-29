@@ -138,7 +138,7 @@ public static class Dialog_GrowthMomentChoices_Patch
         {
             foreach (GeneDef geneDef in currentChoices.selectedGene.requires)
             {
-                letter.pawn.genes.AddGene(geneDef, false);
+                letter.pawn.genes.AddGene(geneDef, Rand.Chance(0.95f));
             }
         }
 
