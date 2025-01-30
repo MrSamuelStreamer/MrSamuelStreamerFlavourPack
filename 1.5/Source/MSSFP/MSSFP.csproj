@@ -245,6 +245,10 @@
         <ReleaseFiles Update="..\..\Defs\ResearchDefs\MSS_FP_CEE.xml">
           <Link>MrSamuelStreamerFlavourPack\1.5\Defs\ResearchDefs\MSS_FP_CEE.xml</Link>
         </ReleaseFiles>
+
+        <ReleaseFiles Update="..\..\Defs\Relics\MSS_RelicWeaponsMelee.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Defs\Relics\MSS_RelicWeaponsMelee.xml</Link>
+        </ReleaseFiles>
     </ItemGroup>
     <ItemGroup>
       <Folder Include="..\..\..\Common\Textures\Things\Item\Book\MSS_FP_FroggeTome\">

@@ -15,6 +15,7 @@ public static class WorldPawns_Patch
     [HarmonyPrefix]
     public static bool RemovePreservedPawnHediff(WorldPawns __instance, Pawn pawn)
     {
+        if (pawn == null) return true;
         /*
          * Odd bug here https://gist.github.com/HugsLibRecordKeeper/c256a65a643aeafe2337df5552481cdc#file-output_log-txt-L10693
          * Pawn referenced isn't in the dict. Patch the method to skip if not in the list
