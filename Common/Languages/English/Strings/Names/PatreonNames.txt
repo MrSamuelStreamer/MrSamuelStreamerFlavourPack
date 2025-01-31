@@ -89,3 +89,5 @@ Gaby "G" Sulivan
 Dirk Desire
 Nora
 Kreeeeeeeeeeeeft
+John Rimworld
+<size=50><color=#ff0000ff><b>B</b></color><color=#ffa500ff><i>r</i></color><color=#ffff00ff>u</color><color=#00ff00ff><i>z</i></color> <color=#0000ffff>F</color><color=#800080ff><i>r</i></color><color=#ff0000ff><b>o</b></color><color=#ffa500ff><i>g</i></color><color=#ffff00ff><b>g</b></color><color=#00ff00ff><i>e</i></color></size>
