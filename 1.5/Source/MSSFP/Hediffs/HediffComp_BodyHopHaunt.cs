@@ -68,6 +68,10 @@ public class HediffComp_BodyHopHaunt: HediffComp_Haunt
 
         public void ExposeData()
         {
+            if (Scribe.mode == LoadSaveMode.Saving)
+            {
+                name = name.Replace(",", "");
+            }
             Scribe_Values.Look(ref name, "name");
             Scribe_Values.Look(ref description, "description");
             Scribe_Defs.Look(ref bestSkill, "bestSkill");

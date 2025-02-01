@@ -15,9 +15,12 @@ public class CompFroggoHeal: CompAbilityEffect
     {
         base.Apply(target, dest);
 
-        Effecter effecter = EffecterDefOf.PsychicRitual_Sustained.SpawnAttached(target.Pawn, target.Pawn.Map);
-        effecter.Trigger((TargetInfo) (Thing) target.Pawn, (TargetInfo) (Thing) target.Pawn);
-        effecter.Cleanup();
+        if (ModLister.AnomalyInstalled)
+        {
+            Effecter effecter = EffecterDefOf.PsychicRitual_Sustained.SpawnAttached(target.Pawn, target.Pawn.Map);
+            effecter.Trigger((TargetInfo) (Thing) target.Pawn, (TargetInfo) (Thing) target.Pawn);
+            effecter.Cleanup();
+        }
 
         for (int i = 0; i < 100; i++) // emergency breakout
         {
