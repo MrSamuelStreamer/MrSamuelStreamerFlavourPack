@@ -49,5 +49,4 @@ public class GeneClassificationDef: Def
 {
     public GeneType type;
     public List<GeneClassification> genes;
-    public float selectionWeight = 0.5f;
 }

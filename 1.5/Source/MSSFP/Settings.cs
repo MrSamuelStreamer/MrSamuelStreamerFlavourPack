@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using Verse;
 
 namespace MSSFP;
@@ -11,6 +12,12 @@ public class Settings : ModSettings
     public bool ShowHaunts = true;
     public bool NoSkylanternRaids = false;
     public bool DrawByMrStreamer = false;
+
+    public float GeneEventChance = 1f;
+
+    public float GoodGeneChance = 1f / 3f;
+    public float BadGeneChance = 1f / 3f;
+    public float NeutralGeneChance = 1f / 3f;
 
     public void DoWindowContents(Rect wrect)
     {
@@ -35,7 +42,37 @@ public class Settings : ModSettings
         options.CheckboxLabeled("MSS_FP_Settings_DrawByMrStreamer".Translate(), ref DrawByMrStreamer);
         options.Gap();
 
+        GeneEventChance = options.SliderLabeled("MSS_FP_GeneEventChance".Translate(GeneEventChance * 100), GeneEventChance, 0f, 1f, tooltip:"MSS_FP_GeneEventChance_Tooltip");
+
+        float GoodGeneChanceUpd = options.SliderLabeled("MSS_FP_GoodGeneChance".Translate(GoodGeneChance * 100), GoodGeneChance, 0f, 1f, tooltip:"MSS_FP_GoodGeneChance_Tooltip");
+        float BadGeneChanceUpd = options.SliderLabeled("MSS_FP_BadGeneChance".Translate(BadGeneChance * 100), BadGeneChance, 0f, 1f, tooltip:"MSS_FP_BadGeneChance_Tooltip");
+        float NeutralGeneChanceUpd = options.SliderLabeled("MSS_FP_NeutralGeneChance".Translate(NeutralGeneChance * 100), NeutralGeneChance, 0f, 1f, tooltip:"MSS_FP_NeutralGeneChance_Tooltip");
+
+        if (!Mathf.Approximately(GoodGeneChance, GoodGeneChanceUpd))
+        {
+            AdjustChanceRatios(GoodGeneChance - GoodGeneChanceUpd, ref BadGeneChance, ref NeutralGeneChance);
+            GoodGeneChance = GoodGeneChanceUpd;
+        }else if (!Mathf.Approximately(BadGeneChance, BadGeneChanceUpd))
+        {
+            AdjustChanceRatios(BadGeneChance - BadGeneChanceUpd, ref GoodGeneChance, ref NeutralGeneChance);
+            BadGeneChance = BadGeneChanceUpd;
+        }else if (!Mathf.Approximately(NeutralGeneChance, NeutralGeneChanceUpd))
+        {
+            AdjustChanceRatios(NeutralGeneChance - NeutralGeneChanceUpd, ref GoodGeneChance, ref BadGeneChance);
+            NeutralGeneChance = NeutralGeneChanceUpd;
+        }
+
         options.End();
+    }
+
+    public void AdjustChanceRatios(float change, ref float chanceA, ref float chanceB)
+    {
+        float total = chanceA + chanceB;
+        float aRatio = chanceA / total;
+        float bRatio = chanceB / total;
+
+        chanceA += change * aRatio;
+        chanceB += change * bRatio;
     }
 
     public override void ExposeData()
@@ -46,5 +83,9 @@ public class Settings : ModSettings
         Scribe_Values.Look(ref ShowHaunts, "ShowHaunts", true);
         Scribe_Values.Look(ref NoSkylanternRaids, "NoSkylanternRaids", false);
         Scribe_Values.Look(ref DrawByMrStreamer, "DrawByMrStreamer", false);
+        Scribe_Values.Look(ref GeneEventChance, "GeneEventChance", 1f );
+        Scribe_Values.Look(ref GoodGeneChance, "GoodGeneChance", 1f/3f);
+        Scribe_Values.Look(ref BadGeneChance, "BadGeneChance", 1f/3f);
+        Scribe_Values.Look(ref NeutralGeneChance, "NeutralGeneChance", 1f/3f);
     }
 }

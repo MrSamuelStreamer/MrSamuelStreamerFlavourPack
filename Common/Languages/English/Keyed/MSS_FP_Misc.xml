@@ -29,4 +29,13 @@
     <MSS_BirthdayPickGene>Choose a {1} gene for {0_nameDef} to gain via mutation</MSS_BirthdayPickGene>
 
     <MSS_Gen_RandomGene>{0} gained the {1} xenogene</MSS_Gen_RandomGene>
+
+    <MSS_FP_GeneEventChance>Gene Event Chance</MSS_FP_GeneEventChance>
+    <MSS_FP_GeneEventChance_Tooltop>The chance for gene selections to appear on e.g. growth moments</MSS_FP_GeneEventChance_Tooltop>
+    <MSS_FP_GoodGeneChance>Good Gene Chance {0}%</MSS_FP_GoodGeneChance>
+    <MSS_FP_GoodGeneChance_Tooltip>The chance for events that give genes to give good genes.</MSS_FP_GoodGeneChance_Tooltip>
+    <MSS_FP_BadGeneChance>Bad Gene Chance {0}%</MSS_FP_BadGeneChance>
+    <MSS_FP_BadGeneChance_Tooltip>The chance for events that give genes to give bad genes.</MSS_FP_BadGeneChance_Tooltip>
+    <MSS_FP_NeutralGeneChance>Neutral Gene Chance {0}%</MSS_FP_NeutralGeneChance>
+    <MSS_FP_NeutralGeneChance_Tooltip>The chance for events that give genes to give neutral genes.</MSS_FP_NeutralGeneChance_Tooltip>
 </LanguageData>

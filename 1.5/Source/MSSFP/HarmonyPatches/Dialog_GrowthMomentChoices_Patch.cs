@@ -16,13 +16,15 @@ public static class Dialog_GrowthMomentChoices_Patch
 {
     public struct Choices
     {
-        public Choices(){
-            IsGood = Rand.Chance(0.2f);
+        public Choices()
+        {
+            ShouldDoChoice = Rand.Chance(MSSFPMod.settings.GeneEventChance);
         }
-        public bool IsGood;
+
         public GeneClassification selectedGene;
         public List<GeneClassification> geneChoices;
         public GeneType type;
+        public bool ShouldDoChoice;
     }
 
     public static Dictionary<Dialog_GrowthMomentChoices, Choices> DialogLookup = new Dictionary<Dialog_GrowthMomentChoices, Choices>();
@@ -63,7 +65,7 @@ public static class Dialog_GrowthMomentChoices_Patch
     [HarmonyPostfix]
     public static void SelectionsMadePostfix(Dialog_GrowthMomentChoices __instance, ref bool __result)
     {
-        if (__result && DialogLookup.TryGetValue(__instance, out Choices value))
+        if (__result && DialogLookup.TryGetValue(__instance, out Choices value) && value.ShouldDoChoice)
         {
             __result = value.selectedGene != null;
         }
@@ -72,17 +74,44 @@ public static class Dialog_GrowthMomentChoices_Patch
     public static Lazy<FieldInfo> Letter = new(() => AccessTools.Field(typeof(Dialog_GrowthMomentChoices), "letter"));
 
     public static IntRange GeneRange = new IntRange(2, 12);
+
+    public static GeneType GetRandomGeneType()
+    {
+        Dictionary<GeneType, float> weights = new Dictionary<GeneType, float>();
+        foreach (GeneType type in Enum.GetValues(typeof(GeneType)))
+        {
+            switch (type)
+            {
+                case GeneType.good:
+                    weights[type] = MSSFPMod.settings.GoodGeneChance;
+                    break;
+                case GeneType.bad:
+                    weights[type] = MSSFPMod.settings.BadGeneChance;
+                    break;
+                case GeneType.neutral:
+                    weights[type] = MSSFPMod.settings.NeutralGeneChance;
+                    break;
+                default:
+                    weights[type] = 0;
+                    break;
+            }
+        }
+
+        return weights.RandomElementByWeight(weight => weight.Value).Key;
+    }
+
     public static List<GeneClassification> GeneChoicesForPawn(Pawn pawn, bool good, out GeneType geneType)
     {
-        GeneClassificationDef classification = DefDatabase<GeneClassificationDef>.AllDefs.RandomElementByWeight(g => g.selectionWeight);
+        GeneType randType = GetRandomGeneType();
+        geneType = randType;
 
-        geneType = classification.type;
+        GeneClassificationDef classification = DefDatabase<GeneClassificationDef>.AllDefs.Where(g=>g.type==randType).RandomElement();
 
         List<GeneClassification> validGenes = classification.genes.Where(g => g.gene != null &&
             !pawn.genes.GenesListForReading.Any(pg => pg.def.ConflictsWith(g.gene)) &&
             (g.gene.prerequisite == null || pawn.genes.GenesListForReading.Any(pg => pg.def == g.gene.prerequisite))).ToList();
 
-        List<GeneClassification> output = new List<GeneClassification>();
+        List<GeneClassification> output = new();
         for (int i = 0; i < GeneRange.RandomInRange; i++)
         {
             output.Add(validGenes.Except(output).RandomElementByWeight(g=>g.weight));
@@ -99,6 +128,8 @@ public static class Dialog_GrowthMomentChoices_Patch
         }
 
         Choices currentChoices = DialogLookup[instance];
+
+        if(!currentChoices.ShouldDoChoice) return;
 
         ChoiceLetter_GrowthMoment letter = (ChoiceLetter_GrowthMoment)Letter.Value.GetValue(instance);
 
