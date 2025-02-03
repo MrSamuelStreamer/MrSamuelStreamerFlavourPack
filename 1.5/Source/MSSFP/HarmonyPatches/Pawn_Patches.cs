@@ -28,6 +28,9 @@ public static class Pawn_Patches
     [HarmonyPostfix]
     public static void Pawn_Notify_Downed(Pawn __instance)
     {
+        if(!__instance.Spawned) return;
+        if(__instance.ageTracker.AgeBiologicalYears < 2) return;
+        if(__instance.Map == null) return;
         if(!__instance.Faction.IsPlayer || !__instance.RaceProps.Humanlike || Rand.Chance(0.9f)) return;
         IncidentParms iParams = new IncidentParms { target = __instance.Map };
         Find.Storyteller.TryFire(new FiringIncident(MSSFPDefOf.MSS_FroggomancerRescue, null, iParams), false);
