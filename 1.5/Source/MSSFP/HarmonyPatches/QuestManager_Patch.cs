@@ -14,7 +14,7 @@ public static class QuestManager_Patch
     public static void Notify_PawnBorn_Patch(Thing baby)
     {
         // couldn't get this patch to work in PregnancyUtility.ApplyBirthOutcome, so applying here instead
-        if(baby is not Pawn pawn || pawn.genes == null) return;
+        if(baby is not Pawn pawn || pawn.genes == null || pawn.Map == null) return;
 
         foreach (GeneMutatorDef birthGeneDef in DefDatabase<GeneMutatorDef>.AllDefs)
         {
