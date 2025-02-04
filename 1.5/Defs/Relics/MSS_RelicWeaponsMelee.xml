@@ -28,6 +28,7 @@
             </li>
         </modExtensions>
         <comps Inherit="False">
+            <li Class="CompProperties_Styleable"/>
             <li Class="CompProperties_Forbiddable"/>
             <li>
                 <compClass>CompEquippable</compClass>

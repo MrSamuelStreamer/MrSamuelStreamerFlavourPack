@@ -43,7 +43,13 @@
             <HintPath Condition="Exists('../../../../../Contents/Resources/Data/Managed/UnityEngine.TextRenderingModule.dll')">../../../../../Contents/Resources/Data/Managed/UnityEngine.TextRenderingModule.dll</HintPath>
             <Private>False</Private>
         </Reference>
-        <Reference Include="VanillaAchievments">
+        <Reference Include="VFECore">
+            <HintPath Condition="Exists('../../../../VanillaExpandedFramework/1.5/Assemblies/VFECore.dll')">../../../../VanillaExpandedFramework/1.5/Assemblies/VFECore.dll</HintPath>
+            <HintPath Condition="Exists('../../../../2023507013/1.5/Assemblies/VFECore.dll')">../../../../2023507013/1.5/Assemblies/VFECore.dll</HintPath>
+            <HintPath Condition="Exists('../../../../../../../workshop/content/294100/2023507013/1.5/Assemblies/VFECore.dll')">../../../../../../../workshop/content/294100/2023507013/1.5/Assemblies/VFECore.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="VEE">
             <HintPath Condition="Exists('../../../../VanillaEventsExpanded/1.5/Assemblies/VEE.dll')">../../../../VanillaEventsExpanded/1.5/Assemblies/VEE.dll</HintPath>
             <HintPath Condition="Exists('../../../../1938420742/1.5/Assemblies/VEE.dll')">../../../../1938420742/1.5/Assemblies/VEE.dll</HintPath>
             <HintPath Condition="Exists('../../../../../../../workshop/content/294100/1938420742/1.5/Assemblies/VEE.dll')">../../../../../../../workshop/content/294100/1938420742/1.5/Assemblies/VEE.dll</HintPath>

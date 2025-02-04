@@ -28,6 +28,13 @@
         <targetTags>
             <li>World</li>
         </targetTags>
+        <modExtensions>
+            <li Class="MSSFP.VEE.IncidentDefModExtension">
+                <extraConditions>
+                    <li MayRequire="Aoba.Fortress.Industrial.NuclearDawn">FTND_NuclearWinter</li>
+                </extraConditions>
+            </li>
+        </modExtensions>
         <workerClass>VEE.IncidentWorker_MakeGameConditionPurple</workerClass>
         <gameCondition>MSS_NuclearFallout</gameCondition>
         <letterLabel>Nuclear Fallout</letterLabel>
@@ -38,11 +45,11 @@ The fallout from the rapid unplanned disassembly of their experimental reactor i
 It will last anywhere between a season to several years.</letterText>
         <letterDef>PurpleEvent</letterDef>
         <baseChance>5</baseChance>
-        <earliestDay>180</earliestDay>
-        <minRefireDays>40</minRefireDays>
+        <earliestDay>240</earliestDay>
+        <minRefireDays>80</minRefireDays>
         <durationDays>
-            <min>15</min>
-            <max>120</max>
+            <min>1</min>
+            <max>5</max>
         </durationDays>
     </IncidentDef>
 </Defs>
