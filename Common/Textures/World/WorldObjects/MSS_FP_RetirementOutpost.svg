@@ -27,8 +27,8 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      inkscape:zoom="1.4803312"
-     inkscape:cx="325.26505"
-     inkscape:cy="281.35596"
+     inkscape:cx="272.57414"
+     inkscape:cy="242.85106"
      inkscape:window-width="2560"
      inkscape:window-height="1377"
      inkscape:window-x="2552"
@@ -180,12 +180,13 @@
              d="m 69.08012,78.821041 0.983027,-3.217185"
              id="path29" />
         </g>
-        <circle
-           style="fill:none;stroke:#000000;stroke-width:5.0372;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+        <ellipse
+           style="fill:none;stroke:#000000;stroke-width:5.10704;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
            id="path1-8"
-           cx="67.73333"
-           cy="67.73333"
-           r="35.324043" />
+           cx="68.064194"
+           cy="68.063812"
+           rx="35.813831"
+           ry="35.813835" />
       </g>
       <path
          id="path30"
