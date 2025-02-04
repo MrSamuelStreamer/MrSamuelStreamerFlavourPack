@@ -50,12 +50,6 @@
             <HintPath Condition="Exists('../../../../../Contents/Resources/Data/Managed/UnityEngine.ImageConversionModule.dll')">../../../../../Contents/Resources/Data/Managed/UnityEngine.ImageConversionModule.dll</HintPath>
             <Private>False</Private>
         </Reference>
-        <Reference Include="VanillaAchievments">
-            <HintPath Condition="Exists('../../../../VanillaAchievementsExpanded/1.5/Assemblies/AchievementsExpanded.dll')">../../../../VanillaAchievementsExpanded/1.5/Assemblies/AchievementsExpanded.dll</HintPath>
-            <HintPath Condition="Exists('../../../../2288125657/1.5/Assemblies/AchievementsExpanded.dll')">../../../../2288125657/1.5/Assemblies/AchievementsExpanded.dll</HintPath>
-            <HintPath Condition="Exists('../../../../../../../workshop/content/294100/2288125657/1.5/Assemblies/AchievementsExpanded.dll')">../../../../../../../workshop/content/294100/2288125657/1.5/Assemblies/AchievementsExpanded.dll</HintPath>
-            <Private>False</Private>
-        </Reference>
     </ItemGroup>
     <ItemGroup>
         <Content Condition="Exists('../../../../../Data')" Include="../../../../../Data/**/*">

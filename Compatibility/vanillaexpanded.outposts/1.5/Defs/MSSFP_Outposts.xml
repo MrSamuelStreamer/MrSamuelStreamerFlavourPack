@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Defs>
+    <WorldObjectDef ParentName="OutpostBase">
+        <defName>MSSFP_Outpost_Retirement</defName>
+        <label>retirement home</label>
+        <description>Constructs a combination Retirement home/Assisted Living centre where the elderly can live out their life warm, safe, and cared for. They're given ample time to explore their hobbies and will often send what they've made back to the colony for the children.</description>
+        <worldObjectClass>MSSFP.VOE.Outpost_Retirement</worldObjectClass>
+        <expandingIconTexture>World/WorldObjects/MSS_FP_RetirementOutpost</expandingIconTexture>
+        <modExtensions>
+            <li Class="Outposts.OutpostExtension">
+                <ProvidedFood>MealLavish</ProvidedFood>
+                <TicksPerProduction>3600000</TicksPerProduction>
+            </li>
+            <li Class="MSSFP.VOE.OutpostDefModExtension">
+                <numberOfStacks>2~20</numberOfStacks>
+                <numberOfItems>20~100</numberOfItems>
+                <thingDefs>
+                    <li>
+                        <thingDef>Apparel_Parka</thingDef>
+                        <weight>0.6</weight>
+                        <stuffCategories>
+                            <li>Wools</li>
+                        </stuffCategories>
+                    </li>
+                    <li>
+                        <thingDef>Apparel_Jacket</thingDef>
+                        <weight>0.5</weight>
+                        <stuffCategories>
+                            <li>Wools</li>
+                        </stuffCategories>
+                    </li>
+                    <li>
+                        <thingDef>Apparel_BasicShirt</thingDef>
+                        <weight>0.5</weight>
+                        <stuffCategories>
+                            <li>Wools</li>
+                        </stuffCategories>
+                    </li>
+                    <li>
+                        <thingDef>Chocolate</thingDef>
+                        <weight>0.5</weight>
+                    </li>
+                    <li>
+                        <thingDef>Apparel_TribalA</thingDef>
+                        <weight>0.3</weight>
+                        <stuffCategories>
+                            <li>Wools</li>
+                        </stuffCategories>
+                    </li>
+                    <li>
+                        <thingDef>Apparel_CollarShirt</thingDef>
+                        <weight>0.3</weight>
+                        <stuffCategories>
+                            <li>Wools</li>
+                        </stuffCategories>
+                    </li>
+                    <li>
+                        <thingDef>Apparel_Duster</thingDef>
+                        <weight>0.3</weight>
+                        <stuffCategories>
+                            <li>Wools</li>
+                        </stuffCategories>
+                    </li>
+                    <li>
+                        <thingDef>Apparel_FlakVest</thingDef>
+                        <weight>0.1</weight>
+                    </li>
+                    <li>
+                        <thingDef>Apparel_FlakJacket</thingDef>
+                        <weight>0.1</weight>
+                    </li>
+                    <li>
+                        <thingDef>Apparel_Cape</thingDef>
+                        <weight>0.1</weight>
+                        <stuffCategories>
+                            <li>Wools</li>
+                        </stuffCategories>
+                    </li>
+                    <li>
+                        <thingDef>Apparel_Robe</thingDef>
+                        <weight>0.1</weight>
+                        <stuffCategories>
+                            <li>Wools</li>
+                        </stuffCategories>
+                    </li>
+                    <li>
+                        <thingDef>ToyBox</thingDef>
+                        <minified>true</minified>
+                        <weight>0.3</weight>
+                        <stackLimit>1</stackLimit>
+                    </li>
+                    <li>
+                        <thingDef>BabyDecoration</thingDef>
+                        <minified>true</minified>
+                        <weight>0.3</weight>
+                        <stackLimit>1</stackLimit>
+                    </li>
+                    <li>
+                        <thingDef>Crib</thingDef>
+                        <minified>true</minified>
+                        <weight>0.3</weight>
+                        <stackLimit>1</stackLimit>
+                    </li>
+                    <li MayRequire="VanillaExpanded.VCookE">
+                        <thingDef>VCE_SimpleDessert</thingDef>
+                        <weight>0.5</weight>
+                    </li>
+                    <li MayRequire="VanillaExpanded.VCookE">
+                        <thingDef>VCE_FineDessert</thingDef>
+                        <weight>0.4</weight>
+                    </li>
+                    <li MayRequire="VanillaExpanded.VCookE">
+                        <thingDef>VCE_LavishDessert</thingDef>
+                        <weight>0.3</weight>
+                    </li>
+                    <li MayRequire="VanillaExpanded.VCookE">
+                        <thingDef>VCE_GourmetDessert</thingDef>
+                        <weight>0.2</weight>
+                    </li>
+                    <li MayRequire="VanillaExpanded.VCookE">
+                        <thingDef>VCE_CookedSoupSimple</thingDef>
+                        <weight>0.5</weight>
+                    </li>
+                    <li MayRequire="VanillaExpanded.VCookE">
+                        <thingDef>VCE_CookedSoupFine</thingDef>
+                        <weight>0.4</weight>
+                    </li>
+                    <li MayRequire="VanillaExpanded.VCookE">
+                        <thingDef>VCE_CookedSoupLavish</thingDef>
+                        <weight>0.3</weight>
+                    </li>
+                    <li MayRequire="VanillaExpanded.VCookE">
+                        <thingDef>VCE_CookedSoupGourmet</thingDef>
+                        <weight>0.2</weight>
+                    </li>
+                    <li MayRequire="VanillaExpanded.VCookE">
+                        <thingDef>VCE_SimpleGrill</thingDef>
+                        <weight>0.5</weight>
+                    </li>
+                    <li MayRequire="VanillaExpanded.VCookE">
+                        <thingDef>VCE_FineGrill</thingDef>
+                        <weight>0.4</weight>
+                    </li>
+                    <li MayRequire="VanillaExpanded.VCookE">
+                        <thingDef>VCE_LavishGrill</thingDef>
+                        <weight>0.3</weight>
+                    </li>
+                    <li MayRequire="VanillaExpanded.VCookE">
+                        <thingDef>VCE_GourmetGrill</thingDef>
+                        <weight>0.2</weight>
+                    </li>
+                    <li MayRequire="VE.VanillaChristmasExpanded">
+                        <thingDef>VCE_Toy_Wooden</thingDef>
+                        <weight>0.5</weight>
+                    </li>
+                    <li MayRequire="VE.VanillaChristmasExpanded">
+                        <thingDef>VCE_Toy_Metal</thingDef>
+                        <weight>0.5</weight>
+                    </li>
+                    <li MayRequire="VE.VanillaChristmasExpanded">
+                        <thingDef>VCE_Toy_Cloth</thingDef>
+                        <weight>0.5</weight>
+                    </li>
+                </thingDefs>
+            </li>
+        </modExtensions>
+    </WorldObjectDef>
+</Defs>
