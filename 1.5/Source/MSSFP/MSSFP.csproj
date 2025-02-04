@@ -243,7 +243,6 @@
         <ReleaseFiles Update="..\..\Defs\Relics\MSS_RelicWeaponsMelee.xml">
           <Link>MrSamuelStreamerFlavourPack\1.5\Defs\Relics\MSS_RelicWeaponsMelee.xml</Link>
         </ReleaseFiles>
-
         <CommonFiles Update="..\..\..\Common\Languages\English\Keyed\MSS_FP_ProperIngurlish.xml">
           <Link>MrSamuelStreamerFlavourPack\Common\Languages\English\Keyed\MSS_FP_ProperEngurlish</Link>
         </CommonFiles>
@@ -251,9 +250,28 @@
         <CompatibilityFiles Update="..\..\..\Compatibility\vanillaexpanded.outposts\1.5\Patches\MSSFP_OutpostPatches.xml">
           <Link>MrSamuelStreamerFlavourPack\Compatibility\vanillaexpanded.outposts\1.5\Patches\MSSFP_OutpostPatches.xml</Link>
         </CompatibilityFiles>
+        <ReleaseFiles Update="..\..\Defs\ThingDefs_Races\MSSFP_PumpkinFrogge.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Defs\ThingDefs_Races\MSSFP_PumkinFrogge.xml</Link>
+        </ReleaseFiles>
 
-        <ReleaseFiles Update="..\..\Defs\Sounds\MSSFP_Sounds.xml">
-          <Link>MrSamuelStreamerFlavourPack\1.5\Defs\Sounds\MSSFP_Sounds.xml</Link>
+        <ReleaseFiles Update="..\..\Defs\ThingDefs_Races\MSSFP_Jrogge.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Defs\ThingDefs_Races\MSSFP_Jrogge.xml</Link>
+        </ReleaseFiles>
+
+        <ReleaseFiles Update="..\..\Defs\ThingDefs_Races\MSSFP_CoalFroggeAnt.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Defs\ThingDefs_Races\MSSFP_CoalFrogge.xml</Link>
+        </ReleaseFiles>
+
+        <ReleaseFiles Update="..\..\Defs\ThingDefs_Races\MSSFP_CoalFroggeBiter.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Defs\ThingDefs_Races\MSSFP_CoalFroggeBiter.xml</Link>
+        </ReleaseFiles>
+
+        <ReleaseFiles Update="..\..\Defs\ThingDefs_Races\MSSFP_CoalFroggeLigna.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Defs\ThingDefs_Races\MSSFP_CoalFroggeLigna.xml</Link>
+        </ReleaseFiles>
+
+        <ReleaseFiles Update="..\..\Defs\ThingDefs_Races\MSSFP_CoalFroggePete.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Defs\ThingDefs_Races\MSSFP_CoalFroggePete.xml</Link>
         </ReleaseFiles>
     </ItemGroup>
     <ItemGroup>
