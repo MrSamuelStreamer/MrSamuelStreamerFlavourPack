@@ -243,6 +243,30 @@
         <ReleaseFiles Update="..\..\Defs\Relics\MSS_RelicWeaponsMelee.xml">
           <Link>MrSamuelStreamerFlavourPack\1.5\Defs\Relics\MSS_RelicWeaponsMelee.xml</Link>
         </ReleaseFiles>
+
+        <ReleaseFiles Update="..\..\Defs\ThingDefs_Races\MSSFP_PumpkinFrogge.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Defs\ThingDefs_Races\MSSFP_PumkinFrogge.xml</Link>
+        </ReleaseFiles>
+
+        <ReleaseFiles Update="..\..\Defs\ThingDefs_Races\MSSFP_Jrogge.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Defs\ThingDefs_Races\MSSFP_Jrogge.xml</Link>
+        </ReleaseFiles>
+
+        <ReleaseFiles Update="..\..\Defs\ThingDefs_Races\MSSFP_CoalFroggeAnt.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Defs\ThingDefs_Races\MSSFP_CoalFrogge.xml</Link>
+        </ReleaseFiles>
+
+        <ReleaseFiles Update="..\..\Defs\ThingDefs_Races\MSSFP_CoalFroggeBiter.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Defs\ThingDefs_Races\MSSFP_CoalFroggeBiter.xml</Link>
+        </ReleaseFiles>
+
+        <ReleaseFiles Update="..\..\Defs\ThingDefs_Races\MSSFP_CoalFroggeLigna.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Defs\ThingDefs_Races\MSSFP_CoalFroggeLigna.xml</Link>
+        </ReleaseFiles>
+
+        <ReleaseFiles Update="..\..\Defs\ThingDefs_Races\MSSFP_CoalFroggePete.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Defs\ThingDefs_Races\MSSFP_CoalFroggePete.xml</Link>
+        </ReleaseFiles>
     </ItemGroup>
     <ItemGroup>
       <Folder Include="..\..\..\Common\Textures\Things\Item\Book\MSS_FP_FroggeTome\">

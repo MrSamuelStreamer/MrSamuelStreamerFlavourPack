@@ -2,9 +2,9 @@
 
 <Defs>
     <ThingDef ParentName="AnimalThingBase">
-        <defName>MSSFP_Frogge</defName>
-        <label>frogge</label>
-        <description>frogge.</description>
+        <defName>MSSFP_Jrogge</defName>
+        <label>jrogge</label>
+        <description>jrogge.</description>
         <statBases>
             <MoveSpeed>4.5</MoveSpeed>
             <MarketValue>2400</MarketValue>
@@ -19,7 +19,7 @@
                 <capacities>
                     <li>Bite</li>
                 </capacities>
-                <power>16</power>
+                <power>12</power>
                 <cooldownTime>2</cooldownTime>
                 <linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
                 <chanceFactor>0.7</chanceFactor>
@@ -37,7 +37,7 @@
                 <capacities>
                     <li>Blunt</li>
                 </capacities>
-                <power>12</power>
+                <power>10</power>
                 <cooldownTime>2</cooldownTime>
                 <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
                 <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
@@ -96,8 +96,8 @@
                 <emissionInterval>350</emissionInterval>
             </li>
             <li Class="CompProperties_EggLayer">
-                <eggUnfertilizedDef>MSSFP_EggFroggeUnfertilized</eggUnfertilizedDef>
-                <eggFertilizedDef>MSSFP_EggFroggeFertilized</eggFertilizedDef>
+                <eggUnfertilizedDef>MSSFP_EggJroggeUnfertilized</eggUnfertilizedDef>
+                <eggFertilizedDef>MSSFP_EggJroggeFertilized</eggFertilizedDef>
                 <eggFertilizationCountMax>3</eggFertilizationCountMax>
                 <eggLayIntervalDays>60</eggLayIntervalDays>
                 <eggProgressUnfertilizedMax>0.5</eggProgressUnfertilizedMax>
@@ -109,13 +109,6 @@
             <li IfModActive="oskarpotocki.vanillafactionsexpanded.core" Class="AnimalBehaviours.CompProperties_LastStand">
                 <finalCoolDownMultiplier>6</finalCoolDownMultiplier>
             </li>
-            <li IfModActive="oskarpotocki.vanillafactionsexpanded.core" Class="AnimalBehaviours.CompProperties_SwallowWhole">
-                <sendLetterWhenEating>true</sendLetterWhenEating>
-                <letterLabel>Colonist being eaten!</letterLabel>
-                <letterText>{0} is being eaten by a frogge!</letterText>
-                <playSoundWhenKilled>true</playSoundWhenKilled>
-                <createFilthWhenKilled>true</createFilthWhenKilled>
-            </li>
         </comps>
         <tradeTags>
             <li>AnimalExotic</li>
@@ -123,12 +116,12 @@
     </ThingDef>
 
     <ThingDef ParentName="EggUnfertBase">
-        <defName>MSSFP_EggFroggeUnfertilized</defName>
-        <label>frogge spawn (unfert.)</label>
-        <description>unfertilized frogge spawn. It can be eaten raw, but it's much, much better cooked.</description>
+        <defName>MSSFP_EggJroggeUnfertilized</defName>
+        <label>jrogge spawn (unfert.)</label>
+        <description>unfertilized jrogge spawn. It can be eaten raw, but it's much, much better cooked.</description>
         <graphicData>
-            <color>(30,230,50)</color>
-            <drawSize>2</drawSize>
+            <color>(227, 224, 222)</color>
+            <drawSize>1</drawSize>
         </graphicData>
         <statBases>
             <Nutrition>0.6</Nutrition>
@@ -137,13 +130,13 @@
     </ThingDef>
 
     <ThingDef ParentName="EggFertBase">
-        <defName>MSSFP_EggFroggeFertilized</defName>
-        <label>frogge spawn (fert.)</label>
-        <description>fertilized frogge spawn. If all goes well, it should hatch into a baby frogge. It can be eaten raw, but it's much better cooked.</description>
+        <defName>MSSFP_EggJroggeFertilized</defName>
+        <label>jrogge spawn (fert.)</label>
+        <description>fertilized jrogge spawn. If all goes well, it should hatch into a baby pumpkin frogge. It can be eaten raw, but it's much better cooked.</description>
         <possessionCount>1</possessionCount>
         <graphicData>
-            <color>(30,230,20)</color>
-            <drawSize>2</drawSize>
+            <color>(227, 224, 222)</color>
+            <drawSize>1</drawSize>
         </graphicData>
         <statBases>
             <Nutrition>0.6</Nutrition>
@@ -152,36 +145,36 @@
         <comps>
             <li Class="CompProperties_Hatcher">
                 <hatcherDaystoHatch>24</hatcherDaystoHatch>
-                <hatcherPawn>MSSFP_Frogge</hatcherPawn>
+                <hatcherPawn>MSSFP_Jrogge</hatcherPawn>
             </li>
         </comps>
     </ThingDef>
 
     <PawnKindDef ParentName="AnimalKindBase">
-        <defName>MSSFP_Frogge</defName>
-        <label>frogge</label>
-        <race>MSSFP_Frogge</race>
+        <defName>MSSFP_Jrogge</defName>
+        <label>jrogge</label>
+        <race>MSSFP_Jrogge</race>
         <combatPower>100</combatPower>
         <ecoSystemWeight>0.25</ecoSystemWeight>
         <lifeStages>
             <li>
                 <bodyGraphicData>
-                    <texPath>Things/Pawn/Animal/Frogge/MSSFP_Frogge</texPath>
-                    <drawSize>2</drawSize>
+                    <texPath>Things/Pawn/Animal/MSSFP_Jrogge/MSSFP_Jrogge</texPath>
+                    <drawSize>0.25</drawSize>
                     <color>(255,255,255)</color>
                 </bodyGraphicData>
             </li>
             <li>
                 <bodyGraphicData>
-                    <texPath>Things/Pawn/Animal/Frogge/MSSFP_Frogge</texPath>
-                    <drawSize>2.5</drawSize>
+                    <texPath>Things/Pawn/Animal/MSSFP_Jrogge/MSSFP_Jrogge</texPath>
+                    <drawSize>0.5</drawSize>
                     <color>(255,255,255)</color>
                 </bodyGraphicData>
             </li>
             <li>
                 <bodyGraphicData>
-                    <texPath>Things/Pawn/Animal/Frogge/MSSFP_Frogge</texPath>
-                    <drawSize>3</drawSize>
+                    <texPath>Things/Pawn/Animal/MSSFP_Jrogge/MSSFP_Jrogge</texPath>
+                    <drawSize>0.75</drawSize>
                     <color>(255,255,255)</color>
                     <shadowData>
                         <volume>(0.32, 0.35, 0.32)</volume>
@@ -192,37 +185,6 @@
         </lifeStages>
         <abilities>
             <li>MSS_FP_Ability_Shoot_Thing</li>
-            <li>MSS_FP_WorldLeap</li>
         </abilities>
     </PawnKindDef>
-
-    <ThoughtDef>
-        <defName>MSSFP_Frogge</defName>
-        <workerClass>MSSFP.ThoughtWorker_Frogge</workerClass>
-        <effectMultiplyingStat>PsychicSensitivity</effectMultiplyingStat>
-        <developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
-        <stages>
-            <li>
-                <label>frogge</label>
-                <description>frogge.</description>
-                <baseMoodEffect>2</baseMoodEffect>
-            </li>
-        </stages>
-    </ThoughtDef>
-
-    <IncidentDef>
-        <defName>MSSFP_FroggeJoin</defName>
-        <label>frogge</label>
-        <category>Special</category>
-        <targetTags>
-            <li>Map_PlayerHome</li>
-        </targetTags>
-        <workerClass>MSSFP.IncidentWorker_FroggeJoin</workerClass>
-        <letterLabel>frogge</letterLabel>
-        <letterText>frogge</letterText>
-        <baseChance>0.4</baseChance>
-        <minRefireDays>60</minRefireDays>
-        <minGreatestPopulation>3</minGreatestPopulation>
-        <pawnKind>MSSFP_Frogge</pawnKind>
-    </IncidentDef>
 </Defs>
