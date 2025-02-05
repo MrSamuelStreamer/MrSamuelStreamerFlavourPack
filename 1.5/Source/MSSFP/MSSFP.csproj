@@ -243,6 +243,10 @@
         <ReleaseFiles Update="..\..\Defs\Relics\MSS_RelicWeaponsMelee.xml">
           <Link>MrSamuelStreamerFlavourPack\1.5\Defs\Relics\MSS_RelicWeaponsMelee.xml</Link>
         </ReleaseFiles>
+
+        <CommonFiles Update="..\..\..\Common\Languages\English\Keyed\MSS_FP_ProperIngurlish.xml">
+          <Link>MrSamuelStreamerFlavourPack\Common\Languages\English\Keyed\MSS_FP_ProperEngurlish</Link>
+        </CommonFiles>
     </ItemGroup>
     <ItemGroup>
       <Folder Include="..\..\..\Common\Textures\Things\Item\Book\MSS_FP_FroggeTome\">

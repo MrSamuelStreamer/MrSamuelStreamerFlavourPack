@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<LanguageData>
+    <AlertLowHemogen>Low haemogen</AlertLowHemogen>
+    <AlertLowHemogenDesc>A colonist has low haemogen. At zero haemogen, they will develop a painful haemogen craving.\n\nFeed them haemogen packs to prevent this. You can obtain haemogen packs using the 'extract haemogen pack' medical operation on a non-haemogenic human.\n\nThe following colonists have low haemogen</AlertLowHemogenDesc>
+    <NotAllowedHemogen>Hemogen packs disabled by food restriction.</NotAllowedHemogen>
+    <MessagePawnHadNotEnoughBloodToProduceHemogenPack>{PAWN_nameDef} did not have enough blood to produce a haemogen pack. </MessagePawnHadNotEnoughBloodToProduceHemogenPack>
+    <MessageCannotStartHemogenExtraction>{PAWN_nameDef} doesn't have enough blood to produce a haemogen pack.</MessageCannotStartHemogenExtraction>
+    <Hemogen>haemogen</Hemogen>
+    <HemogenDesc>Haemogen is a biological energy source derived from compounds in human blood. Baseliner humans produce it endogenously and consume it over time in their own internal balance. Some human xenotypes use it as a kind of fuel for specific abilities, while others must consume it to survive at all.</HemogenDesc>
+    <CannotWakeNotEnoughHemogen>Cannot wake. Need at least {0} haemogen.</CannotWakeNotEnoughHemogen>  <AutoTakeHemogenDesc>This determines whether {PAWN_nameDef} will automatically ingest haemogen packs when {PAWN_possessive} haemogen is below {MIN}.\n\nAutomatic ingestion is currently {ONOFF}.</AutoTakeHemogenDesc>
+    <ConsumeHemogenBelow>Consume haemogen below</ConsumeHemogenBelow>
+    <NeverConsumeHemogen>Never consume haemogen.</NeverConsumeHemogen>
+    <AbilityDisabledNoHemogenGene>{0_labelShort} is not haemogenic.</AbilityDisabledNoHemogenGene>
+    <AbilityDisabledNoHemogen>{0_labelShort} does not have enough haemogen.</AbilityDisabledNoHemogen>
+    <AbilityHemogenCost>Hemogen cost</AbilityHemogenCost>
+    <AbilityHemogenGain>Base haemogen gain</AbilityHemogenGain>
+</LanguageData>
