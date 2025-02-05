@@ -162,6 +162,11 @@ public static class Dialog_GrowthMomentChoices_Patch
     public static void MakeChoicesHook(Dialog_GrowthMomentChoices instance)
     {
         if(!DialogLookup.TryGetValue(instance, out Choices currentChoices)) return;
+        if (!currentChoices.ShouldDoChoice)
+        {
+            DialogLookup.Remove(instance);
+            return;
+        }
 
         ChoiceLetter_GrowthMoment letter = (ChoiceLetter_GrowthMoment)Letter.Value.GetValue(instance);
 
