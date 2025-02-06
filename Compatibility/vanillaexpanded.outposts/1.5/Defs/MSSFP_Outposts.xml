@@ -3,7 +3,7 @@
     <WorldObjectDef ParentName="OutpostBase">
         <defName>MSSFP_Outpost_Retirement</defName>
         <label>retirement home</label>
-        <description>Constructs a combination Retirement home/Assisted Living centre where the elderly can live out their life warm, safe, and cared for. They're given ample time to explore their hobbies and will often send what they've made back to the colony for the children.</description>
+        <description>Constructs a combination Retirement home/Assisted Living centre where the elderly can live out their life warm, safe, and cared for. They're given ample time to explore their hobbies and will often send what they've made back to the colony for the children.\n\nThe best of care is given here, so certain age related illnesses will be slower.</description>
         <worldObjectClass>MSSFP.VOE.Outpost_Retirement</worldObjectClass>
         <expandingIconTexture>World/WorldObjects/MSS_FP_RetirementOutpost</expandingIconTexture>
         <modExtensions>
