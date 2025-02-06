@@ -247,6 +247,10 @@
         <CommonFiles Update="..\..\..\Common\Languages\English\Keyed\MSS_FP_ProperIngurlish.xml">
           <Link>MrSamuelStreamerFlavourPack\Common\Languages\English\Keyed\MSS_FP_ProperEngurlish</Link>
         </CommonFiles>
+
+        <CompatibilityFiles Update="..\..\..\Compatibility\vanillaexpanded.outposts\1.5\Patches\MSSFP_OutpostPatches.xml">
+          <Link>MrSamuelStreamerFlavourPack\Compatibility\vanillaexpanded.outposts\1.5\Patches\MSSFP_OutpostPatches.xml</Link>
+        </CompatibilityFiles>
     </ItemGroup>
     <ItemGroup>
       <Folder Include="..\..\..\Common\Textures\Things\Item\Book\MSS_FP_FroggeTome\">

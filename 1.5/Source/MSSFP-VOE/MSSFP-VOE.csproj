@@ -43,7 +43,7 @@
             <HintPath Condition="Exists('../../../../../Contents/Resources/Data/Managed/UnityEngine.TextRenderingModule.dll')">../../../../../Contents/Resources/Data/Managed/UnityEngine.TextRenderingModule.dll</HintPath>
             <Private>False</Private>
         </Reference>
-        <Reference Include="VanillaExpandedFramework-Outposts">
+        <Reference Include="Outposts">
             <HintPath Condition="Exists('../../../../VanillaExpandedFramework/1.5/Assemblies/Outposts.dll')">../../../../VanillaExpandedFramework/1.5/Assemblies/Outposts.dll</HintPath>
             <HintPath Condition="Exists('../../../../2023507013/1.5/Assemblies/Outposts.dll')">../../../../2023507013/1.5/Assemblies/Outposts.dll</HintPath>
             <HintPath Condition="Exists('../../../../../../../workshop/content/294100/2023507013/1.5/Assemblies/Outposts.dll')">../../../../../../../workshop/content/294100/2023507013/1.5/Assemblies/Outposts.dll</HintPath>

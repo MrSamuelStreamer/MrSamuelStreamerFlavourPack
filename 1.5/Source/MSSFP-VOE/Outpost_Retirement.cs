@@ -15,6 +15,7 @@ public class Outpost_Retirement : Outpost
     public Lazy<FieldInfo> ticksTillProductionInfo = new Lazy<FieldInfo>(()=>AccessTools.Field(typeof(Outpost), "ticksTillProduction"));
     public OutpostDefModExtension modExt => def.GetModExtension<OutpostDefModExtension>();
 
+    public bool NoOldPeopleLetterSent = false;
     public override int TicksPerProduction => Mathf.Max(base.TicksPerProduction - PawnCount * 600000, 600000);
 
     public int CombinedAge => CapablePawns.Sum(p => p.ageTracker.AgeBiologicalYears);
@@ -22,6 +23,12 @@ public class Outpost_Retirement : Outpost
     protected override bool IsCapable(Pawn pawn)
     {
         return pawn.RaceProps.Humanlike && pawn.ageTracker.AgeBiologicalYears > 60;
+    }
+
+    public override void ExposeData()
+    {
+        base.ExposeData();
+        Scribe_Values.Look(ref NoOldPeopleLetterSent, "NoOldPeopleLetterSent", false);
     }
 
     public override string RelevantSkillDisplay()
@@ -33,14 +40,28 @@ public class Outpost_Retirement : Outpost
     {
         int ticksTillProd = (int) ticksTillProductionInfo.Value.GetValue(this);
 
-        if (!CapablePawns.Any() && ticksTillProd >= 0)
+        bool AnyCapablePawns = CapablePawns.Any();
+
+        if (AnyCapablePawns) NoOldPeopleLetterSent = false;
+
+        if (!AnyCapablePawns && ticksTillProd >= 0)
         {
-            ticksTillProductionInfo.Value.SetValue(this, -1);
-            Find.LetterStack.ReceiveLetter("MSS_FP_RetirementNoOldPeople".Translate(Name), "MSS_FP_RetirementNoOldPeopleDesc".Translate(Name), LetterDefOf.NegativeEvent);
-        }else if (CapablePawns.Any() && ticksTillProd < 0)
+            // offset base tick increase, instead of patching
+            if (TicksPerProduction > 0)
+            {
+                ticksTillProductionInfo.Value.SetValue(this, ticksTillProd+1);
+            }
+
+            if (!NoOldPeopleLetterSent)
+            {
+                NoOldPeopleLetterSent = true;
+                Find.LetterStack.ReceiveLetter("MSS_FP_RetirementNoOldPeople".Translate(Name), "MSS_FP_RetirementNoOldPeopleDesc".Translate(Name), LetterDefOf.NegativeEvent);
+            }
+        }else if (AnyCapablePawns && ticksTillProd < 0)
         {
             ticksTillProductionInfo.Value.SetValue(this, Mathf.RoundToInt(TicksPerProduction * OutpostsMod.Settings.TimeMultiplier));
         }
+
         base.Tick();
     }
 
@@ -51,6 +72,12 @@ public class Outpost_Retirement : Outpost
         return Enum.GetValues(typeof(QualityCategory)) // get values from Type provided
             .OfType<QualityCategory>() // casts to Enum
             .RandomElement();
+    }
+
+    public override void Produce()
+    {
+        if(!CapablePawns.Any()) return;
+        base.Produce();
     }
 
     public override IEnumerable<Thing> ProducedThings()

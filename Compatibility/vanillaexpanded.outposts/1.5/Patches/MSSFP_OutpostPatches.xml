@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Patch>
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/HediffDef[defName="TK_OldAge"]/comps</xpath>
+        <value>
+            <li Class="MSSFP.VOE.Hediffs.HediffCompProperties_OutpostSuppression">
+                <OutpostDefs>
+                    <li>MSSFP_Outpost_Retirement</li>
+                </OutpostDefs>
+            </li>
+        </value>
+    </Operation>
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/HediffDef[defName="TK_Degradation"]/comps</xpath>
+        <value>
+            <li Class="MSSFP.VOE.Hediffs.HediffCompProperties_OutpostSuppression">
+                <OutpostDefs>
+                    <li>MSSFP_Outpost_Retirement</li>
+                </OutpostDefs>
+            </li>
+        </value>
+    </Operation>
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/HediffDef[defName="MSS_Gen_CompromisedImmunity"]/comps</xpath>
+        <value>
+            <li Class="MSSFP.VOE.Hediffs.HediffCompProperties_OutpostSuppression">
+                <OutpostDefs>
+                    <li>MSSFP_Outpost_Retirement</li>
+                </OutpostDefs>
+            </li>
+        </value>
+    </Operation>
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/HediffDef[defName="MSS_Gen_CognitiveDecline"]/comps</xpath>
+        <value>
+            <li Class="MSSFP.VOE.Hediffs.HediffCompProperties_OutpostSuppression">
+                <OutpostDefs>
+                    <li>MSSFP_Outpost_Retirement</li>
+                </OutpostDefs>
+            </li>
+        </value>
+    </Operation>
+</Patch>
