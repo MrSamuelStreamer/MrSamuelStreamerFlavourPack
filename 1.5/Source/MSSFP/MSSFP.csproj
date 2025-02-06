@@ -251,6 +251,10 @@
         <CompatibilityFiles Update="..\..\..\Compatibility\vanillaexpanded.outposts\1.5\Patches\MSSFP_OutpostPatches.xml">
           <Link>MrSamuelStreamerFlavourPack\Compatibility\vanillaexpanded.outposts\1.5\Patches\MSSFP_OutpostPatches.xml</Link>
         </CompatibilityFiles>
+
+        <ReleaseFiles Update="..\..\Defs\Sounds\MSSFP_Sounds.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Defs\Sounds\MSSFP_Sounds.xml</Link>
+        </ReleaseFiles>
     </ItemGroup>
     <ItemGroup>
       <Folder Include="..\..\..\Common\Textures\Things\Item\Book\MSS_FP_FroggeTome\">

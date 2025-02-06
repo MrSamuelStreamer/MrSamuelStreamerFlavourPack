@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Defs>
+    <SoundDef>
+        <defName>MSSFP_Squelch</defName>
+        <context>MapOnly</context>
+        <eventNames/>
+        <subSounds>
+            <li>
+                <gameSpeedRange>1~2</gameSpeedRange>
+                <grains>
+                    <li Class="AudioGrain_Clip">
+                        <clipPath>MSSFP_Squelch</clipPath>
+                    </li>
+                </grains>
+                <pitchRange>
+                    <min>0.9770588</min>
+                    <max>1.137647</max>
+                </pitchRange>
+                <distRange>
+                    <min>0</min>
+                    <max>50.40025</max>
+                </distRange>
+                <volumeRange>100~150</volumeRange>
+                <sustainLoop>False</sustainLoop>
+            </li>
+        </subSounds>
+    </SoundDef>
+</Defs>

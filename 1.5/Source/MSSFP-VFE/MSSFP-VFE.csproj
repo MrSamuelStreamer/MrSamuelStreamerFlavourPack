@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net48</TargetFramework>
+        <OutputType>Library</OutputType>
+        <LangVersion>latest</LangVersion>
+        <RootNamespace>MSSFP.VFE</RootNamespace>
+        <AssemblyName>MSSFP.VFE</AssemblyName>
+        <OutputPath>../../../Compatibility/vanillaexpanded.outposts/1.5/Assemblies</OutputPath>
+        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+        <SteamModsPath>$(RIMWORLD_STEAM_MODS_PATH)</SteamModsPath>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <Optimize>false</Optimize>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>portable</DebugType>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <DebugType>embedded</DebugType>
+        <DebugSymbols>false</DebugSymbols>
+        <Optimize>true</Optimize>
+    </PropertyGroup>
+    <ItemGroup>
+        <Reference Include="Assembly-CSharp">
+            <HintPath Condition="Exists('../../../../../RimWorldWin64_Data/Managed/Assembly-CSharp.dll')">../../../../../RimWorldWin64_Data/Managed/Assembly-CSharp.dll</HintPath>
+            <HintPath Condition="Exists('../../../../../Contents/Resources/Data/Managed/Assembly-CSharp.dll')">../../../../../Contents/Resources/Data/Managed/Assembly-CSharp.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.CoreModule">
+            <HintPath Condition="Exists('../../../../../RimWorldWin64_Data/Managed/UnityEngine.CoreModule.dll')">../../../../../RimWorldWin64_Data/Managed/UnityEngine.CoreModule.dll</HintPath>
+            <HintPath Condition="Exists('../../../../../Contents/Resources/Data/Managed/UnityEngine.CoreModule.dll')">../../../../../Contents/Resources/Data/Managed/UnityEngine.CoreModule.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.IMGUIModule">
+            <HintPath Condition="Exists('../../../../../RimWorldWin64_Data/Managed/UnityEngine.IMGUIModule.dll')">../../../../../RimWorldWin64_Data/Managed/UnityEngine.IMGUIModule.dll</HintPath>
+            <HintPath Condition="Exists('../../../../../Contents/Resources/Data/Managed/UnityEngine.IMGUIModule.dll')">../../../../../Contents/Resources/Data/Managed/UnityEngine.IMGUIModule.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.TextRenderingModule">
+            <HintPath Condition="Exists('../../../../../RimWorldWin64_Data/Managed/UnityEngine.TextRenderingModule.dll')">../../../../../RimWorldWin64_Data/Managed/UnityEngine.TextRenderingModule.dll</HintPath>
+            <HintPath Condition="Exists('../../../../../Contents/Resources/Data/Managed/UnityEngine.TextRenderingModule.dll')">../../../../../Contents/Resources/Data/Managed/UnityEngine.TextRenderingModule.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="VFECore">
+            <HintPath Condition="Exists('../../../../VanillaExpandedFramework/1.5/Assemblies/VFECore.dll')">../../../../VanillaExpandedFramework/1.5/Assemblies/VFECore.dll</HintPath>
+            <HintPath Condition="Exists('../../../../2023507013/1.5/Assemblies/VFECore.dll')">../../../../2023507013/1.5/Assemblies/VFECore.dll</HintPath>
+            <HintPath Condition="Exists('../../../../../../../workshop/content/294100/2023507013/1.5/Assemblies/VFECore.dll')">../../../../../../../workshop/content/294100/2023507013/1.5/Assemblies/VFECore.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="PipeSystem">
+            <HintPath Condition="Exists('../../../../VanillaExpandedFramework/1.5/Assemblies/PipeSystem.dll')">../../../../VanillaExpandedFramework/1.5/Assemblies/PipeSystem.dll</HintPath>
+            <HintPath Condition="Exists('../../../../2023507013/1.5/Assemblies/PipeSystem.dll')">../../../../2023507013/1.5/Assemblies/PipeSystem.dll</HintPath>
+            <HintPath Condition="Exists('../../../../../../../workshop/content/294100/2023507013/1.5/Assemblies/PipeSystem.dll')">../../../../../../../workshop/content/294100/2023507013/1.5/Assemblies/PipeSystem.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="MVCF">
+            <HintPath Condition="Exists('../../../../VanillaExpandedFramework/1.5/Assemblies/MVCF.dll')">../../../../VanillaExpandedFramework/1.5/Assemblies/MVCF.dll</HintPath>
+            <HintPath Condition="Exists('../../../../2023507013/1.5/Assemblies/MVCF.dll')">../../../../2023507013/1.5/Assemblies/MVCF.dll</HintPath>
+            <HintPath Condition="Exists('../../../../../../../workshop/content/294100/2023507013/1.5/Assemblies/MVCF.dll')">../../../../../../../workshop/content/294100/2023507013/1.5/Assemblies/MVCF.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="KCSG">
+            <HintPath Condition="Exists('../../../../VanillaExpandedFramework/1.5/Assemblies/KCSG.dll')">../../../../VanillaExpandedFramework/1.5/Assemblies/KCSG.dll</HintPath>
+            <HintPath Condition="Exists('../../../../2023507013/1.5/Assemblies/KCSG.dll')">../../../../2023507013/1.5/Assemblies/KCSG.dll</HintPath>
+            <HintPath Condition="Exists('../../../../../../../workshop/content/294100/2023507013/1.5/Assemblies/KCSG.dll')">../../../../../../../workshop/content/294100/2023507013/1.5/Assemblies/KCSG.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="HeavyWeapons">
+            <HintPath Condition="Exists('../../../../VanillaExpandedFramework/1.5/Assemblies/HeavyWeapons.dll')">../../../../VanillaExpandedFramework/1.5/Assemblies/HeavyWeapons.dll</HintPath>
+            <HintPath Condition="Exists('../../../../2023507013/1.5/Assemblies/HeavyWeapons.dll')">../../../../2023507013/1.5/Assemblies/HeavyWeapons.dll</HintPath>
+            <HintPath Condition="Exists('../../../../../../../workshop/content/294100/2023507013/1.5/Assemblies/HeavyWeapons.dll')">../../../../../../../workshop/content/294100/2023507013/1.5/Assemblies/HeavyWeapons.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="GraphicCustomization">
+            <HintPath Condition="Exists('../../../../VanillaExpandedFramework/1.5/Assemblies/GraphicCustomization.dll')">../../../../VanillaExpandedFramework/1.5/Assemblies/GraphicCustomization.dll</HintPath>
+            <HintPath Condition="Exists('../../../../2023507013/1.5/Assemblies/GraphicCustomization.dll')">../../../../2023507013/1.5/Assemblies/GraphicCustomization.dll</HintPath>
+            <HintPath Condition="Exists('../../../../../../../workshop/content/294100/2023507013/1.5/Assemblies/GraphicCustomization.dll')">../../../../../../../workshop/content/294100/2023507013/1.5/Assemblies/GraphicCustomization.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="ExplosiveTrailsEffect">
+            <HintPath Condition="Exists('../../../../VanillaExpandedFramework/1.5/Assemblies/ExplosiveTrailsEffect.dll')">../../../../VanillaExpandedFramework/1.5/Assemblies/ExplosiveTrailsEffect.dll</HintPath>
+            <HintPath Condition="Exists('../../../../2023507013/1.5/Assemblies/ExplosiveTrailsEffect.dll')">../../../../2023507013/1.5/Assemblies/ExplosiveTrailsEffect.dll</HintPath>
+            <HintPath Condition="Exists('../../../../../../../workshop/content/294100/2023507013/1.5/Assemblies/ExplosiveTrailsEffect.dll')">../../../../../../../workshop/content/294100/2023507013/1.5/Assemblies/ExplosiveTrailsEffect.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="NoCamShakeExplosions">
+            <HintPath Condition="Exists('../../../../VanillaExpandedFramework/1.5/Assemblies/NoCamShakeExplosions.dll')">../../../../VanillaExpandedFramework/1.5/Assemblies/NoCamShakeExplosions.dll</HintPath>
+            <HintPath Condition="Exists('../../../../2023507013/1.5/Assemblies/NoCamShakeExplosions.dll')">../../../../2023507013/1.5/Assemblies/NoCamShakeExplosions.dll</HintPath>
+            <HintPath Condition="Exists('../../../../../../../workshop/content/294100/2023507013/1.5/Assemblies/NoCamShakeExplosions.dll')">../../../../../../../workshop/content/294100/2023507013/1.5/Assemblies/NoCamShakeExplosions.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="OPToxic">
+            <HintPath Condition="Exists('../../../../VanillaExpandedFramework/1.5/Assemblies/OPToxic.dll')">../../../../VanillaExpandedFramework/1.5/Assemblies/OPToxic.dll</HintPath>
+            <HintPath Condition="Exists('../../../../2023507013/1.5/Assemblies/OPToxic.dll')">../../../../2023507013/1.5/Assemblies/OPToxic.dll</HintPath>
+            <HintPath Condition="Exists('../../../../../../../workshop/content/294100/2023507013/1.5/Assemblies/OPToxic.dll')">../../../../../../../workshop/content/294100/2023507013/1.5/Assemblies/OPToxic.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="Outposts">
+            <HintPath Condition="Exists('../../../../VanillaExpandedFramework/1.5/Assemblies/Outposts.dll')">../../../../VanillaExpandedFramework/1.5/Assemblies/Outposts.dll</HintPath>
+            <HintPath Condition="Exists('../../../../2023507013/1.5/Assemblies/Outposts.dll')">../../../../2023507013/1.5/Assemblies/Outposts.dll</HintPath>
+            <HintPath Condition="Exists('../../../../../../../workshop/content/294100/2023507013/1.5/Assemblies/Outposts.dll')">../../../../../../../workshop/content/294100/2023507013/1.5/Assemblies/Outposts.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="RecipeInheritance">
+            <HintPath Condition="Exists('../../../../VanillaExpandedFramework/1.5/Assemblies/RecipeInheritance.dll')">../../../../VanillaExpandedFramework/1.5/Assemblies/RecipeInheritance.dll</HintPath>
+            <HintPath Condition="Exists('../../../../2023507013/1.5/Assemblies/RecipeInheritance.dll')">../../../../2023507013/1.5/Assemblies/RecipeInheritance.dll</HintPath>
+            <HintPath Condition="Exists('../../../../../../../workshop/content/294100/2023507013/1.5/Assemblies/RecipeInheritance.dll')">../../../../../../../workshop/content/294100/2023507013/1.5/Assemblies/RecipeInheritance.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="RRO">
+            <HintPath Condition="Exists('../../../../VanillaExpandedFramework/1.5/Assemblies/RRO.dll')">../../../../VanillaExpandedFramework/1.5/Assemblies/RRO.dll</HintPath>
+            <HintPath Condition="Exists('../../../../2023507013/1.5/Assemblies/RRO.dll')">../../../../2023507013/1.5/Assemblies/RRO.dll</HintPath>
+            <HintPath Condition="Exists('../../../../../../../workshop/content/294100/2023507013/1.5/Assemblies/RRO.dll')">../../../../../../../workshop/content/294100/2023507013/1.5/Assemblies/RRO.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="SmokingGun">
+            <HintPath Condition="Exists('../../../../VanillaExpandedFramework/1.5/Assemblies/SmokingGun.dll')">../../../../VanillaExpandedFramework/1.5/Assemblies/SmokingGun.dll</HintPath>
+            <HintPath Condition="Exists('../../../../2023507013/1.5/Assemblies/SmokingGun.dll')">../../../../2023507013/1.5/Assemblies/SmokingGun.dll</HintPath>
+            <HintPath Condition="Exists('../../../../../../../workshop/content/294100/2023507013/1.5/Assemblies/SmokingGun.dll')">../../../../../../../workshop/content/294100/2023507013/1.5/Assemblies/SmokingGun.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="VWEMakeshift">
+            <HintPath Condition="Exists('../../../../VanillaExpandedFramework/1.5/Assemblies/VWEMakeshift.dll')">../../../../VanillaExpandedFramework/1.5/Assemblies/VWEMakeshift.dll</HintPath>
+            <HintPath Condition="Exists('../../../../2023507013/1.5/Assemblies/VWEMakeshift.dll')">../../../../2023507013/1.5/Assemblies/VWEMakeshift.dll</HintPath>
+            <HintPath Condition="Exists('../../../../../../../workshop/content/294100/2023507013/1.5/Assemblies/VWEMakeshift.dll')">../../../../../../../workshop/content/294100/2023507013/1.5/Assemblies/VWEMakeshift.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Lib.Harmony" Version="2.*" ExcludeAssets="runtime" />
+    </ItemGroup>
+
+    <ItemGroup Condition="'@(Reference->WithMetadataValue('Identity', 'Assembly-CSharp')->Metadata('HintPath')->Exists())' == ''">
+        <PackageReference Include="Krafs.Rimworld.Ref" Version="1.5-*" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\MSSFP\MSSFP.csproj">
+            <Private>false</Private>
+        </ProjectReference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="..\..\..\Compatibility\vanillaexpanded.outposts\1.5\Assemblies\">
+        <Link>ModCompatFiles\Assemblies</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\vanillaexpanded.outposts\1.5\Patches\">
+        <Link>ModCompatFiles\Patches</Link>
+      </Folder>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="..\..\..\Compatibility\vanillaexpanded.outposts\1.5\Defs\MSSFP_Outposts.xml">
+        <Link>ModCompatFiles\Defs\MSSFP_Outposts.xml</Link>
+      </Content>
+    </ItemGroup>
+    <PropertyGroup>
+        <StartAction>Program</StartAction>
+        <StartProgram>$(SolutionDir)../../../../RimWorldWin64.exe</StartProgram>
+    </PropertyGroup>
+
+</Project>
