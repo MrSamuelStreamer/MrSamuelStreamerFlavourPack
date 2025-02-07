@@ -273,6 +273,10 @@
         <ReleaseFiles Update="..\..\Defs\ThingDefs_Races\MSSFP_CoalFroggePete.xml">
           <Link>MrSamuelStreamerFlavourPack\1.5\Defs\ThingDefs_Races\MSSFP_CoalFroggePete.xml</Link>
         </ReleaseFiles>
+
+        <ReleaseFiles Update="..\..\Defs\ThinkTreeDefs\MSSFP_CoalFrogge.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Defs\ThinkTreeDefs\MSSFP_CoalFrogge.xml</Link>
+        </ReleaseFiles>
     </ItemGroup>
     <ItemGroup>
       <Folder Include="..\..\..\Common\Textures\Things\Item\Book\MSS_FP_FroggeTome\">

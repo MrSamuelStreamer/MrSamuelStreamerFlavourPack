@@ -46,7 +46,7 @@
         </tools>
         <uiIconScale>1.5</uiIconScale>
         <race>
-            <thinkTreeMain>MSSFP_Frogge</thinkTreeMain>
+            <thinkTreeMain>MSSFP_CoalFrogge</thinkTreeMain>
             <packAnimal>true</packAnimal>
             <headPosPerRotation>
                 <li>(0.0, 0, 0.07)</li>
