@@ -38,6 +38,12 @@ public class Outpost_Retirement : Outpost
 
     public override void Tick()
     {
+        if (Find.TickManager.TicksGame % 60 != 0)
+        {
+            base.Tick();
+            return;
+        }
+
         int ticksTillProd = (int) ticksTillProductionInfo.Value.GetValue(this);
 
         bool AnyCapablePawns = CapablePawns.Any();
@@ -49,7 +55,7 @@ public class Outpost_Retirement : Outpost
             // offset base tick increase, instead of patching
             if (TicksPerProduction > 0)
             {
-                ticksTillProductionInfo.Value.SetValue(this, ticksTillProd+1);
+                ticksTillProductionInfo.Value.SetValue(this, ticksTillProd+60);
             }
 
             if (!NoOldPeopleLetterSent)
@@ -59,7 +65,7 @@ public class Outpost_Retirement : Outpost
             }
         }else if (AnyCapablePawns && ticksTillProd < 0)
         {
-            ticksTillProductionInfo.Value.SetValue(this, Mathf.RoundToInt(TicksPerProduction * OutpostsMod.Settings.TimeMultiplier));
+            ticksTillProductionInfo.Value.SetValue(this, Mathf.RoundToInt(TicksPerProduction * OutpostsMod.Settings.TimeMultiplier * 60));
         }
 
         base.Tick();
