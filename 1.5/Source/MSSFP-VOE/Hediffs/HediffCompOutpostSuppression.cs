@@ -21,12 +21,12 @@ public class HediffCompOutpostSuppression: HediffComp
 
         if (immunizable.Immunity < 1)
         {
-            severityAdjustment -= immunizable.Props.severityPerDayNotImmune / 2;
+            severityAdjustment -= immunizable.Props.severityPerDayNotImmune * 0.75f;
         }
         else
         {
 
-            severityAdjustment -= immunizable.Props.severityPerDayImmune / 2;
+            severityAdjustment -= immunizable.Props.severityPerDayImmune * 0.75f;
         }
 
     }

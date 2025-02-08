@@ -23,7 +23,7 @@ public static class HediffComp_AsexualReproduction_Patch
         for (int i = 2; i < insts.Count; i++)
         {
             if (insts[i - 2].opcode == OpCodes.Ldarg_0 && insts[i - 1].opcode == OpCodes.Ldc_I4_0 && insts[i].opcode == OpCodes.Stfld &&
-                insts[i].operand == asexualFissionCounter.Value)
+                (FieldInfo)insts[i].operand == asexualFissionCounter.Value)
             {
                 insts.InsertRange(i+1, new List<CodeInstruction>
                 {
