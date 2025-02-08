@@ -12,6 +12,8 @@
         <convertPowerFactor>2</convertPowerFactor>
         <expectationsOffset>2</expectationsOffset>
         <canRemoveInUI>true</canRemoveInUI>
+        <activationBelieverCount>3</activationBelieverCount>
+        <deactivationBelieverCount>1</deactivationBelieverCount>
         <requiredMemes>
             <li>MSS_FP_Frooge</li>
         </requiredMemes>

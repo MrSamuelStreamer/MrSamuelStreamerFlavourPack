@@ -12,9 +12,6 @@
         <renderOrder>80</renderOrder>
         <requireOne>
             <li>
-                <li>MSS_FP_IdeoRole_FroggeWarrior</li>
-            </li>
-            <li>
                 <li>FungusEating_Preferred</li>
             </li>
         </requireOne>
