@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Defs>
+    <HediffDef>
+        <defName>MSSFP_TouchedGrass</defName>
+        <label>touched grass</label>
+        <description>This person has touched grass</description>
+        <hediffClass>HediffWithComps</hediffClass>
+        <defaultLabelColor>(0.7, 1.0, 0.7)</defaultLabelColor>
+        <isBad>false</isBad>
+        <makesSickThought>false</makesSickThought>
+        <scenarioCanAdd>false</scenarioCanAdd>
+        <maxSeverity>1</maxSeverity>
+        <minSeverity>0</minSeverity>
+        <initialSeverity>0.01</initialSeverity>
+        <comps>
+            <li Class="HediffCompProperties_SeverityPerDay">
+                <severityPerDayRange>0.75</severityPerDayRange>
+                <showHoursToRecover>true</showHoursToRecover>
+            </li>
+        </comps>
+        <stages>
+            <li>
+                <label>minor</label>
+                <statFactors>
+                    <MoveSpeed>1.1</MoveSpeed>
+                </statFactors>
+                <statOffsets>
+                    <MentalBreakThreshold>-0.1</MentalBreakThreshold>
+                    <GlobalLearningFactor>0.1</GlobalLearningFactor>
+                    <ImmunityGainSpeed>0.1</ImmunityGainSpeed>
+                    <CarryingCapacity>0.1</CarryingCapacity>
+                    <PainShockThreshold>0.1</PainShockThreshold>
+                    <FilthRate>-0.1</FilthRate>
+                    <NegotiationAbility>0.1</NegotiationAbility>
+                    <PawnBeauty>0.1</PawnBeauty>
+                    <TradePriceImprovement>0.1</TradePriceImprovement>
+                    <SocialImpact>0.1</SocialImpact>
+                </statOffsets>
+                <capMods>
+                    <li>
+                        <capacity>Consciousness</capacity>
+                        <offset>0.05</offset>
+                    </li>
+                    <li>
+                        <capacity>Talking</capacity>
+                        <offset>0.05</offset>
+                    </li>
+                    <li>
+                        <capacity>Breathing</capacity>
+                        <offset>0.05</offset>
+                    </li>
+                </capMods>
+            </li>
+            <li>
+                <label>moderate</label>
+                <minSeverity>0.20</minSeverity>
+                <statFactors>
+                    <MoveSpeed>1.1</MoveSpeed>
+                </statFactors>
+                <statOffsets>
+                    <MentalBreakThreshold>-0.2</MentalBreakThreshold>
+                    <GlobalLearningFactor>0.2</GlobalLearningFactor>
+                    <ImmunityGainSpeed>0.2</ImmunityGainSpeed>
+                    <CarryingCapacity>0.2</CarryingCapacity>
+                    <PainShockThreshold>0.2</PainShockThreshold>
+                    <FilthRate>-0.2</FilthRate>
+                    <NegotiationAbility>0.2</NegotiationAbility>
+                    <PawnBeauty>0.2</PawnBeauty>
+                    <TradePriceImprovement>0.2</TradePriceImprovement>
+                    <SocialImpact>0.2</SocialImpact>
+                </statOffsets>
+                <capMods>
+                    <li>
+                        <capacity>Consciousness</capacity>
+                        <offset>0.10</offset>
+                    </li>
+                    <li>
+                        <capacity>Talking</capacity>
+                        <offset>0.10</offset>
+                    </li>
+                    <li>
+                        <capacity>Breathing</capacity>
+                        <offset>0.10</offset>
+                    </li>
+                </capMods>
+            </li>
+            <li>
+                <label>maximum</label>
+                <minSeverity>0.50</minSeverity>
+                <statFactors>
+                    <MoveSpeed>1.1</MoveSpeed>
+                </statFactors>
+                <statOffsets>
+                    <MentalBreakThreshold>-0.3</MentalBreakThreshold>
+                    <GlobalLearningFactor>0.3</GlobalLearningFactor>
+                    <ImmunityGainSpeed>0.3</ImmunityGainSpeed>
+                    <CarryingCapacity>0.3</CarryingCapacity>
+                    <PainShockThreshold>0.3</PainShockThreshold>
+                    <FilthRate>-0.3</FilthRate>
+                    <NegotiationAbility>0.3</NegotiationAbility>
+                    <PawnBeauty>0.3</PawnBeauty>
+                    <TradePriceImprovement>0.3</TradePriceImprovement>
+                    <SocialImpact>0.3</SocialImpact>
+                </statOffsets>
+                <capMods>
+                    <li>
+                        <capacity>Consciousness</capacity>
+                        <offset>0.15</offset>
+                    </li>
+                    <li>
+                        <capacity>Talking</capacity>
+                        <offset>0.15</offset>
+                    </li>
+                    <li>
+                        <capacity>Breathing</capacity>
+                        <offset>0.15</offset>
+                    </li>
+                </capMods>
+            </li>
+        </stages>
+    </HediffDef>
+    <GeneDef>
+        <defName>MSSFP_TouchGrass</defName>
+        <label>Grass Toucher</label>
+        <description>Spending time in nature can temporarily boost the social skills of the carrier</description>
+        <iconPath>UI/Icons/Genes/MSSFP_GrassToucher</iconPath>
+        <geneClass>MSSFP.Genes.Gene_GrassToucher</geneClass>
+        <descriptionHyperlinks>
+            <li>MSSFP_TouchedGrass</li>
+        </descriptionHyperlinks>
+    </GeneDef>
+    <XenotypeDef>
+        <defName>MSSFP_Discordant</defName>
+        <label>discordant</label>
+        <description>Discordant are pathetic creatures - drawn to the indoors or underground. They lack meaningful skills and questionable reasoning skills. They are extremely annoying to others.</description>
+        <descriptionShort>Discordant are pathetic creatures - drawn to the indoors or underground. They lack meaningful skills and questionable reasoning skills. They are extremely annoying to others.</descriptionShort>
+        <iconPath>UI/Icons/Xenotypes/MSS_Discordant</iconPath>
+        <inheritable>true</inheritable>
+        <!-- <nameMaker>MSSFP_NamerPersonDiscordant</nameMaker> -->
+        <chanceToUseNameMaker>1</chanceToUseNameMaker>
+        <genes>
+            <li>MSSFP_TouchGrass</li>
+            <li>Head_Gaunt</li>
+            <li>Body_Fat</li>
+            <li>Ears_Cat</li>
+            <li>Nose_Human</li>
+            <li>ElongatedFingers</li>
+            <li>Headbone_Human</li>
+            <li>Voice_Human</li>
+            <li>Skin_SheerWhite</li>
+            <li>Brow_Heavy</li>
+            <li>Immunity_Weak</li>
+            <li>FoamSpray</li>
+            <li>ToxicEnvironmentResistance_Total</li>
+            <li>Nearsighted</li>
+            <li>FireWeakness</li>
+            <li>FireTerror</li>
+            <li>PsychicAbility_Dull</li>
+            <li>Beauty_Ugly</li>
+            <li>Learning_Slow</li>
+            <li>Mood_Depressive</li>
+            <li>ToxResist_Total</li>
+            <li>Delicate</li>
+            <li>Pain_Extra</li>
+            <li>Aggression_Aggressive</li>
+            <li>LowSleep</li>
+            <li>MeleeDamage_Weak</li>
+            <li>UVSensitivity_Mild</li>
+            <li>Libido_High</li>
+            <li>AptitudeTerrible_Melee</li>
+            <li>AptitudeRemarkable_Construction</li>
+            <li>AptitudeRemarkable_Mining</li>
+            <li>AptitudeTerrible_Crafting</li>
+            <li>AptitudeTerrible_Medicine</li>
+            <li>AptitudeTerrible_Social</li>
+            <li MayRequire="sarg.alphagenes">AG_UnstableMind</li>
+            <li MayRequire="sarg.alphagenes">AG_FrailSkin</li>
+            <li MayRequire="sarg.alphagenes">AG_RatAffinity</li>
+            <li MayRequire="sarg.alphagenes">AG_RotStinkProducer</li>
+            <li MayRequire="sarg.alphagenes">AG_Filthy</li>
+            <li MayRequire="sarg.alphagenes">AG_Stinky</li>
+        </genes>
+        <forbiddenWeaponClasses>
+            <li>LongShots</li>
+        </forbiddenWeaponClasses>
+    </XenotypeDef>
+</Defs>

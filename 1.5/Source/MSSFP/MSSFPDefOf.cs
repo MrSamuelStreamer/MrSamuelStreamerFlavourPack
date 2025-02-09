@@ -40,5 +40,7 @@ public static class MSSFPDefOf
     public static readonly GeneClassificationDef MSSFP_BadGenes;
     public static readonly GeneClassificationDef MSSFP_NeutralGenes;
 
+    public static readonly HediffDef MSSFP_TouchedGrass;
+
     static MSSFPDefOf() => DefOfHelper.EnsureInitializedInCtor(typeof(MSSFPDefOf));
 }

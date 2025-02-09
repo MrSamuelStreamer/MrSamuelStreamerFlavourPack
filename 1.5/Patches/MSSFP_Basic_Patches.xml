@@ -6,4 +6,35 @@
             <li>MSS_Make_TurboEncabulator</li>
         </value>
     </Operation>
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs/FactionDef[defName="PirateWaster"]/xenotypeSet/xenotypeChances</xpath>
+        <value>
+            <MSSFP_Discordant>0.2</MSSFP_Discordant>
+        </value>
+    </Operation>
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs/FactionDef[defName="Pirate"]/xenotypeSet/xenotypeChances</xpath>
+        <value>
+            <MSSFP_Discordant>0.2</MSSFP_Discordant>
+        </value>
+    </Operation>
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs/FactionDef[defName="Empire"]/xenotypeSet/xenotypeChances</xpath>
+        <value>
+            <MSSFP_Discordant>0.05</MSSFP_Discordant>
+        </value>
+    </Operation>
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs/FactionDef[defName="OutlanderRefugee"]/xenotypeSet/xenotypeChances</xpath>
+        <value>
+            <MSSFP_Discordant>0.05</MSSFP_Discordant>
+        </value>
+    </Operation>
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs/FactionDef[@Name="OutlanderFactionBase"]/xenotypeSet/xenotypeChances</xpath>
+        <value>
+            <MSSFP_Discordant>0.05</MSSFP_Discordant>
+        </value>
+    </Operation>
+
 </Patch>
