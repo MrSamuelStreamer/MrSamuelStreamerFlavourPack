@@ -28,6 +28,5 @@ public class OutpostDefModExtension: DefModExtension
     }
 
     public List<ThingDefWithWeight> thingDefs;
-    public IntRange numberOfStacks = new IntRange(1, 20);
-    public IntRange numberOfItems = new IntRange(1, 50);
+    public IntRange valuePerYearOld = new IntRange(10, 100);
 }

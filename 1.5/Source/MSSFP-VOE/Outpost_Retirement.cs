@@ -22,13 +22,26 @@ public class Outpost_Retirement : Outpost
 
     protected override bool IsCapable(Pawn pawn)
     {
-        return pawn.RaceProps.Humanlike && pawn.ageTracker.AgeBiologicalYears > 60;
+        return pawn.RaceProps.Humanlike && pawn.ageTracker.AgeBiologicalYears >= 60;
     }
+
+    public virtual bool IsCaretaker(Pawn pawn)
+    {
+        return pawn.RaceProps.Humanlike && pawn.ageTracker.AgeBiologicalYears < 60;
+    }
+
+    public virtual IEnumerable<Pawn> Caretakers()
+    {
+        return AllPawns.Where(IsCaretaker);
+    }
+
+    public int TickBeforeNextBodyReturned = 0;
 
     public override void ExposeData()
     {
         base.ExposeData();
         Scribe_Values.Look(ref NoOldPeopleLetterSent, "NoOldPeopleLetterSent", false);
+        Scribe_Values.Look(ref TickBeforeNextBodyReturned, "TickBeforeNextBodyReturned", 0);
     }
 
     public override string RelevantSkillDisplay()
@@ -41,37 +54,78 @@ public class Outpost_Retirement : Outpost
         if (Find.TickManager.TicksGame % 60 != 0)
         {
             base.Tick();
-            return;
+        }
+        else
+        {
+            int ticksTillProd = (int) ticksTillProductionInfo.Value.GetValue(this);
+
+            bool AnyCapablePawns = CapablePawns.Any();
+
+            if (AnyCapablePawns) NoOldPeopleLetterSent = false;
+
+            if (!AnyCapablePawns && ticksTillProd >= 0)
+            {
+                // offset base tick increase, instead of patching
+                if (TicksPerProduction > 0)
+                {
+                    ticksTillProductionInfo.Value.SetValue(this, ticksTillProd + 60);
+                }
+
+                if (!NoOldPeopleLetterSent)
+                {
+                    NoOldPeopleLetterSent = true;
+                    Find.LetterStack.ReceiveLetter("MSS_FP_RetirementNoOldPeople".Translate(Name), "MSS_FP_RetirementNoOldPeopleDesc".Translate(Name), LetterDefOf.NegativeEvent);
+                }
+            }
+            else if (AnyCapablePawns && ticksTillProd < 0)
+            {
+                ticksTillProductionInfo.Value.SetValue(this, Mathf.RoundToInt(TicksPerProduction * OutpostsMod.Settings.TimeMultiplier * 60));
+            }
         }
 
-        int ticksTillProd = (int) ticksTillProductionInfo.Value.GetValue(this);
-
-        bool AnyCapablePawns = CapablePawns.Any();
-
-        if (AnyCapablePawns) NoOldPeopleLetterSent = false;
-
-        if (!AnyCapablePawns && ticksTillProd >= 0)
+        if (Find.TickManager.TicksGame % GenDate.TicksPerHour == 0 && Things.Any(p=>p is Corpse) && Find.TickManager.TicksGame > TickBeforeNextBodyReturned)
         {
-            // offset base tick increase, instead of patching
-            if (TicksPerProduction > 0)
+            Corpse deadPawn = Things.OfType<Corpse>().RandomElement();
+            if (deadPawn != null)
             {
-                ticksTillProductionInfo.Value.SetValue(this, ticksTillProd+60);
+                TakeItem(deadPawn);
+                if (!DeliverDeadPawn(deadPawn))
+                {
+                    AddItem(deadPawn);
+                }
+                else
+                {
+                    TickBeforeNextBodyReturned = Find.TickManager.TicksGame + GenDate.TicksPerHour * 12;
+                }
             }
-
-            if (!NoOldPeopleLetterSent)
-            {
-                NoOldPeopleLetterSent = true;
-                Find.LetterStack.ReceiveLetter("MSS_FP_RetirementNoOldPeople".Translate(Name), "MSS_FP_RetirementNoOldPeopleDesc".Translate(Name), LetterDefOf.NegativeEvent);
-            }
-        }else if (AnyCapablePawns && ticksTillProd < 0)
-        {
-            ticksTillProductionInfo.Value.SetValue(this, Mathf.RoundToInt(TicksPerProduction * OutpostsMod.Settings.TimeMultiplier * 60));
         }
 
         base.Tick();
     }
 
-    public int CombinedAgeMultiplier => Mathf.Max(1, CombinedAge / 250);
+    public static Lazy<MethodInfo> Deliver_PackAnimalInfo = new Lazy<MethodInfo>(()=>AccessTools.Method(typeof(Outpost_Retirement), "Deliver_PackAnimal"));
+
+    public bool DeliverDeadPawn(Corpse pawn)
+    {
+      Map map = deliveryMap ?? Find.Maps.Where(m => m.IsPlayerHome).OrderBy(m => Find.WorldGrid.ApproxDistanceInTiles(m.Parent.Tile, Tile)).FirstOrDefault();
+      if (map == null)
+      {
+        Log.Warning("Vanilla Outpost Expanded Tried to deliver to a null map, storing instead");
+        return false;
+      }
+      else
+      {
+        TaggedString text = "MSSFP_DeadPawnFromOutpost".Translate(pawn.InnerPawn.NameFullColored,  Name) + "\n";
+        List<Thing> lookAt = new();
+        Rot4 rotFromTo = Find.WorldGrid.GetRotFromTo(map.Parent.Tile, Tile);
+        List<Thing> list = [pawn];
+
+        Deliver_PackAnimalInfo.Value.Invoke(this, [list, map, rotFromTo, lookAt]);
+
+        Find.LetterStack.ReceiveLetter("MSSFP_DeadPawnFromOutpostLabel".Translate(pawn.InnerPawn.NameShortColored), text, LetterDefOf.NeutralEvent, new LookTargets(lookAt));
+        return true;
+      }
+    }
 
     public static QualityCategory GetRandomQualityCategory()
     {
@@ -86,16 +140,20 @@ public class Outpost_Retirement : Outpost
         base.Produce();
     }
 
+    public virtual float ValueToProduce => modExt.valuePerYearOld.RandomInRange * CombinedAge;
+
     public override IEnumerable<Thing> ProducedThings()
     {
+        int careTakerCount = Caretakers().Count();
+        int oldPeopleCount = CapablePawns.Count();
+
         List<Thing> things = [];
 
-        int stacksToMake = modExt.numberOfStacks.RandomInRange;
-        int totalToMake = modExt.numberOfItems.RandomInRange * CombinedAgeMultiplier;
+        float valueToProduce = ValueToProduce;
 
-        List<int> stackSizes = Utils.GenerateRandomParts(totalToMake, stacksToMake);
+        float chanceToBumpQuality = Mathf.Max(0.05f, careTakerCount / (oldPeopleCount / 2f));
 
-        for (int i = 0; i < stacksToMake; i++)
+        while (valueToProduce > 0)
         {
             OutpostDefModExtension.ThingDefWithWeight td = modExt.thingDefs.RandomElementByWeight(td => td.weight);
             ThingDef stuff = td.stuff;
@@ -106,20 +164,27 @@ public class Outpost_Retirement : Outpost
             }
 
             Thing t = ThingMaker.MakeThing(td.thingDef, stuff);
-
-            t.stackCount = Mathf.Max(1, (td.stackLimit > 0 ? td.stackLimit : stackSizes[i]));
             CompArt compArt = t.TryGetComp<CompArt>();
             CompQuality compQuality = t.TryGetComp<CompQuality>();
-
 
             compArt?.JustCreatedBy(CapablePawns.RandomElement());
             compQuality?.SetQuality(GetRandomQualityCategory(), ArtGenerationContext.Colony);
 
+            if (compQuality != null && Rand.Chance(chanceToBumpQuality))
+            {
+                if (compQuality.Quality < QualityCategory.Legendary)
+                {
+                    compQuality.SetQuality(compQuality.Quality + 1, ArtGenerationContext.Colony);
+                }
+            }
+
             things.Add(td.minified ? t.MakeMinified() : t);
+
+            valueToProduce -= t.MarketValue;
         }
 
         Thing silver = ThingMaker.MakeThing(ThingDefOf.Silver);
-        silver.stackCount = PawnCount;
+        silver.stackCount = oldPeopleCount;
 
         things.Add(silver);
 
@@ -133,7 +198,7 @@ public class Outpost_Retirement : Outpost
 
         if (CapablePawns.Any())
         {
-            strArray[1] = "\n" + "MSS_FP_RetirementWillProduce".Translate(TimeTillProduction).RawText;
+            strArray[1] = "\n" + "MSS_FP_RetirementWillProduce".Translate(modExt.valuePerYearOld.min * CombinedAge, modExt.valuePerYearOld.max * CombinedAge, TimeTillProduction).RawText;
         }
         else
         {

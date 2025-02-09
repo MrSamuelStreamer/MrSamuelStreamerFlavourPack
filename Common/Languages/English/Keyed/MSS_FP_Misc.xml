@@ -39,8 +39,11 @@
     <MSS_FP_NeutralGeneChance>Neutral Gene Chance {0}%</MSS_FP_NeutralGeneChance>
     <MSS_FP_NeutralGeneChance_Tooltip>The chance for events that give genes to give neutral genes.</MSS_FP_NeutralGeneChance_Tooltip>
 
-    <MSS_FP_RetirementWillProduce>Grandma is clacking away with the knitting needles and will have some knick-knacks ready for you in {0}</MSS_FP_RetirementWillProduce>
+    <MSS_FP_RetirementWillProduce>Grandma is clacking away with the knitting needles and will have between {0} and {1} silver worth of knick-knacks ready for you in {2}</MSS_FP_RetirementWillProduce>
     <MSS_FP_AgeInspector>Cumulative retiree age: {0}</MSS_FP_AgeInspector>
+
+    <MSSFP_DeadPawnFromOutpost>After their passing, {0} is being returned from {1} to the colony for proper burial.</MSSFP_DeadPawnFromOutpost>
+    <MSSFP_DeadPawnFromOutpostLabel>{0}'s burial.</MSSFP_DeadPawnFromOutpostLabel>
 
     <MSS_FP_RetirementNoOldPeople>No retirees left in {0}!</MSS_FP_RetirementNoOldPeople>
     <MSS_FP_RetirementNoOldPeopleDesc>All the retirees in {0} have moved on. Production is halted.</MSS_FP_RetirementNoOldPeopleDesc>
