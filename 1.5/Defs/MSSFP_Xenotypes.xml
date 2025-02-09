@@ -144,7 +144,6 @@
             <li>Body_Fat</li>
             <li>Ears_Cat</li>
             <li>Nose_Human</li>
-            <li>ElongatedFingers</li>
             <li>Headbone_Human</li>
             <li>Voice_Human</li>
             <li>Skin_SheerWhite</li>
@@ -153,16 +152,10 @@
             <li>FoamSpray</li>
             <li>ToxicEnvironmentResistance_Total</li>
             <li>Nearsighted</li>
-            <li>FireWeakness</li>
-            <li>FireTerror</li>
-            <li>PsychicAbility_Dull</li>
             <li>Beauty_Ugly</li>
             <li>Learning_Slow</li>
-            <li>Mood_Depressive</li>
-            <li>ToxResist_Total</li>
             <li>Delicate</li>
             <li>Pain_Extra</li>
-            <li>Aggression_Aggressive</li>
             <li>LowSleep</li>
             <li>MeleeDamage_Weak</li>
             <li>UVSensitivity_Mild</li>
@@ -171,12 +164,8 @@
             <li>AptitudeRemarkable_Construction</li>
             <li>AptitudeRemarkable_Mining</li>
             <li>AptitudeTerrible_Crafting</li>
-            <li>AptitudeTerrible_Medicine</li>
             <li>AptitudeTerrible_Social</li>
-            <li MayRequire="sarg.alphagenes">AG_UnstableMind</li>
-            <li MayRequire="sarg.alphagenes">AG_FrailSkin</li>
             <li MayRequire="sarg.alphagenes">AG_RatAffinity</li>
-            <li MayRequire="sarg.alphagenes">AG_RotStinkProducer</li>
             <li MayRequire="sarg.alphagenes">AG_Filthy</li>
             <li MayRequire="sarg.alphagenes">AG_Stinky</li>
         </genes>
