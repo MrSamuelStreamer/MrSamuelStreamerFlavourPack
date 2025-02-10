@@ -9,7 +9,6 @@
         <li IfModActive="vanillaexpanded.vee">Compatibility/vanillaexpanded.vee/1.5</li>
         <li IfModActive="OskarPotocki.VFE.Classical">Compatibility/OskarPotocki.VFE.Classical/1.5</li>
         <li IfModActive="vanillaexpanded.outposts">Compatibility/vanillaexpanded.outposts/1.5</li>
-        <li IfModActive="OskarPotocki.VanillaFactionsExpanded.Core">Compatibility/OskarPotocki.VanillaFactionsExpanded.Core/1.5</li>
         <li IfModActive="sarg.alphagenes">Compatibility/sarg.alphagenes/1.5</li>
 	</v1.5>
 </loadFolders>
