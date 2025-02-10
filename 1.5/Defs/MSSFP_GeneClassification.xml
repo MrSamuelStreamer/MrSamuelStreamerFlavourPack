@@ -2858,6 +2858,11 @@
         <type>bad</type>
         <genes>
             <li MayRequire="ludeon.rimworld.biotech">
+                <gene>MSSFP_Illiterate</gene>
+                <weight>0.2</weight>
+                <geneClassification>mental</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
                 <gene>WoundHealing_Slow</gene>
                 <weight>0.2</weight>
                 <geneClassification>health</geneClassification>
