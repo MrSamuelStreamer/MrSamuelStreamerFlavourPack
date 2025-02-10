@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Defs>
+    <GeneDef>
+        <defName>MSSFP_Illiterate</defName>
+        <label>illiterate</label>
+        <description>The carrier of this gene is incapable of reading.</description>
+        <iconPath>UI/Icons/Genes/MSSFP_Illiterate</iconPath>
+    </GeneDef>
     <HediffDef>
         <defName>MSSFP_TouchedGrass</defName>
         <label>touched grass</label>
@@ -165,6 +171,7 @@
             <li>AptitudeRemarkable_Mining</li>
             <li>AptitudeTerrible_Crafting</li>
             <li>AptitudeTerrible_Social</li>
+            <li>MSSFP_Illiterate</li>
             <li MayRequire="sarg.alphagenes">AG_RatAffinity</li>
             <li MayRequire="sarg.alphagenes">AG_Filthy</li>
             <li MayRequire="sarg.alphagenes">AG_Stinky</li>

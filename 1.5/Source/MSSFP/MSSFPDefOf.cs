@@ -42,5 +42,7 @@ public static class MSSFPDefOf
 
     public static readonly HediffDef MSSFP_TouchedGrass;
 
+    public static readonly GeneDef MSSFP_Illiterate;
+
     static MSSFPDefOf() => DefOfHelper.EnsureInitializedInCtor(typeof(MSSFPDefOf));
 }
