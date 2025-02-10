@@ -20,7 +20,19 @@ public static class QuestManager_Patch
         {
             if (ConditionActive(Find.World, pawn.Map, birthGeneDef.conditionActive) && (!birthGeneDef.chanceToApply.HasValue || Rand.Chance(birthGeneDef.chanceToApply.Value)))
             {
+                int tries = 10;
                 GeneClassification gene =  birthGeneDef.RandomGene;
+                while (gene.gene == null && tries > 0)
+                {
+                    tries--;
+                    gene = birthGeneDef.RandomGene;
+                }
+
+                if (gene.gene == null)
+                {
+                    ModLog.Warn($"Couldn't find a gene to give {baby}");
+                    return;
+                }
                 if (!pawn.genes.Xenogenes.Any(g => g.def.ConflictsWith(gene.gene)) && !pawn.genes.Endogenes.Any(g => g.def.ConflictsWith(gene.gene)))
                 {
                     foreach (GeneDef geneRequire in gene.requires)
