@@ -83,6 +83,10 @@
         <ExtraFiles Include="../../../LoadFolders.xml;../../../LICENSE;../../../README.md" />
 
         <ReleaseFiles Remove="..\..\..\Compatability\**" />
+
+        <CompatibilityFiles Update="..\..\..\Compatibility\sarg.alphagenes\1.5\Defs\MSS_FP_Genes.xml">
+          <Link>MrSamuelStreamerFlavourPack\Compatibility\sarg.alphagenes\1.5\Defs\MSS_FP_Genes.xml</Link>
+        </CompatibilityFiles>
     </ItemGroup>
     <Target Name="PostBuild" AfterTargets="Build" Condition=" '$(Configuration)' == 'Release' ">
         <RemoveDir Condition="Exists('../../../Release')" Directories="../../../Release" />
