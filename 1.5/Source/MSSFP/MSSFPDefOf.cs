@@ -1,4 +1,5 @@
-﻿using RimWorld;
+﻿using MSSFP.Thoughts;
+using RimWorld;
 using Verse;
 // ReSharper disable UnassignedReadonlyField
 
@@ -44,5 +45,6 @@ public static class MSSFPDefOf
 
     public static readonly GeneDef MSSFP_Illiterate;
 
+    public static readonly BodyModCategoryDef MSSFP_NaturalMods;
     static MSSFPDefOf() => DefOfHelper.EnsureInitializedInCtor(typeof(MSSFPDefOf));
 }
