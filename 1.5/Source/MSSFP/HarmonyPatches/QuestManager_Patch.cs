@@ -35,10 +35,14 @@ public static class QuestManager_Patch
                 }
                 if (!pawn.genes.Xenogenes.Any(g => g.def.ConflictsWith(gene.gene)) && !pawn.genes.Endogenes.Any(g => g.def.ConflictsWith(gene.gene)))
                 {
-                    foreach (GeneDef geneRequire in gene.requires)
+                    if (!gene.requires.NullOrEmpty())
                     {
-                        pawn.genes.AddGene(geneRequire, true);
+                        foreach (GeneDef geneRequire in gene.requires)
+                        {
+                            pawn.genes.AddGene(geneRequire, true);
+                        }
                     }
+
                     pawn.genes.AddGene(gene.gene, true);
                     LookTargets lookTargets = new LookTargets();
                     lookTargets.targets.Add(pawn);
