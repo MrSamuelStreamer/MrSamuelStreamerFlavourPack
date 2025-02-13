@@ -102,6 +102,10 @@
         <CompatibilityFiles Update="..\..\..\Compatibility\Aoba.Fortress.Industrial.Citadel\1.5\Patches\MSSFP_Canon.xml">
           <Link>MrSamuelStreamerFlavourPack\Compatibility\Aoba.Fortress.Industrial.Citadel\1.5\Patches\MSSFP_Canon.xml</Link>
         </CompatibilityFiles>
+
+        <CompatibilityFiles Update="..\..\..\Compatibility\Aoba.Fortress.Industrial.Citadel\1.5\Defs\MSSFP_Critters.xml">
+          <Link>MrSamuelStreamerFlavourPack\Compatibility\Aoba.Fortress.Industrial.Citadel\1.5\Defs\MSSFP_Critters.xml</Link>
+        </CompatibilityFiles>
     </ItemGroup>
     <ItemGroup>
       <Folder Include="..\..\..\Compatibility\OskarPotocki.VanillaFactionsExpanded.Core\1.5\Assemblies\">

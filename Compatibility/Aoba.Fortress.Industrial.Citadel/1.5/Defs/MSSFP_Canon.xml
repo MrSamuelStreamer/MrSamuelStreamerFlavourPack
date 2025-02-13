@@ -39,12 +39,13 @@
             <graphicClass>Graphic_Single</graphicClass>
             <shaderType>TransparentPostLight</shaderType>
         </graphicData>
-        <thingClass>Projectile_Explosive</thingClass>
+        <thingClass>MSSFP.Projectile_ExplosiveAndSpawnPawn</thingClass>
         <projectile>
             <damageDef>MSSFP_BabyBomb</damageDef>
             <!-- damage amount is the damage def default -->
             <speed>15</speed>
             <explosionRadius>8</explosionRadius>
+            <tryAdjacentFreeSpaces>true</tryAdjacentFreeSpaces>
             <flyOverhead>true</flyOverhead>
             <soundHitThickRoof>MSSSFP_BabyCry</soundHitThickRoof>
             <soundExplode>MSSSFP_BabyCry</soundExplode>
