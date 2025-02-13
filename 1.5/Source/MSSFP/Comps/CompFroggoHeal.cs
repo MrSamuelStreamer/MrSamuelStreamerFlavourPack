@@ -28,6 +28,7 @@ public class CompFroggoHeal: CompAbilityEffect
 
             if (hediff is not null)
             {
+                if (!hediff.def.isBad) break;
                 HealthUtility.Cure(hediff);
             }else if (part is not null)
             {
@@ -38,7 +39,7 @@ public class CompFroggoHeal: CompAbilityEffect
                 break;
             }
         }
-        foreach (Hediff hediff in target.Pawn.health.hediffSet.hediffs.Where(h=>h.Visible))
+        foreach (Hediff hediff in target.Pawn.health.hediffSet.hediffs.Where(h=>h.Visible && h.def.isBad))
         {
             HealthUtility.Cure(hediff);
         }
