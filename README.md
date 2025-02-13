@@ -39,4 +39,5 @@ Portions of the materials used to create this content/mod are trademarks and/or 
 * Haunts implementation heavily inspired by [Athena Framework](https://github.com/SmArtKar/AthenaFramework)
 * Bruz for the frogge artwork
 * Ghastlyskull for the frogge visage mask
+* [Ferris](https://github.com/FerrisComplex) for bugfixes
 * stroganoff-short_4.wav by chemicalcrux -- https://freesound.org/s/429609/ -- License: Attribution 4.0
