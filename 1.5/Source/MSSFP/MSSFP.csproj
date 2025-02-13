@@ -91,6 +91,14 @@
         <ReleaseFiles Update="..\..\Defs\Precepts\MSSFP_BodyMod.xml">
           <Link>MrSamuelStreamerFlavourPack\1.5\Defs\Precepts\MSSFP_BodyMod.xml</Link>
         </ReleaseFiles>
+
+        <CompatibilityFiles Update="..\..\..\Compatibility\Aoba.Fortress.Industrial.Citadel\1.5\Defs\MSSFP_Canon.xml">
+          <Link>MrSamuelStreamerFlavourPack\Compatibility\Aoba.Fortress.Industrial.Citadel\1.5\Defs\MSSFP_Canon.xml</Link>
+        </CompatibilityFiles>
+
+        <CompatibilityFiles Update="..\..\..\Compatibility\Aoba.Fortress.Industrial.Citadel\1.5\Patches\MSSFP_Canon.xml">
+          <Link>MrSamuelStreamerFlavourPack\Compatibility\Aoba.Fortress.Industrial.Citadel\1.5\Patches\MSSFP_Canon.xml</Link>
+        </CompatibilityFiles>
     </ItemGroup>
     <Target Name="PostBuild" AfterTargets="Build" Condition=" '$(Configuration)' == 'Release' ">
         <RemoveDir Condition="Exists('../../../Release')" Directories="../../../Release" />

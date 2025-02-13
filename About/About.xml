@@ -25,5 +25,6 @@
         <li>Ludeon.RimWorld.Biotech</li>
         <li>Ludeon.RimWorld.Anomaly</li>
         <li>vanillaexpanded.achievements</li>
+        <li>Aoba.Fortress.Industrial.Citadel</li>
     </loadAfter>
 </ModMetaData>

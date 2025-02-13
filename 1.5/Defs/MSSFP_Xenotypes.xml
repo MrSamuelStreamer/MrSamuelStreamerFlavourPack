@@ -132,7 +132,7 @@
         <iconPath>UI/Icons/Genes/MSSFP_GrassToucher</iconPath>
         <geneClass>MSSFP.Genes.Gene_GrassToucher</geneClass>
         <descriptionHyperlinks>
-            <li>MSSFP_TouchedGrass</li>
+            <HediffDef>MSSFP_TouchedGrass</HediffDef>
         </descriptionHyperlinks>
     </GeneDef>
     <XenotypeDef>
