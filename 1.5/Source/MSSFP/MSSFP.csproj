@@ -75,6 +75,9 @@
         <StartProgram>$(SolutionDir)../../../../RimWorldWin64.exe</StartProgram>
     </PropertyGroup>
     <ItemGroup>
+        <CompatibilityFiles Include="..\..\Patches\MSSFP_AsexualRepro.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Patches\MSSFP_AsexualRepro.xml</Link>
+        </CompatibilityFiles>
         <ReleaseFiles Include="../../../1.*/**" Exclude="../../../1.*/Source/**" />
         <AboutFiles Include="../../../About/**" Exclude="../../../About/*.png~" />
         <CommonFiles Include="../../../Common/**" />
@@ -99,6 +102,14 @@
         <CompatibilityFiles Update="..\..\..\Compatibility\Aoba.Fortress.Industrial.Citadel\1.5\Patches\MSSFP_Canon.xml">
           <Link>MrSamuelStreamerFlavourPack\Compatibility\Aoba.Fortress.Industrial.Citadel\1.5\Patches\MSSFP_Canon.xml</Link>
         </CompatibilityFiles>
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="..\..\..\Compatibility\OskarPotocki.VanillaFactionsExpanded.Core\1.5\Assemblies\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\OskarPotocki.VanillaFactionsExpanded.Core\1.5\Assemblies</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\OskarPotocki.VanillaFactionsExpanded.Core\1.5\Patches\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\OskarPotocki.VanillaFactionsExpanded.Core\1.5\Patches</Link>
+      </Folder>
     </ItemGroup>
     <Target Name="PostBuild" AfterTargets="Build" Condition=" '$(Configuration)' == 'Release' ">
         <RemoveDir Condition="Exists('../../../Release')" Directories="../../../Release" />
