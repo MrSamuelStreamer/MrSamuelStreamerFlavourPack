@@ -28,7 +28,6 @@ public class CompFroggoHeal: CompAbilityEffect
 
             if (hediff is not null)
             {
-                if(!hediff.def.isBad) break;
                 HealthUtility.Cure(hediff);
             }else if (part is not null)
             {
