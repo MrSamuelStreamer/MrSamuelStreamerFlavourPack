@@ -5,14 +5,14 @@
         <label>head cannon</label>
         <description>Fire a fleshy mass at an enemy</description>
         <iconPath>UI/Icons/Genes/MSSFP_HeadCannon</iconPath>
-        <cooldownTicksRange>300000</cooldownTicksRange>
+        <cooldownTicksRange>600</cooldownTicksRange>
         <aiCanUse>true</aiCanUse>
         <ai_IsIncendiary>true</ai_IsIncendiary>
         <sendMessageOnCooldownComplete>true</sendMessageOnCooldownComplete>
         <verbProperties>
             <verbClass>Verb_CastAbility</verbClass>
-            <range>7.9</range>
-            <warmupTime>1</warmupTime>
+            <range>12.1</range>
+            <warmupTime>1.4</warmupTime>
             <soundCast>PiercingSpine_Launch</soundCast>
             <targetParams>
                 <canTargetLocations>true</canTargetLocations>
