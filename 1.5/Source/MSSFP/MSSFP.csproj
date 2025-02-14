@@ -106,6 +106,10 @@
         <CompatibilityFiles Update="..\..\..\Compatibility\Aoba.Fortress.Industrial.Citadel\1.5\Defs\MSSFP_Critters.xml">
           <Link>MrSamuelStreamerFlavourPack\Compatibility\Aoba.Fortress.Industrial.Citadel\1.5\Defs\MSSFP_Critters.xml</Link>
         </CompatibilityFiles>
+
+        <ReleaseFiles Update="..\..\Defs\Genes\MSSFP_Genes.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Defs\Genes\MSSFP_Genes.xml</Link>
+        </ReleaseFiles>
     </ItemGroup>
     <ItemGroup>
       <Folder Include="..\..\..\Compatibility\OskarPotocki.VanillaFactionsExpanded.Core\1.5\Assemblies\">
