@@ -16,6 +16,8 @@
             <soundCast>PiercingSpine_Launch</soundCast>
             <targetParams>
                 <canTargetLocations>true</canTargetLocations>
+                <ai_IsBuildingDestroyer>true</ai_IsBuildingDestroyer>
+                <ai_IsDoorDestroyer>true</ai_IsDoorDestroyer>
             </targetParams>
         </verbProperties>
         <comps>
@@ -70,6 +72,11 @@
         <descriptionHyperlinks>
             <AbilityDef>MSSFP_HeadCannon</AbilityDef>
         </descriptionHyperlinks>
+        <aptitudes>
+            <Social>-3</Social>
+            <Intellectual>-5</Intellectual>
+        </aptitudes>
+        <painOffset>-0.3</painOffset>
         <renderNodeProperties>
             <li>
                 <nodeClass>PawnRenderNode_AttachmentHead</nodeClass>

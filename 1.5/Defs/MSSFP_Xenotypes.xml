@@ -172,6 +172,7 @@
             <li>AptitudeTerrible_Crafting</li>
             <li>AptitudeTerrible_Social</li>
             <li>MSSFP_Illiterate</li>
+            <li>MSSFP_HeadCannon</li>
             <li MayRequire="sarg.alphagenes">AG_RatAffinity</li>
             <li MayRequire="sarg.alphagenes">AG_Filthy</li>
             <li MayRequire="sarg.alphagenes">AG_Stinky</li>
