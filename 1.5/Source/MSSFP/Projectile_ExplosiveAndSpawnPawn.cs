@@ -1,17 +1,15 @@
-﻿using Verse;
+﻿using RimWorld;
+using UnityEngine;
+using Verse;
 
 namespace MSSFP;
 
 public class Projectile_ExplosiveAndSpawnPawn: Projectile_Explosive
 {
-    public PawnKindDef kind => DefDatabase<PawnKindDef>.AllDefsListForReading.FirstOrDefault(d => d.defName == "MSSFP_BabyCritter");
-
     protected override void Impact(Thing hitThing, bool blockedByShield = false)
     {
         Map map = Map;
         base.Impact(hitThing, blockedByShield);
-
-        if(kind == null) return;
 
         IntVec3 loc = Position;
 
@@ -19,11 +17,24 @@ public class Projectile_ExplosiveAndSpawnPawn: Projectile_Explosive
         {
             if (c.GetFirstBuilding(map) == null && c.Standable(map) && Rand.Chance(.75f))
             {
-                Pawn p = PawnGenerator.GeneratePawn(kind, Find.FactionManager.OfInsects);
+                Pawn p = PawnGenerator.GeneratePawn(MSSFPDefOf.MSSFP_BabyCritter, Find.FactionManager.OfInsects);
 
                 GenSpawn.Spawn(p, loc, map);
             }
         }
 
+        foreach (Pawn pawn in map.mapPawns.AllHumanlike)
+        {
+            TryAddMemory(pawn);
+        }
+
+    }
+
+    protected virtual void TryAddMemory(Pawn pawn)
+    {
+        if (pawn.needs?.mood?.thoughts?.memories?.GetFirstMemoryOfDef(MSSFPDefOf.MSSFP_BabyCannonWTF) != null)
+            return;
+        Thought_Memory newThought = (Thought_Memory) ThoughtMaker.MakeThought(MSSFPDefOf.MSSFP_BabyCannonWTF);
+        pawn.needs?.mood?.thoughts?.memories?.TryGainMemory(newThought);
     }
 }

@@ -46,5 +46,7 @@ public static class MSSFPDefOf
     public static readonly GeneDef MSSFP_Illiterate;
 
     public static readonly BodyModCategoryDef MSSFP_NaturalMods;
+    public static readonly PawnKindDef MSSFP_BabyCritter;
+    public static readonly ThoughtDef MSSFP_BabyCannonWTF;
     static MSSFPDefOf() => DefOfHelper.EnsureInitializedInCtor(typeof(MSSFPDefOf));
 }
