@@ -108,7 +108,7 @@ public class OutpostReproWorldComponent(World world) : WorldComponent(world)
 
             GeneDef repro = DefDatabase<GeneDef>.AllDefsListForReading.FirstOrDefault(g => g.defName == "AG_AsexualFission");
 
-            if (repro != null && progenitor.genes!.HasActiveGene(repro))
+            if (repro != null && progenitor.genes!.HasActiveGene(repro) && Rand.Chance(0.1f))
             {
                 pawnCreated.genes!.AddGene(repro, true);
             }
