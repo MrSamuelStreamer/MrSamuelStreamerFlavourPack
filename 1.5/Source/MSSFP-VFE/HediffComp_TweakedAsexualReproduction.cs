@@ -110,7 +110,7 @@ public class HediffComp_TweakedAsexualReproduction : HediffComp_AsexualReproduct
 
                                     GeneDef repro = DefDatabase<GeneDef>.AllDefsListForReading.FirstOrDefault(g => g.defName == "AG_AsexualFission");
 
-                                    if (repro != null && progenitor.genes.HasActiveGene(repro))
+                                    if (repro != null && progenitor.genes.HasActiveGene(repro) && Rand.Chance(0.25f))
                                     {
                                         pawnCreated.genes.AddGene(repro, true);
                                     }
