@@ -48,4 +48,6 @@
     <MSS_FP_RetirementNoOldPeople>No retirees left in {0}!</MSS_FP_RetirementNoOldPeople>
     <MSS_FP_RetirementNoOldPeopleDesc>All the retirees in {0} have moved on. Production is halted.</MSS_FP_RetirementNoOldPeopleDesc>
 
+    <MSSFP_LostBrainPower>{0} lost some experience in {1} when their brain matter was fired out their head-cannon.</MSSFP_LostBrainPower>
+    <MSSFP_LostBrainPowerDamaged>With no experience left in {1}, {0} lost an important part of their brain when it was fired out of their head-cannon.</MSSFP_LostBrainPowerDamaged>
 </LanguageData>
