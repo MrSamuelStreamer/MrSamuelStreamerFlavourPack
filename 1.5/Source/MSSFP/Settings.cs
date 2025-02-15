@@ -19,6 +19,9 @@ public class Settings : ModSettings
     public float BadGeneChance = 1f / 3f;
     public float NeutralGeneChance = 1f / 3f;
 
+    public bool EnableOutpostFission = true;
+    public int DaysForOutpostFission = 15;
+
     public void DoWindowContents(Rect wrect)
     {
         Listing_Standard options = new();
@@ -41,6 +44,12 @@ public class Settings : ModSettings
 
         options.CheckboxLabeled("MSS_FP_Settings_DrawByMrStreamer".Translate(), ref DrawByMrStreamer);
         options.Gap();
+
+        options.CheckboxLabeled("MSS_FP_Settings_EnableOutpostFission".Translate(), ref EnableOutpostFission);
+        options.Gap();
+
+        options.Label("MSS_FP_Settings_DaysForOutpostFission".Translate(DaysForOutpostFission));
+        options.IntAdjuster(ref DaysForOutpostFission, 1, 1);
 
         GeneEventChance = options.SliderLabeled("MSS_FP_GeneEventChance".Translate(GeneEventChance * 100), GeneEventChance, 0f, 1f, tooltip:"MSS_FP_GeneEventChance_Tooltip");
 
@@ -83,9 +92,11 @@ public class Settings : ModSettings
         Scribe_Values.Look(ref ShowHaunts, "ShowHaunts", true);
         Scribe_Values.Look(ref NoSkylanternRaids, "NoSkylanternRaids", false);
         Scribe_Values.Look(ref DrawByMrStreamer, "DrawByMrStreamer", false);
+        Scribe_Values.Look(ref DrawByMrStreamer, "EnableOutpostFission", true);
         Scribe_Values.Look(ref GeneEventChance, "GeneEventChance", 1f );
         Scribe_Values.Look(ref GoodGeneChance, "GoodGeneChance", 1f/3f);
         Scribe_Values.Look(ref BadGeneChance, "BadGeneChance", 1f/3f);
         Scribe_Values.Look(ref NeutralGeneChance, "NeutralGeneChance", 1f/3f);
+        Scribe_Values.Look(ref DaysForOutpostFission, "DaysForOutpostFission", 15);
     }
 }
