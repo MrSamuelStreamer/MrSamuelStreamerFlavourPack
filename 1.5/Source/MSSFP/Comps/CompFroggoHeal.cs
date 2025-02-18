@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using RimWorld;
 using Verse;
 
@@ -39,7 +40,10 @@ public class CompFroggoHeal: CompAbilityEffect
                 break;
             }
         }
-        foreach (Hediff hediff in target.Pawn.health.hediffSet.hediffs.Where(h=>h.Visible && h.def.isBad))
+
+        List<Hediff> partsToHeal = target.Pawn.health.hediffSet.hediffs.Where(h => h.Visible && h.def.isBad).ToList();
+
+        foreach (Hediff hediff in partsToHeal)
         {
             HealthUtility.Cure(hediff);
         }

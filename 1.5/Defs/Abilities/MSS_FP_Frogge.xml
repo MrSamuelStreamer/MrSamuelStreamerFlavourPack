@@ -65,6 +65,7 @@
         <defName>MSS_FP_ThingHoldingProjectile</defName>
         <label>thing</label>
         <thingClass>MSSFP.ThingHoldingProjectile</thingClass>
+        <uiIconPath>Things/Projectile/Projectile_Toughspike</uiIconPath>
         <graphicData>
             <graphicClass>MSSFP.ThingHoldingProjectileGraphicPassthrough</graphicClass>
             <texPath>Things/Projectile/Projectile_Toughspike</texPath>

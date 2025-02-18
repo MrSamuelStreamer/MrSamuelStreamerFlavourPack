@@ -44,7 +44,7 @@ public class IncidentWorker_LoversRetreat: IncidentWorker
 
     public virtual Pawn GetPawn(IncidentParms parms)
     {
-        return parms.target is not Map map ? null : map.mapPawns.FreeAdultColonistsSpawned.Where(pawn => !pawn.Downed).Where(pawn=>pawn.GetSpouses(false).Any(spouse => spouse.Map == map)).RandomElementWithFallback();
+        return parms.target is not Map map ? null : map.mapPawns.AllPawnsSpawned.Where(pawn=>pawn.ageTracker.Adult && !pawn.Downed && pawn.GetSpouses(false).Any(spouse => spouse.Map == map)).RandomElementWithFallback();
     }
 
     protected override bool TryExecuteWorker(IncidentParms parms)
