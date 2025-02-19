@@ -156,9 +156,9 @@
             <Beauty>-20</Beauty>
         </statBases>
         <costList>
-            <FT_ConcreteCompressed>8</FT_ConcreteCompressed>
-            <Steel>475</Steel>
-            <ComponentIndustrial>8</ComponentIndustrial>
+            <Steel>275</Steel>
+            <ComponentIndustrial>2</ComponentIndustrial>
+            <MSS_TurboEncabulator>4</MSS_TurboEncabulator>
         </costList>
         <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
         <building>
