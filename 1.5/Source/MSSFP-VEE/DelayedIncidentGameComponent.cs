@@ -4,8 +4,10 @@ using Verse;
 
 namespace MSSFP.VEE;
 
-public class DelayedIncidentGameComponent: GameComponent
+public class DelayedIncidentGameComponent : GameComponent
 {
+    public bool HaveDoneNuclearUltratech = false;
+
     public Game Game;
     public DelayedIncidentGameComponent(){}
 
@@ -64,6 +66,22 @@ public class DelayedIncidentGameComponent: GameComponent
             {
                 DelayedIncidentDefs.Remove(firingIncident);
             }
+        }
+
+        if (!HaveDoneNuclearUltratech && Find.FactionManager.OfPlayer.def.techLevel > TechLevel.Spacer)
+        {
+            HaveDoneNuclearUltratech = true;
+            MSSFVEEPDefOf.MSS_NuclearFallout.baseChance = 20;
+            MSSFVEEPDefOf.MSS_NuclearFallout.minRefireDays = 15;
+            MSSFVEEPDefOf.MSS_NuclearFallout.earliestDay = 0;
+            MSSFVEEPDefOf.MSS_NuclearFallout.letterText = """
+                                                          The ever increasing use of nuclear weapons across the planet has polluted the atmosphere with radioactive dust.
+
+                                                          A storm has caused a dense pocket of radioactive dust to mix in with itself, permeating the rain.
+
+                                                          It will last anywhere between a few hours to several days.
+                                                          """;
+
         }
     }
 }
