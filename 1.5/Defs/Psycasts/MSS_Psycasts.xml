@@ -48,4 +48,36 @@
         </stages>
     </ThoughtDef>
 
+
+    <AbilityDef ParentName="PsycastBase">
+        <defName>MSS_RandomiseGenome</defName>
+        <label>Randomise Genome</label>
+        <description>Completely randomises the targets genome, wiping any existing genes, and adding in a completely new set.\n\nPuts both the caster and target in a coma.</description>
+        <level>6</level>
+        <iconPath>UI/Abilities/MSS_RandomiseGenome</iconPath>
+        <hotKey>Misc12</hotKey>
+        <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+        <targetRequired>true</targetRequired>
+        <cooldownTicksRange>120000~240000</cooldownTicksRange>
+        <statBases>
+            <Ability_PsyfocusCost>0.9</Ability_PsyfocusCost>
+            <Ability_EntropyGain>500</Ability_EntropyGain>
+        </statBases>
+        <verbProperties>
+            <warmupTime>20</warmupTime>
+            <range>3</range>
+            <targetParams>
+                <canTargetSelf>false</canTargetSelf>
+                <canTargetLocations>false</canTargetLocations>
+                <canTargetPawns>true</canTargetPawns>
+                <canTargetAnimals>false</canTargetAnimals>
+                <canTargetBuildings>false</canTargetBuildings>
+                <canTargetMechs>false</canTargetMechs>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="MSSFP.Psycasts.CompProperties_AbilityRandomiseGenome">
+            </li>
+        </comps>
+    </AbilityDef>
 </Defs>
