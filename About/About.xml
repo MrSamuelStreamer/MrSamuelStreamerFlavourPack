@@ -26,5 +26,6 @@
         <li>Ludeon.RimWorld.Anomaly</li>
         <li>vanillaexpanded.achievements</li>
         <li>Aoba.Fortress.Industrial.Citadel</li>
+        <li>Azazellz.TransportShuttleStandalone</li>
     </loadAfter>
 </ModMetaData>
