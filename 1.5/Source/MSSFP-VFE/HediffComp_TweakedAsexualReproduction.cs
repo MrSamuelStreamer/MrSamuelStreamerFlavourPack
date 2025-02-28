@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Reflection;
+﻿using System.Collections.Generic;
 using AnimalBehaviours;
-using HarmonyLib;
 using RimWorld;
 using RimWorld.Planet;
 using UnityEngine;
@@ -14,6 +11,8 @@ namespace MSSFP.VFE;
 
 public class HediffComp_TweakedAsexualReproduction : HediffComp_AsexualReproduction
 {
+    protected new int reproductionIntervalDays => MSSFPMod.settings.DaysForFission;
+
     // Couldn't get harmony patches to work for what I needed to do, so had to copy/paste. Sorry VFE team
     // Source https://github.com/Vanilla-Expanded/VanillaExpandedFramework/blob/e48ac7b18c095f8f4d585a88ea8089b926f71e94/Source/VFECore/AnimalBehaviours/Hediffs/HediffComp_AsexualReproduction.cs
     public override void CompPostTick(ref float severity)
@@ -139,31 +138,35 @@ public class HediffComp_TweakedAsexualReproduction : HediffComp_AsexualReproduct
                                 }
 
                                 TaleRecorder.RecordTale(TaleDefOf.GaveBirth, progenitor, pawn);
-                            }
 
-                            if (progenitor.Spawned)
-                            {
-                                FilthMaker.TryMakeFilth(progenitor.Position, progenitor.Map, ThingDefOf.Filth_AmnioticFluid, progenitor.LabelIndefinite(), 5);
-                                if (progenitor.caller != null)
+                                if (progenitor.Spawned)
                                 {
-                                    progenitor.caller.DoCall();
+                                    FilthMaker.TryMakeFilth(progenitor.Position, progenitor.Map, ThingDefOf.Filth_AmnioticFluid, progenitor.LabelIndefinite(), 5);
+                                    progenitor.caller?.DoCall();
+                                    pawn.caller?.DoCall();
                                 }
 
-                                if (pawn.caller != null)
-                                {
-                                    pawn.caller.DoCall();
-                                }
+
+                                MSSFPCFEDefOf.MSSFP_Squelch.PlayOneShot(SoundInfo.InMap(Pawn));
+                                Messages.Message(Props.asexualHatchedMessage.Translate(pawn.LabelIndefinite().CapitalizeFirst()), pawn, MessageTypeDefOf.PositiveEvent, true);
                             }
-
-
-                            MSSFPCFEDefOf.MSSFP_Squelch.PlayOneShot(SoundInfo.InMap(Pawn));
-                            Messages.Message(Props.asexualHatchedMessage.Translate(pawn.LabelIndefinite().CapitalizeFirst()), pawn, MessageTypeDefOf.PositiveEvent, true);
-
                             asexualFissionCounter = 0;
                         }
                     }
                 }
             }
         }
+    }
+
+    public override string CompLabelInBracketsExtra => GetLabel();
+
+    public new string GetLabel()
+    {
+        Pawn pawn = parent.pawn;
+        if (Props.isGreenGoo)
+            return customString + (asexualFissionCounter / (float) (ticksInday * reproductionIntervalDays)).ToStringPercent() + " (" + reproductionIntervalDays + " days)";
+        if (pawn.Faction != Faction.OfPlayer || !pawn.ageTracker.CurLifeStage.reproductive)
+            return "";
+        return customString + (asexualFissionCounter / (float) (ticksInday * reproductionIntervalDays)).ToStringPercent() + " (" + reproductionIntervalDays + " days)";
     }
 }

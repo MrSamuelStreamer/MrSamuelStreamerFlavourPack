@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Patch>
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs/HediffDef[defName="AdvancedBionicLeg"]</xpath>
+        <value>
+            <stages>
+                <li>
+                    <statFactors>
+                        <CaravanRidingSpeedFactor>1.75</CaravanRidingSpeedFactor>
+                    </statFactors>
+                </li>
+            </stages>
+        </value>
+    </Operation>
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs/HediffDef[defName="ArchotechLeg"]</xpath>
+        <value>
+            <stages>
+                <li>
+                    <statFactors>
+                        <CaravanRidingSpeedFactor>2.25</CaravanRidingSpeedFactor>
+                    </statFactors>
+                </li>
+            </stages>
+        </value>
+    </Operation>
+</Patch>

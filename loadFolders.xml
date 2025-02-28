@@ -11,5 +11,6 @@
         <li IfModActive="vanillaexpanded.outposts">Compatibility/vanillaexpanded.outposts/1.5</li>
         <li IfModActive="sarg.alphagenes">Compatibility/sarg.alphagenes/1.5</li>
         <li IfModActive="aoba.fortress.industrial.citadel">Compatibility/Aoba.Fortress.Industrial.Citadel/1.5</li>
+        <li IfModActive="Rah.RBSEHC">Compatibility/Rah.RBSEHC/1.5</li>
 	</v1.5>
 </loadFolders>

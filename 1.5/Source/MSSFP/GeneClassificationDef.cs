@@ -7,7 +7,8 @@ public enum GeneType
 {
     good,
     bad,
-    neutral
+    neutral,
+    random
 }
 
 public enum ClassificationType

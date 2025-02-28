@@ -38,6 +38,8 @@
     <MSS_FP_BadGeneChance_Tooltip>The chance for events that give genes to give bad genes.</MSS_FP_BadGeneChance_Tooltip>
     <MSS_FP_NeutralGeneChance>Neutral Gene Chance {0}%</MSS_FP_NeutralGeneChance>
     <MSS_FP_NeutralGeneChance_Tooltip>The chance for events that give genes to give neutral genes.</MSS_FP_NeutralGeneChance_Tooltip>
+    <MSS_FP_RandomGeneChance>Random Gene Chance {0}%</MSS_FP_RandomGeneChance>
+    <MSS_FP_RandomGeneChance_Tooltip>The chance for events that give genes to give random genes.</MSS_FP_RandomGeneChance_Tooltip>
 
     <MSS_FP_RetirementWillProduce>Grandma is clacking away with the knitting needles and will have between {0} and {1} silver worth of knick-knacks ready for you in {2}</MSS_FP_RetirementWillProduce>
     <MSS_FP_AgeInspector>Cumulative retiree age: {0}</MSS_FP_AgeInspector>
@@ -52,5 +54,6 @@
     <MSSFP_LostBrainPowerDamaged>With no experience left in {1}, {0} lost an important part of their brain when it was fired out of their head-cannon.</MSSFP_LostBrainPowerDamaged>
 
     <MSS_FP_Settings_EnableOutpostFission>Enable Asexual Fission in outposts</MSS_FP_Settings_EnableOutpostFission>
-    <MSS_FP_Settings_DaysForOutpostFission>Days between fissions -> {0} days</MSS_FP_Settings_DaysForOutpostFission>
+    <MSS_FP_Settings_DaysForOutpostFission>Days between fissions in outposts -> {0} days</MSS_FP_Settings_DaysForOutpostFission>
+    <MSS_FP_Settings_DaysForFission>Days between fissions -> {0} days</MSS_FP_Settings_DaysForFission>
 </LanguageData>

@@ -15,12 +15,14 @@ public class Settings : ModSettings
 
     public float GeneEventChance = 1f;
 
-    public float GoodGeneChance = 1f / 3f;
-    public float BadGeneChance = 1f / 3f;
-    public float NeutralGeneChance = 1f / 3f;
+    public float GoodGeneChance = 1f / 4f;
+    public float BadGeneChance = 1f / 4f;
+    public float NeutralGeneChance = 1f / 4f;
+    public float RandomGeneChance = 1f / 4f;
 
     public bool EnableOutpostFission = true;
     public int DaysForOutpostFission = 15;
+    public int DaysForFission = 7;
 
     public void DoWindowContents(Rect wrect)
     {
@@ -51,37 +53,47 @@ public class Settings : ModSettings
         options.Label("MSS_FP_Settings_DaysForOutpostFission".Translate(DaysForOutpostFission));
         options.IntAdjuster(ref DaysForOutpostFission, 1, 1);
 
+        options.Label("MSS_FP_Settings_DaysForFission".Translate(DaysForFission));
+        options.IntAdjuster(ref DaysForFission, 1, 1);
+
         GeneEventChance = options.SliderLabeled("MSS_FP_GeneEventChance".Translate(GeneEventChance * 100), GeneEventChance, 0f, 1f, tooltip:"MSS_FP_GeneEventChance_Tooltip");
 
         float GoodGeneChanceUpd = options.SliderLabeled("MSS_FP_GoodGeneChance".Translate(GoodGeneChance * 100), GoodGeneChance, 0f, 1f, tooltip:"MSS_FP_GoodGeneChance_Tooltip");
         float BadGeneChanceUpd = options.SliderLabeled("MSS_FP_BadGeneChance".Translate(BadGeneChance * 100), BadGeneChance, 0f, 1f, tooltip:"MSS_FP_BadGeneChance_Tooltip");
         float NeutralGeneChanceUpd = options.SliderLabeled("MSS_FP_NeutralGeneChance".Translate(NeutralGeneChance * 100), NeutralGeneChance, 0f, 1f, tooltip:"MSS_FP_NeutralGeneChance_Tooltip");
+        float RandomGeneChanceUpd = options.SliderLabeled("MSS_FP_RandomGeneChance".Translate(RandomGeneChance * 100), RandomGeneChance, 0f, 1f, tooltip:"MSS_FP_RandomGeneChance_Tooltip");
 
         if (!Mathf.Approximately(GoodGeneChance, GoodGeneChanceUpd))
         {
-            AdjustChanceRatios(GoodGeneChance - GoodGeneChanceUpd, ref BadGeneChance, ref NeutralGeneChance);
+            AdjustChanceRatios(GoodGeneChance - GoodGeneChanceUpd, ref BadGeneChance, ref NeutralGeneChance, ref RandomGeneChance);
             GoodGeneChance = GoodGeneChanceUpd;
         }else if (!Mathf.Approximately(BadGeneChance, BadGeneChanceUpd))
         {
-            AdjustChanceRatios(BadGeneChance - BadGeneChanceUpd, ref GoodGeneChance, ref NeutralGeneChance);
+            AdjustChanceRatios(BadGeneChance - BadGeneChanceUpd, ref GoodGeneChance, ref NeutralGeneChance, ref RandomGeneChance);
             BadGeneChance = BadGeneChanceUpd;
         }else if (!Mathf.Approximately(NeutralGeneChance, NeutralGeneChanceUpd))
         {
-            AdjustChanceRatios(NeutralGeneChance - NeutralGeneChanceUpd, ref GoodGeneChance, ref BadGeneChance);
+            AdjustChanceRatios(NeutralGeneChance - NeutralGeneChanceUpd, ref GoodGeneChance, ref BadGeneChance, ref RandomGeneChance);
             NeutralGeneChance = NeutralGeneChanceUpd;
+        }else if (!Mathf.Approximately(RandomGeneChance, RandomGeneChanceUpd))
+        {
+            AdjustChanceRatios(RandomGeneChance - RandomGeneChanceUpd, ref GoodGeneChance, ref BadGeneChance, ref NeutralGeneChance);
+            RandomGeneChance = RandomGeneChanceUpd;
         }
 
         options.End();
     }
 
-    public void AdjustChanceRatios(float change, ref float chanceA, ref float chanceB)
+    public void AdjustChanceRatios(float change, ref float chanceA, ref float chanceB, ref float chanceC)
     {
-        float total = chanceA + chanceB;
+        float total = chanceA + chanceB + chanceC;
         float aRatio = chanceA / total;
         float bRatio = chanceB / total;
+        float cRatio = chanceC / total;
 
         chanceA += change * aRatio;
         chanceB += change * bRatio;
+        chanceC += change * cRatio;
     }
 
     public override void ExposeData()
@@ -94,9 +106,11 @@ public class Settings : ModSettings
         Scribe_Values.Look(ref DrawByMrStreamer, "DrawByMrStreamer", false);
         Scribe_Values.Look(ref DrawByMrStreamer, "EnableOutpostFission", true);
         Scribe_Values.Look(ref GeneEventChance, "GeneEventChance", 1f );
-        Scribe_Values.Look(ref GoodGeneChance, "GoodGeneChance", 1f/3f);
-        Scribe_Values.Look(ref BadGeneChance, "BadGeneChance", 1f/3f);
-        Scribe_Values.Look(ref NeutralGeneChance, "NeutralGeneChance", 1f/3f);
-        Scribe_Values.Look(ref DaysForOutpostFission, "DaysForOutpostFission", 15);
+        Scribe_Values.Look(ref GoodGeneChance, "GoodGeneChance", 1f/4f);
+        Scribe_Values.Look(ref BadGeneChance, "BadGeneChance", 1f/4f);
+        Scribe_Values.Look(ref NeutralGeneChance, "NeutralGeneChance", 1f/4f);
+        Scribe_Values.Look(ref RandomGeneChance, "RandomGeneChance", 1f/4f);
+        Scribe_Values.Look(ref DaysForOutpostFission, "DaysForOutpostFission", 7);
+        Scribe_Values.Look(ref DaysForFission, "DaysForFission", 7);
     }
 }

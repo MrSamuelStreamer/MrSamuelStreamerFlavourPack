@@ -23,7 +23,7 @@ public static class Dialog_GrowthMomentChoices_Patch
 
         public GeneClassification selectedGene;
         public List<GeneClassification> geneChoices;
-        public GeneType type;
+        public GeneType? type;
         public bool ShouldDoChoice;
     }
 
@@ -91,6 +91,9 @@ public static class Dialog_GrowthMomentChoices_Patch
                 case GeneType.neutral:
                     weights[type] = MSSFPMod.settings.NeutralGeneChance;
                     break;
+                case GeneType.random:
+                    weights[type] = MSSFPMod.settings.NeutralGeneChance;
+                    break;
                 default:
                     weights[type] = 0;
                     break;
@@ -100,16 +103,14 @@ public static class Dialog_GrowthMomentChoices_Patch
         return weights.RandomElementByWeight(weight => weight.Value).Key;
     }
 
-    public static List<GeneClassification> GeneChoicesForPawn(Pawn pawn, bool good, out GeneType geneType)
+    public static List<GeneClassification> GeneChoicesForPawn(Pawn pawn, out GeneType? geneType)
     {
         GeneType randType = GetRandomGeneType();
-        geneType = randType;
-
-        GeneClassificationDef classification = DefDatabase<GeneClassificationDef>.AllDefs.Where(g=>g.type==randType).RandomElement();
+        GeneClassificationDef classification = randType == GeneType.random ? DefDatabase<GeneClassificationDef>.AllDefs.RandomElement() : DefDatabase<GeneClassificationDef>.AllDefs.Where(g => g.type == randType).RandomElement();
 
         List<GeneClassification> validGenes = classification.genes.Where(g => g.gene != null &&
-            !pawn.genes.GenesListForReading.Any(pg => pg.def.ConflictsWith(g.gene)) &&
-            (g.gene.prerequisite == null || pawn.genes.GenesListForReading.Any(pg => pg.def == g.gene.prerequisite))).ToList();
+                                                                              !pawn.genes.GenesListForReading.Any(pg => pg.def.ConflictsWith(g.gene)) &&
+                                                                              (g.gene.prerequisite == null || pawn.genes.GenesListForReading.Any(pg => pg.def == g.gene.prerequisite))).ToList();
 
         List<GeneClassification> output = new();
         for (int i = 0; i < GeneRange.RandomInRange; i++)
@@ -117,6 +118,7 @@ public static class Dialog_GrowthMomentChoices_Patch
             output.Add(validGenes.Except(output).RandomElementByWeight(g=>g.weight));
         }
 
+        geneType = randType;
         return output.ToList();
     }
 
@@ -140,10 +142,13 @@ public static class Dialog_GrowthMomentChoices_Patch
 
         if (currentChoices.geneChoices.NullOrEmpty())
         {
-            currentChoices.geneChoices = GeneChoicesForPawn(letter.pawn, true, out currentChoices.type);
+            currentChoices.geneChoices = GeneChoicesForPawn(letter.pawn, out currentChoices.type);
         }
 
-        Widgets.Label(0.0f, ref curY, width, "MSS_BirthdayPickGene".Translate((NamedArgument) (Thing) letter.pawn, currentChoices.type.ToString()).Resolve() + ":");
+        string type = "Random";
+        if(currentChoices.type != null) type = currentChoices.type.ToString();
+
+        Widgets.Label(0.0f, ref curY, width, "MSS_BirthdayPickGene".Translate((NamedArgument) (Thing) letter.pawn, type).Resolve() + ":");
 
 
         Listing_Standard listingStandard = new Listing_Standard();

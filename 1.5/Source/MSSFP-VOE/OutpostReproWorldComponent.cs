@@ -67,7 +67,7 @@ public class OutpostReproWorldComponent(World world) : WorldComponent(world)
             if(!asexualReproducer.pawn.ageTracker.Adult) continue;
             if (asexualReproducer.duplicateAfterTick < Find.TickManager.TicksGame)
             {
-                 asexualReproducer.duplicateAfterTick = TicksToReproduce;
+                asexualReproducer.duplicateAfterTick = TicksToReproduce;
                 SpawnDuplicateAtOutpost(asexualReproducer.outpost, asexualReproducer.pawn);
             }
         }
@@ -80,6 +80,8 @@ public class OutpostReproWorldComponent(World world) : WorldComponent(world)
         {
             num = 1;
         }
+
+        if (num == 1 && Rand.Chance(0.05f)) num = (new IntRange(1, 3)).RandomInRange;
 
         PawnGenerationRequest request = new PawnGenerationRequest(progenitor.kindDef, progenitor.Faction, PawnGenerationContext.NonPlayer, -1,
             forceGenerateNewPawn: false, allowDead: false, allowDowned: true, canGeneratePawnRelations: true, mustBeCapableOfViolence: false, 1f,

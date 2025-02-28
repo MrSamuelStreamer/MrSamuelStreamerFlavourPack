@@ -13,6 +13,7 @@
             <ArmorRating_Sharp>0.40</ArmorRating_Sharp>
             <ArmorRating_Blunt>0.60</ArmorRating_Blunt>
             <ArmorRating_Heat>0.30</ArmorRating_Heat>
+            <CaravanRidingSpeedFactor>1.3</CaravanRidingSpeedFactor>
         </statBases>
         <tools>
             <li>
