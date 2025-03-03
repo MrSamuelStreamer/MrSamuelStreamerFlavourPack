@@ -75,6 +75,9 @@
         <StartProgram>$(SolutionDir)../../../../RimWorldWin64.exe</StartProgram>
     </PropertyGroup>
     <ItemGroup>
+        <CompatibilityFiles Include="..\..\Defs\Quests\MSS_LoversAdvance.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Defs\Quests\MSS_LoversAdvance.xml</Link>
+        </CompatibilityFiles>
         <CompatibilityFiles Include="..\..\Patches\MSSFP_AsexualRepro.xml">
           <Link>MrSamuelStreamerFlavourPack\1.5\Patches\MSSFP_AsexualRepro.xml</Link>
         </CompatibilityFiles>
@@ -124,6 +127,9 @@
         </ReleaseFiles>
     </ItemGroup>
     <ItemGroup>
+      <Folder Include="..\..\..\Common\Textures\Things\AMPSuit\">
+        <Link>MrSamuelStreamerFlavourPack\Common\Textures\Things\AMPSuit</Link>
+      </Folder>
       <Folder Include="..\..\..\Compatibility\OskarPotocki.VanillaFactionsExpanded.Core\1.5\Assemblies\">
         <Link>MrSamuelStreamerFlavourPack\Compatibility\OskarPotocki.VanillaFactionsExpanded.Core\1.5\Assemblies</Link>
       </Folder>

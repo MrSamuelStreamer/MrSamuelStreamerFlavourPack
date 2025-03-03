@@ -15,6 +15,12 @@
             <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
             <downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
         </li>
+        <li>
+            <packageId>oskarpotocki.vanillafactionsexpanded.core</packageId>
+            <displayName>Vanilla Expanded Framework</displayName>
+            <steamWorkshopUrl>steam://url/CommunityFilePage/2023507013</steamWorkshopUrl>
+            <downloadUrl>https://github.com/Vanilla-Expanded/VanillaExpandedFramework</downloadUrl>
+        </li>
     </modDependencies>
 
     <loadAfter>
@@ -27,5 +33,6 @@
         <li>vanillaexpanded.achievements</li>
         <li>Aoba.Fortress.Industrial.Citadel</li>
         <li>Azazellz.TransportShuttleStandalone</li>
+        <li>oskarpotocki.vanillafactionsexpanded.core</li>
     </loadAfter>
 </ModMetaData>

@@ -48,5 +48,7 @@ public static class MSSFPDefOf
     public static readonly BodyModCategoryDef MSSFP_NaturalMods;
     public static readonly PawnKindDef MSSFP_BabyCritter;
     public static readonly ThoughtDef MSSFP_BabyCannonWTF;
+
+    public static readonly ThingSetMakerDef MSSFP_Construction;
     static MSSFPDefOf() => DefOfHelper.EnsureInitializedInCtor(typeof(MSSFPDefOf));
 }
