@@ -11,8 +11,9 @@ public class SymbolResolver_ConstructionSite : SymbolResolver
 {
     public static readonly int InsetPathFromEdgeBy = 4;
     public static readonly int PathWidth = 2;
+    public static readonly string AmbushTag = "mss_loversadvance_ambush";
 
-    public static readonly IntRange NumberOfShelves = new IntRange(10, 30);
+    public static readonly IntRange NumberOfShelves = new IntRange(5, 25);
 
     public static ThingDef ShelfSmall => DefDatabase<ThingDef>.GetNamed("ShelfSmall");
     public static ThingDef Shelf => DefDatabase<ThingDef>.GetNamed("Shelf");
@@ -34,8 +35,8 @@ public class SymbolResolver_ConstructionSite : SymbolResolver
 
         int step = rp.rect.Width - 2*InsetPathFromEdgeBy - PathWidth;
 
-        int startVert = rp.rect.minX + Rand.RangeInclusive(0, step);
-        int startHoriz = rp.rect.minZ + Rand.RangeInclusive(0, step);
+        int startVert = rp.rect.minX + Rand.RangeInclusive(4, step-4);
+        int startHoriz = rp.rect.minZ + Rand.RangeInclusive(4, step-4);
 
         List<CellRect> areas = [];
 
@@ -43,6 +44,21 @@ public class SymbolResolver_ConstructionSite : SymbolResolver
         areas.Add(CellRect.FromLimits(startVert + PathWidth,    startHoriz + PathWidth, rp.rect.maxX,                rp.rect.maxZ)); // Bottom Right
         areas.Add(CellRect.FromLimits(startVert + PathWidth,     rp.rect.minZ,                  rp.rect.maxX,                startHoriz)); // Top Right
         areas.Add(CellRect.FromLimits(rp.rect.minX,                     startHoriz + PathWidth, startVert,           rp.rect.maxZ)); // Bottom Left
+
+        BaseGen.symbolStack.Push("rectTrigger", rp with
+        {
+            rect = rp.rect,
+            rectTriggerSignalTag = AmbushTag
+        });
+
+        BaseGen.symbolStack.Push("ambush", rp with
+        {
+            ambushSignalTag = AmbushTag,
+            ambushPoints = rp.threatPoints * 8,
+            spawnNear = map.Center,
+            ambushType = SignalActionAmbushType.Normal
+        });
+
         SpawnPawns(rp, enemyFaction, map);
         BaseGen.symbolStack.Push("thing", rp with
         {
@@ -66,8 +82,71 @@ public class SymbolResolver_ConstructionSite : SymbolResolver
         BaseGen.symbolStack.Push("ensureCanReachMapEdge", ensureCanReachMapEdgeRP);
     }
 
+    public static Dictionary<ThingDef, float> _weightedConstructionThingDefs = [];
+
+    public static void MaybeGetDef(ref Dictionary<ThingDef, float> defs, string defName, float chance = 0.05f)
+    {
+        ThingDef def = DefDatabase<ThingDef>.GetNamed(defName, false);
+        if(def != null) defs.Add(def, chance);
+    }
+
+    public static Dictionary<ThingDef, float> WeightedConstructionThingDefs
+    {
+        get
+        {
+            if (_weightedConstructionThingDefs.NullOrEmpty())
+            {
+                _weightedConstructionThingDefs = new Dictionary<ThingDef, float>();
+                _weightedConstructionThingDefs.Add(DefDatabase<ThingDef>.GetNamed("TableStonecutter"), 0.05f);
+                _weightedConstructionThingDefs.Add(DefDatabase<ThingDef>.GetNamed("ElectricSmelter"), 0.05f);
+                _weightedConstructionThingDefs.Add(DefDatabase<ThingDef>.GetNamed("FueledSmithy"), 0.05f);
+                _weightedConstructionThingDefs.Add(DefDatabase<ThingDef>.GetNamed("ShelfSmall"), 0.5f);
+                _weightedConstructionThingDefs.Add(DefDatabase<ThingDef>.GetNamed("Shelf"), 0.5f);
+
+                MaybeGetDef(ref _weightedConstructionThingDefs, "FT_TableConcreteMixer");
+                MaybeGetDef(ref _weightedConstructionThingDefs, "DankPyon_Bricks1x2c", 0.3f);
+                MaybeGetDef(ref _weightedConstructionThingDefs, "DankPyon_Bricks2x2c", 0.3f);
+                MaybeGetDef(ref _weightedConstructionThingDefs, "DankPyon_Kiln");
+                MaybeGetDef(ref _weightedConstructionThingDefs, "VBY_PrimitiveKiln");
+                MaybeGetDef(ref _weightedConstructionThingDefs, "BasicStorageIndustrialContainer", 0.3f);
+                MaybeGetDef(ref _weightedConstructionThingDefs, "VBY_PrimitiveStoneCuttingTable");
+                MaybeGetDef(ref _weightedConstructionThingDefs, "DankPyon_MiningTools");
+                MaybeGetDef(ref _weightedConstructionThingDefs, "DankPyon_BarrelWater", 0.3f);
+                MaybeGetDef(ref _weightedConstructionThingDefs, "BasicStoragePalletLarge", 0.3f);
+                MaybeGetDef(ref _weightedConstructionThingDefs, "DankPyon_IronIngots1x1c", 0.3f);
+                MaybeGetDef(ref _weightedConstructionThingDefs, "DankPyon_IronIngots1x2c", 0.3f);
+                MaybeGetDef(ref _weightedConstructionThingDefs, "DankPyon_IronIngots2x2c", 0.3f);
+                MaybeGetDef(ref _weightedConstructionThingDefs, "BasicStorageLargeCrate", 0.3f);
+                MaybeGetDef(ref _weightedConstructionThingDefs, "BasicStorageWoodenCrate", 0.3f);
+                MaybeGetDef(ref _weightedConstructionThingDefs, "BasicStorageMediumCrate", 0.3f);
+                MaybeGetDef(ref _weightedConstructionThingDefs, "VFEC_ConcretePress");
+                MaybeGetDef(ref _weightedConstructionThingDefs, "DankPyon_BundledSack2x2c", 0.3f);
+                MaybeGetDef(ref _weightedConstructionThingDefs, "DankPyon_BundledSack1x1c", 0.3f);
+                MaybeGetDef(ref _weightedConstructionThingDefs, "DankPyon_Timber1x1c", 0.3f);
+                MaybeGetDef(ref _weightedConstructionThingDefs, "DankPyon_WoodLogs1x1c", 0.3f);
+                MaybeGetDef(ref _weightedConstructionThingDefs, "DankPyon_Timber1x2c", 0.3f);
+                MaybeGetDef(ref _weightedConstructionThingDefs, "DankPyon_WoodLogs1x2c", 0.3f);
+                MaybeGetDef(ref _weightedConstructionThingDefs, "DankPyon_Timber2x2c", 0.3f);
+                MaybeGetDef(ref _weightedConstructionThingDefs, "DankPyon_WoodLogs2x2c", 0.3f);
+                MaybeGetDef(ref _weightedConstructionThingDefs, "ASF_StorageTent");
+            }
+
+            return _weightedConstructionThingDefs;
+        }
+    }
+
+    public static Thing RandomConstructionThing()
+    {
+        ThingDef def = WeightedConstructionThingDefs.RandomElementByWeight(e=>e.Value).Key;
+
+        ThingDef stuff = GenStuff.RandomStuffFor(def);
+
+        return ThingMaker.MakeThing(def, stuff);
+    }
+
     public static void GenerateStockpile(ResolveParams rp, Map map, Faction enemyFaction)
     {
+
         ResolveParams wallRP = rp with
         {
             wallThingDef = ThingDefOf.AncientFence,
@@ -81,6 +160,7 @@ public class SymbolResolver_ConstructionSite : SymbolResolver
             floorOnlyIfTerrainSupports = true
         };
 
+
         List<Thing> loot = GetLoot();
 
         int numberOfShelves = NumberOfShelves.RandomInRange;
@@ -90,18 +170,39 @@ public class SymbolResolver_ConstructionSite : SymbolResolver
             if(loot.Count <= 0) break;
             Thing thing = loot.InRandomOrder().First();
 
-            ThingDef shelfType = Rand.Bool ? Shelf : ShelfSmall;
-            ThingDef stuff = GenStuff.RandomStuffFor(shelfType);
-
-            Building_Storage shelf = (Building_Storage)ThingMaker.MakeThing(shelfType, stuff);
+            Thing container = RandomConstructionThing();
 
             loot.Remove(thing);
 
             BaseGen.symbolStack.Push("thing", rp with
             {
-                singleThingToSpawn = shelf,
+                singleThingToSpawn = container,
                 singleThingInnerThings = [thing]
             });
+        }
+
+        List<Thing> list = ThingSetMakerDefOf.MapGen_AncientTempleContents.root.Generate();
+        list.AddRange(ThingSetMakerDefOf.MapGen_AncientTempleContents.root.Generate());
+        list.AddRange(ThingSetMakerDefOf.MapGen_AncientTempleContents.root.Generate());
+        list.AddRange(ThingSetMakerDefOf.MapGen_AncientTempleContents.root.Generate());
+        list.AddRange(ThingSetMakerDefOf.MapGen_AncientTempleContents.root.Generate());
+        list.AddRange(ThingSetMakerDefOf.MapGen_AncientTempleContents.root.Generate());
+        list.AddRange(ThingSetMakerDefOf.MapGen_AncientTempleContents.root.Generate());
+        list.AddRange(ThingSetMakerDefOf.MapGen_AncientTempleContents.root.Generate());
+        list.AddRange(ThingSetMakerDefOf.MapGen_AncientTempleContents.root.Generate());
+
+        list.SortByDescending(t => t.MarketValue * t.stackCount);
+        for (int index = 0; index < list.Count; ++index)
+        {
+            ResolveParams resolveParams = rp;
+            if (ModsConfig.IdeologyActive && index == 0)
+            {
+                resolveParams.singleThingDef = ThingDefOf.AncientHermeticCrate;
+                resolveParams.singleThingInnerThings = [list[0]];
+            }
+            else
+                resolveParams.singleThingToSpawn = list[index];
+            BaseGen.symbolStack.Push("thing", resolveParams);
         }
 
         foreach (Thing thing in loot)
@@ -140,18 +241,19 @@ public class SymbolResolver_ConstructionSite : SymbolResolver
             rect = rp.rect,
             faction = enemyFaction,
             singlePawnLord = lord,
-            pawnGroupKindDef = rp.pawnGroupKindDef ?? PawnGroupKindDefOf.Settlement,
-            singlePawnSpawnCellExtraPredicate = rp.singlePawnSpawnCellExtraPredicate ?? (x => map.reachability.CanReachMapEdge(x, TraverseParms.For(TraverseMode.PassDoors)))
+            pawnGroupKindDef = PawnGroupKindDefOf.Loggers,
+            singlePawnSpawnCellExtraPredicate = x => map.reachability.CanReachMapEdge(x, TraverseParms.For(TraverseMode.PassDoors))
         };
 
         if (pawnGenerationParams.pawnGroupMakerParams == null)
         {
             pawnGenerationParams.pawnGroupMakerParams = new PawnGroupMakerParms();
+            pawnGenerationParams.pawnGroupMakerParams.generateFightersOnly = false;
+            pawnGenerationParams.pawnGroupMakerParams.dontUseSingleUseRocketLaunchers = true;
             pawnGenerationParams.pawnGroupMakerParams.tile = map.Tile;
             pawnGenerationParams.pawnGroupMakerParams.faction = enemyFaction;
             PawnGroupMakerParms groupMakerParams = pawnGenerationParams.pawnGroupMakerParams;
-            double num = rp.settlementPawnGroupPoints ?? (double) SymbolResolver_Settlement.DefaultPawnsPoints.RandomInRange;
-            groupMakerParams.points = (float) num;
+            groupMakerParams.points = (rp.threatPoints??  200) / 4;
             pawnGenerationParams.pawnGroupMakerParams.inhabitants = true;
             pawnGenerationParams.pawnGroupMakerParams.seed = rp.settlementPawnGroupSeed;
         }

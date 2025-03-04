@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<Defs>
+    <ThingDef ParentName="ConditionCauserBase">
+        <defName>MSSFP_ConstructionOffice</defName>
+        <label>Construction Office</label>
+        <description>The construction office for this site.</description>
+        <graphicData>
+            <graphicClass>Graphic_Single</graphicClass>
+            <texPath>Things/Building/MSS_ConstructionOffice</texPath>
+            <drawSize>(8,8)</drawSize>
+            <damageData>
+                <rect>(0.38,0.2,0.56375,0.8)</rect>
+                <cornerTL>Damage/Corner</cornerTL>
+            </damageData>
+            <shadowData>
+                <offset>(-0.13,-0.87,-0.1)</offset>
+                <volume>(0.5,0.4,1.05)</volume>
+            </shadowData>
+        </graphicData>
+        <drawSize>(8,8)</drawSize>
+        <size>(8,6)</size>
+        <statBases>
+            <MaxHitPoints>6000</MaxHitPoints>
+        </statBases>
+        <killedLeavings>
+            <Steel>60</Steel>
+            <MSS_TurboEncabulator>2</MSS_TurboEncabulator>
+            <ComponentIndustrial>4</ComponentIndustrial>
+            <Plasteel>10</Plasteel>
+            <ChunkSlagSteel>4</ChunkSlagSteel>
+            <MSS_MeleeWeapon_BortusLegsBladelink>1</MSS_MeleeWeapon_BortusLegsBladelink>
+        </killedLeavings>
+    </ThingDef>
+
+    <DamageDef>
+        <defName>MSSFP_Extinguish</defName>
+        <label>extinguish</label>
+        <workerClass>MSSFP.DamageWorker_DestructiveExtinguish</workerClass>
+        <canInterruptJobs>false</canInterruptJobs>
+        <makesBlood>false</makesBlood>
+        <isExplosive>true</isExplosive>
+        <deathMessage>{0} has died in a firefoam explosion.</deathMessage>
+        <hediff>Shredded</hediff>
+        <hediffSolid>Crack</hediffSolid>
+        <explosionCellFleck>FoamSpray</explosionCellFleck>
+        <explosionColorEdge>(1, 1, 1, 0.05)</explosionColorEdge>
+        <soundExplosion>Explosion_Stun</soundExplosion>
+        <harmsHealth>false</harmsHealth>
+        <consideredHelpful>true</consideredHelpful>
+        <makesAnimalsFlee>true</makesAnimalsFlee>
+        <causeStun>true</causeStun>
+        <harmAllLayersUntilOutside>true</harmAllLayersUntilOutside>
+        <impactSoundType>Blunt</impactSoundType>
+        <armorCategory>Sharp</armorCategory>
+        <minDamageToFragment>15</minDamageToFragment>
+        <defaultDamage>50</defaultDamage>
+        <defaultStoppingPower>4</defaultStoppingPower>
+        <defaultArmorPenetration>0.01</defaultArmorPenetration>
+        <buildingDamageFactor>8</buildingDamageFactor>
+        <buildingDamageFactorImpassable>12</buildingDamageFactorImpassable>
+        <buildingDamageFactorPassable>8</buildingDamageFactorPassable>
+        <explosionSnowMeltAmount>0.1</explosionSnowMeltAmount>
+        <expolosionPropagationSpeed>0.25</expolosionPropagationSpeed>
+        <plantDamageFactor>0.1</plantDamageFactor>
+        <corpseDamageFactor>0.1</corpseDamageFactor>
+        <explosionAffectOutsidePartsOnly>false</explosionAffectOutsidePartsOnly>
+        <explosionHeatEnergyPerCell>0</explosionHeatEnergyPerCell>
+        <combatLogRules>Damage_Extinguish</combatLogRules>
+    </DamageDef>
+
+    <ThingDef ParentName="BaseBullet">
+        <defName>MSSFP_FirefoamProjectile</defName>
+        <label>high-explosive shell</label>
+        <graphicData>
+            <texPath>Things/Projectile/ShellHighExplosive</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>TransparentPostLight</shaderType>
+        </graphicData>
+        <thingClass>Projectile_Explosive</thingClass>
+        <projectile>
+            <damageDef>MSSFP_Extinguish</damageDef>
+            <speed>10</speed>
+            <damageAmountBase>190</damageAmountBase>
+            <explosionRadius>6</explosionRadius>
+            <arcHeightFactor>0.7</arcHeightFactor>
+            <armorPenetrationBase>0.8</armorPenetrationBase>
+            <stoppingPower>3</stoppingPower>
+            <shadowSize>0</shadowSize>
+            <flyOverhead>true</flyOverhead>
+            <soundHitThickRoof>Artillery_HitThickRoof</soundHitThickRoof>
+            <filth>Filth_FireFoam</filth>
+            <filthCount>8~32</filthCount>
+            <landedEffecter>ExtinguisherExplosion</landedEffecter>
+            <numExtraHitCells>6</numExtraHitCells>
+            <soundImpact>Explosion_FirefoamPopper</soundImpact>
+            <soundImpactAnticipate>MortarRound_PreImpact</soundImpactAnticipate>
+            <soundAmbient>MortarRound_Ambient</soundAmbient>
+            <soundExplode>MortarBomb_Explode</soundExplode>
+        </projectile>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseArtilleryWeapon">
+        <defName>MSSFP_Artillery_Mortar_Firefoam</defName>
+        <label>firefoam mortar</label>
+        <description>Firefoam Mortar launcher. Lobs bombs over walls. Very inaccurate but long-ranged.</description>
+        <recoilPower>3</recoilPower>
+        <graphicData>
+            <texPath>Things/Building/Security/MSSFP_Artillery_Mortar_Firefoam_Top</texPath>
+        </graphicData>
+        <weaponTags>
+            <li>Artillery_BaseDestroyer</li>
+        </weaponTags>
+        <verbs>
+            <li>
+                <verbClass>Verb_Shoot</verbClass>
+                <forceNormalTimeSpeed>false</forceNormalTimeSpeed>
+                <warmupTime>16.0</warmupTime>
+                <forcedMissRadius>6</forcedMissRadius>
+                <forcedMissRadiusClassicMortars>9</forcedMissRadiusClassicMortars>
+                <isMortar>true</isMortar>
+                <requireLineOfSight>false</requireLineOfSight>
+                <minRange>18.9</minRange>
+                <range>500</range>
+                <burstShotCount>1</burstShotCount>
+                <soundCast>Mortar_LaunchA</soundCast>
+                <muzzleFlashScale>16</muzzleFlashScale>
+                <consumeFuelPerShot>1</consumeFuelPerShot>
+                <targetParams>
+                    <canTargetLocations>true</canTargetLocations>
+                </targetParams>
+                <defaultProjectile>MSSFP_FirefoamProjectile</defaultProjectile>
+            </li>
+        </verbs>
+        <building>
+            <fixedStorageSettings>
+                <filter>
+                    <categories>
+                        <li>MortarShells</li>
+                    </categories>
+                </filter>
+            </fixedStorageSettings>
+            <defaultStorageSettings>
+                <filter>
+                    <categories>
+                        <li>MortarShells</li>
+                    </categories>
+                    <disallowedThingDefs>
+                        <li>Shell_Firefoam</li>
+                        <li>Shell_AntigrainWarhead</li>
+                    </disallowedThingDefs>
+                </filter>
+            </defaultStorageSettings>
+        </building>
+    </ThingDef>
+</Defs>

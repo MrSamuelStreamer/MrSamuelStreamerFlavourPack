@@ -39,7 +39,7 @@ public class IncidentWorker_LoversRetreat: IncidentWorker
 
     protected override bool CanFireNowSub(IncidentParms parms)
     {
-        return base.CanFireNowSub(parms) && ColonyHasRomanticCoupleAvailable(parms) && parms.target is Map map && !map.mapPawns.AllPawns.Any(p=>p.HostileTo(Faction.OfPlayer));
+        return base.CanFireNowSub(parms) && Current.Game.GetComponent<LoversRetreatGameomponent>().LoversRetreatEnabled && ColonyHasRomanticCoupleAvailable(parms) && parms.target is Map map && !map.mapPawns.AllPawns.Any(p=>p.HostileTo(Faction.OfPlayer));
     }
 
     public virtual Pawn GetPawn(IncidentParms parms)

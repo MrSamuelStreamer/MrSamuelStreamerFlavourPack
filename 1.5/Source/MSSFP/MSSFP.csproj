@@ -125,6 +125,10 @@
         <ReleaseFiles Include="..\..\..\Compatibility\Rah.RBSEHC\1.5\Patches\MSSFP_CaravanSpeed.xml">
           <Link>MrSamuelStreamerFlavourPack\Compatibility\Rah.RBSEHC\1.5\Patches\MSSFP_CaravanSpeed.xml</Link>
         </ReleaseFiles>
+
+        <ReleaseFiles Update="..\..\Defs\ThingDefs_Buildings\MSSFP_ConstructionOffice.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Defs\ThingDefs_Buildings\MSSFP_ConstructionOffice.xml</Link>
+        </ReleaseFiles>
     </ItemGroup>
     <ItemGroup>
       <Folder Include="..\..\..\Common\Textures\Things\AMPSuit\">
