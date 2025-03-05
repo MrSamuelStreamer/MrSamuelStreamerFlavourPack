@@ -1,10 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Defs>
-    <PreceptDef ParentName="VFET_PreceptBase">
+    <PreceptDef>
         <defName>MSSFP_AdvanceToArcho</defName>
         <label>advance to archotech</label>
         <iconPath>UI/Icons/Rituals/Ritual_FormNexus</iconPath>
         <ritualPatternBase>MSSFP_AdvanceToArcho_Pattern</ritualPatternBase>
+        
+        <issue>Ritual</issue>
+		<preceptClass>Precept_Ritual</preceptClass>
+		<visible>false</visible>
+		<classic>true</classic>
+		<showRitualFloatMenuOption>false</showRitualFloatMenuOption>
+		<useRepeatPenalty>false</useRepeatPenalty>
+		<usesIdeoVisualEffects>false</usesIdeoVisualEffects>
+		<mergeRitualGizmosFromAllIdeos>true</mergeRitualGizmosFromAllIdeos>
+		<countsTowardsPreceptLimit>false</countsTowardsPreceptLimit>
+		<selectionWeight>1.0</selectionWeight>
+		<notifyPlayerOnOpportunity>false</notifyPlayerOnOpportunity>
     </PreceptDef>
 
     <VFETribals.EraAdvancementDef>
@@ -56,7 +68,7 @@
         <workerClass>MSSFP.VET.RitualBehaviourWorker_ArchoGathering</workerClass>
         <roles>
             <li Class="RitualRoleTag">
-                <label>archorganizer</label>
+                <label>Organizer</label>
                 <tag>Organizer</tag>
                 <id>organizer</id>
                 <required>True</required>
@@ -67,7 +79,7 @@
                 <mustBeAbleToReachTarget>True</mustBeAbleToReachTarget>
             </li>
         </roles>
-        <spectatorsLabel>Archoparticipants</spectatorsLabel>
+        <spectatorsLabel>Participants</spectatorsLabel>
         <spectatorGerund>participate</spectatorGerund>
         <stages>
             <li>

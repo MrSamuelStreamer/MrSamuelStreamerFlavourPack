@@ -11,7 +11,7 @@ public class SitePartWorker_LoversAdvance: SitePartWorker
 {
     public override void Init(Site site, SitePart sitePart)
     {
-      sitePart.conditionCauser = ThingMaker.MakeThing(sitePart.def.conditionCauserDef);
+      sitePart.conditionCauser = ThingMaker.MakeThing(MSSFPDefOf.MSSFP_ConstructionOffice, GenStuff.RandomStuffFor(MSSFPDefOf.MSSFP_ConstructionOffice));
     }
 
     public override void SitePartWorkerTick(SitePart sitePart)

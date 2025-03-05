@@ -52,5 +52,7 @@ public static class MSSFPDefOf
     public static readonly ThingSetMakerDef MSSFP_Construction;
 
     public static readonly IncidentDef MSS_LoversAdvance;
+
+    public static readonly ThingDef MSSFP_ConstructionOffice;
     static MSSFPDefOf() => DefOfHelper.EnsureInitializedInCtor(typeof(MSSFPDefOf));
 }

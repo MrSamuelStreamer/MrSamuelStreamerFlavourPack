@@ -28,7 +28,6 @@
         <wantsThreatPoints>true</wantsThreatPoints>
         <badEvenIfNoMap>true</badEvenIfNoMap>
         <workerClass>MSSFP.Questing.SitePartWorker_LoversAdvance</workerClass>
-        <conditionCauserDef>MSSFP_ConstructionOffice</conditionCauserDef>
         <tags>
             <li>MSS_LoversAssault</li>
         </tags>

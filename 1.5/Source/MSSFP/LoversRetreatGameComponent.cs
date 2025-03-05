@@ -2,8 +2,9 @@
 
 namespace MSSFP;
 
-public class LoversRetreatGameomponent : GameComponent
+public class LoversRetreatGameomponent(Game game) : GameComponent
 {
+
     public bool _loversRetreatEnabled = true;
 
     public bool LoversRetreatEnabled
