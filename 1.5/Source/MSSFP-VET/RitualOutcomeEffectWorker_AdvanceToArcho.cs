@@ -37,15 +37,18 @@ public class RitualOutcomeEffectWorker_AdvanceToArcho: RitualOutcomeEffectWorker
             ritual.RemoveObligation(jobRitual.obligation, completed: true);
             ritual.activeObligations.Clear();
 
-            IncidentParms parms = new() {
-                points = StorytellerUtility.DefaultThreatPointsNow(Find.AnyPlayerHomeMap),
-                forced = true,
-                target = Find.AnyPlayerHomeMap
-            };
-
-            if (MSSFPDefOf.MSS_LoversAdvance.Worker.CanFireNow(parms))
+            try
             {
-                MSSFPDefOf.MSS_LoversAdvance.Worker.TryExecute(parms);
+                IncidentParms parms = new() { forced = true, target = Find.AnyPlayerHomeMap };
+
+                if (MSSFPDefOf.MSS_LoversAdvance.Worker.CanFireNow(parms))
+                {
+                    MSSFPDefOf.MSS_LoversAdvance.Worker.TryExecute(parms);
+                }
+            }
+            catch (Exception ex)
+            {
+                ModLog.Error("Error firing LA", ex);
             }
         }
 
