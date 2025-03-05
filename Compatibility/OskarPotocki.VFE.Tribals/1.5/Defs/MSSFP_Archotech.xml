@@ -11,12 +11,12 @@
         <defName>MSSFP_FormArchoMind</defName>
         <label>Archo tech level</label>
         <description>You have successfully completed all ultratech research projects and have advanced to archotech tech level. This will allow you to pick 3 Cornerstones - powerful bonuses that apply only to your civilization.</description>
-        <newTechLevel>Ultra</newTechLevel>
+        <newTechLevel>Archotech</newTechLevel>
         <cornerstonePoint>3</cornerstonePoint>
     </VFETribals.EraAdvancementDef>
 
     <RitualOutcomeEffectDef>
-        <defName>VFET_AdvanceToArcho_Outcome</defName>
+        <defName>MSSFP_AdvanceToArcho_Outcome</defName>
         <description>Upon completing all ultratech research projects, advance to archotech tech level. This will allow you to pick a Cornerstone - a powerful bonus that applies only to your civilization.</description>
         <workerClass>MSSFP.VET.RitualOutcomeEffectWorker_AdvanceToArcho</workerClass>
         <givesDevelopmentPoints>false</givesDevelopmentPoints>
@@ -32,6 +32,7 @@
             </li>
         </comps>
     </RitualOutcomeEffectDef>
+
     <RitualPatternDef>
         <defName>MSSFP_AdvanceToArcho_Pattern</defName>
         <descOverride>Upon completing all ultratech research projects, advance to archotech tech level. This will allow you to pick a Cornerstone - a powerful bonus that applies only to your civilization.</descOverride>
@@ -39,7 +40,7 @@
         <ritualObligationTargetFilter>VFET_GatheringSpotForAdvancement</ritualObligationTargetFilter>
         <ritualBehavior>MSSFP_AdvanceToArcho_Behaviour</ritualBehavior>
         <maxTechLevel>Ultra</maxTechLevel>
-        <ritualOutcomeEffect>VFET_AdvanceToArcho_Outcome</ritualOutcomeEffect>
+        <ritualOutcomeEffect>MSSFP_AdvanceToArcho_Outcome</ritualOutcomeEffect>
         <playsIdeoMusic>false</playsIdeoMusic>
         <alwaysStartAnytime>true</alwaysStartAnytime>
         <ritualObligationTriggers>
@@ -48,13 +49,14 @@
             </li>
         </ritualObligationTriggers>
     </RitualPatternDef>
+
     <RitualBehaviorDef>
         <defName>MSSFP_AdvanceToArcho_Behaviour</defName>
-        <durationTicks>7500</durationTicks>
+        <durationTicks>12000</durationTicks>
         <workerClass>MSSFP.VET.RitualBehaviourWorker_ArchoGathering</workerClass>
         <roles>
             <li Class="RitualRoleTag">
-                <label>organizer</label>
+                <label>archorganizer</label>
                 <tag>Organizer</tag>
                 <id>organizer</id>
                 <required>True</required>
@@ -65,7 +67,7 @@
                 <mustBeAbleToReachTarget>True</mustBeAbleToReachTarget>
             </li>
         </roles>
-        <spectatorsLabel>Participants</spectatorsLabel>
+        <spectatorsLabel>Archoparticipants</spectatorsLabel>
         <spectatorGerund>participate</spectatorGerund>
         <stages>
             <li>
@@ -77,7 +79,7 @@
                     </li>
                 </endTriggers>
                 <postAction Class="RitualStageAction_Message">
-                    <text>{0}: The introduction is over and the group is analyzing all available data.</text>
+                    <text>{0}: The archtroduction is archover and the archogroup is archonalyzing all archvailable archodata. Archo.</text>
                     <messageTypeDef>NeutralEvent</messageTypeDef>
                 </postAction>
                 <roleBehaviors>

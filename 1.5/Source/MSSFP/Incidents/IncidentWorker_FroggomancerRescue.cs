@@ -14,7 +14,7 @@ public class IncidentWorker_FroggomancerRescue: IncidentWorker
 
     protected override bool CanFireNowSub(IncidentParms parms)
     {
-        return FroggomancerKind != null && MSSFP_FroggoHeal != null && parms.target is Map map && map.mapPawns.SpawnedDownedPawns.Any(p => p.Faction == Faction.OfPlayer);
+        return MSSFPMod.settings.EnableFroggeIncidents && FroggomancerKind != null && MSSFP_FroggoHeal != null && parms.target is Map map && map.mapPawns.SpawnedDownedPawns.Any(p => p.Faction == Faction.OfPlayer);
     }
 
     protected override bool TryExecuteWorker(IncidentParms parms)

@@ -50,5 +50,7 @@ public static class MSSFPDefOf
     public static readonly ThoughtDef MSSFP_BabyCannonWTF;
 
     public static readonly ThingSetMakerDef MSSFP_Construction;
+
+    public static readonly IncidentDef MSS_LoversAdvance;
     static MSSFPDefOf() => DefOfHelper.EnsureInitializedInCtor(typeof(MSSFPDefOf));
 }

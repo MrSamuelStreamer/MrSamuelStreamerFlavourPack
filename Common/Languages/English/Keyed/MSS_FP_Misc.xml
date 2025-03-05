@@ -56,4 +56,7 @@
     <MSS_FP_Settings_EnableOutpostFission>Enable Asexual Fission in outposts</MSS_FP_Settings_EnableOutpostFission>
     <MSS_FP_Settings_DaysForOutpostFission>Days between fissions in outposts -> {0} days</MSS_FP_Settings_DaysForOutpostFission>
     <MSS_FP_Settings_DaysForFission>Days between fissions -> {0} days</MSS_FP_Settings_DaysForFission>
+
+    <MSS_FP_Settings_EnableLoversRetreat>Enable the Lover's Retreat Incidents</MSS_FP_Settings_EnableLoversRetreat>
+    <MSS_FP_Settings_EnableFroggeIncidents>Enable the Frogge Incidents</MSS_FP_Settings_EnableFroggeIncidents>
 </LanguageData>

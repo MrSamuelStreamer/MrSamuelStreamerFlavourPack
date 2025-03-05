@@ -46,13 +46,13 @@
         <Reference Include="Outposts">
             <HintPath Condition="Exists('../../../../VanillaExpandedFramework/1.5/Assemblies/Outposts.dll')">../../../../VanillaExpandedFramework/1.5/Assemblies/Outposts.dll</HintPath>
             <HintPath Condition="Exists('../../../../2023507013/1.5/Assemblies/Outposts.dll')">../../../../2023507013/1.5/Assemblies/Outposts.dll</HintPath>
-            <HintPath Condition="Exists('../../../../../../../workshop/content/294100/2023507013/1.5/Assemblies/Outposts.dll')">../../../../../../../workshop/content/294100/2023507013/1.5/Assemblies/Outposts.dll</HintPath>
+            <HintPath Condition="Exists('../../../../../../../../workshop/content/294100/2023507013/1.5/Assemblies/Outposts.dll')">../../../../../../../../workshop/content/294100/2023507013/1.5/Assemblies/Outposts.dll</HintPath>
             <Private>False</Private>
         </Reference>
         <Reference Include="VanillaOutpostsExpanded">
             <HintPath Condition="Exists('../../../../VanillaOutpostsExpanded/1.5/Assemblies/VOE.dll')">../../../../VanillaOutpostsExpanded/1.5/Assemblies/VOE.dll</HintPath>
             <HintPath Condition="Exists('../../../../2688941031/1.5/Assemblies/VOE.dll')">../../../../2688941031/1.5/Assemblies/VOE.dll</HintPath>
-            <HintPath Condition="Exists('../../../../../../../workshop/content/294100/2688941031/1.5/Assemblies/VOE.dll')">../../../../../../../workshop/content/294100/2688941031/1.5/Assemblies/VOE.dll</HintPath>
+            <HintPath Condition="Exists('../../../../../../../../workshop/content/294100/2688941031/1.5/Assemblies/VOE.dll')">../../../../../../../../workshop/content/294100/2688941031/1.5/Assemblies/VOE.dll</HintPath>
             <Private>False</Private>
         </Reference>
     </ItemGroup>

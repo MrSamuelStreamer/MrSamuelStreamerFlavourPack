@@ -43,10 +43,11 @@
             <HintPath Condition="Exists('../../../../../Contents/Resources/Data/Managed/UnityEngine.TextRenderingModule.dll')">../../../../../Contents/Resources/Data/Managed/UnityEngine.TextRenderingModule.dll</HintPath>
             <Private>False</Private>
         </Reference>
-        <Reference Include="Outposts">
+        <Reference Include="VFETribals">
             <HintPath Condition="Exists('../../../../VanillaFactionsExpanded-Tribals/1.5/Assemblies/VFETribals.dll')">../../../../VanillaFactionsExpanded-Tribals/1.5/Assemblies/VFETribals.dll</HintPath>
             <HintPath Condition="Exists('../../../../3079786283/1.5/Assemblies/VFETribals.dll')">../../../../3079786283/1.5/Assemblies/VFETribals.dll</HintPath>
             <HintPath Condition="Exists('../../../../../../../workshop/content/294100/3079786283/1.5/Assemblies/VFETribals.dll')">../../../../../../../workshop/content/294100/3079786283/1.5/Assemblies/VFETribals.dll</HintPath>
+            <HintPath Condition="Exists('../../../../../../../../workshop/content/294100/3079786283/1.5/Assemblies/VFETribals.dll')">../../../../../../../../workshop/content/294100/3079786283/1.5/Assemblies/VFETribals.dll</HintPath>
             <Private>False</Private>
         </Reference>
     </ItemGroup>

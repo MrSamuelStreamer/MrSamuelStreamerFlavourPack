@@ -6,6 +6,12 @@ namespace MSSFP.Incidents;
 
 public class IncidentWorker_FroggeResearch: IncidentWorker
 {
+    protected override bool CanFireNowSub(IncidentParms parms)
+    {
+        return base.CanFireNowSub(parms) && MSSFPMod.settings.EnableFroggeIncidents;
+    }
+
+
     protected override bool TryExecuteWorker(IncidentParms parms)
     {
         Pawn bestResearcher = Find.CurrentMap.mapPawns.FreeColonistsSpawned.OrderByDescending(p => p.skills.GetSkill(SkillDefOf.Intellectual)).FirstOrDefault();

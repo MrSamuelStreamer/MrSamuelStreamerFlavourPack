@@ -4,11 +4,23 @@ namespace MSSFP;
 
 public class LoversRetreatGameomponent : GameComponent
 {
-    public bool LoversRetreatEnabled = true;
+    public bool _loversRetreatEnabled = true;
+
+    public bool LoversRetreatEnabled
+    {
+        get
+        {
+            return MSSFPMod.settings.EnableLoversRetreat && _loversRetreatEnabled;
+        }
+        set
+        {
+            _loversRetreatEnabled = value;
+        }
+    }
 
     public override void ExposeData()
     {
         base.ExposeData();
-        Scribe_Values.Look(ref LoversRetreatEnabled, "LoversRetreatEnabled", true);
+        Scribe_Values.Look(ref _loversRetreatEnabled, "LoversRetreatEnabled", true);
     }
 }

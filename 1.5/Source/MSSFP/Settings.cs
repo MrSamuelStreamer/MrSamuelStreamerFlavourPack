@@ -24,6 +24,9 @@ public class Settings : ModSettings
     public int DaysForOutpostFission = 15;
     public int DaysForFission = 7;
 
+    public bool EnableLoversRetreat = true;
+    public bool EnableFroggeIncidents = true;
+
     public void DoWindowContents(Rect wrect)
     {
         Listing_Standard options = new();
@@ -48,6 +51,12 @@ public class Settings : ModSettings
         options.Gap();
 
         options.CheckboxLabeled("MSS_FP_Settings_EnableOutpostFission".Translate(), ref EnableOutpostFission);
+        options.Gap();
+
+        options.CheckboxLabeled("MSS_FP_Settings_EnableLoversRetreat".Translate(), ref EnableLoversRetreat);
+        options.Gap();
+
+        options.CheckboxLabeled("MSS_FP_Settings_EnableFroggeIncidents".Translate(), ref EnableFroggeIncidents);
         options.Gap();
 
         options.Label("MSS_FP_Settings_DaysForOutpostFission".Translate(DaysForOutpostFission));
@@ -104,7 +113,9 @@ public class Settings : ModSettings
         Scribe_Values.Look(ref ShowHaunts, "ShowHaunts", true);
         Scribe_Values.Look(ref NoSkylanternRaids, "NoSkylanternRaids", false);
         Scribe_Values.Look(ref DrawByMrStreamer, "DrawByMrStreamer", false);
-        Scribe_Values.Look(ref DrawByMrStreamer, "EnableOutpostFission", true);
+        Scribe_Values.Look(ref EnableOutpostFission, "EnableOutpostFission", true);
+        Scribe_Values.Look(ref EnableLoversRetreat, "EnableLoversRetreat", true);
+        Scribe_Values.Look(ref EnableFroggeIncidents, "EnableFroggeIncidents", true);
         Scribe_Values.Look(ref GeneEventChance, "GeneEventChance", 1f );
         Scribe_Values.Look(ref GoodGeneChance, "GoodGeneChance", 1f/4f);
         Scribe_Values.Look(ref BadGeneChance, "BadGeneChance", 1f/4f);
