@@ -105,4 +105,20 @@
             </prefixSymbols>
         </symbolPack>
     </GeneDef>
+
+    <GeneDef>
+        <defName>MSSFP_Tuvix</defName>
+        <label>Malleable</label>
+        <description>Malleable</description>
+        <iconPath>UI/Icons/Genes/Gene_Firespew</iconPath>
+        <displayCategory>Ability</displayCategory>
+        <marketValueFactor>2</marketValueFactor>
+        <abilities>
+            <li>MSSFP_Tuvix</li>
+        </abilities>
+        <descriptionHyperlinks>
+            <AbilityDef>MSSFP_Tuvix</AbilityDef>
+        </descriptionHyperlinks>
+        <biostatMet>-4</biostatMet>
+    </GeneDef>
 </Defs>

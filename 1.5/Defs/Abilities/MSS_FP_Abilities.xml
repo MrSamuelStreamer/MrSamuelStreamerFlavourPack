@@ -8,4 +8,32 @@
             <li>mss_fp_froggewarrior</li>
         </ritualRoleIds>
     </AbilityGroupDef>
+
+    <AbilityDef>
+        <defName>MSSFP_Tuvix</defName>
+        <label>Malleable</label>
+        <description>Malleable</description>
+        <iconPath>UI/Abilities/FireSpew</iconPath>
+        <cooldownTicksRange>300000</cooldownTicksRange>
+        <aiCanUse>true</aiCanUse>
+        <ai_IsIncendiary>true</ai_IsIncendiary>
+        <sendMessageOnCooldownComplete>true</sendMessageOnCooldownComplete>
+        <warmupStartSound>FireSpew_Warmup</warmupStartSound>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <warmupTime>10</warmupTime>
+            <soundCast>FireSpew_Resolve</soundCast>
+            <targetParams>
+                <canTargetLocations>false</canTargetLocations>
+                <canTargetSelf>false</canTargetSelf>
+                <canTargetBuildings>false</canTargetBuildings>
+                <canTargetAnimals>false</canTargetAnimals>
+                <canTargetMechs>false</canTargetMechs>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="MSSFP.Psycasts.CompProperties_AbilityTuvix">
+            </li>
+        </comps>
+    </AbilityDef>
 </Defs>

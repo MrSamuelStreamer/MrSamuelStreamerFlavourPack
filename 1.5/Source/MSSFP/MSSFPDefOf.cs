@@ -54,5 +54,7 @@ public static class MSSFPDefOf
     public static readonly IncidentDef MSS_LoversAdvance;
 
     public static readonly ThingDef MSSFP_ConstructionOffice;
+
+    public static readonly GeneDef MSSFP_Tuvix;
     static MSSFPDefOf() => DefOfHelper.EnsureInitializedInCtor(typeof(MSSFPDefOf));
 }
