@@ -35,11 +35,9 @@
 
     <GenStepDef>
         <defName>MSSFP_BuildingSupplies</defName>
-        <defName>MSSFP_BuildingSupplies</defName>
         <linkWithSite>MSS_LoversAdvance_SitePart</linkWithSite>
         <order>450</order>
         <genStep Class="MSSFP.Questing.GenStep_BuildingSupplies">
-            <nearMapCenter>true</nearMapCenter>
         </genStep>
     </GenStepDef>
 

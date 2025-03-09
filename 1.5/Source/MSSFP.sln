@@ -17,6 +17,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MSSFP-VFE", "MSSFP-VFE\MSSF
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MSSFP-VET", "MSSFP-VET\MSSFP-VET.csproj", "{b61a7b6f-f80a-4913-a4bc-f0f8254cc6c1}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MSSFP-AC2", "MSSFP-AC2\MSSFP-AC2.csproj", "{d0cb1b0d-4e4f-4d2e-997e-4c393acceb55}"
+EndProject
+
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +54,10 @@ Global
 		{b61a7b6f-f80a-4913-a4bc-f0f8254cc6c1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{b61a7b6f-f80a-4913-a4bc-f0f8254cc6c1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{b61a7b6f-f80a-4913-a4bc-f0f8254cc6c1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{d0cb1b0d-4e4f-4d2e-997e-4c393acceb55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{d0cb1b0d-4e4f-4d2e-997e-4c393acceb55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{d0cb1b0d-4e4f-4d2e-997e-4c393acceb55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{d0cb1b0d-4e4f-4d2e-997e-4c393acceb55}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

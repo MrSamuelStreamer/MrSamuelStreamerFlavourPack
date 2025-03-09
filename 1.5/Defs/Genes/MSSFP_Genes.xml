@@ -16,8 +16,6 @@
             <soundCast>PiercingSpine_Launch</soundCast>
             <targetParams>
                 <canTargetLocations>true</canTargetLocations>
-                <ai_IsBuildingDestroyer>true</ai_IsBuildingDestroyer>
-                <ai_IsDoorDestroyer>true</ai_IsDoorDestroyer>
             </targetParams>
         </verbProperties>
         <comps>
