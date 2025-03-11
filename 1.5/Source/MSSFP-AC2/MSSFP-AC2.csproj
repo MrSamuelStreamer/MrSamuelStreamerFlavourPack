@@ -46,6 +46,7 @@
         <Reference Include="AlteredCarbon">
             <HintPath Condition="Exists('../../../../AlteredCarbon2-ReSleeved/1.5/Assemblies/AlteredCarbon.dll')">../../../../AlteredCarbon2-ReSleeved/1.5/Assemblies/AlteredCarbon.dll</HintPath>
             <HintPath Condition="Exists('../../../../2196278117/1.5/Assemblies/AlteredCarbon.dll')">../../../../2196278117/1.5/Assemblies/AlteredCarbon.dll</HintPath>
+            <HintPath Condition="Exists('../../../../../../../workshop/content/294100/2196278117/1.5/Assemblies/AlteredCarbon.dll')">../../../../../../../workshop/content/294100/2196278117/1.5/Assemblies/AlteredCarbon.dll</HintPath>
             <HintPath Condition="Exists('../../../../../../../../workshop/content/294100/2196278117/1.5/Assemblies/AlteredCarbon.dll')">../../../../../../../../workshop/content/294100/2196278117/1.5/Assemblies/AlteredCarbon.dll</HintPath>
             <Private>False</Private>
         </Reference>

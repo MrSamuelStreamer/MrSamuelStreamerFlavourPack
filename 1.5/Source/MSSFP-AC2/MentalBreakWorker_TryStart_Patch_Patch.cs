@@ -12,7 +12,7 @@ public static class MentalBreakWorker_TryStart_Patch_Patch
 
     [HarmonyPatch(nameof(MentalBreakWorker_TryStart_Patch.Prefix))]
     [HarmonyPostfix]
-    public static void Prefix(Pawn pawn)
+    public static void MentalBreakWorker_TryStart_Patch_Prefix_Postfix(Pawn pawn)
     {
         if(!MSSFPMod.settings.SingleUseMentalFuses) return;
 
@@ -22,6 +22,11 @@ public static class MentalBreakWorker_TryStart_Patch_Patch
         {
             pawn.health.RemoveHediff(acMentalFuse);
             Messages.Message($"{pawn.NameShortColored}'s mental fuse has been destroyed", MessageTypeDefOf.NegativeHealthEvent, true);
+
+            Effecter effecter = EffecterDefOf.ExtinguisherExplosion.Spawn();
+            effecter.Trigger(new TargetInfo(pawn.Position, pawn.MapHeld), new TargetInfo(pawn.Position, pawn.MapHeld));
+            effecter.Cleanup();
+            GenExplosion.DoExplosion(pawn.Position, pawn.MapHeld, 2, DamageDefOf.Extinguish, null, explosionSound: SoundDefOf.Explosion_FirefoamPopper, postExplosionSpawnThingDef: ThingDefOf.Filth_FireFoam, postExplosionSpawnChance: 1f, applyDamageToExplosionCellsNeighbors: true);
         }
     }
 }

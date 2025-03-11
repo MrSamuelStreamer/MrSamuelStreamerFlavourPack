@@ -44,8 +44,9 @@
             <Private>False</Private>
         </Reference>
         <Reference Include="DryadsReworked">
-            <HintPath Condition="Exists('../../../../Dryads-and-Gauranlen-Trees-Reworked/1.5/Assemblies/DryadsReworked.dll')">../../../../Dryads-and-Gauranlen-Trees-Reworked/1.5/Assemblies/DryadsReworked.dll</HintPath>
+            <HintPath Condition="Exists('../../../../Dryads-and-Gauranlen-Trees-Reworked/1.5/Assemblies/DryadsReworked.dll')">../../../../DryadsReworked2-ReSleeved/1.5/Assemblies/DryadsReworked.dll</HintPath>
             <HintPath Condition="Exists('../../../../3334448055/1.5/Assemblies/DryadsReworked.dll')">../../../../3334448055/1.5/Assemblies/DryadsReworked.dll</HintPath>
+            <HintPath Condition="Exists('../../../../../../../workshop/content/294100/3334448055/1.5/Assemblies/DryadsReworked.dll')">../../../../../../../workshop/content/294100/3334448055/1.5/Assemblies/DryadsReworked.dll</HintPath>
             <HintPath Condition="Exists('../../../../../../../../workshop/content/294100/3334448055/1.5/Assemblies/DryadsReworked.dll')">../../../../../../../../workshop/content/294100/3334448055/1.5/Assemblies/DryadsReworked.dll</HintPath>
             <Private>False</Private>
         </Reference>
