@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <!-- module, this is how you move / manufact, store and repair a mecha core and mecha part-->
+    <ThingDef ParentName="ModuleItemBase">
+        <defName>MSSFP_AMP_Monke_Module</defName>
+        <label>AMP MONKE</label>
+        <description>Militarized Omniarcho Nuclear Equipment (MONKE).\n\nThis AMP Core is designed to maximise psychic powers by wiring directly into the users brain.</description>
+        <descriptionHyperlinks>
+            <ThingDef>MSSFP_AMP_Monke_Core</ThingDef>
+        </descriptionHyperlinks>
+        <smeltProducts>
+            <Steel>350</Steel>
+            <Uranium>40</Uranium>
+        </smeltProducts>
+        <butcherProducts>
+            <Steel>125</Steel>
+            <Uranium>75</Uranium>
+            <ChunkSlagSteel>6</ChunkSlagSteel>
+            <ComponentIndustrial>10</ComponentIndustrial>
+            <MSS_TurboEncabulator>1</MSS_TurboEncabulator>
+        </butcherProducts>
+        <costList>
+            <Steel>1750</Steel>
+            <Uranium>2200</Uranium>
+            <ComponentIndustrial>70</ComponentIndustrial>
+            <ComponentSpacer>9</ComponentSpacer>
+            <MSS_TurboEncabulator>3</MSS_TurboEncabulator>
+        </costList>
+        <graphicData>
+            <texPath>Item/AMP_Module</texPath>
+        </graphicData>
+        <statBases>
+            <MaxHitPoints>1200</MaxHitPoints>
+            <Mass>100</Mass> <!-- mass does matters-->
+            <Flammability>0</Flammability>
+        </statBases>
+        <comps>
+            <li Class="WalkerGear.CompProperties_WalkerComponent">
+                <EquipedThingDef>MSSFP_AMP_Monke_Core</EquipedThingDef>
+                <slots>
+                    <li>AMP_Core</li>
+                </slots>
+            </li>
+        </comps>
+        <recipeMaker>
+            <skillRequirements>
+                <Crafting>14</Crafting>
+            </skillRequirements>
+            <recipeUsers>
+                <li>TableMachining</li>
+            </recipeUsers>
+            <researchPrerequisites>
+                <li>AMP_Core</li>
+            </researchPrerequisites>
+            <effectWorking>Repair</effectWorking>
+            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+            <workAmount>120000</workAmount>
+            <soundWorking>Recipe_Machining</soundWorking>
+        </recipeMaker>
+        <colorGenerator Class="ColorGenerator_Options">
+            <options>
+                <li>
+                    <only>(240, 240, 240)</only>
+                </li>
+                <li>
+                    <only>(220, 240, 240)</only>
+                </li>
+                <li>
+                    <only>(240, 220, 240)</only>
+                </li>
+                <li>
+                    <only>(240, 240, 220)</only>
+                </li>
+            </options>
+        </colorGenerator>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseBullet">
+        <defName>MSS_FP_Monke_Zap</defName>
+        <label>zap</label>
+        <thingClass>MSSFP.ZapProjectile</thingClass>
+        <graphicData>
+            <graphicClass>Graphic_Cluster</graphicClass>
+            <texPath>Misc/Projectiles/MSS_Zap</texPath>
+            <drawSize>2,2</drawSize>
+        </graphicData>
+        <projectile>
+            <damageDef>MSS_Zap</damageDef>
+            <armorPenetrationBase>0.75</armorPenetrationBase>
+            <stoppingPower>0.75</stoppingPower>
+            <speed>45</speed>
+            <damageAmountBase>36</damageAmountBase>
+        </projectile>
+    </ThingDef>
+
+    <!-- apparel-->
+    <ThingDef ParentName="ModuleApparelBase">
+        <defName>MSSFP_AMP_Monke_Core</defName>
+        <label>AMP MONKE</label>
+        <description>Militarized Omniarcho Nuclear Equipment (MONKE).\n\nThis AMP Core is designed to maximise psychic powers by wiring directly into the users brain.</description>
+        <thingClass>WalkerGear.WalkerGear_Core</thingClass> <!-- important, only core part need this -->
+        <uiIconPath>Things/AMPSuit/AMP_south</uiIconPath>
+        <graphicData>
+            <texPath>Things/AMP/MSSFP_MONKE_AMP</texPath>
+            <graphicClass>Graphic_Multi</graphicClass>
+            <drawSize>(3,3)</drawSize>
+        </graphicData>
+        <verbs>
+            <li>
+                <verbClass>Verb_AbilityShoot</verbClass>
+                <label>zap!</label>
+                <description>zap!</description>
+                <hasStandardCommand>true</hasStandardCommand>
+                <onlyManualCast>True</onlyManualCast>
+                <commandIcon>Misc/Projectiles/MSS_Zap/MSS_ZapE</commandIcon>
+                <requireLineOfSight>true</requireLineOfSight>
+                <aimingChargeMote>Mote_ChargingElectroCables</aimingChargeMote>
+                <range>40</range>
+                <minRange>0</minRange>
+                <noiseRadius>1.5</noiseRadius>
+                <defaultCooldownTime>0.5</defaultCooldownTime>
+                <warmupTime>0.1</warmupTime>
+                <defaultProjectile>MSS_FP_Monke_Zap</defaultProjectile>
+                <warmupTime>0.75</warmupTime>
+                <soundCast>Psych icShockLanceCast</soundCast>
+                <ai_IsWeapon>false</ai_IsWeapon>
+                <targetParams>
+                    <canTargetLocations>true</canTargetLocations>
+                    <canTargetPawns>true</canTargetPawns>
+                    <canTargetBuildings>true</canTargetBuildings>
+                </targetParams>
+            </li>
+        </verbs>
+        <statBases>
+            <Mass>150</Mass>
+            <MoveSpeed>7.2</MoveSpeed>
+            <ArmorRating_Sharp>1.80</ArmorRating_Sharp>
+            <ArmorRating_Blunt>1.80</ArmorRating_Blunt>
+            <ArmorRating_Heat>1.80</ArmorRating_Heat>
+            <Insulation_Cold>80</Insulation_Cold>
+            <Insulation_Heat>80</Insulation_Heat>
+        </statBases>
+        <equippedStatOffsets>
+            <MeditationFocusGain>1</MeditationFocusGain>
+            <PsychicEntropyMax>3</PsychicEntropyMax>
+            <RestFallRateFactor>-0.8</RestFallRateFactor>
+            <JoyFallRateFactor>-0.8</JoyFallRateFactor>
+            <PsychicSensitivityOffset>2.5</PsychicSensitivityOffset>
+            <PsychicEntropyRecoveryRate>2.5</PsychicEntropyRecoveryRate>
+            <CarryingCapacity>3500</CarryingCapacity> <!-- frame uses carrying capacity as additional capacity of carrying modules)-->
+            <Flammability>-1</Flammability>
+            <PsychicSensitivity>2.5</PsychicSensitivity>
+            <ToxicEnvironmentResistance>1</ToxicEnvironmentResistance>
+            <MedicalTendSpeed>-1</MedicalTendSpeed>
+            <MeleeDodgeChance>1</MeleeDodgeChance>
+            <WorkSpeedGlobal>-0.25</WorkSpeedGlobal>
+            <MeleeDamageFactor>2</MeleeDamageFactor>
+            <MeleeCooldownFactor>-0.25</MeleeCooldownFactor>
+        </equippedStatOffsets>
+        <apparel>
+            <wornGraphicPath>Things/AMP/MSSFP_MONKE_AMP</wornGraphicPath>
+            <parentTagDef>WGApparelBody</parentTagDef> <!-- important, or your parts will not rendered at bay.-->
+            <drawData>
+                <scale>1.75</scale>
+                <dataNorth>
+                    <layer>5</layer>
+                </dataNorth>
+                <dataSouth>
+                    <layer>5</layer>
+                </dataSouth>
+            </drawData>
+            <bodyPartGroups>
+                <li>Torso</li>
+                <li>Shoulders</li>
+                <li>Arms</li>
+                <li>Legs</li>
+                <li>Feet</li>
+                <li>Hands</li>
+            </bodyPartGroups>
+            <layers>
+                <li>Shell</li>
+            </layers>
+            <renderSkipFlags>
+                <!-- <li>Head</li> add this if you need to render head during piloting. -->
+                <li>Body</li>
+            </renderSkipFlags>
+        </apparel>
+        <comps>
+            <li Class="WalkerGear.CompProperties_SleepCover" />
+            <li Class="WalkerGear.CompProperties_WalkerComponent">
+                <ItemDef>MSSFP_AMP_Monke_Module</ItemDef>
+                <slots>
+                    <li>AMP_Core</li>
+                </slots>
+            </li>
+        </comps>
+        <modExtensions>
+            <li Class="WalkerGear.BuildingWreckageExtension">
+                <building>AMP_Disabled</building>
+            </li>
+            <li Class="VFECore.ApparelDrawPosExtension">
+                <isUnifiedApparel>true</isUnifiedApparel>
+                <showBodyInBedAlways>true</showBodyInBedAlways>
+            </li>
+            <li Class="VFECore.ApparelExtension">
+                <pawnCapacityMinLevels>
+                    <li>
+                        <capacity>Moving</capacity>
+                        <minLevel>0.8</minLevel>
+                    </li>
+                    <li>
+                        <capacity>Manipulation</capacity>
+                        <minLevel>0.8</minLevel>
+                    </li>
+                </pawnCapacityMinLevels>
+            </li>
+            <li Class="WalkerGear.ApparelRenderOffsets">
+                <headData>
+                    <dataWest>
+                        <offset>(0,0,0)</offset>
+                    </dataWest>
+                    <dataEast>
+                        <offset>(0,0,0)</offset>
+                    </dataEast>
+                    <dataSouth>
+                        <offset>(0,0,0)</offset>
+                    </dataSouth>
+                </headData>
+                <headHideFor>
+                    <li>0</li>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                </headHideFor>
+                <rootData>
+                    <defaultData>
+                        <offset>(0,0,0.35)</offset>
+                    </defaultData>
+                </rootData>
+            </li>
+        </modExtensions>
+    </ThingDef>
+</Defs>

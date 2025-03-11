@@ -14,5 +14,6 @@
         <li IfModActive="Rah.RBSEHC">Compatibility/Rah.RBSEHC/1.5</li>
         <li IfModActive="oskarpotocki.vfe.tribals">Compatibility/OskarPotocki.VFE.Tribals/1.5</li>
         <li IfModActive="hlx.UltratechAlteredCarbon">Compatibility/hlx.UltratechAlteredCarbon/1.5</li>
+        <li IfModActive="aoba.exosuit.amp">Compatibility/aoba.exosuit.amp/1.5</li>
 	</v1.5>
 </loadFolders>

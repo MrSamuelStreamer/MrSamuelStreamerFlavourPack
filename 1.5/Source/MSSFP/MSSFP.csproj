@@ -130,6 +130,10 @@
         <ReleaseFiles Update="..\..\Defs\ThingDefs_Buildings\MSSFP_ConstructionOffice.xml">
           <Link>MrSamuelStreamerFlavourPack\1.5\Defs\ThingDefs_Buildings\MSSFP_ConstructionOffice.xml</Link>
         </ReleaseFiles>
+
+        <CompatibilityFiles Update="..\..\..\Compatibility\aoba.exosuit.amp\1.5\Defs\MSSFP_Monke.xml">
+          <Link>MrSamuelStreamerFlavourPack\Compatibility\aoba.exosuit.amp\1.5\Defs\MSSFP_Monke.xml</Link>
+        </CompatibilityFiles>
     </ItemGroup>
     <ItemGroup>
       <Folder Include="..\..\..\Common\Textures\Things\AMPSuit\">
