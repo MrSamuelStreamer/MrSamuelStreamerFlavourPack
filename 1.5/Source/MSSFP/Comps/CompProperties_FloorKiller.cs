@@ -1,12 +1,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using HarmonyLib;
+using MSSFP.Commands;
 using RimWorld;
 using UnityEngine;
 using Verse;
 using Verse.AI;
 
-namespace MSSFP;
+namespace MSSFP.Comps;
 
 public class CompProperties_FloorKiller : CompProperties
 {
@@ -46,7 +47,7 @@ public class CompFloorKiller : ThingComp
         if (!MSSFPMod.settings.destroyFloors) return true; // If the setting is off, skip the destruction
         if (!CanDestroy) return false;
         IntVec3 cell = parent.Position;
-        Map parentMap = parent.Map;
+        Verse.Map parentMap = parent.Map;
         if (parentMap == null || !parentMap.terrainGrid.CanRemoveTopLayerAt(cell)) return false;
         parentMap.terrainGrid.RemoveTopLayer(cell);
         FilthMaker.RemoveAllFilth(cell, parentMap);

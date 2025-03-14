@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using MSSFP.Comps.Map;
 using RimWorld;
 using Verse.AI;
 
-namespace MSSFP;
+namespace MSSFP.Jobs;
 
 public class JobDriver_GoToThen: JobDriver_Goto
 {

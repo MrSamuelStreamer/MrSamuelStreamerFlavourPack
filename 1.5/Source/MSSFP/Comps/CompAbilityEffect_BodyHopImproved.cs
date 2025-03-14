@@ -5,6 +5,7 @@ using HarmonyLib;
 using MSSFP.Hediffs;
 using RimWorld;
 using Verse;
+using PawnGraphicUtils = MSSFP.Utils.PawnGraphicUtils;
 
 namespace MSSFP.Comps;
 

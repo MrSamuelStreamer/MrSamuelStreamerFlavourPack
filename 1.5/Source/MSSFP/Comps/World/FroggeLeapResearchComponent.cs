@@ -2,9 +2,9 @@
 using RimWorld.Planet;
 using Verse;
 
-namespace MSSFP;
+namespace MSSFP.Comps.World;
 
-public class FroggeLeapResearchComponent(World world) : WorldComponent(world)
+public class FroggeLeapResearchComponent(RimWorld.Planet.World world) : WorldComponent(world)
 {
     public bool EventHasFired = false;
 

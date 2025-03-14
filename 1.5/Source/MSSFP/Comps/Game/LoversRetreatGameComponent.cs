@@ -1,8 +1,8 @@
 ﻿using Verse;
 
-namespace MSSFP;
+namespace MSSFP.Comps.Game;
 
-public class LoversRetreatGameomponent(Game game) : GameComponent
+public class LoversRetreatGameomponent(Verse.Game game) : GameComponent
 {
 
     public bool _loversRetreatEnabled = true;

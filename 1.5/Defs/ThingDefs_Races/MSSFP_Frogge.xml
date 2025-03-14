@@ -199,7 +199,7 @@
 
     <ThoughtDef>
         <defName>MSSFP_Frogge</defName>
-        <workerClass>MSSFP.ThoughtWorker_Frogge</workerClass>
+        <workerClass>MSSFP.Thoughts.ThoughtWorker_Frogge</workerClass>
         <effectMultiplyingStat>PsychicSensitivity</effectMultiplyingStat>
         <developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
         <stages>
@@ -218,7 +218,7 @@
         <targetTags>
             <li>Map_PlayerHome</li>
         </targetTags>
-        <workerClass>MSSFP.IncidentWorker_FroggeJoin</workerClass>
+        <workerClass>MSSFP.Incidents.IncidentWorker_FroggeJoin</workerClass>
         <letterLabel>frogge</letterLabel>
         <letterText>frogge</letterText>
         <baseChance>0.4</baseChance>

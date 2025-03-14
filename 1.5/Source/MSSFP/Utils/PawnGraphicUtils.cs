@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using Verse;
 
-namespace MSSFP;
+namespace MSSFP.Utils;
 
 public class PawnGraphicUtils
 {

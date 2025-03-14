@@ -6,6 +6,9 @@ using Verse;
 
 namespace MSSFP.HarmonyPatches;
 
+/// <summary>
+/// Hides the frogge leap gizmo on the world map unless the research is done
+/// </summary>
 [HarmonyPatch(typeof(Ability))]
 public static class AbilityPatches
 {

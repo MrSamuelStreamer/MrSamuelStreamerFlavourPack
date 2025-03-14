@@ -1,11 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using RimWorld;
-using Verse;
+﻿using Verse;
 
-namespace MSSFP;
+namespace MSSFP.Comps.Map;
 
-public class SpiritOfFroggeMapComponent(Map map) : MapComponent(map)
+public class SpiritOfFroggeMapComponent(Verse.Map map) : MapComponent(map)
 {
     //Merged into HauntedMapComponent - keeping for save compat
     public int LastFiredTick = 0;

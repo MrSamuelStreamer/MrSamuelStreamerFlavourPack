@@ -4,7 +4,7 @@ using UnityEngine;
 using Verse;
 using Verse.Sound;
 
-namespace MSSFP;
+namespace MSSFP.Commands;
 
 public class Command_TargetRadius : Command
 {

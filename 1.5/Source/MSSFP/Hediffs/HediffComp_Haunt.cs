@@ -4,6 +4,7 @@ using System.Linq;
 using RimWorld;
 using UnityEngine;
 using Verse;
+using PawnGraphicUtils = MSSFP.Utils.PawnGraphicUtils;
 
 namespace MSSFP.Hediffs;
 

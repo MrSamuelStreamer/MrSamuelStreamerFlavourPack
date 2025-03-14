@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using MSSFP.Comps;
+using MSSFP.Comps.Game;
+using MSSFP.Comps.Map;
 using RimWorld;
 using Verse;
 using Verse.AI;
@@ -39,7 +41,7 @@ public class IncidentWorker_LoversRetreat: IncidentWorker
 
     protected override bool CanFireNowSub(IncidentParms parms)
     {
-        return base.CanFireNowSub(parms) && Current.Game.GetComponent<LoversRetreatGameomponent>().LoversRetreatEnabled && ColonyHasRomanticCoupleAvailable(parms) && parms.target is Map map && !map.mapPawns.AllPawns.Any(p=>p.HostileTo(Faction.OfPlayer));
+        return base.CanFireNowSub(parms) && MSSFPMod.settings.EnableLoversRetreat && Current.Game.GetComponent<LoversRetreatGameomponent>().LoversRetreatEnabled && ColonyHasRomanticCoupleAvailable(parms) && parms.target is Map map && !map.mapPawns.AllPawns.Any(p=>p.HostileTo(Faction.OfPlayer));
     }
 
     public virtual Pawn GetPawn(IncidentParms parms)

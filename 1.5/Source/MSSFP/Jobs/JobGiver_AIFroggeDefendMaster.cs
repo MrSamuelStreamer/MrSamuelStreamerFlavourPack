@@ -7,7 +7,7 @@ using Verse;
 using Verse.AI;
 using Verse.AI.Group;
 
-namespace MSSFP;
+namespace MSSFP.Jobs;
 
 public class JobGiver_AIFroggeDefendMaster : JobGiver_AIDefendMaster
 {

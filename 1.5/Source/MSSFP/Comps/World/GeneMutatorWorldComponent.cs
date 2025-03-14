@@ -1,9 +1,10 @@
-﻿using RimWorld.Planet;
+﻿using MSSFP.Genes;
+using RimWorld.Planet;
 using Verse;
 
-namespace MSSFP;
+namespace MSSFP.Comps.World;
 
-public class GeneMutatorWorldComponent(World world) : WorldComponent(world)
+public class GeneMutatorWorldComponent(RimWorld.Planet.World world) : WorldComponent(world)
 {
     public override void WorldComponentTick()
     {

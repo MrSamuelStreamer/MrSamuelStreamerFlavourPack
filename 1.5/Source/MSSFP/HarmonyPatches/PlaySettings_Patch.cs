@@ -5,6 +5,9 @@ using Verse;
 
 namespace MSSFP.HarmonyPatches;
 
+/// <summary>
+/// Add haunts toggle to map toggle icons
+/// </summary>
 [StaticConstructorOnStartup]
 [HarmonyPatch(typeof(PlaySettings))]
 public static class PlaySettings_Patch

@@ -2,9 +2,9 @@
 using RimWorld;
 using Verse;
 
-namespace MSSFP;
+namespace MSSFP.Comps.Map;
 
-public class LoversRetreatMapComponent(Map map) : MapComponent(map), IThingHolder
+public class LoversRetreatMapComponent(Verse.Map map) : MapComponent(map), IThingHolder
 {
     private ThingOwner<Pawn> innerContainer = new ThingOwner<Pawn>();
     public List<Pawn> PawnsToStoreNextTick = new List<Pawn>();

@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Xml;
 using Verse;
 
-namespace MSSFP;
+namespace MSSFP.Genes;
 
 public class GeneMutatorDef : Def
 {

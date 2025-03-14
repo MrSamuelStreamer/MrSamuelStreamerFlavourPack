@@ -1,7 +1,7 @@
 ﻿using RimWorld;
 using Verse;
 
-namespace MSSFP;
+namespace MSSFP.Thoughts;
 
 public class ThoughtWorker_Frogge : ThoughtWorker
 {
