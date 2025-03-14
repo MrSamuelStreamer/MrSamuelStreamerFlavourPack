@@ -2,7 +2,7 @@
 using RimWorld;
 using Verse;
 
-namespace MSSFP;
+namespace MSSFP.Verbs;
 
 public class Verb_CastAbilityWithCost: Verb_CastAbility
 {

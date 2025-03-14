@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using MSSFP.Comps;
-using RimWorld;
 using Verse;
 using Verse.AI;
 
-namespace MSSFP;
+namespace MSSFP.Jobs;
 
 public class JobDriver_CastAbilityGoToThenDissapear: JobDriver_CastAbilityGoTo
 {

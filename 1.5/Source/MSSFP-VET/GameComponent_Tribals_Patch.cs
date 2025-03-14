@@ -23,7 +23,7 @@ public static class GameComponent_Tribals_Patch
         }
         else
         {
-            Utils.advancementPrecepts.Add(DefDatabase<PreceptDef>.GetNamed("MSSFP_AdvanceToArcho"));
+            VFETribals.Utils.advancementPrecepts.Add(DefDatabase<PreceptDef>.GetNamed("MSSFP_AdvanceToArcho"));
         }
     }
 }

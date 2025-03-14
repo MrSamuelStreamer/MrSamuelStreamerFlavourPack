@@ -2,7 +2,7 @@
 using UnityEngine;
 using Verse;
 
-namespace MSSFP;
+namespace MSSFP.Utils;
 
 public static class DrawUtils
 {

@@ -1,4 +1,5 @@
-﻿using MSSFP.Thoughts;
+﻿using MSSFP.Genes;
+using MSSFP.Thoughts;
 using RimWorld;
 using Verse;
 // ReSharper disable UnassignedReadonlyField

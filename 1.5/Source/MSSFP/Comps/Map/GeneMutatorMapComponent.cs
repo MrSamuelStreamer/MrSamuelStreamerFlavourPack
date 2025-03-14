@@ -1,8 +1,9 @@
-﻿using Verse;
+﻿using MSSFP.Genes;
+using Verse;
 
-namespace MSSFP;
+namespace MSSFP.Comps.Map;
 
-public class GeneMutatorMapComponent(Map map): MapComponent(map)
+public class GeneMutatorMapComponent(Verse.Map map): MapComponent(map)
 {
     public override void MapComponentUpdate()
     {

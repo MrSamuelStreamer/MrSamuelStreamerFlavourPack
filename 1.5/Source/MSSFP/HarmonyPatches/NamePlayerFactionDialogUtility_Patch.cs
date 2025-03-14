@@ -6,6 +6,9 @@ using Verse.Grammar;
 
 namespace MSSFP.HarmonyPatches;
 
+/// <summary>
+/// Patch max name length
+/// </summary>
 [HarmonyPatch(typeof(NamePlayerFactionDialogUtility))]
 public static class NamePlayerFactionDialogUtility_Patch
 {

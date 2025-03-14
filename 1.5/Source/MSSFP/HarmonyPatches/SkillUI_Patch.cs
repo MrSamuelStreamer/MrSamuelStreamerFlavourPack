@@ -1,5 +1,8 @@
 ﻿namespace MSSFP.HarmonyPatches;
 
+/// <summary>
+/// Show skill modifiers/offsets from haunts - not currently working
+/// </summary>
 // [HarmonyPatch(typeof(SkillUI))]
 public static class SkillUI_Patch
 {

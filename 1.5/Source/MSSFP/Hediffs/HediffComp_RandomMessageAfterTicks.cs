@@ -2,7 +2,7 @@
 using RimWorld;
 using Verse;
 
-namespace MSSFP;
+namespace MSSFP.Hediffs;
 
 public class HediffComp_RandomMessageAfterTicks : HediffComp
 {

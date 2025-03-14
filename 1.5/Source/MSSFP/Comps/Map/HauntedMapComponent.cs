@@ -4,9 +4,9 @@ using MSSFP.Hediffs;
 using RimWorld;
 using Verse;
 
-namespace MSSFP;
+namespace MSSFP.Comps.Map;
 
-public class HauntedMapComponent(Map map) : MapComponent(map)
+public class HauntedMapComponent(Verse.Map map) : MapComponent(map)
 {
     public int LastFiredTick = 0;
 
@@ -56,5 +56,14 @@ public class HauntedMapComponent(Map map) : MapComponent(map)
     {
         base.ExposeData();
         Scribe_Values.Look(ref LastFiredTick, "LastFiredTick");
+    }
+
+
+    public override void MapComponentUpdate()
+    {
+        foreach (Pawn pawn in map.mapPawns.AllHumanlike)
+        {
+            HauntsCache.TryDrawAt(pawn.thingIDNumber, pawn.TrueCenter());
+        }
     }
 }

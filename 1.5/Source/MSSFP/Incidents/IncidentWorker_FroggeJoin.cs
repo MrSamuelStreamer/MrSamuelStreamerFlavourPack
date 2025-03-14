@@ -1,7 +1,7 @@
 ﻿using RimWorld;
 using Verse;
 
-namespace MSSFP;
+namespace MSSFP.Incidents;
 
 public class IncidentWorker_FroggeJoin : IncidentWorker
 {

@@ -8,6 +8,9 @@ using Verse;
 
 namespace MSSFP.HarmonyPatches;
 
+/// <summary>
+/// Draw the Mr Streamer overlay
+/// </summary>
 [HarmonyPatch(typeof(MouseoverReadout))]
 public static class MouseoverReadout_Patch
 {

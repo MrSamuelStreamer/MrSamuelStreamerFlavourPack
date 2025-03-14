@@ -163,7 +163,7 @@
                                 <li Class="ThinkNode_Tagger">
                                     <tagToGive>Misc</tagToGive>
                                     <subNodes>
-                                        <li Class="MSSFP.JobGiver_EatGems">
+                                        <li Class="MSSFP.Jobs.JobGiver_EatGems">
                                             <gemEaters>
                                                 <li>MSSFP_Frogge</li>
                                             </gemEaters>
@@ -203,7 +203,7 @@
                                     <subNodes>
                                         <li Class="ThinkNode_ConditionalShouldFollowMaster">
                                             <subNodes>
-                                                <li Class="MSSFP.JobGiver_AIFroggeDefendMaster">
+                                                <li Class="MSSFP.Jobs.JobGiver_AIFroggeDefendMaster">
                                                     <attackMeleeThreatEvenIfNotHostile>false</attackMeleeThreatEvenIfNotHostile>
                                                     <targetAcquireRadius>35</targetAcquireRadius>
                                                     <targetKeepRadius>55</targetKeepRadius>

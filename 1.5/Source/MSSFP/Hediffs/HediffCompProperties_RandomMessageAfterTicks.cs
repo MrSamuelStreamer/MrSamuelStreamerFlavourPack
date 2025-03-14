@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Verse;
 
-namespace MSSFP;
+namespace MSSFP.Hediffs;
 
 public class HediffCompProperties_RandomMessageAfterTicks: HediffCompProperties
 {

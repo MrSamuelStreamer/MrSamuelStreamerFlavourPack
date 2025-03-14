@@ -5,7 +5,7 @@ using RimWorld;
 using Verse;
 using Verse.AI;
 
-namespace MSSFP;
+namespace MSSFP.Jobs;
 
 public class JobGiver_EatGems : ThinkNode_JobGiver
 {

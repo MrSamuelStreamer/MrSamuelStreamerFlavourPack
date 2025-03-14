@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace MSSFP.Hediffs;
 
@@ -33,6 +34,17 @@ public static class HauntsCache
         if (mods.Count == 0)
         {
             Haunts.Remove(thingIdNumber);
+        }
+    }
+
+    public static void TryDrawAt(int id, Vector3 drawPos)
+    {
+        if (Haunts.TryGetValue(id, out List<HediffComp_Haunt> haunts))
+        {
+            foreach (HediffComp_Haunt haunt in haunts)
+            {
+                haunt.DrawAt(drawPos);
+            }
         }
     }
 }

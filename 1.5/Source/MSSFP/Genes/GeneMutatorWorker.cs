@@ -1,7 +1,7 @@
 ﻿using RimWorld.Planet;
 using Verse;
 
-namespace MSSFP;
+namespace MSSFP.Genes;
 
 public class GeneMutatorWorker
 {

@@ -1,6 +1,6 @@
 ﻿using Verse;
 
-namespace MSSFP;
+namespace MSSFP.Verbs;
 
 public class Verb_AbilityShootThingHolder: Verb_AbilityShoot
 {

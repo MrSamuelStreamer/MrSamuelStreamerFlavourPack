@@ -3,7 +3,7 @@ using System.Linq;
 using RimWorld;
 using Verse;
 
-namespace MSSFP;
+namespace MSSFP.Incidents;
 
 public class IncidentWorker_RaidEnemySkylantern: IncidentWorker_RaidEnemy
 {
