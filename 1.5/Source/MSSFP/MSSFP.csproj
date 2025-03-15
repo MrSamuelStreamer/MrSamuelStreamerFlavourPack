@@ -134,6 +134,10 @@
         <CompatibilityFiles Update="..\..\..\Compatibility\aoba.exosuit.amp\1.5\Defs\MSSFP_Monke.xml">
           <Link>MrSamuelStreamerFlavourPack\Compatibility\aoba.exosuit.amp\1.5\Defs\MSSFP_Monke.xml</Link>
         </CompatibilityFiles>
+
+        <ReleaseFiles Update="..\..\Defs\Haunts\MMSFP_HauntsBad.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Defs\Haunts\MMSFP_HauntsBad.xml</Link>
+        </ReleaseFiles>
     </ItemGroup>
     <ItemGroup>
       <Folder Include="..\..\..\Common\Textures\Things\AMPSuit\">

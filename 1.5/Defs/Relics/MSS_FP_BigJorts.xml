@@ -17,12 +17,13 @@
         </rulePack>
     </RulePackDef>
 
-    <ThingDef ParentName="ApparelMakeableBase">
+    <ThingDef ParentName="ApparelBase">
         <defName>MSS_FP_Apparel_BigJortsJorts</defName>
         <label>Big Jorts' Big Jorts</label>
         <description>Big Jorts' epic Big Jorts. Legend has it that... Huh? What do you mean he never wore jorts? His name is Big Jorts for goodness sake! Of course he wore jorts! Prompter, end dictation. \n *mumble*... never heard such nonsense. Big Jorts... *mumble* JORTS DAMNIT! HIS NAME IS JORTS! *mumble* huh? Prompter, end dictation! End! NO STOP DICTATING! STOP! END! Goddamned technology, pain in my.. * mumbles*</description>
-        <recipeMaker Inherit="False" IsNull="True" />
         <relicChance>1</relicChance>
+        <burnableByRecipe>false</burnableByRecipe>
+        <smeltable>false</smeltable>
         <graphicData>
             <texPath>Things/Apparel/MSS_Jorts</texPath>
             <graphicClass>Graphic_Single</graphicClass>

@@ -191,6 +191,9 @@
                 </bodyGraphicData>
             </li>
         </lifeStages>
+        <modExtensions>
+            <li Class="MSSFP.ModExtensions.FroggeModExtension"/>
+        </modExtensions>
         <abilities>
             <li>MSS_FP_Ability_Shoot_Thing</li>
             <li>MSS_FP_WorldLeap</li>
