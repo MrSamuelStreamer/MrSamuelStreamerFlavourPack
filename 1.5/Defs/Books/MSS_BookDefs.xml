@@ -14,6 +14,9 @@
         <statBases>
             <MarketValue>250</MarketValue>
         </statBases>
+        <thingSetMakerTags>
+            <li>RewardStandardLowFreq</li>
+        </thingSetMakerTags>
         <comps>
             <li Class="CompProperties_Book">
                 <nameMaker>MSS_Namer_FroggeTome</nameMaker>
@@ -49,7 +52,7 @@
             <li>
                 <label>frogge</label>
                 <description>frogge.</description>
-                <baseMoodEffect>3</baseMoodEffect>
+                <baseMoodEffect>9</baseMoodEffect>
             </li>
         </stages>
     </ThoughtDef>

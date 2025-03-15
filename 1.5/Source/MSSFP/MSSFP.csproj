@@ -146,6 +146,10 @@
         <ReleaseFiles Update="..\..\Patches\MSSFP_WitchTrial.xml">
           <Link>MrSamuelStreamerFlavourPack\1.5\Patches\MSSFP_WitchTrial.xml</Link>
         </ReleaseFiles>
+
+        <ReleaseFiles Update="..\..\Defs\RulePackDefs\MSS_RulePacks_Namers_Taff.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Defs\RulePackDefs\MSS_RulePacks_Namers_Taff.xml</Link>
+        </ReleaseFiles>
     </ItemGroup>
     <ItemGroup>
       <Folder Include="..\..\..\Common\Textures\Things\AMPSuit\">
