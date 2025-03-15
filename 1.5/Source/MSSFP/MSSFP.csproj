@@ -135,7 +135,7 @@
           <Link>MrSamuelStreamerFlavourPack\Compatibility\aoba.exosuit.amp\1.5\Defs\MSSFP_Monke.xml</Link>
         </CompatibilityFiles>
 
-        <ReleaseFiles Update="..\..\Defs\Haunts\MMSFP_HauntsBad.xml">
+        <ReleaseFiles Update="..\..\Defs\Haunts\MMSFP_HauntsGood.xml">
           <Link>MrSamuelStreamerFlavourPack\1.5\Defs\Haunts\MMSFP_HauntsBad.xml</Link>
         </ReleaseFiles>
     </ItemGroup>
