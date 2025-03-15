@@ -117,7 +117,9 @@ public class HediffComp_Haunt: HediffComp
     {
         pawnToDraw = pawn;
         aptitudesCached.Clear();
-        if (Pawn.needs?.mood?.thoughts?.memories?.GetFirstMemoryOfDef(Props.thought) is Thought_Memory thought)
+        texPath = PawnGraphicUtils.SavePawnTexture(pawn);
+
+        if (Pawn.needs?.mood?.thoughts?.memories?.GetFirstMemoryOfDef(Props.thought) is { } thought)
         {
             thought.otherPawn = pawnToDraw;
         }
