@@ -77,6 +77,7 @@ public class HediffComp_Haunt: HediffComp
         {
             NextProxCheck = Find.TickManager.TicksGame + Props.ProximityTransferCheckTicks;
 
+            if(!Rand.Chance(Props.ProximityTransferChancePerCheck)) return;
             Pawn pawn = GenRadial.RadialCellsAround(parent.pawn.Position, Props.ProximityRadius, true)
                 .SelectMany(cell =>
                     parent.pawn.Map.thingGrid.ThingsAt(cell)
