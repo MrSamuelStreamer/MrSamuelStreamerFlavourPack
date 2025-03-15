@@ -4,6 +4,7 @@ namespace MSSFP.Comps.Game;
 
 public class LoversRetreatGameomponent(Verse.Game game) : GameComponent
 {
+    public Verse.Game Game { get; } = game;
 
     public bool _loversRetreatEnabled = true;
 

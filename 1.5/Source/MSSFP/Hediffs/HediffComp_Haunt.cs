@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using RimWorld;
 using UnityEngine;
 using Verse;
@@ -16,6 +15,9 @@ public class HediffComp_Haunt: HediffComp
     public string name;
     public string texPath;
     public Texture2D pawnTexture;
+
+    public SkillDef skillToBoost = null;
+    public int SkillBoostLevel = 0;
 
     public virtual string PawnName => name;
 
@@ -55,18 +57,11 @@ public class HediffComp_Haunt: HediffComp
         get
         {
             if (pawnToDraw == null) return null;
+            if (skillToBoost != null && SkillBoostLevel > 0)
+            {
+                return pawnToDraw == null ? null : "\n\n" + "MSS_FP_HauntedBuff".Translate(pawnToDraw.NameShortColored, skillToBoost.LabelCap, SkillBoostLevel);
+            }
             return pawnToDraw == null ? null : "\n\n" + "MSS_FP_HauntedUnBuff".Translate(pawnToDraw.NameShortColored, parent.pawn.NameShortColored);
-
-            // if (aptitudesCached.NullOrEmpty())
-            // {
-            //     foreach (SkillRecord skillsSkill in pawnToDraw.skills.skills)
-            //     {
-            //         AptitudeFor(skillsSkill.def);
-            //     }
-            // };
-            // KeyValuePair<SkillDef, int> maxSkill = aptitudesCached.MaxBy(x => x.Value);
-            //
-            // return pawnToDraw == null ? null : "\n\n" + "MSS_FP_HauntedBuff".Translate(pawnToDraw.NameShortColored, maxSkill.Key.skillLabel, maxSkill.Value);
         }
     }
 
@@ -115,9 +110,26 @@ public class HediffComp_Haunt: HediffComp
 
     public virtual void SetPawnToDraw(Pawn pawn)
     {
+        if(pawn == null) return;
+
+        if (pawnToDraw is { skills: not null })
+        {
+            parent.pawn.skills.GetSkill(skillToBoost).Level -= SkillBoostLevel;
+        }
+
         pawnToDraw = pawn;
         aptitudesCached.Clear();
         texPath = PawnGraphicUtils.SavePawnTexture(pawn);
+
+        if (pawnToDraw.skills != null)
+        {
+            SkillRecord maxSkill = pawnToDraw.skills.skills.MaxBy(pawnSkill => pawnSkill.Level);
+
+            skillToBoost = maxSkill.def;
+            SkillBoostLevel = Mathf.CeilToInt(maxSkill.Level / 3f);
+
+            parent.pawn.skills.GetSkill(skillToBoost).Level += SkillBoostLevel;
+        }
 
         if (Pawn.needs?.mood?.thoughts?.memories?.GetFirstMemoryOfDef(Props.thought) is { } thought)
         {
@@ -133,6 +145,7 @@ public class HediffComp_Haunt: HediffComp
     {
         base.CompPostPostRemoved();
         HauntsCache.RemoveHaunt(Pawn.thingIDNumber, this);
+        parent.pawn.skills.GetSkill(skillToBoost).Level -= SkillBoostLevel;
         if(Props.thought != null) Pawn.needs?.mood?.thoughts?.memories?.RemoveMemoriesOfDef(Props.thought);
     }
 
@@ -143,6 +156,9 @@ public class HediffComp_Haunt: HediffComp
         Scribe_References.Look(ref pawnToDraw, "pawnToDraw");
         Scribe_Values.Look(ref texPath, "texPath");
         Scribe_Values.Look(ref name, "name");
+
+        Scribe_Defs.Look(ref skillToBoost, "skillToBoost");
+        Scribe_Values.Look(ref SkillBoostLevel, "SkillBoostLevel", 0);
 
         if (Scribe.mode == LoadSaveMode.ResolvingCrossRefs)
         {
@@ -188,27 +204,4 @@ public class HediffComp_Haunt: HediffComp
         newThought.permanent = true;
         Pawn.needs?.mood?.thoughts?.memories?.TryGainMemory(newThought, pawnToDraw);
     }
-
-    // public int AptitudeFor(SkillDef skill)
-    // {
-    //     ModLog.Debug("HediffComp_Haunt.AptitudeFor:Start");
-    //     if(pawnToDraw is null) return 0;
-    //
-    //     if(aptitudesCached.TryGetValue(skill, out int aptitudes)) return aptitudes;
-    //
-    //     SkillRecord maxSkill = pawnToDraw.skills.skills.MaxBy(pawnSkill => pawnSkill.Level);
-    //
-    //     if (maxSkill.def != skill)
-    //     {
-    //         aptitudesCached[skill] = 0;
-    //         return 0;
-    //     }
-    //
-    //     int modifier = Mathf.CeilToInt(maxSkill.Level / 3f);
-    //
-    //     aptitudesCached[skill] = modifier;
-    //
-    //     ModLog.Debug("HediffComp_Haunt.AptitudeFor:End");
-    //     return modifier;
-    // }
 }
