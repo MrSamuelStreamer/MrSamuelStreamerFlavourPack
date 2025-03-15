@@ -1,0 +1,236 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<Defs>
+    <AbilityDef ParentName="SpeechBase">
+        <defName>MSSFP_WitchTrial</defName>
+        <label>witch trial</label>
+        <description>Accuse someone of being a witch and initiate a trial where they will be either convicted or exonerated. If the target is convicted, they can be freely imprisoned, executed or banished without penalty. The chance of conviction depends on the social abilities of the accuser and accused.</description>
+        <groupDef>Leader</groupDef>
+        <targetRequired>True</targetRequired>
+        <iconPath>UI/Icons/Rituals/Trial</iconPath>
+        <gizmoClass>Command_AbilityTrial</gizmoClass>
+        <uiOrder>1</uiOrder>
+        <cooldownTicksRange>60000~120000</cooldownTicksRange> <!-- 1 to 2 days -->
+        <comps>
+            <li Class="CompProperties_AbilityStartTrial">
+                <ritualDef>MSSFP_WitchTrial</ritualDef>
+                <ritualDefForPrisoner>MSSFP_WitchTrialPrisoner</ritualDefForPrisoner>
+                <ritualDefForMentalState>MSSFP_WitchTrialMentalState</ritualDefForMentalState>
+                <targetRoleId>convict</targetRoleId>
+            </li>
+        </comps>
+        <verbProperties>
+            <targetParams>
+                <canTargetAnimals>false</canTargetAnimals>
+                <canTargetSelf>false</canTargetSelf>
+                <canTargetBuildings>false</canTargetBuildings>
+                <canTargetMechs>false</canTargetMechs>
+                <canTargetMutants>false</canTargetMutants>
+                <onlyTargetControlledPawns>true</onlyTargetControlledPawns>
+                <canTargetHumans>true</canTargetHumans>
+            </targetParams>
+        </verbProperties>
+    </AbilityDef>
+
+    <RitualPatternDef ParentName="SpeechPatternBase" Name="MSSFPWitchTrial">
+        <defName>MSSFP_WitchTrial</defName>
+        <ritualBehavior>MSSFP_WitchTrial</ritualBehavior>
+        <ritualTargetFilter>IdeoBuildingOrRitualSpot</ritualTargetFilter>
+        <ritualOutcomeEffect>MSSFP_WitchTrial</ritualOutcomeEffect>
+        <playsIdeoMusic>false</playsIdeoMusic>
+    </RitualPatternDef>
+
+    <RitualPatternDef ParentName="MSSFPWitchTrial">
+        <defName>MSSFP_WitchTrialPrisoner</defName>
+        <ritualBehavior>MSSFP_WitchTrialPrisoner</ritualBehavior>
+    </RitualPatternDef>
+
+    <PreceptDef ParentName="SpeechPreceptBase" Name="MSSFPWitchTrialBase">
+        <defName>MSSFP_WitchTrial</defName>
+        <label>witch trial</label>
+        <description>An accusation is being made that someone is a witch. The initiator will accuse someone of being a witch and gather people for a trial. Spectators will listen as the accuser and accused argue back and forth, then decide if the accusation is true. If the accused is convicted, you can freely banish, arrest or execute them and nobody will mind. The chance of a conviction depends on the social abilites of the accused and accuser, and the number of spectators.</description>
+        <ritualPatternBase>MSSFP_WitchTrial</ritualPatternBase>
+        <ignoreNameUniqueness>true</ignoreNameUniqueness>
+        <iconPath>UI/Icons/Rituals/Trial</iconPath>
+        <useCooldownFromAbilityGroupDef>Leader</useCooldownFromAbilityGroupDef>
+        <classicExtra>true</classicExtra>
+        <classic>true</classic>
+    </PreceptDef>
+
+    <PreceptDef ParentName="MSSFPWitchTrialBase">
+        <defName>MSSFP_WitchTrialPrisoner</defName>
+        <ritualPatternBase>MSSFP_WitchTrial</ritualPatternBase>
+        <takeNameFrom>Trial</takeNameFrom>
+    </PreceptDef>
+
+    <RitualBehaviorDef>
+        <defName>MSSFP_WitchTrial</defName>
+        <workerClass>MSSFP.Rituals.RitualBehaviorWorker_WitchTrial</workerClass>
+        <durationTicks>5000</durationTicks>
+        <roles>
+            <li Class="RitualRoleTag">
+                <label>judge</label>
+                <tag>Leader</tag>
+                <id>leader</id>
+                <precept>IdeoRole_Leader</precept>
+                <required>True</required>
+                <maxCount>1</maxCount>
+                <countsAsParticipant>False</countsAsParticipant>
+                <allowChild>false</allowChild>
+                <mustBeAbleToReachTarget>True</mustBeAbleToReachTarget>
+            </li>
+            <li Class="RitualRoleForced">
+                <label>accused</label>
+                <id>convict</id>
+                <maxCount>1</maxCount>
+                <required>True</required>
+                <countsAsParticipant>False</countsAsParticipant>
+                <ignoreBleeding>true</ignoreBleeding>
+            </li>
+        </roles>
+        <stages>
+            <li>
+                <defaultDuty>Spectate</defaultDuty>
+                <allowedSpectateSidesOverride>Horizontal</allowedSpectateSidesOverride>
+                <spectateDistanceOverride>1</spectateDistanceOverride>
+                <spectatorsRequired>true</spectatorsRequired>
+                <endTriggers>
+                    <li Class="StageEndTrigger_RolesArrived">
+                        <roleIds>
+                            <li>leader</li>
+                            <li>convict</li>
+                        </roleIds>
+                    </li>
+                </endTriggers>
+                <roleBehaviors>
+                    <li>
+                        <roleId>leader</roleId>
+                        <dutyDef>ArriveToCell</dutyDef>
+                        <customPositions>
+                            <li Class="RitualPosition_BehindThingCenter" />
+                        </customPositions>
+                    </li>
+                    <li>
+                        <roleId>convict</roleId>
+                        <dutyDef>ArriveToCell</dutyDef>
+                        <customPositions>
+                            <li Class="RitualPosition_InFrontThingCenter" />
+                        </customPositions>
+                    </li>
+                </roleBehaviors>
+                <highlightRolePawns>
+                    <li>convict</li>
+                    <li>leader</li>
+                </highlightRolePawns>
+            </li>
+            <li>
+                <defaultDuty>Spectate</defaultDuty>
+                <allowedSpectateSidesOverride>Horizontal</allowedSpectateSidesOverride>
+                <spectateDistanceOverride>1</spectateDistanceOverride>
+                <spectatorsRequired>true</spectatorsRequired>
+                <endTriggers>
+                    <li Class="StageEndTrigger_DurationPercentage">
+                        <percentage>1</percentage>
+                    </li>
+                </endTriggers>
+                <roleBehaviors>
+                    <li>
+                        <roleId>leader</roleId>
+                        <dutyDef>SpeakOnCellNoSpeechBubbles</dutyDef>
+                        <customPositions>
+                            <li Class="RitualPosition_BehindThingCenter" />
+                        </customPositions>
+                    </li>
+                    <li>
+                        <roleId>convict</roleId>
+                        <dutyDef>StandOnCell</dutyDef>
+                    </li>
+                </roleBehaviors>
+                <highlightRolePawns>
+                    <li>convict</li>
+                    <li>leader</li>
+                </highlightRolePawns>
+            </li>
+        </stages>
+    </RitualBehaviorDef>
+
+    <RitualOutcomeEffectDef Name="MSSFPWitchTrialOutcomeBase">
+        <defName>MSSFP_WitchTrial</defName>
+        <description>The trial quality determines the chance that the defendant will be convicted.</description>
+        <workerClass>MSSFP.Rituals.RitualOutcomeEffectWorker_WitchTrial</workerClass>
+        <startingQuality>0.5</startingQuality>
+        <minQuality>0.1</minQuality>
+        <maxQuality>0.9</maxQuality>
+        <comps>
+            <li Class="RitualOutcomeComp_ParticipantCount">
+                <label>participant count</label>
+                <curve>
+                    <points>
+                        <li>(0,  0.0)</li>
+                        <li>(4,  0.2)</li>
+                        <li>(10, 0.4)</li>
+                        <li>(20, 0.6)</li>
+                    </points>
+                </curve>
+            </li>
+            <li Class="RitualOutcomeComp_PawnStatScaled">
+                <label>{PAWN_labelShort}'s negotiation ability</label>
+                <labelAbstract>Leader's negotiation ability</labelAbstract>
+                <statDef>NegotiationAbility</statDef>
+                <roleId>leader</roleId>
+                <scaledBy>0.25</scaledBy>
+            </li>
+            <li Class="RitualOutcomeComp_PawnStatScaled">
+                <label>{PAWN_labelShort}'s negotiation ability</label>
+                <labelAbstract>Defendant's negotiation ability</labelAbstract>
+                <statDef>NegotiationAbility</statDef>
+                <roleId>convict</roleId>
+                <scaledBy>-0.25</scaledBy>
+            </li>
+        </comps>
+        <outcomeChances>
+            <li>
+                <label>not a witch!</label>
+                <chance>0.5</chance>
+                <description>{PROSECUTOR_labelShort}'s arguments failed to convince anyone. {PAWN_labelShort} has been deemed not a witch!</description>
+                <positivityIndex>-1</positivityIndex>
+            </li>
+            <li>
+                <label>a witch!</label>
+                <chance>0.45</chance>
+                <description>{PROSECUTOR_labelShort} convinced everyone that {PAWN_labelShort} is a witch. {PAWN_labelShort} was convicted and can now be punished.</description>
+                <positivityIndex>1</positivityIndex>
+            </li>
+            <li>
+                <label>a witch!</label>
+                <chance>0.05</chance>
+                <description>{PAWN_labelShort} flipped the argument and convinced everyone that {PROSECUTOR_labelShort} is a witch. {PROSECUTOR_labelShort} was convicted and can now be punished.</description>
+                <positivityIndex>2</positivityIndex>
+            </li>
+        </outcomeChances>
+    </RitualOutcomeEffectDef>
+
+    <RitualOutcomeEffectDef ParentName="MSSFPWitchTrialOutcomeBase">
+        <defName>MSSFP_WitchTrialMentalState</defName>
+        <comps Inherit="False">
+            <li Class="RitualOutcomeComp_ParticipantCount">
+                <label>participant count</label>
+                <curve>
+                    <points>
+                        <li>(0,  0.0)</li>
+                        <li>(4,  0.2)</li>
+                        <li>(10, 0.4)</li>
+                        <li>(20, 0.6)</li>
+                    </points>
+                </curve>
+            </li>
+            <li Class="RitualOutcomeComp_PawnStatScaled">
+                <label>{PAWN_labelShort}'s negotiation ability</label>
+                <labelAbstract>Leader's negotiation ability</labelAbstract>
+                <statDef>NegotiationAbility</statDef>
+                <roleId>leader</roleId>
+                <scaledBy>0.25</scaledBy>
+            </li>
+        </comps>
+    </RitualOutcomeEffectDef>
+</Defs>
