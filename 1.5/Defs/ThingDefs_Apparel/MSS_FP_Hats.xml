@@ -18,7 +18,6 @@
         <costList>
             <Cloth>120</Cloth>
             <WoodLog>20</WoodLog>
-            <Ruby MayRequire="DankPyon.Medieval.Overhaul">15</Ruby>
         </costList>
         <stuffCategories Inherit="False"></stuffCategories>
         <comps Inherit="False">

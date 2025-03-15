@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Defs>
+    <ThingDef ParentName="TreeBase">
+        <defName>MSS_AmberTree</defName>
+        <label>Amber Tree</label>
+        <description>A very rare variety of tree that produces fruit rich in Amber, perhaps a distant relative of the trees found in ancient forests.</description>
+        <graphicData>
+            <texPath>Things/Plant/MSS_AmberTree</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <statBases>
+            <Beauty>2</Beauty>
+        </statBases>
+        <plant>
+            <sowMinSkill>13</sowMinSkill>
+            <sowResearchPrerequisites>
+                <li>MSS_Resource_tree</li>
+            </sowResearchPrerequisites>
+            <growDays>15</growDays>
+            <harvestedThingDef>DankPyon_Amber</harvestedThingDef>
+            <harvestYield>10</harvestYield>
+            <choppedThingDef>ChoppedStump</choppedThingDef>
+            <smashedThingDef>SmashedStump</smashedThingDef>
+            <visualSizeRange>1.0~2.0</visualSizeRange>
+            <immatureGraphicPath>Things/Plant/MSS_AmberTreeImm</immatureGraphicPath>
+            <mustBeWildToSow>false</mustBeWildToSow>
+        </plant>
+    </ThingDef>
+</Defs>

@@ -57,6 +57,9 @@
             <Link>Attached/Rimworld/%(RecursiveDir)/%(FileName)%(Extension)</Link>
             <CopyToOutputDirectory>Never</CopyToOutputDirectory>
         </Content>
+        <Content Include="..\..\..\modlist-mo-test.xml">
+          <Link>MrSamuelStreamerFlavourPack\modlist-mo-test.xml</Link>
+        </Content>
         <Content Include="..\..\..\modlist.xml">
           <Link>MrSamuelStreamerFlavourPack\modlist.xml</Link>
         </Content>
@@ -150,6 +153,22 @@
         <ReleaseFiles Update="..\..\Defs\RulePackDefs\MSS_RulePacks_Namers_Taff.xml">
           <Link>MrSamuelStreamerFlavourPack\1.5\Defs\RulePackDefs\MSS_RulePacks_Namers_Taff.xml</Link>
         </ReleaseFiles>
+
+        <CompatibilityFiles Update="..\..\..\Compatibility\DankPyon.Medieval.Overhaul\1.5\Patches\MSSFP_Patches.xml">
+          <Link>MrSamuelStreamerFlavourPack\Compatibility\DankPyon.Medieval.Overhaul\1.5\Patches\MSSFP_Patches.xml</Link>
+        </CompatibilityFiles>
+
+        <CompatibilityFiles Update="..\..\..\Compatibility\DankPyon.Medieval.Overhaul\1.5\Defs\MSSFP_Defs.xml">
+          <Link>MrSamuelStreamerFlavourPack\Compatibility\DankPyon.Medieval.Overhaul\1.5\Defs\MSSFP_Defs.xml</Link>
+        </CompatibilityFiles>
+
+        <CompatibilityFiles Update="..\..\..\Compatibility\kikohi.jewelry\1.5\Patches\MSSFP_Patches.xml">
+          <Link>MrSamuelStreamerFlavourPack\Compatibility\kikohi.jewelry\1.5\Patches\MSSFP_Patches.xml</Link>
+        </CompatibilityFiles>
+
+        <CompatibilityFiles Update="..\..\..\Compatibility\kikohi.jewelry\1.5\Defs\MSSFP_Defs.xml">
+          <Link>MrSamuelStreamerFlavourPack\Compatibility\kikohi.jewelry\1.5\Defs\MSSFP_Defs.xml</Link>
+        </CompatibilityFiles>
     </ItemGroup>
     <ItemGroup>
       <Folder Include="..\..\..\Common\Textures\Things\AMPSuit\">
