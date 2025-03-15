@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Defs>
+    <RulePackDef>
+        <defName>MSSFP_NamerPersonTaff</defName>
+        <include>
+            <li>TribalWordUtility</li>
+        </include>
+        <rulePack>
+            <rulesStrings>
+                <li>r_name->Taff [lastName]</li>
+                <li>r_name->[firstName] Taff</li>
+                <li>r_name->Taff '[nickName]' [lastName]</li>
+                <li>r_name->[firstName] 'Taff' [lastName]</li>
+                <li>r_name->[firstName] '[nickName]' Taff</li>
+
+                <li>maybeHyphen(p=4)-></li>
+                <li>maybeHyphen->-</li>
+
+                <li>firstName->[WordTribal]</li>
+                <li>firstName->[Color]</li>
+                <li>firstName->[Animal]</li>
+
+                <li>nickName->[AnimalBadass]</li>
+                <li>nickName->[nicknamePig]</li>
+
+                <li>lastName(p=3)->[lastGenerated]</li>
+                <li>lastGenerated->[lastGeneratedFinal][maybeHyphen][lastGeneratedFinal]</li>
+                <li>lastGenerated->[lastGeneratedFinal][maybeHyphen][lastGeneratedFinal]</li>
+                <li>lastGenerated->[lastGeneratedFinal][maybeHyphen][lastGeneratedFinal]</li>
+                <li>lastGenerated(p=3)->[lastGeneratedFinal]</li>
+
+                <li>lastGeneratedFinal->[WordTribal]</li>
+                <li>lastGeneratedFinal->[Animal]</li>
+                <li>lastGeneratedFinal->[Color]</li>
+            </rulesStrings>
+            <rulesFiles>
+                <li>nicknamePig->Names/Nick_Unisex_Pig</li>
+            </rulesFiles>
+        </rulePack>
+    </RulePackDef>
+</Defs>
