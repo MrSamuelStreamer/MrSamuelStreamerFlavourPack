@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Patch>
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs/ThingDef[defName="MSS_FP_Apparel_Frogge_Hat"]/costList</xpath>
+        <value>
+            <Ruby>15</Ruby>
+        </value>
+    </Operation>
+</Patch>

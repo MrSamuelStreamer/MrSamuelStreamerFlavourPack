@@ -15,5 +15,7 @@
         <li IfModActive="oskarpotocki.vfe.tribals">Compatibility/OskarPotocki.VFE.Tribals/1.5</li>
         <li IfModActive="hlx.UltratechAlteredCarbon">Compatibility/hlx.UltratechAlteredCarbon/1.5</li>
         <li IfModActive="aoba.exosuit.amp">Compatibility/aoba.exosuit.amp/1.5</li>
+        <li IfModActive="DankPyon.Medieval.Overhaul">Compatibility/DankPyon.Medieval.Overhaul/1.5</li>
+        <li IfModActive="kikohi.jewelry">Compatibility/kikohi.jewelry/1.5</li>
 	</v1.5>
 </loadFolders>
