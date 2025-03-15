@@ -32,10 +32,9 @@ public class HauntedMapComponent(Verse.Map map) : MapComponent(map)
         if(!MSSFPMod.settings.ShowHaunts) return;
 
         //It's ok if we miss some ticks, so the simple check is fine
-        bool skip = false;
-        if (!skip && LastFiredTick + 2 * GenDate.TicksPerDay >= Find.TickManager.TicksGame) return;
+        if (LastFiredTick + 2 * GenDate.TicksPerDay >= Find.TickManager.TicksGame) return;
 
-        LastFiredTick = Find.TickManager.TicksGame + 2 * GenDate.TicksPerHour;
+        LastFiredTick = Find.TickManager.TicksGame + 2 * GenDate.TicksPerDay;
 
         Pawn pawn = PawnPool.RandomElementWithFallback();
         if(pawn == null) return;
