@@ -1,11 +1,15 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using HarmonyLib;
+using MSSFP.ModExtensions;
 using RimWorld;
 using Verse;
 
 namespace MSSFP.HarmonyPatches;
 
+/// <summary>
+/// Patch the choice letter for growth moments to add random genes when becoming an adult
+/// </summary>
 [HarmonyPatch(typeof(ChoiceLetter_GrowthMoment))]
 public static class ChoiceLetter_GrowthMoment_Patch
 {

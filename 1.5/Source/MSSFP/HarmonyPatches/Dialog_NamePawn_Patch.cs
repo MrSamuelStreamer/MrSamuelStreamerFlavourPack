@@ -6,6 +6,9 @@ using Verse;
 
 namespace MSSFP.HarmonyPatches;
 
+/// <summary>
+/// Patch to allow longer names
+/// </summary>
 [HarmonyPatch(typeof(Dialog_NamePawn), MethodType.Constructor, [
     typeof(Pawn),
     typeof(NameFilter),

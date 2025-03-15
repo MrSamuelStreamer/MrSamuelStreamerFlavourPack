@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <Defs>
-    <MSSFP.GeneMutatorDef>
+    <MSSFP.Genes.GeneMutatorDef>
         <defName>MSS_PsychicRain</defName>
         <label>Psychic Rain Genes</label>
         <conditionActive>PsychicRain</conditionActive>
         <type>Worker</type>
         <chanceToApply>0.05</chanceToApply>
         <reasonString>Psychic rain exposure</reasonString>
-        <mutatorWorker>MSSFP.ExposedWhileGameConditionActiveGeneMutatorWorker</mutatorWorker>
+        <mutatorWorker>MSSFP.Genes.ExposedWhileGameConditionActiveGeneMutatorWorker</mutatorWorker>
         <genes>
             <li>
                 <gene>PsychicBonding</gene>
@@ -30,17 +30,17 @@
                 <weight>0.2</weight>
             </li>
         </genes>
-    </MSSFP.GeneMutatorDef>
+    </MSSFP.Genes.GeneMutatorDef>
 
-    <MSSFP.GeneMutatorDef>
+    <MSSFP.Genes.GeneMutatorDef>
         <defName>MSS_NuclearFallout</defName>
         <label>Nuclear Fallout Genes</label>
         <conditionActive>MSS_NuclearFallout</conditionActive>
         <type>Worker</type>
         <chanceToApply>0.15</chanceToApply>
         <reasonString>Nuclear Fallout exposure</reasonString>
-        <mutatorWorker>MSSFP.ExposedWhileGameConditionActiveGeneMutatorWorker</mutatorWorker>
+        <mutatorWorker>MSSFP.Genes.ExposedWhileGameConditionActiveGeneMutatorWorker</mutatorWorker>
         <genes /> <!-- any gene -->
         <pinataMode>true</pinataMode>
-    </MSSFP.GeneMutatorDef>
+    </MSSFP.Genes.GeneMutatorDef>
 </Defs>

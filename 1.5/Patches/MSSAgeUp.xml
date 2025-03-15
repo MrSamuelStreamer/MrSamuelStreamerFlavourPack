@@ -3,7 +3,7 @@
     <Operation Class="PatchOperationAddModExtension">
         <xpath>Defs/GeneDef[defName="Beauty_Pretty"]</xpath>
         <value>
-            <li Class="MSSFP.AgeUpGeneModDefExtension">
+            <li Class="MSSFP.ModExtensions.AgeUpGeneModDefExtension">
                 <WeightingForRandomSelection>0.5</WeightingForRandomSelection>
                 <ConflictsWith>
                     <li>Beauty_Ugly</li>
@@ -16,7 +16,7 @@
     <Operation Class="PatchOperationAddModExtension">
         <xpath>Defs/GeneDef[defName="Beauty_Ugly"]</xpath>
         <value>
-            <li Class="MSSFP.AgeUpGeneModDefExtension">
+            <li Class="MSSFP.ModExtensions.AgeUpGeneModDefExtension">
                 <WeightingForRandomSelection>0.5</WeightingForRandomSelection>
                 <ConflictsWith>
                     <li>Beauty_Pretty</li>
@@ -29,7 +29,7 @@
     <Operation Class="PatchOperationAddModExtension">
         <xpath>Defs/GeneDef[defName="Beauty_VeryUgly"]</xpath>
         <value>
-            <li Class="MSSFP.AgeUpGeneModDefExtension">
+            <li Class="MSSFP.ModExtensions.AgeUpGeneModDefExtension">
                 <WeightingForRandomSelection>0.1</WeightingForRandomSelection>
                 <ConflictsWith>
                     <li>Beauty_Pretty</li>
@@ -42,7 +42,7 @@
     <Operation Class="PatchOperationAddModExtension">
         <xpath>Defs/GeneDef[defName="Beauty_Beautiful"]</xpath>
         <value>
-            <li Class="MSSFP.AgeUpGeneModDefExtension">
+            <li Class="MSSFP.ModExtensions.AgeUpGeneModDefExtension">
                 <WeightingForRandomSelection>0.1</WeightingForRandomSelection>
                 <ConflictsWith>
                     <li>Beauty_Pretty</li>
@@ -55,7 +55,7 @@
     <Operation Class="PatchOperationAddModExtension">
         <xpath>Defs/GeneDef[defName="Body_Fat"]</xpath>
         <value>
-            <li Class="MSSFP.AgeUpGeneModDefExtension">
+            <li Class="MSSFP.ModExtensions.AgeUpGeneModDefExtension">
                 <WeightingForRandomSelection>0.1</WeightingForRandomSelection>
                 <ConflictsWith>
                     <li>Body_Thin</li>
@@ -68,7 +68,7 @@
     <Operation Class="PatchOperationAddModExtension">
         <xpath>Defs/GeneDef[defName="Body_Thin"]</xpath>
         <value>
-            <li Class="MSSFP.AgeUpGeneModDefExtension">
+            <li Class="MSSFP.ModExtensions.AgeUpGeneModDefExtension">
                 <WeightingForRandomSelection>0.1</WeightingForRandomSelection>
                 <ConflictsWith>
                     <li>Body_Fat</li>
@@ -81,7 +81,7 @@
     <Operation Class="PatchOperationAddModExtension">
         <xpath>Defs/GeneDef[defName="Body_Hulk"]</xpath>
         <value>
-            <li Class="MSSFP.AgeUpGeneModDefExtension">
+            <li Class="MSSFP.ModExtensions.AgeUpGeneModDefExtension">
                 <WeightingForRandomSelection>0.1</WeightingForRandomSelection>
                 <ConflictsWith>
                     <li>Body_Fat</li>
@@ -94,7 +94,7 @@
     <Operation Class="PatchOperationAddModExtension">
         <xpath>Defs/GeneDef[defName="Body_Standard"]</xpath>
         <value>
-            <li Class="MSSFP.AgeUpGeneModDefExtension">
+            <li Class="MSSFP.ModExtensions.AgeUpGeneModDefExtension">
                 <WeightingForRandomSelection>0.6</WeightingForRandomSelection>
                 <ConflictsWith>
                     <li>Body_Fat</li>
@@ -107,7 +107,7 @@
     <Operation Class="PatchOperationAddModExtension">
         <xpath>Defs/GeneDef[defName="Immunity_Weak"]</xpath>
         <value>
-            <li Class="MSSFP.AgeUpGeneModDefExtension">
+            <li Class="MSSFP.ModExtensions.AgeUpGeneModDefExtension">
                 <WeightingForRandomSelection>0.1</WeightingForRandomSelection>
                 <ConflictsWith>
                     <li>Immunity_Strong</li>
@@ -119,7 +119,7 @@
     <Operation Class="PatchOperationAddModExtension">
         <xpath>Defs/GeneDef[defName="Immunity_Strong"]</xpath>
         <value>
-            <li Class="MSSFP.AgeUpGeneModDefExtension">
+            <li Class="MSSFP.ModExtensions.AgeUpGeneModDefExtension">
                 <WeightingForRandomSelection>0.1</WeightingForRandomSelection>
                 <ConflictsWith>
                     <li>Immunity_Weak</li>
@@ -131,7 +131,7 @@
     <Operation Class="PatchOperationAddModExtension">
         <xpath>Defs/GeneDef[defName="Immunity_SuperStrong"]</xpath>
         <value>
-            <li Class="MSSFP.AgeUpGeneModDefExtension">
+            <li Class="MSSFP.ModExtensions.AgeUpGeneModDefExtension">
                 <WeightingForRandomSelection>0.05</WeightingForRandomSelection>
                 <ConflictsWith>
                     <li>Immunity_Weak</li>
@@ -143,7 +143,7 @@
     <Operation Class="PatchOperationAddModExtension">
         <xpath>Defs/GeneDef[defName="Libido_Low"]</xpath>
         <value>
-            <li Class="MSSFP.AgeUpGeneModDefExtension">
+            <li Class="MSSFP.ModExtensions.AgeUpGeneModDefExtension">
                 <WeightingForRandomSelection>0.25</WeightingForRandomSelection>
                 <ConflictsWith>
                     <li>Libido_High</li>
@@ -154,7 +154,7 @@
     <Operation Class="PatchOperationAddModExtension">
         <xpath>Defs/GeneDef[defName="Libido_High"]</xpath>
         <value>
-            <li Class="MSSFP.AgeUpGeneModDefExtension">
+            <li Class="MSSFP.ModExtensions.AgeUpGeneModDefExtension">
                 <WeightingForRandomSelection>0.25</WeightingForRandomSelection>
                 <ConflictsWith>
                     <li>Libido_Low</li>
@@ -165,7 +165,7 @@
     <Operation Class="PatchOperationAddModExtension">
         <xpath>Defs/GeneDef[defName="Fertile"]</xpath>
         <value>
-            <li Class="MSSFP.AgeUpGeneModDefExtension">
+            <li Class="MSSFP.ModExtensions.AgeUpGeneModDefExtension">
                 <WeightingForRandomSelection>0.1</WeightingForRandomSelection>
             </li>
         </value>
@@ -173,7 +173,7 @@
     <Operation Class="PatchOperationAddModExtension">
         <xpath>Defs/GeneDef[defName="KindInstinct"]</xpath>
         <value>
-            <li Class="MSSFP.AgeUpGeneModDefExtension">
+            <li Class="MSSFP.ModExtensions.AgeUpGeneModDefExtension">
                 <WeightingForRandomSelection>0.1</WeightingForRandomSelection>
             </li>
         </value>
@@ -181,7 +181,7 @@
     <Operation Class="PatchOperationAddModExtension">
         <xpath>Defs/GeneDef[defName="LongjumpLegs"]</xpath>
         <value>
-            <li Class="MSSFP.AgeUpGeneModDefExtension">
+            <li Class="MSSFP.ModExtensions.AgeUpGeneModDefExtension">
                 <WeightingForRandomSelection>0.01</WeightingForRandomSelection>
             </li>
         </value>

@@ -7,6 +7,9 @@ using Verse;
 
 namespace MSSFP.HarmonyPatches;
 
+/// <summary>
+/// Override the relic choice pool to add ours
+/// </summary>
 [HarmonyPatch(typeof(PreceptWorker_Relic))]
 public static class PreceptWorker_Relic_Patch
 {

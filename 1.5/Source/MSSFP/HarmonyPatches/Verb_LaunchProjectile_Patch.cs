@@ -1,10 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Reflection.Emit;
 using HarmonyLib;
+using MSSFP.Verbs;
 using Verse;
 
 namespace MSSFP.HarmonyPatches;
 
+/// <summary>
+/// Allows a projectile to drop a held thing
+/// </summary>
 [HarmonyPatch(typeof(Verb_LaunchProjectile))]
 public static class Verb_LaunchProjectile_Patch
 {

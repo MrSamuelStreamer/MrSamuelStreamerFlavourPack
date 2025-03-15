@@ -8,6 +8,9 @@ using Verse.AI.Group;
 
 namespace MSSFP.HarmonyPatches;
 
+/// <summary>
+/// Patch to handle LordToilTick getting a null pather. Not sure whos bug it is
+/// </summary>
 [HarmonyPatch(typeof(LordToil_EntitySwarm))]
 public static class LordToil_EntitySwarm_Patches
 {

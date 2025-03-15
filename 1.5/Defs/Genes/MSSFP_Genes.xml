@@ -10,7 +10,7 @@
         <ai_IsIncendiary>true</ai_IsIncendiary>
         <sendMessageOnCooldownComplete>true</sendMessageOnCooldownComplete>
         <verbProperties>
-            <verbClass>MSSFP.Verb_CastAbilityWithCost</verbClass>
+            <verbClass>MSSFP.Verbs.Verb_CastAbilityWithCost</verbClass>
             <range>12.1</range>
             <warmupTime>1.4</warmupTime>
             <soundCast>PiercingSpine_Launch</soundCast>

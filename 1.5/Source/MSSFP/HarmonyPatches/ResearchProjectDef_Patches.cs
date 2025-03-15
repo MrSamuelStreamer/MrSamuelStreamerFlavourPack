@@ -1,8 +1,12 @@
 ﻿using HarmonyLib;
+using MSSFP.Comps.World;
 using Verse;
 
 namespace MSSFP.HarmonyPatches;
 
+/// <summary>
+/// Hide frogge research until the event fires
+/// </summary>
 [HarmonyPatch(typeof(ResearchProjectDef))]
 public static class ResearchProjectDef_Patches
 {

@@ -4,13 +4,17 @@ using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
+using MSSFP.Genes;
 using RimWorld;
 using UnityEngine;
 using Verse;
+using GeneType = MSSFP.Genes.GeneType;
 
 namespace MSSFP.HarmonyPatches;
 
-
+/// <summary>
+/// Patches to add gene selection to growth moments
+/// </summary>
 [HarmonyPatch(typeof(Dialog_GrowthMomentChoices))]
 public static class Dialog_GrowthMomentChoices_Patch
 {

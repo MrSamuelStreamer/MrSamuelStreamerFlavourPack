@@ -3,7 +3,7 @@
 
     <JobDef ParentName="CastAbilityOnThing">
         <defName>MSSFP_CastAbilityGoToThingThenDissapear</defName>
-        <driverClass>MSSFP.JobDriver_CastAbilityGoToThenDissapear</driverClass>
+        <driverClass>MSSFP.Jobs.JobDriver_CastAbilityGoToThenDissapear</driverClass>
         <neverShowWeapon>true</neverShowWeapon>
         <playerInterruptible>false</playerInterruptible>
     </JobDef>

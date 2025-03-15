@@ -3,6 +3,9 @@ using RimWorld;
 
 namespace MSSFP.HarmonyPatches;
 
+/// <summary>
+/// Patch to prevent pawns with illiterate gene from reading
+/// </summary>
 [HarmonyPatch(typeof(JobDriver_Reading))]
 public static class JobDriver_Reading_Patches
 {

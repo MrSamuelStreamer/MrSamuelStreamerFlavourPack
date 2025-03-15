@@ -7,6 +7,9 @@ using Verse;
 
 namespace MSSFP.HarmonyPatches;
 
+/// <summary>
+/// Chance for a raid after a skylantern
+/// </summary>
 [HarmonyPatch(typeof(RitualOutcomeEffectWorker_Skylantern))]
 public static class RitualOutcomeEffectWorker_Skylantern_Patch
 {

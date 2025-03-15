@@ -3,7 +3,7 @@
     <Operation Class="PatchOperationReplace">
         <xpath>Defs/HediffDef[defName="PregnantHuman"]/comps/li[@Class="HediffCompProperties_MessageAfterTicks"]</xpath>
         <value>
-            <li Class="MSSFP.HediffCompProperties_RandomMessageAfterTicks">
+            <li Class="MSSFP.Hediffs.HediffCompProperties_RandomMessageAfterTicks">
                 <ticks>600</ticks>
                 <letterLabels>
                     <li>Pregnant!</li>

@@ -4,6 +4,7 @@ using System.Linq;
 using RimWorld;
 using UnityEngine;
 using Verse;
+using PawnGraphicUtils = MSSFP.Utils.PawnGraphicUtils;
 
 namespace MSSFP.Hediffs;
 
@@ -16,7 +17,15 @@ public class HediffComp_Haunt: HediffComp
     public string texPath;
     public Texture2D pawnTexture;
 
+    public SkillDef skillToBoost = null;
+    public int SkillBoostLevel = 0;
+
     public virtual string PawnName => name;
+
+    public int OnUntilTick = -1;
+    public int OffUntilTick = -1;
+
+    public int NextProxCheck = -1;
 
     public virtual Texture2D PawnTexture
     {
@@ -54,24 +63,71 @@ public class HediffComp_Haunt: HediffComp
         get
         {
             if (pawnToDraw == null) return null;
+            if (skillToBoost != null && SkillBoostLevel > 0)
+            {
+                return pawnToDraw == null ? null : "\n\n" + "MSS_FP_HauntedBuff".Translate(pawnToDraw.NameShortColored, skillToBoost.LabelCap, SkillBoostLevel);
+            }
             return pawnToDraw == null ? null : "\n\n" + "MSS_FP_HauntedUnBuff".Translate(pawnToDraw.NameShortColored, parent.pawn.NameShortColored);
-
-            // if (aptitudesCached.NullOrEmpty())
-            // {
-            //     foreach (SkillRecord skillsSkill in pawnToDraw.skills.skills)
-            //     {
-            //         AptitudeFor(skillsSkill.def);
-            //     }
-            // };
-            // KeyValuePair<SkillDef, int> maxSkill = aptitudesCached.MaxBy(x => x.Value);
-            //
-            // return pawnToDraw == null ? null : "\n\n" + "MSS_FP_HauntedBuff".Translate(pawnToDraw.NameShortColored, maxSkill.Key.skillLabel, maxSkill.Value);
         }
+    }
+
+    public override void CompPostTick(ref float severityAdjustment)
+    {
+        if (Props.CanTransferInProximity && NextProxCheck < Find.TickManager.TicksGame)
+        {
+            NextProxCheck = Find.TickManager.TicksGame + Props.ProximityTransferCheckTicks;
+
+            if(!Rand.Chance(Props.ProximityTransferChancePerCheck)) return;
+            Pawn pawn = GenRadial.RadialCellsAround(parent.pawn.Position, Props.ProximityRadius, true)
+                .SelectMany(cell =>
+                    parent.pawn.Map.thingGrid.ThingsAt(cell)
+                        .OfType<Pawn>()
+                        .Except([parent.pawn])
+                        .Where(p=>p.RaceProps.Humanlike))
+                .RandomElementWithFallback();
+
+            if (pawn != null)
+            {
+                parent.pawn.health.hediffSet.hediffs.Remove(parent);
+                parent.pawn = pawn;
+                pawn.health.hediffSet.hediffs.Add(parent);
+            }
+        }
+    }
+
+    public bool ShouldDisplayNow()
+    {
+        if (Props.AlwaysOn) return true;
+
+        if(OffUntilTick < 0) OffUntilTick = Find.TickManager.TicksGame + Props.OffTimeTicksRange.RandomInRange;
+
+        if (OnUntilTick < OffUntilTick && OnUntilTick > Find.TickManager.TicksGame)
+        {
+            if (OffUntilTick < OnUntilTick)
+            {
+                OffUntilTick = OnUntilTick + Props.OffTimeTicksRange.RandomInRange;
+            }
+
+            return true;
+        }
+        if (OffUntilTick > Find.TickManager.TicksGame)
+        {
+            if (OnUntilTick < OffUntilTick)
+            {
+                OnUntilTick = OffUntilTick + Props.OnTimeTicksRange.RandomInRange;
+            }
+
+            return false;
+        }
+
+        return false;
     }
 
     public virtual void DrawAt(Vector3 drawPos)
     {
         if(!MSSFPMod.settings.ShowHaunts) return;
+        if (!ShouldDisplayNow()) return;
+
         if (Props.onlyRenderWhenDrafted && Pawn.drafter is not { Drafted: true })
         {
             return;
@@ -110,13 +166,33 @@ public class HediffComp_Haunt: HediffComp
     {
         base.CompPostMake();
         HauntsCache.AddHaunt(Pawn.thingIDNumber, this);
+        NextProxCheck = Find.TickManager.TicksGame + Props.ProximityTransferCheckTicks + Rand.Range(0, GenDate.TicksPerHour);
     }
 
     public virtual void SetPawnToDraw(Pawn pawn)
     {
+        if(pawn == null) return;
+
+        if (pawnToDraw is { skills: not null })
+        {
+            parent.pawn.skills.GetSkill(skillToBoost).Level -= SkillBoostLevel;
+        }
+
         pawnToDraw = pawn;
         aptitudesCached.Clear();
-        if (Pawn.needs?.mood?.thoughts?.memories?.GetFirstMemoryOfDef(Props.thought) is Thought_Memory thought)
+        texPath = PawnGraphicUtils.SavePawnTexture(pawn);
+
+        if (pawnToDraw.skills != null)
+        {
+            SkillRecord maxSkill = pawnToDraw.skills.skills.MaxBy(pawnSkill => pawnSkill.Level);
+
+            skillToBoost = maxSkill.def;
+            SkillBoostLevel = Mathf.CeilToInt(maxSkill.Level / 3f);
+
+            parent.pawn.skills.GetSkill(skillToBoost).Level += SkillBoostLevel;
+        }
+
+        if (Pawn.needs?.mood?.thoughts?.memories?.GetFirstMemoryOfDef(Props.thought) is { } thought)
         {
             thought.otherPawn = pawnToDraw;
         }
@@ -130,6 +206,7 @@ public class HediffComp_Haunt: HediffComp
     {
         base.CompPostPostRemoved();
         HauntsCache.RemoveHaunt(Pawn.thingIDNumber, this);
+        parent.pawn.skills.GetSkill(skillToBoost).Level -= SkillBoostLevel;
         if(Props.thought != null) Pawn.needs?.mood?.thoughts?.memories?.RemoveMemoriesOfDef(Props.thought);
     }
 
@@ -140,6 +217,12 @@ public class HediffComp_Haunt: HediffComp
         Scribe_References.Look(ref pawnToDraw, "pawnToDraw");
         Scribe_Values.Look(ref texPath, "texPath");
         Scribe_Values.Look(ref name, "name");
+        Scribe_Values.Look(ref OnUntilTick, "OnUntilTick");
+        Scribe_Values.Look(ref OffUntilTick, "OffUntilTick");
+        Scribe_Values.Look(ref NextProxCheck, "NextProxCheck");
+
+        Scribe_Defs.Look(ref skillToBoost, "skillToBoost");
+        Scribe_Values.Look(ref SkillBoostLevel, "SkillBoostLevel", 0);
 
         if (Scribe.mode == LoadSaveMode.ResolvingCrossRefs)
         {
@@ -185,27 +268,4 @@ public class HediffComp_Haunt: HediffComp
         newThought.permanent = true;
         Pawn.needs?.mood?.thoughts?.memories?.TryGainMemory(newThought, pawnToDraw);
     }
-
-    // public int AptitudeFor(SkillDef skill)
-    // {
-    //     ModLog.Debug("HediffComp_Haunt.AptitudeFor:Start");
-    //     if(pawnToDraw is null) return 0;
-    //
-    //     if(aptitudesCached.TryGetValue(skill, out int aptitudes)) return aptitudes;
-    //
-    //     SkillRecord maxSkill = pawnToDraw.skills.skills.MaxBy(pawnSkill => pawnSkill.Level);
-    //
-    //     if (maxSkill.def != skill)
-    //     {
-    //         aptitudesCached[skill] = 0;
-    //         return 0;
-    //     }
-    //
-    //     int modifier = Mathf.CeilToInt(maxSkill.Level / 3f);
-    //
-    //     aptitudesCached[skill] = modifier;
-    //
-    //     ModLog.Debug("HediffComp_Haunt.AptitudeFor:End");
-    //     return modifier;
-    // }
 }

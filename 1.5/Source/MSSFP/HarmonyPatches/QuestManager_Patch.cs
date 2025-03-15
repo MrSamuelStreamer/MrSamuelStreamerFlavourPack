@@ -1,11 +1,15 @@
 ﻿using System;
 using HarmonyLib;
+using MSSFP.Genes;
 using RimWorld;
 using RimWorld.Planet;
 using Verse;
 
 namespace MSSFP.HarmonyPatches;
 
+/// <summary>
+/// Add random genes on birth
+/// </summary>
 [HarmonyPatch(typeof(QuestManager))]
 public static class QuestManager_Patch
 {

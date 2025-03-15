@@ -1,8 +1,5 @@
-﻿using System.Collections.Generic;
-using HarmonyLib;
-using MSSFP.Hediffs;
+﻿using HarmonyLib;
 using RimWorld;
-using UnityEngine;
 using Verse;
 
 namespace MSSFP.HarmonyPatches;
@@ -10,20 +7,28 @@ namespace MSSFP.HarmonyPatches;
 [HarmonyPatch(typeof(Pawn))]
 public static class Pawn_Patches
 {
+    // /// <summary>
+    // /// Draw haunts
+    // /// </summary>
+    // /// <param name="__instance"></param>
+    // /// <param name="drawLoc"></param>
+    // [HarmonyPatch("DrawAt")]
+    // [HarmonyPostfix]
+    // public static void Pawn_PostDrawAt(Pawn __instance, Vector3 drawLoc)
+    // {
+    //     if (HauntsCache.Haunts.TryGetValue(__instance.thingIDNumber, out List<HediffComp_Haunt> haunts))
+    //     {
+    //         foreach (HediffComp_Haunt haunt in haunts)
+    //         {
+    //             haunt.DrawAt(drawLoc);
+    //         }
+    //     }
+    // }
 
-    [HarmonyPatch("DrawAt")]
-    [HarmonyPostfix]
-    public static void Pawn_PostDrawAt(Pawn __instance, Vector3 drawLoc)
-    {
-        if (HauntsCache.Haunts.TryGetValue(__instance.thingIDNumber, out List<HediffComp_Haunt> haunts))
-        {
-            foreach (HediffComp_Haunt haunt in haunts)
-            {
-                haunt.DrawAt(drawLoc);
-            }
-        }
-    }
-
+    /// <summary>
+    /// Trigger froggomancer rescue randomly on pawn downed
+    /// </summary>
+    /// <param name="__instance"></param>
     [HarmonyPatch(nameof(Pawn.Notify_Downed))]
     [HarmonyPostfix]
     public static void Pawn_Notify_Downed(Pawn __instance)

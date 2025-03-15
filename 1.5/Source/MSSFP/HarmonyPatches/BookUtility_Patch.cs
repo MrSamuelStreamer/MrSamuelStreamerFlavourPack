@@ -3,6 +3,9 @@ using Verse;
 
 namespace MSSFP.HarmonyPatches;
 
+/// <summary>
+/// Patch to mark pawn as illiterate if they have the gene
+/// </summary>
 [HarmonyPatch(typeof(BookUtility))]
 public static class BookUtility_Patch
 {

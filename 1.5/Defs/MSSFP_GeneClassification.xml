@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Defs>
-    <MSSFP.GeneClassificationDef>
+    <MSSFP.Genes.GeneClassificationDef>
         <defName>MSSFP_GoodGenes</defName>
         <type>good</type>
         <genes>
@@ -2862,8 +2862,8 @@
                 <geneClassification />
             </li>
         </genes>
-    </MSSFP.GeneClassificationDef>
-    <MSSFP.GeneClassificationDef>
+    </MSSFP.Genes.GeneClassificationDef>
+    <MSSFP.Genes.GeneClassificationDef>
         <defName>MSSFP_BadGenes</defName>
         <type>bad</type>
         <genes>
@@ -3505,8 +3505,8 @@
                 <geneClassification />
             </li>
         </genes>
-    </MSSFP.GeneClassificationDef>
-    <MSSFP.GeneClassificationDef>
+    </MSSFP.Genes.GeneClassificationDef>
+    <MSSFP.Genes.GeneClassificationDef>
         <defName>MSSFP_NeutralGenes</defName>
         <type>neutral</type>
         <genes>
@@ -4932,6 +4932,5 @@
                 <geneClassification />
             </li>
         </genes>
-    </MSSFP.GeneClassificationDef>
+    </MSSFP.Genes.GeneClassificationDef>
 </Defs>
-

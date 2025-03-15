@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <Defs>
-    <MSSFP.GeneMutatorDef>
+    <MSSFP.Genes.GeneMutatorDef>
         <defName>MSS_GlobalWarming</defName>
         <label>Global Warming Genes</label>
         <conditionActive>GlobalWarming</conditionActive>
@@ -20,8 +20,8 @@
                 <weight>0.1</weight>
             </li>
         </genes>
-    </MSSFP.GeneMutatorDef>
-    <MSSFP.GeneMutatorDef>
+    </MSSFP.Genes.GeneMutatorDef>
+    <MSSFP.Genes.GeneMutatorDef>
         <defName>MSS_HeatWave</defName>
         <label>Heat Wave Genes</label>
         <conditionActive>HeatWave</conditionActive>
@@ -41,8 +41,8 @@
                 <weight>0.1</weight>
             </li>
         </genes>
-    </MSSFP.GeneMutatorDef>
-    <MSSFP.GeneMutatorDef>
+    </MSSFP.Genes.GeneMutatorDef>
+    <MSSFP.Genes.GeneMutatorDef>
         <defName>MSS_VolcanicWinter</defName>
         <label>Volcanic Winter Genes</label>
         <conditionActive>VolcanicWinter</conditionActive>
@@ -62,8 +62,8 @@
                 <weight>0.1</weight>
             </li>
         </genes>
-    </MSSFP.GeneMutatorDef>
-    <MSSFP.GeneMutatorDef>
+    </MSSFP.Genes.GeneMutatorDef>
+    <MSSFP.Genes.GeneMutatorDef>
         <defName>MSS_ColdSnap</defName>
         <label>Cold Snap Genes</label>
         <conditionActive>ColdSnap</conditionActive>
@@ -83,8 +83,8 @@
                 <weight>0.1</weight>
             </li>
         </genes>
-    </MSSFP.GeneMutatorDef>
-    <MSSFP.GeneMutatorDef>
+    </MSSFP.Genes.GeneMutatorDef>
+    <MSSFP.Genes.GeneMutatorDef>
         <defName>MSS_PsychicDrone</defName>
         <label>Psychic Drone Genes</label>
         <conditionActive>PsychicDrone</conditionActive>
@@ -104,8 +104,8 @@
                 <weight>0.1</weight>
             </li>
         </genes>
-    </MSSFP.GeneMutatorDef>
-    <MSSFP.GeneMutatorDef>
+    </MSSFP.Genes.GeneMutatorDef>
+    <MSSFP.Genes.GeneMutatorDef>
         <defName>MSS_PsychicSoothe</defName>
         <label>Psychic Soothe Genes</label>
         <conditionActive>PsychicSoothe</conditionActive>
@@ -125,5 +125,5 @@
                 <weight>0.1</weight>
             </li>
         </genes>
-    </MSSFP.GeneMutatorDef>
+    </MSSFP.Genes.GeneMutatorDef>
 </Defs>

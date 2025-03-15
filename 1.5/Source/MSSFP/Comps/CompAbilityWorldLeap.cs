@@ -7,7 +7,7 @@ namespace MSSFP.Comps;
 
 public class CompAbilityWorldLeap: CompAbilityEffect_Farskip
 {
-    public CompProperties_AbilityWorldLeap Props => (CompProperties_AbilityWorldLeap) this.props;
+    public new CompProperties_AbilityWorldLeap Props => (CompProperties_AbilityWorldLeap) props;
 
 
     public override bool ShouldHideGizmo

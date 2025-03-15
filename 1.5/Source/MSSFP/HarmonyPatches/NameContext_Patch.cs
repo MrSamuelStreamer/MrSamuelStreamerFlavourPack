@@ -6,6 +6,9 @@ using Verse;
 namespace MSSFP.HarmonyPatches;
 
 
+/// <summary>
+/// Patch max name length
+/// </summary>
 public static class NameContext_Patch
 {
     public static Lazy<FieldInfo> textboxWidth = new Lazy<FieldInfo>(()=>AccessTools.Field(AccessTools.Inner(typeof(Dialog_NamePawn), "NameContext"), "textboxWidth"));
