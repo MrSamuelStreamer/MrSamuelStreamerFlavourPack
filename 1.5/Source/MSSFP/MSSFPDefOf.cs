@@ -11,6 +11,7 @@ namespace MSSFP;
 public static class MSSFPDefOf
 {
     public static readonly ThingDef MSSFP_Frogge;
+    public static readonly PawnKindDef MSSFP_Jrogge;
     public static readonly ThingDef MSS_FP_Froggomancer;
     public static readonly HediffDef MSS_FP_FroggeHaunt;
     public static readonly HediffDef MSS_FP_PawnDisplayer;
@@ -56,6 +57,9 @@ public static class MSSFPDefOf
     public static readonly IncidentDef MSS_LoversAdvance;
 
     public static readonly ThingDef MSSFP_ConstructionOffice;
+
+    public static readonly HediffDef MSS_FP_PossessionHaunt;
+    public static readonly ThoughtDef MSS_FP_PossessedThought;
 
     static MSSFPDefOf() => DefOfHelper.EnsureInitializedInCtor(typeof(MSSFPDefOf));
 }

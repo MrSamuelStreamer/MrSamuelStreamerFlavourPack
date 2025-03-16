@@ -97,7 +97,7 @@
             <defaultProjectile>MSS_FP_Zap</defaultProjectile>
             <verbClass>Verb_AbilityShoot</verbClass>
             <warmupTime>1.5</warmupTime>
-            <soundCast>Psych icShockLanceCast</soundCast>
+            <soundCast>PsychicShockLanceCast</soundCast>
             <ai_IsWeapon>false</ai_IsWeapon>
         </verbProperties>
     </AbilityDef>

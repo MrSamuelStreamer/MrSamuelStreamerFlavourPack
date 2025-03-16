@@ -29,6 +29,8 @@ public class Settings : ModSettings
 
     public bool SingleUseMentalFuses = true;
 
+    public bool DisablePossession = false;
+
     public void DoWindowContents(Rect wrect)
     {
         Listing_Standard options = new();
@@ -62,6 +64,9 @@ public class Settings : ModSettings
         options.Gap();
 
         options.CheckboxLabeled("MSS_FP_Settings_SingleUseMentalFuses".Translate(), ref SingleUseMentalFuses);
+        options.Gap();
+
+        options.CheckboxLabeled("MSS_FP_Settings_DisablePossession".Translate(), ref DisablePossession);
         options.Gap();
 
         options.Label("MSS_FP_Settings_DaysForOutpostFission".Translate(DaysForOutpostFission));
@@ -137,6 +142,7 @@ public class Settings : ModSettings
         Scribe_Values.Look(ref EnableLoversRetreat, "EnableLoversRetreat", true);
         Scribe_Values.Look(ref EnableFroggeIncidents, "EnableFroggeIncidents", true);
         Scribe_Values.Look(ref SingleUseMentalFuses, "SingleUseMentalFuses", true);
+        Scribe_Values.Look(ref DisablePossession, "DisablePossession", false);
         Scribe_Values.Look(ref GeneEventChance, "GeneEventChance", 1f);
         Scribe_Values.Look(ref GoodGeneChance, "GoodGeneChance", 1f / 4f);
         Scribe_Values.Look(ref BadGeneChance, "BadGeneChance", 1f / 4f);
