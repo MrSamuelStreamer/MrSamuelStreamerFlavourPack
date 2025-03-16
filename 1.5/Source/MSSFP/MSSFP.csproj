@@ -173,6 +173,10 @@
         <CompatibilityFiles Update="..\..\..\Compatibility\kikohi.jewelry\1.5\Defs\MSSFP_Defs.xml">
           <Link>MrSamuelStreamerFlavourPack\Compatibility\kikohi.jewelry\1.5\Defs\MSSFP_Defs.xml</Link>
         </CompatibilityFiles>
+
+        <ReleaseFiles Update="..\..\Defs\Animation\MSSFP_Haunted.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Defs\Animation\MSSFP_TestAnimation</Link>
+        </ReleaseFiles>
     </ItemGroup>
     <ItemGroup>
       <Folder Include="..\..\..\Common\Textures\Things\AMPSuit\">

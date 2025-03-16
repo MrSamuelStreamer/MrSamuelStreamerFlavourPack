@@ -1,4 +1,5 @@
-﻿using MSSFP.Genes;
+﻿using MSSFP.Animation;
+using MSSFP.Genes;
 using MSSFP.Thoughts;
 using RimWorld;
 using Verse;
@@ -60,6 +61,9 @@ public static class MSSFPDefOf
 
     public static readonly HediffDef MSS_FP_PossessionHaunt;
     public static readonly ThoughtDef MSS_FP_PossessedThought;
+
+    public static readonly ThingDef MSSFPThingAnimationHolder;
+    public static readonly ThingAnimationDef MSSFPTestAnim;
 
     static MSSFPDefOf() => DefOfHelper.EnsureInitializedInCtor(typeof(MSSFPDefOf));
 }

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Defs>
+    <ThingDef>
+        <defName>MSSFPThingAnimationHolder</defName>
+        <label>AnimationHolder</label>
+        <thingClass>MSSFP.Animation.AnimatedThingHolder</thingClass>
+        <tickerType>Normal</tickerType>
+        <useHitPoints>False</useHitPoints>
+    </ThingDef>
+
+    <MSSFP.Animation.ThingAnimationDef>
+        <defName>MSSFPTestAnim</defName>
+        <label>TestAnim</label>
+        <root Class="MSSFP.Animation.Lerp">
+            <endX>1</endX>
+            <endZ>1</endZ>
+            <endY>1</endY>
+            <endFrames>300</endFrames>
+        </root>
+    </MSSFP.Animation.ThingAnimationDef>
+</Defs>
