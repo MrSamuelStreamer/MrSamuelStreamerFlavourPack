@@ -4,7 +4,7 @@ using Verse;
 
 namespace MSSFP.VOE.Hediffs;
 
-public class HediffCompProperties_OutpostSuppression: HediffCompProperties
+public class HediffCompProperties_OutpostSuppression : HediffCompProperties
 {
     public List<WorldObjectDef> OutpostDefs = new List<WorldObjectDef>();
 

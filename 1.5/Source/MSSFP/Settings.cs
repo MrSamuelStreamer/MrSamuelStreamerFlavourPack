@@ -1,11 +1,13 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using Verse;
 
 namespace MSSFP;
 
 public class Settings : ModSettings
 {
+    private float ScrollViewHeight = 0;
+    public Vector2 scrollPosition = Vector2.zero;
+
     public bool destroyFloors = true;
     public bool overrideRelicPool = false;
     public bool disableFroggeNom = false;
@@ -31,54 +33,51 @@ public class Settings : ModSettings
 
     public bool DisablePossession = false;
 
+    public void DrawCheckBox(Listing_Standard options, string label, ref bool value, ref float svh)
+    {
+        svh += Text.CalcHeight(label, options.ColumnWidth) + 12f;
+        options.CheckboxLabeled(label, ref value);
+        options.Gap();
+    }
+
+    public void DrawIntAdjuster(Listing_Standard options, string label, ref int value, int countChange, int min, ref float svh)
+    {
+        svh += options.Label(label).height;
+        options.IntAdjuster(ref value, countChange, min);
+        svh += 24f + options.verticalSpacing;
+    }
+
     public void DoWindowContents(Rect wrect)
     {
+        Rect viewRect = new Rect(0, 0, wrect.width - 20, ScrollViewHeight);
+        ScrollViewHeight = 0;
+        scrollPosition = GUI.BeginScrollView(new Rect(0, 50, wrect.width, wrect.height - 50), scrollPosition, viewRect);
+
         Listing_Standard options = new();
-        options.Begin(wrect);
+        options.Begin(viewRect);
 
-        options.CheckboxLabeled("MSS_Mabel_Settings_DestroyFloors".Translate(), ref destroyFloors);
-        options.Gap();
+        DrawCheckBox(options, "MSS_Mabel_Settings_DestroyFloors".Translate(), ref destroyFloors, ref ScrollViewHeight);
+        DrawCheckBox(options, "MSS_FP_Settings_OverrideRelicPool".Translate(), ref overrideRelicPool, ref ScrollViewHeight);
+        DrawCheckBox(options, "MSS_FP_Settings_disableFroggeNom".Translate(), ref disableFroggeNom, ref ScrollViewHeight);
+        DrawCheckBox(options, "MSS_FP_Settings_ShowHaunts".Translate(), ref ShowHaunts, ref ScrollViewHeight);
+        DrawCheckBox(options, "MSS_FP_Settings_NoSkylanternRaids".Translate(), ref NoSkylanternRaids, ref ScrollViewHeight);
+        DrawCheckBox(options, "MSS_FP_Settings_DrawByMrStreamer".Translate(), ref DrawByMrStreamer, ref ScrollViewHeight);
+        DrawCheckBox(options, "MSS_FP_Settings_EnableOutpostFission".Translate(), ref EnableOutpostFission, ref ScrollViewHeight);
+        DrawCheckBox(options, "MSS_FP_Settings_EnableLoversRetreat".Translate(), ref EnableLoversRetreat, ref ScrollViewHeight);
+        DrawCheckBox(options, "MSS_FP_Settings_EnableFroggeIncidents".Translate(), ref EnableFroggeIncidents, ref ScrollViewHeight);
+        DrawCheckBox(options, "MSS_FP_Settings_SingleUseMentalFuses".Translate(), ref SingleUseMentalFuses, ref ScrollViewHeight);
+        DrawCheckBox(options, "MSS_FP_Settings_DisablePossession".Translate(), ref DisablePossession, ref ScrollViewHeight);
 
-        options.CheckboxLabeled("MSS_FP_Settings_OverrideRelicPool".Translate(), ref overrideRelicPool);
-        options.Gap();
-
-        options.CheckboxLabeled("MSS_FP_Settings_disableFroggeNom".Translate(), ref disableFroggeNom);
-        options.Gap();
-
-        options.CheckboxLabeled("MSS_FP_Settings_ShowHaunts".Translate(), ref ShowHaunts);
-        options.Gap();
-
-        options.CheckboxLabeled("MSS_FP_Settings_NoSkylanternRaids".Translate(), ref NoSkylanternRaids);
-        options.Gap();
-
-        options.CheckboxLabeled("MSS_FP_Settings_DrawByMrStreamer".Translate(), ref DrawByMrStreamer);
-        options.Gap();
-
-        options.CheckboxLabeled("MSS_FP_Settings_EnableOutpostFission".Translate(), ref EnableOutpostFission);
-        options.Gap();
-
-        options.CheckboxLabeled("MSS_FP_Settings_EnableLoversRetreat".Translate(), ref EnableLoversRetreat);
-        options.Gap();
-
-        options.CheckboxLabeled("MSS_FP_Settings_EnableFroggeIncidents".Translate(), ref EnableFroggeIncidents);
-        options.Gap();
-
-        options.CheckboxLabeled("MSS_FP_Settings_SingleUseMentalFuses".Translate(), ref SingleUseMentalFuses);
-        options.Gap();
-
-        options.CheckboxLabeled("MSS_FP_Settings_DisablePossession".Translate(), ref DisablePossession);
-        options.Gap();
-
-        options.Label("MSS_FP_Settings_DaysForOutpostFission".Translate(DaysForOutpostFission));
-        options.IntAdjuster(ref DaysForOutpostFission, 1, 1);
-
-        options.Label("MSS_FP_Settings_DaysForFission".Translate(DaysForFission));
-        options.IntAdjuster(ref DaysForFission, 1, 1);
+        DrawIntAdjuster(options, "MSS_FP_Settings_DaysForOutpostFission".Translate(DaysForOutpostFission), ref DaysForOutpostFission, 1, 1, ref ScrollViewHeight);
+        DrawIntAdjuster(options, "MSS_FP_Settings_DaysForFission".Translate(DaysForFission), ref DaysForFission, 1, 1, ref ScrollViewHeight);
 
         GeneEventChance = options.SliderLabeled("MSS_FP_GeneEventChance".Translate(GeneEventChance * 100), GeneEventChance, 0f, 1f, tooltip: "MSS_FP_GeneEventChance_Tooltip");
+        ScrollViewHeight += 30f;
 
         float GoodGeneChanceUpd = options.SliderLabeled("MSS_FP_GoodGeneChance".Translate(GoodGeneChance * 100), GoodGeneChance, 0f, 1f, tooltip: "MSS_FP_GoodGeneChance_Tooltip");
+        ScrollViewHeight += 30f;
         float BadGeneChanceUpd = options.SliderLabeled("MSS_FP_BadGeneChance".Translate(BadGeneChance * 100), BadGeneChance, 0f, 1f, tooltip: "MSS_FP_BadGeneChance_Tooltip");
+        ScrollViewHeight += 30f;
         float NeutralGeneChanceUpd = options.SliderLabeled(
             "MSS_FP_NeutralGeneChance".Translate(NeutralGeneChance * 100),
             NeutralGeneChance,
@@ -86,6 +85,7 @@ public class Settings : ModSettings
             1f,
             tooltip: "MSS_FP_NeutralGeneChance_Tooltip"
         );
+        ScrollViewHeight += 30f;
         float RandomGeneChanceUpd = options.SliderLabeled(
             "MSS_FP_RandomGeneChance".Translate(RandomGeneChance * 100),
             RandomGeneChance,
@@ -93,6 +93,7 @@ public class Settings : ModSettings
             1f,
             tooltip: "MSS_FP_RandomGeneChance_Tooltip"
         );
+        ScrollViewHeight += 30f;
 
         if (!Mathf.Approximately(GoodGeneChance, GoodGeneChanceUpd))
         {
