@@ -12,7 +12,7 @@ namespace MSSFP.VOE;
 
 public class Outpost_Retirement : Outpost
 {
-    public Lazy<FieldInfo> ticksTillProductionInfo = new Lazy<FieldInfo>(()=>AccessTools.Field(typeof(Outpost), "ticksTillProduction"));
+    public Lazy<FieldInfo> ticksTillProductionInfo = new Lazy<FieldInfo>(() => AccessTools.Field(typeof(Outpost), "ticksTillProduction"));
     public OutpostDefModExtension modExt => def.GetModExtension<OutpostDefModExtension>();
 
     public bool NoOldPeopleLetterSent = false;
@@ -57,11 +57,12 @@ public class Outpost_Retirement : Outpost
         }
         else
         {
-            int ticksTillProd = (int) ticksTillProductionInfo.Value.GetValue(this);
+            int ticksTillProd = (int)ticksTillProductionInfo.Value.GetValue(this);
 
             bool AnyCapablePawns = CapablePawns.Any();
 
-            if (AnyCapablePawns) NoOldPeopleLetterSent = false;
+            if (AnyCapablePawns)
+                NoOldPeopleLetterSent = false;
 
             if (!AnyCapablePawns && ticksTillProd >= 0)
             {
@@ -83,7 +84,7 @@ public class Outpost_Retirement : Outpost
             }
         }
 
-        if (Find.TickManager.TicksGame % GenDate.TicksPerHour == 0 && Things.Any(p=>p is Corpse) && Find.TickManager.TicksGame > TickBeforeNextBodyReturned)
+        if (Find.TickManager.TicksGame % GenDate.TicksPerHour == 0 && Things.Any(p => p is Corpse) && Find.TickManager.TicksGame > TickBeforeNextBodyReturned)
         {
             Corpse deadPawn = Things.OfType<Corpse>().RandomElement();
             if (deadPawn != null)
@@ -103,28 +104,28 @@ public class Outpost_Retirement : Outpost
         base.Tick();
     }
 
-    public static Lazy<MethodInfo> Deliver_PackAnimalInfo = new Lazy<MethodInfo>(()=>AccessTools.Method(typeof(Outpost_Retirement), "Deliver_PackAnimal"));
+    public static Lazy<MethodInfo> Deliver_PackAnimalInfo = new Lazy<MethodInfo>(() => AccessTools.Method(typeof(Outpost_Retirement), "Deliver_PackAnimal"));
 
     public bool DeliverDeadPawn(Corpse pawn)
     {
-      Map map = deliveryMap ?? Find.Maps.Where(m => m.IsPlayerHome).OrderBy(m => Find.WorldGrid.ApproxDistanceInTiles(m.Parent.Tile, Tile)).FirstOrDefault();
-      if (map == null)
-      {
-        Log.Warning("Vanilla Outpost Expanded Tried to deliver to a null map, storing instead");
-        return false;
-      }
-      else
-      {
-        TaggedString text = "MSSFP_DeadPawnFromOutpost".Translate(pawn.InnerPawn.NameFullColored,  Name) + "\n";
-        List<Thing> lookAt = new();
-        Rot4 rotFromTo = Find.WorldGrid.GetRotFromTo(map.Parent.Tile, Tile);
-        List<Thing> list = [pawn];
+        Map map = deliveryMap ?? Find.Maps.Where(m => m.IsPlayerHome).OrderBy(m => Find.WorldGrid.ApproxDistanceInTiles(m.Parent.Tile, Tile)).FirstOrDefault();
+        if (map == null)
+        {
+            Log.Warning("Vanilla Outpost Expanded Tried to deliver to a null map, storing instead");
+            return false;
+        }
+        else
+        {
+            TaggedString text = "MSSFP_DeadPawnFromOutpost".Translate(pawn.InnerPawn.NameFullColored, Name) + "\n";
+            List<Thing> lookAt = new();
+            Rot4 rotFromTo = Find.WorldGrid.GetRotFromTo(map.Parent.Tile, Tile);
+            List<Thing> list = [pawn];
 
-        Deliver_PackAnimalInfo.Value.Invoke(this, [list, map, rotFromTo, lookAt]);
+            Deliver_PackAnimalInfo.Value.Invoke(this, [list, map, rotFromTo, lookAt]);
 
-        Find.LetterStack.ReceiveLetter("MSSFP_DeadPawnFromOutpostLabel".Translate(pawn.InnerPawn.NameShortColored), text, LetterDefOf.NeutralEvent, new LookTargets(lookAt));
-        return true;
-      }
+            Find.LetterStack.ReceiveLetter("MSSFP_DeadPawnFromOutpostLabel".Translate(pawn.InnerPawn.NameShortColored), text, LetterDefOf.NeutralEvent, new LookTargets(lookAt));
+            return true;
+        }
     }
 
     public static QualityCategory GetRandomQualityCategory()
@@ -136,7 +137,8 @@ public class Outpost_Retirement : Outpost
 
     public override void Produce()
     {
-        if(!CapablePawns.Any()) return;
+        if (!CapablePawns.Any())
+            return;
         base.Produce();
     }
 
@@ -193,12 +195,12 @@ public class Outpost_Retirement : Outpost
 
     public override string GetInspectString()
     {
-
         string[] strArray = [base.GetInspectString(), null];
 
         if (CapablePawns.Any())
         {
-            strArray[1] = "\n" + "MSS_FP_RetirementWillProduce".Translate(modExt.valuePerYearOld.min * CombinedAge, modExt.valuePerYearOld.max * CombinedAge, TimeTillProduction).RawText;
+            strArray[1] =
+                "\n" + "MSS_FP_RetirementWillProduce".Translate(modExt.valuePerYearOld.min * CombinedAge, modExt.valuePerYearOld.max * CombinedAge, TimeTillProduction).RawText;
         }
         else
         {

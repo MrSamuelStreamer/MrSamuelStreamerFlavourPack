@@ -57,6 +57,13 @@
         <classic>true</classic>
     </PreceptDef>
 
+
+    <PreceptDef ParentName="MSSFPWitchTrialBase">
+        <defName>MSSFP_WitchTrialMentalState</defName>
+        <ritualPatternBase>MSSFP_WitchTrialMentalState</ritualPatternBase>
+        <takeNameFrom>Trial</takeNameFrom>
+    </PreceptDef>
+
     <PreceptDef ParentName="MSSFPWitchTrialBase">
         <defName>MSSFP_WitchTrialPrisoner</defName>
         <ritualPatternBase>MSSFP_WitchTrial</ritualPatternBase>
@@ -233,4 +240,152 @@
             </li>
         </comps>
     </RitualOutcomeEffectDef>
+
+    <RitualPatternDef ParentName="MSSFPWitchTrial">
+        <defName>MSSFP_WitchTrialMentalState</defName>
+        <ritualBehavior>TrialMentalState</ritualBehavior>
+        <ritualOutcomeEffect>MSSFP_WitchTrialMentalState</ritualOutcomeEffect>
+    </RitualPatternDef>
+
+    <RitualBehaviorDef>
+        <defName>MSSFP_WitchTrialMentalState</defName>
+        <workerClass>MSSFP.Rituals.RitualBehaviorWorker_WitchTrial</workerClass>
+        <durationTicks>5000</durationTicks>
+        <roles>
+            <li Class="RitualRoleTag">
+                <label>judge</label>
+                <tag>Leader</tag>
+                <id>leader</id>
+                <precept>IdeoRole_Leader</precept>
+                <required>True</required>
+                <maxCount>1</maxCount>
+                <countsAsParticipant>False</countsAsParticipant>
+                <allowChild>false</allowChild>
+                <mustBeAbleToReachTarget>True</mustBeAbleToReachTarget>
+            </li>
+            <li Class="RitualRoleForced">
+                <label>accused</label>
+                <id>convict</id>
+                <maxCount>1</maxCount>
+                <countsAsParticipant>False</countsAsParticipant>
+                <addToLord>false</addToLord>
+                <ignoreBleeding>true</ignoreBleeding>
+                <allowNonAggroMentalState>true</allowNonAggroMentalState>
+            </li>
+        </roles>
+        <stages>
+            <li>
+                <defaultDuty>Spectate</defaultDuty>
+                <allowedSpectateSidesOverride>Horizontal</allowedSpectateSidesOverride>
+                <spectateDistanceOverride>1</spectateDistanceOverride>
+                <spectatorsRequired>true</spectatorsRequired>
+                <endTriggers>
+                    <li Class="StageEndTrigger_DurationPercentage">
+                        <percentage>1</percentage>
+                    </li>
+                </endTriggers>
+                <roleBehaviors>
+                    <li>
+                        <roleId>leader</roleId>
+                        <dutyDef>SpeakOnCell</dutyDef>
+                        <customPositions>
+                            <li Class="RitualPosition_BehindThingCenter" />
+                        </customPositions>
+                    </li>
+                </roleBehaviors>
+            </li>
+        </stages>
+    </RitualBehaviorDef>
+
+
+  <RitualBehaviorDef>
+    <defName>MSSFP_WitchTrialPrisoner</defName>
+    <workerClass>MSSFP.Rituals.RitualBehaviorWorker_WitchTrial</workerClass>
+    <durationTicks>5000</durationTicks>
+    <roles>
+      <li Class="RitualRoleTag">
+        <label>judge</label>
+        <tag>Leader</tag>
+        <id>leader</id>
+        <precept>IdeoRole_Leader</precept>
+        <required>True</required>
+        <maxCount>1</maxCount>
+        <countsAsParticipant>False</countsAsParticipant>
+        <allowChild>false</allowChild>
+        <mustBeAbleToReachTarget>True</mustBeAbleToReachTarget>
+      </li>
+      <li Class="RitualRoleForced">
+        <label>accused</label>
+        <id>convict</id>
+        <maxCount>1</maxCount>
+        <required>True</required>
+        <countsAsParticipant>False</countsAsParticipant>
+        <ignoreBleeding>true</ignoreBleeding>
+      </li>
+    </roles>
+    <stages>
+      <li Class="RitualStage_InteractWithPrisoner">
+        <defaultDuty>Spectate</defaultDuty>
+        <allowedSpectateSidesOverride>Horizontal</allowedSpectateSidesOverride>
+        <spectateDistanceOverride>1</spectateDistanceOverride>
+        <failTriggers>
+          <li Class="StageFailTrigger_TargetPawnUnreachable">
+            <takerId>leader</takerId>
+            <takeeId>convict</takeeId>
+            <desc>Convicted prisoner is not reachable.</desc>
+          </li>
+          <li Class="StageFailTrigger_PawnAsleep">
+            <desc>escort asleep</desc>
+            <pawnId>leader</pawnId>
+          </li>
+        </failTriggers>
+        <endTriggers>
+          <li Class="StageEndTrigger_RolesArrived">
+            <roleIds>
+              <li>convict</li>
+            </roleIds>
+          </li>
+        </endTriggers>
+        <roleBehaviors>
+          <li>
+            <roleId>leader</roleId>
+            <dutyDef>DeliverPawnToCell</dutyDef>
+            <customPositions>
+              <li Class="RitualPosition_InFrontThingCenter"/>
+            </customPositions>
+          </li>
+          <li>
+            <roleId>convict</roleId>
+            <dutyDef>Idle</dutyDef>
+          </li>
+        </roleBehaviors>
+      </li>
+      <li>
+        <defaultDuty>Spectate</defaultDuty>
+        <allowedSpectateSidesOverride>Horizontal</allowedSpectateSidesOverride>
+        <spectateDistanceOverride>1</spectateDistanceOverride>
+        <spectatorsRequired>true</spectatorsRequired>
+        <endTriggers>
+          <li Class="StageEndTrigger_DurationPercentage">
+            <percentage>1</percentage>
+          </li>
+        </endTriggers>
+        <roleBehaviors>
+          <li>
+            <roleId>leader</roleId>
+            <dutyDef>SpeakOnCell</dutyDef>
+            <customPositions>
+              <li Class="RitualPosition_BehindThingCenter">
+                <highlight>true</highlight>
+              </li>
+            </customPositions>
+          </li>
+          <li>
+            <roleId>convict</roleId>
+            <dutyDef>StandOnCell</dutyDef>
+          </li>
+        </roleBehaviors>
+      </li>
+    </stages>
+  </RitualBehaviorDef>
 </Defs>

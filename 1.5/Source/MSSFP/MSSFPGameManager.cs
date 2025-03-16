@@ -6,7 +6,7 @@ using Verse;
 
 namespace MSSFP;
 
-public class MSSFPGameManager : GameComponent, IOnThreadTask
+public class MSSFPGameManager : GameComponent
 {
     public static MSSFPGameManager Manager;
 
@@ -25,12 +25,6 @@ public class MSSFPGameManager : GameComponent, IOnThreadTask
     {
         Scribe_Collections.Look(ref ScheduledOnThreadTasks, "ScheduledOnThreadTasks", LookMode.Value, LookMode.Reference);
         Scribe_Collections.Look(ref ScheduledOffThreadTasks, "ScheduledOffThreadTasks", LookMode.Value, LookMode.Reference);
-    }
-
-    public void OnThreadTask(MSSFPGameManager manager)
-    {
-        ModLog.Log($"OnThreadTask {Find.TickManager.TicksGame}");
-        RegisterOnThreadTask(this, Find.TickManager.TicksGame + 300);
     }
 
     public override void GameComponentTick()
@@ -106,7 +100,5 @@ public class MSSFPGameManager : GameComponent, IOnThreadTask
         // ReSharper disable once RedundantCheckBeforeAssignment
         if (Manager != this)
             Manager = this;
-
-        RegisterOnThreadTask(this, Find.TickManager.TicksGame + 300);
     }
 }

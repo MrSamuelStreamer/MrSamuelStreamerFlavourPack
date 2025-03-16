@@ -34,6 +34,11 @@
 
   <!-- Precepts -->
 
+  <HistoryEventDef>
+      <defName>MSSFP_MechInstalledProsthetic</defName>
+      <label>Artificial Prosthetic Installed</label>
+  </HistoryEventDef>
+
   <PreceptDef>
     <defName>MSS_MechBodyMod_Abhorrent</defName>
     <issue>MSS_MechBodyModification</issue>
