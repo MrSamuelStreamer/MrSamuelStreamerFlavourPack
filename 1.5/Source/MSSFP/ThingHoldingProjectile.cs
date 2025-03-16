@@ -17,10 +17,7 @@ public class ThingHoldingProjectile : Bullet, IThingHolder
 
     public Thing HeldThing
     {
-        get
-        {
-            return innerContainer.Count <= 0 ? null : innerContainer[0];
-        }
+        get { return innerContainer.Count <= 0 ? null : innerContainer[0]; }
         set
         {
             if (value.holdingOwner != null)
@@ -43,11 +40,10 @@ public class ThingHoldingProjectile : Bullet, IThingHolder
         innerContainer = new ThingOwner<Thing>(this);
     }
 
-
     public override void ExposeData()
     {
         base.ExposeData();
-        Scribe_Deep.Look<ThingOwner>(ref this.innerContainer, "innerContainer", (object) this);
+        Scribe_Deep.Look<ThingOwner>(ref this.innerContainer, "innerContainer", (object)this);
     }
 
     public override int DamageAmount
@@ -82,7 +78,8 @@ public class ThingHoldingProjectile : Bullet, IThingHolder
                 // weapon: equipmentDef,
                 weapon: HeldThing.def,
                 intendedTarget: intendedTarget.Thing,
-                instigatorGuilty: instigatorGuilty);
+                instigatorGuilty: instigatorGuilty
+            );
             // dinfo1.SetWeaponQuality(equipmentQuality);
             hitThing.TakeDamage(dinfo1).AssociateWithLog(entryRangedImpact);
 
@@ -112,6 +109,6 @@ public class ThingHoldingProjectile : Bullet, IThingHolder
 
     public void GetChildHolders(List<IThingHolder> outChildren)
     {
-        ThingOwnerUtility.AppendThingHoldersFromThings(outChildren, (IList<Thing>) this.GetDirectlyHeldThings());
+        ThingOwnerUtility.AppendThingHoldersFromThings(outChildren, (IList<Thing>)this.GetDirectlyHeldThings());
     }
 }

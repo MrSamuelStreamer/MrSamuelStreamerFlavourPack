@@ -8,8 +8,7 @@ public static class DrawUtils
 {
     public static Texture2D MakeReadableTextureInstance(this RenderTexture source)
     {
-        RenderTexture temporary = RenderTexture.GetTemporary(source.width, source.height, 0,
-            RenderTextureFormat.Default, RenderTextureReadWrite.Linear);
+        RenderTexture temporary = RenderTexture.GetTemporary(source.width, source.height, 0, RenderTextureFormat.Default, RenderTextureReadWrite.Linear);
         temporary.name = "MakeReadableTexture_Temp";
         Graphics.Blit(source, temporary);
         RenderTexture active = RenderTexture.active;
@@ -52,8 +51,8 @@ public static class DrawUtils
         req2.mainTex = texture.GetGreyscale();
 
         req2.shader = graphic.data?.shaderType?.Shader;
-        if (req2.shader == null) req2.shader = ShaderDatabase.DefaultShader;
-
+        if (req2.shader == null)
+            req2.shader = ShaderDatabase.DefaultShader;
 
         Mesh mesh = Object.Instantiate(graphic.MeshAt(rot));
         Material mat = MaterialPool.MatFrom(req2);
@@ -61,6 +60,5 @@ public static class DrawUtils
         //Somehow this magically fixes the flipping issue, just keeping it this way.
         // mesh.SetUVs(false);
         Printer_Mesh.PrintMesh(layer, Matrix4x4.TRS(pos, rot.AsQuat, s), mesh, mat);
-
     }
 }

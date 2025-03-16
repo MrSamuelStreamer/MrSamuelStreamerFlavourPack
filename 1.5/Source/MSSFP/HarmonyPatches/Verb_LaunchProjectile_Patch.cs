@@ -14,7 +14,8 @@ public static class Verb_LaunchProjectile_Patch
 {
     public static void ModifyProjectile(Verb_LaunchProjectile instance, Projectile projectile)
     {
-        if(instance is not Verb_AbilityShootThingHolder verb) return;
+        if (instance is not Verb_AbilityShootThingHolder verb)
+            return;
         verb.ModifyProjectile(projectile);
     }
 
@@ -39,15 +40,10 @@ public static class Verb_LaunchProjectile_Patch
         {
             // Load `this` (Verb_LaunchProjectile instance)
             new CodeInstruction(OpCodes.Ldarg_0),
-
             // Load `projectile2` from the local variable
             new CodeInstruction(OpCodes.Ldloc_S, codes[insertIndex].operand),
-
             // Call the ModifyProjectile method
-            new CodeInstruction(
-                OpCodes.Call,
-                AccessTools.Method(typeof(MSSFP.HarmonyPatches.Verb_LaunchProjectile_Patch), nameof(Verb_LaunchProjectile_Patch.ModifyProjectile))
-            )
+            new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(MSSFP.HarmonyPatches.Verb_LaunchProjectile_Patch), nameof(Verb_LaunchProjectile_Patch.ModifyProjectile))),
         };
 
         // Insert the new instructions after `stloc.s projectile2`

@@ -33,50 +33,45 @@ public class SymbolResolver_ConstructionSite : SymbolResolver
         else if (rp.rect is { Width: >= 20, Height: >= 20 } && (enemyFaction.def.techLevel >= TechLevel.Industrial || Rand.Bool))
             edgeDefenseWidth = Rand.Bool ? 2 : 4;
 
-        int step = rp.rect.Width - 2*InsetPathFromEdgeBy - PathWidth;
+        int step = rp.rect.Width - 2 * InsetPathFromEdgeBy - PathWidth;
 
-        int startVert = rp.rect.minX + Rand.RangeInclusive(4, step-4);
-        int startHoriz = rp.rect.minZ + Rand.RangeInclusive(4, step-4);
+        int startVert = rp.rect.minX + Rand.RangeInclusive(4, step - 4);
+        int startHoriz = rp.rect.minZ + Rand.RangeInclusive(4, step - 4);
 
         List<CellRect> areas = [];
 
-        areas.Add(CellRect.FromLimits(rp.rect.minX,                     rp.rect.minZ,                  startVert, startHoriz)); // Top Left
-        areas.Add(CellRect.FromLimits(startVert + PathWidth,    startHoriz + PathWidth, rp.rect.maxX,                rp.rect.maxZ)); // Bottom Right
-        areas.Add(CellRect.FromLimits(startVert + PathWidth,     rp.rect.minZ,                  rp.rect.maxX,                startHoriz)); // Top Right
-        areas.Add(CellRect.FromLimits(rp.rect.minX,                     startHoriz + PathWidth, startVert,           rp.rect.maxZ)); // Bottom Left
+        areas.Add(CellRect.FromLimits(rp.rect.minX, rp.rect.minZ, startVert, startHoriz)); // Top Left
+        areas.Add(CellRect.FromLimits(startVert + PathWidth, startHoriz + PathWidth, rp.rect.maxX, rp.rect.maxZ)); // Bottom Right
+        areas.Add(CellRect.FromLimits(startVert + PathWidth, rp.rect.minZ, rp.rect.maxX, startHoriz)); // Top Right
+        areas.Add(CellRect.FromLimits(rp.rect.minX, startHoriz + PathWidth, startVert, rp.rect.maxZ)); // Bottom Left
 
-        BaseGen.symbolStack.Push("rectTrigger", rp with
-        {
-            rect = rp.rect,
-            rectTriggerSignalTag = AmbushTag
-        });
+        BaseGen.symbolStack.Push("rectTrigger", rp with { rect = rp.rect, rectTriggerSignalTag = AmbushTag });
 
-        BaseGen.symbolStack.Push("ambush", rp with
-        {
-            ambushSignalTag = AmbushTag,
-            ambushPoints = rp.threatPoints * 8,
-            spawnNear = map.Center,
-            ambushType = SignalActionAmbushType.Normal
-        });
+        BaseGen.symbolStack.Push(
+            "ambush",
+            rp with
+            {
+                ambushSignalTag = AmbushTag,
+                ambushPoints = rp.threatPoints * 8,
+                spawnNear = map.Center,
+                ambushType = SignalActionAmbushType.Normal,
+            }
+        );
 
         SpawnPawns(rp, enemyFaction, map);
-        BaseGen.symbolStack.Push("thing", rp with
-        {
-            rect = areas.RandomElement(),
-            singleThingToSpawn = rp.conditionCauser
-        });
+        BaseGen.symbolStack.Push("thing", rp with { rect = areas.RandomElement(), singleThingToSpawn = rp.conditionCauser });
 
         foreach (CellRect cellRect in areas)
         {
-            GenerateStockpile(rp with {rect = cellRect}, map, enemyFaction);
+            GenerateStockpile(rp with { rect = cellRect }, map, enemyFaction);
         }
 
-        ResolveParams floorRP = rp with { floorDef = TerrainDefOf.BrokenAsphalt};
-        floorRP.allowBridgeOnAnyImpassableTerrain =  true;
-        floorRP.floorOnlyIfTerrainSupports =  false;
+        ResolveParams floorRP = rp with { floorDef = TerrainDefOf.BrokenAsphalt };
+        floorRP.allowBridgeOnAnyImpassableTerrain = true;
+        floorRP.floorOnlyIfTerrainSupports = false;
         BaseGen.symbolStack.Push("floor", floorRP);
 
-        BaseGen.symbolStack.Push("clear", rp with {clearRoof=true});
+        BaseGen.symbolStack.Push("clear", rp with { clearRoof = true });
 
         ResolveParams ensureCanReachMapEdgeRP = rp with { rect = rp.rect.ContractedBy(edgeDefenseWidth), faction = enemyFaction };
         BaseGen.symbolStack.Push("ensureCanReachMapEdge", ensureCanReachMapEdgeRP);
@@ -87,7 +82,8 @@ public class SymbolResolver_ConstructionSite : SymbolResolver
     public static void MaybeGetDef(ref Dictionary<ThingDef, float> defs, string defName, float chance = 0.05f)
     {
         ThingDef def = DefDatabase<ThingDef>.GetNamed(defName, false);
-        if(def != null) defs.Add(def, chance);
+        if (def != null)
+            defs.Add(def, chance);
     }
 
     public static Dictionary<ThingDef, float> WeightedConstructionThingDefs
@@ -137,7 +133,7 @@ public class SymbolResolver_ConstructionSite : SymbolResolver
 
     public static Thing RandomConstructionThing()
     {
-        ThingDef def = WeightedConstructionThingDefs.RandomElementByWeight(e=>e.Value).Key;
+        ThingDef def = WeightedConstructionThingDefs.RandomElementByWeight(e => e.Value).Key;
 
         ThingDef stuff = GenStuff.RandomStuffFor(def);
 
@@ -146,20 +142,9 @@ public class SymbolResolver_ConstructionSite : SymbolResolver
 
     public static void GenerateStockpile(ResolveParams rp, Map map, Faction enemyFaction)
     {
+        ResolveParams wallRP = rp with { wallThingDef = ThingDefOf.AncientFence, chanceToSkipWallBlock = 0.05f };
 
-        ResolveParams wallRP = rp with
-        {
-            wallThingDef = ThingDefOf.AncientFence,
-            chanceToSkipWallBlock = 0.05f
-        };
-
-        ResolveParams pathRP = rp with
-        {
-            floorDef = TerrainDefOf.Concrete,
-            allowBridgeOnAnyImpassableTerrain = true,
-            floorOnlyIfTerrainSupports = true
-        };
-
+        ResolveParams pathRP = rp with { floorDef = TerrainDefOf.Concrete, allowBridgeOnAnyImpassableTerrain = true, floorOnlyIfTerrainSupports = true };
 
         List<Thing> loot = GetLoot();
 
@@ -167,18 +152,15 @@ public class SymbolResolver_ConstructionSite : SymbolResolver
 
         for (int i = 0; i < numberOfShelves; i++)
         {
-            if(loot.Count <= 0) break;
+            if (loot.Count <= 0)
+                break;
             Thing thing = loot.InRandomOrder().First();
 
             Thing container = RandomConstructionThing();
 
             loot.Remove(thing);
 
-            BaseGen.symbolStack.Push("thing", rp with
-            {
-                singleThingToSpawn = container,
-                singleThingInnerThings = [thing]
-            });
+            BaseGen.symbolStack.Push("thing", rp with { singleThingToSpawn = container, singleThingInnerThings = [thing] });
         }
 
         List<Thing> list = ThingSetMakerDefOf.MapGen_AncientTempleContents.root.Generate();
@@ -207,17 +189,14 @@ public class SymbolResolver_ConstructionSite : SymbolResolver
 
         foreach (Thing thing in loot)
         {
-            BaseGen.symbolStack.Push("thing", rp with
-            {
-                singleThingToSpawn = thing
-            });
+            BaseGen.symbolStack.Push("thing", rp with { singleThingToSpawn = thing });
         }
 
         BaseGen.symbolStack.Push("outdoorLighting", rp);
         BaseGen.symbolStack.Push("edgeWalls", wallRP);
         for (int index = 0; index < GenMath.RoundRandom(rp.rect.Area / 400f); ++index)
         {
-            ResolveParams firefoamPopperRP = rp with { faction = enemyFaction, rect = rp.rect};
+            ResolveParams firefoamPopperRP = rp with { faction = enemyFaction, rect = rp.rect };
             BaseGen.symbolStack.Push("firefoamPopper", firefoamPopperRP);
         }
         BaseGen.symbolStack.Push("floor", pathRP);
@@ -242,7 +221,7 @@ public class SymbolResolver_ConstructionSite : SymbolResolver
             faction = enemyFaction,
             singlePawnLord = lord,
             pawnGroupKindDef = PawnGroupKindDefOf.Loggers,
-            singlePawnSpawnCellExtraPredicate = x => map.reachability.CanReachMapEdge(x, TraverseParms.For(TraverseMode.PassDoors))
+            singlePawnSpawnCellExtraPredicate = x => map.reachability.CanReachMapEdge(x, TraverseParms.For(TraverseMode.PassDoors)),
         };
 
         if (pawnGenerationParams.pawnGroupMakerParams == null)
@@ -253,7 +232,7 @@ public class SymbolResolver_ConstructionSite : SymbolResolver
             pawnGenerationParams.pawnGroupMakerParams.tile = map.Tile;
             pawnGenerationParams.pawnGroupMakerParams.faction = enemyFaction;
             PawnGroupMakerParms groupMakerParams = pawnGenerationParams.pawnGroupMakerParams;
-            groupMakerParams.points = (rp.threatPoints??  200) / 4;
+            groupMakerParams.points = (rp.threatPoints ?? 200) / 4;
             pawnGenerationParams.pawnGroupMakerParams.inhabitants = true;
             pawnGenerationParams.pawnGroupMakerParams.seed = rp.settlementPawnGroupSeed;
         }

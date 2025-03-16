@@ -4,7 +4,7 @@ using Verse;
 
 namespace MSSFP.Comps;
 
-public class CompProperties_Haunted: CompProperties
+public class CompProperties_Haunted : CompProperties
 {
     public GraphicData graphicData;
     public List<Vector3> offsets;

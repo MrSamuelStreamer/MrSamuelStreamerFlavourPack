@@ -10,7 +10,7 @@ public class GeneMutatorDef : Def
     public enum MutatorType
     {
         Birth,
-        Worker
+        Worker,
     }
 
     public GameConditionDef conditionActive;
@@ -62,7 +62,6 @@ public class GeneMutatorDef : Def
             return DefDatabase<GeneDef>.AllDefs.Select(g => new GeneClassification(g, 1f)).ToList();
         }
     }
-
 
     public override IEnumerable<string> ConfigErrors()
     {

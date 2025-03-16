@@ -10,14 +10,8 @@ public class LoversRetreatGameomponent(Verse.Game game) : GameComponent
 
     public bool LoversRetreatEnabled
     {
-        get
-        {
-            return MSSFPMod.settings.EnableLoversRetreat && _loversRetreatEnabled;
-        }
-        set
-        {
-            _loversRetreatEnabled = value;
-        }
+        get { return MSSFPMod.settings.EnableLoversRetreat && _loversRetreatEnabled; }
+        set { _loversRetreatEnabled = value; }
     }
 
     public override void ExposeData()

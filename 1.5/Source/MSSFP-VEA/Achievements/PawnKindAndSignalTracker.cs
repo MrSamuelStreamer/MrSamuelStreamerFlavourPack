@@ -10,11 +10,11 @@ public class PawnKindAndSignalTracker : SignalTracker
 {
     public List<PawnKindDef> PawnKindDefs;
 
-    public PawnKindAndSignalTracker() : base()
-    {
-    }
+    public PawnKindAndSignalTracker()
+        : base() { }
 
-    public PawnKindAndSignalTracker(PawnKindAndSignalTracker reference) : base(reference)
+    public PawnKindAndSignalTracker(PawnKindAndSignalTracker reference)
+        : base(reference)
     {
         PawnKindDefs = reference.PawnKindDefs;
     }
@@ -35,7 +35,7 @@ public class PawnKindAndSignalTracker : SignalTracker
     {
         get
         {
-            if(PawnKindDefs.NullOrEmpty())
+            if (PawnKindDefs.NullOrEmpty())
                 return [$"PawnMSS_PawnKindAndSignalTrackerAndSignalTracker: {Signal} + [<empty>]"];
             return [$"PawnMSS_PawnKindAndSignalTrackerAndSignalTracker: {Signal} + [{string.Join(", ", PawnKindDefs.Select(def => def.defName))}]"];
         }
@@ -47,5 +47,6 @@ public class PawnKindAndSignalTracker : SignalTracker
             return false;
         return PawnsFinder.AllMapsCaravansAndTravelingTransportPods_Alive_OfPlayerFaction.Any(pawn => PawnKindDefs.Contains(pawn.kindDef));
     }
+
     public override HashSet<AchievementCard> Cards => AchievementPointManager.GetCards<PawnKindAndSignalTracker>();
 }

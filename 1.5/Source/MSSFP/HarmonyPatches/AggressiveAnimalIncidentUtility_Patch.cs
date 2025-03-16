@@ -14,7 +14,8 @@ public static class AggressiveAnimalIncidentUtility_Patch
     [HarmonyPrefix]
     public static void TryGetAnimalFromList_Patch(ref List<PawnKindDef> animals)
     {
-        if (MSSFPMod.settings.EnableFroggeIncidents) return;
-        animals = animals.Except(animals.Where(p=>p.HasModExtension<FroggeModExtension>())).ToList();
+        if (MSSFPMod.settings.EnableFroggeIncidents)
+            return;
+        animals = animals.Except(animals.Where(p => p.HasModExtension<FroggeModExtension>())).ToList();
     }
 }

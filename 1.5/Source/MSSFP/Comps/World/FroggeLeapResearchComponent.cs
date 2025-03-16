@@ -16,11 +16,13 @@ public class FroggeLeapResearchComponent(RimWorld.Planet.World world) : WorldCom
 
     public override void WorldComponentTick()
     {
-        if(EventHasFired) return;
-        if(Find.FactionManager.OfPlayer.def.techLevel < TechLevel.Industrial) return;
-        if (Find.TickManager.TicksGame % GenDate.TicksPerDay == GenDate.TicksPerDay/2)
+        if (EventHasFired)
+            return;
+        if (Find.FactionManager.OfPlayer.def.techLevel < TechLevel.Industrial)
+            return;
+        if (Find.TickManager.TicksGame % GenDate.TicksPerDay == GenDate.TicksPerDay / 2)
         {
-            IncidentParms iParams = new IncidentParms { target = Find.CurrentMap, forced = true};
+            IncidentParms iParams = new IncidentParms { target = Find.CurrentMap, forced = true };
             EventHasFired = Find.Storyteller.TryFire(new FiringIncident(MSSFPDefOf.MSS_FroggeResearch, null, iParams), false);
         }
     }

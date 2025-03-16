@@ -19,10 +19,12 @@ public static class ChoiceLetter_GrowthMoment_Patch
     [HarmonyPostfix]
     public static void MakeChoices_Patch(ChoiceLetter_GrowthMoment __instance)
     {
-        if(__instance.def != LetterDefOf.ChildToAdult) return;
+        if (__instance.def != LetterDefOf.ChildToAdult)
+            return;
 
         List<GeneDef> genePool = DefDatabase<GeneDef>.AllDefs.Where(g => g.HasModExtension<AgeUpGeneModDefExtension>()).ToList();
-        if(genePool.Count <= 0) return;
+        if (genePool.Count <= 0)
+            return;
 
         int geneCount = GenesToSelect.RandomInRange;
         List<GeneDef> genesToExclude = [];

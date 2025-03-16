@@ -9,21 +9,22 @@ public class DelayedIncidentGameComponent : GameComponent
     public bool HaveDoneNuclearUltratech = false;
 
     public Game Game;
-    public DelayedIncidentGameComponent(){}
+
+    public DelayedIncidentGameComponent() { }
 
     public DelayedIncidentGameComponent(Game game)
     {
         Game = game;
     }
+
     public Dictionary<FiringIncident, int> DelayedIncidentDefs = new Dictionary<FiringIncident, int>();
 
     public void AddNewDelayedIncidentDef(IncidentDef delayedIncidentDef, Map map, int delay)
     {
-        IncidentParms iParams = new IncidentParms { target = map==null ? Find.World : map, forced = true};
+        IncidentParms iParams = new IncidentParms { target = map == null ? Find.World : map, forced = true };
         FiringIncident fi = new FiringIncident(delayedIncidentDef, null, iParams);
         DelayedIncidentDefs[fi] = Find.TickManager.TicksGame + delay;
     }
-
 
     public override void ExposeData()
     {
@@ -75,13 +76,12 @@ public class DelayedIncidentGameComponent : GameComponent
             MSSFVEEPDefOf.MSS_NuclearFallout.minRefireDays = 15;
             MSSFVEEPDefOf.MSS_NuclearFallout.earliestDay = 0;
             MSSFVEEPDefOf.MSS_NuclearFallout.letterText = """
-                                                          The ever increasing use of nuclear weapons across the planet has polluted the atmosphere with radioactive dust.
+                The ever increasing use of nuclear weapons across the planet has polluted the atmosphere with radioactive dust.
 
-                                                          A storm has caused a dense pocket of radioactive dust to mix in with itself, permeating the rain.
+                A storm has caused a dense pocket of radioactive dust to mix in with itself, permeating the rain.
 
-                                                          It will last anywhere between a few hours to several days.
-                                                          """;
-
+                It will last anywhere between a few hours to several days.
+                """;
         }
     }
 }

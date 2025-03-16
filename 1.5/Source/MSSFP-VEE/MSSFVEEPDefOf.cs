@@ -1,5 +1,6 @@
 ﻿using RimWorld;
 using Verse;
+
 // ReSharper disable UnassignedReadonlyField
 
 namespace MSSFP.VEE;

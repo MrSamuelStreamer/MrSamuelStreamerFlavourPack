@@ -5,7 +5,7 @@ using Verse;
 
 namespace MSSFP.Hediffs;
 
-public class HediffCompProperties_Haunt: HediffCompProperties
+public class HediffCompProperties_Haunt : HediffCompProperties
 {
     public GraphicData graphicData;
     public List<Vector3> offsets;

@@ -5,9 +5,9 @@ using Verse;
 
 namespace MSSFP.Comps;
 
-public class CompAbilitySummonPawn: CompAbilityEffect_WithDest
+public class CompAbilitySummonPawn : CompAbilityEffect_WithDest
 {
-    public CompAbilitySummonPawn(){}
+    public CompAbilitySummonPawn() { }
 
     public CompProperties_AbilitySummonPawn AbilityProps => (CompProperties_AbilitySummonPawn)props;
 
@@ -27,14 +27,15 @@ public class CompAbilitySummonPawn: CompAbilityEffect_WithDest
                     }
                 }
             },
-            ticksAwayFromCast = 5
+            ticksAwayFromCast = 5,
         };
         yield break;
     }
 
     public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
     {
-        if(spawnPositions.NullOrEmpty()) return;
+        if (spawnPositions.NullOrEmpty())
+            return;
         base.Apply(target, dest);
 
         foreach (IntVec3 spawnPosition in spawnPositions)
@@ -56,9 +57,14 @@ public class CompAbilitySummonPawn: CompAbilityEffect_WithDest
     {
         positions = null;
 
-        IEnumerable<IntVec3> validCells = GenRadial.RadialCellsAround(target.Cell, 5, true).Where(cell=> parent.pawn.Map.thingGrid.ThingsAt(cell).All(thing => thing.def.passability != Traversability.Impassable)).InRandomOrder().ToList();
+        IEnumerable<IntVec3> validCells = GenRadial
+            .RadialCellsAround(target.Cell, 5, true)
+            .Where(cell => parent.pawn.Map.thingGrid.ThingsAt(cell).All(thing => thing.def.passability != Traversability.Impassable))
+            .InRandomOrder()
+            .ToList();
 
-        if (validCells.Count() < AbilityProps.count) return false;
+        if (validCells.Count() < AbilityProps.count)
+            return false;
 
         positions = validCells.Take(AbilityProps.count).ToList();
 

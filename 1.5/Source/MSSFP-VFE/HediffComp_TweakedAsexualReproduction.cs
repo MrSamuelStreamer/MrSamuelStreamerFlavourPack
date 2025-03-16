@@ -26,8 +26,11 @@ public class HediffComp_TweakedAsexualReproduction : HediffComp_AsexualReproduct
                 asexualFissionCounter++;
                 //This checks if the map has been filled with creatures. If __instance check wasn't made, the animal would fill
                 //the map and grind the game to a halt
-                if (asexualFissionCounter >= ticksInday * reproductionIntervalDays &&
-                    pawn.Map != null && pawn.Map.listerThings.ThingsOfDef(ThingDef.Named(Props.GreenGooTarget)).Count < Props.GreenGooLimit)
+                if (
+                    asexualFissionCounter >= ticksInday * reproductionIntervalDays
+                    && pawn.Map != null
+                    && pawn.Map.listerThings.ThingsOfDef(ThingDef.Named(Props.GreenGooTarget)).Count < Props.GreenGooLimit
+                )
                 {
                     //The offspring has the pawn as both mother and father and I find __instance funny
                     Hediff_Pregnant.DoBirthSpawn(pawn, pawn);
@@ -45,7 +48,6 @@ public class HediffComp_TweakedAsexualReproduction : HediffComp_AsexualReproduct
                     asexualFissionCounter = 0;
                 }
             }
-
             //Non-green goo creatures only reproduce if they are part of the player's faction, like vanilla animals
             else if (pawn.Faction == Faction.OfPlayer && pawn.ageTracker.CurLifeStage.reproductive)
             {
@@ -65,9 +67,43 @@ public class HediffComp_TweakedAsexualReproduction : HediffComp_AsexualReproduct
                     {
                         if (Props.convertsIntoAnotherDef)
                         {
-                            PawnGenerationRequest request = new PawnGenerationRequest(PawnKindDef.Named(Props.newDef), pawn.Faction, PawnGenerationContext.NonPlayer, -1, false,
-                                true, false, false, true, 1f, false, false, true, true, true, false, false, false, false, 0f, 0f, null, 1f, null, null, null, null, null, null,
-                                null, null, null, null, null, null);
+                            PawnGenerationRequest request = new PawnGenerationRequest(
+                                PawnKindDef.Named(Props.newDef),
+                                pawn.Faction,
+                                PawnGenerationContext.NonPlayer,
+                                -1,
+                                false,
+                                true,
+                                false,
+                                false,
+                                true,
+                                1f,
+                                false,
+                                false,
+                                true,
+                                true,
+                                true,
+                                false,
+                                false,
+                                false,
+                                false,
+                                0f,
+                                0f,
+                                null,
+                                1f,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null
+                            );
                             Pawn pawnToGenerate = PawnGenerator.GeneratePawn(request);
                             PawnUtility.TrySpawnHatchedOrBornPawn(pawnToGenerate, pawn);
                             Messages.Message(Props.asexualHatchedMessage.Translate(pawn.LabelIndefinite().CapitalizeFirst()), pawn, MessageTypeDefOf.PositiveEvent, true);
@@ -82,12 +118,54 @@ public class HediffComp_TweakedAsexualReproduction : HediffComp_AsexualReproduct
                                 num = 1;
                             }
 
-                            PawnGenerationRequest request = new PawnGenerationRequest(progenitor.kindDef, progenitor.Faction, PawnGenerationContext.NonPlayer, -1,
-                                forceGenerateNewPawn: false, allowDead: false, allowDowned: true, canGeneratePawnRelations: true, mustBeCapableOfViolence: false, 1f,
-                                forceAddFreeWarmLayerIfNeeded: false, allowGay: true, allowPregnant: false, allowFood: true, allowAddictions: true, inhabitant: false,
-                                certainlyBeenInCryptosleep: false, forceRedressWorldPawnIfFormerColonist: false, worldPawnFactionDoesntMatter: false, 0f, 0f, null, 1f, null, null,
-                                null, null, null, null, null, null, null, null, null, null, forceNoIdeo: false, forceNoBackstory: false, forbidAnyTitle: false, forceDead: false,
-                                null, null, null, null, null, 0f, DevelopmentalStage.Newborn);
+                            PawnGenerationRequest request = new PawnGenerationRequest(
+                                progenitor.kindDef,
+                                progenitor.Faction,
+                                PawnGenerationContext.NonPlayer,
+                                -1,
+                                forceGenerateNewPawn: false,
+                                allowDead: false,
+                                allowDowned: true,
+                                canGeneratePawnRelations: true,
+                                mustBeCapableOfViolence: false,
+                                1f,
+                                forceAddFreeWarmLayerIfNeeded: false,
+                                allowGay: true,
+                                allowPregnant: false,
+                                allowFood: true,
+                                allowAddictions: true,
+                                inhabitant: false,
+                                certainlyBeenInCryptosleep: false,
+                                forceRedressWorldPawnIfFormerColonist: false,
+                                worldPawnFactionDoesntMatter: false,
+                                0f,
+                                0f,
+                                null,
+                                1f,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                forceNoIdeo: false,
+                                forceNoBackstory: false,
+                                forbidAnyTitle: false,
+                                forceDead: false,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                0f,
+                                DevelopmentalStage.Newborn
+                            );
                             Pawn pawnCreated = null;
                             for (int i = 0; i < num; i++)
                             {
@@ -146,7 +224,6 @@ public class HediffComp_TweakedAsexualReproduction : HediffComp_AsexualReproduct
                                     pawn.caller?.DoCall();
                                 }
 
-
                                 MSSFPCFEDefOf.MSSFP_Squelch.PlayOneShot(SoundInfo.InMap(Pawn));
                                 Messages.Message(Props.asexualHatchedMessage.Translate(pawn.LabelIndefinite().CapitalizeFirst()), pawn, MessageTypeDefOf.PositiveEvent, true);
                             }
@@ -164,9 +241,9 @@ public class HediffComp_TweakedAsexualReproduction : HediffComp_AsexualReproduct
     {
         Pawn pawn = parent.pawn;
         if (Props.isGreenGoo)
-            return customString + (asexualFissionCounter / (float) (ticksInday * reproductionIntervalDays)).ToStringPercent() + " (" + reproductionIntervalDays + " days)";
+            return customString + (asexualFissionCounter / (float)(ticksInday * reproductionIntervalDays)).ToStringPercent() + " (" + reproductionIntervalDays + " days)";
         if (pawn.Faction != Faction.OfPlayer || !pawn.ageTracker.CurLifeStage.reproductive)
             return "";
-        return customString + (asexualFissionCounter / (float) (ticksInday * reproductionIntervalDays)).ToStringPercent() + " (" + reproductionIntervalDays + " days)";
+        return customString + (asexualFissionCounter / (float)(ticksInday * reproductionIntervalDays)).ToStringPercent() + " (" + reproductionIntervalDays + " days)";
     }
 }

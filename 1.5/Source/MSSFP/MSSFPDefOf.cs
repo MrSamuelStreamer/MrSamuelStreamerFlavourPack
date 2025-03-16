@@ -2,6 +2,7 @@
 using MSSFP.Thoughts;
 using RimWorld;
 using Verse;
+
 // ReSharper disable UnassignedReadonlyField
 
 namespace MSSFP;
@@ -55,5 +56,6 @@ public static class MSSFPDefOf
     public static readonly IncidentDef MSS_LoversAdvance;
 
     public static readonly ThingDef MSSFP_ConstructionOffice;
+
     static MSSFPDefOf() => DefOfHelper.EnsureInitializedInCtor(typeof(MSSFPDefOf));
 }

@@ -18,7 +18,12 @@ public static class SkillUI_Patch
     [HarmonyPostfix]
     public static void GetSkillDescription(SkillRecord sk, ref string __result)
     {
-        List<HediffComp_Haunt> comps = sk.Pawn.health.hediffSet.hediffs.OfType<HediffWithComps>().SelectMany(hediff => hediff.comps).OfType<HediffComp_Haunt>().Where(comp=>comp.skillToBoost == sk.def).ToList();
+        List<HediffComp_Haunt> comps = sk
+            .Pawn.health.hediffSet.hediffs.OfType<HediffWithComps>()
+            .SelectMany(hediff => hediff.comps)
+            .OfType<HediffComp_Haunt>()
+            .Where(comp => comp.skillToBoost == sk.def)
+            .ToList();
 
         StringBuilder sb = new(__result);
 

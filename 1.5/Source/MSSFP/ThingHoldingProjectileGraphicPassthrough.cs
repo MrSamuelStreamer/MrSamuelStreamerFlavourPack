@@ -6,7 +6,7 @@ using Verse;
 
 namespace MSSFP;
 
-public class ThingHoldingProjectileGraphicPassthrough: Graphic
+public class ThingHoldingProjectileGraphicPassthrough : Graphic
 {
     public Thing heldThing;
 
@@ -63,17 +63,12 @@ public class ThingHoldingProjectileGraphicPassthrough: Graphic
 
     public override Material MatSingleFor(Thing thing) => HeldThing?.Graphic.MatSingleFor(thing);
 
-    public override void DrawWorker(
-      Vector3 loc,
-      Rot4 rot,
-      ThingDef thingDef,
-      Thing thing,
-      float extraRotation)
+    public override void DrawWorker(Vector3 loc, Rot4 rot, ThingDef thingDef, Thing thing, float extraRotation)
     {
         HeldThing?.Graphic.DrawWorker(loc, rot, thingDef, thing, extraRotation);
     }
 
-    public Lazy<MethodInfo> DrawMeshIntAccess = new Lazy<MethodInfo>(()=>AccessTools.Method(typeof(Graphic), "DrawMeshInt"));
+    public Lazy<MethodInfo> DrawMeshIntAccess = new Lazy<MethodInfo>(() => AccessTools.Method(typeof(Graphic), "DrawMeshInt"));
 
     protected override void DrawMeshInt(Mesh mesh, Vector3 loc, Quaternion quat, Material mat)
     {

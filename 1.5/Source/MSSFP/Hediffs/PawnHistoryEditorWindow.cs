@@ -69,7 +69,6 @@ public class PawnHistoryEditorWindow(HediffComp_BodyHopHaunt comp) : Window
 
         if (Selected != null)
         {
-
             Widgets.Label(nameLabel.Rect.ContractedBy(10f), "Name: ");
             Selected.name = Widgets.TextField(nameEntry.Rect.ContractedBy(4f), Selected.name);
 
@@ -83,16 +82,18 @@ public class PawnHistoryEditorWindow(HediffComp_BodyHopHaunt comp) : Window
                 List<FloatMenuOption> options = new List<FloatMenuOption>();
                 foreach (SkillDef skillDef in DefDatabase<SkillDef>.AllDefsListForReading)
                 {
-                    FloatMenuOption opt = new FloatMenuOption(skillDef.skillLabel, () =>
-                    {
-                        Selected.bestSkill = skillDef;
-                    });
+                    FloatMenuOption opt = new FloatMenuOption(
+                        skillDef.skillLabel,
+                        () =>
+                        {
+                            Selected.bestSkill = skillDef;
+                        }
+                    );
                     options.Add(opt);
                 }
 
                 Find.WindowStack.Add(new FloatMenu(options));
             }
-
 
             Widgets.Label(skillLevelLabel.Rect.ContractedBy(10f), "Skill Boost: ");
             Widgets.IntEntry(skillLevelEntry.Rect.ContractedBy(4f), ref Selected.skillOffset, ref buffer);
@@ -100,20 +101,24 @@ public class PawnHistoryEditorWindow(HediffComp_BodyHopHaunt comp) : Window
             Widgets.Label(traitLabel.Rect.ContractedBy(10f), "Traits: ");
             if (Widgets.ButtonText(traitEntry.Rect.ContractedBy(4f), "Select trait"))
             {
-                if (Selected.passedTraits == null) Selected.passedTraits = new List<TraitDef>();
+                if (Selected.passedTraits == null)
+                    Selected.passedTraits = new List<TraitDef>();
 
                 List<FloatMenuOption> options = new List<FloatMenuOption>();
-                IEnumerable<TraitDef> validTraits = DefDatabase<TraitDef>.AllDefsListForReading
-                    .Except(Selected.passedTraits)
-                    .Where(td=>!Selected.passedTraits.Any(t=>t.ConflictsWith(td)))
-                    .Where(td=>td.conflictingPassions.NullOrEmpty());
+                IEnumerable<TraitDef> validTraits = DefDatabase<TraitDef>
+                    .AllDefsListForReading.Except(Selected.passedTraits)
+                    .Where(td => !Selected.passedTraits.Any(t => t.ConflictsWith(td)))
+                    .Where(td => td.conflictingPassions.NullOrEmpty());
 
                 foreach (TraitDef traitDef in validTraits)
                 {
-                    FloatMenuOption opt = new FloatMenuOption(traitDef.defName, () =>
-                    {
-                        Selected.passedTraits.Add(traitDef);
-                    });
+                    FloatMenuOption opt = new FloatMenuOption(
+                        traitDef.defName,
+                        () =>
+                        {
+                            Selected.passedTraits.Add(traitDef);
+                        }
+                    );
                     options.Add(opt);
                 }
 
@@ -197,7 +202,7 @@ public class PawnHistoryEditorWindow(HediffComp_BodyHopHaunt comp) : Window
         scrollContainer.xMax -= 30f;
         scrollContainer.yMax -= 30f;
 
-        Rect pawnListRect = new Rect(0,0, scrollContainer.width, pawnListHeight);
+        Rect pawnListRect = new Rect(0, 0, scrollContainer.width, pawnListHeight);
 
         Widgets.BeginScrollView(scrollContainer, ref scrollPosition, pawnListRect);
 

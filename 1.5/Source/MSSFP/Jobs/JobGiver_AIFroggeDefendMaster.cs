@@ -16,7 +16,7 @@ public class JobGiver_AIFroggeDefendMaster : JobGiver_AIDefendMaster
 
     protected override IntRange ExpiryInterval_Melee => new IntRange(30, 480);
 
-    public Lazy<MethodInfo> GetAbilityJob = new Lazy<MethodInfo>(()=>AccessTools.Method(typeof(JobGiver_AIDefendPawn), "GetAbilityJob"));
+    public Lazy<MethodInfo> GetAbilityJob = new Lazy<MethodInfo>(() => AccessTools.Method(typeof(JobGiver_AIDefendPawn), "GetAbilityJob"));
 
     protected override Job TryGiveJob(Pawn pawn)
     {
@@ -29,14 +29,17 @@ public class JobGiver_AIFroggeDefendMaster : JobGiver_AIDefendMaster
 
         if (defendee.CarriedBy != null)
         {
-            if (!pawn.CanReach((LocalTargetInfo) (Thing) defendee.CarriedBy, PathEndMode.OnCell, Danger.Deadly))
+            if (!pawn.CanReach((LocalTargetInfo)(Thing)defendee.CarriedBy, PathEndMode.OnCell, Danger.Deadly))
                 return null;
         }
-        else if (!defendee.Spawned || !pawn.CanReach((LocalTargetInfo) (Thing) defendee, PathEndMode.OnCell, Danger.Deadly))
+        else if (!defendee.Spawned || !pawn.CanReach((LocalTargetInfo)(Thing)defendee, PathEndMode.OnCell, Danger.Deadly))
             return null;
 
-        if ((pawn.IsColonist || pawn.IsColonyMutant) && pawn.playerSettings.hostilityResponse != HostilityResponseMode.Attack &&
-            (pawn.GetLord()?.LordJob is not LordJob_Ritual_Duel lordJob || !lordJob.duelists.Contains(pawn)))
+        if (
+            (pawn.IsColonist || pawn.IsColonyMutant)
+            && pawn.playerSettings.hostilityResponse != HostilityResponseMode.Attack
+            && (pawn.GetLord()?.LordJob is not LordJob_Ritual_Duel lordJob || !lordJob.duelists.Contains(pawn))
+        )
             return null;
 
         UpdateEnemyTarget(pawn);
@@ -67,7 +70,7 @@ public class JobGiver_AIFroggeDefendMaster : JobGiver_AIDefendMaster
             return job;
         }
 
-        bool inRange = (pawn.Position - pawn.mindState.enemyTarget.Position).LengthHorizontalSquared < meleeDistance*meleeDistance;
+        bool inRange = (pawn.Position - pawn.mindState.enemyTarget.Position).LengthHorizontalSquared < meleeDistance * meleeDistance;
         Verb attackVerb = pawn.TryGetAttackVerb(pawn.mindState.enemyTarget, allowManualCastWeapons, allowTurrets);
         if (attackVerb.verbProps.IsMeleeAttack)
         {
@@ -76,9 +79,9 @@ public class JobGiver_AIFroggeDefendMaster : JobGiver_AIDefendMaster
             attackVerb = pawn.abilities.abilities[0].verb;
         }
 
-        bool blockChance = CoverUtility.CalculateOverallBlockChance((LocalTargetInfo) (Thing) pawn, pawn.mindState.enemyTarget.Position, pawn.Map) > 0.0099999997764825821;
+        bool blockChance = CoverUtility.CalculateOverallBlockChance((LocalTargetInfo)(Thing)pawn, pawn.mindState.enemyTarget.Position, pawn.Map) > 0.0099999997764825821;
         bool canStandAtPos = pawn.Position.Standable(pawn.Map) && pawn.Map.pawnDestinationReservationManager.CanReserve(pawn.Position, pawn, pawn.Drafted);
-        bool canHitTarget = attackVerb.CanHitTarget((LocalTargetInfo) pawn.mindState.enemyTarget);
+        bool canHitTarget = attackVerb.CanHitTarget((LocalTargetInfo)pawn.mindState.enemyTarget);
 
         if ((blockChance && canStandAtPos && canHitTarget) || inRange && canHitTarget)
             return JobMaker.MakeJob(JobDefOf.Wait_Combat, ExpiryInterval_ShooterSucceeded.RandomInRange, true);

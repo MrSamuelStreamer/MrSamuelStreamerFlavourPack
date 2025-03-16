@@ -21,5 +21,4 @@ public static class JobDriver_Reading_Patches
 
         return true;
     }
-
 }

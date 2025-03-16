@@ -20,7 +20,8 @@ public static class RitualOutcomeEffectWorker_Skylantern_Patch
         LordJob_Ritual jobRitual,
         RitualOutcomePossibility outcome,
         ref string extraOutcomeDesc,
-        ref LookTargets letterLookTargets)
+        ref LookTargets letterLookTargets
+    )
     {
         if (outcome.Positive && Rand.Chance(0.1f))
             return;
@@ -28,10 +29,7 @@ public static class RitualOutcomeEffectWorker_Skylantern_Patch
         if (!outcome.Positive && Rand.Chance(0.5f))
             return;
 
-        IncidentParms parms = new()
-        {
-            target = jobRitual.Map
-        };
+        IncidentParms parms = new() { target = jobRitual.Map };
 
         if (!MSSFPDefOf.MSSFP_RaidEnemy_Skylantern.Worker.TryExecute(parms))
             return;

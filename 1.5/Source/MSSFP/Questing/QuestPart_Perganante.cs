@@ -5,7 +5,7 @@ using Verse;
 
 namespace MSSFP.Questing;
 
-public class QuestPart_Perganante: QuestPart
+public class QuestPart_Perganante : QuestPart
 {
     public string inSignal;
     public MapParent mapParent;
@@ -32,11 +32,13 @@ public class QuestPart_Perganante: QuestPart
 
         foreach (Pawn pawn in allRaiders)
         {
-            if(pawn.health.hediffSet.HasHediff(HediffDefOf.PregnantHuman)) continue;
+            if (pawn.health.hediffSet.HasHediff(HediffDefOf.PregnantHuman))
+                continue;
 
             Pawn spouse = pawn.GetFirstSpouse();
 
-            if (spouse == null) continue;
+            if (spouse == null)
+                continue;
 
             Hediff_Pregnant preg = pawn.health.AddHediff(HediffDefOf.PregnantHuman) as Hediff_Pregnant;
             preg!.SetParents(pawn, spouse, PregnancyUtility.GetInheritedGeneSet(spouse, pawn));

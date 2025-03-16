@@ -5,13 +5,14 @@ using Verse;
 
 namespace MSSFP.Psycasts;
 
-public class CompAbilityRandomiseGenome: CompAbilityEffect
+public class CompAbilityRandomiseGenome : CompAbilityEffect
 {
     public static List<GeneDef> allValidGeneDefs = new List<GeneDef>();
 
     public static List<GeneDef> AllValidGeneDefs
     {
-        get {
+        get
+        {
             if (allValidGeneDefs.NullOrEmpty())
             {
                 allValidGeneDefs = DefDatabase<GeneDef>.AllDefs.Where(def => def.GetType().Name != "AndroidGeneDef ").ToList();
@@ -20,7 +21,6 @@ public class CompAbilityRandomiseGenome: CompAbilityEffect
             return allValidGeneDefs;
         }
     }
-
 
     public new CompProperties_AbilityRandomiseGenome Props => props as CompProperties_AbilityRandomiseGenome;
 
@@ -32,7 +32,8 @@ public class CompAbilityRandomiseGenome: CompAbilityEffect
     public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
     {
         base.Apply(target, dest);
-        if(target.Pawn?.genes == null) return;
+        if (target.Pawn?.genes == null)
+            return;
 
         List<GeneDef> endogenes = AllValidGeneDefs.TakeRandom(Props.numberOfEndogenes.RandomInRange).ToList();
         List<GeneDef> xenogenes = AllValidGeneDefs.TakeRandom(Props.numberOfXenogenes.RandomInRange).ToList();
@@ -52,7 +53,7 @@ public class CompAbilityRandomiseGenome: CompAbilityEffect
             target.Pawn.genes.AddGene(xenogene, true);
         }
 
-        DamageInfo dInfo = new DamageInfo(DamageDefOf.Psychic, 0, 0,-1f, parent.pawn);
+        DamageInfo dInfo = new DamageInfo(DamageDefOf.Psychic, 0, 0, -1f, parent.pawn);
 
         parent.pawn.health.AddHediff(HediffDef.Named("PsychicComa"), null, dInfo);
         target.Pawn.health.AddHediff(HediffDefOf.XenogerminationComa, null, dInfo);

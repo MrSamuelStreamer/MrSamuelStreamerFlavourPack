@@ -9,7 +9,7 @@ using PawnGraphicUtils = MSSFP.Utils.PawnGraphicUtils;
 namespace MSSFP.Hediffs;
 
 [StaticConstructorOnStartup]
-public class HediffComp_Haunt: HediffComp
+public class HediffComp_Haunt : HediffComp
 {
     public static Texture2D icon = ContentFinder<Texture2D>.Get("UI/MSS_FP_Haunts_Toggle");
     public Pawn pawnToDraw;
@@ -48,12 +48,12 @@ public class HediffComp_Haunt: HediffComp
 
     private HediffCompProperties_Haunt Props => props as HediffCompProperties_Haunt;
 
-
     public override string CompLabelInBracketsExtra
     {
         get
         {
-            if(PawnName != null) return "MSS_FP_HauntedBy".Translate(PawnName);
+            if (PawnName != null)
+                return "MSS_FP_HauntedBy".Translate(PawnName);
             return pawnToDraw == null ? null : "MSS_FP_HauntedBy".Translate(pawnToDraw.NameShortColored);
         }
     }
@@ -62,7 +62,8 @@ public class HediffComp_Haunt: HediffComp
     {
         get
         {
-            if (pawnToDraw == null) return null;
+            if (pawnToDraw == null)
+                return null;
             if (skillToBoost != null && SkillBoostLevel > 0)
             {
                 return pawnToDraw == null ? null : "\n\n" + "MSS_FP_HauntedBuff".Translate(pawnToDraw.NameShortColored, skillToBoost.LabelCap, SkillBoostLevel);
@@ -77,13 +78,11 @@ public class HediffComp_Haunt: HediffComp
         {
             NextProxCheck = Find.TickManager.TicksGame + Props.ProximityTransferCheckTicks;
 
-            if(!Rand.Chance(Props.ProximityTransferChancePerCheck)) return;
-            Pawn pawn = GenRadial.RadialCellsAround(parent.pawn.Position, Props.ProximityRadius, true)
-                .SelectMany(cell =>
-                    parent.pawn.Map.thingGrid.ThingsAt(cell)
-                        .OfType<Pawn>()
-                        .Except([parent.pawn])
-                        .Where(p=>p.RaceProps.Humanlike))
+            if (!Rand.Chance(Props.ProximityTransferChancePerCheck))
+                return;
+            Pawn pawn = GenRadial
+                .RadialCellsAround(parent.pawn.Position, Props.ProximityRadius, true)
+                .SelectMany(cell => parent.pawn.Map.thingGrid.ThingsAt(cell).OfType<Pawn>().Except([parent.pawn]).Where(p => p.RaceProps.Humanlike))
                 .RandomElementWithFallback();
 
             if (pawn != null)
@@ -97,9 +96,11 @@ public class HediffComp_Haunt: HediffComp
 
     public bool ShouldDisplayNow()
     {
-        if (Props.AlwaysOn) return true;
+        if (Props.AlwaysOn)
+            return true;
 
-        if(OffUntilTick < 0) OffUntilTick = Find.TickManager.TicksGame + Props.OffTimeTicksRange.RandomInRange;
+        if (OffUntilTick < 0)
+            OffUntilTick = Find.TickManager.TicksGame + Props.OffTimeTicksRange.RandomInRange;
 
         if (OnUntilTick < OffUntilTick && OnUntilTick > Find.TickManager.TicksGame)
         {
@@ -125,15 +126,18 @@ public class HediffComp_Haunt: HediffComp
 
     public virtual void DrawAt(Vector3 drawPos)
     {
-        if(!MSSFPMod.settings.ShowHaunts) return;
-        if (!ShouldDisplayNow()) return;
+        if (!MSSFPMod.settings.ShowHaunts)
+            return;
+        if (!ShouldDisplayNow())
+            return;
 
         if (Props.onlyRenderWhenDrafted && Pawn.drafter is not { Drafted: true })
         {
             return;
         }
 
-        if(Props.graphicData.Graphic is PawnHauntGraphic && TexPath == null) return;
+        if (Props.graphicData.Graphic is PawnHauntGraphic && TexPath == null)
+            return;
 
         if (Props.graphicData?.Graphic is PawnHauntGraphic gfx && TexPath != null)
         {
@@ -171,7 +175,8 @@ public class HediffComp_Haunt: HediffComp
 
     public virtual void SetPawnToDraw(Pawn pawn)
     {
-        if(pawn == null) return;
+        if (pawn == null)
+            return;
 
         if (pawnToDraw is { skills: not null })
         {
@@ -207,7 +212,8 @@ public class HediffComp_Haunt: HediffComp
         base.CompPostPostRemoved();
         HauntsCache.RemoveHaunt(Pawn.thingIDNumber, this);
         parent.pawn.skills.GetSkill(skillToBoost).Level -= SkillBoostLevel;
-        if(Props.thought != null) Pawn.needs?.mood?.thoughts?.memories?.RemoveMemoriesOfDef(Props.thought);
+        if (Props.thought != null)
+            Pawn.needs?.mood?.thoughts?.memories?.RemoveMemoriesOfDef(Props.thought);
     }
 
     public override void CompExposeData()
@@ -230,7 +236,6 @@ public class HediffComp_Haunt: HediffComp
         }
     }
 
-
     public override IEnumerable<Gizmo> CompGetGizmos()
     {
         if (!DebugSettings.ShowDevGizmos)
@@ -242,10 +247,12 @@ public class HediffComp_Haunt: HediffComp
         showPawn.defaultLabel = "Select Pawn To Draw";
         showPawn.targetingParams = TargetingParameters.ForColonist();
         showPawn.icon = icon;
-        showPawn.action = (info =>
-        {
-            SetPawnToDraw(info.Pawn);
-        });
+        showPawn.action = (
+            info =>
+            {
+                SetPawnToDraw(info.Pawn);
+            }
+        );
 
         yield return showPawn;
     }
@@ -260,11 +267,13 @@ public class HediffComp_Haunt: HediffComp
 
     private void TryAddMemory()
     {
-        if(pawnToDraw is null) return;
-        if(Props.thought == null) return;
+        if (pawnToDraw is null)
+            return;
+        if (Props.thought == null)
+            return;
         if (Pawn.needs?.mood?.thoughts?.memories?.GetFirstMemoryOfDef(Props.thought) != null)
             return;
-        Thought_Memory newThought = (Thought_Memory) ThoughtMaker.MakeThought(Props.thought);
+        Thought_Memory newThought = (Thought_Memory)ThoughtMaker.MakeThought(Props.thought);
         newThought.permanent = true;
         Pawn.needs?.mood?.thoughts?.memories?.TryGainMemory(newThought, pawnToDraw);
     }

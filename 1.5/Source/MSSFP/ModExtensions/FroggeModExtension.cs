@@ -2,7 +2,4 @@
 
 namespace MSSFP.ModExtensions;
 
-public class FroggeModExtension: DefModExtension
-{
-
-}
+public class FroggeModExtension : DefModExtension { }
