@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Defs>
+    <ThingDef>
+        <defName>MSSFP_HauntedThingFlyer</defName>
+        <label>HauntedThingFlyer</label>
+        <thingClass>MSSFP.Utils.HauntedThingFlyer</thingClass>
+    </ThingDef>
+</Defs>
