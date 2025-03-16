@@ -18,14 +18,15 @@ public static class QuestManager_Patch
     public static void Notify_PawnBorn_Patch(Thing baby)
     {
         // couldn't get this patch to work in PregnancyUtility.ApplyBirthOutcome, so applying here instead
-        if(baby is not Pawn pawn || pawn.genes == null || pawn.Map == null) return;
+        if (baby is not Pawn pawn || pawn.genes == null || pawn.Map == null)
+            return;
 
         foreach (GeneMutatorDef birthGeneDef in DefDatabase<GeneMutatorDef>.AllDefs)
         {
             if (ConditionActive(Find.World, pawn.Map, birthGeneDef.conditionActive) && (!birthGeneDef.chanceToApply.HasValue || Rand.Chance(birthGeneDef.chanceToApply.Value)))
             {
                 int tries = 10;
-                GeneClassification gene =  birthGeneDef.RandomGene;
+                GeneClassification gene = birthGeneDef.RandomGene;
                 while (gene.gene == null && tries > 0)
                 {
                     tries--;
@@ -50,7 +51,12 @@ public static class QuestManager_Patch
                     pawn.genes.AddGene(gene.gene, true);
                     LookTargets lookTargets = new LookTargets();
                     lookTargets.targets.Add(pawn);
-                    Messages.Message("MSS_GainedGeneFromCondition".Translate(pawn.Name, birthGeneDef.ReasonString, gene.gene.LabelCap), lookTargets, MessageTypeDefOf.NeutralEvent, true);
+                    Messages.Message(
+                        "MSS_GainedGeneFromConditionNew".Translate(pawn.Named("PAWN"), birthGeneDef.ReasonString, gene.gene.LabelCap),
+                        lookTargets,
+                        MessageTypeDefOf.NeutralEvent,
+                        true
+                    );
                 }
                 else
                 {
@@ -60,6 +66,6 @@ public static class QuestManager_Patch
         }
     }
 
-    public static bool ConditionActive(World world, Map map, GameConditionDef conditionDef) => world.GameConditionManager.ConditionIsActive(conditionDef) ||
-                                                                                               map.GameConditionManager.ConditionIsActive(conditionDef);
+    public static bool ConditionActive(World world, Map map, GameConditionDef conditionDef) =>
+        world.GameConditionManager.ConditionIsActive(conditionDef) || map.GameConditionManager.ConditionIsActive(conditionDef);
 }

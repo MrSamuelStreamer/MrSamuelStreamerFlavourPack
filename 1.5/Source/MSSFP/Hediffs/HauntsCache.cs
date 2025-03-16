@@ -24,7 +24,7 @@ public static class HauntsCache
 
     public static void RemoveHaunt(int thingIdNumber, HediffComp_Haunt haunt)
     {
-        if(!Haunts.TryGetValue(thingIdNumber, out List<HediffComp_Haunt> mods))
+        if (!Haunts.TryGetValue(thingIdNumber, out List<HediffComp_Haunt> mods))
         {
             return;
         }

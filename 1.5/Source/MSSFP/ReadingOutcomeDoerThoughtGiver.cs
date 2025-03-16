@@ -3,7 +3,7 @@ using Verse;
 
 namespace MSSFP;
 
-public class ReadingOutcomeDoerThoughtGiver: BookOutcomeDoer
+public class ReadingOutcomeDoerThoughtGiver : BookOutcomeDoer
 {
     public BookOutcomeProperties_ThoughtGiver OutcomeProps => (BookOutcomeProperties_ThoughtGiver)Props;
 
@@ -13,5 +13,4 @@ public class ReadingOutcomeDoerThoughtGiver: BookOutcomeDoer
     {
         reader.needs?.mood?.thoughts.memories.TryGainMemory(OutcomeProps.ThoughtDef);
     }
-
 }

@@ -11,35 +11,30 @@ public class HauntedMapComponent(Verse.Map map) : MapComponent(map)
     public int LastFiredTick = 0;
     public int SearchRadius = 10;
 
-    public IEnumerable<Building_Grave> Graves => map.listerThings.AllThings.OfType<Building_Grave>()
-        .Where(g => g.Corpse != null);
+    public IEnumerable<Building_Grave> Graves => map.listerThings.AllThings.OfType<Building_Grave>().Where(g => g.Corpse != null);
 
-    public IEnumerable<Pawn> PawnsNearGraves => Graves
-        .SelectMany(thing => GenRadial.RadialCellsAround(thing.Position, SearchRadius, true))
-        .Distinct()
-        .SelectMany(cell =>
-            map.thingGrid
-                .ThingsAt(cell))
-        .OfType<Pawn>();
+    public IEnumerable<Pawn> PawnsNearGraves =>
+        Graves.SelectMany(thing => GenRadial.RadialCellsAround(thing.Position, SearchRadius, true)).Distinct().SelectMany(cell => map.thingGrid.ThingsAt(cell)).OfType<Pawn>();
 
-    public IEnumerable<Pawn> PawnPool => PawnsNearGraves.Where(pawn=>
-            !pawn.health.hediffSet.HasHediff(MSSFPDefOf.MSS_FP_PawnDisplayer)
-            &&
-            !pawn.health.hediffSet.HasHediff(MSSFPDefOf.MSS_FP_FroggeHaunt));
+    public IEnumerable<Pawn> PawnPool =>
+        PawnsNearGraves.Where(pawn => !pawn.health.hediffSet.HasHediff(MSSFPDefOf.MSS_FP_PawnDisplayer) && !pawn.health.hediffSet.HasHediff(MSSFPDefOf.MSS_FP_FroggeHaunt));
 
     public override void MapComponentTick()
     {
-        if(!MSSFPMod.settings.ShowHaunts) return;
+        if (!MSSFPMod.settings.ShowHaunts)
+            return;
 
         //It's ok if we miss some ticks, so the simple check is fine
-        if (LastFiredTick + 2 * GenDate.TicksPerDay >= Find.TickManager.TicksGame) return;
+        if (LastFiredTick + 2 * GenDate.TicksPerDay >= Find.TickManager.TicksGame)
+            return;
 
         LastFiredTick = Find.TickManager.TicksGame + 2 * GenDate.TicksPerDay;
 
         Pawn pawn = PawnPool.RandomElementWithFallback();
-        if(pawn == null) return;
+        if (pawn == null)
+            return;
 
-        Building_Grave grave = GenRadial.RadialCellsAround(pawn.Position, SearchRadius, true).SelectMany(cell=>Graves.Where(g=>g.Position == cell)).RandomElementWithFallback();
+        Building_Grave grave = GenRadial.RadialCellsAround(pawn.Position, SearchRadius, true).SelectMany(cell => Graves.Where(g => g.Position == cell)).RandomElementWithFallback();
 
         LastFiredTick += 4 * GenDate.TicksPerDay;
 
@@ -63,7 +58,6 @@ public class HauntedMapComponent(Verse.Map map) : MapComponent(map)
         base.ExposeData();
         Scribe_Values.Look(ref LastFiredTick, "LastFiredTick");
     }
-
 
     public override void MapComponentUpdate()
     {

@@ -8,7 +8,7 @@ public enum GeneType
     good,
     bad,
     neutral,
-    random
+    random,
 }
 
 public enum ClassificationType
@@ -18,7 +18,7 @@ public enum ClassificationType
     mental,
     psychic,
     cosmetic,
-    skill
+    skill,
 }
 
 public class GeneClassification : IExposable
@@ -29,7 +29,7 @@ public class GeneClassification : IExposable
 
     public List<GeneDef> requires;
 
-    public GeneClassification(){}
+    public GeneClassification() { }
 
     public GeneClassification(GeneDef gene, float weight)
     {
@@ -46,7 +46,7 @@ public class GeneClassification : IExposable
     }
 }
 
-public class GeneClassificationDef: Def
+public class GeneClassificationDef : Def
 {
     public GeneType type;
     public List<GeneClassification> genes;

@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
-using Verse;
-using UnityEngine;
 using HarmonyLib;
 using MSSFP.HarmonyPatches;
+using UnityEngine;
+using Verse;
 
 namespace MSSFP;
 
@@ -12,7 +12,8 @@ public class MSSFPMod : Mod
 {
     public static Settings settings;
 
-    public MSSFPMod(ModContentPack content) : base(content)
+    public MSSFPMod(ModContentPack content)
+        : base(content)
     {
         ModLog.Debug("Hello world from Mr Samuel Streamer Flavour Pack");
 

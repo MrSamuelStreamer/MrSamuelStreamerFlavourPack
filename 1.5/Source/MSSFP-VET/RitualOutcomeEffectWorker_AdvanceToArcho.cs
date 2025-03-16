@@ -8,7 +8,7 @@ using VFETribals;
 
 namespace MSSFP.VET;
 
-public class RitualOutcomeEffectWorker_AdvanceToArcho: RitualOutcomeEffectWorker
+public class RitualOutcomeEffectWorker_AdvanceToArcho : RitualOutcomeEffectWorker
 {
     public static Lazy<FieldInfo> jobRitualInfo = new Lazy<FieldInfo>(() => AccessTools.Field(typeof(LordJob_Ritual), "ritual"));
     public override bool SupportsAttachableOutcomeEffect => false;
@@ -16,14 +16,10 @@ public class RitualOutcomeEffectWorker_AdvanceToArcho: RitualOutcomeEffectWorker
     public PreceptDef MSSFP_AdvanceToArcho => DefDatabase<PreceptDef>.GetNamed("MSSFP_AdvanceToArcho");
     public EraAdvancementDef MSSFP_FormArchoMind => DefDatabase<EraAdvancementDef>.GetNamed("MSSFP_FormArchoMind");
 
-    public RitualOutcomeEffectWorker_AdvanceToArcho()
-    {
-    }
+    public RitualOutcomeEffectWorker_AdvanceToArcho() { }
 
     public RitualOutcomeEffectWorker_AdvanceToArcho(RitualOutcomeEffectDef def)
-        : base(def)
-    {
-    }
+        : base(def) { }
 
     public override void Apply(float progress, Dictionary<Pawn, int> totalPresence, LordJob_Ritual jobRitual)
     {
@@ -42,11 +38,7 @@ public class RitualOutcomeEffectWorker_AdvanceToArcho: RitualOutcomeEffectWorker
             try
             {
                 ModLog.Log($"Starting on map {Find.AnyPlayerHomeMap}");
-                IncidentParms parms = new()
-                {
-                    forced = true,
-                    target = Find.AnyPlayerHomeMap
-                };
+                IncidentParms parms = new() { forced = true, target = Find.AnyPlayerHomeMap };
 
                 if (MSSFPDefOf.MSS_LoversAdvance.Worker.CanFireNow(parms))
                 {
@@ -58,11 +50,5 @@ public class RitualOutcomeEffectWorker_AdvanceToArcho: RitualOutcomeEffectWorker
                 ModLog.Error("Error firing LA", ex);
             }
         }
-
-
     }
-
-
-
-
 }

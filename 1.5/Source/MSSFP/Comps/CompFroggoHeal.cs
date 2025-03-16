@@ -5,7 +5,7 @@ using Verse;
 
 namespace MSSFP.Comps;
 
-public class CompFroggoHeal: CompAbilityEffect
+public class CompFroggoHeal : CompAbilityEffect
 {
     public override bool CanApplyOn(LocalTargetInfo target, LocalTargetInfo dest)
     {
@@ -19,7 +19,7 @@ public class CompFroggoHeal: CompAbilityEffect
         if (ModsConfig.AnomalyActive)
         {
             Effecter effecter = EffecterDefOf.PsychicRitual_Sustained.SpawnAttached(target.Pawn, target.Pawn.Map);
-            effecter.Trigger((TargetInfo) (Thing) target.Pawn, (TargetInfo) (Thing) target.Pawn);
+            effecter.Trigger((TargetInfo)(Thing)target.Pawn, (TargetInfo)(Thing)target.Pawn);
             effecter.Cleanup();
         }
 
@@ -29,9 +29,11 @@ public class CompFroggoHeal: CompAbilityEffect
 
             if (hediff is not null)
             {
-                if (!hediff.def.isBad) break;
+                if (!hediff.def.isBad)
+                    break;
                 HealthUtility.Cure(hediff);
-            }else if (part is not null)
+            }
+            else if (part is not null)
             {
                 target.Pawn.health.RestorePart(part);
             }

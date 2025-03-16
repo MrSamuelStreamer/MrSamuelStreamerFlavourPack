@@ -3,7 +3,7 @@ using Verse.AI;
 
 namespace MSSFP.Comps;
 
-public class CompLeaveMap: ThingComp
+public class CompLeaveMap : ThingComp
 {
     public bool isFirstTick = true;
     public Job job;
@@ -19,7 +19,7 @@ public class CompLeaveMap: ThingComp
         if (parent.HasComp<CompLeaveMap>())
         {
             parent.AllComps.Remove(this);
-            if(job != null)
+            if (job != null)
                 ((parent as Pawn)!).jobs.StartJob(job, JobCondition.InterruptForced);
         }
     }

@@ -7,6 +7,6 @@ public class CompProperties_FroggoHeal : CompProperties_AbilityEffect
 {
     public CompProperties_FroggoHeal()
     {
-        this.compClass = typeof (CompFroggoHeal);
+        this.compClass = typeof(CompFroggoHeal);
     }
 }

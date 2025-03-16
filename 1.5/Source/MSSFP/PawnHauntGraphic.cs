@@ -47,7 +47,7 @@ public class PawnHauntGraphic : Graphic_Multi
             color = color,
             colorTwo = colorTwo,
             renderQueue = _renderQueue,
-            shaderParameters = _shaderParameters
+            shaderParameters = _shaderParameters,
         };
 
         _mats[rot.AsInt] = MaterialPool.MatFrom(req1);
@@ -57,7 +57,8 @@ public class PawnHauntGraphic : Graphic_Multi
 
     public void SetOverrideMaterial(Texture2D tex)
     {
-        if(setTexture == tex) return;
+        if (setTexture == tex)
+            return;
         setTexture = tex;
         MaterialRequest req1 = new()
         {
@@ -66,7 +67,7 @@ public class PawnHauntGraphic : Graphic_Multi
             color = color,
             colorTwo = colorTwo,
             renderQueue = _renderQueue,
-            shaderParameters = _shaderParameters
+            shaderParameters = _shaderParameters,
         };
 
         overrideMat = MaterialPool.MatFrom(req1);
@@ -74,14 +75,16 @@ public class PawnHauntGraphic : Graphic_Multi
 
     public override Material MatAt(Rot4 rot, Thing thing = null)
     {
-        if (overrideMat != null) return overrideMat;
-        if (thing is not Pawn pawn) return BaseContent.BadMat;
+        if (overrideMat != null)
+            return overrideMat;
+        if (thing is not Pawn pawn)
+            return BaseContent.BadMat;
 
-        if (_mats[rot.AsInt] is null) SetMaterial(pawn, rot);
-        if (pawn != _pawn) SetMaterial(pawn, rot);
+        if (_mats[rot.AsInt] is null)
+            SetMaterial(pawn, rot);
+        if (pawn != _pawn)
+            SetMaterial(pawn, rot);
 
         return _mats[rot.AsInt];
     }
-
-
 }

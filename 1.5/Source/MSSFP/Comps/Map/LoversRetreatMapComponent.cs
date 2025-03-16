@@ -10,7 +10,8 @@ public class LoversRetreatMapComponent(Verse.Map map) : MapComponent(map), IThin
     public List<Pawn> PawnsToStoreNextTick = new List<Pawn>();
 
     public int NextCheck;
-    public class Pair: IExposable
+
+    public class Pair : IExposable
     {
         public Pawn firstLover;
         public Pawn secondLover;
@@ -42,7 +43,13 @@ public class LoversRetreatMapComponent(Verse.Map map) : MapComponent(map), IThin
 
     public virtual void AddPair(Pawn first, Pawn second, int ticksAway)
     {
-        Pair p = new Pair { firstLover = first, secondLover = second, ExcpectedBackTick = ticksAway + Find.TickManager.TicksGame, LeftAtTick = Find.TickManager.TicksGame };
+        Pair p = new Pair
+        {
+            firstLover = first,
+            secondLover = second,
+            ExcpectedBackTick = ticksAway + Find.TickManager.TicksGame,
+            LeftAtTick = Find.TickManager.TicksGame,
+        };
         pairs.Add(p);
     }
 
@@ -58,7 +65,8 @@ public class LoversRetreatMapComponent(Verse.Map map) : MapComponent(map), IThin
             }
         }
 
-        if(Find.TickManager.TicksGame % 600 == 0) return;
+        if (Find.TickManager.TicksGame % 600 == 0)
+            return;
 
         List<Pair> toRemove = [];
         foreach (Pair pair in pairs)
@@ -84,17 +92,15 @@ public class LoversRetreatMapComponent(Verse.Map map) : MapComponent(map), IThin
                         preg!.SetParents(pair.secondLover, pair.firstLover, PregnancyUtility.GetInheritedGeneSet(pair.firstLover, pair.secondLover));
                     }
                 }
-
             }
         }
 
-        pairs.RemoveAll(p=>toRemove.Contains(p));
-
+        pairs.RemoveAll(p => toRemove.Contains(p));
 
         foreach (Pawn pawn in PawnsToStoreNextTick)
         {
             IntVec3 loc = pawn.Position;
-            if(pawn.Spawned)
+            if (pawn.Spawned)
                 pawn.DeSpawn();
 
             if (!innerContainer.Contains(pawn) && innerContainer.TryAdd(pawn))

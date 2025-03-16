@@ -14,12 +14,14 @@ namespace MSSFP.HarmonyPatches;
 [HarmonyPatch(typeof(WorldPawns))]
 public static class WorldPawns_Patch
 {
-    public static Lazy<FieldInfo> hediffPawns = new(()=>AccessTools.Field(typeof(WorldPawns), "hediffPawns"));
+    public static Lazy<FieldInfo> hediffPawns = new(() => AccessTools.Field(typeof(WorldPawns), "hediffPawns"));
+
     [HarmonyPatch(nameof(WorldPawns.RemovePreservedPawnHediff))]
     [HarmonyPrefix]
     public static bool RemovePreservedPawnHediff(WorldPawns __instance, Pawn pawn)
     {
-        if (pawn == null) return true;
+        if (pawn == null)
+            return true;
         Dictionary<Pawn, List<Hediff>> dict = (Dictionary<Pawn, List<Hediff>>)hediffPawns.Value.GetValue(__instance);
         return dict == null || dict.ContainsKey(pawn);
     }

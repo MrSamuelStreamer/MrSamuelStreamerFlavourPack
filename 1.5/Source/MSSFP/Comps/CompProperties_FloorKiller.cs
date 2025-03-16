@@ -22,12 +22,10 @@ public class CompFloorKiller : ThingComp
     private static int friendshipDate = 1507;
     private int _nextDestruction;
 
-    private CompProperties_FloorKiller Props => (CompProperties_FloorKiller) props;
+    private CompProperties_FloorKiller Props => (CompProperties_FloorKiller)props;
 
-    private bool CanDestroy => parent is Pawn pawn && pawn.Awake() &&
-                               !pawn.health.Downed &&
-                               (pawn.mindState.exitMapAfterTick <= 0 ||
-                                GenTicks.TicksGame < pawn.mindState.exitMapAfterTick);
+    private bool CanDestroy =>
+        parent is Pawn pawn && pawn.Awake() && !pawn.health.Downed && (pawn.mindState.exitMapAfterTick <= 0 || GenTicks.TicksGame < pawn.mindState.exitMapAfterTick);
 
     public override void Initialize(CompProperties initProps)
     {
@@ -38,17 +36,21 @@ public class CompFloorKiller : ThingComp
     public override void CompTick()
     {
         base.CompTick();
-        if (GenTicks.TicksGame < _nextDestruction) return;
+        if (GenTicks.TicksGame < _nextDestruction)
+            return;
         _nextDestruction += TryDestroyFloor() ? Props.ticksBetweenFloorDestruction.RandomInRange : friendshipDate;
     }
 
     public bool TryDestroyFloor()
     {
-        if (!MSSFPMod.settings.destroyFloors) return true; // If the setting is off, skip the destruction
-        if (!CanDestroy) return false;
+        if (!MSSFPMod.settings.destroyFloors)
+            return true; // If the setting is off, skip the destruction
+        if (!CanDestroy)
+            return false;
         IntVec3 cell = parent.Position;
         Verse.Map parentMap = parent.Map;
-        if (parentMap == null || !parentMap.terrainGrid.CanRemoveTopLayerAt(cell)) return false;
+        if (parentMap == null || !parentMap.terrainGrid.CanRemoveTopLayerAt(cell))
+            return false;
         parentMap.terrainGrid.RemoveTopLayer(cell);
         FilthMaker.RemoveAllFilth(cell, parentMap);
         FilthMaker.TryMakeFilth(cell.RandomAdjacentCell8Way(), parentMap, ThingDefOf.Filth_Dirt, 2, FilthSourceFlags.Terrain);
@@ -65,15 +67,19 @@ public class CompFloorKiller : ThingComp
 
     public override IEnumerable<Gizmo> CompGetGizmosExtra()
     {
-        foreach (Gizmo gizmo in base.CompGetGizmosExtra()) yield return gizmo;
+        foreach (Gizmo gizmo in base.CompGetGizmosExtra())
+            yield return gizmo;
         if (DebugSettings.ShowDevGizmos)
             yield return new Command_Action
             {
-                defaultLabel = "DEV: Destroy Floor Now", defaultDesc = "DEV: Force the next floor destruction tick to be now", action = () => _nextDestruction = 0
+                defaultLabel = "DEV: Destroy Floor Now",
+                defaultDesc = "DEV: Force the next floor destruction tick to be now",
+                action = () => _nextDestruction = 0,
             };
 
         // Gizmo to give the parent a Job to dig the floor in a radius
-        if (parent as Pawn is not { } pawn || pawn.Faction != Faction.OfPlayer) yield break;
+        if (parent as Pawn is not { } pawn || pawn.Faction != Faction.OfPlayer)
+            yield break;
         bool enabled = pawn.IsPlayerControlled || (pawn.training?.HasLearned(TrainableDefOf.Obedience) ?? false);
 
         yield return new Command_TargetRadius
@@ -92,20 +98,21 @@ public class CompFloorKiller : ThingComp
                 canTargetMechs = false,
                 canTargetAnimals = false,
                 onlyTargetColonists = false,
-                validator = Validator
+                validator = Validator,
             },
             action = target =>
             {
-                GenRadial.RadialCellsAround(target.Cell, 4, true)
+                GenRadial
+                    .RadialCellsAround(target.Cell, 4, true)
                     .Where(c => Validator(new TargetInfo(c, pawn.Map)))
                     .InRandomOrder()
                     .Select(v => JobMaker.MakeJob(JobDefOf.RemoveFloor, v))
                     .Do(j => pawn.jobs.TryTakeOrderedJob(j, JobTag.TrainedAnimalBehavior, requestQueueing: true));
-            }
+            },
         };
         yield break;
 
-        bool Validator(TargetInfo info) => info.IsValid && info.Map.terrainGrid.CanRemoveTopLayerAt(info.Cell) &&
-                                           !WorkGiver_ConstructRemoveFloor.AnyBuildingBlockingFloorRemoval(info.Cell, info.Map);
+        bool Validator(TargetInfo info) =>
+            info.IsValid && info.Map.terrainGrid.CanRemoveTopLayerAt(info.Cell) && !WorkGiver_ConstructRemoveFloor.AnyBuildingBlockingFloorRemoval(info.Cell, info.Map);
     }
 }

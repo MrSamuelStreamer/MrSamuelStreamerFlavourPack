@@ -10,7 +10,7 @@ public class HediffComp_RandomMessageAfterTicks : HediffComp
 
     protected HediffCompProperties_RandomMessageAfterTicks Props
     {
-        get => (HediffCompProperties_RandomMessageAfterTicks) props;
+        get => (HediffCompProperties_RandomMessageAfterTicks)props;
     }
 
     public override void CompPostMake()
@@ -28,7 +28,7 @@ public class HediffComp_RandomMessageAfterTicks : HediffComp
             if (PawnUtility.ShouldSendNotificationAbout(Pawn))
             {
                 if (Props.letterType != null)
-                    Find.LetterStack.ReceiveLetter(Props.letterLabels.RandomElement().Formatted((NamedArgument) (Thing) Pawn), GetLetterText(), Props.letterType, (Thing) Pawn);
+                    Find.LetterStack.ReceiveLetter(Props.letterLabels.RandomElement().Formatted((NamedArgument)(Thing)Pawn), GetLetterText(), Props.letterType, (Thing)Pawn);
             }
         }
         else
@@ -48,7 +48,7 @@ public class HediffComp_RandomMessageAfterTicks : HediffComp
 
     private TaggedString GetLetterText()
     {
-        StringBuilder text = new StringBuilder(Props.letterTexts.RandomElement().Formatted((NamedArgument) (Thing) Pawn));
+        StringBuilder text = new StringBuilder(Props.letterTexts.RandomElement().Formatted((NamedArgument)(Thing)Pawn));
 
         if (parent is not Hediff_Pregnant p || p.Mother == null || p.Mother == p.pawn)
             return text.ToString();

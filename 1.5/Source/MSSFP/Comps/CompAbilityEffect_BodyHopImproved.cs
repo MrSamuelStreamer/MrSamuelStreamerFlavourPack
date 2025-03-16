@@ -11,16 +11,20 @@ namespace MSSFP.Comps;
 
 public class CompAbilityEffect_BodyHopImproved : CompAbilityEffect
 {
-    public new CompProperties_AbilityBodyHopImproved Props => (CompProperties_AbilityBodyHopImproved) props;
+    public new CompProperties_AbilityBodyHopImproved Props => (CompProperties_AbilityBodyHopImproved)props;
 
     public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
     {
         base.Apply(target, dest);
         Pawn caster = parent.pawn;
-        if (target.Thing is not Pawn host) return;
+        if (target.Thing is not Pawn host)
+            return;
 
         Hediff hd = host.health.hediffSet.GetFirstHediffOfDef(Props.hediffOnSelf);
-        if (hd != null) { host.health.RemoveHediff(hd); }
+        if (hd != null)
+        {
+            host.health.RemoveHediff(hd);
+        }
 
         string texPath = PawnGraphicUtils.SavePawnTexture(host);
         string originalName = host.NameFullColored;
@@ -37,8 +41,12 @@ public class CompAbilityEffect_BodyHopImproved : CompAbilityEffect
 
         int numTraits = host.story.traits.allTraits.Count();
 
-        List<TraitDef> traits = host.story.traits.allTraits.Where(trait=>trait.sourceGene==null).InRandomOrder().Take(numTraits * Rand.RangeInclusive(0,3)).Select(t=>t.def).ToList();
-
+        List<TraitDef> traits = host
+            .story.traits.allTraits.Where(trait => trait.sourceGene == null)
+            .InRandomOrder()
+            .Take(numTraits * Rand.RangeInclusive(0, 3))
+            .Select(t => t.def)
+            .ToList();
 
         foreach (Trait trait in caster.story.traits.allTraits)
         {
@@ -51,7 +59,10 @@ public class CompAbilityEffect_BodyHopImproved : CompAbilityEffect
         {
             SkillRecord item = new SkillRecord(host, skill.def)
             {
-                levelInt = skill.levelInt, passion = skill.passion, xpSinceLastLevel = skill.xpSinceLastLevel, xpSinceMidnight = skill.xpSinceMidnight
+                levelInt = skill.levelInt,
+                passion = skill.passion,
+                xpSinceLastLevel = skill.xpSinceLastLevel,
+                xpSinceMidnight = skill.xpSinceMidnight,
             };
             host.skills.skills.Add(item);
         }
@@ -93,7 +104,8 @@ public class CompAbilityEffect_BodyHopImproved : CompAbilityEffect
         List<Hediff> hediffs = caster.health.hediffSet.hediffs;
         foreach (Hediff item in hediffs)
         {
-            if (item.def == MSSFPDefOf.MSS_FP_PawnDisplayerPossession) continue;
+            if (item.def == MSSFPDefOf.MSS_FP_PawnDisplayerPossession)
+                continue;
             // if (!item.def.duplicationAllowed ||
             //     (item.Part != null && !host.health.hediffSet.HasBodyPart(item.Part)) ||
             //     (item is Hediff_AddedPart && !item.def.organicAddedBodypart) ||
@@ -117,7 +129,7 @@ public class CompAbilityEffect_BodyHopImproved : CompAbilityEffect
 
         foreach (Need allNeed in caster.needs.AllNeeds)
         {
-            Need need = (Need) Activator.CreateInstance(allNeed.def.needClass, host);
+            Need need = (Need)Activator.CreateInstance(allNeed.def.needClass, host);
             need.def = allNeed.def;
             host.needs?.AllNeeds.Add(need);
             need.SetInitialLevel();
@@ -142,13 +154,12 @@ public class CompAbilityEffect_BodyHopImproved : CompAbilityEffect
             memories.Clear();
             foreach (Thought_Memory memory in caster.needs.mood.thoughts.memories.Memories)
             {
-                Thought_Memory thought_Memory = (Thought_Memory) ThoughtMaker.MakeThought(memory.def);
+                Thought_Memory thought_Memory = (Thought_Memory)ThoughtMaker.MakeThought(memory.def);
                 thought_Memory.CopyFrom(memory);
                 thought_Memory.pawn = host;
                 memories.Add(thought_Memory);
             }
         }
-
 
         foreach (DirectPawnRelation relation in caster.relations.DirectRelations)
         {
@@ -163,7 +174,8 @@ public class CompAbilityEffect_BodyHopImproved : CompAbilityEffect
 
         HediffComp_BodyHopHaunt haunt = hostHediff.TryGetComp<HediffComp_BodyHopHaunt>();
 
-        if(haunt is null) return;
+        if (haunt is null)
+            return;
 
         HediffComp_BodyHopHaunt casterHauntComp = casterHediff?.TryGetComp<HediffComp_BodyHopHaunt>();
         if (casterHauntComp != null)
@@ -174,13 +186,7 @@ public class CompAbilityEffect_BodyHopImproved : CompAbilityEffect
             }
         }
 
-        haunt.AddNewPawn(
-            originalName,
-            "",
-            bestSkill,
-            skillOffset,
-            traits,
-            texturePath: texPath);
+        haunt.AddNewPawn(originalName, "", bestSkill, skillOffset, traits, texturePath: texPath);
 
         if (caster.story is not null)
         {

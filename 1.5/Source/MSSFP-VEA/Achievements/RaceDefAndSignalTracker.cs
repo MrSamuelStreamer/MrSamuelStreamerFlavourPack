@@ -10,11 +10,11 @@ public class RaceDefAndSignalTracker : SignalTracker
 {
     public List<ThingDef> RaceDefs;
 
-    public RaceDefAndSignalTracker() : base()
-    {
-    }
+    public RaceDefAndSignalTracker()
+        : base() { }
 
-    public RaceDefAndSignalTracker(RaceDefAndSignalTracker reference) : base(reference)
+    public RaceDefAndSignalTracker(RaceDefAndSignalTracker reference)
+        : base(reference)
     {
         RaceDefs = reference.RaceDefs;
     }
@@ -36,7 +36,8 @@ public class RaceDefAndSignalTracker : SignalTracker
         get
         {
             if (RaceDefs.NullOrEmpty())
-                return [$"MSS_RaceDefAndSignalTracker: {Signal} + [<empty>]"];;
+                return [$"MSS_RaceDefAndSignalTracker: {Signal} + [<empty>]"];
+            ;
             return [$"MSS_RaceDefAndSignalTracker: {Signal} + [{string.Join(", ", RaceDefs.Select(def => def.defName))}]"];
         }
     }

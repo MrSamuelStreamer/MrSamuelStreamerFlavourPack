@@ -5,7 +5,7 @@ using Verse;
 
 namespace MSSFP.Questing;
 
-public class QuestNode_DisableLoversRetreat: QuestNode
+public class QuestNode_DisableLoversRetreat : QuestNode
 {
     [NoTranslate]
     public SlateRef<string> inSignal;
@@ -15,9 +15,8 @@ public class QuestNode_DisableLoversRetreat: QuestNode
     protected override void RunInt()
     {
         Slate slate = QuestGen.slate;
-        QuestGen.quest.AddPart(new QuestPart_DisableLoversRetreat
-        {
-            inSignal = (QuestGenUtility.HardcodedSignalWithQuestID(inSignal.GetValue(slate)) ?? QuestGen.slate.Get<string>("inSignal")),
-        });
+        QuestGen.quest.AddPart(
+            new QuestPart_DisableLoversRetreat { inSignal = (QuestGenUtility.HardcodedSignalWithQuestID(inSignal.GetValue(slate)) ?? QuestGen.slate.Get<string>("inSignal")) }
+        );
     }
 }

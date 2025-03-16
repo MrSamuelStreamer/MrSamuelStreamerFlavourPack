@@ -1,12 +1,12 @@
-﻿using Verse;
-using HarmonyLib;
+﻿using HarmonyLib;
+using Verse;
 
 namespace MSSFP.VAE;
 
 public class MSSFPVAEMod : Mod
 {
-
-    public MSSFPVAEMod(ModContentPack content) : base(content)
+    public MSSFPVAEMod(ModContentPack content)
+        : base(content)
     {
         ModLog.Debug("Hello world from MSSFPVAEMod");
 

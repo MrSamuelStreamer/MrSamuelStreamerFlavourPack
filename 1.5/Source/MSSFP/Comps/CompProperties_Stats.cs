@@ -4,7 +4,7 @@ using Verse;
 
 namespace MSSFP.Comps;
 
-public class CompProperties_Stats: CompProperties
+public class CompProperties_Stats : CompProperties
 {
     public List<StatModifier> offsets;
     public List<StatModifier> factors;

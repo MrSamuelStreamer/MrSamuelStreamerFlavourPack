@@ -1,12 +1,12 @@
-﻿using Verse;
-using HarmonyLib;
+﻿using HarmonyLib;
+using Verse;
 
 namespace MSSFP.Dryads;
 
 public class MSSFPDryadsMod : Mod
 {
-
-    public MSSFPDryadsMod(ModContentPack content) : base(content)
+    public MSSFPDryadsMod(ModContentPack content)
+        : base(content)
     {
         ModLog.Debug("Hello world from MSSFPDryadsMod");
 

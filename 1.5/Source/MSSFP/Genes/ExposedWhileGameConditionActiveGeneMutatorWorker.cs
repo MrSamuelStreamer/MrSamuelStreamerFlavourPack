@@ -5,14 +5,16 @@ using Verse;
 
 namespace MSSFP.Genes;
 
-public class ExposedWhileGameConditionActiveGeneMutatorWorker: GeneMutatorWorker
+public class ExposedWhileGameConditionActiveGeneMutatorWorker : GeneMutatorWorker
 {
     public override void MapComponentTick(Map map)
     {
         base.MapComponentTick(map);
-        if(!Find.World.GameConditionManager.ConditionIsActive(def.conditionActive) && !map.GameConditionManager.ConditionIsActive(def.conditionActive)) return;
+        if (!Find.World.GameConditionManager.ConditionIsActive(def.conditionActive) && !map.GameConditionManager.ConditionIsActive(def.conditionActive))
+            return;
 
-        if(Find.TickManager.TicksGame % 250 != 0) return;
+        if (Find.TickManager.TicksGame % 250 != 0)
+            return;
 
         IReadOnlyList<Pawn> allPawnsSpawned = map.mapPawns.AllPawnsSpawned;
 
@@ -34,7 +36,12 @@ public class ExposedWhileGameConditionActiveGeneMutatorWorker: GeneMutatorWorker
                             pawn.genes.AddGene(geneRequire, isXenoGene);
                         }
                         pawn.genes.AddGene(gene.gene, isXenoGene);
-                        Messages.Message("MSS_GainedGeneFromCondition".Translate(pawn.Name, def.ReasonString, gene.gene.LabelCap), lookTargets, MessageTypeDefOf.NeutralEvent, true);
+                        Messages.Message(
+                            "MSS_GainedGeneFromConditionNew".Translate(pawn.Named("PAWN"), def.ReasonString, gene.gene.LabelCap),
+                            lookTargets,
+                            MessageTypeDefOf.NeutralEvent,
+                            true
+                        );
                     }
                 }
                 else
@@ -45,18 +52,27 @@ public class ExposedWhileGameConditionActiveGeneMutatorWorker: GeneMutatorWorker
                         bool addAsXeno = Rand.Chance(0.95f);
                         foreach (GeneDef geneDef in RandomGeneSet(pawn))
                         {
-                            pawn.genes.AddGene(geneDef,addAsXeno);
-                            Messages.Message("MSS_GainedGeneFromCondition".Translate(pawn.Name, "Nuclear Fallout Exposure", geneDef.LabelCap), lookTargets, MessageTypeDefOf.NeutralEvent, true);
-
+                            pawn.genes.AddGene(geneDef, addAsXeno);
+                            Messages.Message(
+                                "MSS_GainedGeneFromConditionNew".Translate(pawn.Named("PAWN"), "Nuclear Fallout Exposure", geneDef.LabelCap),
+                                lookTargets,
+                                MessageTypeDefOf.NeutralEvent,
+                                true
+                            );
                         }
                     }
 
-                    if (Rand.Chance(def.chanceToApply.Value/2))
+                    if (Rand.Chance(def.chanceToApply.Value / 2))
                     {
                         foreach (Gene gene in pawn.genes.Xenogenes.Take(def.pinataModeChance.RandomInRange))
                         {
                             pawn.genes.RemoveGene(gene);
-                            Messages.Message("MSS_LostGeneFromCondition".Translate(pawn.Name, "Nuclear Fallout Exposure", gene.LabelCap), lookTargets, MessageTypeDefOf.NeutralEvent, true);
+                            Messages.Message(
+                                "MSS_GainedGeneFromConditionNew".Translate(pawn.Named("PAWN"), "Nuclear Fallout Exposure", gene.LabelCap),
+                                lookTargets,
+                                MessageTypeDefOf.NeutralEvent,
+                                true
+                            );
                         }
                     }
                 }
@@ -75,7 +91,8 @@ public class ExposedWhileGameConditionActiveGeneMutatorWorker: GeneMutatorWorker
 
             List<GeneDef> selected = validGenePool.Take(def.pinataModeChance.RandomInRange).ToList();
 
-            if(selected.Count <= 0) continue;
+            if (selected.Count <= 0)
+                continue;
 
             List<GeneDef> prereqs = selected.Where(g => g.prerequisite != null).Select(g => g.prerequisite).ToList();
 
@@ -102,7 +119,8 @@ public class ExposedWhileGameConditionActiveGeneMutatorWorker: GeneMutatorWorker
             }
 
             selected = selected.Except(conflicts).ToList();
-            if(selected.Count <= 0) continue;
+            if (selected.Count <= 0)
+                continue;
 
             return selected;
         }

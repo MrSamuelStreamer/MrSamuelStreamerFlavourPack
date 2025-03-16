@@ -7,27 +7,23 @@ using Verse;
 
 namespace MSSFP.VAE.Achievements;
 
-public class SweetBabyBoyTracker: TrackerBase
+public class SweetBabyBoyTracker : TrackerBase
 {
     public override MethodInfo MethodHook => AccessTools.Method(typeof(Pawn_RelationsTracker), "AddDirectRelation");
     public override MethodInfo PatchMethod => AccessTools.Method(typeof(SweetBabyBoyTracker), "AddDirectRelation_Patch");
     public override PatchType PatchType => PatchType.Postfix;
 
-    public static Lazy<FieldInfo> GetPawn = new(()=>AccessTools.Field(typeof(Pawn_RelationsTracker), "pawn"));
+    public static Lazy<FieldInfo> GetPawn = new(() => AccessTools.Field(typeof(Pawn_RelationsTracker), "pawn"));
 
     public Pawn SweetBabyBoy;
     public Pawn Victim;
 
     public bool HasTriggered = false;
 
-    public SweetBabyBoyTracker()
-    {
-    }
+    public SweetBabyBoyTracker() { }
 
-
-    public SweetBabyBoyTracker(SweetBabyBoyTracker reference) : base(reference)
-    {
-    }
+    public SweetBabyBoyTracker(SweetBabyBoyTracker reference)
+        : base(reference) { }
 
     public static void CheckPawnRelations(Pawn pawnA)
     {
@@ -75,10 +71,11 @@ public class SweetBabyBoyTracker: TrackerBase
 
                     // eldest.story.traits.GainTrait(new Trait(MSSFPDefOf.MSS_SweetBabyBoy, 0, true));
                 }
-
                 catch (Exception ex)
                 {
-                    Log.Error($"Unable to trigger event for card validation. To avoid further errors {card.def.LabelCap} has been automatically unlocked.\n\nException={ex.Message}");
+                    Log.Error(
+                        $"Unable to trigger event for card validation. To avoid further errors {card.def.LabelCap} has been automatically unlocked.\n\nException={ex.Message}"
+                    );
                     card.UnlockCard();
                 }
             }
@@ -87,7 +84,8 @@ public class SweetBabyBoyTracker: TrackerBase
 
     public static void AddDirectRelation_Patch(Pawn_RelationsTracker __instance)
     {
-        if(GetPawn.Value.GetValue(__instance) is not Pawn parent) return;
+        if (GetPawn.Value.GetValue(__instance) is not Pawn parent)
+            return;
         CheckPawnRelations(parent);
     }
 

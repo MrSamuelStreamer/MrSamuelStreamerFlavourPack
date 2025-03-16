@@ -4,11 +4,11 @@ using Verse;
 
 namespace MSSFP;
 
-public class DamageWorker_DestructiveExtinguish: DamageWorker_AddInjury
+public class DamageWorker_DestructiveExtinguish : DamageWorker_AddInjury
 {
     private static readonly FloatRange FireSizeRange = new(0.4f, 0.8f);
 
-    public static FloatRange PawnDamageModifier  = new(0.0001f, 0.02f);
+    public static FloatRange PawnDamageModifier = new(0.0001f, 0.02f);
 
     public override DamageResult Apply(DamageInfo dinfo, Thing victim)
     {
@@ -27,7 +27,7 @@ public class DamageWorker_DestructiveExtinguish: DamageWorker_AddInjury
         {
             Thing attachment = victim?.GetAttachment(ThingDefOf.Fire);
             if (attachment != null)
-                fire = (Fire) attachment;
+                fire = (Fire)attachment;
         }
 
         if (fire is { Destroyed: false })
@@ -46,7 +46,6 @@ public class DamageWorker_DestructiveExtinguish: DamageWorker_AddInjury
         return damageResult;
     }
 
-
     public override void ExplosionStart(Explosion explosion, List<IntVec3> cellsToAffect)
     {
         base.ExplosionStart(explosion, cellsToAffect);
@@ -55,12 +54,7 @@ public class DamageWorker_DestructiveExtinguish: DamageWorker_AddInjury
         effecter.Cleanup();
     }
 
-    public override void ExplosionAffectCell(
-        Explosion explosion,
-        IntVec3 c,
-        List<Thing> damagedThings,
-        List<Thing> ignoredThings,
-        bool canThrowMotes)
+    public override void ExplosionAffectCell(Explosion explosion, IntVec3 c, List<Thing> damagedThings, List<Thing> ignoredThings, bool canThrowMotes)
     {
         bool inRange = c.DistanceTo(explosion.Position) <= explosion.radius;
         base.ExplosionAffectCell(explosion, c, damagedThings, ignoredThings, canThrowMotes && inRange);
@@ -69,12 +63,7 @@ public class DamageWorker_DestructiveExtinguish: DamageWorker_AddInjury
         FleckMaker.ThrowSmoke(c.ToVector3Shifted(), explosion.Map, explosion.radius);
     }
 
-    protected override void ExplosionDamageThing(
-        Explosion explosion,
-        Thing t,
-        List<Thing> damagedThings,
-        List<Thing> ignoredThings,
-        IntVec3 cell)
+    protected override void ExplosionDamageThing(Explosion explosion, Thing t, List<Thing> damagedThings, List<Thing> ignoredThings, IntVec3 cell)
     {
         if (cell.DistanceTo(explosion.Position) > explosion.radius)
             return;
@@ -90,7 +79,8 @@ public class DamageWorker_DestructiveExtinguish: DamageWorker_AddInjury
         float radius,
         IntVec3? needLOSToCell1 = null,
         IntVec3? needLOSToCell2 = null,
-        FloatRange? affectedAngle = null)
+        FloatRange? affectedAngle = null
+    )
     {
         openCells.Clear();
         adjWallCells.Clear();
@@ -107,7 +97,8 @@ public class DamageWorker_DestructiveExtinguish: DamageWorker_AddInjury
 
         foreach (IntVec3 openCell in openCells)
         {
-            if (!openCell.Walkable(map)) continue;
+            if (!openCell.Walkable(map))
+                continue;
             for (int index2 = 0; index2 < 4; ++index2)
             {
                 IntVec3 c = openCell + GenAdj.CardinalDirections[index2];

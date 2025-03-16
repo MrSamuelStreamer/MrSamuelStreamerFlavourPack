@@ -3,8 +3,7 @@ using Verse;
 
 namespace MSSFP.Hediffs;
 
-
-public class HediffComp_BuildBase: HediffComp
+public class HediffComp_BuildBase : HediffComp
 {
     public bool hasBuildBase = false;
 
@@ -42,5 +41,4 @@ public class HediffComp_BuildBase: HediffComp
             }
         }
     }
-
 }

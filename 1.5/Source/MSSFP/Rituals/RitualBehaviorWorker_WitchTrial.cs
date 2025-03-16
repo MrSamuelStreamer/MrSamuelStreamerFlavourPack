@@ -3,19 +3,15 @@ using Verse;
 
 namespace MSSFP.Rituals;
 
-public class RitualBehaviorWorker_WitchTrial: RitualBehaviorWorker
+public class RitualBehaviorWorker_WitchTrial : RitualBehaviorWorker
 {
     private int ticksSinceLastInteraction = -1;
     public const int SocialInteractionIntervalTicks = 700;
 
-    public RitualBehaviorWorker_WitchTrial()
-    {
-    }
+    public RitualBehaviorWorker_WitchTrial() { }
 
     public RitualBehaviorWorker_WitchTrial(RitualBehaviorDef def)
-        : base(def)
-    {
-    }
+        : base(def) { }
 
     public override void Cleanup(LordJob_Ritual ritual)
     {
@@ -59,5 +55,4 @@ public class RitualBehaviorWorker_WitchTrial: RitualBehaviorWorker
         base.ExposeData();
         Scribe_Values.Look(ref ticksSinceLastInteraction, "ticksSinceLastInteraction", -1);
     }
-
 }

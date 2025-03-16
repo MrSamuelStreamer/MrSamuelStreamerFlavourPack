@@ -11,13 +11,10 @@ public class CompAbilityMark : CompAbilityEffect
     public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
     {
         base.Apply(target, dest);
-        PawnGenerationRequest req = new(
-            PawnKindDefOf.SpaceRefugee,
-            allowDead: false,
-            allowDowned: false,
-            fixedGender: Gender.Male,
-            fixedBirthName: "Mark"
-        ) { IsCreepJoiner = false };
+        PawnGenerationRequest req = new(PawnKindDefOf.SpaceRefugee, allowDead: false, allowDowned: false, fixedGender: Gender.Male, fixedBirthName: "Mark")
+        {
+            IsCreepJoiner = false,
+        };
 
         Pawn mark = PawnGenerator.GeneratePawn(req);
         mark.Name = new NameTriple("Mark", "Mark", mark.Name is NameTriple triple ? triple.Last : "Marks");
