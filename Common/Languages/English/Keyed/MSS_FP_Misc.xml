@@ -62,4 +62,6 @@
     <MSS_FP_Settings_EnableFroggeIncidents>Enable the Frogge Incidents</MSS_FP_Settings_EnableFroggeIncidents>
 
     <MSS_FP_Settings_SingleUseMentalFuses>Patch the Altered Carbon 2 Mental Fuse to be single use</MSS_FP_Settings_SingleUseMentalFuses>
+
+    <MSS_FP_Settings_DisablePossession>Disable the possession event</MSS_FP_Settings_DisablePossession>
 </LanguageData>
