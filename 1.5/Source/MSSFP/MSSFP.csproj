@@ -150,10 +150,6 @@
           <Link>MrSamuelStreamerFlavourPack\1.5\Defs\Precepts\MSSFP_RitualPatternDefs.xml</Link>
         </ReleaseFiles>
 
-        <ReleaseFiles Update="..\..\Patches\MSSFP_WitchTrial.xml">
-          <Link>MrSamuelStreamerFlavourPack\1.5\Patches\MSSFP_WitchTrial.xml</Link>
-        </ReleaseFiles>
-
         <ReleaseFiles Update="..\..\Defs\RulePackDefs\MSS_RulePacks_Namers_Taff.xml">
           <Link>MrSamuelStreamerFlavourPack\1.5\Defs\RulePackDefs\MSS_RulePacks_Namers_Taff.xml</Link>
         </ReleaseFiles>
@@ -176,6 +172,10 @@
 
         <ReleaseFiles Update="..\..\Defs\ThingDefs_Misc\MSSFP_Haunted.xml">
           <Link>MrSamuelStreamerFlavourPack\1.5\Defs\ThingDefs_Misc\MSSFP_Haunted.xml</Link>
+        </ReleaseFiles>
+
+        <ReleaseFiles Update="..\..\Defs\Precepts\MSSFP_WitchHunter.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Defs\Precepts\MSSFP_WitchHunter.xml</Link>
         </ReleaseFiles>
     </ItemGroup>
     <ItemGroup>

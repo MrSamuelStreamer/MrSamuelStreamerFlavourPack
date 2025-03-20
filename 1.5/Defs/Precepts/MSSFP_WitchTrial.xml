@@ -79,7 +79,7 @@
                 <label>judge</label>
                 <tag>Leader</tag>
                 <id>leader</id>
-                <precept>IdeoRole_Leader</precept>
+                <precept>MSSFP_IdeoRole_WitchHunter</precept>
                 <required>True</required>
                 <maxCount>1</maxCount>
                 <countsAsParticipant>False</countsAsParticipant>
@@ -256,7 +256,7 @@
                 <label>judge</label>
                 <tag>Leader</tag>
                 <id>leader</id>
-                <precept>IdeoRole_Leader</precept>
+                <precept>MSSFP_IdeoRole_WitchHunter</precept>
                 <required>True</required>
                 <maxCount>1</maxCount>
                 <countsAsParticipant>False</countsAsParticipant>
@@ -307,7 +307,7 @@
         <label>judge</label>
         <tag>Leader</tag>
         <id>leader</id>
-        <precept>IdeoRole_Leader</precept>
+        <precept>MSSFP_IdeoRole_WitchHunter</precept>
         <required>True</required>
         <maxCount>1</maxCount>
         <countsAsParticipant>False</countsAsParticipant>
