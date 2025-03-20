@@ -10,6 +10,7 @@ public class JobDriver_GoToThen : JobDriver_Goto
 {
     protected override IEnumerable<Toil> MakeNewToils()
     {
+        bool readyToGo = false;
         Toil goToCell = Toils_Goto.GotoCell(TargetIndex.A, PathEndMode.OnCell);
         goToCell.AddFinishAction(
             (Action)(
@@ -23,16 +24,22 @@ public class JobDriver_GoToThen : JobDriver_Goto
         );
         goToCell.tickAction = () =>
         {
-            if (pawn.Position.InHorDistOf(TargetPawnC.Position, 8f))
+            if (readyToGo || pawn.Position.InHorDistOf(TargetPawnC.Position, 16f))
+            {
+                readyToGo = true;
                 pawn.jobs.curDriver.ReadyForNextToil();
+            }
         };
         yield return goToCell;
 
-        Toil waitForOtherPawn = Toils_General.Wait(GenDate.TicksPerHour * 6);
+        Toil waitForOtherPawn = Toils_General.Wait(GenDate.TicksPerHour * 2);
         waitForOtherPawn.tickAction = () =>
         {
-            if (pawn.Position.InHorDistOf(TargetPawnC.Position, 8f))
+            if (readyToGo || pawn.Position.InHorDistOf(TargetPawnC.Position, 16f))
+            {
+                readyToGo = true;
                 pawn.jobs.curDriver.ReadyForNextToil();
+            }
         };
         yield return waitForOtherPawn;
 

@@ -9,8 +9,6 @@ public class LoversRetreatMapComponent(Verse.Map map) : MapComponent(map), IThin
     private ThingOwner<Pawn> innerContainer = new ThingOwner<Pawn>();
     public List<Pawn> PawnsToStoreNextTick = new List<Pawn>();
 
-    public int NextCheck;
-
     public class Pair : IExposable
     {
         public Pawn firstLover;
@@ -36,14 +34,13 @@ public class LoversRetreatMapComponent(Verse.Map map) : MapComponent(map), IThin
         Scribe_Collections.Look(ref pairs, "pairs", LookMode.Deep);
         Scribe_Collections.Look(ref PawnsToStoreNextTick, "PawnsToStoreNextTick", LookMode.Reference);
         Scribe_Deep.Look(ref innerContainer, "innerContainer", this);
-        Scribe_Values.Look(ref NextCheck, "NextCheck", GenDate.TicksPerDay * 5);
 
         innerContainer ??= new ThingOwner<Pawn>(this);
     }
 
     public virtual void AddPair(Pawn first, Pawn second, int ticksAway)
     {
-        Pair p = new Pair
+        Pair p = new()
         {
             firstLover = first,
             secondLover = second,
@@ -55,16 +52,6 @@ public class LoversRetreatMapComponent(Verse.Map map) : MapComponent(map), IThin
 
     public override void MapComponentTick()
     {
-        if (Find.TickManager.TicksGame > NextCheck)
-        {
-            NextCheck = Find.TickManager.TicksGame + Rand.RangeInclusive(GenDate.TicksPerDay * 10, GenDate.TicksPerDay * 30);
-            IncidentParms parms = new IncidentParms { target = map };
-            if (MSSFPDefOf.MSSFP_Lovers_Retreat.Worker.CanFireNow(parms))
-            {
-                MSSFPDefOf.MSSFP_Lovers_Retreat.Worker.TryExecute(parms);
-            }
-        }
-
         if (Find.TickManager.TicksGame % 600 == 0)
             return;
 
