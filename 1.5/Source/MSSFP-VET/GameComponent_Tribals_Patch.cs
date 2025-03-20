@@ -14,7 +14,8 @@ public static class GameComponent_Tribals_Patch
     [HarmonyPrefix]
     public static void TryRegisterAdvancementObligation_Prefix()
     {
-        if(HaveInjectedVal) return;
+        if (HaveInjectedVal)
+            return;
 
         PreceptDef def = DefDatabase<PreceptDef>.GetNamed("MSSFP_AdvanceToArcho");
         if (def == null)
@@ -23,7 +24,7 @@ public static class GameComponent_Tribals_Patch
         }
         else
         {
-            Utils.advancementPrecepts.Add(DefDatabase<PreceptDef>.GetNamed("MSSFP_AdvanceToArcho"));
+            VFETribals.Utils.advancementPrecepts.Add(DefDatabase<PreceptDef>.GetNamed("MSSFP_AdvanceToArcho"));
         }
     }
 }

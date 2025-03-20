@@ -57,11 +57,18 @@
             <Link>Attached/Rimworld/%(RecursiveDir)/%(FileName)%(Extension)</Link>
             <CopyToOutputDirectory>Never</CopyToOutputDirectory>
         </Content>
+        <Content Include="..\..\..\modlist-mo-test.xml">
+          <Link>MrSamuelStreamerFlavourPack\modlist-mo-test.xml</Link>
+        </Content>
         <Content Include="..\..\..\modlist.xml">
           <Link>MrSamuelStreamerFlavourPack\modlist.xml</Link>
         </Content>
     </ItemGroup>
     <ItemGroup>
+        <PackageReference Include="CSharpier.MsBuild" Version="0.30.6">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
         <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
     </ItemGroup>
     <ItemGroup>
@@ -134,6 +141,42 @@
         <CompatibilityFiles Update="..\..\..\Compatibility\aoba.exosuit.amp\1.5\Defs\MSSFP_Monke.xml">
           <Link>MrSamuelStreamerFlavourPack\Compatibility\aoba.exosuit.amp\1.5\Defs\MSSFP_Monke.xml</Link>
         </CompatibilityFiles>
+
+        <ReleaseFiles Update="..\..\Defs\Haunts\MMSFP_HauntsGood.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Defs\Haunts\MMSFP_HauntsBad.xml</Link>
+        </ReleaseFiles>
+
+        <ReleaseFiles Update="..\..\Defs\Precepts\MSSFP_WitchTrial.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Defs\Precepts\MSSFP_RitualPatternDefs.xml</Link>
+        </ReleaseFiles>
+
+        <ReleaseFiles Update="..\..\Defs\RulePackDefs\MSS_RulePacks_Namers_Taff.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Defs\RulePackDefs\MSS_RulePacks_Namers_Taff.xml</Link>
+        </ReleaseFiles>
+
+        <CompatibilityFiles Update="..\..\..\Compatibility\DankPyon.Medieval.Overhaul\1.5\Patches\MSSFP_Patches.xml">
+          <Link>MrSamuelStreamerFlavourPack\Compatibility\DankPyon.Medieval.Overhaul\1.5\Patches\MSSFP_Patches.xml</Link>
+        </CompatibilityFiles>
+
+        <CompatibilityFiles Update="..\..\..\Compatibility\DankPyon.Medieval.Overhaul\1.5\Defs\MSSFP_Defs.xml">
+          <Link>MrSamuelStreamerFlavourPack\Compatibility\DankPyon.Medieval.Overhaul\1.5\Defs\MSSFP_Defs.xml</Link>
+        </CompatibilityFiles>
+
+        <CompatibilityFiles Update="..\..\..\Compatibility\kikohi.jewelry\1.5\Patches\MSSFP_Patches.xml">
+          <Link>MrSamuelStreamerFlavourPack\Compatibility\kikohi.jewelry\1.5\Patches\MSSFP_Patches.xml</Link>
+        </CompatibilityFiles>
+
+        <CompatibilityFiles Update="..\..\..\Compatibility\kikohi.jewelry\1.5\Defs\MSSFP_Defs.xml">
+          <Link>MrSamuelStreamerFlavourPack\Compatibility\kikohi.jewelry\1.5\Defs\MSSFP_Defs.xml</Link>
+        </CompatibilityFiles>
+
+        <ReleaseFiles Update="..\..\Defs\ThingDefs_Misc\MSSFP_Haunted.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Defs\ThingDefs_Misc\MSSFP_Haunted.xml</Link>
+        </ReleaseFiles>
+
+        <ReleaseFiles Update="..\..\Defs\Precepts\MSSFP_WitchHunter.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Defs\Precepts\MSSFP_WitchHunter.xml</Link>
+        </ReleaseFiles>
     </ItemGroup>
     <ItemGroup>
       <Folder Include="..\..\..\Common\Textures\Things\AMPSuit\">

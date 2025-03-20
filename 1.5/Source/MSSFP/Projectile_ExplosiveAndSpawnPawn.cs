@@ -4,7 +4,7 @@ using Verse;
 
 namespace MSSFP;
 
-public class Projectile_ExplosiveAndSpawnPawn: Projectile_Explosive
+public class Projectile_ExplosiveAndSpawnPawn : Projectile_Explosive
 {
     protected override void Impact(Thing hitThing, bool blockedByShield = false)
     {
@@ -27,14 +27,13 @@ public class Projectile_ExplosiveAndSpawnPawn: Projectile_Explosive
         {
             TryAddMemory(pawn);
         }
-
     }
 
     protected virtual void TryAddMemory(Pawn pawn)
     {
         if (pawn.needs?.mood?.thoughts?.memories?.GetFirstMemoryOfDef(MSSFPDefOf.MSSFP_BabyCannonWTF) != null)
             return;
-        Thought_Memory newThought = (Thought_Memory) ThoughtMaker.MakeThought(MSSFPDefOf.MSSFP_BabyCannonWTF);
+        Thought_Memory newThought = (Thought_Memory)ThoughtMaker.MakeThought(MSSFPDefOf.MSSFP_BabyCannonWTF);
         pawn.needs?.mood?.thoughts?.memories?.TryGainMemory(newThought);
     }
 }

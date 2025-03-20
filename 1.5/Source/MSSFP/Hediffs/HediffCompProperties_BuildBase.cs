@@ -4,7 +4,6 @@ using Verse;
 
 namespace MSSFP.Hediffs;
 
-
 public class HediffCompProperties_BuildBase : HediffCompProperties
 {
     public List<JobDef> ConstructJobs;
@@ -13,6 +12,6 @@ public class HediffCompProperties_BuildBase : HediffCompProperties
 
     public HediffCompProperties_BuildBase()
     {
-        this.compClass = typeof (HediffComp_BuildBase);
+        this.compClass = typeof(HediffComp_BuildBase);
     }
 }

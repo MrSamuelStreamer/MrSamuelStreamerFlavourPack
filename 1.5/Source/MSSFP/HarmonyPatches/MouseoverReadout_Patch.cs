@@ -8,6 +8,9 @@ using Verse;
 
 namespace MSSFP.HarmonyPatches;
 
+/// <summary>
+/// Draw the Mr Streamer overlay
+/// </summary>
 [HarmonyPatch(typeof(MouseoverReadout))]
 public static class MouseoverReadout_Patch
 {
@@ -30,10 +33,14 @@ public static class MouseoverReadout_Patch
             CodeInstruction curInstruction = codes[i];
 
             // Look for the IL code initializing `num1` with 0.0 (ldc.r4 0.0 and stloc.1)
-            if (!found &&
-                curInstruction.opcode == OpCodes.Ldc_R4 && curInstruction.operand is float f && f == 0.0f &&
-                i + 1 < codes.Count &&
-                codes[i + 1].opcode == OpCodes.Stloc_1)
+            if (
+                !found
+                && curInstruction.opcode == OpCodes.Ldc_R4
+                && curInstruction.operand is float f
+                && f == 0.0f
+                && i + 1 < codes.Count
+                && codes[i + 1].opcode == OpCodes.Stloc_1
+            )
             {
                 found = true;
 
@@ -60,9 +67,10 @@ public static class MouseoverReadout_Patch
 
     public static float DrawMrStreamer()
     {
-        if (!MSSFPMod.settings.DrawByMrStreamer) return 0;
+        if (!MSSFPMod.settings.DrawByMrStreamer)
+            return 0;
 
-        Widgets.Label(new Rect(BotLeft.x, UI.screenHeight - BotLeft.y , 999f, 999f), "MSS_MRStreamer".Translate());
+        Widgets.Label(new Rect(BotLeft.x, UI.screenHeight - BotLeft.y, 999f, 999f), "MSS_MRStreamer".Translate());
 
         return 19f;
     }

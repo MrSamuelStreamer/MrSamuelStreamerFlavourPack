@@ -61,6 +61,10 @@
         </Content>
     </ItemGroup>
     <ItemGroup>
+        <PackageReference Include="CSharpier.MsBuild" Version="0.30.6">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
         <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
     </ItemGroup>
     <ItemGroup>

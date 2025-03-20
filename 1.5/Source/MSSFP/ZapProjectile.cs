@@ -2,7 +2,4 @@
 
 namespace MSSFP;
 
-public class ZapProjectile: Bullet
-{
-
-}
+public class ZapProjectile : Bullet { }

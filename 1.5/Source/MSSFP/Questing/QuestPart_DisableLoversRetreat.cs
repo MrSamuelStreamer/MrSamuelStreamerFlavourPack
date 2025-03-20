@@ -1,9 +1,10 @@
-﻿using RimWorld;
+﻿using MSSFP.Comps.Game;
+using RimWorld;
 using Verse;
 
 namespace MSSFP.Questing;
 
-public class QuestPart_DisableLoversRetreat: QuestPart
+public class QuestPart_DisableLoversRetreat : QuestPart
 {
     public string inSignal;
 

@@ -2,7 +2,7 @@
 
 namespace MSSFP.VFE;
 
-public class HediffCompProperties_TweakedAsexualReproduction: HediffCompProperties_AsexualReproduction
+public class HediffCompProperties_TweakedAsexualReproduction : HediffCompProperties_AsexualReproduction
 {
     public HediffCompProperties_TweakedAsexualReproduction()
     {

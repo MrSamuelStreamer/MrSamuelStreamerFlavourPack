@@ -14,7 +14,7 @@ public class HediffSwitchMapComponent(Map map) : MapComponent(map)
         base.MapComponentTick();
         if (Find.TickManager.TicksGame % 600 == 0)
         {
-            foreach (Pawn pawn in map.mapPawns.AllHumanlike.Where(p=>p.health.hediffSet.HasHediff(repro)))
+            foreach (Pawn pawn in map.mapPawns.AllHumanlike.Where(p => p.health.hediffSet.HasHediff(repro)))
             {
                 HediffWithComps h = (HediffWithComps)pawn.health.hediffSet.GetFirstHediffOfDef(repro);
                 HediffComp_AsexualReproduction comp = h.TryGetComp<HediffComp_AsexualReproduction>();

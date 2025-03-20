@@ -1,12 +1,12 @@
-﻿using Verse;
-using HarmonyLib;
+﻿using HarmonyLib;
+using Verse;
 
 namespace MSSFP.VFE;
 
 public class MSSFPVFEMod : Mod
 {
-
-    public MSSFPVFEMod(ModContentPack content) : base(content)
+    public MSSFPVFEMod(ModContentPack content)
+        : base(content)
     {
         ModLog.Debug("Hello world from MSSFPVFEMod");
 

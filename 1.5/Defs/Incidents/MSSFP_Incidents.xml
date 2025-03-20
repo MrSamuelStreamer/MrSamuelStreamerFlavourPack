@@ -8,7 +8,7 @@
         <targetTags>
             <li>Map_PlayerHome</li>
         </targetTags>
-        <workerClass>MSSFP.IncidentWorker_RaidEnemySkylantern</workerClass>
+        <workerClass>MSSFP.Incidents.IncidentWorker_RaidEnemySkylantern</workerClass>
         <baseChance>0</baseChance> <!-- given by a special storyteller comp -->
         <requireColonistsPresent>True</requireColonistsPresent>
         <pointsScaleable>true</pointsScaleable>
@@ -36,7 +36,7 @@
 
     <JobDef>
         <defName>MSSFP_GoToThen</defName>
-        <driverClass>MSSFP.JobDriver_GoToThen</driverClass>
+        <driverClass>MSSFP.Jobs.JobDriver_GoToThen</driverClass>
         <reportString>moving.</reportString>
         <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
         <carryThingAfterJob>true</carryThingAfterJob>
@@ -53,6 +53,21 @@
             <li>Map_PlayerHome</li>
         </targetTags>
         <workerClass>MSSFP.Incidents.IncidentWorker_LoversRetreat</workerClass>
+        <requireColonistsPresent>true</requireColonistsPresent>
+        <pointsScaleable>true</pointsScaleable>
+        <ignoreRecentSelectionWeighting>true</ignoreRecentSelectionWeighting>
+    </IncidentDef>
+
+    <IncidentDef>
+        <defName>MSSFP_Possession</defName>
+        <label>posession</label>
+        <category>Special</category>
+        <minRefireDays>6</minRefireDays>
+        <baseChance>5</baseChance>
+        <targetTags>
+            <li>Map_PlayerHome</li>
+        </targetTags>
+        <workerClass>MSSFP.Incidents.IncidentWorker_Possession</workerClass>
         <requireColonistsPresent>true</requireColonistsPresent>
         <pointsScaleable>true</pointsScaleable>
         <ignoreRecentSelectionWeighting>true</ignoreRecentSelectionWeighting>

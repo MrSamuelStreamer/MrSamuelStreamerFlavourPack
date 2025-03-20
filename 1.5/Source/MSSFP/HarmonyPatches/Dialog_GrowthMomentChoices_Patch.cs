@@ -4,13 +4,17 @@ using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
+using MSSFP.Genes;
 using RimWorld;
 using UnityEngine;
 using Verse;
+using GeneType = MSSFP.Genes.GeneType;
 
 namespace MSSFP.HarmonyPatches;
 
-
+/// <summary>
+/// Patches to add gene selection to growth moments
+/// </summary>
 [HarmonyPatch(typeof(Dialog_GrowthMomentChoices))]
 public static class Dialog_GrowthMomentChoices_Patch
 {
@@ -56,7 +60,6 @@ public static class Dialog_GrowthMomentChoices_Patch
                 yield return new CodeInstruction(OpCodes.Ldarg_0);
                 // yield return new CodeInstruction(OpCodes.Ldc_I4_1);
                 yield return new CodeInstruction(OpCodes.Call, MakeChoicesHookInfo.Value);
-
             }
         }
     }
@@ -106,16 +109,23 @@ public static class Dialog_GrowthMomentChoices_Patch
     public static List<GeneClassification> GeneChoicesForPawn(Pawn pawn, out GeneType? geneType)
     {
         GeneType randType = GetRandomGeneType();
-        GeneClassificationDef classification = randType == GeneType.random ? DefDatabase<GeneClassificationDef>.AllDefs.RandomElement() : DefDatabase<GeneClassificationDef>.AllDefs.Where(g => g.type == randType).RandomElement();
+        GeneClassificationDef classification =
+            randType == GeneType.random
+                ? DefDatabase<GeneClassificationDef>.AllDefs.RandomElement()
+                : DefDatabase<GeneClassificationDef>.AllDefs.Where(g => g.type == randType).RandomElement();
 
-        List<GeneClassification> validGenes = classification.genes.Where(g => g.gene != null &&
-                                                                              !pawn.genes.GenesListForReading.Any(pg => pg.def.ConflictsWith(g.gene)) &&
-                                                                              (g.gene.prerequisite == null || pawn.genes.GenesListForReading.Any(pg => pg.def == g.gene.prerequisite))).ToList();
+        List<GeneClassification> validGenes = classification
+            .genes.Where(g =>
+                g.gene != null
+                && !pawn.genes.GenesListForReading.Any(pg => pg.def.ConflictsWith(g.gene))
+                && (g.gene.prerequisite == null || pawn.genes.GenesListForReading.Any(pg => pg.def == g.gene.prerequisite))
+            )
+            .ToList();
 
         List<GeneClassification> output = new();
         for (int i = 0; i < GeneRange.RandomInRange; i++)
         {
-            output.Add(validGenes.Except(output).RandomElementByWeight(g=>g.weight));
+            output.Add(validGenes.Except(output).RandomElementByWeight(g => g.weight));
         }
 
         geneType = randType;
@@ -131,7 +141,8 @@ public static class Dialog_GrowthMomentChoices_Patch
 
         Choices currentChoices = DialogLookup[instance];
 
-        if(!currentChoices.ShouldDoChoice) return;
+        if (!currentChoices.ShouldDoChoice)
+            return;
 
         ChoiceLetter_GrowthMoment letter = (ChoiceLetter_GrowthMoment)Letter.Value.GetValue(instance);
 
@@ -146,10 +157,10 @@ public static class Dialog_GrowthMomentChoices_Patch
         }
 
         string type = "Random";
-        if(currentChoices.type != null) type = currentChoices.type.ToString();
+        if (currentChoices.type != null)
+            type = currentChoices.type.ToString();
 
-        Widgets.Label(0.0f, ref curY, width, "MSS_BirthdayPickGene".Translate((NamedArgument) (Thing) letter.pawn, type).Resolve() + ":");
-
+        Widgets.Label(0.0f, ref curY, width, "MSS_BirthdayPickGene".Translate((NamedArgument)(Thing)letter.pawn, type).Resolve() + ":");
 
         Listing_Standard listingStandard = new Listing_Standard();
         Rect rect = new Rect(0.0f, curY, 230f, 99999f);
@@ -160,13 +171,14 @@ public static class Dialog_GrowthMomentChoices_Patch
                 currentChoices.selectedGene = gene;
         }
         listingStandard.End();
-        curY += (float) (listingStandard.CurHeight + 10.0 + 4.0);
+        curY += (float)(listingStandard.CurHeight + 10.0 + 4.0);
         DialogLookup[instance] = currentChoices;
     }
 
     public static void MakeChoicesHook(Dialog_GrowthMomentChoices instance)
     {
-        if(!DialogLookup.TryGetValue(instance, out Choices currentChoices)) return;
+        if (!DialogLookup.TryGetValue(instance, out Choices currentChoices))
+            return;
         if (!currentChoices.ShouldDoChoice)
         {
             DialogLookup.Remove(instance);

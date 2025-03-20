@@ -20,6 +20,7 @@
     <MSSFP_LoversRetreadText>{0} and {1} have left the colony to spend some time alone. They'll be back in about {2} hours.</MSSFP_LoversRetreadText>
 
     <MSS_GainedGeneFromCondition>{0} gained the {2} gene due to: {1}</MSS_GainedGeneFromCondition>
+    <MSS_GainedGeneFromConditionNew>{PAWN_Name} gained the {2} gene due to: {1}</MSS_GainedGeneFromConditionNew>
     <MSS_LostGeneFromCondition>{0} lost the {2} gene due to: {1}</MSS_LostGeneFromCondition>
 
     <MSSFP_LeapTooFar>frogge can't jump this far (max range {0} tiles)</MSSFP_LeapTooFar>
@@ -61,4 +62,6 @@
     <MSS_FP_Settings_EnableFroggeIncidents>Enable the Frogge Incidents</MSS_FP_Settings_EnableFroggeIncidents>
 
     <MSS_FP_Settings_SingleUseMentalFuses>Patch the Altered Carbon 2 Mental Fuse to be single use</MSS_FP_Settings_SingleUseMentalFuses>
+
+    <MSS_FP_Settings_DisablePossession>Disable the possession event</MSS_FP_Settings_DisablePossession>
 </LanguageData>

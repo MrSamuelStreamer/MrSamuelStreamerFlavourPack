@@ -8,6 +8,9 @@ using Verse.AI.Group;
 
 namespace MSSFP.HarmonyPatches;
 
+/// <summary>
+/// Patch to handle LordToilTick getting a null pather. Not sure whos bug it is
+/// </summary>
 [HarmonyPatch(typeof(LordToil_EntitySwarm))]
 public static class LordToil_EntitySwarm_Patches
 {
@@ -38,16 +41,14 @@ public static class LordToil_EntitySwarm_Patches
                 new(OpCodes.Ldloc_1), // Load ownedPawn
                 new(OpCodes.Ldfld, AccessTools.Field(typeof(Pawn), "pather")), // Load pather field
                 new(OpCodes.Brtrue_S, labelAfterNullCheck), // If not null, continue
-
                 // Instructions to call base.LordToilTick() and return
                 new(OpCodes.Ldarg_0), // Load 'this'
                 new(OpCodes.Call, AccessTools.Method(typeof(LordToil), "LordToilTick")), // Call base.LordToilTick()
                 new(OpCodes.Br, labelToReturn), // Return from method
-
                 // Label for continuing if pather is not null
                 new(OpCodes.Nop) { labels = new List<Label> { labelAfterNullCheck } }, // Define label position
                 codes[targetIndex], // Original ldfld
-                codes[targetIndex + 1] // Original callvirt
+                codes[targetIndex + 1], // Original callvirt
             };
 
             // Attach return label to the last original instruction

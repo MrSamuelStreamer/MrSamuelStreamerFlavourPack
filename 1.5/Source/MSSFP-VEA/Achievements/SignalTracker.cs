@@ -6,18 +6,18 @@ using Verse;
 
 namespace MSSFP.VAE.Achievements;
 
-public class SignalTracker: TrackerBase, ISignalReceiver
+public class SignalTracker : TrackerBase, ISignalReceiver
 {
     public string Signal;
     public List<string> SignalArgs;
     public List<string> NamedSignalArgs;
     public bool Triggered = false;
 
-    public SignalTracker() : base()
-    {
-    }
+    public SignalTracker()
+        : base() { }
 
-    public SignalTracker(SignalTracker reference) : base(reference)
+    public SignalTracker(SignalTracker reference)
+        : base(reference)
     {
         Signal = reference.Signal;
         SignalArgs = reference.SignalArgs;
@@ -40,7 +40,6 @@ public class SignalTracker: TrackerBase, ISignalReceiver
 
     protected override string[] DebugText => [$"SignalTracker: {Signal}]"];
 
-
     public virtual bool ExtraConditions()
     {
         return true;
@@ -55,7 +54,8 @@ public class SignalTracker: TrackerBase, ISignalReceiver
 
     public void Notify_SignalReceived(Signal signal)
     {
-        if(signal.tag != Signal) return;
+        if (signal.tag != Signal)
+            return;
         if (!SignalArgs.NullOrEmpty())
         {
             for (int i = 0; i < SignalArgs.Count; i++)
@@ -104,7 +104,7 @@ public class SignalTracker: TrackerBase, ISignalReceiver
 
         if (Trigger())
         {
-            Cards.FirstOrDefault(card=>card.def.tracker == this)?.UnlockCard();
+            Cards.FirstOrDefault(card => card.def.tracker == this)?.UnlockCard();
         }
     }
 }

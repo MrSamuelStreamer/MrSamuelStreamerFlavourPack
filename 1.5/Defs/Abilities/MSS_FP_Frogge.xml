@@ -54,7 +54,7 @@
             <range>30</range>
             <minRange>0</minRange>
             <defaultProjectile>MSS_FP_ThingHoldingProjectile</defaultProjectile>
-            <verbClass>MSSFP.Verb_AbilityShootThingHolder</verbClass>
+            <verbClass>MSSFP.Verbs.Verb_AbilityShootThingHolder</verbClass>
             <warmupTime>2.5</warmupTime>
             <soundCast>Ability_SpineLaunch</soundCast>
             <ai_IsWeapon>false</ai_IsWeapon>
@@ -97,7 +97,7 @@
             <defaultProjectile>MSS_FP_Zap</defaultProjectile>
             <verbClass>Verb_AbilityShoot</verbClass>
             <warmupTime>1.5</warmupTime>
-            <soundCast>Psych icShockLanceCast</soundCast>
+            <soundCast>PsychicShockLanceCast</soundCast>
             <ai_IsWeapon>false</ai_IsWeapon>
         </verbProperties>
     </AbilityDef>

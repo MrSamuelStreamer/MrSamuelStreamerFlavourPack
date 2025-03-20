@@ -5,7 +5,7 @@ using Verse;
 
 namespace MSSFP.Questing;
 
-public class QuestNode_Perganante: QuestNode
+public class QuestNode_Perganante : QuestNode
 {
     [NoTranslate]
     public SlateRef<string> inSignal;
@@ -16,10 +16,12 @@ public class QuestNode_Perganante: QuestNode
     protected override void RunInt()
     {
         Slate slate = QuestGen.slate;
-        QuestGen.quest.AddPart(new QuestPart_Perganante
-        {
-            inSignal = (QuestGenUtility.HardcodedSignalWithQuestID(inSignal.GetValue(slate)) ?? QuestGen.slate.Get<string>("inSignal")),
-            mapParent = mapParent.GetValue(slate),
-        });
+        QuestGen.quest.AddPart(
+            new QuestPart_Perganante
+            {
+                inSignal = (QuestGenUtility.HardcodedSignalWithQuestID(inSignal.GetValue(slate)) ?? QuestGen.slate.Get<string>("inSignal")),
+                mapParent = mapParent.GetValue(slate),
+            }
+        );
     }
 }

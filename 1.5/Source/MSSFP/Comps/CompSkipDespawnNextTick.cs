@@ -3,7 +3,7 @@ using Verse;
 
 namespace MSSFP.Comps;
 
-public class CompSkipDespawnNextTick: ThingComp
+public class CompSkipDespawnNextTick : ThingComp
 {
     public bool isFirstTick = true;
 
@@ -21,5 +21,4 @@ public class CompSkipDespawnNextTick: ThingComp
             SkipUtility.SkipDeSpawn(parent);
         }
     }
-
 }

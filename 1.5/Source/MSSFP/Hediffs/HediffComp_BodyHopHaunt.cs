@@ -5,11 +5,12 @@ using System.Text;
 using RimWorld;
 using UnityEngine;
 using Verse;
+using PawnGraphicUtils = MSSFP.Utils.PawnGraphicUtils;
 
 namespace MSSFP.Hediffs;
 
 [StaticConstructorOnStartup]
-public class HediffComp_BodyHopHaunt: HediffComp_Haunt
+public class HediffComp_BodyHopHaunt : HediffComp_Haunt
 {
     public Dictionary<PawnInfo, Texture2D> pawnTextureCache = new Dictionary<PawnInfo, Texture2D>();
 
@@ -30,7 +31,8 @@ public class HediffComp_BodyHopHaunt: HediffComp_Haunt
     {
         get
         {
-            if (pawnToShow == null) return null;
+            if (pawnToShow == null)
+                return null;
             if (!pawnTextureCache.ContainsKey(pawnToShow))
             {
                 pawnTextureCache[pawnToShow] = PawnGraphicUtils.LoadTexture(Path.Combine(PawnGraphicUtils.SaveDataPath, TexPath));
@@ -40,7 +42,7 @@ public class HediffComp_BodyHopHaunt: HediffComp_Haunt
         }
     }
 
-    public class PawnInfo: IExposable
+    public class PawnInfo : IExposable
     {
         public string name;
         public string description;
@@ -62,7 +64,7 @@ public class HediffComp_BodyHopHaunt: HediffComp_Haunt
                 passedTraits = passedTraits?.ToList(),
                 swapTick = swapTick,
                 id = id,
-                texPath = texPath
+                texPath = texPath,
             };
         }
 
@@ -104,20 +106,24 @@ public class HediffComp_BodyHopHaunt: HediffComp_Haunt
         int skillOffset,
         List<TraitDef> passedTraits,
         int swapTick = -1,
-        string texturePath = null)
+        string texturePath = null
+    )
     {
-        if (swapTick < 0) swapTick = Find.TickManager.TicksGame;
+        if (swapTick < 0)
+            swapTick = Find.TickManager.TicksGame;
 
-        AddNewPawn(new PawnInfo
-        {
-            name = pawnName,
-            description = description,
-            bestSkill = bestSkill,
-            skillOffset = skillOffset,
-            passedTraits = passedTraits,
-            swapTick = swapTick,
-            texPath = texturePath
-        });
+        AddNewPawn(
+            new PawnInfo
+            {
+                name = pawnName,
+                description = description,
+                bestSkill = bestSkill,
+                skillOffset = skillOffset,
+                passedTraits = passedTraits,
+                swapTick = swapTick,
+                texPath = texturePath,
+            }
+        );
     }
 
     public virtual void AddNewPawn(PawnInfo pawnInfo)
@@ -129,13 +135,15 @@ public class HediffComp_BodyHopHaunt: HediffComp_Haunt
             foreach (TraitDef t in existingPawn.passedTraits)
             {
                 Trait trait = parent.pawn.story.traits.GetTrait(t);
-                if(trait != null) parent.pawn.story.traits.RemoveTrait(trait);
+                if (trait != null)
+                    parent.pawn.story.traits.RemoveTrait(trait);
             }
 
             parent.pawn.skills.GetSkill(existingPawn.bestSkill).levelInt -= existingPawn.skillOffset;
         }
 
-        if (pawnInfo.swapTick < 0) pawnInfo.swapTick = Find.TickManager.TicksGame;
+        if (pawnInfo.swapTick < 0)
+            pawnInfo.swapTick = Find.TickManager.TicksGame;
         pawns.Add(pawnInfo);
         if (pawnInfo.bestSkill != null)
         {
@@ -156,7 +164,6 @@ public class HediffComp_BodyHopHaunt: HediffComp_Haunt
         pawnToShow = pawnInfo;
     }
 
-
     public override IEnumerable<Gizmo> CompGetGizmos()
     {
         if (!DebugSettings.ShowDevGizmos)
@@ -174,7 +181,6 @@ public class HediffComp_BodyHopHaunt: HediffComp_Haunt
 
         yield return showPawn;
     }
-
 
     public override string CompDescriptionExtra
     {
@@ -231,7 +237,6 @@ public class HediffComp_BodyHopHaunt: HediffComp_Haunt
             {
                 parent.pawn.skills.GetSkill(pawnInfo.bestSkill).levelInt -= pawnInfo.skillOffset;
             }
-
 
             if (!pawnInfo.passedTraits.NullOrEmpty())
             {

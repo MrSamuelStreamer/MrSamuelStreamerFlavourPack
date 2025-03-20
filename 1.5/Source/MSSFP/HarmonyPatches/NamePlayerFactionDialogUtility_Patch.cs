@@ -6,6 +6,9 @@ using Verse.Grammar;
 
 namespace MSSFP.HarmonyPatches;
 
+/// <summary>
+/// Patch max name length
+/// </summary>
 [HarmonyPatch(typeof(NamePlayerFactionDialogUtility))]
 public static class NamePlayerFactionDialogUtility_Patch
 {
@@ -13,7 +16,11 @@ public static class NamePlayerFactionDialogUtility_Patch
     [HarmonyPrefix]
     public static bool IsValidNamePatch(string s, ref bool __result)
     {
-        __result = s.Length != 0 && s.Length <= 4096 &&  !new Regex("[" + Regex.Escape(GenText.GetInvalidFilenameCharacters()) + "]").IsMatch(s) && !GrammarResolver.ContainsSpecialChars(s);
+        __result =
+            s.Length != 0
+            && s.Length <= 4096
+            && !new Regex("[" + Regex.Escape(GenText.GetInvalidFilenameCharacters()) + "]").IsMatch(s)
+            && !GrammarResolver.ContainsSpecialChars(s);
         return false;
     }
 }

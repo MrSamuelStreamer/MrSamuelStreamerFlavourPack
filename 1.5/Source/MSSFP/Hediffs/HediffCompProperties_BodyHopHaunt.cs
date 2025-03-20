@@ -1,6 +1,6 @@
 ﻿namespace MSSFP.Hediffs;
 
-public class HediffCompProperties_BodyHopHaunt: HediffCompProperties_Haunt
+public class HediffCompProperties_BodyHopHaunt : HediffCompProperties_Haunt
 {
     public HediffCompProperties_BodyHopHaunt()
     {

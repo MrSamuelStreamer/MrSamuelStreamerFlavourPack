@@ -5,6 +5,9 @@ using Verse;
 
 namespace MSSFP.HarmonyPatches;
 
+/// <summary>
+/// Add haunts toggle to map toggle icons
+/// </summary>
 [StaticConstructorOnStartup]
 [HarmonyPatch(typeof(PlaySettings))]
 public static class PlaySettings_Patch
@@ -17,5 +20,4 @@ public static class PlaySettings_Patch
     {
         row.ToggleableIcon(ref MSSFPMod.settings.ShowHaunts, ToggleTex, "MSS_FP_Haunts_Toggle".Translate(), SoundDefOf.Mouseover_ButtonToggle);
     }
-
 }

@@ -20,24 +20,34 @@
             </li>
         </value>
     </Operation>
-    <Operation Class="PatchOperationAdd">
-        <xpath>Defs/HediffDef[defName="MSS_Gen_CompromisedImmunity"]/comps</xpath>
-        <value>
-            <li Class="MSSFP.VOE.Hediffs.HediffCompProperties_OutpostSuppression">
-                <OutpostDefs>
-                    <li>MSSFP_Outpost_Retirement</li>
-                </OutpostDefs>
-            </li>
-        </value>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>MSS.GenFlavourPack</li>
+        </mods>
+        <match Class="PatchOperationAdd">
+            <xpath>Defs/HediffDef[defName="MSS_Gen_CompromisedImmunity"]/comps</xpath>
+            <value>
+                <li Class="MSSFP.VOE.Hediffs.HediffCompProperties_OutpostSuppression">
+                    <OutpostDefs>
+                        <li>MSSFP_Outpost_Retirement</li>
+                    </OutpostDefs>
+                </li>
+            </value>
+        </match>
     </Operation>
-    <Operation Class="PatchOperationAdd">
-        <xpath>Defs/HediffDef[defName="MSS_Gen_CognitiveDecline"]/comps</xpath>
-        <value>
-            <li Class="MSSFP.VOE.Hediffs.HediffCompProperties_OutpostSuppression">
-                <OutpostDefs>
-                    <li>MSSFP_Outpost_Retirement</li>
-                </OutpostDefs>
-            </li>
-        </value>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>MSS.GenFlavourPack</li>
+        </mods>
+        <match Class="PatchOperationAdd">
+            <xpath>Defs/HediffDef[defName="MSS_Gen_CognitiveDecline"]/comps</xpath>
+            <value>
+                <li Class="MSSFP.VOE.Hediffs.HediffCompProperties_OutpostSuppression">
+                    <OutpostDefs>
+                        <li>MSSFP_Outpost_Retirement</li>
+                    </OutpostDefs>
+                </li>
+            </value>
+        </match>
     </Operation>
 </Patch>

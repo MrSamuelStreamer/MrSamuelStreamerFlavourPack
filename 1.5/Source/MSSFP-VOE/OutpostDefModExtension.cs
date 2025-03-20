@@ -3,7 +3,7 @@ using Verse;
 
 namespace MSSFP.VOE;
 
-public class OutpostDefModExtension: DefModExtension
+public class OutpostDefModExtension : DefModExtension
 {
     public class ThingDefWithWeight : IExposable
     {
@@ -14,7 +14,7 @@ public class OutpostDefModExtension: DefModExtension
         public bool minified = false;
         public int stackLimit = -1;
 
-        public ThingDefWithWeight(){}
+        public ThingDefWithWeight() { }
 
         public void ExposeData()
         {

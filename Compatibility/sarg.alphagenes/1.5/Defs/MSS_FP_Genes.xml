@@ -28,6 +28,11 @@
         </modExtensions>
     </GeneDef>
 
+    <ThingSetMakerDef>
+        <defName>MSSFP_Frogge</defName>
+        <root Class="MSSFP.Genes.ThingSetMaker_Frogge"/>
+    </ThingSetMakerDef>
+
     <GeneDef ParentName="AG_BeginningSummonBase">
         <defName>MSSFP_JroggeAffinity</defName>
         <label>frogge affinity</label>
@@ -55,4 +60,9 @@
             </li>
         </modExtensions>
     </GeneDef>
+
+    <ThingSetMakerDef>
+        <defName>MSSFP_Jrogge</defName>
+        <root Class="MSSFP.Genes.ThingSetMaker_Jrogge"/>
+    </ThingSetMakerDef>
 </Defs>

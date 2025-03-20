@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <HediffDef>
+        <defName>MSS_FP_PossessionHaunt</defName>
+        <label>Possessed</label>
+        <description>This person has been possessed by something or someone.</description>
+        <hediffClass>MSSFP.Hediffs.HiddenHediffWithComps</hediffClass>
+        <defaultLabelColor>(0.1,0.2,0.8)</defaultLabelColor>
+        <maxSeverity>1.0</maxSeverity>
+        <scenarioCanAdd>true</scenarioCanAdd>
+        <isBad>true</isBad>
+        <stages>
+            <li>
+                <minSeverity>0</minSeverity>
+                <label>presence</label>
+                <statFactors>
+                    <RestFallRateFactor>1.5</RestFallRateFactor>
+                    <WorkSpeedGlobal>0.7</WorkSpeedGlobal>
+                </statFactors>
+            </li>
+        </stages>
+        <comps>
+            <li Class="MSSFP.Hediffs.HediffCompProperties_Haunt">
+                <CanTransferInProximity>true</CanTransferInProximity>
+                <ProximityRadius>5</ProximityRadius>
+                <ProximityTransferCheckTicks>60000</ProximityTransferCheckTicks>
+                <ProximityTransferChancePerCheck>0.4</ProximityTransferChancePerCheck>
+
+                <OnTimeTicksRange>600~6000</OnTimeTicksRange>
+                <OffTimeTicksRange>6000~60000</OffTimeTicksRange>
+                <graphicData>
+                    <texPath>Haunts/Frog/Frog</texPath>
+                    <graphicClass>Graphic_Multi</graphicClass>
+                    <drawSize>1.7</drawSize>
+                    <shaderType>MoteGlow</shaderType>
+                </graphicData>
+                <offsets>
+                    <li>(0.3, 1.6, -0.55)</li> <!-- North -->
+                    <li>(-0.5, 1.1, -0.35)</li> <!-- East -->
+                    <li>(0.3, -1.6, 0.65)</li> <!-- South -->
+                    <li>(0.5, 1.1, -0.35)</li> <!-- West -->
+                </offsets>
+                <onlyRenderWhenDrafted>true</onlyRenderWhenDrafted>
+            </li>
+        </comps>
+    </HediffDef>
+
+    <ThoughtDef>
+        <defName>MSS_FP_PossessedThought</defName>
+        <thoughtClass>Thought_Memory</thoughtClass>
+        <stages>
+            <li>
+                <label>Spooked</label>
+                <description>I feel like something is watching me</description>
+                <baseMoodEffect>-10</baseMoodEffect>
+            </li>
+        </stages>
+        <durationDays>0.2</durationDays>
+    </ThoughtDef>
+</Defs>

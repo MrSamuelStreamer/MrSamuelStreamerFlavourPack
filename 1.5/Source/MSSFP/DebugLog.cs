@@ -1,7 +1,7 @@
-﻿using System.Diagnostics;
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -72,10 +72,10 @@ public static class ModLog
             }
 
             //remove redundant CR+LF in the end of buffer
-            sb.Length = sb.Length - 2;
+            sb.Length -= 2;
             return sb.ToString();
         }
-        catch (Exception exception)
+        catch (Exception)
         {
             //log or swallow here
             return string.Empty;
