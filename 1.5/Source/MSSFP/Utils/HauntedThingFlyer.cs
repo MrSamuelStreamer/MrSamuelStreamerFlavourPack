@@ -5,7 +5,7 @@ using Verse;
 
 namespace MSSFP.Utils;
 
-public class HauntedThingFlyer : Thing, IThingHolder
+public class HauntedThingFlyer : ThingWithComps, IThingHolder
 {
     private ThingOwner<Thing> innerContainer;
     private Vector3 effectivePos;
@@ -13,6 +13,19 @@ public class HauntedThingFlyer : Thing, IThingHolder
 
     public Vector3 StartPosition => startPos;
     public IntVec3 IntStartPosition;
+
+    private string shadowTexPath = "Things/Skyfaller/SkyfallerShadowCircle";
+
+    private Material cachedShadowMaterial;
+    public Material ShadowMaterial
+    {
+        get
+        {
+            if (cachedShadowMaterial == null && !shadowTexPath.NullOrEmpty())
+                cachedShadowMaterial = MaterialPool.MatFrom(shadowTexPath, ShaderDatabase.Transparent);
+            return cachedShadowMaterial;
+        }
+    }
 
     public override void ExposeData()
     {
@@ -99,13 +112,13 @@ public class HauntedThingFlyer : Thing, IThingHolder
 
     private void DrawShadow(Vector3 drawLoc, float height)
     {
-        // Material shadowMaterial = def.pawnFlyer.ShadowMaterial;
-        // if (shadowMaterial == null)
-        //     return;
-        // float num = Mathf.Lerp(1f, 0.6f, height);
-        // Vector3 s = new(num, 1f, num);
-        // Matrix4x4 matrix = new();
-        // matrix.SetTRS(drawLoc, Quaternion.identity, s);
-        // Graphics.DrawMesh(MeshPool.plane10, matrix, shadowMaterial, 0);
+        Material shadowMaterial = CarriedThing.def.pawnFlyer?.ShadowMaterial ?? ShadowMaterial;
+        if (ShadowMaterial == null)
+            return;
+        float num = Mathf.Lerp(1f, 0.6f, height);
+        Vector3 s = new(num, 1f, num);
+        Matrix4x4 matrix = new();
+        matrix.SetTRS(drawLoc, Quaternion.identity, s);
+        Graphics.DrawMesh(MeshPool.plane10, matrix, shadowMaterial, 0);
     }
 }
