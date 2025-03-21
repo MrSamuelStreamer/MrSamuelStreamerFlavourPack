@@ -56,19 +56,4 @@
         <workerClass>MSSFP.Incidents.IncidentWorker_LoversRetreat</workerClass>
         <requireColonistsPresent>true</requireColonistsPresent>
     </IncidentDef>
-
-    <IncidentDef>
-        <defName>MSSFP_Possession</defName>
-        <label>posession</label>
-        <category>Special</category>
-        <minRefireDays>6</minRefireDays>
-        <baseChance>5</baseChance>
-        <targetTags>
-            <li>Map_PlayerHome</li>
-        </targetTags>
-        <workerClass>MSSFP.Incidents.IncidentWorker_Possession</workerClass>
-        <requireColonistsPresent>true</requireColonistsPresent>
-        <pointsScaleable>true</pointsScaleable>
-        <ignoreRecentSelectionWeighting>true</ignoreRecentSelectionWeighting>
-    </IncidentDef>
 </Defs>

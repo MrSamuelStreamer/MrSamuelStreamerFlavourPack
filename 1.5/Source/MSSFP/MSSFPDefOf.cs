@@ -61,8 +61,5 @@ public static class MSSFPDefOf
     public static readonly HediffDef MSS_FP_PossessionHaunt;
     public static readonly ThoughtDef MSS_FP_PossessedThought;
 
-    public static readonly ThingDef MSSFP_HauntedThingFlyer;
-    public static readonly ThingDef MSSFP_HauntedThingTargetFlyer;
-
     static MSSFPDefOf() => DefOfHelper.EnsureInitializedInCtor(typeof(MSSFPDefOf));
 }

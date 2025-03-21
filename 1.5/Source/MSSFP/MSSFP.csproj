@@ -65,10 +65,6 @@
         </Content>
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="CSharpier.MsBuild" Version="0.30.6">
-          <PrivateAssets>all</PrivateAssets>
-          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-        </PackageReference>
         <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
     </ItemGroup>
     <ItemGroup>
@@ -146,10 +142,6 @@
           <Link>MrSamuelStreamerFlavourPack\1.5\Defs\Haunts\MMSFP_HauntsBad.xml</Link>
         </ReleaseFiles>
 
-        <ReleaseFiles Update="..\..\Defs\Precepts\MSSFP_WitchTrial.xml">
-          <Link>MrSamuelStreamerFlavourPack\1.5\Defs\Precepts\MSSFP_RitualPatternDefs.xml</Link>
-        </ReleaseFiles>
-
         <ReleaseFiles Update="..\..\Defs\RulePackDefs\MSS_RulePacks_Namers_Taff.xml">
           <Link>MrSamuelStreamerFlavourPack\1.5\Defs\RulePackDefs\MSS_RulePacks_Namers_Taff.xml</Link>
         </ReleaseFiles>
@@ -169,24 +161,250 @@
         <CompatibilityFiles Update="..\..\..\Compatibility\kikohi.jewelry\1.5\Defs\MSSFP_Defs.xml">
           <Link>MrSamuelStreamerFlavourPack\Compatibility\kikohi.jewelry\1.5\Defs\MSSFP_Defs.xml</Link>
         </CompatibilityFiles>
-
-        <ReleaseFiles Update="..\..\Defs\ThingDefs_Misc\MSSFP_Haunted.xml">
-          <Link>MrSamuelStreamerFlavourPack\1.5\Defs\ThingDefs_Misc\MSSFP_Haunted.xml</Link>
-        </ReleaseFiles>
-
-        <ReleaseFiles Update="..\..\Defs\Precepts\MSSFP_WitchHunter.xml">
-          <Link>MrSamuelStreamerFlavourPack\1.5\Defs\Precepts\MSSFP_WitchHunter.xml</Link>
-        </ReleaseFiles>
     </ItemGroup>
     <ItemGroup>
       <Folder Include="..\..\..\Common\Textures\Things\AMPSuit\">
         <Link>MrSamuelStreamerFlavourPack\Common\Textures\Things\AMPSuit</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\hlx.UltratechAlteredCarbon\1.5\Assemblies\cs\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\hlx.UltratechAlteredCarbon\1.5\Assemblies\cs</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\hlx.UltratechAlteredCarbon\1.5\Assemblies\de\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\hlx.UltratechAlteredCarbon\1.5\Assemblies\de</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\hlx.UltratechAlteredCarbon\1.5\Assemblies\es\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\hlx.UltratechAlteredCarbon\1.5\Assemblies\es</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\hlx.UltratechAlteredCarbon\1.5\Assemblies\fr\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\hlx.UltratechAlteredCarbon\1.5\Assemblies\fr</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\hlx.UltratechAlteredCarbon\1.5\Assemblies\it\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\hlx.UltratechAlteredCarbon\1.5\Assemblies\it</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\hlx.UltratechAlteredCarbon\1.5\Assemblies\ja\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\hlx.UltratechAlteredCarbon\1.5\Assemblies\ja</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\hlx.UltratechAlteredCarbon\1.5\Assemblies\ko\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\hlx.UltratechAlteredCarbon\1.5\Assemblies\ko</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\hlx.UltratechAlteredCarbon\1.5\Assemblies\pl\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\hlx.UltratechAlteredCarbon\1.5\Assemblies\pl</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\hlx.UltratechAlteredCarbon\1.5\Assemblies\pt-BR\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\hlx.UltratechAlteredCarbon\1.5\Assemblies\pt-BR</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\hlx.UltratechAlteredCarbon\1.5\Assemblies\ru\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\hlx.UltratechAlteredCarbon\1.5\Assemblies\ru</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\hlx.UltratechAlteredCarbon\1.5\Assemblies\tr\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\hlx.UltratechAlteredCarbon\1.5\Assemblies\tr</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\hlx.UltratechAlteredCarbon\1.5\Assemblies\zh-Hans\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\hlx.UltratechAlteredCarbon\1.5\Assemblies\zh-Hans</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\hlx.UltratechAlteredCarbon\1.5\Assemblies\zh-Hant\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\hlx.UltratechAlteredCarbon\1.5\Assemblies\zh-Hant</Link>
       </Folder>
       <Folder Include="..\..\..\Compatibility\OskarPotocki.VanillaFactionsExpanded.Core\1.5\Assemblies\">
         <Link>MrSamuelStreamerFlavourPack\Compatibility\OskarPotocki.VanillaFactionsExpanded.Core\1.5\Assemblies</Link>
       </Folder>
       <Folder Include="..\..\..\Compatibility\OskarPotocki.VanillaFactionsExpanded.Core\1.5\Patches\">
         <Link>MrSamuelStreamerFlavourPack\Compatibility\OskarPotocki.VanillaFactionsExpanded.Core\1.5\Patches</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\OskarPotocki.VFE.Tribals\1.5\Assemblies\cs\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\OskarPotocki.VFE.Tribals\1.5\Assemblies\cs</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\OskarPotocki.VFE.Tribals\1.5\Assemblies\de\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\OskarPotocki.VFE.Tribals\1.5\Assemblies\de</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\OskarPotocki.VFE.Tribals\1.5\Assemblies\es\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\OskarPotocki.VFE.Tribals\1.5\Assemblies\es</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\OskarPotocki.VFE.Tribals\1.5\Assemblies\fr\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\OskarPotocki.VFE.Tribals\1.5\Assemblies\fr</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\OskarPotocki.VFE.Tribals\1.5\Assemblies\it\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\OskarPotocki.VFE.Tribals\1.5\Assemblies\it</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\OskarPotocki.VFE.Tribals\1.5\Assemblies\ja\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\OskarPotocki.VFE.Tribals\1.5\Assemblies\ja</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\OskarPotocki.VFE.Tribals\1.5\Assemblies\ko\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\OskarPotocki.VFE.Tribals\1.5\Assemblies\ko</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\OskarPotocki.VFE.Tribals\1.5\Assemblies\pl\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\OskarPotocki.VFE.Tribals\1.5\Assemblies\pl</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\OskarPotocki.VFE.Tribals\1.5\Assemblies\pt-BR\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\OskarPotocki.VFE.Tribals\1.5\Assemblies\pt-BR</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\OskarPotocki.VFE.Tribals\1.5\Assemblies\ru\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\OskarPotocki.VFE.Tribals\1.5\Assemblies\ru</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\OskarPotocki.VFE.Tribals\1.5\Assemblies\tr\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\OskarPotocki.VFE.Tribals\1.5\Assemblies\tr</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\OskarPotocki.VFE.Tribals\1.5\Assemblies\zh-Hans\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\OskarPotocki.VFE.Tribals\1.5\Assemblies\zh-Hans</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\OskarPotocki.VFE.Tribals\1.5\Assemblies\zh-Hant\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\OskarPotocki.VFE.Tribals\1.5\Assemblies\zh-Hant</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\RedMattis.Dryads.Greater\1.5\Assemblies\cs\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\RedMattis.Dryads.Greater\1.5\Assemblies\cs</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\RedMattis.Dryads.Greater\1.5\Assemblies\de\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\RedMattis.Dryads.Greater\1.5\Assemblies\de</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\RedMattis.Dryads.Greater\1.5\Assemblies\es\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\RedMattis.Dryads.Greater\1.5\Assemblies\es</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\RedMattis.Dryads.Greater\1.5\Assemblies\fr\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\RedMattis.Dryads.Greater\1.5\Assemblies\fr</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\RedMattis.Dryads.Greater\1.5\Assemblies\it\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\RedMattis.Dryads.Greater\1.5\Assemblies\it</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\RedMattis.Dryads.Greater\1.5\Assemblies\ja\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\RedMattis.Dryads.Greater\1.5\Assemblies\ja</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\RedMattis.Dryads.Greater\1.5\Assemblies\ko\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\RedMattis.Dryads.Greater\1.5\Assemblies\ko</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\RedMattis.Dryads.Greater\1.5\Assemblies\pl\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\RedMattis.Dryads.Greater\1.5\Assemblies\pl</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\RedMattis.Dryads.Greater\1.5\Assemblies\pt-BR\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\RedMattis.Dryads.Greater\1.5\Assemblies\pt-BR</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\RedMattis.Dryads.Greater\1.5\Assemblies\ru\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\RedMattis.Dryads.Greater\1.5\Assemblies\ru</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\RedMattis.Dryads.Greater\1.5\Assemblies\tr\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\RedMattis.Dryads.Greater\1.5\Assemblies\tr</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\RedMattis.Dryads.Greater\1.5\Assemblies\zh-Hans\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\RedMattis.Dryads.Greater\1.5\Assemblies\zh-Hans</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\RedMattis.Dryads.Greater\1.5\Assemblies\zh-Hant\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\RedMattis.Dryads.Greater\1.5\Assemblies\zh-Hant</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\vanillaexpanded.achievements\1.5\Assemblies\cs\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\vanillaexpanded.achievements\1.5\Assemblies\cs</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\vanillaexpanded.achievements\1.5\Assemblies\de\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\vanillaexpanded.achievements\1.5\Assemblies\de</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\vanillaexpanded.achievements\1.5\Assemblies\es\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\vanillaexpanded.achievements\1.5\Assemblies\es</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\vanillaexpanded.achievements\1.5\Assemblies\fr\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\vanillaexpanded.achievements\1.5\Assemblies\fr</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\vanillaexpanded.achievements\1.5\Assemblies\it\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\vanillaexpanded.achievements\1.5\Assemblies\it</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\vanillaexpanded.achievements\1.5\Assemblies\ja\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\vanillaexpanded.achievements\1.5\Assemblies\ja</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\vanillaexpanded.achievements\1.5\Assemblies\ko\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\vanillaexpanded.achievements\1.5\Assemblies\ko</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\vanillaexpanded.achievements\1.5\Assemblies\pl\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\vanillaexpanded.achievements\1.5\Assemblies\pl</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\vanillaexpanded.achievements\1.5\Assemblies\pt-BR\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\vanillaexpanded.achievements\1.5\Assemblies\pt-BR</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\vanillaexpanded.achievements\1.5\Assemblies\ru\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\vanillaexpanded.achievements\1.5\Assemblies\ru</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\vanillaexpanded.achievements\1.5\Assemblies\tr\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\vanillaexpanded.achievements\1.5\Assemblies\tr</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\vanillaexpanded.achievements\1.5\Assemblies\zh-Hans\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\vanillaexpanded.achievements\1.5\Assemblies\zh-Hans</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\vanillaexpanded.achievements\1.5\Assemblies\zh-Hant\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\vanillaexpanded.achievements\1.5\Assemblies\zh-Hant</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\vanillaexpanded.outposts\1.5\Assemblies\cs\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\vanillaexpanded.outposts\1.5\Assemblies\cs</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\vanillaexpanded.outposts\1.5\Assemblies\de\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\vanillaexpanded.outposts\1.5\Assemblies\de</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\vanillaexpanded.outposts\1.5\Assemblies\es\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\vanillaexpanded.outposts\1.5\Assemblies\es</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\vanillaexpanded.outposts\1.5\Assemblies\fr\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\vanillaexpanded.outposts\1.5\Assemblies\fr</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\vanillaexpanded.outposts\1.5\Assemblies\it\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\vanillaexpanded.outposts\1.5\Assemblies\it</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\vanillaexpanded.outposts\1.5\Assemblies\ja\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\vanillaexpanded.outposts\1.5\Assemblies\ja</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\vanillaexpanded.outposts\1.5\Assemblies\ko\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\vanillaexpanded.outposts\1.5\Assemblies\ko</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\vanillaexpanded.outposts\1.5\Assemblies\pl\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\vanillaexpanded.outposts\1.5\Assemblies\pl</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\vanillaexpanded.outposts\1.5\Assemblies\pt-BR\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\vanillaexpanded.outposts\1.5\Assemblies\pt-BR</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\vanillaexpanded.outposts\1.5\Assemblies\ru\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\vanillaexpanded.outposts\1.5\Assemblies\ru</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\vanillaexpanded.outposts\1.5\Assemblies\tr\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\vanillaexpanded.outposts\1.5\Assemblies\tr</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\vanillaexpanded.outposts\1.5\Assemblies\zh-Hans\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\vanillaexpanded.outposts\1.5\Assemblies\zh-Hans</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\vanillaexpanded.outposts\1.5\Assemblies\zh-Hant\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\vanillaexpanded.outposts\1.5\Assemblies\zh-Hant</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\vanillaexpanded.vee\1.5\Assemblies\cs\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\vanillaexpanded.vee\1.5\Assemblies\cs</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\vanillaexpanded.vee\1.5\Assemblies\de\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\vanillaexpanded.vee\1.5\Assemblies\de</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\vanillaexpanded.vee\1.5\Assemblies\es\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\vanillaexpanded.vee\1.5\Assemblies\es</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\vanillaexpanded.vee\1.5\Assemblies\fr\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\vanillaexpanded.vee\1.5\Assemblies\fr</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\vanillaexpanded.vee\1.5\Assemblies\it\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\vanillaexpanded.vee\1.5\Assemblies\it</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\vanillaexpanded.vee\1.5\Assemblies\ja\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\vanillaexpanded.vee\1.5\Assemblies\ja</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\vanillaexpanded.vee\1.5\Assemblies\ko\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\vanillaexpanded.vee\1.5\Assemblies\ko</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\vanillaexpanded.vee\1.5\Assemblies\pl\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\vanillaexpanded.vee\1.5\Assemblies\pl</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\vanillaexpanded.vee\1.5\Assemblies\pt-BR\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\vanillaexpanded.vee\1.5\Assemblies\pt-BR</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\vanillaexpanded.vee\1.5\Assemblies\ru\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\vanillaexpanded.vee\1.5\Assemblies\ru</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\vanillaexpanded.vee\1.5\Assemblies\tr\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\vanillaexpanded.vee\1.5\Assemblies\tr</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\vanillaexpanded.vee\1.5\Assemblies\zh-Hans\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\vanillaexpanded.vee\1.5\Assemblies\zh-Hans</Link>
+      </Folder>
+      <Folder Include="..\..\..\Compatibility\vanillaexpanded.vee\1.5\Assemblies\zh-Hant\">
+        <Link>MrSamuelStreamerFlavourPack\Compatibility\vanillaexpanded.vee\1.5\Assemblies\zh-Hant</Link>
       </Folder>
     </ItemGroup>
     <Target Name="PostBuild" AfterTargets="Build" Condition=" '$(Configuration)' == 'Release' ">
@@ -207,5 +425,16 @@
     <Target Name="CleanRelease" AfterTargets="Clean">
         <RemoveDir Directories="$(ReleasePath)" Condition="Exists('$(ReleasePath)')" />
         <Delete Files="$(ZipFilePath)" Condition="Exists('$(ZipFilePath)')" />
+    </Target>
+    <ItemGroup>
+        <PackageReference Include="CSharpier.MsBuild" Version="0.30.6">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+                        <Private>False</Private>
+        </PackageReference>
+    </ItemGroup>
+    <Target Name="Husky" BeforeTargets="Restore;CollectPackageReferences" Condition="'$(HUSKY)' != 0">
+        <Exec Command="dotnet tool restore" StandardOutputImportance="Low" StandardErrorImportance="High" WorkingDirectory="..\..\.."/>
+        <Exec Command="dotnet husky install" StandardOutputImportance="Low" StandardErrorImportance="High" WorkingDirectory="..\..\.." />
     </Target>
 </Project>
