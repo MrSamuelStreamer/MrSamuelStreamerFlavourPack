@@ -29,7 +29,7 @@ public class CompAbilityFungalConversion : CompAbilityEffect
                 plantTarget.AllComps.Remove(connection);
             }
 
-            Plant newTree = (Plant)GenSpawn.Spawn(MSSFPDefOf.MSSFP_Plant_TreeFroganlen, plantTarget.Position, plantTarget.Map, WipeMode.Vanish);
+            Plant newTree = (Plant)GenSpawn.Spawn(MSSFPDryadDefOf.MSSFP_Plant_TreeFroganlen, plantTarget.Position, plantTarget.Map, WipeMode.Vanish);
             newTree.Growth = plantTarget.Growth;
             plantTarget.Destroy();
 

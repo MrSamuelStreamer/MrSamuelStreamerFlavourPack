@@ -57,6 +57,9 @@
             <Link>Attached/Rimworld/%(RecursiveDir)/%(FileName)%(Extension)</Link>
             <CopyToOutputDirectory>Never</CopyToOutputDirectory>
         </Content>
+        <Content Include="..\..\..\modlist-minimal.xml">
+          <Link>MrSamuelStreamerFlavourPack\modlist-minimal.xml</Link>
+        </Content>
         <Content Include="..\..\..\modlist-mo-test.xml">
           <Link>MrSamuelStreamerFlavourPack\modlist-mo-test.xml</Link>
         </Content>
@@ -79,11 +82,11 @@
         <StartProgram>$(SolutionDir)../../../../RimWorldWin64.exe</StartProgram>
     </PropertyGroup>
     <ItemGroup>
+        <CompatibilityFiles Include="..\..\Defs\MSSFP_Critters.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Defs\MSSFP_Critters.xml</Link>
+        </CompatibilityFiles>
         <CompatibilityFiles Include="..\..\Defs\Quests\MSS_LoversAdvance.xml">
           <Link>MrSamuelStreamerFlavourPack\1.5\Defs\Quests\MSS_LoversAdvance.xml</Link>
-        </CompatibilityFiles>
-        <CompatibilityFiles Include="..\..\Patches\MSSFP_AsexualRepro.xml">
-          <Link>MrSamuelStreamerFlavourPack\1.5\Patches\MSSFP_AsexualRepro.xml</Link>
         </CompatibilityFiles>
         <ReleaseFiles Include="../../../1.*/**" Exclude="../../../1.*/Source/**" />
         <AboutFiles Include="../../../About/**" Exclude="../../../About/*.png~" />
@@ -160,6 +163,14 @@
 
         <CompatibilityFiles Update="..\..\..\Compatibility\kikohi.jewelry\1.5\Defs\MSSFP_Defs.xml">
           <Link>MrSamuelStreamerFlavourPack\Compatibility\kikohi.jewelry\1.5\Defs\MSSFP_Defs.xml</Link>
+        </CompatibilityFiles>
+
+        <CompatibilityFiles Update="..\..\..\Compatibility\sarg.alphagenes\1.5\Patches\MSSFP_AsexualRepro.xml">
+          <Link>MrSamuelStreamerFlavourPack\Compatibility\sarg.alphagenes\1.5\Patches\MSSFP_AsexualRepro.xml</Link>
+        </CompatibilityFiles>
+
+        <CompatibilityFiles Update="..\..\..\Compatibility\RedMattis.Dryads.Greater\1.5\Defs\MSS_Incidents.xml">
+          <Link>MrSamuelStreamerFlavourPack\Compatibility\RedMattis.Dryads.Greater\1.5\Defs\MSS_Incidents.xml</Link>
         </CompatibilityFiles>
     </ItemGroup>
     <ItemGroup>

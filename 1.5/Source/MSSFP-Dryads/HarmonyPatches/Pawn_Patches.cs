@@ -2,7 +2,7 @@
 using RimWorld;
 using Verse;
 
-namespace MSSFP.HarmonyPatches;
+namespace MSSFP.Dryads.HarmonyPatches;
 
 [HarmonyPatch(typeof(Pawn))]
 public static class Pawn_Patches
@@ -27,6 +27,6 @@ public static class Pawn_Patches
         )
             return;
         IncidentParms iParams = new() { target = __instance.Map };
-        Find.Storyteller.TryFire(new FiringIncident(MSSFPDefOf.MSS_FroggomancerRescue, null, iParams), false);
+        Find.Storyteller.TryFire(new FiringIncident(MSSFPDryadDefOf.MSS_FroggomancerRescue, null, iParams), false);
     }
 }

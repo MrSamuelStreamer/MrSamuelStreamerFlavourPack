@@ -1,27 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <Defs>
     <MSSFP.Genes.GeneMutatorDef>
-        <defName>MSS_GlobalWarming</defName>
-        <label>Global Warming Genes</label>
-        <conditionActive>GlobalWarming</conditionActive>
-        <type>Birth</type>
-        <chanceToApply>1</chanceToApply>
-        <genes>
-            <li>
-                <gene>MaxTemp_SmallDecrease</gene>
-                <weight>0.25</weight>
-            </li>
-            <li>
-                <gene>MaxTemp_SmallIncrease</gene>
-                <weight>0.75</weight>
-            </li>
-            <li>
-                <gene>MaxTemp_LargeIncrease</gene>
-                <weight>0.1</weight>
-            </li>
-        </genes>
-    </MSSFP.Genes.GeneMutatorDef>
-    <MSSFP.Genes.GeneMutatorDef>
         <defName>MSS_HeatWave</defName>
         <label>Heat Wave Genes</label>
         <conditionActive>HeatWave</conditionActive>

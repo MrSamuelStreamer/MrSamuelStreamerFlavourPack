@@ -1,22 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <Defs>
-    <IncidentDef>
-        <defName>MSS_FroggomancerRescue</defName>
-        <label>froggomancer rescue</label>
-        <category>Misc</category>
-        <minRefireDays>15</minRefireDays>
-        <baseChance>3</baseChance>
-        <targetTags>
-            <li>Map_PlayerHome</li>
-            <li>Map_TempIncident</li>
-            <li>Map_Misc</li>
-            <li>Map_RaidBeacon</li>
-            <li>Caravan</li>
-        </targetTags>
-        <workerClass>MSSFP.Incidents.IncidentWorker_FroggomancerRescue</workerClass>
-        <letterLabel>froggomancer!</letterLabel>
-        <letterText>A mysterious form of frogge has appeared!</letterText>
-    </IncidentDef>
 
     <IncidentDef>
         <defName>MSS_FroggeResearch</defName>

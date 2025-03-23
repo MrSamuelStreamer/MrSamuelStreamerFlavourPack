@@ -210,7 +210,7 @@
                                                     <chaseTarget>false</chaseTarget>
                                                     <ignoreNonCombatants>true</ignoreNonCombatants>
                                                     <rangedOnlyPawns>
-                                                        <li>MSS_FP_Froggomancer</li>
+                                                        <li MayRequire="RedMattis.Dryads.Greater">MSS_FP_Froggomancer</li>
                                                     </rangedOnlyPawns>
                                                 </li>
                                                 <li Class="JobGiver_AIFollowMaster"/>

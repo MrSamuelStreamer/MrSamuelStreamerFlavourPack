@@ -210,7 +210,7 @@
             <li>Spear</li>
         </weaponTags>
         <weaponClasses>
-            <li>Medieval</li>
+            <li>Melee</li>
         </weaponClasses>
         <costStuffCount>75</costStuffCount>
         <thingSetMakerTags><li>RewardStandardQualitySuper</li></thingSetMakerTags>
