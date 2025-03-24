@@ -1,10 +1,37 @@
-﻿using UnityEngine;
+﻿using System.Reflection;
+using HarmonyLib;
+using RimWorld;
+using UnityEngine;
 using Verse;
 
 namespace MSSFP;
 
 public class Settings : ModSettings
 {
+    public static SimpleCurve MetabolismToFoodConsumptionFactorCurveNew = new SimpleCurve()
+    {
+        { new CurvePoint(-1000f, 5000f), true },
+        { new CurvePoint(-100f, 200f), true },
+        { new CurvePoint(-50f, 50f), true },
+        { new CurvePoint(-40f, 40f), true },
+        { new CurvePoint(-30f, 30f), true },
+        { new CurvePoint(-20f, 20f), true },
+        { new CurvePoint(-10f, 5f), true },
+        { new CurvePoint(-5f, 2.25f), true },
+        { new CurvePoint(0.0f, 1f), true },
+        { new CurvePoint(5f, 0.5f), true },
+        { new CurvePoint(10f, 0.05f), true },
+        { new CurvePoint(100f, 0.005f), true },
+        { new CurvePoint(1000f, 0f), true },
+    };
+
+    public static SimpleCurve MetabolismToFoodConsumptionFactorCurveOrig = new SimpleCurve()
+    {
+        { new CurvePoint(-5f, 2.25f), true },
+        { new CurvePoint(0.0f, 1f), true },
+        { new CurvePoint(5f, 0.5f), true },
+    };
+
     private float ScrollViewHeight = 0;
     public Vector2 scrollPosition = Vector2.zero;
 
@@ -32,6 +59,9 @@ public class Settings : ModSettings
     public bool SingleUseMentalFuses = true;
 
     public bool DisablePossession = false;
+
+    public bool DisableBSIncorporateGeneLimit = false;
+    public bool EnableExtendedMetabolismMultipliers = true;
 
     public void DrawCheckBox(Listing_Standard options, string label, ref bool value, ref float svh)
     {
@@ -67,8 +97,11 @@ public class Settings : ModSettings
         DrawCheckBox(options, "MSS_FP_Settings_EnableFroggeIncidents".Translate(), ref EnableFroggeIncidents, ref ScrollViewHeight);
         DrawCheckBox(options, "MSS_FP_Settings_SingleUseMentalFuses".Translate(), ref SingleUseMentalFuses, ref ScrollViewHeight);
         DrawCheckBox(options, "MSS_FP_Settings_DisablePossession".Translate(), ref DisablePossession, ref ScrollViewHeight);
+        DrawCheckBox(options, "MSS_FP_Settings_DisableBSIncorporateGeneLimit".Translate(), ref DisableBSIncorporateGeneLimit, ref ScrollViewHeight);
+        DrawCheckBox(options, "MSS_FP_Settings_EnableExtendedMetabolismMultipliers".Translate(), ref EnableExtendedMetabolismMultipliers, ref ScrollViewHeight);
 
         DrawIntAdjuster(options, "MSS_FP_Settings_DaysForOutpostFission".Translate(DaysForOutpostFission), ref DaysForOutpostFission, 1, 1, ref ScrollViewHeight);
+        DrawIntAdjuster(options, "MSS_FP_Settings_DaysForFission".Translate(DaysForFission), ref DaysForFission, 1, 1, ref ScrollViewHeight);
         DrawIntAdjuster(options, "MSS_FP_Settings_DaysForFission".Translate(DaysForFission), ref DaysForFission, 1, 1, ref ScrollViewHeight);
 
         GeneEventChance = options.SliderLabeled("MSS_FP_GeneEventChance".Translate(GeneEventChance * 100), GeneEventChance, 0f, 1f, tooltip: "MSS_FP_GeneEventChance_Tooltip");
@@ -144,6 +177,8 @@ public class Settings : ModSettings
         Scribe_Values.Look(ref EnableFroggeIncidents, "EnableFroggeIncidents", true);
         Scribe_Values.Look(ref SingleUseMentalFuses, "SingleUseMentalFuses", true);
         Scribe_Values.Look(ref DisablePossession, "DisablePossession", false);
+        Scribe_Values.Look(ref DisableBSIncorporateGeneLimit, "DisableBSIncorporateGeneLimit", true);
+        Scribe_Values.Look(ref EnableExtendedMetabolismMultipliers, "EnableExtendedMetabolismMultipliers", true);
         Scribe_Values.Look(ref GeneEventChance, "GeneEventChance", 1f);
         Scribe_Values.Look(ref GoodGeneChance, "GoodGeneChance", 1f / 4f);
         Scribe_Values.Look(ref BadGeneChance, "BadGeneChance", 1f / 4f);
@@ -151,5 +186,23 @@ public class Settings : ModSettings
         Scribe_Values.Look(ref RandomGeneChance, "RandomGeneChance", 1f / 4f);
         Scribe_Values.Look(ref DaysForOutpostFission, "DaysForOutpostFission", 7);
         Scribe_Values.Look(ref DaysForFission, "DaysForFission", 7);
+
+        GeneDef inco = DefDatabase<GeneDef>.GetNamed("BS_Incorporate");
+        if (inco != null)
+        {
+            inco.description = DisableBSIncorporateGeneLimit ? "MSSFP_BS_Incorporate_Desc2".Translate() : "MSSFP_BS_Incorporate_Desc1".Translate();
+        }
+        AbilityDef incoab = DefDatabase<AbilityDef>.GetNamed("BS_Incorporate_Abillity");
+        if (incoab != null)
+        {
+            incoab.description = DisableBSIncorporateGeneLimit ? "MSSFP_BS_Incorporate_Desc2".Translate() : "MSSFP_BS_Incorporate_Desc1".Translate();
+        }
+
+        FieldInfo MetabolismToFoodConsumptionFactorCurveField = AccessTools.Field(typeof(GeneTuning), nameof(GeneTuning.MetabolismToFoodConsumptionFactorCurve));
+
+        MetabolismToFoodConsumptionFactorCurveField.SetValue(
+            null,
+            EnableExtendedMetabolismMultipliers ? MetabolismToFoodConsumptionFactorCurveNew : MetabolismToFoodConsumptionFactorCurveOrig
+        );
     }
 }

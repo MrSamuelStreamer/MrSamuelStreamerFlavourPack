@@ -64,4 +64,6 @@
     <MSS_FP_Settings_SingleUseMentalFuses>Patch the Altered Carbon 2 Mental Fuse to be single use</MSS_FP_Settings_SingleUseMentalFuses>
 
     <MSS_FP_Settings_DisablePossession>Disable the possession event</MSS_FP_Settings_DisablePossession>
+    <MSS_FP_Settings_DisableBSIncorporateGeneLimit>Disable the complexity limit for the B&amp;S Incorporate gene</MSS_FP_Settings_DisableBSIncorporateGeneLimit>
+    <MSS_FP_Settings_EnableExtendedMetabolismMultipliers>Enable extended metabolism multiplier based on gene complexity (above 225%)</MSS_FP_Settings_EnableExtendedMetabolismMultipliers>
 </LanguageData>

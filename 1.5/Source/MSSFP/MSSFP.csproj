@@ -172,6 +172,118 @@
         <CompatibilityFiles Update="..\..\..\Compatibility\RedMattis.Dryads.Greater\1.5\Defs\MSS_Incidents.xml">
           <Link>MrSamuelStreamerFlavourPack\Compatibility\RedMattis.Dryads.Greater\1.5\Defs\MSS_Incidents.xml</Link>
         </CompatibilityFiles>
+
+        <CommonFiles Update="..\..\..\Common\Languages\English\Keyed\Keyed\Alerts.xml">
+          <Link>MrSamuelStreamerFlavourPack\Common\Languages\English\Keyed\Keyed\Alerts.xml</Link>
+        </CommonFiles>
+
+        <CommonFiles Update="..\..\..\Common\Languages\English\Keyed\Keyed\Credits.xml">
+          <Link>MrSamuelStreamerFlavourPack\Common\Languages\English\Keyed\Keyed\Credits.xml</Link>
+        </CommonFiles>
+
+        <CommonFiles Update="..\..\..\Common\Languages\English\Keyed\Keyed\Dates.xml">
+          <Link>MrSamuelStreamerFlavourPack\Common\Languages\English\Keyed\Keyed\Dates.xml</Link>
+        </CommonFiles>
+
+        <CommonFiles Update="..\..\..\Common\Languages\English\Keyed\Keyed\Designators.xml">
+          <Link>MrSamuelStreamerFlavourPack\Common\Languages\English\Keyed\Keyed\Designators.xml</Link>
+        </CommonFiles>
+
+        <CommonFiles Update="..\..\..\Common\Languages\English\Keyed\Keyed\Dialogs_Various.xml">
+          <Link>MrSamuelStreamerFlavourPack\Common\Languages\English\Keyed\Keyed\Dialogs_Various.xml</Link>
+        </CommonFiles>
+
+        <CommonFiles Update="..\..\..\Common\Languages\English\Keyed\Keyed\Dialog_StatsReports.xml">
+          <Link>MrSamuelStreamerFlavourPack\Common\Languages\English\Keyed\Keyed\Dialog_StatsReports.xml</Link>
+        </CommonFiles>
+
+        <CommonFiles Update="..\..\..\Common\Languages\English\Keyed\Keyed\Dialog_Trees.xml">
+          <Link>MrSamuelStreamerFlavourPack\Common\Languages\English\Keyed\Keyed\Dialog_Trees.xml</Link>
+        </CommonFiles>
+
+        <CommonFiles Update="..\..\..\Common\Languages\English\Keyed\Keyed\Enums.xml">
+          <Link>MrSamuelStreamerFlavourPack\Common\Languages\English\Keyed\Keyed\Enums.xml</Link>
+        </CommonFiles>
+
+        <CommonFiles Update="..\..\..\Common\Languages\English\Keyed\Keyed\FloatMenu.xml">
+          <Link>MrSamuelStreamerFlavourPack\Common\Languages\English\Keyed\Keyed\FloatMenu.xml</Link>
+        </CommonFiles>
+
+        <CommonFiles Update="..\..\..\Common\Languages\English\Keyed\Keyed\GameplayCommands.xml">
+          <Link>MrSamuelStreamerFlavourPack\Common\Languages\English\Keyed\Keyed\GameplayCommands.xml</Link>
+        </CommonFiles>
+
+        <CommonFiles Update="..\..\..\Common\Languages\English\Keyed\Keyed\Grammar.xml">
+          <Link>MrSamuelStreamerFlavourPack\Common\Languages\English\Keyed\Keyed\Grammar.xml</Link>
+        </CommonFiles>
+
+        <CommonFiles Update="..\..\..\Common\Languages\English\Keyed\Keyed\Incidents.xml">
+          <Link>MrSamuelStreamerFlavourPack\Common\Languages\English\Keyed\Keyed\Incidents.xml</Link>
+        </CommonFiles>
+
+        <CommonFiles Update="..\..\..\Common\Languages\English\Keyed\Keyed\ITabs.xml">
+          <Link>MrSamuelStreamerFlavourPack\Common\Languages\English\Keyed\Keyed\ITabs.xml</Link>
+        </CommonFiles>
+
+        <CommonFiles Update="..\..\..\Common\Languages\English\Keyed\Keyed\Letters.xml">
+          <Link>MrSamuelStreamerFlavourPack\Common\Languages\English\Keyed\Keyed\Letters.xml</Link>
+        </CommonFiles>
+
+        <CommonFiles Update="..\..\..\Common\Languages\English\Keyed\Keyed\MainTabs.xml">
+          <Link>MrSamuelStreamerFlavourPack\Common\Languages\English\Keyed\Keyed\MainTabs.xml</Link>
+        </CommonFiles>
+
+        <CommonFiles Update="..\..\..\Common\Languages\English\Keyed\Keyed\Menus_Main.xml">
+          <Link>MrSamuelStreamerFlavourPack\Common\Languages\English\Keyed\Keyed\Menus_Main.xml</Link>
+        </CommonFiles>
+
+        <CommonFiles Update="..\..\..\Common\Languages\English\Keyed\Keyed\Menu_KeyBindings.xml">
+          <Link>MrSamuelStreamerFlavourPack\Common\Languages\English\Keyed\Keyed\Menu_KeyBindings.xml</Link>
+        </CommonFiles>
+
+        <CommonFiles Update="..\..\..\Common\Languages\English\Keyed\Keyed\Menu_Options.xml">
+          <Link>MrSamuelStreamerFlavourPack\Common\Languages\English\Keyed\Keyed\Menu_Options.xml</Link>
+        </CommonFiles>
+
+        <CommonFiles Update="..\..\..\Common\Languages\English\Keyed\Keyed\Messages.xml">
+          <Link>MrSamuelStreamerFlavourPack\Common\Languages\English\Keyed\Keyed\Messages.xml</Link>
+        </CommonFiles>
+
+        <CommonFiles Update="..\..\..\Common\Languages\English\Keyed\Keyed\Misc.xml">
+          <Link>MrSamuelStreamerFlavourPack\Common\Languages\English\Keyed\Keyed\Misc.xml</Link>
+        </CommonFiles>
+
+        <CommonFiles Update="..\..\..\Common\Languages\English\Keyed\Keyed\Misc_Gameplay.xml">
+          <Link>MrSamuelStreamerFlavourPack\Common\Languages\English\Keyed\Keyed\Misc_Gameplay.xml</Link>
+        </CommonFiles>
+
+        <CommonFiles Update="..\..\..\Common\Languages\English\Keyed\Keyed\PlayInterface.xml">
+          <Link>MrSamuelStreamerFlavourPack\Common\Languages\English\Keyed\Keyed\PlayInterface.xml</Link>
+        </CommonFiles>
+
+        <CommonFiles Update="..\..\..\Common\Languages\English\Keyed\Keyed\ScenParts.xml">
+          <Link>MrSamuelStreamerFlavourPack\Common\Languages\English\Keyed\Keyed\ScenParts.xml</Link>
+        </CommonFiles>
+
+        <CommonFiles Update="..\..\..\Common\Languages\English\Keyed\Keyed\Skills.xml">
+          <Link>MrSamuelStreamerFlavourPack\Common\Languages\English\Keyed\Keyed\Skills.xml</Link>
+        </CommonFiles>
+
+        <CommonFiles Update="..\..\..\Common\Languages\English\Keyed\Keyed\Time.xml">
+          <Link>MrSamuelStreamerFlavourPack\Common\Languages\English\Keyed\Keyed\Time.xml</Link>
+        </CommonFiles>
+
+        <CommonFiles Update="..\..\..\Common\Languages\English\Keyed\Keyed\WITabs.xml">
+          <Link>MrSamuelStreamerFlavourPack\Common\Languages\English\Keyed\Keyed\WITabs.xml</Link>
+        </CommonFiles>
+
+        <CommonFiles Update="..\..\..\Common\Languages\English\Keyed\Keyed\WorkTags.xml">
+          <Link>MrSamuelStreamerFlavourPack\Common\Languages\English\Keyed\Keyed\WorkTags.xml</Link>
+        </CommonFiles>
+
+        <CommonFiles Update="..\..\..\Common\Languages\English\Keyed\MSS_FP_BSPatch.xml">
+          <Link>MrSamuelStreamerFlavourPack\Common\Languages\English\Keyed\MSS_FP_BSPatch.xml</Link>
+        </CommonFiles>
     </ItemGroup>
     <ItemGroup>
       <Folder Include="..\..\..\Common\Textures\Things\AMPSuit\">

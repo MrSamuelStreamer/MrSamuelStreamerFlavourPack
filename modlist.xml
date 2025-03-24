@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ModsConfigData>
-    <version>1.5.4297 rev1078</version>
+    <version>1.5.4402 rev723</version>
     <activeMods>
         <li>brrainz.harmony</li>
         <li>ludeon.rimworld</li>
@@ -8,6 +8,7 @@
         <li>ludeon.rimworld.ideology</li>
         <li>ludeon.rimworld.biotech</li>
         <li>ludeon.rimworld.anomaly</li>
+        <li>redmattis.betterprerequisites</li>
         <li>oskarpotocki.vanillafactionsexpanded.core</li>
         <li>sarg.alphagenes</li>
         <li>hlx.ultratechalteredcarbon</li>
@@ -18,6 +19,7 @@
         <li>seti.victor.animabodies</li>
         <li>metalocif.coolerpsycasts</li>
         <li>hailuan.customquestframework</li>
+        <li>redmattis.bigsmall.core</li>
         <li>redmattis.dryads</li>
         <li>vanillaexpanded.ideo.dryads</li>
         <li>redmattis.dryads.greater</li>

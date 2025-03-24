@@ -17,5 +17,6 @@
         <li IfModActive="aoba.exosuit.amp">Compatibility/aoba.exosuit.amp/1.5</li>
         <li IfModActive="DankPyon.Medieval.Overhaul">Compatibility/DankPyon.Medieval.Overhaul/1.5</li>
         <li IfModActive="kikohi.jewelry">Compatibility/kikohi.jewelry/1.5</li>
+        <li IfModActive="RedMattis.BetterPrerequisites">Compatibility/RedMattis.BetterPrerequisites/1.5</li>
 	</v1.5>
 </loadFolders>

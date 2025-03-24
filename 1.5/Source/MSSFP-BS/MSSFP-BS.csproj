@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net48</TargetFramework>
+        <OutputType>Library</OutputType>
+        <LangVersion>latest</LangVersion>
+        <RootNamespace>MSSFP.BS</RootNamespace>
+        <AssemblyName>MSSFP.BS</AssemblyName>
+        <OutputPath>../../../Compatibility/RedMattis.BetterPrerequisites/1.5/Assemblies</OutputPath>
+        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+        <SteamModsPath>$(RIMWORLD_STEAM_MODS_PATH)</SteamModsPath>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <Optimize>false</Optimize>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>portable</DebugType>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <DebugType>embedded</DebugType>
+        <DebugSymbols>false</DebugSymbols>
+        <Optimize>true</Optimize>
+    </PropertyGroup>
+    <ItemGroup>
+        <Reference Include="Assembly-CSharp">
+            <HintPath Condition="Exists('../../../../../RimWorldWin64_Data/Managed/Assembly-CSharp.dll')">../../../../../RimWorldWin64_Data/Managed/Assembly-CSharp.dll</HintPath>
+            <HintPath Condition="Exists('../../../../../Contents/Resources/Data/Managed/Assembly-CSharp.dll')">../../../../../Contents/Resources/Data/Managed/Assembly-CSharp.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.CoreModule">
+            <HintPath Condition="Exists('../../../../../RimWorldWin64_Data/Managed/UnityEngine.CoreModule.dll')">../../../../../RimWorldWin64_Data/Managed/UnityEngine.CoreModule.dll</HintPath>
+            <HintPath Condition="Exists('../../../../../Contents/Resources/Data/Managed/UnityEngine.CoreModule.dll')">../../../../../Contents/Resources/Data/Managed/UnityEngine.CoreModule.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.IMGUIModule">
+            <HintPath Condition="Exists('../../../../../RimWorldWin64_Data/Managed/UnityEngine.IMGUIModule.dll')">../../../../../RimWorldWin64_Data/Managed/UnityEngine.IMGUIModule.dll</HintPath>
+            <HintPath Condition="Exists('../../../../../Contents/Resources/Data/Managed/UnityEngine.IMGUIModule.dll')">../../../../../Contents/Resources/Data/Managed/UnityEngine.IMGUIModule.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.TextRenderingModule">
+            <HintPath Condition="Exists('../../../../../RimWorldWin64_Data/Managed/UnityEngine.TextRenderingModule.dll')">../../../../../RimWorldWin64_Data/Managed/UnityEngine.TextRenderingModule.dll</HintPath>
+            <HintPath Condition="Exists('../../../../../Contents/Resources/Data/Managed/UnityEngine.TextRenderingModule.dll')">../../../../../Contents/Resources/Data/Managed/UnityEngine.TextRenderingModule.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="BSXeno ">
+            <HintPath Condition="Exists('../../../../BigSmall_Framework /1.5/Main/Assemblies/BSXeno.dll')">../../../../BigSmall_Framework /1.5/Main/Assemblies/BSXeno.dll</HintPath>
+            <HintPath Condition="Exists('../../../../2925432336/1.5/Main/Assemblies/BSXeno.dll')">../../../../2925432336/1.5/Main/Assemblies/BSXeno.dll</HintPath>
+            <HintPath Condition="Exists('../../../../../../../workshop/content/294100/2925432336/1.5/Main/Assemblies/BSXeno.dll')">../../../../../../../workshop/content/294100/2925432336/1.5/Main/Assemblies/BSXeno.dll</HintPath>
+            <HintPath Condition="Exists('../../../../../../../../workshop/content/294100/2925432336/1.5/Main/Assemblies/BSXeno.dll')">../../../../../../../../workshop/content/294100/2925432336/1.5/Main/Assemblies/BSXeno.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="BetterPrerequisites">
+            <HintPath Condition="Exists('../../../../BigSmall_Framework /1.5/Main/Assemblies/BetterPrerequisites.dll')">../../../../BigSmall_Framework /1.5/Main/Assemblies/BetterPrerequisites.dll</HintPath>
+            <HintPath Condition="Exists('../../../../2925432336/1.5/Main/Assemblies/BetterPrerequisites.dll')">../../../../2925432336/1.5/Main/Assemblies/BetterPrerequisites.dll</HintPath>
+            <HintPath Condition="Exists('../../../../../../../workshop/content/294100/2925432336/1.5/Main/Assemblies/BetterPrerequisites.dll')">../../../../../../../workshop/content/294100/2925432336/1.5/Main/Assemblies/BetterPrerequisites.dll</HintPath>
+            <HintPath Condition="Exists('../../../../../../../../workshop/content/294100/2925432336/1.5/Main/Assemblies/BetterPrerequisites.dll')">../../../../../../../../workshop/content/294100/2925432336/1.5/Main/Assemblies/BetterPrerequisites.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+    </ItemGroup>
+    <ItemGroup>
+        <Content Condition="Exists('../../../../../Data')" Include="../../../../../Data/**/*">
+            <Link>Attached/Rimworld/%(RecursiveDir)/%(FileName)%(Extension)</Link>
+            <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+        </Content>
+        <Content Include="..\..\..\modlist.xml">
+          <Link>MrSamuelStreamerFlavourPack\modlist.xml</Link>
+        </Content>
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Lib.Harmony" Version="2.*" ExcludeAssets="runtime" />
+    </ItemGroup>
+
+    <ItemGroup Condition="'@(Reference->WithMetadataValue('Identity', 'Assembly-CSharp')->Metadata('HintPath')->Exists())' == ''">
+        <PackageReference Include="Krafs.Rimworld.Ref" Version="1.5-*" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\MSSFP\MSSFP.csproj">
+            <Private>false</Private>
+        </ProjectReference>
+    </ItemGroup>
+    <PropertyGroup>
+        <StartAction>Program</StartAction>
+        <StartProgram>$(SolutionDir)../../../../RimWorldWin64.exe</StartProgram>
+    </PropertyGroup>
+
+</Project>
