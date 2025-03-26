@@ -292,6 +292,14 @@
         <ReleaseFiles Update="..\..\Defs\Incidents\MSSFP_Nonsense.xml">
           <Link>MrSamuelStreamerFlavourPack\1.5\Defs\Incidents\MSSFP_Nonsense</Link>
         </ReleaseFiles>
+
+        <ReleaseFiles Update="..\..\Defs\Needs\MSS_Needs.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Defs\Needs\MSS_Needs.xml</Link>
+        </ReleaseFiles>
+
+        <CompatibilityFiles Update="..\..\..\Compatibility\RedMattis.BetterPrerequisites\1.5\Patches\MSS_BS_Patches.xml">
+          <Link>MrSamuelStreamerFlavourPack\Compatibility\RedMattis.BetterPrerequisites\1.5\Patches\MSS_BS_Patches.xml</Link>
+        </CompatibilityFiles>
     </ItemGroup>
     <ItemGroup>
       <Folder Include="..\..\..\Common\Textures\Things\AMPSuit\">

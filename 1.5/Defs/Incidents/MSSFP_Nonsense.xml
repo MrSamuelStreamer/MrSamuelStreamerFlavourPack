@@ -5,7 +5,6 @@
         <label>Nonsense</label>
         <category>Misc</category>
         <baseChance>10</baseChance>
-        <earliestDay>2</earliestDay>
         <minRefireDays>4</minRefireDays>
         <populationEffect>None</populationEffect>
         <earliestDay>0</earliestDay>
