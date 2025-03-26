@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Patch>
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/StorytellerDef[@Name="BaseStoryteller"]/comps</xpath>
+        <value>
+            <li Class="StorytellerCompProperties_SingleMTB">
+                <fireAfterDaysPassed>20</fireAfterDaysPassed>
+                <incident>MSSFP_Nonsense</incident>
+                <mtbDays>3</mtbDays>
+                <minDaysPassed>0</minDaysPassed>
+                <allowedTargetTags>
+                    <li>Map_PlayerHome</li>
+                    <li>Map_TempIncident</li>
+                </allowedTargetTags>
+            </li>
+        </value>
+    </Operation>
+</Patch>

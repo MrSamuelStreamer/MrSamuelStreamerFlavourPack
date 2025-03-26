@@ -300,6 +300,10 @@
         <CompatibilityFiles Update="..\..\..\Compatibility\RedMattis.BetterPrerequisites\1.5\Patches\MSS_BS_Patches.xml">
           <Link>MrSamuelStreamerFlavourPack\Compatibility\RedMattis.BetterPrerequisites\1.5\Patches\MSS_BS_Patches.xml</Link>
         </CompatibilityFiles>
+
+        <ReleaseFiles Update="..\..\Patches\MSS_Storyteller.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Patches\MSS_Storyteller.xml</Link>
+        </ReleaseFiles>
     </ItemGroup>
     <ItemGroup>
       <Folder Include="..\..\..\Common\Textures\Things\AMPSuit\">
