@@ -67,4 +67,9 @@
     <MSS_FP_Settings_DisableBSIncorporateGeneLimit>Disable the complexity limit for the B&amp;S Incorporate gene</MSS_FP_Settings_DisableBSIncorporateGeneLimit>
     <MSS_FP_Settings_EnableExtendedMetabolismMultipliers>Enable extended metabolism multiplier based on gene complexity (above 225%)</MSS_FP_Settings_EnableExtendedMetabolismMultipliers>
     <MSS_FP_Settings_DisableNonsenseIncidents>Disable the nonsense events (e.g. Scrungle has been Bloorped).</MSS_FP_Settings_DisableNonsenseIncidents>
+
+    <MSSFP_BS_BodySizeFactor>Incorporation: {0}</MSSFP_BS_BodySizeFactor>
+
+    <MSS_Bigger_Label>Incorporation: {0}</MSS_Bigger_Label>
+    <MSS_Bigger_Desc>Incorporation has lead to a size increase of {0}</MSS_Bigger_Desc>
 </LanguageData>

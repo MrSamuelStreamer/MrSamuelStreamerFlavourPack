@@ -304,6 +304,10 @@
         <ReleaseFiles Update="..\..\Patches\MSS_Storyteller.xml">
           <Link>MrSamuelStreamerFlavourPack\1.5\Patches\MSS_Storyteller.xml</Link>
         </ReleaseFiles>
+
+        <CompatibilityFiles Update="..\..\..\Compatibility\RedMattis.BetterPrerequisites\1.5\Defs\MSS_Hediffs.xml">
+          <Link>MrSamuelStreamerFlavourPack\Compatibility\RedMattis.BetterPrerequisites\1.5\Defs\MSS_Hediffs.xml</Link>
+        </CompatibilityFiles>
     </ItemGroup>
     <ItemGroup>
       <Folder Include="..\..\..\Common\Textures\Things\AMPSuit\">

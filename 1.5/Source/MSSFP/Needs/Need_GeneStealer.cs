@@ -6,7 +6,7 @@ namespace MSSFP.Needs;
 
 public class Need_GeneStealer : Need
 {
-    public const float FallPerDay = 0.0333333351f;
+    public const float FallPerDay = 1 / 6f;
     private const float MinAgeForNeed = 13f;
 
     protected override bool IsFrozen
