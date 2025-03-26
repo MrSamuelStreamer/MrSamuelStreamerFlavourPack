@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Defs>
+    <IncidentDef>
+        <defName>MSSFP_Nonsense</defName>
+        <label>Nonsense</label>
+        <category>Misc</category>
+        <baseChance>10</baseChance>
+        <earliestDay>2</earliestDay>
+        <minRefireDays>4</minRefireDays>
+        <populationEffect>None</populationEffect>
+        <earliestDay>0</earliestDay>
+        <minPopulation>0</minPopulation>
+        <minDifficulty>0</minDifficulty>
+        <ignoreRecentSelectionWeighting>0</ignoreRecentSelectionWeighting>
+        <targetTags>
+            <li>Map_PlayerHome</li>
+            <li>Map_TempIncident</li>
+        </targetTags>
+        <workerClass>MSSFP.Incidents.IncidentWorker_Nonsense</workerClass>
+        <requireColonistsPresent>true</requireColonistsPresent>
+    </IncidentDef>
+
+    <TaleDef>
+        <defName>MSSFP_Nonsense_Tale</defName>
+        <label>nonsense</label>
+        <taleClass>Tale_SinglePawn</taleClass>
+        <type>Volatile</type>
+        <baseInterest>10</baseInterest>
+        <rulePack>
+            <include>
+                <li>MSS_Nonsense</li>
+            </include>
+            <rulesStrings>
+                <li>tale_noun->[PAWN_nameFull]'s [noun] has a [noun]</li>
+                <li>tale_noun->[PAWN_nameFull] has [noun] on a [noun]</li>
+                <li>tale_noun->[PAWN_nameFull] has [noun] on their [noun]</li>
+                <li>tale_noun->[PAWN_nameFull] is [noun]ing on their [noun]</li>
+                <li>tale_noun->[PAWN_nameFull] has a [noun] full of [noun] on their [noun]</li>
+                <li>tale_noun->[PAWN_nameFull] [noun]ed their [noun] on their [noun]</li>
+                <li>tale_noun->The [noun]'s [noun] has [noun]ed. [PAWN_nameFull] is pleased.</li>
+                <li>tale_noun->The [noun]'s [noun] has [noun]ed. [PAWN_nameFull] is displeased.</li>
+                <li>image->[PAWN_nameFull] cowering from [noun]</li>
+                <li>image->[PAWN_nameFull] moving to protect an ally [noun]</li>
+                <li>image->[PAWN_nameFull] moving to attack [noun]</li>
+                <li>image->[PAWN_nameFull] attacking [noun]</li>
+                <li>image->[PAWN_nameFull] shouting loudly [noun]</li>
+                <li>image->[PAWN_nameFull] running [noun]</li>
+                <li>image->[PAWN_nameFull] grapping with [noun]</li>
+                <li>image->[PAWN_nameFull] [noun]ing a [noun]</li>
+                <li>image->[PAWN_nameFull] [noun]ing many [noun]s</li>
+
+                <li>desc_sentence->[Quantity_adjphrase] distant figures approaches from behind a [noun].</li>
+                <li>desc_sentence->[Quantity_adjphrase] [noun]s can be seen in the distance.</li>
+                <li>desc_sentence->[PAWN_nameDef] is practically surrounded by [noun]s.</li>
+                <li>desc_sentence->[PAWN_nameDef] is confronted by a [noun].</li>
+                <li>desc_sentence->[Quantity_adjphrase] [noun]s flee the scene of conflict in fear.</li>
+                <li>desc_sentence->In the distance, a [PersonJob] observes.</li>
+            </rulesStrings>
+        </rulePack>
+    </TaleDef>
+
+    <ThoughtDef>
+        <defName>MSSFP_Nonsense_Thought_Bad</defName>
+        <thoughtClass>MSSFP.Thoughts.Thought_Nonsense</thoughtClass>
+        <stages>
+            <li>
+                <label>.</label>
+                <description>.</description>
+                <baseMoodEffect>-12</baseMoodEffect>
+            </li>
+        </stages>
+        <durationDays>0.5</durationDays>
+    </ThoughtDef>
+    <ThoughtDef>
+        <defName>MSSFP_Nonsense_Thought_Neutral</defName>
+        <thoughtClass>MSSFP.Thoughts.Thought_Nonsense</thoughtClass>
+        <stages>
+            <li>
+                <label>.</label>
+                <description>.</description>
+                <baseMoodEffect>0</baseMoodEffect>
+            </li>
+        </stages>
+        <durationDays>0.5</durationDays>
+    </ThoughtDef>
+    <ThoughtDef>
+        <defName>MSSFP_Nonsense_Thought_Good</defName>
+        <thoughtClass>MSSFP.Thoughts.Thought_Nonsense</thoughtClass>
+        <stages>
+            <li>
+                <label>.</label>
+                <description>.</description>
+                <baseMoodEffect>12</baseMoodEffect>
+            </li>
+        </stages>
+        <durationDays>0.5</durationDays>
+    </ThoughtDef>
+</Defs>

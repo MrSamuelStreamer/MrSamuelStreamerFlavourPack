@@ -284,6 +284,14 @@
         <CommonFiles Update="..\..\..\Common\Languages\English\Keyed\MSS_FP_BSPatch.xml">
           <Link>MrSamuelStreamerFlavourPack\Common\Languages\English\Keyed\MSS_FP_BSPatch.xml</Link>
         </CommonFiles>
+
+        <ReleaseFiles Update="..\..\Defs\RulePackDefs\MSS_Nonsense.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Defs\RulePackDefs\MSS_Nonsense.xml</Link>
+        </ReleaseFiles>
+
+        <ReleaseFiles Update="..\..\Defs\Incidents\MSSFP_Nonsense.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Defs\Incidents\MSSFP_Nonsense</Link>
+        </ReleaseFiles>
     </ItemGroup>
     <ItemGroup>
       <Folder Include="..\..\..\Common\Textures\Things\AMPSuit\">
