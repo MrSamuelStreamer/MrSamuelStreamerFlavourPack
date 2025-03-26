@@ -10,7 +10,7 @@
         <earliestDay>0</earliestDay>
         <minPopulation>0</minPopulation>
         <minDifficulty>0</minDifficulty>
-        <ignoreRecentSelectionWeighting>0</ignoreRecentSelectionWeighting>
+        <ignoreRecentSelectionWeighting>true</ignoreRecentSelectionWeighting>
         <targetTags>
             <li>Map_PlayerHome</li>
             <li>Map_TempIncident</li>
