@@ -8,10 +8,9 @@
         <rulePack>
             <rulesStrings>
                 <li>r_name->Taff [lastName]</li>
-                <li>r_name->[firstName] Taff</li>
-                <li>r_name->Taff '[nickName]' [lastName]</li>
+                <li>r_name->Taff '[nickName] the Taff' [lastName]</li>
+                <li>r_name->[firstName] '[nickName] the Taff' [lastName]</li>
                 <li>r_name->[firstName] 'Taff' [lastName]</li>
-                <li>r_name->[firstName] '[nickName]' Taff</li>
 
                 <li>maybeHyphen(p=4)-></li>
                 <li>maybeHyphen->-</li>

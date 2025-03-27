@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using RimWorld;
+﻿using RimWorld;
 using Verse;
 
 namespace MSSFP.Needs;
@@ -7,6 +6,7 @@ namespace MSSFP.Needs;
 public class Need_GeneStealer : Need
 {
     public const float FallPerDay = 1 / 6f;
+    public const float FallPerInterval = 150 * (FallPerDay / GenDate.TicksPerDay);
     private const float MinAgeForNeed = 13f;
 
     protected override bool IsFrozen
@@ -22,14 +22,58 @@ public class Need_GeneStealer : Need
     public Need_GeneStealer(Pawn newPawn)
         : base(newPawn)
     {
-        threshPercents = new List<float> { 0.3f };
+        threshPercents = [0.3f];
     }
 
     public override void NeedInterval()
     {
         if (IsFrozen)
             return;
-        CurLevel -= 8.333333E-05f;
+        CurLevel -= FallPerInterval;
+
+        Hediff exhaustion = pawn.health.hediffSet.GetFirstHediffOfDef(MSSFPDefOf.MSS_Need_GeneStealer_Exhaustion);
+        Hediff restless = pawn.health.hediffSet.GetFirstHediffOfDef(MSSFPDefOf.MSS_Need_GeneStealer_Restless);
+
+        switch (CurLevel)
+        {
+            case < 1 / 3f:
+            {
+                exhaustion ??= pawn.health.AddHediff(MSSFPDefOf.MSS_Need_GeneStealer_Exhaustion);
+
+                exhaustion.Severity = CurLevel;
+
+                if (restless != null)
+                {
+                    pawn.health.RemoveHediff(restless);
+                }
+
+                break;
+            }
+            case < 2 / 3f:
+            {
+                restless ??= pawn.health.AddHediff(MSSFPDefOf.MSS_Need_GeneStealer_Restless);
+                restless.Severity = CurLevel;
+                if (exhaustion != null)
+                {
+                    pawn.health.RemoveHediff(exhaustion);
+                }
+
+                break;
+            }
+            default:
+            {
+                if (restless != null)
+                {
+                    pawn.health.RemoveHediff(restless);
+                }
+                if (exhaustion != null)
+                {
+                    pawn.health.RemoveHediff(exhaustion);
+                }
+
+                break;
+            }
+        }
     }
 
     public void Notify_GeneGained()

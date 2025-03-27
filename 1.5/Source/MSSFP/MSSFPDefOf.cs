@@ -64,5 +64,11 @@ public static class MSSFPDefOf
     public static readonly ThoughtDef MSSFP_Nonsense_Thought_Neutral;
     public static readonly ThoughtDef MSSFP_Nonsense_Thought_Good;
 
+    public static readonly HediffDef MSS_Need_GeneStealer_Restless;
+    public static readonly HediffDef MSS_Need_GeneStealer_Exhaustion;
+
+    public static readonly XenotypeDef MSSFP_Taff;
+    public static readonly FactionDef MSSFP_TaffsFaction;
+
     static MSSFPDefOf() => DefOfHelper.EnsureInitializedInCtor(typeof(MSSFPDefOf));
 }

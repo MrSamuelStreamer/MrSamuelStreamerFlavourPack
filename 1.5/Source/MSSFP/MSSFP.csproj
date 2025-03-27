@@ -293,7 +293,7 @@
           <Link>MrSamuelStreamerFlavourPack\1.5\Defs\Incidents\MSSFP_Nonsense</Link>
         </ReleaseFiles>
 
-        <ReleaseFiles Update="..\..\Defs\Needs\MSS_Needs.xml">
+        <ReleaseFiles Update="..\..\Defs\Needs\MSS_Need_GeneStealer.xml">
           <Link>MrSamuelStreamerFlavourPack\1.5\Defs\Needs\MSS_Needs.xml</Link>
         </ReleaseFiles>
 
@@ -308,6 +308,14 @@
         <CompatibilityFiles Update="..\..\..\Compatibility\RedMattis.BetterPrerequisites\1.5\Defs\MSS_Hediffs.xml">
           <Link>MrSamuelStreamerFlavourPack\Compatibility\RedMattis.BetterPrerequisites\1.5\Defs\MSS_Hediffs.xml</Link>
         </CompatibilityFiles>
+
+        <ReleaseFiles Update="..\..\Defs\Incidents\MSSFP_Taffs.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Defs\Incidents\MSSFP_Taffs.xml</Link>
+        </ReleaseFiles>
+
+        <ReleaseFiles Update="..\..\Defs\Factions\MSS_Taffs.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Defs\Factions\MSS_Taffs.xml</Link>
+        </ReleaseFiles>
     </ItemGroup>
     <ItemGroup>
       <Folder Include="..\..\..\Common\Textures\Things\AMPSuit\">
