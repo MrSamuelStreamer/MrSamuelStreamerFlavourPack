@@ -70,5 +70,7 @@ public static class MSSFPDefOf
     public static readonly XenotypeDef MSSFP_Taff;
     public static readonly FactionDef MSSFP_TaffsFaction;
 
+    public static readonly HediffDef MSS_FP_WellSlept;
+
     static MSSFPDefOf() => DefOfHelper.EnsureInitializedInCtor(typeof(MSSFPDefOf));
 }
