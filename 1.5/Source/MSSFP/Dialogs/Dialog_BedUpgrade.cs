@@ -1,4 +1,7 @@
-﻿using MSSFP.Comps;
+﻿using System.Collections.Generic;
+using System.Linq;
+using MSSFP.Comps;
+using MSSFP.Utils;
 using RimWorld;
 using UnityEngine;
 using Verse;
@@ -9,43 +12,35 @@ public class Dialog_BedUpgrade(CompUpgradableBed bed, IWindowDrawing customWindo
 {
     protected readonly CompUpgradableBed Bed = bed;
 
-    public override Vector2 InitialSize => new Vector2(1000f, 800f);
+    public override Vector2 InitialSize => new(620f, 800f);
 
     private readonly Texture2D BedTex = ContentFinder<Texture2D>.Get("UI/MSSFP_OskarianBed_Double");
 
     public override void DoWindowContents(Rect inRect)
     {
-        using (TextBlock.Default())
+        RectDivider Outer = new(inRect, 145232335, new Vector2(0f, 0f));
+
+        RectDivider TitleRow = Outer.NewRow(60f, marginOverride: 0f);
+        using (new TextBlock(GameFont.Medium))
         {
-            RectDivider Outer = new(inRect, 145232335, new Vector2(0f, 0f));
-
-            RectDivider TitleRow = Outer.NewRow(42f, marginOverride: 0f);
-            Widgets.DrawRectFast(TitleRow.Rect, new Color(1f, 0f, 0f));
-
             Widgets.Label(TitleRow.Rect.ContractedBy(10f), "Upgrade Bed");
-
-            RectDivider ContentRow = Outer.NewRow(680f, marginOverride: 0f);
-
-            RectDivider BottomButtonRow = Outer.NewRow(42f, marginOverride: 0f);
-            Widgets.DrawRectFast(BottomButtonRow.Rect, new Color(1, 1f, 1f));
-
-            RectDivider LeftColumn = ContentRow.NewCol(200f, marginOverride: 0f);
-            Widgets.DrawRectFast(LeftColumn.Rect, new Color(0, 1f, 0f));
-
-            RectDivider MiddleColumn = ContentRow.NewCol(600f, marginOverride: 0f);
-
-            RectDivider RightColumn = ContentRow.NewCol(200f, marginOverride: 0f);
-            DrawStatColumn(RightColumn);
-
-            RectDivider MiddleTop = MiddleColumn.NewRow(140.0f, marginOverride: 0f);
-            Widgets.DrawRectFast(MiddleTop.Rect, new Color(1, 0f, 1f));
-
-            RectDivider MiddleMiddle = MiddleColumn.NewRow(400.0f, marginOverride: 0f);
-            GUI.DrawTexture(MiddleMiddle, BedTex, ScaleMode.ScaleToFit);
-
-            RectDivider MiddleBottom = MiddleColumn.NewRow(140.0f, marginOverride: 0f);
-            Widgets.DrawRectFast(MiddleBottom.Rect, new Color(0, 1f, 1f));
         }
+
+        RectDivider ContentRow = Outer.NewRow(662f, marginOverride: 0f);
+
+        RectDivider BottomButtonRow = Outer.NewRow(42f, marginOverride: 0f);
+        Widgets.DrawRectFast(BottomButtonRow.Rect, new Color(1, 1f, 1f));
+
+        // RectDivider LeftColumn = ContentRow.NewCol(200f, marginOverride: 0f);
+        // Widgets.DrawRectFast(LeftColumn.Rect, new Color(0, 0f, 1f));
+
+        RectDivider MiddleColumn = ContentRow.NewCol(584f, marginOverride: 0f);
+
+        RectDivider MiddleTop = MiddleColumn.NewRow(400.0f, marginOverride: 0f);
+        GUI.DrawTexture(MiddleTop, BedTex, ScaleMode.ScaleToFit);
+
+        RectDivider MiddleBottom = MiddleColumn.NewRow(262.0f, marginOverride: 0f);
+        DrawBedStatBox(MiddleBottom);
     }
 
     public float StatColHeight = 0;
@@ -54,26 +49,68 @@ public class Dialog_BedUpgrade(CompUpgradableBed bed, IWindowDrawing customWindo
     public Color StatRowColor = new(0.1f, 0.1f, 0.1f);
     public Color StatRowColorAlt = new(0.3f, 0.3f, 0.3f);
 
-    public void DrawStatColumn(RectDivider col)
+    public float BedStatBoxColHeight = 0;
+    public Vector2 BedStatBoxColScrollPosition = Vector2.zero;
+
+    public void DrawBedStatBox(Rect rect)
     {
-        Rect statColContent = col.Rect;
-        statColContent.height = StatColHeight;
-        statColContent.width = statColContent.width - 16f;
+        Rect statColContent = new(rect.ContractedBy(10f)) { height = BedStatBoxColHeight, width = rect.width - 16f };
 
-        StatColHeight = 0;
+        BedStatBoxColHeight = 0;
 
-        Widgets.BeginScrollView(col, ref StatColScrollPosition, statColContent);
-        // bool alt = false;
+        Widgets.BeginScrollView(rect, ref BedStatBoxColScrollPosition, statColContent);
 
-        foreach (StatDef stat in CompUpgradableBed.StatDefs)
+        float width = statColContent.width / 2f;
+
+        using (new TextBlock(GameFont.Small))
         {
-            Rect statrow = new Rect(0, StatColHeight, statColContent.width, 60f);
-            // Widgets.DrawRectFast(statrow, alt ? StatRowColorAlt : StatRowColor);
-            // alt = !alt;
-
-            Widgets.Label(statrow, stat.LabelCap);
-            StatColHeight += 60f;
+            Widgets.Label(statColContent, "Bed Stats    |    Levels: " + Bed.Levels);
+            BedStatBoxColHeight += 30f;
         }
+
+        IEnumerator<BedUpgradeDef> enumerator = CompUpgradableBed.BedUpgradesAvailable.GetEnumerator();
+
+        while (enumerator.MoveNext())
+        {
+            BedUpgradeDef upgrade = enumerator.Current;
+
+            RectDivider statRow = new(
+                new Rect(statColContent.x, statColContent.y + BedStatBoxColHeight, statColContent.width, 22f),
+                145232335,
+                new Vector2(0f, BedStatBoxColHeight)
+            );
+
+            RectDivider leftCol = statRow.NewCol(width, marginOverride: 0f);
+            RectDivider rightCol = statRow.NewCol(width, marginOverride: 0f);
+
+            RectDivider leftButton = leftCol.NewCol(52, marginOverride: 0f);
+            leftCol.NewCol(2, marginOverride: 0f);
+            RectDivider leftLabel = leftCol.NewCol(width - 54, marginOverride: 0f);
+
+            RectDivider rightButton = rightCol.NewCol(52, marginOverride: 0f);
+            rightCol.NewCol(2, marginOverride: 0f);
+            RectDivider rightLabel = rightCol.NewCol(width - 54, marginOverride: 0f);
+
+            if (Widgets.ButtonText(leftButton, upgrade?.Worker.ButtonText(Bed) ?? "+", active: Bed.Levels > 1 && (upgrade?.Worker.CanUpgrade(Bed) ?? false)))
+            {
+                upgrade?.Worker.DoUpgrade(Bed);
+            }
+            Widgets.Label(leftLabel, Bed.GetStatString(upgrade));
+
+            if (enumerator.MoveNext())
+            {
+                upgrade = enumerator.Current;
+                if (Widgets.ButtonText(rightButton, upgrade?.Worker.ButtonText(Bed) ?? "+", active: Bed.Levels > 1 && (upgrade?.Worker.CanUpgrade(Bed) ?? false)))
+                {
+                    upgrade?.Worker.DoUpgrade(Bed);
+                }
+                Widgets.Label(rightLabel, Bed.GetStatString(enumerator.Current));
+            }
+
+            BedStatBoxColHeight += 22f;
+        }
+
+        enumerator.Dispose();
 
         Widgets.EndScrollView();
     }

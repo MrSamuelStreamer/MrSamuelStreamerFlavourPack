@@ -119,16 +119,13 @@ public static class Hediff_Pregnant_Patch
     [HarmonyPostfix]
     public static void PostAdd_Patch(Hediff_Pregnant __instance)
     {
-        if (JobDriver_Lovin_Patch.LovinBeds.TryGetValue(__instance.pawn, null) == null)
-            return;
+        Building_Bed bed = CompUpgradableBed.AllBeds.Select(comp => comp.Bed).FirstOrDefault(b => b.CurOccupants.Contains(__instance.pawn));
 
-        Building_Bed bed = JobDriver_Lovin_Patch.LovinBeds[__instance.pawn];
-
-        CompUpgradableBed comp = bed.TryGetComp<CompUpgradableBed>();
+        CompUpgradableBed comp = bed?.TryGetComp<CompUpgradableBed>();
         if (comp == null)
             return;
 
-        comp.RegisteredPregnancies[__instance.pawn] = bed.CurOccupants.ToList();
+        comp.AddPregnancy(__instance.pawn, bed.CurOccupants.ToList());
 
         List<GeneDef> genes = GetInheritedGenes(bed.CurOccupants.ToList(), out bool success);
         if (success)
@@ -159,7 +156,7 @@ public static class Hediff_Pregnant_Patch
 
         if (litterSize == 1)
         {
-            litterSize = Rand.RangeInclusive(1, Math.Max(1, comp.RegisteredPregnancies[__instance.pawn].Count));
+            litterSize = Rand.RangeInclusive(1, Math.Max(1, comp.ParentsForPregnancy(__instance).Count));
         }
 
         PawnGenerationRequest request = new(mother.kindDef, mother.Faction, allowDowned: true, developmentalStages: DevelopmentalStage.Newborn);
@@ -173,7 +170,7 @@ public static class Hediff_Pregnant_Patch
                     pawn.playerSettings.AreaRestrictionInPawnCurrentMap = mother.playerSettings.AreaRestrictionInPawnCurrentMap;
                 if (pawn.RaceProps.IsFlesh)
                 {
-                    foreach (Pawn parent in comp.RegisteredPregnancies[__instance.pawn])
+                    foreach (Pawn parent in comp.ParentsForPregnancy(__instance))
                     {
                         pawn.relations.AddDirectRelation(PawnRelationDefOf.Parent, parent);
                         foreach (Gene gene in parent.genes.GenesListForReading)
@@ -200,7 +197,7 @@ public static class Hediff_Pregnant_Patch
         mother.caller?.DoCall();
         pawn.caller?.DoCall();
 
-        comp.RegisteredPregnancies.Remove(__instance.pawn);
+        // comp.RemovePregnancy(__instance);
 
         return false;
     }

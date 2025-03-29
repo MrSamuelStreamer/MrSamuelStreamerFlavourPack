@@ -7,9 +7,37 @@ using Verse;
 
 namespace MSSFP.Comps;
 
+public class PregnancyInfo : IExposable
+{
+    public Pawn Mother;
+    public List<Pawn> Others;
+
+    public PregnancyInfo() { }
+
+    public PregnancyInfo(Pawn mother, List<Pawn> others)
+    {
+        Mother = mother;
+        Others = others;
+    }
+
+    public void ExposeData()
+    {
+        Scribe_References.Look(ref Mother, "Mother");
+        Scribe_Collections.Look(ref Others, "Others", LookMode.Reference);
+    }
+}
+
 public class CompUpgradableBed : ThingComp
 {
-    public static HashSet<StatDef> StatDefs = new();
+    public enum Direction : byte
+    {
+        Up,
+        Down,
+    }
+
+    public List<BedUpgradeDef> AppliedOneshotUpgrades = new();
+
+    public static IEnumerable<BedUpgradeDef> BedUpgradesAvailable => DefDatabase<BedUpgradeDef>.AllDefs;
     public Building_Bed Bed => parent as Building_Bed;
     public float Experience = 0;
     public int Levels = 0;
@@ -19,14 +47,13 @@ public class CompUpgradableBed : ThingComp
     public List<Pawn> PawnsLovedInThisBed = new();
     public List<Pawn> PawnsConcievedInThisBed = new();
     public List<Pawn> PawnsSleptInThisBed = new();
-    public Dictionary<Pawn, List<Pawn>> RegisteredPregnancies = new();
+    public List<PregnancyInfo> RegisteredPregnancies = new();
 
     public static HashSet<CompUpgradableBed> AllBeds = new();
 
     public static int PointsPerLevel = 25;
 
     public Dictionary<StatDef, float> StatMultipliers = new();
-    public Dictionary<StatDef, float> StatOffsets = new();
 
     public virtual void AddExperience(float val = 1, string reasonString = null)
     {
@@ -51,7 +78,27 @@ public class CompUpgradableBed : ThingComp
 
     public static CompUpgradableBed CompForPregnancy(Hediff_Pregnant hediff)
     {
-        return AllBeds.FirstOrDefault(c => c.RegisteredPregnancies.ContainsKey(hediff.pawn));
+        return AllBeds.FirstOrDefault(c => c.RegisteredPregnancies.Any(p => p.Mother == hediff.pawn));
+    }
+
+    public List<Pawn> ParentsForPregnancy(Hediff_Pregnant hediff)
+    {
+        return RegisteredPregnancies.FirstOrDefault(p => p.Mother == hediff.pawn).Others;
+    }
+
+    public List<Pawn> ParentsForPregnancy(Pawn mother)
+    {
+        return RegisteredPregnancies.FirstOrDefault(p => p.Mother == mother)?.Others ?? [];
+    }
+
+    public void RemovePregnancy(Hediff_Pregnant hediff)
+    {
+        RegisteredPregnancies.RemoveAll(p => p.Mother == hediff.pawn);
+    }
+
+    public void AddPregnancy(Pawn mother, List<Pawn> others)
+    {
+        RegisteredPregnancies.Add(new PregnancyInfo(mother, others));
     }
 
     public static CompUpgradableBed CompForSleepingPawn(Pawn pawn)
@@ -67,34 +114,23 @@ public class CompUpgradableBed : ThingComp
         Scribe_Values.Look(ref Levels, "Levels", 0);
         Scribe_Collections.Look(ref PawnsLovedInThisBed, "PawnsLovedInThisBed", LookMode.Reference);
         Scribe_Collections.Look(ref PawnsConcievedInThisBed, "PawnsConcievedInThisBed", LookMode.Reference);
-        Scribe_Collections.Look(ref RegisteredPregnancies, "RegisteredPregnancies", LookMode.Reference, LookMode.Reference);
+        Scribe_Collections.Look(ref RegisteredPregnancies, "RegisteredPregnancies", LookMode.Deep);
         Scribe_Collections.Look(ref StatMultipliers, "StatMultipliers", LookMode.Def, LookMode.Value);
-        Scribe_Collections.Look(ref StatOffsets, "StatOffsets", LookMode.Def, LookMode.Value);
+        Scribe_Collections.Look(ref PawnsSleptInThisBed, "PawnsSleptInThisBed", LookMode.Reference);
+        Scribe_Collections.Look(ref AppliedOneshotUpgrades, "AppliedOneshotUpgrades", LookMode.Def);
 
         if (Scribe.mode == LoadSaveMode.ResolvingCrossRefs)
         {
             PawnsLovedInThisBed.RemoveAll(p => p == null);
             PawnsConcievedInThisBed.RemoveAll(p => p == null);
+        }
 
-            StatDefs =
-            [
-                DefDatabase<StatDef>.GetNamed("Fertility"),
-                DefDatabase<StatDef>.GetNamed("MoveSpeed"),
-                DefDatabase<StatDef>.GetNamed("GlobalLearningFactor"),
-                DefDatabase<StatDef>.GetNamed("InjuryHealingFactor"),
-                DefDatabase<StatDef>.GetNamed("PainShockThreshold"),
-                DefDatabase<StatDef>.GetNamed("JoyFallRateFactor"),
-                DefDatabase<StatDef>.GetNamed("NegotiationAbility"),
-                DefDatabase<StatDef>.GetNamed("PawnBeauty"),
-                DefDatabase<StatDef>.GetNamed("SocialImpact"),
-                DefDatabase<StatDef>.GetNamed("TameAnimalChance"),
-                DefDatabase<StatDef>.GetNamed("WorkSpeedGlobal"),
-                DefDatabase<StatDef>.GetNamed("MiningSpeed"),
-                DefDatabase<StatDef>.GetNamed("DeepDrillingSpeed"),
-                DefDatabase<StatDef>.GetNamed("ResearchSpeed"),
-                DefDatabase<StatDef>.GetNamed("PlantWorkSpeed"),
-                DefDatabase<StatDef>.GetNamed("ConstructionSpeed"),
-            ];
+        if (Scribe.mode == LoadSaveMode.LoadingVars)
+        {
+            if (StatMultipliers.NullOrEmpty())
+                StatMultipliers = new Dictionary<StatDef, float>();
+            if (RegisteredPregnancies.NullOrEmpty())
+                RegisteredPregnancies = new List<PregnancyInfo>();
         }
     }
 
@@ -166,6 +202,17 @@ public class CompUpgradableBed : ThingComp
             }
         }
 
-        return stringBuilder.ToString();
+        return stringBuilder.ToString().TrimEnd();
+    }
+
+    public string GetStatString(BedUpgradeDef def)
+    {
+        if (def.stat == null)
+            return def.LabelCap;
+        StringBuilder sb = new();
+        sb.Append(def.stat.LabelCap);
+        sb.Append(": x");
+        sb.Append(StatMultipliers.TryGetValue(def.stat, out float mult) ? mult.ToStringPercent() : "100%");
+        return sb.ToString().TrimEnd();
     }
 }
