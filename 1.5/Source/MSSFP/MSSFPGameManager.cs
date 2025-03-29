@@ -23,8 +23,8 @@ public class MSSFPGameManager : GameComponent
 
     public override void ExposeData()
     {
-        Scribe_Collections.Look(ref ScheduledOnThreadTasks, "ScheduledOnThreadTasks", LookMode.Value, LookMode.Reference);
-        Scribe_Collections.Look(ref ScheduledOffThreadTasks, "ScheduledOffThreadTasks", LookMode.Value, LookMode.Reference);
+        Scribe_Collections.Look(ref ScheduledOnThreadTasks, "ScheduledOnThreadTasks", LookMode.Value, LookMode.Deep);
+        Scribe_Collections.Look(ref ScheduledOffThreadTasks, "ScheduledOffThreadTasks", LookMode.Value, LookMode.Deep);
     }
 
     public override void GameComponentTick()

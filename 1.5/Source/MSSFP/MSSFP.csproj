@@ -316,6 +316,18 @@
         <ReleaseFiles Update="..\..\Defs\Factions\MSS_Taffs.xml">
           <Link>MrSamuelStreamerFlavourPack\1.5\Defs\Factions\MSS_Taffs.xml</Link>
         </ReleaseFiles>
+
+        <ReleaseFiles Update="..\..\Defs\ThingDefs_Buildings\MSSFP_OscarianBed.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Defs\ThingDefs_Buildings\MSSFP_OscarianBed</Link>
+        </ReleaseFiles>
+
+        <ReleaseFiles Update="..\..\Defs\Hediffs\MSSFP_Sleep.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Defs\Hediffs\MSSFP_Sleep.xml</Link>
+        </ReleaseFiles>
+
+        <ReleaseFiles Update="..\..\Patches\MSS_WellSlept.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Patches\MSS_WellSlept.xml</Link>
+        </ReleaseFiles>
     </ItemGroup>
     <ItemGroup>
       <Folder Include="..\..\..\Common\Textures\Things\AMPSuit\">

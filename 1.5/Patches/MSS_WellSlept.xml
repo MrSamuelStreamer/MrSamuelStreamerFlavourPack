@@ -1,0 +1,307 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Patch>
+    <!-- Fertility -->
+    <Operation Class="PatchOperationConditional">
+        <xpath>Defs/StatDef[defName="Fertility"]/parts</xpath>
+        <nomatch Class="PatchOperationAdd">
+            <xpath>Defs/StatDef[defName="Fertility"]</xpath>
+            <value>
+                <parts />
+            </value>
+        </nomatch>
+    </Operation>
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/StatDef[defName="Fertility"]/parts</xpath>
+        <value>
+            <li Class="MSSFP.Stats.StatPart_WellSlept">
+            </li>
+        </value>
+    </Operation>
+
+
+    <!-- MoveSpeed -->
+    <Operation Class="PatchOperationConditional">
+        <xpath>Defs/StatDef[defName="MoveSpeed"]/parts</xpath>
+        <nomatch Class="PatchOperationAdd">
+            <xpath>Defs/StatDef[defName="MoveSpeed"]</xpath>
+            <value>
+                <parts />
+            </value>
+        </nomatch>
+    </Operation>
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/StatDef[defName="MoveSpeed"]/parts</xpath>
+        <value>
+            <li Class="MSSFP.Stats.StatPart_WellSlept">
+            </li>
+        </value>
+    </Operation>
+
+
+    <!-- GlobalLearningFactor -->
+    <Operation Class="PatchOperationConditional">
+        <xpath>Defs/StatDef[defName="GlobalLearningFactor"]/parts</xpath>
+        <nomatch Class="PatchOperationAdd">
+            <xpath>Defs/StatDef[defName="GlobalLearningFactor"]</xpath>
+            <value>
+                <parts />
+            </value>
+        </nomatch>
+    </Operation>
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/StatDef[defName="GlobalLearningFactor"]/parts</xpath>
+        <value>
+            <li Class="MSSFP.Stats.StatPart_WellSlept">
+            </li>
+        </value>
+    </Operation>
+
+
+    <!-- InjuryHealingFactor -->
+    <Operation Class="PatchOperationConditional">
+        <xpath>Defs/StatDef[defName="InjuryHealingFactor"]/parts</xpath>
+        <nomatch Class="PatchOperationAdd">
+            <xpath>Defs/StatDef[defName="InjuryHealingFactor"]</xpath>
+            <value>
+                <parts />
+            </value>
+        </nomatch>
+    </Operation>
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/StatDef[defName="InjuryHealingFactor"]/parts</xpath>
+        <value>
+            <li Class="MSSFP.Stats.StatPart_WellSlept">
+            </li>
+        </value>
+    </Operation>
+
+
+    <!-- PainShockThreshold -->
+    <Operation Class="PatchOperationConditional">
+        <xpath>Defs/StatDef[defName="PainShockThreshold"]/parts</xpath>
+        <nomatch Class="PatchOperationAdd">
+            <xpath>Defs/StatDef[defName="PainShockThreshold"]</xpath>
+            <value>
+                <parts />
+            </value>
+        </nomatch>
+    </Operation>
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/StatDef[defName="PainShockThreshold"]/parts</xpath>
+        <value>
+            <li Class="MSSFP.Stats.StatPart_WellSlept">
+            </li>
+        </value>
+    </Operation>
+
+
+    <!-- JoyFallRateFactor -->
+    <Operation Class="PatchOperationConditional">
+        <xpath>Defs/StatDef[defName="JoyFallRateFactor"]/parts</xpath>
+        <nomatch Class="PatchOperationAdd">
+            <xpath>Defs/StatDef[defName="JoyFallRateFactor"]</xpath>
+            <value>
+                <parts />
+            </value>
+        </nomatch>
+    </Operation>
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/StatDef[defName="JoyFallRateFactor"]/parts</xpath>
+        <value>
+            <li Class="MSSFP.Stats.StatPart_WellSlept">
+            </li>
+        </value>
+    </Operation>
+
+
+    <!-- NegotiationAbility -->
+    <Operation Class="PatchOperationConditional">
+        <xpath>Defs/StatDef[defName="NegotiationAbility"]/parts</xpath>
+        <nomatch Class="PatchOperationAdd">
+            <xpath>Defs/StatDef[defName="NegotiationAbility"]</xpath>
+            <value>
+                <parts />
+            </value>
+        </nomatch>
+    </Operation>
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/StatDef[defName="NegotiationAbility"]/parts</xpath>
+        <value>
+            <li Class="MSSFP.Stats.StatPart_WellSlept">
+            </li>
+        </value>
+    </Operation>
+
+
+    <!-- PawnBeauty -->
+    <Operation Class="PatchOperationConditional">
+        <xpath>Defs/StatDef[defName="PawnBeauty"]/parts</xpath>
+        <nomatch Class="PatchOperationAdd">
+            <xpath>Defs/StatDef[defName="PawnBeauty"]</xpath>
+            <value>
+                <parts />
+            </value>
+        </nomatch>
+    </Operation>
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/StatDef[defName="PawnBeauty"]/parts</xpath>
+        <value>
+            <li Class="MSSFP.Stats.StatPart_WellSlept">
+            </li>
+        </value>
+    </Operation>
+
+
+    <!-- SocialImpact -->
+    <Operation Class="PatchOperationConditional">
+        <xpath>Defs/StatDef[defName="SocialImpact"]/parts</xpath>
+        <nomatch Class="PatchOperationAdd">
+            <xpath>Defs/StatDef[defName="SocialImpact"]</xpath>
+            <value>
+                <parts />
+            </value>
+        </nomatch>
+    </Operation>
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/StatDef[defName="SocialImpact"]/parts</xpath>
+        <value>
+            <li Class="MSSFP.Stats.StatPart_WellSlept">
+            </li>
+        </value>
+    </Operation>
+
+
+    <!-- TameAnimalChance -->
+    <Operation Class="PatchOperationConditional">
+        <xpath>Defs/StatDef[defName="TameAnimalChance"]/parts</xpath>
+        <nomatch Class="PatchOperationAdd">
+            <xpath>Defs/StatDef[defName="TameAnimalChance"]</xpath>
+            <value>
+                <parts />
+            </value>
+        </nomatch>
+    </Operation>
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/StatDef[defName="TameAnimalChance"]/parts</xpath>
+        <value>
+            <li Class="MSSFP.Stats.StatPart_WellSlept">
+            </li>
+        </value>
+    </Operation>
+
+
+    <!-- WorkSpeedGlobal -->
+    <Operation Class="PatchOperationConditional">
+        <xpath>Defs/StatDef[defName="WorkSpeedGlobal"]/parts</xpath>
+        <nomatch Class="PatchOperationAdd">
+            <xpath>Defs/StatDef[defName="WorkSpeedGlobal"]</xpath>
+            <value>
+                <parts />
+            </value>
+        </nomatch>
+    </Operation>
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/StatDef[defName="WorkSpeedGlobal"]/parts</xpath>
+        <value>
+            <li Class="MSSFP.Stats.StatPart_WellSlept">
+            </li>
+        </value>
+    </Operation>
+
+
+    <!-- MiningSpeed -->
+    <Operation Class="PatchOperationConditional">
+        <xpath>Defs/StatDef[defName="MiningSpeed"]/parts</xpath>
+        <nomatch Class="PatchOperationAdd">
+            <xpath>Defs/StatDef[defName="MiningSpeed"]</xpath>
+            <value>
+                <parts />
+            </value>
+        </nomatch>
+    </Operation>
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/StatDef[defName="MiningSpeed"]/parts</xpath>
+        <value>
+            <li Class="MSSFP.Stats.StatPart_WellSlept">
+            </li>
+        </value>
+    </Operation>
+
+
+    <!-- DeepDrillingSpeed -->
+    <Operation Class="PatchOperationConditional">
+        <xpath>Defs/StatDef[defName="DeepDrillingSpeed"]/parts</xpath>
+        <nomatch Class="PatchOperationAdd">
+            <xpath>Defs/StatDef[defName="DeepDrillingSpeed"]</xpath>
+            <value>
+                <parts />
+            </value>
+        </nomatch>
+    </Operation>
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/StatDef[defName="DeepDrillingSpeed"]/parts</xpath>
+        <value>
+            <li Class="MSSFP.Stats.StatPart_WellSlept">
+            </li>
+        </value>
+    </Operation>
+
+
+    <!-- ResearchSpeed -->
+    <Operation Class="PatchOperationConditional">
+        <xpath>Defs/StatDef[defName="ResearchSpeed"]/parts</xpath>
+        <nomatch Class="PatchOperationAdd">
+            <xpath>Defs/StatDef[defName="ResearchSpeed"]</xpath>
+            <value>
+                <parts />
+            </value>
+        </nomatch>
+    </Operation>
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/StatDef[defName="ResearchSpeed"]/parts</xpath>
+        <value>
+            <li Class="MSSFP.Stats.StatPart_WellSlept">
+            </li>
+        </value>
+    </Operation>
+
+
+    <!-- PlantWorkSpeed -->
+    <Operation Class="PatchOperationConditional">
+        <xpath>Defs/StatDef[defName="PlantWorkSpeed"]/parts</xpath>
+        <nomatch Class="PatchOperationAdd">
+            <xpath>Defs/StatDef[defName="PlantWorkSpeed"]</xpath>
+            <value>
+                <parts />
+            </value>
+        </nomatch>
+    </Operation>
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/StatDef[defName="PlantWorkSpeed"]/parts</xpath>
+        <value>
+            <li Class="MSSFP.Stats.StatPart_WellSlept">
+            </li>
+        </value>
+    </Operation>
+
+
+    <!-- ConstructionSpeed -->
+    <Operation Class="PatchOperationConditional">
+        <xpath>Defs/StatDef[defName="ConstructionSpeed"]/parts</xpath>
+        <nomatch Class="PatchOperationAdd">
+            <xpath>Defs/StatDef[defName="ConstructionSpeed"]</xpath>
+            <value>
+                <parts />
+            </value>
+        </nomatch>
+    </Operation>
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/StatDef[defName="ConstructionSpeed"]/parts</xpath>
+        <value>
+            <li Class="MSSFP.Stats.StatPart_WellSlept">
+            </li>
+        </value>
+    </Operation>
+
+
+</Patch>

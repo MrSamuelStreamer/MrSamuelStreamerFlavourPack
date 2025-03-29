@@ -72,4 +72,16 @@
 
     <MSS_Bigger_Label>Incorporation: {0}</MSS_Bigger_Label>
     <MSS_Bigger_Desc>Incorporation has lead to a size increase of {0}</MSS_Bigger_Desc>
+
+    <MSSFP_BedLevelUp>{0} levelled up!</MSSFP_BedLevelUp>
+    <MSSFP_BedLevelUpWithReason>{0} levelled up because {1}!</MSSFP_BedLevelUpWithReason>
+    <MSSFP_BedLevelUpBecauseLovin>{0} got some lovin'</MSSFP_BedLevelUpBecauseLovin>
+    <MSSFP_BedLevelUpBecauseSlept>{0} got slept well</MSSFP_BedLevelUpBecauseSlept>
+    <MSSFP_BedLevelUpBecauseBorn>{0} was conceived in this bed</MSSFP_BedLevelUpBecauseBorn>
+
+    <MSSFP_BedExp>Current experience: {0}/{1}</MSSFP_BedExp>
+    <MSSFP_BedLevels>Current points available: {0}</MSSFP_BedLevels>
+    <MSSFP_PawnsSleptInBed>Pawns that have slept in this bed:</MSSFP_PawnsSleptInBed>
+    <MSSFP_PawnsLovedInBed>Pawns that have got some lovin' in this bed:</MSSFP_PawnsLovedInBed>
+    <MSSFP_PawnsConcievedInBed>Pawns that were conceived in this bed:</MSSFP_PawnsConcievedInBed>
 </LanguageData>
