@@ -144,4 +144,42 @@
     </MSSFP.Comps.BedUpgradeDef>
 
 
+    <MSSFP.Comps.BedUpgradeDef>
+        <defName>MSSFP_BedUpgrade_BirthRitualQualityOffset</defName>
+        <label>Birth Quality Offset</label>
+        <description>Birth Quality Offset Upgrade</description>
+        <stat>BirthRitualQualityOffset</stat>
+        <multiplier>1.1</multiplier>
+        <appliesDirectToBed>true</appliesDirectToBed>
+    </MSSFP.Comps.BedUpgradeDef>
+
+
+    <MSSFP.Comps.BedUpgradeDef>
+        <defName>MSSFP_BedUpgrade_SurgerySuccessChanceFactor</defName>
+        <label>Surgery Success Chance Factor</label>
+        <description>Surgery Success Chance Factor Upgrade</description>
+        <stat>SurgerySuccessChanceFactor</stat>
+        <multiplier>1.1</multiplier>
+        <appliesDirectToBed>true</appliesDirectToBed>
+    </MSSFP.Comps.BedUpgradeDef>
+
+
+    <MSSFP.Comps.BedUpgradeDef>
+        <defName>MSSFP_BedUpgrade_ImmunityGainSpeedFactor</defName>
+        <label>Immunity Gain Speed Factor</label>
+        <description>Immunity Gain Speed Factor</description>
+        <stat>ImmunityGainSpeedFactor</stat>
+        <multiplier>1.1</multiplier>
+        <appliesDirectToBed>true</appliesDirectToBed>
+    </MSSFP.Comps.BedUpgradeDef>
+
+
+    <MSSFP.Comps.BedUpgradeDef>
+        <defName>MSSFP_BedUpgrade_Comfort</defName>
+        <label>Comfort</label>
+        <description>Comfort Upgrade</description>
+        <stat>Comfort</stat>
+        <multiplier>1.1</multiplier>
+        <appliesDirectToBed>true</appliesDirectToBed>
+    </MSSFP.Comps.BedUpgradeDef>
 </Defs>

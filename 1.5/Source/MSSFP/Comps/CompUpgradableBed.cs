@@ -155,8 +155,11 @@ public class CompUpgradableBed : ThingComp
         AddExperience(10, "MSSFP_BedLevelUpBecauseConcieved".Translate(pawn.LabelShort));
     }
 
-    public override void CompTickLong()
+    public override void CompTick()
     {
+        if (!parent.IsHashIntervalTick(GenDate.TicksPerHour))
+            return;
+
         foreach (Pawn occupant in Bed.CurOccupants)
         {
             AddExperience(0.025f, "MSSFP_BedLevelUpBecauseSlept".Translate(occupant.LabelShort));
@@ -215,4 +218,6 @@ public class CompUpgradableBed : ThingComp
         sb.Append(StatMultipliers.TryGetValue(def.stat, out float mult) ? mult.ToStringPercent() : "100%");
         return sb.ToString().TrimEnd();
     }
+
+    public override string GetDescriptionPart() => CompInspectStringExtra();
 }

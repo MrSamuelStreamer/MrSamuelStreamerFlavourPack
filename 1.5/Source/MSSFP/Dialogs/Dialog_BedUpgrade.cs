@@ -29,10 +29,13 @@ public class Dialog_BedUpgrade(CompUpgradableBed bed, IWindowDrawing customWindo
         RectDivider ContentRow = Outer.NewRow(662f, marginOverride: 0f);
 
         RectDivider BottomButtonRow = Outer.NewRow(42f, marginOverride: 0f);
-        Widgets.DrawRectFast(BottomButtonRow.Rect, new Color(1, 1f, 1f));
 
-        // RectDivider LeftColumn = ContentRow.NewCol(200f, marginOverride: 0f);
-        // Widgets.DrawRectFast(LeftColumn.Rect, new Color(0, 0f, 1f));
+        RectDivider BottomSpacer = BottomButtonRow.NewCol(BottomButtonRow.Rect.width - 140f, marginOverride: 0f);
+        RectDivider BottomButton = BottomButtonRow.NewCol(140f, marginOverride: 0f);
+        if (Widgets.ButtonText(BottomButton.Rect.ContractedBy(10f), "Close"))
+        {
+            Close();
+        }
 
         RectDivider MiddleColumn = ContentRow.NewCol(584f, marginOverride: 0f);
 

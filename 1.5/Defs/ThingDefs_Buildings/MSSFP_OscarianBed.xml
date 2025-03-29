@@ -21,6 +21,7 @@
             <BedRestEffectiveness>1</BedRestEffectiveness>
         </statBases>
         <size>(2,2)</size>
+        <tickerType>Normal</tickerType>
         <costStuffCount>85</costStuffCount>
         <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
         <leaveResourcesWhenKilled>True</leaveResourcesWhenKilled>
@@ -177,51 +178,6 @@
             <graphicClass>Graphic_Multi</graphicClass>
             <shaderType>CutoutComplex</shaderType>
             <drawSize>(12.05,2.05)</drawSize>
-            <damageData>
-                <rect>(0,0.05,2,1.95)</rect>
-            </damageData>
-        </graphicData>
-    </ThingDef>
-
-    <ThingDef ParentName="OskarianDoubleBed">
-        <defName>MSSFP_OskarianBed_Tredecuple</defName>
-        <label>tredecuple oskarian bed</label>
-        <size>(13,2)</size>
-        <graphicData>
-            <texPath>Things/Building/Furniture/Bed/MSSFP_OskarianBed_Tredecuple</texPath>
-            <graphicClass>Graphic_Multi</graphicClass>
-            <shaderType>CutoutComplex</shaderType>
-            <drawSize>(13.05,2.05)</drawSize>
-            <damageData>
-                <rect>(0,0.05,2,1.95)</rect>
-            </damageData>
-        </graphicData>
-    </ThingDef>
-
-    <ThingDef ParentName="OskarianDoubleBed">
-        <defName>MSSFP_OskarianBed_Quattuordecuple</defName>
-        <label>quattuordecuple oskarian bed</label>
-        <size>(14,2)</size>
-        <graphicData>
-            <texPath>Things/Building/Furniture/Bed/MSSFP_OskarianBed_Quattuordecuple</texPath>
-            <graphicClass>Graphic_Multi</graphicClass>
-            <shaderType>CutoutComplex</shaderType>
-            <drawSize>(14.05,2.05)</drawSize>
-            <damageData>
-                <rect>(0,0.05,2,1.95)</rect>
-            </damageData>
-        </graphicData>
-    </ThingDef>
-
-    <ThingDef ParentName="OskarianDoubleBed">
-        <defName>MSSFP_OskarianBed_Quindecuple</defName>
-        <label>quindecuple oskarian bed</label>
-        <size>(15,2)</size>
-        <graphicData>
-            <texPath>Things/Building/Furniture/Bed/MSSFP_OskarianBed_Quindecuple</texPath>
-            <graphicClass>Graphic_Multi</graphicClass>
-            <shaderType>CutoutComplex</shaderType>
-            <drawSize>(15.05,2.05)</drawSize>
             <damageData>
                 <rect>(0,0.05,2,1.95)</rect>
             </damageData>

@@ -332,6 +332,10 @@
         <ReleaseFiles Update="..\..\Defs\MSS_BedUpgradeDefs.xml">
           <Link>MrSamuelStreamerFlavourPack\1.5\Defs\MSS_BedUpgradeDefs.xml</Link>
         </ReleaseFiles>
+
+        <ReleaseFiles Update="..\..\Patches\MSS_BedUpgrade.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Patches\MSS_BedUpgrade.xml</Link>
+        </ReleaseFiles>
     </ItemGroup>
     <ItemGroup>
       <Folder Include="..\..\..\Common\Textures\Things\AMPSuit\">

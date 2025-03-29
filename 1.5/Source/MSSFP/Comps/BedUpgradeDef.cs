@@ -49,6 +49,7 @@ public class BedUpgradeDef : Def
     public float multiplier = 1f;
     public bool oneshot = false;
     public Type workerClass;
+    public bool appliesDirectToBed = false;
 
     protected BedUpgradeWorker workerInt;
 

@@ -116,6 +116,10 @@ public static class RitualOutcomeEffectWorker_ChildBirth_Patch
         {
             bool badOutcome = false;
             babyPawn.relations.AddDirectRelation(PawnRelationDefOf.ParentBirth, birtherPawn);
+            foreach (Pawn parent in parents)
+            {
+                babyPawn.relations.AddDirectRelation(PawnRelationDefOf.Parent, parent);
+            }
             if (positivityIndex >= 0 || babiesAreHealthy)
             {
                 if (babyPawn.playerSettings != null && geneticMother?.playerSettings != null)
@@ -173,7 +177,6 @@ public static class RitualOutcomeEffectWorker_ChildBirth_Patch
             }
 
             Find.QuestManager.Notify_PawnBorn(babyPawn, birtherThing, geneticMother, father);
-            babyPawn.relations.AddDirectRelation(PawnRelationDefOf.ParentBirth, birtherPawn);
 
             if (ritual != null)
             {

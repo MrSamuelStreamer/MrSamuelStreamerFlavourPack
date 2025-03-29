@@ -1,4 +1,6 @@
-﻿using System.Text;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using MSSFP.Comps;
 using MSSFP.Hediffs;
 using RimWorld;
@@ -13,10 +15,15 @@ public class StatPart_WellSlept : StatPart
         if (!pawn.health.hediffSet.HasHediff(MSSFPDefOf.MSS_FP_WellSlept))
             return null;
 
-        Hediff wellSlept = pawn.health.hediffSet.GetFirstHediffOfDef(MSSFPDefOf.MSS_FP_WellSlept);
-        HediffCompBedUpgrade hediffCompBedUpgrade = wellSlept.TryGetComp<HediffCompBedUpgrade>();
+        List<HediffCompBedUpgrade> comps = pawn.health.hediffSet.GetHediffComps<HediffCompBedUpgrade>().ToList();
+        if (!comps.Any())
+            return null;
 
-        CompUpgradableBed comp = hediffCompBedUpgrade?.CompUpgradableBed;
+        HediffCompBedUpgrade hediffCompBedUpgrade = comps.First();
+
+        Building_Bed bed = hediffCompBedUpgrade?.hediffGiver;
+
+        CompUpgradableBed comp = bed?.TryGetComp<CompUpgradableBed>();
 
         return comp;
     }

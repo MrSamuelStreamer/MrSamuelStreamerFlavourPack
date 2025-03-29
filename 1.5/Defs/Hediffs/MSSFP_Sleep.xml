@@ -4,6 +4,7 @@
         <defName>MSS_FP_WellSlept</defName>
         <label>well slept</label>
         <description>This person has slept well.</description>
+        <hediffClass>HediffWithComps</hediffClass>
         <maxSeverity>1.0</maxSeverity>
         <scenarioCanAdd>false</scenarioCanAdd>
         <isBad>false</isBad>
@@ -11,7 +12,8 @@
             <li Class="HediffCompProperties_SeverityPerDay">
                 <severityPerDay>-1.5</severityPerDay>
             </li>
-
+            <li Class="MSSFP.Hediffs.HediffCompProperties_BedUpgrade">
+            </li>
         </comps>
         <stages>
             <li>

@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Patch>
+    <!-- BirthRitualQualityOffset -->
+    <Operation Class="PatchOperationConditional">
+        <xpath>Defs/StatDef[defName="BirthRitualQualityOffset"]/parts</xpath>
+        <nomatch Class="PatchOperationAdd">
+            <xpath>Defs/StatDef[defName="BirthRitualQualityOffset"]</xpath>
+            <value>
+                <parts />
+            </value>
+        </nomatch>
+    </Operation>
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/StatDef[defName="BirthRitualQualityOffset"]/parts</xpath>
+        <value>
+            <li Class="MSSFP.Stats.StatPart_BedUpgrade">
+            </li>
+        </value>
+    </Operation>
+
+
+    <!-- SurgerySuccessChanceFactor -->
+    <Operation Class="PatchOperationConditional">
+        <xpath>Defs/StatDef[defName="SurgerySuccessChanceFactor"]/parts</xpath>
+        <nomatch Class="PatchOperationAdd">
+            <xpath>Defs/StatDef[defName="SurgerySuccessChanceFactor"]</xpath>
+            <value>
+                <parts />
+            </value>
+        </nomatch>
+    </Operation>
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/StatDef[defName="SurgerySuccessChanceFactor"]/parts</xpath>
+        <value>
+            <li Class="MSSFP.Stats.StatPart_BedUpgrade">
+            </li>
+        </value>
+    </Operation>
+
+
+    <!-- ImmunityGainSpeedFactor -->
+    <Operation Class="PatchOperationConditional">
+        <xpath>Defs/StatDef[defName="ImmunityGainSpeedFactor"]/parts</xpath>
+        <nomatch Class="PatchOperationAdd">
+            <xpath>Defs/StatDef[defName="ImmunityGainSpeedFactor"]</xpath>
+            <value>
+                <parts />
+            </value>
+        </nomatch>
+    </Operation>
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/StatDef[defName="ImmunityGainSpeedFactor"]/parts</xpath>
+        <value>
+            <li Class="MSSFP.Stats.StatPart_BedUpgrade">
+            </li>
+        </value>
+    </Operation>
+
+
+    <!-- Comfort -->
+    <Operation Class="PatchOperationConditional">
+        <xpath>Defs/StatDef[defName="Comfort"]/parts</xpath>
+        <nomatch Class="PatchOperationAdd">
+            <xpath>Defs/StatDef[defName="Comfort"]</xpath>
+            <value>
+                <parts />
+            </value>
+        </nomatch>
+    </Operation>
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/StatDef[defName="Comfort"]/parts</xpath>
+        <value>
+            <li Class="MSSFP.Stats.StatPart_BedUpgrade">
+            </li>
+        </value>
+    </Operation>
+
+</Patch>
