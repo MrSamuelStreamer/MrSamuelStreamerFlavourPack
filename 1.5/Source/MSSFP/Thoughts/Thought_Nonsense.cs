@@ -17,7 +17,7 @@ public class Thought_Nonsense : Thought_Memory
     public override void ExposeData()
     {
         base.ExposeData();
-        Scribe_Values.Look(ref cachedLabelCap, "cachedLabelCap", IncidentWorker_Nonsense.ResolveAbsoluteText(pawn, "incidentLetter", true));
-        Scribe_Values.Look(ref cachedDescription, "cachedDescription", IncidentWorker_Nonsense.ResolveAbsoluteText(pawn, "incidentDescription", true));
+        Scribe_Values.Look(ref cachedLabelCap, "cachedLabelCap");
+        Scribe_Values.Look(ref cachedDescription, "cachedDescription");
     }
 }
