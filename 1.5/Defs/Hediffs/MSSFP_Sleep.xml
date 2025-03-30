@@ -7,10 +7,12 @@
         <hediffClass>HediffWithComps</hediffClass>
         <maxSeverity>1.0</maxSeverity>
         <scenarioCanAdd>false</scenarioCanAdd>
+        <alwaysShowSeverity>true</alwaysShowSeverity>
         <isBad>false</isBad>
         <comps>
             <li Class="HediffCompProperties_SeverityPerDay">
                 <severityPerDay>-1.5</severityPerDay>
+                <showHoursToRecover>true</showHoursToRecover>
             </li>
             <li Class="MSSFP.Hediffs.HediffCompProperties_BedUpgrade">
             </li>
