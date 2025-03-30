@@ -9,6 +9,7 @@ using Verse;
 
 namespace MSSFP;
 
+[StaticConstructorOnStartup]
 public class MSSFPMod : Mod
 {
     public static Settings settings;

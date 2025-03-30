@@ -54,6 +54,28 @@ public class CompUpgradableBed : ThingComp
     public static int PointsPerLevel = 25;
 
     public Dictionary<StatDef, float> StatMultipliers = new();
+    public Dictionary<StatDef, float> StatOffsets = new();
+
+    public string NewName = null;
+
+    public virtual void Reset(bool all = false)
+    {
+        StatMultipliers.Clear();
+        StatOffsets.Clear();
+        AppliedOneshotUpgrades.Clear();
+
+        Experience = 0;
+        Levels = 0;
+        HediffMultiplier = 1;
+
+        if (all)
+        {
+            PawnsLovedInThisBed.Clear();
+            PawnsConcievedInThisBed.Clear();
+            PawnsSleptInThisBed.Clear();
+            RegisteredPregnancies.Clear();
+        }
+    }
 
     public virtual void AddExperience(float val = 1, string reasonString = null)
     {
@@ -112,10 +134,12 @@ public class CompUpgradableBed : ThingComp
         Scribe_Values.Look(ref Experience, "points", 0);
         Scribe_Values.Look(ref HediffMultiplier, "HediffMultiplier", 1);
         Scribe_Values.Look(ref Levels, "Levels", 0);
+        Scribe_Values.Look(ref NewName, "NewName", null);
         Scribe_Collections.Look(ref PawnsLovedInThisBed, "PawnsLovedInThisBed", LookMode.Reference);
         Scribe_Collections.Look(ref PawnsConcievedInThisBed, "PawnsConcievedInThisBed", LookMode.Reference);
         Scribe_Collections.Look(ref RegisteredPregnancies, "RegisteredPregnancies", LookMode.Deep);
         Scribe_Collections.Look(ref StatMultipliers, "StatMultipliers", LookMode.Def, LookMode.Value);
+        Scribe_Collections.Look(ref StatOffsets, "StatOffsets", LookMode.Def, LookMode.Value);
         Scribe_Collections.Look(ref PawnsSleptInThisBed, "PawnsSleptInThisBed", LookMode.Reference);
         Scribe_Collections.Look(ref AppliedOneshotUpgrades, "AppliedOneshotUpgrades", LookMode.Def);
 
@@ -129,6 +153,8 @@ public class CompUpgradableBed : ThingComp
         {
             if (StatMultipliers.NullOrEmpty())
                 StatMultipliers = new Dictionary<StatDef, float>();
+            if (StatOffsets.NullOrEmpty())
+                StatOffsets = new Dictionary<StatDef, float>();
             if (RegisteredPregnancies.NullOrEmpty())
                 RegisteredPregnancies = new List<PregnancyInfo>();
         }
@@ -170,12 +196,15 @@ public class CompUpgradableBed : ThingComp
                 continue;
             hcomp.hediffGiver = Bed;
         }
+
+        // force recalculation
+        AddExperience(0);
     }
 
     public override string CompInspectStringExtra()
     {
         StringBuilder stringBuilder = new(base.CompInspectStringExtra());
-        stringBuilder.AppendLine("MSSFP_BedExp".Translate(Experience, PointsPerLevel));
+        stringBuilder.AppendLine("MSSFP_BedExp".Translate(Experience.ToStringDecimalIfSmall(), PointsPerLevel));
         stringBuilder.AppendLine("MSSFP_BedLevels".Translate(Levels));
 
         if (!PawnsSleptInThisBed.NullOrEmpty())
@@ -213,10 +242,40 @@ public class CompUpgradableBed : ThingComp
         if (def.stat == null)
             return def.LabelCap;
         StringBuilder sb = new();
-        sb.Append(def.stat.LabelCap);
-        sb.Append(": x");
-        sb.Append(StatMultipliers.TryGetValue(def.stat, out float mult) ? mult.ToStringPercent() : "100%");
+
+        if (!StatMultipliers.TryGetValue(def.stat, out float mult))
+        {
+            mult = 1;
+        }
+
+        if (!StatOffsets.TryGetValue(def.stat, out float offset))
+        {
+            offset = 0;
+        }
+
+        sb.AppendLine(def.stat.LabelCap);
+        sb.Append("x");
+        sb.Append(mult.ToStringPercent());
+        sb.Append(" | ");
+        sb.Append(" +");
+        sb.Append(offset.ToStringPercent());
+
         return sb.ToString().TrimEnd();
+    }
+
+    public virtual string NewLabel()
+    {
+        if (!NewName.NullOrEmpty())
+            return NewName;
+        return GenLabel.ThingLabel(parent, 1);
+    }
+
+    public override string TransformLabel(string label)
+    {
+        if (!NewName.NullOrEmpty())
+            label = NewName;
+
+        return Levels < 1 ? label : $"{label} [Lvl {Levels}]";
     }
 
     public override string GetDescriptionPart() => CompInspectStringExtra();

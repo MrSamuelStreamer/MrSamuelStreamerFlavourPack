@@ -84,4 +84,7 @@
     <MSSFP_PawnsSleptInBed>Pawns that have slept in this bed:</MSSFP_PawnsSleptInBed>
     <MSSFP_PawnsLovedInBed>Pawns that have got some lovin' in this bed:</MSSFP_PawnsLovedInBed>
     <MSSFP_PawnsConcievedInBed>Pawns that were conceived in this bed:</MSSFP_PawnsConcievedInBed>
+
+    <MSSFP_RenameDialog_Label>Rename the bed</MSSFP_RenameDialog_Label>
+    <MSSFP_RenameDialog_Apply>Apply</MSSFP_RenameDialog_Apply>
 </LanguageData>

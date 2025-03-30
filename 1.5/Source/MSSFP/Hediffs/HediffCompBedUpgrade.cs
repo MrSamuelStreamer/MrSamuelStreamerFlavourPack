@@ -35,6 +35,13 @@ public class HediffCompBedUpgrade : HediffComp
                     sb.Append(mult.ToStringPercent());
                     sb.Append("\n");
                 }
+                if (CompUpgradableBed.StatOffsets.TryGetValue(def.stat, out float offset))
+                {
+                    sb.Append(def.stat.LabelCap);
+                    sb.Append(": +");
+                    sb.Append(offset.ToStringPercent());
+                    sb.Append("\n");
+                }
             }
             return sb.ToString();
         }

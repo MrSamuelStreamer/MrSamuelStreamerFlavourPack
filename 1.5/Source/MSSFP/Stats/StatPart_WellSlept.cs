@@ -38,6 +38,10 @@ public class StatPart_WellSlept : StatPart
         if (comp is null)
             return;
 
+        if (comp.StatOffsets.TryGetValue(parentStat, out float offset))
+        {
+            val += offset;
+        }
         if (comp.StatMultipliers.TryGetValue(parentStat, out float multiplier))
         {
             val *= multiplier;
@@ -55,6 +59,10 @@ public class StatPart_WellSlept : StatPart
         if (comp is null)
             return sb.ToString();
 
+        if (comp.StatOffsets.TryGetValue(parentStat, out float offset))
+        {
+            sb.AppendLine("Well Slept: +" + offset.ToStringPercent());
+        }
         if (comp.StatMultipliers.TryGetValue(parentStat, out float multiplier))
         {
             sb.AppendLine("Well Slept: x" + multiplier.ToStringPercent());

@@ -1,7 +1,7 @@
 ﻿<component name="ProjectRunConfigurationManager">
   <configuration default="false" name="RimWorld Gen2" type="RimworldRunConfiguration" factoryName="RimworldRunConfiguration">
     <option name="commandLineOptions" value="" />
-    <option name="modListPath" value="$PROJECT_DIR$/../../geniimodlist.xml" />
+    <option name="modListPath" value="" />
     <option name="saveFilePath" value="" />
     <option name="scriptName" value="C:\Program Files (x86)\Steam\steamapps\common\RimWorld\RimWorldWin64.exe" />
     <method v="2">

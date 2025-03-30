@@ -21,12 +21,22 @@ public class Dialog_BedUpgrade(CompUpgradableBed bed, IWindowDrawing customWindo
         RectDivider Outer = new(inRect, 145232335, new Vector2(0f, 0f));
 
         RectDivider TitleRow = Outer.NewRow(60f, marginOverride: 0f);
+        RectDivider Title = TitleRow.NewCol(484f, marginOverride: 0f);
         using (new TextBlock(GameFont.Medium))
         {
-            Widgets.Label(TitleRow.Rect.ContractedBy(10f), "Upgrade Bed");
+            Widgets.Label(Title.Rect.ContractedBy(10f), "Upgrade Bed");
         }
 
-        RectDivider ContentRow = Outer.NewRow(662f, marginOverride: 0f);
+        RectDivider Rename = TitleRow.NewCol(100f, marginOverride: 0f);
+        if (Widgets.ButtonText(Rename.Rect.ContractedBy(10f), "Rename"))
+        {
+            Find.WindowStack.Add(new Dialog_Rename(Bed, Bed.NewName ?? Bed.parent.def.label));
+        }
+
+        RectDivider NameRow = Outer.NewRow(40f, marginOverride: 0f);
+        Widgets.Label(NameRow.Rect.ContractedBy(10f), Bed.parent.Label);
+
+        RectDivider ContentRow = Outer.NewRow(622f, marginOverride: 0f);
 
         RectDivider BottomButtonRow = Outer.NewRow(42f, marginOverride: 0f);
 
@@ -37,12 +47,13 @@ public class Dialog_BedUpgrade(CompUpgradableBed bed, IWindowDrawing customWindo
             Close();
         }
 
-        RectDivider MiddleColumn = ContentRow.NewCol(584f, marginOverride: 0f);
+        RectDivider MiddleColumn = ContentRow.NewCol(560f, marginOverride: 0f);
 
-        RectDivider MiddleTop = MiddleColumn.NewRow(400.0f, marginOverride: 0f);
-        GUI.DrawTexture(MiddleTop, BedTex, ScaleMode.ScaleToFit);
+        RectDivider MiddleTop = MiddleColumn.NewRow(234.0f, marginOverride: 0f);
+        // GUI.DrawTexture(MiddleTop, BedTex, ScaleMode.ScaleToFit);
+        Widgets.ThingIcon(MiddleTop, Bed.parent);
 
-        RectDivider MiddleBottom = MiddleColumn.NewRow(262.0f, marginOverride: 0f);
+        RectDivider MiddleBottom = MiddleColumn.NewRow(362.0f, marginOverride: 0f);
         DrawBedStatBox(MiddleBottom);
     }
 
@@ -78,7 +89,7 @@ public class Dialog_BedUpgrade(CompUpgradableBed bed, IWindowDrawing customWindo
             BedUpgradeDef upgrade = enumerator.Current;
 
             RectDivider statRow = new(
-                new Rect(statColContent.x, statColContent.y + BedStatBoxColHeight, statColContent.width, 22f),
+                new Rect(statColContent.x, statColContent.y + BedStatBoxColHeight, statColContent.width, 44f),
                 145232335,
                 new Vector2(0f, BedStatBoxColHeight)
             );
@@ -94,23 +105,31 @@ public class Dialog_BedUpgrade(CompUpgradableBed bed, IWindowDrawing customWindo
             rightCol.NewCol(2, marginOverride: 0f);
             RectDivider rightLabel = rightCol.NewCol(width - 54, marginOverride: 0f);
 
-            if (Widgets.ButtonText(leftButton, upgrade?.Worker.ButtonText(Bed) ?? "+", active: Bed.Levels > 1 && (upgrade?.Worker.CanUpgrade(Bed) ?? false)))
+            if (Bed.Levels >= 1)
             {
-                upgrade?.Worker.DoUpgrade(Bed);
+                if (Widgets.ButtonText(rect: leftButton, label: upgrade?.Worker.ButtonText(Bed) ?? "+"))
+                {
+                    upgrade?.Worker.DoUpgrade(Bed);
+                }
             }
+
             Widgets.Label(leftLabel, Bed.GetStatString(upgrade));
 
             if (enumerator.MoveNext())
             {
                 upgrade = enumerator.Current;
-                if (Widgets.ButtonText(rightButton, upgrade?.Worker.ButtonText(Bed) ?? "+", active: Bed.Levels > 1 && (upgrade?.Worker.CanUpgrade(Bed) ?? false)))
+                if (Bed.Levels >= 1)
                 {
-                    upgrade?.Worker.DoUpgrade(Bed);
+                    if (Widgets.ButtonText(rect: rightButton, label: upgrade?.Worker.ButtonText(Bed) ?? "+"))
+                    {
+                        upgrade?.Worker.DoUpgrade(Bed);
+                    }
                 }
+
                 Widgets.Label(rightLabel, Bed.GetStatString(enumerator.Current));
             }
 
-            BedStatBoxColHeight += 22f;
+            BedStatBoxColHeight += 44f;
         }
 
         enumerator.Dispose();

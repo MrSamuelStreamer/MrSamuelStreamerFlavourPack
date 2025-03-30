@@ -24,21 +24,49 @@ public class BedUpgradeWorker
     {
         if (def.stat == null)
             return "+";
-        return "x" + def.multiplier.ToStringPercent();
+        if (def.multiplier.HasValue)
+        {
+            return "x" + def.multiplier.Value.ToStringPercent();
+        }
+
+        if (def.offset.HasValue)
+        {
+            return "+" + def.offset.Value.ToStringPercent();
+        }
+
+        return "+";
     }
 
     public virtual bool DoUpgrade(CompUpgradableBed bed)
     {
+        if (bed.Levels < 1)
+            return false;
+
         if (def.stat == null)
         {
             return true;
         }
 
-        if (!bed.StatMultipliers.TryGetValue(def.stat, out float mult))
+        if (def.multiplier.HasValue)
         {
-            mult = 1f;
+            if (!bed.StatMultipliers.TryGetValue(def.stat, out float mult))
+            {
+                mult = 1f;
+            }
+
+            bed.StatMultipliers[def.stat] = mult * def.multiplier.Value;
         }
-        bed.StatMultipliers[def.stat] = mult * def.multiplier;
+
+        if (def.offset.HasValue)
+        {
+            if (!bed.StatOffsets.TryGetValue(def.stat, out float offset))
+            {
+                offset = 0f;
+            }
+            bed.StatOffsets[def.stat] = offset + def.offset.Value;
+        }
+
+        bed.Levels--;
         return true;
     }
 }
@@ -46,7 +74,8 @@ public class BedUpgradeWorker
 public class BedUpgradeDef : Def
 {
     public StatDef stat;
-    public float multiplier = 1f;
+    public float? multiplier;
+    public float? offset;
     public bool oneshot = false;
     public Type workerClass;
     public bool appliesDirectToBed = false;

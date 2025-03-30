@@ -13,6 +13,10 @@ public class StatPart_BedUpgrade : StatPart
         if (req.Thing is not Building_Bed bed || !bed.TryGetComp<CompUpgradableBed>(out CompUpgradableBed comp))
             return;
 
+        if (comp.StatOffsets.TryGetValue(parentStat, out float offset))
+        {
+            val += offset;
+        }
         if (comp.StatMultipliers.TryGetValue(parentStat, out float multiplier))
         {
             val *= multiplier;
@@ -27,6 +31,11 @@ public class StatPart_BedUpgrade : StatPart
 
         if (comp is null)
             return sb.ToString();
+
+        if (comp.StatOffsets.TryGetValue(parentStat, out float offset))
+        {
+            sb.AppendLine("Well Slept: +" + offset.ToStringPercent());
+        }
 
         if (comp.StatMultipliers.TryGetValue(parentStat, out float multiplier))
         {
