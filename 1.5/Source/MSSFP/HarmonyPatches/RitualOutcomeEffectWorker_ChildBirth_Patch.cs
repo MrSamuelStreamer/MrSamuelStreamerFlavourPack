@@ -17,23 +17,24 @@ namespace MSSFP.HarmonyPatches;
 [HarmonyPatch(typeof(RitualOutcomeEffectWorker_ChildBirth))]
 public static class RitualOutcomeEffectWorker_ChildBirth_Patch
 {
-    [HarmonyPatch(nameof(RitualOutcomeEffectWorker_ChildBirth.Apply))]
-    [HarmonyTranspiler]
-    public static IEnumerable<CodeInstruction> Apply_Transpiler(IEnumerable<CodeInstruction> instructions)
-    {
-        MethodInfo methodToReplace = AccessTools.Method(typeof(PregnancyUtility), "ApplyBirthOutcome");
-        MethodInfo replacementMethod = AccessTools.Method(typeof(RitualOutcomeEffectWorker_ChildBirth_Patch), "ApplyBirthOutcome");
-
-        foreach (CodeInstruction instruction in instructions)
-        {
-            if (instruction.opcode == OpCodes.Call && instruction.operand as MethodInfo == methodToReplace)
-            {
-                instruction.operand = replacementMethod;
-            }
-
-            yield return instruction;
-        }
-    }
+    // TODO: Investigate why this leads to unending labor in the Catharsis2 pack
+    // [HarmonyPatch(nameof(RitualOutcomeEffectWorker_ChildBirth.Apply))]
+    // [HarmonyTranspiler]
+    // public static IEnumerable<CodeInstruction> Apply_Transpiler(IEnumerable<CodeInstruction> instructions)
+    // {
+    //     MethodInfo methodToReplace = AccessTools.Method(typeof(PregnancyUtility), "ApplyBirthOutcome");
+    //     MethodInfo replacementMethod = AccessTools.Method(typeof(RitualOutcomeEffectWorker_ChildBirth_Patch), "ApplyBirthOutcome");
+    //
+    //     foreach (CodeInstruction instruction in instructions)
+    //     {
+    //         if (instruction.opcode == OpCodes.Call && instruction.operand as MethodInfo == methodToReplace)
+    //         {
+    //             instruction.operand = replacementMethod;
+    //         }
+    //
+    //         yield return instruction;
+    //     }
+    // }
 
     public static Thing ApplyBirthOutcome_NewTemp(
         RitualOutcomePossibility outcome,

@@ -139,66 +139,67 @@ public static class Hediff_Pregnant_Patch
         }
     }
 
-    [HarmonyPatch(nameof(Hediff_Pregnant.DoBirthSpawn))]
-    [HarmonyPrefix]
-    public static bool DoBirthSpawn_Patch(Hediff_Pregnant __instance, Pawn mother)
-    {
-        CompUpgradableBed comp = CompUpgradableBed.CompForPregnancy(__instance);
-        if (comp == null)
-            return true;
-
-        if (mother.RaceProps.Humanlike && !ModsConfig.BiotechActive)
-            return false;
-
-        int litterSize = mother.RaceProps.litterSizeCurve != null ? Mathf.RoundToInt(Rand.ByCurve(mother.RaceProps.litterSizeCurve)) : 1;
-        if (litterSize < 1)
-            litterSize = 1;
-
-        if (litterSize == 1)
-        {
-            litterSize = Rand.RangeInclusive(1, Math.Max(1, comp.ParentsForPregnancy(__instance).Count));
-        }
-
-        PawnGenerationRequest request = new(mother.kindDef, mother.Faction, allowDowned: true, developmentalStages: DevelopmentalStage.Newborn);
-        Pawn pawn = null;
-        for (int index = 0; index < litterSize; ++index)
-        {
-            pawn = PawnGenerator.GeneratePawn(request);
-            if (PawnUtility.TrySpawnHatchedOrBornPawn(pawn, mother))
-            {
-                if (pawn.playerSettings != null && mother.playerSettings != null)
-                    pawn.playerSettings.AreaRestrictionInPawnCurrentMap = mother.playerSettings.AreaRestrictionInPawnCurrentMap;
-                if (pawn.RaceProps.IsFlesh)
-                {
-                    foreach (Pawn parent in comp.ParentsForPregnancy(__instance))
-                    {
-                        pawn.relations.AddDirectRelation(PawnRelationDefOf.Parent, parent);
-                        foreach (Gene gene in parent.genes.GenesListForReading)
-                        {
-                            if (Rand.Chance(0.1f) && !pawn.genes.HasActiveGene(gene.def))
-                            {
-                                pawn.genes.AddGene(gene.def, false);
-                            }
-                        }
-                    }
-                }
-                if (mother.Spawned)
-                    mother.GetLord()?.AddPawn(pawn);
-            }
-            else
-                Find.WorldPawns.PassToWorld(pawn, PawnDiscardDecideMode.Discard);
-
-            comp.Notify_PawnBorn(pawn);
-            TaleRecorder.RecordTale(TaleDefOf.GaveBirth, mother, pawn);
-        }
-        if (!mother.Spawned)
-            return false;
-        FilthMaker.TryMakeFilth(mother.Position, mother.Map, ThingDefOf.Filth_AmnioticFluid, mother.LabelIndefinite(), 5);
-        mother.caller?.DoCall();
-        pawn.caller?.DoCall();
-
-        // comp.RemovePregnancy(__instance);
-
-        return false;
-    }
+    // TODO: Investigate why this leads to unending labor in the Catharsis2 pack
+    // [HarmonyPatch(nameof(Hediff_Pregnant.DoBirthSpawn))]
+    // [HarmonyPrefix]
+    // public static bool DoBirthSpawn_Patch(Hediff_Pregnant __instance, Pawn mother)
+    // {
+    //     CompUpgradableBed comp = CompUpgradableBed.CompForPregnancy(__instance);
+    //     if (comp == null)
+    //         return true;
+    //
+    //     if (mother.RaceProps.Humanlike && !ModsConfig.BiotechActive)
+    //         return false;
+    //
+    //     int litterSize = mother.RaceProps.litterSizeCurve != null ? Mathf.RoundToInt(Rand.ByCurve(mother.RaceProps.litterSizeCurve)) : 1;
+    //     if (litterSize < 1)
+    //         litterSize = 1;
+    //
+    //     if (litterSize == 1)
+    //     {
+    //         litterSize = Rand.RangeInclusive(1, Math.Max(1, comp.ParentsForPregnancy(__instance).Count));
+    //     }
+    //
+    //     PawnGenerationRequest request = new(mother.kindDef, mother.Faction, allowDowned: true, developmentalStages: DevelopmentalStage.Newborn);
+    //     Pawn pawn = null;
+    //     for (int index = 0; index < litterSize; ++index)
+    //     {
+    //         pawn = PawnGenerator.GeneratePawn(request);
+    //         if (PawnUtility.TrySpawnHatchedOrBornPawn(pawn, mother))
+    //         {
+    //             if (pawn.playerSettings != null && mother.playerSettings != null)
+    //                 pawn.playerSettings.AreaRestrictionInPawnCurrentMap = mother.playerSettings.AreaRestrictionInPawnCurrentMap;
+    //             if (pawn.RaceProps.IsFlesh)
+    //             {
+    //                 foreach (Pawn parent in comp.ParentsForPregnancy(__instance))
+    //                 {
+    //                     pawn.relations.AddDirectRelation(PawnRelationDefOf.Parent, parent);
+    //                     foreach (Gene gene in parent.genes.GenesListForReading)
+    //                     {
+    //                         if (Rand.Chance(0.1f) && !pawn.genes.HasActiveGene(gene.def))
+    //                         {
+    //                             pawn.genes.AddGene(gene.def, false);
+    //                         }
+    //                     }
+    //                 }
+    //             }
+    //             if (mother.Spawned)
+    //                 mother.GetLord()?.AddPawn(pawn);
+    //         }
+    //         else
+    //             Find.WorldPawns.PassToWorld(pawn, PawnDiscardDecideMode.Discard);
+    //
+    //         comp.Notify_PawnBorn(pawn);
+    //         TaleRecorder.RecordTale(TaleDefOf.GaveBirth, mother, pawn);
+    //     }
+    //     if (!mother.Spawned)
+    //         return false;
+    //     FilthMaker.TryMakeFilth(mother.Position, mother.Map, ThingDefOf.Filth_AmnioticFluid, mother.LabelIndefinite(), 5);
+    //     mother.caller?.DoCall();
+    //     pawn.caller?.DoCall();
+    //
+    //     // comp.RemovePregnancy(__instance);
+    //
+    //     return false;
+    // }
 }
