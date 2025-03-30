@@ -37,6 +37,8 @@ public class CompUpgradableBed : ThingComp
 
     public List<BedUpgradeDef> AppliedOneshotUpgrades = new();
 
+    public CompProperties_UpgradableBed Props => props as CompProperties_UpgradableBed;
+
     public static IEnumerable<BedUpgradeDef> BedUpgradesAvailable => DefDatabase<BedUpgradeDef>.AllDefs;
     public Building_Bed Bed => parent as Building_Bed;
     public float Experience = 0;
@@ -57,6 +59,8 @@ public class CompUpgradableBed : ThingComp
     public Dictionary<StatDef, float> StatOffsets = new();
 
     public string NewName = null;
+
+    public virtual int TotalLevelsGained => StatOffsets.Count + StatMultipliers.Count + AppliedOneshotUpgrades.Count + Levels;
 
     public virtual void Reset(bool all = false)
     {
@@ -190,7 +194,7 @@ public class CompUpgradableBed : ThingComp
         {
             AddExperience(0.025f, "MSSFP_BedLevelUpBecauseSlept".Translate(occupant.LabelShort));
             Hediff hediff = occupant.health.GetOrAddHediff(MSSFPDefOf.MSS_FP_WellSlept);
-            hediff.Severity += (0.025f * HediffMultiplier);
+            hediff.Severity += (Props.wellRestedCurve.Evaluate(TotalLevelsGained) * HediffMultiplier);
             HediffCompBedUpgrade hcomp = hediff.TryGetComp<HediffCompBedUpgrade>();
             if (hcomp == null)
                 continue;
@@ -275,7 +279,7 @@ public class CompUpgradableBed : ThingComp
         if (!NewName.NullOrEmpty())
             label = NewName;
 
-        return Levels < 1 ? label : $"{label} [Lvl {Levels}]";
+        return Levels < 1 ? label : $"{label} [Lvl {TotalLevelsGained}]";
     }
 
     public override string GetDescriptionPart() => CompInspectStringExtra();
