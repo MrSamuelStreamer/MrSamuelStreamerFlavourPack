@@ -129,6 +129,10 @@
           <Link>MrSamuelStreamerFlavourPack\1.5\Defs\ThingDefs_Buildings\MSSFP_Firefoam.xml</Link>
         </ReleaseFiles>
 
+        <ReleaseFiles Include="..\..\..\Compatibility\OskarPotocki.VanillaFactionsExpanded.Core\1.5\Defs\MSS_BedUpgradeDefs.xml">
+          <Link>MrSamuelStreamerFlavourPack\Compatibility\OskarPotocki.VanillaFactionsExpanded.Core\1.5\Defs\MSS_BedUpgradeDefs.xml</Link>
+        </ReleaseFiles>
+
         <ReleaseFiles Include="..\..\..\Compatibility\Rah.RBSEHC\1.5\Patches\MSSFP_CaravanSpeed.xml">
           <Link>MrSamuelStreamerFlavourPack\Compatibility\Rah.RBSEHC\1.5\Patches\MSSFP_CaravanSpeed.xml</Link>
         </ReleaseFiles>

@@ -241,6 +241,15 @@ public class CompUpgradableBed : ThingComp
         return stringBuilder.ToString().TrimEnd();
     }
 
+    public string GetDescriptionString(BedUpgradeDef def)
+    {
+        if (def.stat != null)
+        {
+            return def.stat.description;
+        }
+        return def.description;
+    }
+
     public string GetStatString(BedUpgradeDef def)
     {
         if (def.stat == null)

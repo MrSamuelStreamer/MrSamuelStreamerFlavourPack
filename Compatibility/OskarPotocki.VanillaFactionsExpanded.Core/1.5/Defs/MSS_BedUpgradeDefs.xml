@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Defs>
+    <MSSFP.Comps.BedUpgradeDef>
+        <defName>MSSFP_BedUpgrade_VEF_MTBLovinFactor</defName>
+        <label>MTB Lovin Factor</label>
+        <description>A factor of the mean time between (MTB) this person looking for some lovin'.</description>
+        <stat>VEF_MTBLovinFactor</stat>
+        <offset>1.1</offset>
+    </MSSFP.Comps.BedUpgradeDef>
+</Defs>

@@ -95,6 +95,7 @@ public class Dialog_BedUpgrade(CompUpgradableBed bed, IWindowDrawing customWindo
             );
 
             RectDivider leftCol = statRow.NewCol(width, marginOverride: 0f);
+
             RectDivider rightCol = statRow.NewCol(width, marginOverride: 0f);
 
             RectDivider leftButton = leftCol.NewCol(52, marginOverride: 0f);
@@ -113,6 +114,8 @@ public class Dialog_BedUpgrade(CompUpgradableBed bed, IWindowDrawing customWindo
                 }
             }
 
+            Widgets.DrawHighlightIfMouseover(leftLabel.Rect);
+            TooltipHandler.TipRegion(leftLabel.Rect, Bed.GetDescriptionString(upgrade));
             Widgets.Label(leftLabel, Bed.GetStatString(upgrade));
 
             if (enumerator.MoveNext())
@@ -126,6 +129,8 @@ public class Dialog_BedUpgrade(CompUpgradableBed bed, IWindowDrawing customWindo
                     }
                 }
 
+                Widgets.DrawHighlightIfMouseover(rightLabel.Rect);
+                TooltipHandler.TipRegion(rightLabel.Rect, Bed.GetDescriptionString(upgrade));
                 Widgets.Label(rightLabel, Bed.GetStatString(enumerator.Current));
             }
 

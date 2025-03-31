@@ -17,24 +17,42 @@ namespace MSSFP.HarmonyPatches;
 [HarmonyPatch(typeof(RitualOutcomeEffectWorker_ChildBirth))]
 public static class RitualOutcomeEffectWorker_ChildBirth_Patch
 {
-    // TODO: Investigate why this leads to unending labor in the Catharsis2 pack
-    // [HarmonyPatch(nameof(RitualOutcomeEffectWorker_ChildBirth.Apply))]
-    // [HarmonyTranspiler]
-    // public static IEnumerable<CodeInstruction> Apply_Transpiler(IEnumerable<CodeInstruction> instructions)
-    // {
-    //     MethodInfo methodToReplace = AccessTools.Method(typeof(PregnancyUtility), "ApplyBirthOutcome");
-    //     MethodInfo replacementMethod = AccessTools.Method(typeof(RitualOutcomeEffectWorker_ChildBirth_Patch), "ApplyBirthOutcome");
-    //
-    //     foreach (CodeInstruction instruction in instructions)
-    //     {
-    //         if (instruction.opcode == OpCodes.Call && instruction.operand as MethodInfo == methodToReplace)
-    //         {
-    //             instruction.operand = replacementMethod;
-    //         }
-    //
-    //         yield return instruction;
-    //     }
-    // }
+    [HarmonyPatch(nameof(RitualOutcomeEffectWorker_ChildBirth.Apply))]
+    [HarmonyTranspiler]
+    public static IEnumerable<CodeInstruction> Apply_Transpiler(IEnumerable<CodeInstruction> instructions)
+    {
+        MethodInfo methodToReplace = AccessTools.Method(typeof(PregnancyUtility), "ApplyBirthOutcome");
+        MethodInfo replacementMethod = AccessTools.Method(typeof(RitualOutcomeEffectWorker_ChildBirth_Patch), "ApplyBirthOutcome");
+
+        foreach (CodeInstruction instruction in instructions)
+        {
+            if (instruction.opcode == OpCodes.Call && instruction.operand as MethodInfo == methodToReplace)
+            {
+                instruction.operand = replacementMethod;
+            }
+
+            yield return instruction;
+        }
+    }
+
+    public static bool CheckConcievedInUpgradableBed(Thing birtherThing, out CompUpgradableBed comp, out Pawn birtherPawn)
+    {
+        comp = null;
+        birtherPawn = birtherThing as Pawn;
+        if (birtherPawn is null || !CompUpgradableBed.AllBeds.ToList().Any(b => b.ParentsForPregnancy(birtherThing as Pawn).Any()))
+        {
+            ModLog.Debug("No pregnancies registered at an upgradable bed for this pregnancy");
+            return false;
+        }
+
+        comp = CompUpgradableBed.AllBeds.FirstOrDefault(b => b.ParentsForPregnancy(birtherThing as Pawn).Any());
+        if (comp == null)
+        {
+            ModLog.Debug("No upgradable bed for this pregnancy");
+            return false;
+        }
+        return true;
+    }
 
     public static Thing ApplyBirthOutcome_NewTemp(
         RitualOutcomePossibility outcome,
@@ -50,6 +68,7 @@ public static class RitualOutcomeEffectWorker_ChildBirth_Patch
         bool preventLetter = false
     )
     {
+        ModLog.Debug("Running Patched ApplyBirthOutcome_NewTemp");
         return ApplyBirthOutcome(outcome, quality, ritual, genes, geneticMother, birtherThing, father, doctor, lordJobRitual, assignments);
     }
 
@@ -66,12 +85,10 @@ public static class RitualOutcomeEffectWorker_ChildBirth_Patch
         RitualRoleAssignments assignments
     )
     {
-        if (birtherThing is not Pawn birtherPawn || !CompUpgradableBed.AllBeds.ToList().Any(b => b.ParentsForPregnancy(birtherPawn).Any()))
+        if (!CheckConcievedInUpgradableBed(birtherThing, out CompUpgradableBed comp, out Pawn birtherPawn))
+        {
             return PregnancyUtility.ApplyBirthOutcome(outcome, quality, ritual, genes, geneticMother, birtherThing, father, doctor, lordJobRitual, assignments);
-
-        CompUpgradableBed comp = CompUpgradableBed.AllBeds.FirstOrDefault(b => b.ParentsForPregnancy(birtherPawn).Any());
-        if (comp == null)
-            return PregnancyUtility.ApplyBirthOutcome(outcome, quality, ritual, genes, geneticMother, birtherThing, father, doctor, lordJobRitual, assignments);
+        }
 
         List<Pawn> parents = comp.ParentsForPregnancy(birtherPawn);
 
@@ -241,7 +258,7 @@ public static class RitualOutcomeEffectWorker_ChildBirth_Patch
 
         if (litterSize == 1)
         {
-            litterSize = Rand.RangeInclusive(1, Math.Max(1, parents.Count));
+            litterSize = Rand.RangeInclusive(1, Math.Max(1, parents.Count / 2));
         }
 
         PawnGenerationRequest request = new(birtherPawn.kindDef, birtherPawn.Faction, allowDowned: true, developmentalStages: DevelopmentalStage.Newborn);

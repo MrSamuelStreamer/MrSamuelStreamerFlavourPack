@@ -5,7 +5,7 @@
         <label>well slept</label>
         <description>This person has slept well.</description>
         <hediffClass>HediffWithComps</hediffClass>
-        <maxSeverity>1.0</maxSeverity>
+        <maxSeverity>2.0</maxSeverity>
         <scenarioCanAdd>false</scenarioCanAdd>
         <alwaysShowSeverity>true</alwaysShowSeverity>
         <isBad>false</isBad>
