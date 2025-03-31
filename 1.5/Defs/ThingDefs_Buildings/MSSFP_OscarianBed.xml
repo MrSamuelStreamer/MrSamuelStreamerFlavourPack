@@ -29,6 +29,9 @@
         <building>
             <paintable>true</paintable>
         </building>
+        <researchPrerequisites>
+            <li>MSS_Oskarian_Technology</li>
+        </researchPrerequisites>
         <comps>
             <li Class="MSSFP.Comps.CompProperties_UpgradableBed"/>
         </comps>
