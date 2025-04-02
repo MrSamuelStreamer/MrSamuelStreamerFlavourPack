@@ -1,0 +1,39 @@
+﻿using RimWorld;
+using RimWorld.QuestGen;
+using Verse;
+using Verse.Grammar;
+
+namespace MSSFP.Questing;
+
+public class QuestNode_Root_TrekPodCrash : QuestNode_Root_WandererJoin
+{
+    public override Pawn GeneratePawn()
+    {
+        Pawn pawn = ThingUtility.FindPawn(MSSFPDefOf.MSSFP_TrekCharacter.root.Generate());
+        pawn.guest.Recruitable = true;
+        return pawn;
+    }
+
+    public override void SendLetter(Quest quest, Pawn pawn)
+    {
+        TaggedString title = GetLetterTitle();
+        TaggedString taggedString = GetLetterText() + "\n\n";
+        TaggedString text = taggedString + "MSSFP_TrekPodCrash_Factionless".Translate(pawn.Named("PAWN")).AdjustedFor(pawn);
+
+        QuestNode_Root_WandererJoin_WalkIn.AppendCharityInfoToLetter("JoinerCharityInfo".Translate((NamedArgument)(Thing)pawn), ref text);
+        PawnRelationUtility.TryAppendRelationsWithColonistsInfo(ref text, ref title, pawn);
+        Find.LetterStack.ReceiveLetter(title, text, LetterDefOf.NeutralEvent, (LookTargets)new TargetInfo((Thing)pawn));
+    }
+
+    public virtual string GetLetterTitle()
+    {
+        GrammarRequest request = new();
+        request.Rules.AddRange(MSSFPDefOf.MSS_TrekPodCrash.questNameRules.Rules);
+        return NameGenerator.GenerateName(request, rootKeyword: "questName");
+    }
+
+    public virtual string GetLetterText()
+    {
+        return QuestGenUtility.ResolveLocalTextWithDescriptionRules(MSSFPDefOf.MSS_TrekPodCrash.questDescriptionRules, "questDescription");
+    }
+}

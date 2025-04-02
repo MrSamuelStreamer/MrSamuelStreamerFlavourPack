@@ -71,6 +71,13 @@ public static class MSSFPDefOf
     public static readonly FactionDef MSSFP_TaffsFaction;
 
     public static readonly HediffDef MSS_FP_WellSlept;
+    public static readonly HediffDef MSSFP_Hediff_DRM;
+
+    public static readonly ThingSetMakerDef MSSFP_TrekCharacter;
+
+    public static readonly PawnKindDef MSSFP_TrekCrasher;
+
+    public static readonly QuestScriptDef MSS_TrekPodCrash;
 
     static MSSFPDefOf() => DefOfHelper.EnsureInitializedInCtor(typeof(MSSFPDefOf));
 }

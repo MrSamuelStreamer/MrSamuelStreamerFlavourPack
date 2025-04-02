@@ -344,6 +344,22 @@
         <ReleaseFiles Update="..\..\Defs\ResearchDefs\MSS_FP_Bed.xml">
           <Link>MrSamuelStreamerFlavourPack\1.5\Defs\ResearchDefs\MSS_FP_Bed.xml</Link>
         </ReleaseFiles>
+
+        <ReleaseFiles Update="..\..\Defs\MSSFP_DC.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Defs\MSSFP_DC.xml</Link>
+        </ReleaseFiles>
+
+        <ReleaseFiles Update="..\..\Defs\RulePackDefs\MSS_RulePacks_Namers_Trek.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Defs\RulePackDefs\MSS_RulePacks_Namers_Trek.xml</Link>
+        </ReleaseFiles>
+
+        <ReleaseFiles Update="..\..\Defs\Quests\MSS_TrekAdventures.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Defs\Quests\MSS_TrekAdventures.xml</Link>
+        </ReleaseFiles>
+
+        <ReleaseFiles Update="..\..\Defs\ThingDefs_Races\MSSFP_Trek.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Defs\ThingDefs_Races\MSSFP_Trek.xml</Link>
+        </ReleaseFiles>
     </ItemGroup>
     <ItemGroup>
       <Folder Include="..\..\..\Common\Textures\Things\AMPSuit\">

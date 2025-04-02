@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Defs>
+    <RulePackDef>
+        <defName>MSSFP_NamerPersonTrek</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_name->[firstName] [lastName]</li>
+                <li>r_name->[firstName] '[nickName]' [lastName]</li>
+
+                <li>firstName->Jean-Luc</li>
+                <li>firstName->Spock</li>
+                <li>firstName->Kira</li>
+                <li>firstName->Seven</li>
+                <li>firstName->James</li>
+                <li>firstName->Jadzia</li>
+                <li>firstName->Benjamin</li>
+                <li>firstName->Leonard</li>
+                <li>firstName->Miles</li>
+                <li>firstName->Kathryn</li>
+                <li>firstName->Jonathan</li>
+                <li>firstName->Tom</li>
+                <li>firstName->Montgomery</li>
+                <li>firstName->Nyota</li>
+                <li>firstName->Will</li>
+                <li>firstName->Hikaru</li>
+                <li>firstName->Julian</li>
+                <li>firstName->B'Elanna</li>
+                <li>firstName->Ezri</li>
+                <li>firstName->Tasha</li>
+                <li>firstName->Pavel</li>
+                <li>firstName->Beverly</li>
+                <li>firstName->Geordi</li>
+                <li>firstName->Harry</li>
+                <li>firstName->Deanna</li>
+                <li>firstName->Wesley</li>
+
+                <li>nickName->Chakotay</li>
+                <li>nickName->Worf</li>
+                <li>nickName->Tuvok</li>
+                <li>nickName->Odo</li>
+                <li>nickName->Spock</li>
+                <li>nickName->Data</li>
+                <li>nickName->T.</li>
+                <li>nickName->Tiberius</li>
+
+                <li>lastName->Picard</li>
+                <li>lastName->Nerys</li>
+                <li>lastName->Of Nine</li>
+                <li>lastName->Kirk</li>
+                <li>lastName->Dax</li>
+                <li>lastName->Sisko</li>
+                <li>lastName->McCoy</li>
+                <li>lastName->O'Brien</li>
+                <li>lastName->Janeway</li>
+                <li>lastName->Paris</li>
+                <li>lastName->Scott</li>
+                <li>lastName->Uhura</li>
+                <li>lastName->Riker</li>
+                <li>lastName->Sulu</li>
+                <li>lastName->Bashir</li>
+                <li>lastName->Torres</li>
+                <li>lastName->Dax</li>
+                <li>lastName->Yar</li>
+                <li>lastName->Crusher</li>
+                <li>lastName->LaForge</li>
+                <li>lastName->Kim</li>
+                <li>lastName->Troi</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+</Defs>

@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Defs>
+    <BackstoryDef>
+        <defName>MSSFP_DennyCraneChildhood</defName>
+        <identifier>MSSFP_DennyCraneChildhood</identifier>
+        <slot>Childhood</slot>
+        <title>Privileged Brat</title>
+        <titleShort>Rich Brat</titleShort>
+        <baseDesc>Denny was born into wealth and privilege, never hearing the word "no." As a child, he charmed his way out of trouble, leveraging his family's wealth and status. His early years were filled with extravagant parties, private tutors, and very little discipline, fueling his lifelong confidence and bravado.</baseDesc>
+        <workDisables>ManualDumb</workDisables>
+        <skillGains>
+            <Shooting>3</Shooting>
+            <Melee>2</Melee>
+            <Artistic>2</Artistic>
+            <Intellectual>4</Intellectual>
+            <Social>5</Social>
+        </skillGains>
+    </BackstoryDef>
+
+    <BackstoryDef>
+        <defName>MSSFP_DennyCraneAdulthood</defName>
+        <identifier>MSSFP_DennyCraneAdulthood</identifier>
+        <slot>Adulthood</slot>
+        <title>Legendary Attorney</title>
+        <titleShort>Attorney</titleShort>
+        <baseDesc>As a famously eccentric attorney, Denny Crane dominated courtrooms with charisma, confidence, and questionable ethics. After a near-death encounter with Mad Cow Disease, he had himself cryogenically frozen by the infamous Dr. Keyz. Awakened centuries later, Denny embraced a new mission: charming and "borrowing" wives wherever he roams.</baseDesc>
+        <workDisables>ManualSkilled</workDisables>
+        <requiredWorkTags>Social</requiredWorkTags>
+        <skillGains>
+            <Shooting>4</Shooting>
+            <Melee>1</Melee>
+            <Medicine>2</Medicine>
+            <Intellectual>4</Intellectual>
+            <Social>9</Social>
+        </skillGains>
+    </BackstoryDef>
+</Defs>
