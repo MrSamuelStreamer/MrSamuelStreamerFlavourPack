@@ -8,7 +8,7 @@ namespace MSSFP.BS.HarmonyPatches;
 public static class CompProperties_IncorporateEffect__Patch
 {
     public static HediffDef hediff => DefDatabase<HediffDef>.GetNamed("MSS_Bigger");
-    public static FloatRange bodySizeMultiplierRange => new(1.01f, 1.05f);
+    public static FloatRange bodySizeMultiplierRange => new(.05f, .2f);
 
     [HarmonyPatch(nameof(CompProperties_IncorporateEffect.RemoveGenesOverLimit))]
     [HarmonyPrefix]
@@ -25,7 +25,8 @@ public static class CompProperties_IncorporateEffect__Patch
         Hediff_Bigger h = (Hediff_Bigger)pawn.health.GetOrAddHediff(hediff);
         if (h == null)
             return;
-        h.BodySizeMultiplier *= bodySizeMultiplierRange.RandomInRange;
+        h.BodySizeMultiplier += bodySizeMultiplierRange.RandomInRange;
+        h.SizeChanged = true;
         HumanoidPawnScaler.GetCache(pawn, forceRefresh: true, scheduleForce: 10);
     }
 }

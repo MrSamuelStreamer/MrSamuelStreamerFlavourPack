@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ModsConfigData>
-    <version>1.5.4402 rev723</version>
+    <version>1.5.4409 rev1118</version>
     <activeMods>
         <li>brrainz.harmony</li>
         <li>ludeon.rimworld</li>
@@ -39,6 +39,7 @@
         <li>vanillaexpanded.vee</li>
         <li>oskarpotocki.vfe.classical</li>
         <li>oskarpotocki.vfe.tribals</li>
+        <li>vanillaexpanded.vmemese</li>
         <li>vanillaexpanded.outposts</li>
         <li>mrhydralisk.voeadditionaloutposts</li>
         <li>smashphil.xmlpatchhelper</li>

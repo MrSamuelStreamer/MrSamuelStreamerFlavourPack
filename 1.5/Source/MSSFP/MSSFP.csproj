@@ -360,6 +360,18 @@
         <ReleaseFiles Update="..\..\Defs\ThingDefs_Races\MSSFP_Trek.xml">
           <Link>MrSamuelStreamerFlavourPack\1.5\Defs\ThingDefs_Races\MSSFP_Trek.xml</Link>
         </ReleaseFiles>
+
+        <CompatibilityFiles Update="..\..\..\Compatibility\VanillaExpanded.VMemesE\1.5\Patches\MSSFP_Orgy.xml">
+          <Link>MrSamuelStreamerFlavourPack\Compatibility\VanillaExpanded.VMemesE\1.5\Patches\MSSFP_Orgy.xml</Link>
+        </CompatibilityFiles>
+
+        <CompatibilityFiles Update="..\..\..\Compatibility\VanillaExpanded.VMemesE\1.5\Defs\MSSFP_Orgy.xml">
+          <Link>MrSamuelStreamerFlavourPack\Compatibility\VanillaExpanded.VMemesE\1.5\Defs\MSSFP_Orgy.xml</Link>
+        </CompatibilityFiles>
+
+        <CompatibilityFiles Update="..\..\..\Compatibility\VanillaExpanded.VMemesE\1.5\Patches\MSSFP_Orgy_RitualPattern.xml">
+          <Link>MrSamuelStreamerFlavourPack\Compatibility\VanillaExpanded.VMemesE\1.5\Patches\MSSFP_Orgy_Ritual_Outcome.xml</Link>
+        </CompatibilityFiles>
     </ItemGroup>
     <ItemGroup>
       <Folder Include="..\..\..\Common\Textures\Things\AMPSuit\">

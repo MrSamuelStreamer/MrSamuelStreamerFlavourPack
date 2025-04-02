@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using BigAndSmall;
 using UnityEngine;
 using Verse;
 
@@ -43,10 +44,26 @@ public class Hediff_Bigger : HediffWithComps
     }
 
     public float BodySizeMultiplier = 1f;
+    public bool SizeChanged = false;
+    public bool RecalculateSize = false;
 
     public override void ExposeData()
     {
         base.ExposeData();
         Scribe_Values.Look(ref BodySizeMultiplier, "BodySizeMultiplier", 1f);
+    }
+
+    public override void PostTick()
+    {
+        base.PostTick();
+        if (RecalculateSize)
+        {
+            HumanoidPawnScaler.GetCache(pawn, forceRefresh: true, scheduleForce: 10);
+        }
+        if (SizeChanged)
+        {
+            SizeChanged = false;
+            RecalculateSize = true;
+        }
     }
 }

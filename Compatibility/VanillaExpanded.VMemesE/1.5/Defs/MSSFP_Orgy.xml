@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Defs>
+
+
+    <RitualObligationTargetFilterDef>
+        <defName>MSSFP_AnyIdeoBuildingOrRitualSpotWithCuckChair</defName>
+        <workerClass>MSSFP.Rituals.RitualObligationTargetWorker_Things</workerClass>
+        <thingDefs>
+            <li>RitualSpot</li>
+            <li>MSSFP_CuckChair</li>
+        </thingDefs>
+    </RitualObligationTargetFilterDef>
+
+
+    <ThingDef ParentName="ThroneBase">
+        <defName>MSSFP_CuckChair</defName>
+        <label>Cuck Chair</label>
+        <description>A large, ornate chair designed for losing ones dignity.</description>
+        <statBases>
+            <MaxHitPoints>150</MaxHitPoints>
+            <WorkToBuild>10000</WorkToBuild>
+            <Mass>40</Mass>
+            <Flammability>1.0</Flammability>
+            <Beauty>15</Beauty>
+            <Comfort>0.75</Comfort>
+        </statBases>
+        <constructionSkillPrerequisite>4</constructionSkillPrerequisite>
+        <stuffCategories>
+            <li>Metallic</li>
+            <li>Woody</li>
+            <li>Stony</li>
+        </stuffCategories>
+        <costStuffCount>125</costStuffCount>
+        <uiIconOffset>(0, 0.08)</uiIconOffset>
+        <uiIconScale>0.75</uiIconScale>
+        <graphicData>
+            <drawSize>(2.4,2.4)</drawSize>
+            <texPath>Things/Building/Furniture/Throne</texPath>
+            <graphicClass>Graphic_Multi</graphicClass>
+            <shadowData>
+                <volume>(0.5,0.35,0.4)</volume>
+            </shadowData>
+            <damageData>
+                <rect>(0.2,0,2, 0.6, 0.6)</rect>
+            </damageData>
+        </graphicData>
+    </ThingDef>
+
+    <JobDef>
+        <defName>MSSFP_Sit</defName>
+        <driverClass>JobDriver_Wait</driverClass>
+        <reportString>sitting.</reportString>
+        <isIdle>true</isIdle>
+        <suspendable>false</suspendable>
+        <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+        <carryThingAfterJob>true</carryThingAfterJob>
+        <dropThingBeforeJob>false</dropThingBeforeJob>
+    </JobDef>
+
+    <DutyDef>
+        <defName>MSSFFP_Sit</defName>
+        <label>Sitting, watching</label>
+        <hook>MediumPriority</hook>
+
+        <thinkNode Class="ThinkNode_Priority">
+            <subNodes>
+                <li Class="VanillaMemesExpanded.JobGiver_GetNaked">
+                </li>
+                <li Class="MSSFP.Rituals.JobGiver_GetCucked" />
+                <li Class="ThinkNode_ConditionalInGatheringArea">
+                    <subNodes>
+                        <li Class="JobGiver_Idle">
+                            <ticks>600</ticks>
+                        </li>
+                    </subNodes>
+                </li>
+
+            </subNodes>
+        </thinkNode>
+    </DutyDef>
+</Defs>

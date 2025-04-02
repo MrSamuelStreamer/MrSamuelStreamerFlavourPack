@@ -49,7 +49,6 @@ public static class Pawn_GeneTracker_Patch
     {
         if ((__instance.pawn.health?.hediffSet?.TryGetHediff(MSSFPDefOf.MSSFP_Hediff_DRM, out Hediff hediff) ?? false) && !PawnGenerator.IsBeingGenerated(__instance.pawn))
         {
-            DamageInfo dinfo = new();
             __instance.pawn.Kill(null, null);
             return false;
         }
