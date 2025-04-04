@@ -12,6 +12,7 @@
             <li>subject->Joris</li>
             <li>subject->ohio</li>
             <li>subject->brainrot</li>
+            <li>subject->snu-snu</li>
         </value>
     </Operation>
     <Operation Class="PatchOperationAdd">
@@ -48,9 +49,12 @@
             <li>TalkTopicAny->rimrim</li>
             <li>TalkTopicAny->frogge</li>
             <li>TalkTopicAny->rizz</li>
+            <li>TalkTopicAny->snu-snu</li>
             <li>TalkTopicAny->sussy baka</li>
             <li>TalkTopicAny->situationship</li>
             <li>TalkTopicAny->touching grass</li>
+            <li>TalkTopicAny->proletarian labour stolen by the bourgeoisie</li>
+            <li>TalkTopicAny->proletarian labour stolen by the bourgeoisie</li>
         </value>
     </Operation>
     <Operation Class="PatchOperationAdd">
@@ -58,6 +62,14 @@
         <value>
             <li>businesstype->Failure Management</li>
             <li>businesstype->Rizz Corp</li>
+            <li>businesstype->Sussy Corp</li>
+            <li>businesstype->Middlemen Inc.</li>
+            <li>businesstype->[purveyStuff] Slingers</li>
+            <li>businesstype->BDE</li>
+            <li>businesstype->Purveyors of [purveyStuff]</li>
+            <li>purveyStuff->Guff</li>
+            <li>purveyStuff->Tat</li>
+            <li>purveyStuff->Junk</li>
         </value>
     </Operation>
 </Patch>
