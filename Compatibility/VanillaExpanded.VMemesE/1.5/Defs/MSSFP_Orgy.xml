@@ -11,31 +11,38 @@
         </thingDefs>
     </RitualObligationTargetFilterDef>
 
-
     <ThingDef ParentName="ThroneBase">
         <defName>MSSFP_CuckChair</defName>
-        <label>Cuck Chair</label>
+        <label>Golden Cuck Chair</label>
+        <thingClass>MSSFP.VFE.Building_CuckChair</thingClass>
         <description>A large, ornate chair designed for losing ones dignity.</description>
         <statBases>
             <MaxHitPoints>150</MaxHitPoints>
-            <WorkToBuild>10000</WorkToBuild>
+            <WorkToBuild>7000</WorkToBuild>
             <Mass>40</Mass>
             <Flammability>1.0</Flammability>
-            <Beauty>15</Beauty>
-            <Comfort>0.75</Comfort>
+            <Beauty>25</Beauty>
+            <Comfort>2</Comfort>
         </statBases>
-        <constructionSkillPrerequisite>4</constructionSkillPrerequisite>
-        <stuffCategories>
-            <li>Metallic</li>
-            <li>Woody</li>
-            <li>Stony</li>
-        </stuffCategories>
-        <costStuffCount>125</costStuffCount>
+        <costList>
+            <Gold>150</Gold>
+            <Steel>150</Steel>
+        </costList>
+        <stuffCategories Inherit="False"/>
+        <costStuffCount IsNull="True"/>
+        <placeWorkers Inherit="False">
+            <li>PlaceWorker_MeditationSpot</li>
+        </placeWorkers>
+        <comps Inherit="False">
+            <compClass>CompQuality</compClass>
+        </comps>
+        <socialPropernessMatters>false</socialPropernessMatters>
+        <constructionSkillPrerequisite>8</constructionSkillPrerequisite>
         <uiIconOffset>(0, 0.08)</uiIconOffset>
         <uiIconScale>0.75</uiIconScale>
         <graphicData>
             <drawSize>(2.4,2.4)</drawSize>
-            <texPath>Things/Building/Furniture/Throne</texPath>
+            <texPath>Things/Building/Furniture/MSSFP_CuckChair</texPath>
             <graphicClass>Graphic_Multi</graphicClass>
             <shadowData>
                 <volume>(0.5,0.35,0.4)</volume>
@@ -66,7 +73,7 @@
             <subNodes>
                 <li Class="VanillaMemesExpanded.JobGiver_GetNaked">
                 </li>
-                <li Class="MSSFP.Rituals.JobGiver_GetCucked" />
+                <li Class="MSSFP.VFE.JobGiver_GetCucked" />
                 <li Class="ThinkNode_ConditionalInGatheringArea">
                     <subNodes>
                         <li Class="JobGiver_Idle">

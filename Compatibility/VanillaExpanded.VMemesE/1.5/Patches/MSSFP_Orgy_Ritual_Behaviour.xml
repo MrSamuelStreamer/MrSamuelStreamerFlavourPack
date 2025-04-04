@@ -21,7 +21,7 @@
                 <roleId>cuck</roleId>
                 <dutyDef>MSSFFP_Sit</dutyDef>
                 <customPositions>
-                    <li Class="MSSFP.Rituals.RitualPosition_Sit" />
+                    <li Class="MSSFP.VFE.RitualPosition_Sit" />
                 </customPositions>
             </li>
         </value>
