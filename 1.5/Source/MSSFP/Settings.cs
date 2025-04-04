@@ -191,15 +191,19 @@ public class Settings : ModSettings
         Scribe_Values.Look(ref DaysForOutpostFission, "DaysForOutpostFission", 7);
         Scribe_Values.Look(ref DaysForFission, "DaysForFission", 7);
 
-        GeneDef inco = DefDatabase<GeneDef>.GetNamed("BS_Incorporate");
-        if (inco != null)
+        if (Scribe.mode == LoadSaveMode.ResolvingCrossRefs || Scribe.mode == LoadSaveMode.Saving)
         {
-            inco.description = DisableBSIncorporateGeneLimit ? "MSSFP_BS_Incorporate_Desc2".Translate() : "MSSFP_BS_Incorporate_Desc1".Translate();
-        }
-        AbilityDef incoab = DefDatabase<AbilityDef>.GetNamed("BS_Incorporate_Abillity");
-        if (incoab != null)
-        {
-            incoab.description = DisableBSIncorporateGeneLimit ? "MSSFP_BS_Incorporate_Desc2".Translate() : "MSSFP_BS_Incorporate_Desc1".Translate();
+            GeneDef inco = DefDatabase<GeneDef>.GetNamed("BS_Incorporate");
+            if (inco != null)
+            {
+                inco.description = DisableBSIncorporateGeneLimit ? "MSSFP_BS_Incorporate_Desc2".Translate() : "MSSFP_BS_Incorporate_Desc1".Translate();
+            }
+
+            AbilityDef incoab = DefDatabase<AbilityDef>.GetNamed("BS_Incorporate_Abillity");
+            if (incoab != null)
+            {
+                incoab.description = DisableBSIncorporateGeneLimit ? "MSSFP_BS_Incorporate_Desc2".Translate() : "MSSFP_BS_Incorporate_Desc1".Translate();
+            }
         }
 
         FieldInfo MetabolismToFoodConsumptionFactorCurveField = AccessTools.Field(typeof(GeneTuning), nameof(GeneTuning.MetabolismToFoodConsumptionFactorCurve));
