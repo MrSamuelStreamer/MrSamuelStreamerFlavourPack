@@ -8,7 +8,7 @@ namespace MSSFP.BS.HarmonyPatches;
 public static class CompProperties_IncorporateEffect__Patch
 {
     public static HediffDef hediff => DefDatabase<HediffDef>.GetNamed("MSS_Bigger");
-    public static FloatRange bodySizeMultiplierRange => new(.05f, .2f);
+    public static FloatRange bodySizeMultiplierRange => new(.01f, .10f);
 
     [HarmonyPatch(nameof(CompProperties_IncorporateEffect.RemoveGenesOverLimit))]
     [HarmonyPrefix]
