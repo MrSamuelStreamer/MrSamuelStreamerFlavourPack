@@ -58,6 +58,7 @@ public class Hediff_Bigger : HediffWithComps
         base.PostTick();
         if (RecalculateSize)
         {
+            RecalculateSize = false;
             HumanoidPawnScaler.GetCache(pawn, forceRefresh: true, scheduleForce: 10);
         }
         if (SizeChanged)
