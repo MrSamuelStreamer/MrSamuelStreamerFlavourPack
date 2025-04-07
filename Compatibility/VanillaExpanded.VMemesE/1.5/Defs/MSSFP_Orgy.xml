@@ -42,7 +42,7 @@
         <uiIconScale>0.75</uiIconScale>
         <graphicData>
             <drawSize>(2.4,2.4)</drawSize>
-            <texPath>Things/Building/Furniture/MSSFP_CuckChair</texPath>
+            <texPath>Things/Building/Furniture/MSSFP_CC</texPath>
             <graphicClass>Graphic_Multi</graphicClass>
             <shadowData>
                 <volume>(0.5,0.35,0.4)</volume>
