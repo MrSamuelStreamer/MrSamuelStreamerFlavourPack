@@ -19,5 +19,6 @@
         <li IfModActive="kikohi.jewelry">Compatibility/kikohi.jewelry/1.5</li>
         <li IfModActive="RedMattis.BetterPrerequisites">Compatibility/RedMattis.BetterPrerequisites/1.5</li>
         <li IfModActive="VanillaExpanded.VMemesE">Compatibility/VanillaExpanded.VMemesE/1.5</li>
+        <li IfModActive="OskarPotocki.VanillaFactionsExpanded.Core">Compatibility/OskarPotocki.VanillaFactionsExpanded.Core/1.5</li>
 	</v1.5>
 </loadFolders>

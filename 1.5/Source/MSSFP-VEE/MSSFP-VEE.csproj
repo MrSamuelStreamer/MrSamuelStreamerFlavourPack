@@ -46,6 +46,7 @@
         <Reference Include="VFECore">
             <HintPath Condition="Exists('../../../../VanillaExpandedFramework/1.5/Assemblies/VFECore.dll')">../../../../VanillaExpandedFramework/1.5/Assemblies/VFECore.dll</HintPath>
             <HintPath Condition="Exists('../../../../2023507013/1.5/Assemblies/VFECore.dll')">../../../../2023507013/1.5/Assemblies/VFECore.dll</HintPath>
+            <HintPath Condition="Exists('../../../../../../../workshop/content/294100/2023507013/1.5/Assemblies/VFECore.dll')">../../../../../../../workshop/content/294100/2023507013/1.5/Assemblies/VFECore.dll</HintPath>
             <HintPath Condition="Exists('../../../../../../../../workshop/content/294100/2023507013/1.5/Assemblies/VFECore.dll')">../../../../../../../../workshop/content/294100/2023507013/1.5/Assemblies/VFECore.dll</HintPath>
             <Private>False</Private>
         </Reference>

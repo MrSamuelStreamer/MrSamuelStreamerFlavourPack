@@ -7,7 +7,7 @@
         <LangVersion>latest</LangVersion>
         <RootNamespace>MSSFP.VFE</RootNamespace>
         <AssemblyName>MSSFP.VFE</AssemblyName>
-        <OutputPath>../../../Compatibility/vanillaexpanded.outposts/1.5/Assemblies</OutputPath>
+        <OutputPath>../../../Compatibility/OskarPotocki.VanillaFactionsExpanded.Core/1.5/Assemblies</OutputPath>
         <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
         <SteamModsPath>$(RIMWORLD_STEAM_MODS_PATH)</SteamModsPath>
