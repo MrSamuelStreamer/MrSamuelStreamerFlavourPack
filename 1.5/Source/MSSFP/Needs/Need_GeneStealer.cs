@@ -9,14 +9,24 @@ public class Need_GeneStealer : Need
     public const float FallPerInterval = 150 * (FallPerDay / GenDate.TicksPerDay);
     private const float MinAgeForNeed = 13f;
 
+    public override float CurLevel
+    {
+        get
+        {
+            if (!MSSFPMod.settings.EnableGeneStealerNeed)
+                return 1f;
+            return base.CurLevel;
+        }
+    }
+
     protected override bool IsFrozen
     {
-        get => pawn.ageTracker.AgeBiologicalYears < 13.0 || base.IsFrozen;
+        get => pawn.ageTracker.AgeBiologicalYears < 13.0 || !MSSFPMod.settings.EnableGeneStealerNeed || base.IsFrozen;
     }
 
     public override bool ShowOnNeedList
     {
-        get => pawn.ageTracker.AgeBiologicalYears >= 13.0 && base.ShowOnNeedList;
+        get => pawn.ageTracker.AgeBiologicalYears >= 13.0 && MSSFPMod.settings.EnableGeneStealerNeed && base.ShowOnNeedList;
     }
 
     public Need_GeneStealer(Pawn newPawn)

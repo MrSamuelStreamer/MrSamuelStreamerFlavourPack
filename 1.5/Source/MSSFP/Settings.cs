@@ -65,6 +65,8 @@ public class Settings : ModSettings
 
     public bool DisableNonsenseIncidents = false;
 
+    public bool EnableGeneStealerNeed = true;
+
     public void DrawCheckBox(Listing_Standard options, string label, ref bool value, ref float svh)
     {
         svh += Text.CalcHeight(label, options.ColumnWidth) + 12f;
@@ -102,6 +104,7 @@ public class Settings : ModSettings
         DrawCheckBox(options, "MSS_FP_Settings_DisableBSIncorporateGeneLimit".Translate(), ref DisableBSIncorporateGeneLimit, ref ScrollViewHeight);
         DrawCheckBox(options, "MSS_FP_Settings_EnableExtendedMetabolismMultipliers".Translate(), ref EnableExtendedMetabolismMultipliers, ref ScrollViewHeight);
         DrawCheckBox(options, "MSS_FP_Settings_DisableNonsenseIncidents".Translate(), ref DisableNonsenseIncidents, ref ScrollViewHeight);
+        DrawCheckBox(options, "MSS_FP_Settings_EnableGeneStealerNeed".Translate(), ref EnableGeneStealerNeed, ref ScrollViewHeight);
 
         DrawIntAdjuster(options, "MSS_FP_Settings_DaysForOutpostFission".Translate(DaysForOutpostFission), ref DaysForOutpostFission, 1, 1, ref ScrollViewHeight);
         DrawIntAdjuster(options, "MSS_FP_Settings_DaysForFission".Translate(DaysForFission), ref DaysForFission, 1, 1, ref ScrollViewHeight);
@@ -183,6 +186,7 @@ public class Settings : ModSettings
         Scribe_Values.Look(ref DisablePossession, "DisableNonsenseIncidents", false);
         Scribe_Values.Look(ref DisableBSIncorporateGeneLimit, "DisableBSIncorporateGeneLimit", true);
         Scribe_Values.Look(ref EnableExtendedMetabolismMultipliers, "EnableExtendedMetabolismMultipliers", true);
+        Scribe_Values.Look(ref EnableGeneStealerNeed, "EnableGeneStealerNeed", true);
         Scribe_Values.Look(ref GeneEventChance, "GeneEventChance", 1f);
         Scribe_Values.Look(ref GoodGeneChance, "GoodGeneChance", 1f / 4f);
         Scribe_Values.Look(ref BadGeneChance, "BadGeneChance", 1f / 4f);

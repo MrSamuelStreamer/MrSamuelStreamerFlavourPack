@@ -93,4 +93,6 @@
     <MSSFP_TrekPodCrash_Factionless>{PAWN_nameDef} is not affiliated with any faction. You can rescue {PAWN_objective} and hope {PAWN_pronoun} joins freely, or capture {PAWN_objective} for recruitment or slavery purposes.</MSSFP_TrekPodCrash_Factionless>
 
     <MSSFP_RitualObligationTargetWorker_Things_NotFound>{0} not found within {1} tiles of a {1}</MSSFP_RitualObligationTargetWorker_Things_NotFound>
+
+    <MSS_FP_Settings_EnableGeneStealerNeed>Enable the Gene Stealer need for the B&S Incorporate Gene</MSS_FP_Settings_EnableGeneStealerNeed>
 </LanguageData>
