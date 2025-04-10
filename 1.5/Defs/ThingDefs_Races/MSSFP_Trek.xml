@@ -15,6 +15,7 @@
             <Intellectual>5</Intellectual>
             <Social>5</Social>
         </skillGains>
+        <shuffleable>false</shuffleable>
     </BackstoryDef>
 
     <PawnKindDef ParentName="SpaceRefugeeBase">
