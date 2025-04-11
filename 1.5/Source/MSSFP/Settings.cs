@@ -183,7 +183,7 @@ public class Settings : ModSettings
         Scribe_Values.Look(ref EnableFroggeIncidents, "EnableFroggeIncidents", true);
         Scribe_Values.Look(ref SingleUseMentalFuses, "SingleUseMentalFuses", true);
         Scribe_Values.Look(ref DisablePossession, "DisablePossession", false);
-        Scribe_Values.Look(ref DisablePossession, "DisableNonsenseIncidents", false);
+        Scribe_Values.Look(ref DisableNonsenseIncidents, "DisableNonsenseIncidents", false);
         Scribe_Values.Look(ref DisableBSIncorporateGeneLimit, "DisableBSIncorporateGeneLimit", true);
         Scribe_Values.Look(ref EnableExtendedMetabolismMultipliers, "EnableExtendedMetabolismMultipliers", true);
         Scribe_Values.Look(ref EnableGeneStealerNeed, "EnableGeneStealerNeed", true);
