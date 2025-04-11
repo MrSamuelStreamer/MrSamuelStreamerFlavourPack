@@ -2,6 +2,7 @@
 using System.Linq;
 using HarmonyLib;
 using MSSFP.Comps;
+using MSSFP.Comps.Map;
 using RimWorld;
 using Verse;
 using Verse.AI;
@@ -21,16 +22,31 @@ public static class JobDriver_Lovin_Patch
             return;
 
         Building_Bed bed = (Building_Bed)__instance.job.GetTarget(TargetIndex.B);
+        Toil lastToil = toils.GetLast();
 
-        toils
-            .GetLast()
-            .AddFinishAction(
-                delegate
+        lastToil.AddFinishAction(
+            delegate
+            {
+                CompUpgradableBed comp = bed.GetComp<CompUpgradableBed>();
+                comp?.Notify_GotSomeLovin(bed.CurOccupants.ToList());
+            }
+        );
+
+        lastToil.AddFinishAction(
+            delegate
+            {
+                foreach (Pawn pawn in bed.CurOccupants)
                 {
-                    CompUpgradableBed comp = bed.GetComp<CompUpgradableBed>();
-                    comp?.Notify_GotSomeLovin(bed.CurOccupants.ToList());
+                    if (pawn.story.AllBackstories.Any(bs => bs == MSSFPDefOf.MSSFP_Trek))
+                    {
+                        if (Rand.Chance(0.25f))
+                        {
+                            pawn.Map.GetComponent<TrekBeamerMapComponent>()?.BeamAwayPawn(pawn);
+                        }
+                    }
                 }
-            );
+            }
+        );
 
         __result = toils;
     }

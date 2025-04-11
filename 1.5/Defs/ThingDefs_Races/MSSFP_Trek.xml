@@ -53,7 +53,7 @@
         <validWhileDespawned>true</validWhileDespawned>
         <stages>
             <li>
-                <label>the academy effect</label>
+                <label>the rimfleet academy effect</label>
             </li>
         </stages>
     </ThoughtDef>

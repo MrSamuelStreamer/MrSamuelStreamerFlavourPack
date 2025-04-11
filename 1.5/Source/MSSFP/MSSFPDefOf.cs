@@ -80,5 +80,7 @@ public static class MSSFPDefOf
 
     public static readonly QuestScriptDef MSS_TrekPodCrash;
 
+    public static readonly BackstoryDef MSSFP_Trek;
+
     static MSSFPDefOf() => DefOfHelper.EnsureInitializedInCtor(typeof(MSSFPDefOf));
 }
