@@ -34,7 +34,9 @@
             <li>PlaceWorker_MeditationSpot</li>
         </placeWorkers>
         <comps Inherit="False">
-            <compClass>CompQuality</compClass>
+            <li>
+                <compClass>CompQuality</compClass>
+            </li>
         </comps>
         <socialPropernessMatters>false</socialPropernessMatters>
         <constructionSkillPrerequisite>8</constructionSkillPrerequisite>
