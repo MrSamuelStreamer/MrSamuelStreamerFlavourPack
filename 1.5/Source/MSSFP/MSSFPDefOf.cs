@@ -32,6 +32,7 @@ public static class MSSFPDefOf
     public static readonly JobDef MSSFP_GoToThen;
 
     public static readonly ResearchProjectDef MSS_FroggeLeapResearch;
+    public static readonly ResearchProjectDef MSS_Oskarian_Technology;
 
     public static readonly IncidentDef MSS_FroggeResearch;
 

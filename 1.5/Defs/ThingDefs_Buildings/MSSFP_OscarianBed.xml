@@ -20,6 +20,9 @@
             <Beauty>2</Beauty>
             <BedRestEffectiveness>1</BedRestEffectiveness>
         </statBases>
+        <scatterableOnMapGen>false</scatterableOnMapGen>
+        <genericMarketSellable>false</genericMarketSellable>
+        <relicChance>0</relicChance>
         <size>(2,2)</size>
         <tickerType>Normal</tickerType>
         <costStuffCount>85</costStuffCount>

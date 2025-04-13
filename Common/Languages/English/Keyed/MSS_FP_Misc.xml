@@ -95,7 +95,7 @@
     <MSSFP_RitualObligationTargetWorker_Things_NotFound>{0} not found within {1} tiles of a {1}</MSSFP_RitualObligationTargetWorker_Things_NotFound>
 
     <MSS_FP_Settings_EnableGeneStealerNeed>Enable the Gene Stealer need for the Big and Small Incorporate Gene</MSS_FP_Settings_EnableGeneStealerNeed>
-
+    <MSS_FP_Settings_EnableOskarianTech>Enable Oskarian Technology</MSS_FP_Settings_EnableOskarianTech>
 
     <MSSFP_TrekBeamerLetter>{PAWN_nameFull} loves and leaves.</MSSFP_TrekBeamerLetter>
     <MSSFP_TrekBeamerLetterText>Shortly after getting some lovin', {PAWN_nameFull}, in a rushed tone apologised, and announced that {PAWN_possessive} people needed {PAWN_objective}, before promptly dematerializing</MSSFP_TrekBeamerLetterText>
