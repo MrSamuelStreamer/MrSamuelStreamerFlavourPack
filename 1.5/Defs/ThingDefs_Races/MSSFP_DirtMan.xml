@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <ToolCapacityDef>
+        <defName>MSSFP_Dirtman_SwallowWhole</defName>
+        <label>swallow whole</label>
+    </ToolCapacityDef>
+
+    <DamageDef>
+        <defName>MSSFP_Dirtman_SwallowWhole</defName>
+        <label>swallow whole</label>
+        <workerClass>AnimalBehaviours.DamageWorker_SwallowWhole</workerClass>
+        <externalViolence>true</externalViolence>
+        <deathMessage>{0} has been bitten to death.</deathMessage>
+        <hediff>Stab</hediff>
+        <hediffSolid>Crack</hediffSolid>
+        <harmAllLayersUntilOutside>true</harmAllLayersUntilOutside>
+        <impactSoundType>Slice</impactSoundType>
+        <armorCategory>Sharp</armorCategory>
+    </DamageDef>
+
+    <ManeuverDef>
+        <defName>MSSFP_Dirtman_SwallowWhole</defName>
+        <requiredCapacity>MSSFP_Dirtman_SwallowWhole</requiredCapacity>
+        <verb>
+            <verbClass>Verb_MeleeAttackDamage</verbClass>
+            <meleeDamageDef>MSSFP_Dirtman_SwallowWhole</meleeDamageDef>
+        </verb>
+        <logEntryDef>MeleeAttack</logEntryDef>
+        <combatLogRulesHit>Maneuver_Stab_MeleeHit</combatLogRulesHit>
+        <combatLogRulesDeflect>Maneuver_Stab_MeleeDeflect</combatLogRulesDeflect>
+        <combatLogRulesMiss>Maneuver_Stab_MeleeMiss</combatLogRulesMiss>
+        <combatLogRulesDodge>Maneuver_Stab_MeleeDodge</combatLogRulesDodge>
+    </ManeuverDef>
+
+    <ThingDef ParentName="BaseBear">
+        <defName>MSSFP_Dirtman</defName>
+        <label>dirt man</label>
+        <description>You didn't put any dirt under your pillow, so the dirt man is coming to take you to his lair.</description>
+        <thingClass>AnimalBehaviours.Pawn_SwallowWhole</thingClass>
+        <statBases>
+            <Flammability>0.1</Flammability>
+            <MoveSpeed>15.5</MoveSpeed>
+            <MarketValue>2400</MarketValue>
+            <ComfyTemperatureMax>65</ComfyTemperatureMax>
+            <ComfyTemperatureMin>-65</ComfyTemperatureMin>
+            <ArmorRating_Sharp>0.20</ArmorRating_Sharp>
+            <ArmorRating_Blunt>1.80</ArmorRating_Blunt>
+            <ArmorRating_Heat>1.80</ArmorRating_Heat>
+            <ToxicEnvironmentResistance MayRequire="Ludeon.RimWorld.Biotech">1</ToxicEnvironmentResistance>
+            <ToxicResistance>1</ToxicResistance>
+        </statBases>
+        <tools>
+            <li>
+                <label>mouth</label>
+                <capacities>
+                    <li>MSSFP_Dirtman_SwallowWhole</li>
+                </capacities>
+                <power>12</power>
+                <linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+            </li>
+            <li>
+                <label>pocket dirt</label>
+                <capacities>
+                    <li>Poke</li>
+                </capacities>
+                <power>16</power>
+                <linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+                <surpriseAttack>
+                    <extraMeleeDamages>
+                        <li>
+                            <def>Stun</def>
+                            <amount>14</amount>
+                        </li>
+                    </extraMeleeDamages>
+                </surpriseAttack>
+            </li>
+        </tools>
+        <uiIconScale>1.5</uiIconScale>
+        <tradeability>None</tradeability>
+        <race>
+            <predator>false</predator>
+            <herdAnimal>false</herdAnimal>
+            <body>QuadrupedAnimalWithPaws</body>
+            <baseBodySize>2</baseBodySize>
+            <baseHungerRate>0</baseHungerRate>
+            <baseHealthScale>3</baseHealthScale>
+            <wildness>1</wildness>
+            <trainability>None</trainability>
+            <petness>0</petness>
+            <lifeExpectancy>12000</lifeExpectancy>
+            <intelligence>ToolUser</intelligence>
+            <overrideShouldHaveAbilityTracker>true</overrideShouldHaveAbilityTracker>
+            <disableIgniteVerb>true</disableIgniteVerb>
+            <canOpenFactionlessDoors>true</canOpenFactionlessDoors>
+            <needsRest>false</needsRest>
+            <hasGenders>false</hasGenders>
+            <isImmuneToInfections>true</isImmuneToInfections>
+            <bleedRateFactor>0.5</bleedRateFactor>
+            <lifeStageAges Inherit="false">
+                <li>
+                    <def>AnimalAdult</def>
+                    <soundCall>Pawn_Ghoul_Call</soundCall>
+                    <soundAttack>Pawn_Ghoul_Attack</soundAttack>
+                    <soundWounded>Pawn_Ghoul_Pain</soundWounded>
+                    <soundDeath>Pawn_Ghoul_Killed</soundDeath>
+                </li>
+            </lifeStageAges>
+            <soundMeleeHitPawn>Pawn_Melee_SmallScratch_HitPawn</soundMeleeHitPawn>
+            <soundMeleeHitBuilding>Pawn_Melee_SmallScratch_HitBuilding</soundMeleeHitBuilding>
+            <soundMeleeMiss>Pawn_Melee_SmallScratch_Miss</soundMeleeMiss>
+        </race>
+        <comps>
+            <li IfModActive="oskarpotocki.vanillafactionsexpanded.core" Class="AnimalBehaviours.CompProperties_SwallowWhole">
+                <sendLetterWhenEating>true</sendLetterWhenEating>
+                <letterLabel>MSSFP_DirtManEatingLabel</letterLabel>
+                <letterText>MSSFP_DirtManEatingText</letterText>
+                <playSoundWhenKilled>true</playSoundWhenKilled>
+                <createFilthWhenKilled>true</createFilthWhenKilled>
+                <stomachCapacity>1</stomachCapacity>
+            </li>
+            <li Class="AnimalBehaviours.CompProperties_DoesntFlee">
+
+            </li>
+            <li Class="AnimalBehaviours.CompProperties_FilthProducer">
+                <filthType>Filth_Dirt</filthType>
+                <rate>1</rate>
+                <radius>3</radius>
+                <ticksToCreateFilth>400</ticksToCreateFilth>
+            </li>
+        </comps>
+    </ThingDef>
+
+    <PawnKindDef ParentName="AnimalKindBase">
+        <defName>MSSFP_Dirtman</defName>
+        <label>dirt man</label>
+        <race>MSSFP_Dirtman</race>
+        <combatPower>100</combatPower>
+        <ecoSystemWeight>0.25</ecoSystemWeight>
+        <lifeStages>
+            <li>
+                <bodyGraphicData>
+                    <texPath>Things/Pawn/Animal/MSSFP_DirtMan/MSSFP_DirtMan</texPath>
+                    <drawSize>2</drawSize>
+                    <color>(255,255,255)</color>
+                    <shadowData>
+                        <volume>(0.32, 0.35, 0.32)</volume>
+                        <offset>(0,0,0)</offset>
+                    </shadowData>
+                </bodyGraphicData>
+            </li>
+        </lifeStages>
+    </PawnKindDef>
+
+    <IncidentDef>
+        <defName>MSSFP_DirtManVisit</defName>
+        <label>dirt man has come to town</label>
+        <category>Special</category>
+        <targetTags>
+            <li>Map_PlayerHome</li>
+        </targetTags>
+        <workerClass>MSSFP.Incidents.IncidentWorker_DirtManVisit</workerClass>
+        <letterLabel>MSSFP_DirtManVisitLetterLabel</letterLabel>
+        <letterText>MSSFP_DirtManVisitLetterText</letterText>
+        <baseChance>0.4</baseChance>
+        <minRefireDays>60</minRefireDays>
+        <minGreatestPopulation>3</minGreatestPopulation>
+        <pawnKind>MSSFP_Dirtman</pawnKind>
+    </IncidentDef>
+
+
+    <IncidentDef>
+        <defName>MSSFP_DirtManNoVisit</defName>
+        <label>dirt man has come to town</label>
+        <category>Special</category>
+        <targetTags>
+            <li>Map_PlayerHome</li>
+        </targetTags>
+        <workerClass>MSSFP.Incidents.IncidentWorker_DirtManNoVisit</workerClass>
+        <letterLabel>MSSFP_DirtManNoVisitLetterLabel</letterLabel>
+        <letterText>MSSFP_DirtManNoVisitLetterText</letterText>
+        <baseChance>0.4</baseChance>
+        <minRefireDays>60</minRefireDays>
+        <minGreatestPopulation>3</minGreatestPopulation>
+        <pawnKind>MSSFP_Dirtman</pawnKind>
+    </IncidentDef>
+</Defs>

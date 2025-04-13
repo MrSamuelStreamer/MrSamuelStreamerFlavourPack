@@ -82,5 +82,9 @@ public static class MSSFPDefOf
 
     public static readonly BackstoryDef MSSFP_Trek;
 
+    public static readonly JobDef MSSFP_PutALittleDirtUnderThePillow;
+
+    public static readonly PawnKindDef MSSFP_Dirtman;
+
     static MSSFPDefOf() => DefOfHelper.EnsureInitializedInCtor(typeof(MSSFPDefOf));
 }

@@ -34,6 +34,10 @@
         </researchPrerequisites>
         <comps>
             <li Class="MSSFP.Comps.CompProperties_UpgradableBed"/>
+            <li Class="MSSFP.Comps.CompProperties_DirtHaver">
+                <dirtExpires>true</dirtExpires>
+                <dirtExpireTime>60000</dirtExpireTime>
+            </li>
         </comps>
     </ThingDef>
 

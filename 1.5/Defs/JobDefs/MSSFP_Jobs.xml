@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Defs>
+    <JobDef>
+        <defName>MSSFP_PutALittleDirtUnderThePillow</defName>
+        <driverClass>MSSFP.Jobs.JobDriver_PutALittleDirt</driverClass>
+        <reportString>putting a little dirt under the pillow of TargetA.</reportString>
+        <suspendable>false</suspendable>
+        <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+    </JobDef>
+</Defs>

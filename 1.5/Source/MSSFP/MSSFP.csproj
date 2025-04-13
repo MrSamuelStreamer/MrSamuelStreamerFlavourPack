@@ -372,6 +372,22 @@
         <CompatibilityFiles Update="..\..\..\Compatibility\VanillaExpanded.VMemesE\1.5\Patches\MSSFP_Orgy_RitualPattern.xml">
           <Link>MrSamuelStreamerFlavourPack\Compatibility\VanillaExpanded.VMemesE\1.5\Patches\MSSFP_Orgy_Ritual_Outcome.xml</Link>
         </CompatibilityFiles>
+
+        <ReleaseFiles Update="..\..\Defs\JobDefs\MSSFP_Jobs.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Defs\JobDefs\MSSFP_Jobs.xml</Link>
+        </ReleaseFiles>
+
+        <ReleaseFiles Update="..\..\Patches\MSSFP_JobGivers.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Patches\MSSFP_JobGivers.xml</Link>
+        </ReleaseFiles>
+
+        <ReleaseFiles Update="..\..\Patches\MSS_Dirt.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Patches\MSS_Dirt.xml</Link>
+        </ReleaseFiles>
+
+        <ReleaseFiles Update="..\..\Defs\ThingDefs_Races\MSSFP_DirtMan.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Defs\ThingDefs_Races\MSSFP_DirtMan.xml</Link>
+        </ReleaseFiles>
     </ItemGroup>
     <ItemGroup>
       <Folder Include="..\..\..\Common\Textures\Things\AMPSuit\">

@@ -99,4 +99,17 @@
 
     <MSSFP_TrekBeamerLetter>{PAWN_nameFull} loves and leaves.</MSSFP_TrekBeamerLetter>
     <MSSFP_TrekBeamerLetterText>Shortly after getting some lovin', {PAWN_nameFull}, in a rushed tone apologised, and announced that {PAWN_possessive} people needed {PAWN_objective}, before promptly dematerializing</MSSFP_TrekBeamerLetterText>
+
+    <MSS_FP_Settings_EnableDirtJobs>Enable Dirtman</MSS_FP_Settings_EnableDirtJobs>
+    <MSSFP_HasDirt>There's a little dirt under the pillow</MSSFP_HasDirt>
+    <MSSFP_DoesNotHaveDirt>The pillow has no dirt under it</MSSFP_DoesNotHaveDirt>
+
+    <MSSFP_DirtManVisitLetterLabel>dirt man has come to town</MSSFP_DirtManVisitLetterLabel>
+    <MSSFP_DirtManVisitLetterText>you didn't put any dirt under your pillow did you?</MSSFP_DirtManVisitLetterText>
+
+    <MSSFP_DirtManNoVisitLetterLabel>dirt man has come to town</MSSFP_DirtManNoVisitLetterLabel>
+    <MSSFP_DirtManNoVisitLetterText>you put any dirt under your pillow, so you're safe</MSSFP_DirtManNoVisitLetterText>
+
+    <MSSFP_DirtManEatingLabel>Colonist being eaten!</MSSFP_DirtManEatingLabel>
+    <MSSFP_DirtManEatingText>{0} is being eaten by a frogge!</MSSFP_DirtManEatingText>
 </LanguageData>
