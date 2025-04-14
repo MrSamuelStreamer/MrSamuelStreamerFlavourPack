@@ -75,4 +75,21 @@
         </value>
     </Operation>
 
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/RoyalTitleDef/bedroomRequirements/li[@Class="RoomRequirement_ThingAnyOf"]/things</xpath>
+        <value>
+            <li>MSSFP_OskarianBed_Double</li>
+            <li>MSSFP_OskarianBed_Triple</li>
+            <li>MSSFP_OskarianBed_Quadruple</li>
+            <li>MSSFP_OskarianBed_Quintuple</li>
+            <li>MSSFP_OskarianBed_Sextuple</li>
+            <li>MSSFP_OskarianBed_Septuple</li>
+            <li>MSSFP_OskarianBed_Octuple</li>
+            <li>MSSFP_OskarianBed_Nonuple</li>
+            <li>MSSFP_OskarianBed_Decuple</li>
+            <li>MSSFP_OskarianBed_Undecuple</li>
+            <li>MSSFP_OskarianBed_Duodecuple</li>
+        </value>
+    </Operation>
+
 </Patch>
