@@ -17,7 +17,7 @@ public class MSSFPMod : Mod
     public MSSFPMod(ModContentPack content)
         : base(content)
     {
-        ModLog.Debug("Hello world from Mr Samuel Streamer Flavour Pack");
+        ModLog.Log("Loading the Mr Samuel Streamer Flavour Pack");
 
         // initialize settings
         settings = GetSettings<Settings>();
