@@ -7,11 +7,5 @@ namespace MSSFP.Hediffs;
 
 public class HiddenHediffWithComps : HediffWithComps
 {
-    public static Lazy<FieldInfo> VisibleInfo = new(() => AccessTools.Field(typeof(HediffWithComps), "visible"));
-
-    public override void PostMake()
-    {
-        VisibleInfo.Value.SetValue(this, false);
-        base.PostMake();
-    }
+    public override bool Visible => true;
 }
