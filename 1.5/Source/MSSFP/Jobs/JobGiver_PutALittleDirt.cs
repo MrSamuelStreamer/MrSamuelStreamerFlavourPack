@@ -31,7 +31,7 @@ public class JobGiver_PutALittleDirt : ThinkNode_JobGiver
     public virtual Thing FindDirtHaver(Pawn pawn)
     {
         return pawn
-            .Map.spawnedThings.Where(t => t.HasComp<CompDirtHaver>() && pawn.CanReserveAndReach(t.Position, PathEndMode.ClosestTouch, Danger.None))
+            .Map.spawnedThings.Where(t => t.Faction == Faction.OfPlayer && t.HasComp<CompDirtHaver>() && pawn.CanReserveAndReach(t.Position, PathEndMode.ClosestTouch, Danger.None))
             .RandomElementWithFallback();
     }
 
@@ -46,8 +46,11 @@ public class JobGiver_PutALittleDirt : ThinkNode_JobGiver
     {
         if (!MSSFPMod.settings.EnableDirtJobs)
             return null;
+        if (pawn.Map.IsTempIncidentMap || pawn.Map.IsPocketMap)
+            return null;
         if (!pawn.health.capacities.CapableOf(PawnCapacityDefOf.Manipulation))
             return null;
+
         Thing dirtHaver = FindDirtHaver(pawn);
 
         if (dirtHaver == null)
