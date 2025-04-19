@@ -377,16 +377,16 @@
           <Link>MrSamuelStreamerFlavourPack\1.5\Defs\JobDefs\MSSFP_Jobs.xml</Link>
         </ReleaseFiles>
 
-        <ReleaseFiles Update="..\..\Patches\MSSFP_JobGivers.xml">
-          <Link>MrSamuelStreamerFlavourPack\1.5\Patches\MSSFP_JobGivers.xml</Link>
-        </ReleaseFiles>
-
         <ReleaseFiles Update="..\..\Patches\MSS_Dirt.xml">
           <Link>MrSamuelStreamerFlavourPack\1.5\Patches\MSS_Dirt.xml</Link>
         </ReleaseFiles>
 
         <ReleaseFiles Update="..\..\Defs\ThingDefs_Races\MSSFP_DirtMan.xml">
           <Link>MrSamuelStreamerFlavourPack\1.5\Defs\ThingDefs_Races\MSSFP_DirtMan.xml</Link>
+        </ReleaseFiles>
+
+        <ReleaseFiles Update="..\..\Defs\MSS_WorkType.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Defs\MSS_WorkType.xml</Link>
         </ReleaseFiles>
     </ItemGroup>
     <ItemGroup>
