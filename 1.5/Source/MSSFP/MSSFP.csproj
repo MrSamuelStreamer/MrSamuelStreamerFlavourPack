@@ -333,10 +333,6 @@
           <Link>MrSamuelStreamerFlavourPack\1.5\Patches\MSS_WellSlept.xml</Link>
         </ReleaseFiles>
 
-        <ReleaseFiles Update="..\..\Defs\MSS_BedUpgradeDefs.xml">
-          <Link>MrSamuelStreamerFlavourPack\1.5\Defs\MSS_BedUpgradeDefs.xml</Link>
-        </ReleaseFiles>
-
         <ReleaseFiles Update="..\..\Patches\MSS_BedUpgrade.xml">
           <Link>MrSamuelStreamerFlavourPack\1.5\Patches\MSS_BedUpgrade.xml</Link>
         </ReleaseFiles>
