@@ -4,7 +4,7 @@
     <ThingDef ParentName="AnimalThingBase">
         <defName>MSSFP_Frogge</defName>
         <label>frogge</label>
-        <description>frogge.</description>
+        <description>A frogge biþ a smale beaste wiþ foure leggys, whiche liueþ boþe in water and on londe. Hit biþ ofte tyme broune or grene or yelowe; or be hit tropyckal, hit may hauen dyuers coloures lyk reed, blewe, and blak. Tropyckalle frogges liuyn in trewes. Hit haþ longys and guilles boþe. Þe frogges skyn lokeþ glossi bi cause of his secrecioun, whiche may been poisounous. Moste frogges nauen nought a tayl, an þeire lymes ben yfolden under þeire likame. His frounte two feet hauen foure tos and his bak two feet hauen fif tos. Þes tos stiken wele to wode, rocke and glas. Froggen moste ben in þe watere to spawnen. Þe frogge haccheþ from an ey and hit þanne becomeþ a tadpolle. Hit groweþ to þanne a frogge, yef hit ne be nought eten. Some male frogges maken loude souns wiþ þeire mouþys for to maken þeim selven knowen to femmelles. Some þe femmelles refusen.</description>
         <statBases>
             <MoveSpeed>4.5</MoveSpeed>
             <MarketValue>2400</MarketValue>
