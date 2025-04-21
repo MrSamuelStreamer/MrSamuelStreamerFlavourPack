@@ -20,7 +20,7 @@ public static class ResearchProjectDef_Patches
             return;
         }
 
-        if (__instance != MSSFPDefOf.MSS_FroggeLeapResearch)
+        if (__instance == MSSFPDefOf.MSS_FroggeLeapResearch)
         {
             __result = true;
             FroggeLeapResearchComponent comp = Find.World.GetComponent<FroggeLeapResearchComponent>();
