@@ -3,10 +3,10 @@
     <Operation Class="PatchOperationAdd">
         <xpath>/Defs/InteractionDef[defName="BuildRapport"]/logRulesInitiator/rulesStrings</xpath>
         <value>
-            <li>subject(p-2)->their skibidi rizz</li>
-            <li>subject(p-2)->their rizz</li>
-            <li>subject(p-2)->rimrim</li>
-            <li>subject(p-4)->rimrim being late</li>
+            <li>subject(p=2)->their skibidi rizz</li>
+            <li>subject(p=2)->their rizz</li>
+            <li>subject(p=2)->rimrim</li>
+            <li>subject(p=4)->rimrim being late</li>
             <li>subject->frogge</li>
             <li>subject->almighty frogge</li>
             <li>subject->Joris</li>
