@@ -74,18 +74,11 @@ public class WorkGiver_PutALittleDirt : WorkGiver_Scanner
     public override Job JobOnThing(Pawn pawn, Thing t, bool forced = false)
     {
         IntVec3 DirtSpot = FindDirtSpot(pawn, t);
-        if (!pawn.CanReach(pawn.Position, DirtSpot, PathEndMode, MaxPathDanger(pawn)))
-            return null;
-
         Job job = JobMaker.MakeJob(MSSFPDefOf.MSSFP_PutALittleDirtUnderThePillow, (LocalTargetInfo)t);
         job.targetB = DirtSpot;
         job.count = 1;
-
-        if (!pawn.Reserve(t, job, 1, 0, ignoreOtherReservations: forced))
-            return null;
-        if (!pawn.Reserve(DirtSpot, job, 1, 0, ignoreOtherReservations: forced))
-            return null;
-
+        pawn.Reserve(t, job, 1, 0, ignoreOtherReservations: forced);
+        pawn.Reserve(DirtSpot, job, 1, 0, ignoreOtherReservations: forced);
         return job;
     }
 }
