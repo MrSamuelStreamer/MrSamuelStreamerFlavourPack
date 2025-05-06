@@ -112,4 +112,8 @@
 
     <MSSFP_DirtManEatingLabel>Colonist being eaten!</MSSFP_DirtManEatingLabel>
     <MSSFP_DirtManEatingText>{0} is being eaten by a frogge!</MSSFP_DirtManEatingText>
+
+    <MSSFP_EmergencyMeeting>Emergency Meeting!</MSSFP_EmergencyMeeting>
+
+    <MSS_FP_Settings_disableMogus>Disable Moguses</MSS_FP_Settings_disableMogus>
 </LanguageData>

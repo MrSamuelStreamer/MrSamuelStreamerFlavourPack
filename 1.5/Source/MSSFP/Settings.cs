@@ -38,6 +38,7 @@ public class Settings : ModSettings
     public bool destroyFloors = true;
     public bool overrideRelicPool = false;
     public bool disableFroggeNom = false;
+    public bool disableMogus = false;
     public bool ShowHaunts = true;
     public bool NoSkylanternRaids = false;
     public bool DrawByMrStreamer = false;
@@ -97,6 +98,7 @@ public class Settings : ModSettings
         DrawCheckBox(options, "MSS_Mabel_Settings_DestroyFloors".Translate(), ref destroyFloors, ref ScrollViewHeight);
         DrawCheckBox(options, "MSS_FP_Settings_OverrideRelicPool".Translate(), ref overrideRelicPool, ref ScrollViewHeight);
         DrawCheckBox(options, "MSS_FP_Settings_disableFroggeNom".Translate(), ref disableFroggeNom, ref ScrollViewHeight);
+        DrawCheckBox(options, "MSS_FP_Settings_disableMogus".Translate(), ref disableMogus, ref ScrollViewHeight);
         DrawCheckBox(options, "MSS_FP_Settings_ShowHaunts".Translate(), ref ShowHaunts, ref ScrollViewHeight);
         DrawCheckBox(options, "MSS_FP_Settings_NoSkylanternRaids".Translate(), ref NoSkylanternRaids, ref ScrollViewHeight);
         DrawCheckBox(options, "MSS_FP_Settings_DrawByMrStreamer".Translate(), ref DrawByMrStreamer, ref ScrollViewHeight);
@@ -180,6 +182,7 @@ public class Settings : ModSettings
         Scribe_Values.Look(ref destroyFloors, "destroyFloors", true);
         Scribe_Values.Look(ref overrideRelicPool, "overrideRelicPool", false);
         Scribe_Values.Look(ref disableFroggeNom, "disableFrogge", false);
+        Scribe_Values.Look(ref disableMogus, "disableMogus", false);
         Scribe_Values.Look(ref ShowHaunts, "ShowHaunts", true);
         Scribe_Values.Look(ref NoSkylanternRaids, "NoSkylanternRaids", false);
         Scribe_Values.Look(ref DrawByMrStreamer, "DrawByMrStreamer", false);

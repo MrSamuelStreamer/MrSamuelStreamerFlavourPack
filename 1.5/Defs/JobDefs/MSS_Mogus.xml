@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <JobDef>
+        <defName>MSSFP_UseVent</defName>
+        <driverClass>MSSFP.Jobs.JobDriver_UseVent</driverClass>
+        <reportString>Wandering.</reportString>
+        <modExtensions>
+            <li Class="MSSFP.ModExtensions.VentModExtension">
+                <VentableThings>
+                    <li>SteamGeyser</li>
+                    <li>Vent</li>
+                    <li>Cooler</li>
+                </VentableThings>
+            </li>
+        </modExtensions>
+    </JobDef>
+
+    <JobDef>
+        <defName>MSSFP_SusDeconstruct</defName>
+        <driverClass>MSSFP.Jobs.JobDriver_SusDeconstruct</driverClass>
+        <reportString>deconstructing TargetA.</reportString>
+        <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+    </JobDef>
+
+    <JobDef>
+        <defName>MSSFP_SusDoBill</defName>
+        <driverClass>MSSFP.Jobs.JobDriver_SusDoBill</driverClass>
+        <reportString>doing bill at TargetA.</reportString>
+        <suspendable>false</suspendable>
+        <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+    </JobDef>
+
+    <!-- <WorkGiverDef> -->
+    <!--     <defName>MSSFP_SusDoBill</defName> -->
+    <!--     <label>deconstruct structures</label> -->
+    <!--     <giverClass>MSSFP.Jobs.WorkGiver_SusDeconstruct</giverClass> -->
+    <!--     <workType>Construction</workType> -->
+    <!--     <priorityInType>50</priorityInType> -->
+    <!--     <verb>deconstruct</verb> -->
+    <!--     <gerund>deconstructing</gerund> -->
+    <!--     <requiredCapacities> -->
+    <!--         <li>Manipulation</li> -->
+    <!--     </requiredCapacities> -->
+    <!-- </WorkGiverDef> -->
+</Defs>

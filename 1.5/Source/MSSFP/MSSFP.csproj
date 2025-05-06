@@ -384,6 +384,26 @@
         <ReleaseFiles Update="..\..\Defs\MSS_WorkType.xml">
           <Link>MrSamuelStreamerFlavourPack\1.5\Defs\MSS_WorkType.xml</Link>
         </ReleaseFiles>
+
+        <ReleaseFiles Update="..\..\Defs\ThingDefs_Races\MSS_Mogus.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Defs\ThingDefs_Races\MSS_Mogus.xml</Link>
+        </ReleaseFiles>
+
+        <ReleaseFiles Update="..\..\Defs\Abilities\MSS_Mogus.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Defs\Abilities\MSS_Mogus.xml</Link>
+        </ReleaseFiles>
+
+        <ReleaseFiles Update="..\..\Defs\ThinkTreeDefs\MSS_Mogus.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Defs\ThinkTreeDefs\MSS_Mogus.xml</Link>
+        </ReleaseFiles>
+
+        <ReleaseFiles Update="..\..\Defs\JobDefs\MSS_Mogus.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Defs\JobDefs\MSS_Mogus.xml</Link>
+        </ReleaseFiles>
+
+        <ReleaseFiles Update="..\..\Patches\MSSFP_Anomaly.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Patches\MSSFP_Anomaly.xml</Link>
+        </ReleaseFiles>
     </ItemGroup>
     <ItemGroup>
       <Folder Include="..\..\..\Common\Textures\Things\AMPSuit\">

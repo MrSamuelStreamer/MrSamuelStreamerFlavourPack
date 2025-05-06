@@ -161,7 +161,7 @@
         <workerClass>MSSFP.Incidents.IncidentWorker_DirtManVisit</workerClass>
         <letterLabel>MSSFP_DirtManVisitLetterLabel</letterLabel>
         <letterText>MSSFP_DirtManVisitLetterText</letterText>
-        <baseChance>0.4</baseChance>
+        <baseChance>4</baseChance>
         <minRefireDays>60</minRefireDays>
         <minGreatestPopulation>3</minGreatestPopulation>
         <pawnKind>MSSFP_Dirtman</pawnKind>
@@ -178,7 +178,7 @@
         <workerClass>MSSFP.Incidents.IncidentWorker_DirtManNoVisit</workerClass>
         <letterLabel>MSSFP_DirtManNoVisitLetterLabel</letterLabel>
         <letterText>MSSFP_DirtManNoVisitLetterText</letterText>
-        <baseChance>0.4</baseChance>
+        <baseChance>4</baseChance>
         <minRefireDays>60</minRefireDays>
         <minGreatestPopulation>3</minGreatestPopulation>
         <pawnKind>MSSFP_Dirtman</pawnKind>

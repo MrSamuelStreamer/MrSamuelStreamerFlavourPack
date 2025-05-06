@@ -25,4 +25,29 @@
             </li>
         </subSounds>
     </SoundDef>
+    <SoundDef>
+        <defName>MSSFP_EmergencyMeetingKlaxon</defName>
+        <context>MapOnly</context>
+        <eventNames/>
+        <subSounds>
+            <li>
+                <gameSpeedRange>1~1</gameSpeedRange>
+                <grains>
+                    <li Class="AudioGrain_Clip">
+                        <clipPath>MSSFP_EM</clipPath>
+                    </li>
+                </grains>
+                <pitchRange>
+                    <min>0.99</min>
+                    <max>1.01</max>
+                </pitchRange>
+                <distRange>
+                    <min>0</min>
+                    <max>5</max>
+                </distRange>
+                <volumeRange>100~150</volumeRange>
+                <sustainLoop>False</sustainLoop>
+            </li>
+        </subSounds>
+    </SoundDef>
 </Defs>

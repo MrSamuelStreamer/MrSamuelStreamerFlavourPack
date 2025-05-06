@@ -85,7 +85,19 @@ public static class MSSFPDefOf
 
     public static readonly JobDef MSSFP_PutALittleDirtUnderThePillow;
 
+    public static readonly JobDef MSSFP_UseVent;
+    public static readonly JobDef MSSFP_SusDeconstruct;
+
     public static readonly PawnKindDef MSSFP_Dirtman;
+
+    public static readonly PawnKindDef MSSFP_MogusKind_Blue;
+    public static readonly PawnKindDef MSSFP_MogusKind_Red;
+    public static readonly PawnKindDef MSSFP_MogusKind_Green;
+
+    // public static readonly PawnKindDef MSSFP_MogusKind_Yellow;
+
+    public static readonly SoundDef MSSFP_EmergencyMeetingKlaxon;
+    public static readonly AbilityDef MSSFP_EmergencyMeeting;
 
     static MSSFPDefOf() => DefOfHelper.EnsureInitializedInCtor(typeof(MSSFPDefOf));
 }

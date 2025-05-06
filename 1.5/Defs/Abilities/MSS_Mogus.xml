@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <AbilityDef>
+        <defName>MSSFP_EmergencyMeeting</defName>
+        <label>emergency meeting</label>
+        <description>Call all pawns to this location for an emergency meeting.</description>
+        <iconPath>UI/Abilities/EmergencyMeeting</iconPath>
+        <cooldownTicksRange>300000~600000</cooldownTicksRange>
+        <targetRequired>false</targetRequired>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <drawAimPie>false</drawAimPie>
+            <warmupTime>0.5</warmupTime>
+            <violent>false</violent>
+            <targetParams>
+                <canTargetLocations>true</canTargetLocations>
+            </targetParams>
+        </verbProperties>
+        <displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+        <showWhenDrafted>false</showWhenDrafted>
+        <comps>
+            <li Class="MSSFP.Comps.CompProperties_AbilityEmergencyMeeting"/>
+        </comps>
+    </AbilityDef>
+</Defs>
