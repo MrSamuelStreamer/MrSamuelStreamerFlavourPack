@@ -400,10 +400,6 @@
         <ReleaseFiles Update="..\..\Defs\JobDefs\MSS_Mogus.xml">
           <Link>MrSamuelStreamerFlavourPack\1.5\Defs\JobDefs\MSS_Mogus.xml</Link>
         </ReleaseFiles>
-
-        <ReleaseFiles Update="..\..\Patches\MSSFP_Anomaly.xml">
-          <Link>MrSamuelStreamerFlavourPack\1.5\Patches\MSSFP_Anomaly.xml</Link>
-        </ReleaseFiles>
     </ItemGroup>
     <ItemGroup>
       <Folder Include="..\..\..\Common\Textures\Things\AMPSuit\">
