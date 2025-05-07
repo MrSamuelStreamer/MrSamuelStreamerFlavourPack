@@ -29,9 +29,10 @@ public class CompAbilityEffect_EmergencyMeeting : CompAbilityEffect
         // Order all pawns to come to the meeting
         foreach (Pawn attendee in map.mapPawns.AllPawnsSpawned.Where(p => !p.Downed && !p.Dead))
         {
-            Job job = JobMaker.MakeJob(JobDefOf.Goto, gatheringSpot);
+            Job job = JobMaker.MakeJob(JobDefOf.GotoWander, gatheringSpot);
             job.expiryInterval = 2000;
-            attendee.jobs.StartJob(job, JobCondition.InterruptForced);
+            job.locomotionUrgency = LocomotionUrgency.Sprint;
+            attendee.jobs.StartJob(job, JobCondition.InterruptForced, tag: JobTag.DraftedOrder);
         }
 
         // Visual and sound effects

@@ -36,7 +36,11 @@
             <baseHealthScale>1.0</baseHealthScale>
             <foodType>VegetarianRoughAnimal, DendrovoreAnimal</foodType>
             <trainability>Advanced</trainability>
-            <intelligence>ToolUser</intelligence>
+            <wildness>0</wildness>
+            <petness>1</petness>
+            <lifeExpectancy>12000</lifeExpectancy>
+            <hasMeat>false</hasMeat>
+            <intelligence>Animal</intelligence>
             <manhunterOnDamageChance>0.0</manhunterOnDamageChance>
             <soundEating>Rodent_Eat</soundEating>
             <overrideShouldHaveAbilityTracker>true</overrideShouldHaveAbilityTracker>
@@ -61,6 +65,12 @@
             </li>
             <li IfModActive="oskarpotocki.vanillafactionsexpanded.core" Class="AnimalBehaviours.CompProperties_LastStand">
                 <finalCoolDownMultiplier>6</finalCoolDownMultiplier>
+            </li>
+            <li IfModActive="oskarpotocki.vanillafactionsexpanded.core" Class="AnimalBehaviours.CompProperties_DoesntFlee">
+
+            </li>
+            <li IfModActive="oskarpotocki.vanillafactionsexpanded.core" Class="AnimalBehaviours.CompProperties_NoTamingDecay">
+
             </li>
         </comps>
     </ThingDef>

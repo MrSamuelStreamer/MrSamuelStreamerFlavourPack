@@ -7,7 +7,7 @@ namespace MSSFP.Incidents;
 
 public class IncidentWorker_Mogus : IncidentWorker
 {
-    public List<PawnKindDef> ValidPawnKindDef =>
+    public static List<PawnKindDef> ValidPawnKindDef =>
         [
             MSSFPDefOf.MSSFP_MogusKind_Blue,
             MSSFPDefOf.MSSFP_MogusKind_Red,
@@ -32,6 +32,9 @@ public class IncidentWorker_Mogus : IncidentWorker
         IntVec3 cell;
         TryFindEntryCell(map, out cell);
         GenSpawn.Spawn(pawn, cell, map);
+
+        pawn.guest.Notify_PawnRecruited();
+        pawn.caller.DoCall();
 
         if (def.pawnHediff != null)
         {
