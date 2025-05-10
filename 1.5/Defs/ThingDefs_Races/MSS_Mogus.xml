@@ -132,25 +132,24 @@
         </abilities>
     </PawnKindDef>
 
-    <!-- <PawnKindDef ParentName="AnimalKindBase"> -->
-    <!--     <defName>MSSFP_MogusKind_Yellow</defName> -->
-    <!--     <label>yellow</label> -->
-    <!--     <race>MSSFP_Mogus</race> -->
-    <!--     <combatPower>150</combatPower> -->
-    <!--     <canArriveManhunter>false</canArriveManhunter> -->
-    <!--     <lifeStages> -->
-    <!--         <li> -->
-    <!--             <bodyGraphicData> -->
-    <!--                 <texPath>Things/Pawn/Animal/Mogus/Mogus_D</texPath> -->
-    <!--                 <graphicClass>Graphic_Indexed</graphicClass> -->
-    <!--                 <drawSize>0.6</drawSize> -->
-    <!--             </bodyGraphicData> -->
-    <!--         </li> -->
-    <!--     </lifeStages> -->
-    <!--     <abilities> -->
-    <!--         <li>MSSFP_EmergencyMeeting</li> -->
-    <!--     </abilities> -->
-    <!-- </PawnKindDef> -->
+    <PawnKindDef ParentName="AnimalKindBase">
+        <defName>MSSFP_MogusKind_Yellow</defName>
+        <label>yellow</label>
+        <race>MSSFP_Mogus</race>
+        <combatPower>150</combatPower>
+        <canArriveManhunter>false</canArriveManhunter>
+        <lifeStages>
+            <li>
+                <bodyGraphicData>
+                    <texPath>Things/Pawn/Animal/Mogus/Mogus_D</texPath>
+                    <drawSize>0.6</drawSize>
+                </bodyGraphicData>
+            </li>
+        </lifeStages>
+        <abilities>
+            <li>MSSFP_EmergencyMeeting</li>
+        </abilities>
+    </PawnKindDef>
 
     <IncidentDef>
         <defName>MSSFP_Mogus</defName>

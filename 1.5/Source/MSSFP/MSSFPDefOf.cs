@@ -93,8 +93,7 @@ public static class MSSFPDefOf
     public static readonly PawnKindDef MSSFP_MogusKind_Blue;
     public static readonly PawnKindDef MSSFP_MogusKind_Red;
     public static readonly PawnKindDef MSSFP_MogusKind_Green;
-
-    // public static readonly PawnKindDef MSSFP_MogusKind_Yellow;
+    public static readonly PawnKindDef MSSFP_MogusKind_Yellow;
 
     public static readonly SoundDef MSSFP_EmergencyMeetingKlaxon;
     public static readonly AbilityDef MSSFP_EmergencyMeeting;
