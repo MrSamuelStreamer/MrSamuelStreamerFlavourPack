@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Defs>
+    <HediffDef ParentName = "PsycastHediffBase">
+        <defName>MSS_KidneyStones</defName>
+        <label>kidney stones</label>
+        <description>Kidney stones in the urinary trackt.</description>
+        <isBad>true</isBad>
+        <initialSeverity>0</initialSeverity>
+        <maxSeverity>1</maxSeverity>
+        <comps>
+            <li Class="HediffCompProperties_SeverityPerDay">
+                <severityPerDay>0.5</severityPerDay>
+                <showDaysToRecover>true</showDaysToRecover>
+            </li>
+        </comps>
+        <stages>
+            <li>
+                <minSeverity>0.5</minSeverity>
+                <painOffset>0.4</painOffset>
+            </li>
+            <li>
+                <minSeverity>0.8</minSeverity>
+                <painOffset>1.2</painOffset>
+            </li>
+            <li>
+                <minSeverity>1</minSeverity>
+                <painOffset>0.2</painOffset>
+            </li>
+        </stages>
+    </HediffDef>
+</Defs>

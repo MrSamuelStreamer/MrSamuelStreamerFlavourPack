@@ -400,6 +400,10 @@
         <ReleaseFiles Update="..\..\Defs\JobDefs\MSS_Mogus.xml">
           <Link>MrSamuelStreamerFlavourPack\1.5\Defs\JobDefs\MSS_Mogus.xml</Link>
         </ReleaseFiles>
+
+        <ReleaseFiles Update="..\..\Defs\Abilities\MSS_PsyllyPsycasts.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Defs\Abilities\MSS_PsyllyPsycasts.xml</Link>
+        </ReleaseFiles>
     </ItemGroup>
     <ItemGroup>
       <Folder Include="..\..\..\Common\Textures\Things\AMPSuit\">
