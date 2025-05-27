@@ -43,6 +43,8 @@ public class WorkGiver_PutALittleDirt : WorkGiver_Scanner
 
     public override bool HasJobOnThing(Pawn pawn, Thing t, bool forced = false)
     {
+        if (!MSSFPMod.settings.EnableDirtJobs)
+            return false;
         return pawn.CanReserve((LocalTargetInfo)t, 1, 0, ignoreOtherReservations: forced) && !t.TryGetComp<CompDirtHaver>().HasDirt;
     }
 
@@ -52,11 +54,15 @@ public class WorkGiver_PutALittleDirt : WorkGiver_Scanner
 
     public override bool ShouldSkip(Pawn pawn, bool forced = false)
     {
+        if (!MSSFPMod.settings.EnableDirtJobs)
+            return true;
         return !pawn.Map.spawnedThings.Any(thing => thing.Faction == Faction.OfPlayer && thing.HasComp<CompDirtHaver>() && !thing.TryGetComp<CompDirtHaver>().HasDirt);
     }
 
     public override bool HasJobOnCell(Pawn pawn, IntVec3 c, bool forced = false)
     {
+        if (!MSSFPMod.settings.EnableDirtJobs)
+            return false;
         if (!pawn.CanReach(pawn.Position, c, PathEndMode, MaxPathDanger(pawn)))
             return false;
 

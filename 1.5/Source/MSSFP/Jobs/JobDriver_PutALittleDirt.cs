@@ -19,6 +19,8 @@ public class JobDriver_PutALittleDirt : JobDriver
 
     public override bool TryMakePreToilReservations(bool errorOnFailed)
     {
+        if (!MSSFPMod.settings.EnableDirtJobs)
+            return false;
         if (pawn.CanReserveAndReach(Dirtable, PathEndMode.ClosestTouch, Danger.None) && pawn.CanReserveAndReach(DirtLoc, PathEndMode.ClosestTouch, Danger.None))
             return pawn.Reserve((LocalTargetInfo)Dirtable, job, errorOnFailed: errorOnFailed) && pawn.Reserve(DirtLoc, job, errorOnFailed: errorOnFailed);
         return false;
