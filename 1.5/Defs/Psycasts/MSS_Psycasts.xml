@@ -27,7 +27,15 @@
             </targetParams>
         </verbProperties>
         <comps>
-            <li Class="MSSFP.Psycasts.CompProperties_AbilityMark">
+            <li Class="MSSFP.Psycasts.CompProperties_AbilitySummonPawn">
+                <mentalState>Berserk</mentalState>
+                <mentalStateReason>{0} did not appreciate being summoned</mentalStateReason>
+                <fixedGender>Male</fixedGender>
+                <fixedBirthName>Mark</fixedBirthName>
+                <thoughtOnSummon>MSSFP_Marked</thoughtOnSummon>
+                <pawnKinds>
+                    <li>SpaceRefugee</li>
+                </pawnKinds>
             </li>
         </comps>
     </AbilityDef>
@@ -47,7 +55,6 @@
             </li>
         </stages>
     </ThoughtDef>
-
 
     <AbilityDef ParentName="PsycastBase">
         <defName>MSS_RandomiseGenome</defName>
@@ -77,6 +84,75 @@
         </verbProperties>
         <comps>
             <li Class="MSSFP.Psycasts.CompProperties_AbilityRandomiseGenome">
+            </li>
+        </comps>
+    </AbilityDef>
+
+    <AbilityDef ParentName="PsycastBase">
+        <defName>MSS_AssBeckon</defName>
+        <label>Ass Beckon</label>
+        <description>When used on a target of compatible romance/relationship status, instantly romances with 100% success rate</description>
+        <level>3</level>
+        <iconPath>UI/Abilities/MSS_AssBeckon</iconPath>
+        <hotKey>Misc12</hotKey>
+        <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+        <targetRequired>true</targetRequired>
+        <cooldownTicksRange>120000~240000</cooldownTicksRange>
+        <statBases>
+            <Ability_PsyfocusCost>0.2</Ability_PsyfocusCost>
+            <Ability_EntropyGain>50</Ability_EntropyGain>
+        </statBases>
+        <verbProperties>
+            <warmupTime>3</warmupTime>
+            <range>20</range>
+            <targetParams>
+                <canTargetSelf>false</canTargetSelf>
+                <canTargetLocations>false</canTargetLocations>
+                <canTargetPawns>true</canTargetPawns>
+                <canTargetAnimals>false</canTargetAnimals>
+                <canTargetBuildings>false</canTargetBuildings>
+                <canTargetMechs>false</canTargetMechs>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="MSSFP.Psycasts.CompProperties_AbilityAssBeckon">
+            </li>
+        </comps>
+    </AbilityDef>
+
+
+
+    <AbilityDef ParentName="PsycastBase">
+        <defName>MSS_MendButtcrack</defName>
+        <label>mend buttcrack</label>
+        <description>"Mends" a persons buttcrack, making their butt one smooth round surface. This of course results in the closing up of the anus, and associated issues that would entail.</description>
+        <level>3</level>
+        <iconPath>UI/Abilities/MSS_MendButtCrack</iconPath>
+        <hotKey>Misc12</hotKey>
+        <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+        <targetRequired>true</targetRequired>
+        <cooldownTicksRange>120000~240000</cooldownTicksRange>
+        <statBases>
+            <Ability_PsyfocusCost>0.2</Ability_PsyfocusCost>
+            <Ability_EntropyGain>50</Ability_EntropyGain>
+        </statBases>
+        <verbProperties>
+            <warmupTime>3</warmupTime>
+            <range>20</range>
+            <targetParams>
+                <canTargetSelf>false</canTargetSelf>
+                <canTargetLocations>false</canTargetLocations>
+                <canTargetPawns>true</canTargetPawns>
+                <canTargetAnimals>false</canTargetAnimals>
+                <canTargetBuildings>false</canTargetBuildings>
+                <canTargetMechs>false</canTargetMechs>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="CompProperties_AbilityGiveHediff">
+                <compClass>CompAbilityEffect_GiveHediff</compClass>
+                <hediffDef>MSS_MendedButtcrack</hediffDef>
+                <severity>0</severity>
             </li>
         </comps>
     </AbilityDef>
