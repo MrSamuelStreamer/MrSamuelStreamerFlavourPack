@@ -31,9 +31,6 @@
         </costList>
         <stuffCategories Inherit="False"/>
         <costStuffCount IsNull="True"/>
-        <placeWorkers Inherit="False">
-            <li>PlaceWorker_MeditationSpot</li>
-        </placeWorkers>
         <comps Inherit="False">
             <li>
                 <compClass>CompQuality</compClass>
