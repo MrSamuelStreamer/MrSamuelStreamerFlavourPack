@@ -23,6 +23,7 @@
             <Flammability>1.0</Flammability>
             <Beauty>25</Beauty>
             <Comfort>2</Comfort>
+            <Fertility>-1</Fertility>
         </statBases>
         <costList>
             <Gold>150</Gold>
@@ -36,6 +37,15 @@
         <comps Inherit="False">
             <li>
                 <compClass>CompQuality</compClass>
+            </li>
+            <li Class="CompProperties_Facility">
+                <statOffsets>
+                    <Fertility>1</Fertility>
+                    <Beauty>0.25</Beauty>
+                    <Comfort>0.25</Comfort>
+                    <Cleanliness>-0.25</Cleanliness>
+                </statOffsets>
+                <maxSimultaneous>1</maxSimultaneous>
             </li>
         </comps>
         <socialPropernessMatters>false</socialPropernessMatters>
