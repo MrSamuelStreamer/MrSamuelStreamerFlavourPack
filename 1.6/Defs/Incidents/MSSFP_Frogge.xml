@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Defs>
+
+    <IncidentDef>
+        <defName>MSS_FroggeResearch</defName>
+        <label>frogge research project</label>
+        <category>Misc</category>
+        <minRefireDays>15</minRefireDays>
+        <baseChance>0</baseChance>
+        <targetTags>
+            <li>Map_PlayerHome</li>
+        </targetTags>
+        <workerClass>MSSFP.Incidents.IncidentWorker_FroggeResearch</workerClass>
+        <letterLabel>Research frogge</letterLabel>
+        <letterText>{0} has been studying the migration patterns of frogge. Wanting to investigate why and where they disappear to for periods of time, they've been investigating their stomach contents to try to identify the flora, fauna, and geology that they've consumed. Strangely they've discovered things which don't belong on this continent. {1} theorises that frogge can swim vast distances and wants to further research this.</letterText>
+    </IncidentDef>
+</Defs>

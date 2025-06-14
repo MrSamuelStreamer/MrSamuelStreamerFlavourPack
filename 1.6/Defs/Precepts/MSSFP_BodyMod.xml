@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <MSSFP.Thoughts.BodyModCategoryDef>
+        <defName>MSSFP_NaturalMods</defName>
+        <label>NaturalMods</label>
+        <description>NaturalMods</description>
+        <bodyMods>
+            <li MayRequire="Seti.Victor.AnimaBodies">AnimaEntArm</li>
+            <li MayRequire="Seti.Victor.AnimaBodies">AnimaLeg</li>
+            <li MayRequire="Seti.Victor.AnimaBodies">AnimaWarArm</li>
+            <li MayRequire="Seti.Victor.AnimaBodies">AnimaHorn</li>
+            <li MayRequire="Seti.Victor.AnimaBodies">AnimaNose</li>
+            <li MayRequire="Seti.Victor.AnimaBodies">AnimaJaw</li>
+            <li MayRequire="Seti.Victor.AnimaBodies">AnimaPlate</li>
+            <li MayRequire="Seti.Victor.AnimaBodies">AnimaLiver</li>
+            <li MayRequire="Seti.Victor.AnimaBodies">AnimaKidney</li>
+            <li MayRequire="Seti.Victor.AnimaBodies">AnimaLung</li>
+            <li MayRequire="Seti.Victor.AnimaBodies">AnimaEye</li>
+            <li MayRequire="Seti.Victor.AnimaBodies">AnimaStomach</li>
+            <li MayRequire="Seti.Victor.AnimaBodies">AnimaSpine</li>
+            <li MayRequire="Seti.Victor.AnimaBodies">AnimaHeart</li>
+            <li MayRequire="Seti.Victor.AnimaBodies">PsychicDryad</li>
+            <li MayRequire="Seti.Victor.AnimaBodies">MindDryad</li>
+        </bodyMods>
+    </MSSFP.Thoughts.BodyModCategoryDef>
+  <!-- Issue -->
+
+  <IssueDef>
+    <defName>MSS_MechBodyModification</defName>
+    <label>body mechanisation</label>
+    <iconPath>UI/Issues/BodyModifications</iconPath>
+  </IssueDef>
+
+  <!-- Precepts -->
+
+  <HistoryEventDef>
+      <defName>MSSFP_MechInstalledProsthetic</defName>
+      <label>Artificial Prosthetic Installed</label>
+  </HistoryEventDef>
+
+  <PreceptDef>
+    <defName>MSS_MechBodyMod_Abhorrent</defName>
+    <issue>MSS_MechBodyModification</issue>
+    <label>abhorrent</label>
+    <description>To violate the natural human body with technology is a flagrant violation of clear moral laws.</description>
+    <impact>High</impact>
+    <displayOrderInIssue>20</displayOrderInIssue>
+    <displayOrderInImpact>100</displayOrderInImpact>
+    <conflictingMemes>
+      <li>Transhumanist</li>
+    </conflictingMemes>
+    <associatedMemes>
+      <li>FleshPurity</li>
+    </associatedMemes>
+    <comps>
+      <li Class="PreceptComp_SelfTookMemoryThought">
+        <eventDef>MSSFP_MechInstalledProsthetic</eventDef>
+        <thought>MSSFP_InstalledMechProsthetic_Abhorrent</thought>
+      </li>
+      <li Class="PreceptComp_KnowsMemoryThought">
+        <eventDef>InstalledProsthetic</eventDef>
+        <thought>MSSFP_InstalledMechProsthetic_Know_Abhorrent</thought>
+      </li>
+      <li Class="PreceptComp_SituationalThought">
+        <thought>MSSFP_HasMechProsthetic_Abhorrent</thought>
+      </li>
+      <li Class="PreceptComp_SituationalThought">
+        <thought>MSSFP_HasMechProsthetic_Abhorrent_Social</thought>
+      </li>
+    </comps>
+  </PreceptDef>
+
+  <PreceptDef>
+    <defName>MSS_MechBodyMod_Disapproved</defName>
+    <issue>MSS_MechBodyModification</issue>
+    <label>disapproved</label>
+    <description>To violate the natural human body with technology is an ugly, dirty act.</description>
+    <impact>Medium</impact>
+    <displayOrderInIssue>10</displayOrderInIssue>
+    <displayOrderInImpact>100</displayOrderInImpact>
+    <conflictingMemes>
+      <li>Transhumanist</li>
+    </conflictingMemes>
+    <associatedMemes>
+      <li>FleshPurity</li>
+    </associatedMemes>
+    <comps>
+      <li Class="PreceptComp_SelfTookMemoryThought">
+        <eventDef>MSSFP_MechInstalledProsthetic</eventDef>
+        <thought>MSSFP_InstalledMechProsthetic_Disapproved</thought>
+      </li>
+      <li Class="PreceptComp_KnowsMemoryThought">
+        <eventDef>MSSFP_MechInstalledProsthetic</eventDef>
+        <thought>MSSFP_InstalledMechProsthetic_Know_Disapproved</thought>
+      </li>
+      <li Class="PreceptComp_SituationalThought">
+        <thought>MSSFP_HasMechProsthetic_Disapproved</thought>
+      </li>
+      <li Class="PreceptComp_SituationalThought">
+        <thought>MSSFP_HasMechProsthetic_Disapproved_Social</thought>
+      </li>
+    </comps>
+  </PreceptDef>
+
+  <PreceptDef>
+    <defName>MSS_MechBodyMod_Approved</defName>
+    <issue>MSS_MechBodyModification</issue>
+    <label>approved</label>
+    <description>Humans should strive to reach our full potential by improving our flawed natural bodies with technology.</description>
+    <impact>Medium</impact>
+    <displayOrderInIssue>0</displayOrderInIssue>
+    <displayOrderInImpact>100</displayOrderInImpact>
+    <conflictingMemes>
+      <li>FleshPurity</li>
+    </conflictingMemes>
+    <associatedMemes>
+      <li>Transhumanist</li>
+    </associatedMemes>
+    <comps>
+      <li Class="PreceptComp_SituationalThought">
+        <thought>MSSFP_HasNoMechProsthetic_Disapproved</thought>
+      </li>
+      <li Class="PreceptComp_SituationalThought">
+        <thought>MSSFP_HasMechProsthetic_Approved</thought>
+      </li>
+      <li Class="PreceptComp_SituationalThought">
+        <thought>MSSFP_HasNoMechProsthetic_Disapproved_Social</thought>
+      </li>
+    </comps>
+  </PreceptDef>
+
+  <!-- Related: Installed artificial part -->
+
+  <ThoughtDef>
+    <defName>MSSFP_InstalledMechProsthetic_Abhorrent</defName>
+    <durationDays>6</durationDays>
+    <stages>
+      <li>
+        <label>installed technological enhancement</label>
+        <description>I had to install an artificial technological body enhancement. This was deeply offensive to my beliefs.</description>
+        <baseMoodEffect>-30</baseMoodEffect>
+      </li>
+    </stages>
+    <nullifyingTraits>
+      <li>Transhumanist</li>
+    </nullifyingTraits>
+      <modExtensions>
+          <li Class="MSSFP.Thoughts.BodyModExtension">
+              <mods>MSSFP_NaturalMods</mods>
+          </li>
+      </modExtensions>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>MSSFP_InstalledMechProsthetic_Know_Abhorrent</defName>
+    <thoughtClass>Thought_MemorySocial</thoughtClass>
+    <durationDays>20</durationDays>
+    <stackLimit>100</stackLimit>
+    <stackLimitForSameOtherPawn>3</stackLimitForSameOtherPawn>
+    <stages>
+      <li>
+        <label>installed technological enhancement</label>
+        <baseOpinionOffset>-10</baseOpinionOffset>
+      </li>
+    </stages>
+    <nullifyingTraits>
+      <li>Transhumanist</li>
+    </nullifyingTraits>
+      <modExtensions>
+          <li Class="MSSFP.Thoughts.BodyModExtension">
+              <mods>MSSFP_NaturalMods</mods>
+          </li>
+      </modExtensions>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>MSSFP_InstalledMechProsthetic_Disapproved</defName>
+    <durationDays>6</durationDays>
+    <stages>
+      <li>
+        <label>installed technological enhancement</label>
+        <description>I had to install an artificial technological body enhancement. This was clearly against my beliefs.</description>
+        <baseMoodEffect>-5</baseMoodEffect>
+      </li>
+    </stages>
+    <nullifyingTraits>
+      <li>Transhumanist</li>
+    </nullifyingTraits>
+      <modExtensions>
+          <li Class="MSSFP.Thoughts.BodyModExtension">
+              <mods>MSSFP_NaturalMods</mods>
+          </li>
+      </modExtensions>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>MSSFP_InstalledMechProsthetic_Know_Disapproved</defName>
+    <thoughtClass>Thought_MemorySocial</thoughtClass>
+    <durationDays>20</durationDays>
+    <stackLimit>100</stackLimit>
+    <stackLimitForSameOtherPawn>3</stackLimitForSameOtherPawn>
+    <stages>
+      <li>
+        <label>installed technological enhancement</label>
+        <baseOpinionOffset>-5</baseOpinionOffset>
+      </li>
+    </stages>
+    <nullifyingTraits>
+      <li>Transhumanist</li>
+    </nullifyingTraits>
+      <modExtensions>
+          <li Class="MSSFP.Thoughts.BodyModExtension">
+              <mods>MSSFP_NaturalMods</mods>
+          </li>
+      </modExtensions>
+  </ThoughtDef>
+
+
+  <!-- Related: Has artificial part -->
+
+  <ThoughtDef>
+    <defName>MSSFP_HasMechProsthetic_Abhorrent</defName>
+    <workerClass>MSSFP.Thoughts.ThoughtWorker_Precept_HasMechProsthetic</workerClass>
+    <doNotApplyToQuestLodgers>true</doNotApplyToQuestLodgers>
+    <stages>
+      <li>
+        <label>artificial technological enhancement</label>
+        <description>I have an artificial technological body enhancement. It's an abhorrent offense against everything I believe!</description>
+        <baseMoodEffect>-18</baseMoodEffect>
+      </li>
+    </stages>
+    <nullifyingTraits>
+      <li>Transhumanist</li>
+    </nullifyingTraits>
+      <modExtensions>
+          <li Class="MSSFP.Thoughts.BodyModExtension">
+              <mods>MSSFP_NaturalMods</mods>
+          </li>
+      </modExtensions>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>MSSFP_HasMechProsthetic_Abhorrent_Social</defName>
+    <thoughtClass>Thought_SituationalSocial</thoughtClass>
+    <workerClass>MSSFP.Thoughts.ThoughtWorker_Precept_HasMechProsthetic_Social</workerClass>
+    <stages>
+      <li>
+        <label>artificial technological enhancement</label>
+        <baseOpinionOffset>-5</baseOpinionOffset>
+      </li>
+    </stages>
+    <nullifyingTraits>
+      <li>Transhumanist</li>
+    </nullifyingTraits>
+      <modExtensions>
+          <li Class="MSSFP.Thoughts.BodyModExtension">
+              <mods>MSSFP_NaturalMods</mods>
+          </li>
+      </modExtensions>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>MSSFP_HasMechProsthetic_Disapproved</defName>
+    <workerClass>MSSFP.Thoughts.ThoughtWorker_Precept_HasMechProsthetic</workerClass>
+    <doNotApplyToQuestLodgers>true</doNotApplyToQuestLodgers>
+    <stages>
+      <li>
+        <label>artificial technological enhancement</label>
+        <description>I have an artificial technological body enhancement. I don't believe such things are acceptable.</description>
+        <baseMoodEffect>-4</baseMoodEffect>
+      </li>
+    </stages>
+    <nullifyingTraits>
+      <li>Transhumanist</li>
+    </nullifyingTraits>
+      <modExtensions>
+          <li Class="MSSFP.Thoughts.BodyModExtension">
+              <mods>MSSFP_NaturalMods</mods>
+          </li>
+      </modExtensions>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>MSSFP_HasMechProsthetic_Disapproved_Social</defName>
+    <thoughtClass>Thought_SituationalSocial</thoughtClass>
+    <workerClass>MSSFP.Thoughts.ThoughtWorker_Precept_HasMechProsthetic_Social</workerClass>
+    <stages>
+      <li>
+        <label>artificial technological enhancement</label>
+        <baseOpinionOffset>-3</baseOpinionOffset>
+      </li>
+    </stages>
+    <nullifyingTraits>
+      <li>Transhumanist</li>
+    </nullifyingTraits>
+      <modExtensions>
+          <li Class="MSSFP.Thoughts.BodyModExtension">
+              <mods>MSSFP_NaturalMods</mods>
+          </li>
+      </modExtensions>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>MSSFP_HasNoMechProsthetic_Disapproved</defName>
+    <workerClass>MSSFP.Thoughts.ThoughtWorker_Precept_HasNoMechProsthetic</workerClass>
+    <minExpectation>Moderate</minExpectation>
+    <doNotApplyToQuestLodgers>true</doNotApplyToQuestLodgers>
+    <stages>
+      <li>
+        <label>no artificial technological enhancement</label>
+        <description>I don't have any artificial technological body enhancements. It's against my beliefs to be so unenhanced.</description>
+        <baseMoodEffect>-3</baseMoodEffect>
+      </li>
+    </stages>
+    <nullifyingTraits>
+      <li>BodyPurist</li>
+    </nullifyingTraits>
+      <modExtensions>
+          <li Class="MSSFP.Thoughts.BodyModExtension">
+              <mods>MSSFP_NaturalMods</mods>
+          </li>
+      </modExtensions>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>MSSFP_HasNoMechProsthetic_Disapproved_Social</defName>
+    <thoughtClass>Thought_SituationalSocial</thoughtClass>
+    <workerClass>MSSFP.Thoughts.ThoughtWorker_Precept_HasNoMechProsthetic_Social</workerClass>
+    <minExpectation>Moderate</minExpectation>
+    <stages>
+      <li>
+        <label>no artificial technological enhancement</label>
+        <baseOpinionOffset>-3</baseOpinionOffset>
+      </li>
+    </stages>
+    <nullifyingTraits>
+      <li>BodyPurist</li>
+    </nullifyingTraits>
+      <modExtensions>
+          <li Class="MSSFP.Thoughts.BodyModExtension">
+              <mods>MSSFP_NaturalMods</mods>
+          </li>
+      </modExtensions>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>MSSFP_HasMechProsthetic_Approved</defName>
+    <workerClass>MSSFP.Thoughts.ThoughtWorker_Precept_HasMechProsthetic_Count</workerClass>
+    <validWhileDespawned>true</validWhileDespawned>
+    <nullifyingTraits>
+      <li>Transhumanist</li>
+    </nullifyingTraits>
+    <stages>
+      <li>
+        <label>transhumanist modded</label>
+        <description>This artificial technological enhancement matches my belief.</description>
+        <baseMoodEffect>1</baseMoodEffect>
+      </li>
+      <li>
+        <label>transhumanist connected</label>
+        <description>The more artificial technological enhancements I get, the stronger my expression of my beliefs.</description>
+        <baseMoodEffect>1</baseMoodEffect>
+      </li>
+      <li>
+        <label>transhumanist enhanced</label>
+        <description>My connection to my belief is increased by my third artificial technological enhancement. But I could use more.</description>
+        <baseMoodEffect>2</baseMoodEffect>
+      </li>
+      <li>
+        <label>transhumanist synchronized</label>
+        <description>Only two more artificial technological enhancements are required to fully synchronize with my beliefs.</description>
+        <baseMoodEffect>2</baseMoodEffect>
+      </li>
+      <li>
+        <label>transhumanist integrated</label>
+        <description>Five artificial technological enhancements! I'm beginning to feel perfect integration with my beliefs.</description>
+        <baseMoodEffect>3</baseMoodEffect>
+      </li>
+      <li>
+        <label>transhumanist transformed</label>
+        <description>It's as though I've left the weak flesh behind.</description>
+        <baseMoodEffect>3</baseMoodEffect>
+      </li>
+    </stages>
+      <modExtensions>
+          <li Class="MSSFP.Thoughts.BodyModExtension">
+              <mods>MSSFP_NaturalMods</mods>
+          </li>
+      </modExtensions>
+  </ThoughtDef>
+</Defs>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Patch>
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs/InteractionDef[defName="BuildRapport"]/logRulesInitiator/rulesStrings</xpath>
+        <value>
+            <li>subject(p=2)->their skibidi rizz</li>
+            <li>subject(p=2)->their rizz</li>
+            <li>subject(p=2)->rimrim</li>
+            <li>subject(p=4)->rimrim being late</li>
+            <li>subject->frogge</li>
+            <li>subject->almighty frogge</li>
+            <li>subject->Joris</li>
+            <li>subject->ohio</li>
+            <li>subject->brainrot</li>
+            <li>subject->snu-snu</li>
+        </value>
+    </Operation>
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs/InteractionDef[defName="RomanceAttempt"]/logRulesInitiator/rulesStrings</xpath>
+        <value>
+            <li>wooed->rizzed</li>
+            <li>wootactic->asking where rimrim?</li>
+            <li>wootactic->dabbing</li>
+            <li>wootactic->saying they were skibidi ohio</li>
+            <li>wootactic->saying they were dank, fr</li>
+            <li>wootactic->moaning about rimrim being late</li>
+            <li>wootactic->drawing pictures of frogge</li>
+            <li>PersonalCharacteristic->rizz</li>
+            <li>PersonalCharacteristic->BDE</li>
+            <li>PersonalCharacteristic->boujee ways</li>
+            <li>PersonalCharacteristic->brainrot</li>
+            <li>PersonalCharacteristic->bussy</li>
+        </value>
+    </Operation>
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs/RulePackDef[defName="GlobalUtility"]/rulePack/rulesStrings</xpath>
+        <value>
+            <li>ConceptPositive->rimrim</li>
+            <li>ConceptPositive->frogge</li>
+            <li>ConceptPositive->rizz</li>
+            <li>ConceptAngsty->ick</li>
+            <li>AdjectiveLarge->BDE</li>
+            <li>NaturalObject->glizzy</li>
+        </value>
+    </Operation>
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs/RulePackDef[defName="TalkTopicsUtility"]/rulePack/rulesStrings</xpath>
+        <value>
+            <li>TalkTopicAny->rimrim</li>
+            <li>TalkTopicAny->frogge</li>
+            <li>TalkTopicAny->rizz</li>
+            <li>TalkTopicAny->snu-snu</li>
+            <li>TalkTopicAny->sussy baka</li>
+            <li>TalkTopicAny->situationship</li>
+            <li>TalkTopicAny->touching grass</li>
+            <li>TalkTopicAny->proletarian labour stolen by the bourgeoisie</li>
+            <li>TalkTopicAny->proletarian labour stolen by the bourgeoisie</li>
+        </value>
+    </Operation>
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs/RulePackDef[defName="NamerTraderGeneral"]/rulePack/rulesStrings</xpath>
+        <value>
+            <li>businesstype->Failure Management</li>
+            <li>businesstype->Rizz Corp</li>
+            <li>businesstype->Sussy Corp</li>
+            <li>businesstype->Middlemen Inc.</li>
+            <li>businesstype->[purveyStuff] Slingers</li>
+            <li>businesstype->BDE</li>
+            <li>businesstype->Purveyors of [purveyStuff]</li>
+            <li>purveyStuff->Guff</li>
+            <li>purveyStuff->Tat</li>
+            <li>purveyStuff->Junk</li>
+        </value>
+    </Operation>
+</Patch>

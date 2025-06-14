@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Defs>
+    <BackstoryDef>
+        <defName>MSSFP_Trek</defName>
+        <identifier>MSSFP_Trek</identifier>
+        <slot>Adulthood</slot>
+        <title>Spacefarer</title>
+        <titleShort>Spacefarer</titleShort>
+        <baseDesc>Trained at the federation academy, they have extensive knowledge of technology, science, and xenobiology. As with many graduates from the achademy, they have a touch of xenophilia too.</baseDesc>
+        <requiredWorkTags>Social</requiredWorkTags>
+        <skillGains>
+            <Shooting>4</Shooting>
+            <Melee>2</Melee>
+            <Medicine>4</Medicine>
+            <Intellectual>5</Intellectual>
+            <Social>5</Social>
+        </skillGains>
+        <shuffleable>false</shuffleable>
+    </BackstoryDef>
+
+    <PawnKindDef ParentName="SpaceRefugeeBase">
+        <defName>MSSFP_TrekCrasher</defName>
+        <label>space traveller</label>
+        <apparelMoney>0~10000</apparelMoney>
+        <initialWillRange>1~3</initialWillRange>
+        <initialResistanceRange>12~19</initialResistanceRange>
+        <nameMaker>MSSFP_NamerPersonTrek</nameMaker>
+        <nameMakerFemale>MSSFP_NamerPersonTrek</nameMakerFemale>
+        <canBeScattered>false</canBeScattered>
+        <useFactionXenotypes>false</useFactionXenotypes>
+        <fixedAdultBackstories>
+            <li>MSSFP_Trek</li>
+        </fixedAdultBackstories>
+        <nakedChance>0.1</nakedChance>
+    </PawnKindDef>
+
+    <ThoughtDef>
+        <defName>MSSFP_TrekThought</defName>
+        <thoughtClass>MSSFP.Thoughts.Thought_TrekThought</thoughtClass>
+        <workerClass>MSSFP.Thoughts.ThoughtWorker_Trek</workerClass>
+        <validWhileDespawned>true</validWhileDespawned>
+        <stages>
+            <li>
+                <label>strangely attracted to spacefarer</label>
+            </li>
+        </stages>
+    </ThoughtDef>
+
+    <ThoughtDef>
+        <defName>MSSFP_NonTrekThought</defName>
+        <thoughtClass>MSSFP.Thoughts.Thought_NonTrekThought</thoughtClass>
+        <workerClass>MSSFP.Thoughts.ThoughtWorker_NonTrek</workerClass>
+        <validWhileDespawned>true</validWhileDespawned>
+        <stages>
+            <li>
+                <label>the rimfleet academy effect</label>
+            </li>
+        </stages>
+    </ThoughtDef>
+</Defs>

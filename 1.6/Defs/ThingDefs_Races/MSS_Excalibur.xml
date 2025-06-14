@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ThingDef ParentName="ThingBaseWolf">
+		<defName>MSS_Excalibur</defName>
+		<label>Excalibur</label>
+		<description>A little bug fella. Look at that little guy. Wow, he barking. Possibly zooming. But definitely bugging around.</description>
+		<race>
+		  <meatLabel>wolf meat</meatLabel>
+		</race>
+	  </ThingDef>
+
+	<PawnKindDef ParentName="AnimalKindBaseWolf">
+		<defName>MSS_Excalibur</defName>
+		<label>Excalibur</label>
+		<labelPlural>Excaliburs</labelPlural>
+		<race>MSS_Excalibur</race>
+		<lifeStages>
+		  <li>
+			<label>Excalibur Smolyer</label>
+			<labelPlural>Excalibur Smolyer</labelPlural>
+			<bodyGraphicData>
+			  <texPath>Things/Pawn/Animal/Excalibur/Excalibur</texPath>
+			  <drawSize>0.6</drawSize>
+			</bodyGraphicData>
+			<dessicatedBodyGraphicData>
+			  <texPath>Things/Pawn/Animal/Labrador/Dessicated_Labrador</texPath>
+			  <drawSize>0.6</drawSize>
+			</dessicatedBodyGraphicData>
+		  </li>
+		  <li>
+			<bodyGraphicData>
+			  <texPath>Things/Pawn/Animal/Excalibur/Excalibur</texPath>
+			  <drawSize>0.8</drawSize>
+			  <shadowData>
+				<volume>(0.25, 0.3, 0.25)</volume>
+				<offset>(0,0,-0.15)</offset>
+			  </shadowData>
+			</bodyGraphicData>
+			<dessicatedBodyGraphicData>
+			  <texPath>Things/Pawn/Animal/Labrador/Dessicated_Labrador</texPath>
+			  <drawSize>0.85</drawSize>
+			</dessicatedBodyGraphicData>
+		  </li>
+		  <li>
+			<bodyGraphicData>
+			  <texPath>Things/Pawn/Animal/Excalibur/Excalibur</texPath>
+			  <drawSize>1.2</drawSize>
+			  <shadowData>
+				<volume>(0.3, 0.4, 0.3)</volume>
+				<offset>(0,0,-0.15)</offset>
+			  </shadowData>
+			</bodyGraphicData>
+			<dessicatedBodyGraphicData>
+			  <texPath>Things/Pawn/Animal/Labrador/Dessicated_Labrado</texPath>
+			  <drawSize>1.2</drawSize>
+			</dessicatedBodyGraphicData>
+		  </li>
+		</lifeStages>
+	  </PawnKindDef>
+</Defs>

@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <ThingDef ParentName="AnimalThingBase">
+        <defName>MSSFP_Mogus</defName>
+        <label>mogus</label>
+        <description>A mysterious creature that seems to be doing work in and around the colony, but something seems off about it. Some say they can mysteriously travel through steam vents and geysers. Seems sus.</description>
+        <statBases>
+            <MoveSpeed>3.5</MoveSpeed>
+            <MarketValue>750</MarketValue>
+            <ComfyTemperatureMin>-30</ComfyTemperatureMin>
+            <ComfyTemperatureMax>50</ComfyTemperatureMax>
+            <FilthRate>1</FilthRate>
+            <Wildness>0</Wildness>
+        </statBases>
+        <tools>
+            <li>
+                <capacities>
+                    <li>Bite</li>
+                </capacities>
+                <power>40</power>
+                <cooldownTime>7</cooldownTime>
+                <linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+                <surpriseAttack>
+                    <extraMeleeDamages>
+                        <li>
+                            <def>Stun</def>
+                            <amount>25</amount>
+                        </li>
+                    </extraMeleeDamages>
+                </surpriseAttack>
+            </li>
+        </tools>
+        <race>
+            <thinkTreeMain>MSSFP_ImpostorBehavior</thinkTreeMain>
+            <body>QuadrupedAnimalWithPawsAndTail</body>
+            <baseBodySize>0.6</baseBodySize>
+            <baseHealthScale>1.0</baseHealthScale>
+            <foodType>VegetarianRoughAnimal, DendrovoreAnimal</foodType>
+            <trainability>Advanced</trainability>
+            <petness>1</petness>
+            <lifeExpectancy>12000</lifeExpectancy>
+            <hasMeat>false</hasMeat>
+            <intelligence>Animal</intelligence>
+            <manhunterOnDamageChance>0.0</manhunterOnDamageChance>
+            <soundEating>Rodent_Eat</soundEating>
+            <lifeStageAges>
+                <li>
+                    <def>AnimalAdult</def>
+                    <minAge>0</minAge>
+                    <soundWounded>Pawn_Hare_Wounded</soundWounded>
+                    <soundDeath>Pawn_Hare_Death</soundDeath>
+                    <soundCall>Pawn_Hare_Call</soundCall>
+                    <soundAngry>Pawn_Hare_Angry</soundAngry>
+                </li>
+            </lifeStageAges>
+            <soundMeleeHitPawn>Pawn_Melee_SmallScratch_HitPawn</soundMeleeHitPawn>
+            <soundMeleeHitBuilding>Pawn_Melee_SmallScratch_HitBuilding</soundMeleeHitBuilding>
+            <soundMeleeMiss>Pawn_Melee_SmallScratch_Miss</soundMeleeMiss>
+        </race>
+        <comps>
+            <li Class="MSSFP.Comps.CompProperties_Impostor"/>
+            <!-- <li IfModActive="oskarpotocki.vanillafactionsexpanded.core" Class="AnimalBehaviours.CompProperties_Draftable">
+                <makeNonFleeingToo>true</makeNonFleeingToo>
+            </li>
+            <li IfModActive="oskarpotocki.vanillafactionsexpanded.core" Class="AnimalBehaviours.CompProperties_LastStand">
+                <finalCoolDownMultiplier>6</finalCoolDownMultiplier>
+            </li>
+            <li IfModActive="oskarpotocki.vanillafactionsexpanded.core" Class="AnimalBehaviours.CompProperties_DoesntFlee">
+
+            </li>
+            <li IfModActive="oskarpotocki.vanillafactionsexpanded.core" Class="AnimalBehaviours.CompProperties_NoTamingDecay">
+
+            </li> -->
+        </comps>
+    </ThingDef>
+
+    <PawnKindDef ParentName="AnimalKindBase">
+        <defName>MSSFP_MogusKind_Blue</defName>
+        <label>blue</label>
+        <race>MSSFP_Mogus</race>
+        <combatPower>150</combatPower>
+        <canArriveManhunter>false</canArriveManhunter>
+        <lifeStages>
+            <li>
+                <bodyGraphicData>
+                    <texPath>Things/Pawn/Animal/Mogus/Mogus_A</texPath>
+                    <drawSize>0.6</drawSize>
+                </bodyGraphicData>
+            </li>
+        </lifeStages>
+        <abilities>
+            <li>MSSFP_EmergencyMeeting</li>
+        </abilities>
+    </PawnKindDef>
+
+    <PawnKindDef ParentName="AnimalKindBase">
+        <defName>MSSFP_MogusKind_Red</defName>
+        <label>red</label>
+        <race>MSSFP_Mogus</race>
+        <combatPower>150</combatPower>
+        <canArriveManhunter>false</canArriveManhunter>
+        <lifeStages>
+            <li>
+                <bodyGraphicData>
+                    <texPath>Things/Pawn/Animal/Mogus/Mogus_B</texPath>
+                    <drawSize>0.6</drawSize>
+                </bodyGraphicData>
+            </li>
+        </lifeStages>
+        <abilities>
+            <li>MSSFP_EmergencyMeeting</li>
+        </abilities>
+    </PawnKindDef>
+
+    <PawnKindDef ParentName="AnimalKindBase">
+        <defName>MSSFP_MogusKind_Green</defName>
+        <label>green</label>
+        <race>MSSFP_Mogus</race>
+        <combatPower>150</combatPower>
+        <canArriveManhunter>false</canArriveManhunter>
+        <lifeStages>
+            <li>
+                <bodyGraphicData>
+                    <texPath>Things/Pawn/Animal/Mogus/Mogus_C</texPath>
+                    <drawSize>0.6</drawSize>
+                </bodyGraphicData>
+            </li>
+        </lifeStages>
+        <abilities>
+            <li>MSSFP_EmergencyMeeting</li>
+        </abilities>
+    </PawnKindDef>
+
+    <PawnKindDef ParentName="AnimalKindBase">
+        <defName>MSSFP_MogusKind_Yellow</defName>
+        <label>yellow</label>
+        <race>MSSFP_Mogus</race>
+        <combatPower>150</combatPower>
+        <canArriveManhunter>false</canArriveManhunter>
+        <lifeStages>
+            <li>
+                <bodyGraphicData>
+                    <texPath>Things/Pawn/Animal/Mogus/Mogus_D</texPath>
+                    <drawSize>0.6</drawSize>
+                </bodyGraphicData>
+            </li>
+        </lifeStages>
+        <abilities>
+            <li>MSSFP_EmergencyMeeting</li>
+        </abilities>
+    </PawnKindDef>
+
+    <IncidentDef>
+        <defName>MSSFP_Mogus</defName>
+        <label>Mogus</label>
+        <category>Special</category>
+        <targetTags>
+            <li>Map_PlayerHome</li>
+        </targetTags>
+        <workerClass>MSSFP.Incidents.IncidentWorker_Mogus</workerClass>
+        <hidden>true</hidden>
+        <baseChance>5</baseChance>
+        <minRefireDays>5</minRefireDays>
+        <minGreatestPopulation>3</minGreatestPopulation>
+    </IncidentDef>
+</Defs>

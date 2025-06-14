@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <IncidentDef>
+        <defName>MSS_LoversAdvance</defName>
+        <label>lovers advance!</label>
+        <targetTags>
+            <li>Map_PlayerHome</li>
+        </targetTags>
+        <workerClass>IncidentWorker_GiveQuest_Map</workerClass>
+        <questScriptDef>MSS_LoversAdvance</questScriptDef>
+        <baseChance>0.95</baseChance>
+        <letterDef>NewQuest_ThreatBig</letterDef>
+        <baseChanceWithRoyalty>0.95</baseChanceWithRoyalty>
+        <category>ThreatBig</category>
+        <minThreatPoints>400</minThreatPoints>
+        <minPopulation>4</minPopulation>
+        <minRefireDays>60</minRefireDays>
+        <earliestDay>200</earliestDay>
+        <pointsScaleable>true</pointsScaleable>
+    </IncidentDef>
+
+    <SitePartDef>
+        <defName>MSS_LoversAdvance_SitePart</defName>
+        <label>Lovers Advance!</label>
+        <description>Lovers Advance!</description>
+        <siteTexture>World/WorldObjects/Sites/GenericSite</siteTexture>
+        <expandingIconTexture>World/WorldObjects/Expanding/Sites/ConditionCauser</expandingIconTexture>
+        <wantsThreatPoints>true</wantsThreatPoints>
+        <badEvenIfNoMap>true</badEvenIfNoMap>
+        <workerClass>MSSFP.Questing.SitePartWorker_LoversAdvance</workerClass>
+        <tags>
+            <li>MSS_LoversAssault</li>
+        </tags>
+    </SitePartDef>
+
+    <GenStepDef>
+        <defName>MSSFP_BuildingSupplies</defName>
+        <linkWithSite>MSS_LoversAdvance_SitePart</linkWithSite>
+        <order>450</order>
+        <genStep Class="MSSFP.Questing.GenStep_BuildingSupplies">
+        </genStep>
+    </GenStepDef>
+
+    <RuleDef>
+        <defName>MSS_BasePart_ConstructionSite</defName>
+        <symbol>mss_basePart_constructionSite</symbol>
+        <resolvers>
+            <li Class="MSSFP.Questing.SymbolResolver_ConstructionSite" />
+        </resolvers>
+    </RuleDef>
+
+    <GenStepDef>
+        <defName>MSSFP_BuildingSuppliesPower</defName>
+        <linkWithSite>MSS_LoversAdvance_SitePart</linkWithSite>
+        <order>451</order>
+        <genStep Class="GenStep_Power"/>
+    </GenStepDef>
+
+    <QuestScriptDef>
+        <defName>MSS_LoversAdvance</defName>
+        <rootSelectionWeight>0</rootSelectionWeight>
+        <rootMinProgressScore>10</rootMinProgressScore>
+        <rootMinPoints>400</rootMinPoints>
+        <autoAccept>true</autoAccept>
+        <questNameRules>
+            <rulesStrings>
+                <li>questName->Lovers Advance!</li>
+            </rulesStrings>
+        </questNameRules>
+        <questDescriptionRules>
+            <rulesStrings>
+                <li>questDescription->Disaster! [siteFaction_name] have been building up a construction supply area near our precious Lover's Retreat! They intend to develop the area into an industral zone.\n\nLover's Retreat overlooks a lake famed for it's beauty and stunning sunsets. It's also home to the primary frogge spawning grounds. Without these grounds, frogge risk extinction.\n\nSome have attributed the highly increased (and frankly, odd) fertility associated with Lovers who visit the area to the frogge spawning grounds. Being primordial archo-creatures, the area has become infused with archites associated with reproduction. Some have posited that spending time in the area is enough to pick some of these archites up, which quickly get to work.\n\nYou'll need to destroy the contruction office on the site within 8 days to make sure frogge can survive, and the Lover's Retreat is kept pristine.</li>
+            </rulesStrings>
+        </questDescriptionRules>
+        <questAvailableLetterDef>NewQuest_ThreatBig</questAvailableLetterDef>
+        <root Class="QuestNode_Sequence">
+            <nodes>
+                <li Class="QuestNode_Set">
+                    <name>siteDistRange</name>
+                    <value>2~20</value>
+                </li>
+
+                <li Class="QuestNode_GetFaction">
+                    <allowEnemy>true</allowEnemy>
+                    <allowPermanentEnemy>true</allowPermanentEnemy>
+                    <storeAs>siteFaction</storeAs>
+                  </li>
+
+                <li Class="QuestNode_FactionExists">
+                    <faction>PatreonCivil</faction>
+                    <node Class="QuestNode_Set">
+                        <name>selectionWeightMechanoid</name>
+                        <value>1</value>
+                    </node>
+                    <elseNode Class="QuestNode_Set">
+                        <name>selectionWeightMechanoid</name>
+                        <value>0</value>
+                    </elseNode>
+                </li>
+
+                <li Class="QuestNode_GetMap" />
+
+                <li Class="QuestNode_Set">
+                    <name>sitePartsTags</name>
+                    <value>
+                        <li>
+                            <tag>MSS_LoversAssault</tag>
+                        </li>
+                    </value>
+                </li>
+
+                <li Class="QuestNode_QuestUnique">
+                    <tag>MSS_LoversAssault</tag>
+                    <faction>$siteFaction</faction>
+                </li>
+
+                <li Class="QuestNode_SubScript">
+                    <def>Util_AdjustPointsForDistantFight</def>
+                </li>
+
+                <li Class="QuestNode_GetSitePartDefsByTagsAndFaction">
+                    <storeAs>sitePartDefs</storeAs>
+                    <sitePartsTags>$sitePartsTags</sitePartsTags>
+                </li>
+
+                <li Class="QuestNode_GetSiteTile">
+                    <storeAs>siteTile</storeAs>
+                    <clampRangeBySiteParts>true</clampRangeBySiteParts>
+                    <sitePartDefs>$sitePartDefs</sitePartDefs>
+                </li>
+
+                <li Class="QuestNode_GetDefaultSitePartsParams">
+                    <tile>$siteTile</tile>
+                    <faction>$siteFaction</faction>
+                    <sitePartDefs>$sitePartDefs</sitePartDefs>
+                    <storeSitePartsParamsAs>sitePartsParams</storeSitePartsParamsAs>
+                </li>
+
+                <li Class="QuestNode_WorldObjectTimeout">
+                    <worldObject>$site</worldObject>
+                    <isQuestTimeout>true</isQuestTimeout>
+                    <delayTicks>480000</delayTicks>
+                    <inSignalDisable>site.MapGenerated</inSignalDisable>
+                    <destroyOnCleanup>true</destroyOnCleanup>
+                    <node Class="QuestNode_Sequence">
+                        <nodes>
+                            <li Class="QuestNode_Letter">
+                                <label TKey="LetterLabelQuestExpired">Quest expired: [resolvedQuestName]</label>
+                                <letterDef>NegativeEvent</letterDef>
+                                <text TKey="LetterTextQuestExpired">[siteFaction_name] have flattened Lover's Retreat. The event will no longer fire.</text>
+                            </li>
+                            <li Class="MSSFP.Questing.QuestNode_DisableLoversRetreat">
+                            </li>
+                            <li Class="QuestNode_End">
+                                <outcome>Fail</outcome>
+                            </li>
+                        </nodes>
+                    </node>
+                </li>
+
+                <li Class="QuestNode_SubScript">
+                    <def>Util_GenerateSite</def>
+                    <parms>
+                        <hiddenSitePartsPossible>false</hiddenSitePartsPossible>
+                    </parms>
+                </li>
+
+                <li Class="QuestNode_SpawnWorldObjects">
+                    <worldObjects>$site</worldObjects>
+                </li>
+
+                <li Class="QuestNode_Signal">
+                    <inSignal>conditionCauser.Destroyed</inSignal>
+                    <node Class="QuestNode_Sequence">
+                        <nodes>
+                            <li Class="QuestNode_Letter">
+                                <label TKey="LetterLabelSuccess">Building supplies destroyed!</label>
+                                <letterDef>PositiveEvent</letterDef>
+                                <text TKey="LetterTextSuccess">You have destroyed the building supplies!\n\nIt looks like those archites might have been at work too!</text>
+                            </li>
+                            <li Class="QuestNode_Notify_PlayerRaidedSomeone">
+                                <getRaidersFromMapParent>$site</getRaidersFromMapParent>
+                            </li>
+                            <li Class="MSSFP.Questing.QuestNode_Perganante">
+                                <mapParent>$site</mapParent>
+                            </li>
+                            <li Class="QuestNode_End">
+                                <outcome>Success</outcome>
+                            </li>
+                        </nodes>
+                    </node>
+                </li>
+            </nodes>
+        </root>
+    </QuestScriptDef>
+
+    <ThingSetMakerDef>
+        <defName>MSSFP_Construction</defName>
+        <root Class="ThingSetMaker_Sum">
+            <options>
+                <li>
+                    <thingSetMaker Class="ThingSetMaker_StackCount">
+                        <fixedParams>
+                            <filter>
+                                <categories>
+                                    <li>StoneBlocks</li>
+                                    <li>StoneChunks</li>
+                                </categories>
+                            </filter>
+                            <countRange>50~200</countRange>
+                        </fixedParams>
+
+                    </thingSetMaker>
+                </li>
+                <li>
+                    <thingSetMaker Class="ThingSetMaker_StackCount">
+                        <fixedParams>
+                            <filter>
+                                <categories>
+                                    <li>Textiles</li>
+                                </categories>
+                            </filter>
+                            <countRange>10~20</countRange>
+                        </fixedParams>
+
+                    </thingSetMaker>
+                </li>
+                <li>
+                    <thingSetMaker Class="ThingSetMaker_StackCount">
+                        <fixedParams>
+                            <filter>
+                                <categories>
+                                    <li>BuildingsPower</li>
+                                    <li>BuildingsProduction</li>
+                                </categories>
+                            </filter>
+                            <countRange>10~20</countRange>
+                        </fixedParams>
+
+                    </thingSetMaker>
+                </li>
+            </options>
+        </root>
+    </ThingSetMakerDef>
+</Defs>

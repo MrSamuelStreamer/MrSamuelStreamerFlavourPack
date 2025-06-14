@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Defs>
+  <RulePackDef>
+    <defName>MSS_Namer_FroggeTome</defName>
+    <include>
+      <li>ArtNameUtility</li>
+    </include>
+    <rulePack>
+      <rulesStrings>
+        <li>title->[maybeThe] [book] of [frogge][maybeDescription]</li>
+        <li>title->[froggePossesive] [book]</li>
+
+        <li>maybeThe-></li>
+        <li>maybeThe->The</li>
+
+        <li>book->Tome</li>
+        <li>book->Codex</li>
+        <li>book->Writings</li>
+        <li>book->Record</li>
+        <li>book->Secrets</li>
+        <li>book->Chronicles</li>
+        <li>book->Cipher</li>
+        <li>book->Whispers</li>
+        <li>book->Lamentations</li>
+        <li>book->Almanac</li>
+        <li>book->Manuscript</li>
+        <li>book->Annals</li>
+        <li>book->Revelations</li>
+        <li>book->Manifesto</li>
+        <li>book->Testament</li>
+
+        <li>frogge->Frogge</li>
+        <li>frogge->the Frogge</li>
+        <li>frogge->it's Froggeness</li>
+        <li>frogge->the Frogge one</li>
+        <li>frogge->Frogge</li>
+
+        <li>maybeDescription(p=2)-></li>
+        <li>maybeDescription->, seer of the infinite void</li>
+        <li>maybeDescription->, holder of the gems</li>
+        <li>maybeDescription->, the hungry</li>
+        <li>maybeDescription->, gemmed one</li>
+        <li>maybeDescription->, seeker of the shine</li>
+
+        <li>froggePossesive->Frogge's</li>
+        <li>froggePossesive->The Frogge one's</li>
+        <li>froggePossesive->On Frogge, a</li>
+      </rulesStrings>
+    </rulePack>
+  </RulePackDef>
+</Defs>

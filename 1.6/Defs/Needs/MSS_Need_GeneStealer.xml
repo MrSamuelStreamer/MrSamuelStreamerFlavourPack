@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Defs>
+    <NeedDef>
+        <defName>MSS_Need_GeneStealer</defName>
+        <needClass>MSSFP.Needs.Need_GeneStealer</needClass>
+        <label>gene satiety</label>
+        <description>Gene satiety fulfills a built-in desire to acquire new genes at any cost. If it isn't satiated, the person will become very unhappy.</description>
+        <baseLevel>0</baseLevel>
+        <minIntelligence>ToolUser</minIntelligence>
+        <colonistAndPrisonersOnly>true</colonistAndPrisonersOnly>
+        <onlyIfCausedByGene>true</onlyIfCausedByGene>
+    </NeedDef>
+
+    <ThoughtDef>
+        <defName>MSS_Need_GeneStealer</defName>
+        <thoughtClass>MSSFP.Thoughts.ThoughtWorker_Situational_GeneStealer</thoughtClass>
+        <workerClass>MSSFP.Thoughts.ThoughtWorker_GeneStealer</workerClass>
+        <developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
+        <stages>
+            <li>
+                <label>need more genes</label>
+                <description>Must gain genes... it's been way too long since I slurped up someone's genetic material.</description>
+                <baseMoodEffect>-1</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+
+    <HediffDef>
+        <defName>MSS_Need_GeneStealer_Restless</defName>
+        <label>Genetic restlessness</label>
+        <description>This person needs to gain new genes.</description>
+        <hediffClass>Hediff</hediffClass>
+        <defaultLabelColor>(0.6, 1, 0.4)</defaultLabelColor>
+        <stages>
+            <li>
+                <capMods>
+                    <li>
+                        <capacity>Metabolism</capacity>
+                        <offset>0.5</offset>
+                    </li>
+                    <li>
+                        <capacity>Consciousness</capacity>
+                        <offset>-0.1</offset>
+                    </li>
+                    <li>
+                        <capacity>Manipulation</capacity>
+                        <offset>-0.05</offset>
+                    </li>
+                </capMods>
+                <statOffsets>
+                    <PawnBeauty>-0.25</PawnBeauty>
+                    <SocialImpact>-0.25</SocialImpact>
+                </statOffsets>
+                <statFactors>
+                    <MentalBreakThreshold>0.9</MentalBreakThreshold>
+                    <MeleeDodgeChance>0.9</MeleeDodgeChance>
+                    <GlobalLearningFactor>0.95</GlobalLearningFactor>
+                    <WorkSpeedGlobal>0.95</WorkSpeedGlobal>
+                    <FilthRate>1.5</FilthRate>
+                </statFactors>
+            </li>
+        </stages>
+    </HediffDef>
+
+    <HediffDef>
+        <defName>MSS_Need_GeneStealer_Exhaustion</defName>
+        <label>Genetic exhaustion</label>
+        <description>This person desperately needs to slurp up someone's genetic material.</description>
+        <hediffClass>Hediff</hediffClass>
+        <defaultLabelColor>(0.9, 0.2, 0.2)</defaultLabelColor>
+        <stages>
+            <li>
+                <capMods>
+                    <li>
+                        <capacity>Metabolism</capacity>
+                        <offset>4</offset>
+                    </li>
+                    <li>
+                        <capacity>Consciousness</capacity>
+                        <offset>-0.25</offset>
+                    </li>
+                    <li>
+                        <capacity>Manipulation</capacity>
+                        <offset>-0.25</offset>
+                    </li>
+                </capMods>
+                <statOffsets>
+                    <PawnBeauty>-1</PawnBeauty>
+                    <SocialImpact>-1</SocialImpact>
+                </statOffsets>
+                <statFactors>
+                    <MentalBreakThreshold>0.3</MentalBreakThreshold>
+                    <MeleeDodgeChance>0.5</MeleeDodgeChance>
+                    <GlobalLearningFactor>0.5</GlobalLearningFactor>
+                    <WorkSpeedGlobal>0.5</WorkSpeedGlobal>
+                    <FilthRate>4</FilthRate>
+                </statFactors>
+            </li>
+        </stages>
+    </HediffDef>
+</Defs>

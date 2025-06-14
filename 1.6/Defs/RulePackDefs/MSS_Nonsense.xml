@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <RulePackDef>
+    <defName>MSS_Nonsense</defName>
+    <rulePack>
+      <rulesStrings>
+          <li>incidentLetter->[noun]!</li>
+          <li>incidentLetter->[noun]s!</li>
+          <li>incidentLetter->[noun] in [noun]</li>
+          <li>incidentLetter->[noun] [noun]ed</li>
+          <li>incidentLetter->[noun] [noun]ing</li>
+          <li>incidentLetter->[noun]ing [noun]</li>
+          <li>incidentLetter->[noun] on my [noun]</li>
+          <li>incidentLetter->[noun] on my [noun] [noun]ing</li>
+
+          <li>incidentDescription->[PAWN_nameFull]'s [noun] has a [noun]</li>
+          <li>incidentDescription->[PAWN_nameFull] has [noun] on a [noun]</li>
+          <li>incidentDescription->[PAWN_nameFull] has [noun] on their [noun]</li>
+          <li>incidentDescription->[PAWN_nameFull] is [noun]ing on their [noun]</li>
+          <li>incidentDescription->[PAWN_nameFull] has a [noun] full of [noun] on their [noun]</li>
+          <li>incidentDescription->[PAWN_nameFull] [noun]ed their [noun] on their [noun]</li>
+          <li>incidentDescription->The [noun]'s [noun] has [noun]ed. [PAWN_nameFull] is pleased.</li>
+          <li>incidentDescription->The [noun]'s [noun] has [noun]ed. [PAWN_nameFull] is displeased.</li>
+
+          <li>noun->[nounstart][nounend]</li>
+
+          <li>nounend->ngus</li>
+          <li>nounend->ngle</li>
+          <li>nounend->mble</li>
+          <li>nounend->neth</li>
+          <li>nounend->ron</li>
+          <li>nounend->ffle</li>
+          <li>nounend->lorp</li>
+          <li>nounend->wort</li>
+          <li>nounend->ggle</li>
+          <li>nounend->berry</li>
+          <li>nounend->plorp</li>
+          <li>nounend->horn</li>
+          <li>nounend->wick</li>
+
+          <li>nounstart->Scru</li>
+          <li>nounstart->Bro</li>
+          <li>nounstart->Ji</li>
+          <li>nounstart->Zi</li>
+          <li>nounstart->Gri</li>
+          <li>nounstart->Wo</li>
+          <li>nounstart->Qui</li>
+          <li>nounstart->Fli</li>
+          <li>nounstart->Bro</li>
+          <li>nounstart->Clange</li>
+          <li>nounstart->Flange</li>
+          <li>nounstart->Splee</li>
+          <li>nounstart->Vru</li>
+          <li>nounstart->Jazwo</li>
+          <li>nounstart->Bi</li>
+          <li>nounstart->Bimb</li>
+          <li>nounstart->Spla</li>
+          <li>nounstart->Sploo</li>
+          <li>nounstart->Spi</li>
+          <li>nounstart->Da</li>
+          <li>nounstart->Di</li>
+          <li>nounstart->Doo</li>
+          <li>nounstart->Pee</li>
+          <li>nounstart->Kree</li>
+          <li>nounstart->Kroo</li>
+          <li>nounstart->Kra</li>
+      </rulesStrings>
+    </rulePack>
+  </RulePackDef>
+</Defs>

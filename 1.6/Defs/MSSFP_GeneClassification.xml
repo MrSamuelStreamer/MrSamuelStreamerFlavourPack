@@ -1,0 +1,3373 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <MSSFP.Genes.GeneClassificationDef>
+        <defName>MSSFP_GoodGenes</defName>
+        <type>good</type>
+        <genes>
+            <li MayRequire="sarg.alphagenes">
+                <gene>MSSFP_FroggeAffinity</gene>
+                <weight>0.3</weight>
+                <geneClassification>ability</geneClassification>
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>MSSFP_JroggeAffinity</gene>
+                <weight>0.3</weight>
+                <geneClassification>ability</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>FireSpew</gene>
+                <weight>0.1</weight>
+                <geneClassification>ability</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>FoamSpray</gene>
+                <weight>0.1</weight>
+                <geneClassification>ability</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>LongjumpLegs</gene>
+                <weight>0.1</weight>
+                <geneClassification>ability</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>AnimalWarcall</gene>
+                <weight>0.1</weight>
+                <geneClassification>ability</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Bloodfeeder</gene>
+                <weight>0.1</weight>
+                <geneClassification>ability</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Coagulate</gene>
+                <weight>0.1</weight>
+                <geneClassification>ability</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>XenogermReimplanter</gene>
+                <weight>0.1</weight>
+                <geneClassification>ability</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>PiercingSpine</gene>
+                <weight>0.1</weight>
+                <geneClassification>ability</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>AcidSpray</gene>
+                <weight>0.1</weight>
+                <geneClassification>ability</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>WoundHealing_Fast</gene>
+                <weight>0.1</weight>
+                <geneClassification>health</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>WoundHealing_SuperFast</gene>
+                <weight>0.05</weight>
+                <geneClassification>health</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Immunity_Strong</gene>
+                <weight>0.1</weight>
+                <geneClassification>health</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Immunity_SuperStrong</gene>
+                <weight>0.05</weight>
+                <geneClassification>health</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>ToxicEnvironmentResistance_Partial</gene>
+                <weight>0.2</weight>
+                <geneClassification>health</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>ToxicEnvironmentResistance_Total</gene>
+                <weight>0.1</weight>
+                <geneClassification>health</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Fertile</gene>
+                <weight>0.2</weight>
+                <geneClassification>health</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Superclotting</gene>
+                <weight>0.1</weight>
+                <geneClassification>health</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>KindInstinct</gene>
+                <weight>0.5</weight>
+                <geneClassification>mental</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>StrongStomach</gene>
+                <weight>0.2</weight>
+                <geneClassification>health</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>DarkVision</gene>
+                <weight>0.2</weight>
+                <geneClassification>ability</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>FireResistant</gene>
+                <weight>0.2</weight>
+                <geneClassification>ability</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>RobustDigestion</gene>
+                <weight>0.5</weight>
+                <geneClassification>health</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>PsychicBonding</gene>
+                <weight>0.1</weight>
+                <geneClassification>mental</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>PollutionRush</gene>
+                <weight>0.1</weight>
+                <geneClassification>ability</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Unstoppable</gene>
+                <weight>0.1</weight>
+                <geneClassification>ability</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>PerfectImmunity</gene>
+                <weight>0.1</weight>
+                <geneClassification>health</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>DiseaseFree</gene>
+                <weight>0.1</weight>
+                <geneClassification>health</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>TotalHealing</gene>
+                <weight>0.05</weight>
+                <geneClassification>health</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Ageless</gene>
+                <weight>0.05</weight>
+                <geneClassification>health</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Deathless</gene>
+                <weight>0.05</weight>
+                <geneClassification>health</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>ArchiteMetabolism</gene>
+                <weight>0.05</weight>
+                <geneClassification>health</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>MinTemp_SmallDecrease</gene>
+                <weight>0.5</weight>
+                <geneClassification>health</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>MinTemp_LargeDecrease</gene>
+                <weight>0.1</weight>
+                <geneClassification>health</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>MaxTemp_LargeIncrease</gene>
+                <weight>0.1</weight>
+                <geneClassification>health</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>MaxTemp_SmallIncrease</gene>
+                <weight>0.5</weight>
+                <geneClassification>health</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>PsychicAbility_Enhanced</gene>
+                <weight>0.5</weight>
+                <geneClassification>psychic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>PsychicAbility_Extreme</gene>
+                <weight>0.1</weight>
+                <geneClassification>psychic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>MoveSpeed_Quick</gene>
+                <weight>0.5</weight>
+                <geneClassification>skill</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>MoveSpeed_VeryQuick</gene>
+                <weight>0.1</weight>
+                <geneClassification>skill</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Beauty_Pretty</gene>
+                <weight>0.1</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Beauty_Beautiful</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Learning_Fast</gene>
+                <weight>0.5</weight>
+                <geneClassification>skill</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Mood_Optimist</gene>
+                <weight>0.5</weight>
+                <geneClassification>mental</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Mood_Sanguine</gene>
+                <weight>0.1</weight>
+                <geneClassification>mental</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>ToxResist_Partial</gene>
+                <weight>0.5</weight>
+                <geneClassification>health</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>ToxResist_Total</gene>
+                <weight>0.1</weight>
+                <geneClassification>health</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Robust</gene>
+                <weight>0.5</weight>
+                <geneClassification>health</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Pain_Reduced</gene>
+                <weight>0.2</weight>
+                <geneClassification>health</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Aggression_DeadCalm</gene>
+                <weight>0.2</weight>
+                <geneClassification>mental</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>LowSleep</gene>
+                <weight>0.5</weight>
+                <geneClassification>mental</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Neversleep</gene>
+                <weight>0.1</weight>
+                <geneClassification>mental</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>MeleeDamage_Strong</gene>
+                <weight>0.2</weight>
+                <geneClassification>skill</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Libido_High</gene>
+                <weight>0.5</weight>
+                <geneClassification>health</geneClassification>
+            </li>
+            <li MayRequire="neronix17.archotech.genetics">
+                <gene>ArchoGenes_ArchotechSkin</gene>
+                <weight>0.001</weight>
+                <geneClassification />
+                <requires>
+                    <li>ArchoGenes_Skin_Archotech</li>
+                </requires>
+            </li>
+            <li MayRequire="neronix17.archotech.genetics">
+                <gene>ArchoGenes_ArchotechMuscles</gene>
+                <weight>0.001</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="neronix17.archotech.genetics">
+                <gene>ArchoGenes_ArchotechMemory</gene>
+                <weight>0.001</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="neronix17.archotech.genetics">
+                <gene>ArchoGenes_ArchotechPresence</gene>
+                <weight>0.001</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="neronix17.archotech.genetics">
+                <gene>ArchoGenes_ArchotechLegs</gene>
+                <weight>0.001</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="neronix17.archotech.genetics">
+                <gene>ArchoGenes_ArchotechToxImmunity</gene>
+                <weight>0.001</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="neronix17.archotech.genetics">
+                <gene>ArchoGenes_ArchotechPain</gene>
+                <weight>0.001</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="neronix17.archotech.genetics">
+                <gene>ArchoGenes_ArchotechTemperature</gene>
+                <weight>0.001</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="neronix17.archotech.genetics">
+                <gene>ArchoGenes_ArchotechPsycaster</gene>
+                <weight>0.001</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="neronix17.archotech.genetics">
+                <gene>ArchoGenes_ArchotechSight</gene>
+                <weight>0.001</weight>
+                <geneClassification />
+                <requires>
+                    <li>ArchoGenes_Eyes_Archotech</li>
+                </requires>
+            </li>
+            <li MayRequire="neronix17.archotech.genetics">
+                <gene>ArchoGenes_ArchoRegeneration</gene>
+                <weight>0.001</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="neronix17.archotech.genetics">
+                <gene>ArchoGenes_Blood_Archotech</gene>
+                <weight>0.001</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="lts.geg">
+                <gene>GEG_Eyes_GlowingRed</gene>
+                <weight>0.2</weight>
+                <geneClassification />
+                <requires>
+                    <li>DarkVision</li>
+                </requires>
+            </li>
+            <li MayRequire="lts.geg">
+                <gene>GEG_Eyes_GlowingArchotech</gene>
+                <weight>0.001</weight>
+                <geneClassification />
+                <requires>
+                    <li>ArchoGenes_ArchotechSight</li>
+                </requires>
+            </li>
+            <li MayRequire="lts.geg">
+                <gene>GEG_Eyes_GlowingPurple</gene>
+                <weight>0.2</weight>
+                <geneClassification />
+                <requires>
+                    <li>DarkVision</li>
+                </requires>
+            </li>
+            <li MayRequire="lts.geg">
+                <gene>GEG_Eyes_GlowingOrange</gene>
+                <weight>0.2</weight>
+                <geneClassification />
+                <requires>
+                    <li>DarkVision</li>
+                </requires>
+            </li>
+            <li MayRequire="lts.geg">
+                <gene>GEG_Eyes_GlowingCyan</gene>
+                <weight>0.2</weight>
+                <geneClassification />
+                <requires>
+                    <li>DarkVision</li>
+                </requires>
+            </li>
+            <li MayRequire="mss.genflavourpack">
+                <gene>MSS_Gen_VoidsEmbrace</gene>
+                <weight>0.001</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_GreaterToughspikes</gene>
+                <weight>0.001</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_GreaterFleshWhip</gene>
+                <weight>0.001</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_TentacleHorns</gene>
+                <weight>0.001</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_DeadlifeProducer</gene>
+                <weight>0.001</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_PseudoDeadlife</gene>
+                <weight>0.001</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_GreyPocketPlane</gene>
+                <weight>0.001</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_FleshSpitter</gene>
+                <weight>0.05</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_FleshBulb</gene>
+                <weight>0.05</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_FleshSack</gene>
+                <weight>0.05</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_Invisibility</gene>
+                <weight>0.05</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_InnatePsylink</gene>
+                <weight>0.05</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_PsychicInsanity</gene>
+                <weight>0.05</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_SelfSkip</gene>
+                <weight>0.05</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_MinorAnimalSummon_Randomizer</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_AnimalSummon_Randomizer</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_MajorAnimalSummon_Randomizer</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_UnstableMutation</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_ReactiveArmour</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_MineralShock</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_MineralOverdrive</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_Zap</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_GreaterFireSpew</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_GreaterAcidicVomit</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_PetrifyingGaze</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_Spinnerets</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_InsectRally</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_Detonation</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_AcidicDetonation</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_InsanityBlast</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_UnstableMind</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_DevourBrains</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_GeneSyphon</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_InsectStinger</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_ParasiticStinger</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_InsectStingerEndogenes</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_ParasiticStingerEndogenes</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_PsychicAbsorption</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_SterilizingBreath</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_BansheeScream</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_FreezingBreath</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_NoxiousBreath</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_SlowerAging</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_MiningYield_High</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_Foodless</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_AsexualFission</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_Regeneration</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_HeatImmunity</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_ColdImmunity</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_SuperAdaptiveBiology</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_ArmourMinor</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_ArmourMedium</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_ArmourMajor</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_Beauty_Angelic</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_UnsettlingAppearance</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_SurvivalInstinct_High</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_TableResistance</gene>
+                <weight>0.5</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_ForsakenKnowledge</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_ForsakenBodyEmblem</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_ForsakenHeadEmblem</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_ExtraordinaryLifespan</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_LungRotImmunity</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_LungRotStrength</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_RegenerationMinor</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_WaterRegeneration</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_LimbRegeneration</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_PassiveRegenerator</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_UnstableRegeneration</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_FrostbiteResistance</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_Clean</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_PackMule</gene>
+                <weight>0.01</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_AcidImmunity</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_AdaptiveBiology</gene>
+                <weight>0.2</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_ExtraLeather</gene>
+                <weight>0.0025</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_MechConversion</gene>
+                <weight>0.01</weight>
+                <geneClassification />
+                <requires>
+                    <li>AG_InnateMechlink</li>
+                </requires>
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_BandwidthIncrease</gene>
+                <weight>0.01</weight>
+                <geneClassification />
+                <requires>
+                    <li>AG_InnateMechlink</li>
+                </requires>
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_BandwidthIncreaseMajor</gene>
+                <weight>0.005</weight>
+                <geneClassification />
+                <requires>
+                    <li>AG_InnateMechlink</li>
+                </requires>
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_SummonTempBandwidth</gene>
+                <weight>0.01</weight>
+                <geneClassification />
+                <requires>
+                    <li>AG_InnateMechlink</li>
+                </requires>
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_BandwidthLoop</gene>
+                <weight>0.01</weight>
+                <geneClassification />
+                <requires>
+                    <li>AG_InnateMechlink</li>
+                </requires>
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_IncreasedCommandRange</gene>
+                <weight>0.01</weight>
+                <geneClassification />
+                <requires>
+                    <li>AG_InnateMechlink</li>
+                </requires>
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_IncreasedMechRepair</gene>
+                <weight>0.01</weight>
+                <geneClassification />
+                <requires>
+                    <li>AG_InnateMechlink</li>
+                </requires>
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_ExpertMechRepair</gene>
+                <weight>0.005</weight>
+                <geneClassification />
+                <requires>
+                    <li>AG_InnateMechlink</li>
+                </requires>
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AlphaGenes_Animal_SummonMilitor</gene>
+                <weight>0.001</weight>
+                <geneClassification />
+                <requires>
+                    <li>AG_InnateMechlink</li>
+                </requires>
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AlphaGenes_Animal_SummonTesseron</gene>
+                <weight>0.001</weight>
+                <geneClassification />
+                <requires>
+                    <li>AG_InnateMechlink</li>
+                </requires>
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AlphaGenes_Animal_SummonCentipede</gene>
+                <weight>0.001</weight>
+                <geneClassification />
+                <requires>
+                    <li>AG_InnateMechlink</li>
+                </requires>
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_NereidPocketPlane</gene>
+                <weight>0.001</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_NoRaidPresence</gene>
+                <weight>0.01</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_ReducedRaidPresence</gene>
+                <weight>0.01</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_PsychicAbility_Masterful</gene>
+                <weight>0.005</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_FastGestation</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_MineralEfficencyGood</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+                <requires>
+                    <li>AG_MetalEater</li>
+                </requires>
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_ArmouredSpeed</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_WaterStriding</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_PollutionStriding</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_ColdSpeed</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+                <requires>
+                    <li>MinTemp_LargeDecrease</li>
+                </requires>
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_HeatRadiating</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+                <requires>
+                    <li>MaxTemp_LargeIncrease</li>
+                </requires>
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_ColdRadiating</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+                <requires>
+                    <li>MinTemp_LargeDecrease</li>
+                </requires>
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_TeratogenicHealing</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+                <requires>
+                    <li>AG_Teratogenesis</li>
+                </requires>
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_HealingTouch</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+                <requires>
+                    <li>AG_Teratogenesis</li>
+                </requires>
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_TeratogenicManipulation</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+                <requires>
+                    <li>AG_Teratogenesis</li>
+                </requires>
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_TeratogenicSwiftness</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+                <requires>
+                    <li>AG_Teratogenesis</li>
+                </requires>
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_TeratogenicStamina</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+                <requires>
+                    <li>AG_Teratogenesis</li>
+                </requires>
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_TeratogenicBurst</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+                <requires>
+                    <li>AG_Teratogenesis</li>
+                </requires>
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_InnerPeace</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_Enforcer</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_ToughSinews</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_RatVomit</gene>
+                <weight>0.05</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_Fogger</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_RainMaker</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_FoggyRainMaker</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_RainyThunderstormMaker</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_DryThunderstormMaker</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_SnowMaker</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="resplice.xotr.core">
+                <gene>RS_VoidTouched</gene>
+                <weight>0.01</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="resplice.xotr.core">
+                <gene>RS_UnnaturalHealing</gene>
+                <weight>0.05</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="resplice.xotr.core">
+                <gene>RS_TransmuteSteel</gene>
+                <weight>0.05</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="resplice.xotr.core">
+                <gene>RS_DeadlifeDust</gene>
+                <weight>0.05</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="resplice.xotr.core">
+                <gene>RS_ShapeFlesh</gene>
+                <weight>0.05</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="resplice.xotr.core">
+                <gene>RS_PsychicSlaughter</gene>
+                <weight>0.05</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="vanillaracesexpanded.archon">
+                <gene>VRE_EarlyMaturity</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="vanillaracesexpanded.archon">
+                <gene>VRE_Transcendent</gene>
+                <weight>0.05</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="vanillaracesexpanded.archon">
+                <gene>VRE_InnatePsylink</gene>
+                <weight>0.05</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="vanillaracesexpanded.archon">
+                <gene>VRE_PsychicAbility_MoreExtreme</gene>
+                <weight>0.05</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="vanillaracesexpanded.archon">
+                <gene>VRE_LeapjumpLegs</gene>
+                <weight>0.05</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="vanillaracesexpanded.archon">
+                <gene>VRE_FastMeleeHitter</gene>
+                <weight>0.05</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="vanillaracesexpanded.archon">
+                <gene>VRE_FastShooter</gene>
+                <weight>0.05</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="vanillaracesexpanded.archon">
+                <gene>VRE_Leatherskin</gene>
+                <weight>0.05</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="vanillaracesexpanded.archon">
+                <gene>VRE_ExtremeMeditation</gene>
+                <weight>0.05</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="vanillaracesexpanded.archon">
+                <gene>VRE_SwiftMeditation</gene>
+                <weight>0.05</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="vanillaracesexpanded.archon">
+                <gene>VRE_HighEntropyCapacity</gene>
+                <weight>0.05</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="vanillaracesexpanded.archon">
+                <gene>VRE_ExtremeEntropyCapacity</gene>
+                <weight>0.05</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="vanillaracesexpanded.archon">
+                <gene>VRE_ShortPregnancy</gene>
+                <weight>0.05</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>AptitudeStrong_Shooting</gene>
+                <weight>0.05</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>AptitudeStrong_Melee</gene>
+                <weight>0.05</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>AptitudeStrong_Construction</gene>
+                <weight>0.05</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>AptitudeStrong_Mining</gene>
+                <weight>0.05</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>AptitudeStrong_Cooking</gene>
+                <weight>0.05</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>AptitudeStrong_Plants</gene>
+                <weight>0.05</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>AptitudeStrong_Animals</gene>
+                <weight>0.05</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>AptitudeStrong_Crafting</gene>
+                <weight>0.05</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>AptitudeStrong_Artistic</gene>
+                <weight>0.05</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>AptitudeStrong_Medicine</gene>
+                <weight>0.05</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>AptitudeStrong_Social</gene>
+                <weight>0.05</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>AptitudeStrong_Intellectual</gene>
+                <weight>0.05</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>AptitudeRemarkable_Shooting</gene>
+                <weight>0.025</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>AptitudeRemarkable_Melee</gene>
+                <weight>0.025</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>AptitudeRemarkable_Construction</gene>
+                <weight>0.025</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>AptitudeRemarkable_Mining</gene>
+                <weight>0.025</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>AptitudeRemarkable_Cooking</gene>
+                <weight>0.025</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>AptitudeRemarkable_Plants</gene>
+                <weight>0.025</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>AptitudeRemarkable_Animals</gene>
+                <weight>0.025</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>AptitudeRemarkable_Crafting</gene>
+                <weight>0.025</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>AptitudeRemarkable_Artistic</gene>
+                <weight>0.025</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>AptitudeRemarkable_Medicine</gene>
+                <weight>0.025</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>AptitudeRemarkable_Social</gene>
+                <weight>0.025</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>AptitudeRemarkable_Intellectual</gene>
+                <weight>0.025</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>AddictionResistant_Alcohol</gene>
+                <weight>0.0025</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>AddictionResistant_GoJuice</gene>
+                <weight>0.0025</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>AddictionResistant_Psychite</gene>
+                <weight>0.0025</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>AddictionResistant_Smokeleaf</gene>
+                <weight>0.0025</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>AddictionResistant_WakeUp</gene>
+                <weight>0.0025</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>AddictionImmune_Alcohol</gene>
+                <weight>0.0001</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>AddictionImmune_GoJuice</gene>
+                <weight>0.0001</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>AddictionImmune_Psychite</gene>
+                <weight>0.0001</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>AddictionImmune_Smokeleaf</gene>
+                <weight>0.0001</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>AddictionImmune_WakeUp</gene>
+                <weight>0.0001</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AlphaGenes_AnimalSummon_Ostrich</gene>
+                <weight>0.005</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AlphaGenes_AnimalSummon_Cougar</gene>
+                <weight>0.005</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AlphaGenes_AnimalSummon_Panther</gene>
+                <weight>0.005</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AlphaGenes_AnimalSummon_Husky</gene>
+                <weight>0.005</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AlphaGenes_AnimalSummon_Caribou</gene>
+                <weight>0.005</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AlphaGenes_AnimalSummon_Donkey</gene>
+                <weight>0.005</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AlphaGenes_AnimalSummon_Megaspider</gene>
+                <weight>0.005</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AlphaGenes_AnimalSummon_WildBoar</gene>
+                <weight>0.005</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AlphaGenes_AnimalSummon_Ibex</gene>
+                <weight>0.005</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AlphaGenes_AnimalSummon_Deer</gene>
+                <weight>0.005</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AlphaGenes_AnimalSummon_Alpaca</gene>
+                <weight>0.005</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AlphaGenes_AnimalSummon_Warg</gene>
+                <weight>0.005</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AlphaGenes_AnimalSummon_Wolf_Timber</gene>
+                <weight>0.005</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AlphaGenes_AnimalSummon_Wolf_Arctic</gene>
+                <weight>0.005</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AlphaGenes_AnimalSummon_Toxalope</gene>
+                <weight>0.001</weight>
+                <geneClassification />
+            </li>
+        </genes>
+    </MSSFP.Genes.GeneClassificationDef>
+    <MSSFP.Genes.GeneClassificationDef>
+        <defName>MSSFP_BadGenes</defName>
+        <type>bad</type>
+        <genes>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>MSSFP_Illiterate</gene>
+                <weight>0.2</weight>
+                <geneClassification>mental</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>WoundHealing_Slow</gene>
+                <weight>0.2</weight>
+                <geneClassification>health</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Immunity_Weak</gene>
+                <weight>0.3</weight>
+                <geneClassification>health</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Sterile</gene>
+                <weight>0.4</weight>
+                <geneClassification>health</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>ViolenceDisabled</gene>
+                <weight>0.3</weight>
+                <geneClassification>mental</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Nearsighted</gene>
+                <weight>0.5</weight>
+                <geneClassification>health</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>KillThirst</gene>
+                <weight>0.2</weight>
+                <geneClassification>ability</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Inbred</gene>
+                <weight>0.5</weight>
+                <geneClassification>health</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Instability_Mild</gene>
+                <weight>0.5</weight>
+                <geneClassification>health</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Instability_Major</gene>
+                <weight>0.3</weight>
+                <geneClassification>health</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>NakedSpeed</gene>
+                <weight>0.5</weight>
+                <geneClassification>ability</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>FireWeakness</gene>
+                <weight>0.5</weight>
+                <geneClassification>mental</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>FireTerror</gene>
+                <weight>0.25</weight>
+                <geneClassification>mental</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>MinTemp_SmallIncrease</gene>
+                <weight>0.5</weight>
+                <geneClassification>health</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>MaxTemp_SmallDecrease</gene>
+                <weight>0.5</weight>
+                <geneClassification>health</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>PsychicAbility_Deaf</gene>
+                <weight>0.1</weight>
+                <geneClassification>psychic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>PsychicAbility_Dull</gene>
+                <weight>0.5</weight>
+                <geneClassification>psychic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>MoveSpeed_Slow</gene>
+                <weight>0.5</weight>
+                <geneClassification>skill</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Beauty_VeryUgly</gene>
+                <weight>0.2</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Beauty_Ugly</gene>
+                <weight>0.1</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Learning_Slow</gene>
+                <weight>0.5</weight>
+                <geneClassification>skill</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Mood_Depressive</gene>
+                <weight>0.5</weight>
+                <geneClassification>mental</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Mood_Pessimist</gene>
+                <weight>0.5</weight>
+                <geneClassification>mental</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Delicate</gene>
+                <weight>0.5</weight>
+                <geneClassification>health</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Pain_Extra</gene>
+                <weight>0.2</weight>
+                <geneClassification>health</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Aggression_Aggressive</gene>
+                <weight>0.5</weight>
+                <geneClassification>mental</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Aggression_HyperAggressive</gene>
+                <weight>0.2</weight>
+                <geneClassification>mental</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>VerySleepy</gene>
+                <weight>0.2</weight>
+                <geneClassification>mental</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Sleepy</gene>
+                <weight>0.5</weight>
+                <geneClassification>mental</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>MeleeDamage_Weak</gene>
+                <weight>0.5</weight>
+                <geneClassification>skill</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>UVSensitivity_Mild</gene>
+                <weight>0.5</weight>
+                <geneClassification>health</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>UVSensitivity_Intense</gene>
+                <weight>0.2</weight>
+                <geneClassification>health</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Libido_Low</gene>
+                <weight>0.5</weight>
+                <geneClassification>health</geneClassification>
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_TwitchingToughspikes</gene>
+                <weight>0.002</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_TwitchingTrispikes</gene>
+                <weight>0.002</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_TwitchingFingerspike</gene>
+                <weight>0.002</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_TwistedFlesh</gene>
+                <weight>0.002</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_MeatBurst</gene>
+                <weight>0.002</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_FasterAging</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_MiningYield_Low</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_FungalSkin</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_FrailSkin</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_Beauty_VeryVeryUgly</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_EldritchVisage</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_SurvivalInstinct_Low</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_ToxGasProducer</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_CancerousFace</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_UnstableMutationMajor</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_UnstableMutationCatastrophic</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_FrostbiteVulnerability</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_Filthy</gene>
+                <weight>0.2</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_Gene_VeryWeakImmunity</gene>
+                <weight>0.005</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_FrailBack</gene>
+                <weight>0.02</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_Stinky</gene>
+                <weight>0.01</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_AcidWeakness</gene>
+                <weight>0.2</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_LowLeather</gene>
+                <weight>0.005</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_NoLeather</gene>
+                <weight>0.005</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_NoMeat</gene>
+                <weight>0.005</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_Instability_Lethal</gene>
+                <weight>0.0001</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_BandwidthDecrease</gene>
+                <weight>0.02</weight>
+                <geneClassification />
+                <requires>
+                    <li>AG_InnateMechlink</li>
+                </requires>
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_DecreasedCommandRange</gene>
+                <weight>0.02</weight>
+                <geneClassification />
+                <requires>
+                    <li>AG_InnateMechlink</li>
+                </requires>
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_DecreasedMechRepair</gene>
+                <weight>0.02</weight>
+                <geneClassification />
+                <requires>
+                    <li>AG_InnateMechlink</li>
+                </requires>
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_Thalassophobia</gene>
+                <weight>0.01</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_FireObsession</gene>
+                <weight>0.01</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_VolatileMood</gene>
+                <weight>0.01</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_BrittleBones</gene>
+                <weight>0.02</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_DangerousRaidPresence</gene>
+                <weight>0.02</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_DeadlyRaidPresence</gene>
+                <weight>0.02</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_SlowGestation</gene>
+                <weight>0.2</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_ReducedFertile</gene>
+                <weight>0.005</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_MineralEfficencyPoor</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+                <requires>
+                    <li>AG_MetalEater</li>
+                </requires>
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_NightOwl</gene>
+                <weight>0.2</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_UVSensitivity_Minor</gene>
+                <weight>0.005</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_Sensitivity_Vicious</gene>
+                <weight>0.005</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_Sensitivity_Lethal</gene>
+                <weight>0.005</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_HeatSlowness</gene>
+                <weight>0.2</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_ColdSlowness</gene>
+                <weight>0.2</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_Rowdy</gene>
+                <weight>0.2</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_ArrestAvoidance</gene>
+                <weight>0.2</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_BloodVomit</gene>
+                <weight>0.05</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_SingleWing</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="vanillaracesexpanded.archon">
+                <gene>VRE_SlowMeleeHitter</gene>
+                <weight>0.01</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="vanillaracesexpanded.archon">
+                <gene>VRE_SlowShooter</gene>
+                <weight>0.01</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="vanillaracesexpanded.archon">
+                <gene>VRE_SlowMeditation</gene>
+                <weight>0.01</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="vanillaracesexpanded.archon">
+                <gene>VRE_WeakEntropyCapacity</gene>
+                <weight>0.05</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="vanillaracesexpanded.archon">
+                <gene>VRE_LongPregnancy</gene>
+                <weight>0.05</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="vanillaracesexpanded.archon">
+                <gene>VRE_Aggression_ExtremelyAggressive</gene>
+                <weight>0.01</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>AptitudeTerrible_Shooting</gene>
+                <weight>0.005</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>AptitudeTerrible_Melee</gene>
+                <weight>0.005</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>AptitudeTerrible_Construction</gene>
+                <weight>0.005</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>AptitudeTerrible_Mining</gene>
+                <weight>0.005</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>AptitudeTerrible_Cooking</gene>
+                <weight>0.005</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>AptitudeTerrible_Plants</gene>
+                <weight>0.005</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>AptitudeTerrible_Animals</gene>
+                <weight>0.005</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>AptitudeTerrible_Crafting</gene>
+                <weight>0.005</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>AptitudeTerrible_Artistic</gene>
+                <weight>0.005</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>AptitudeTerrible_Medicine</gene>
+                <weight>0.005</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>AptitudeTerrible_Social</gene>
+                <weight>0.005</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>AptitudeTerrible_Intellectual</gene>
+                <weight>0.005</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>AptitudePoor_Shooting</gene>
+                <weight>0.01</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>AptitudePoor_Melee</gene>
+                <weight>0.01</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>AptitudePoor_Construction</gene>
+                <weight>0.01</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>AptitudePoor_Mining</gene>
+                <weight>0.01</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>AptitudePoor_Cooking</gene>
+                <weight>0.01</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>AptitudePoor_Plants</gene>
+                <weight>0.01</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>AptitudePoor_Animals</gene>
+                <weight>0.01</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>AptitudePoor_Crafting</gene>
+                <weight>0.01</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>AptitudePoor_Artistic</gene>
+                <weight>0.01</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>AptitudePoor_Medicine</gene>
+                <weight>0.01</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>AptitudePoor_Social</gene>
+                <weight>0.01</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>AptitudePoor_Intellectual</gene>
+                <weight>0.01</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>ChemicalDependency_Alcohol</gene>
+                <weight>0.005</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>ChemicalDependency_GoJuice</gene>
+                <weight>0.001</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>ChemicalDependency_Psychite</gene>
+                <weight>0.005</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>ChemicalDependency_Smokeleaf</gene>
+                <weight>0.005</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>ChemicalDependency_WakeUp</gene>
+                <weight>0.001</weight>
+                <geneClassification />
+            </li>
+        </genes>
+    </MSSFP.Genes.GeneClassificationDef>
+    <MSSFP.Genes.GeneClassificationDef>
+        <defName>MSSFP_NeutralGenes</defName>
+        <type>neutral</type>
+        <genes>
+            <li>
+                <gene>MSSFP_HeadCannon</gene>
+                <weight>0.2</weight>
+                <geneClassification>ability</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld">
+                <gene>Hair_SnowWhite</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld">
+                <gene>Hair_InkBlack</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld">
+                <gene>Hair_Gray</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld">
+                <gene>Hair_DarkBlack</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld">
+                <gene>Hair_MidBlack</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld">
+                <gene>Hair_DarkReddish</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld">
+                <gene>Hair_DarkSaturatedReddish</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld">
+                <gene>Hair_DarkBrown</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld">
+                <gene>Hair_ReddishBrown</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld">
+                <gene>Hair_SandyBlonde</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld">
+                <gene>Hair_Blonde</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld">
+                <gene>Hair_Pink</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld">
+                <gene>Hair_LightPurple</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld">
+                <gene>Hair_LightBlue</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld">
+                <gene>Hair_LightTeal</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld">
+                <gene>Hair_LightGreen</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld">
+                <gene>Hair_LightOrange</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld">
+                <gene>Hair_BrightRed</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld">
+                <gene>Skin_Melanin1</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld">
+                <gene>Skin_Melanin2</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld">
+                <gene>Skin_Melanin3</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld">
+                <gene>Skin_Melanin4</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld">
+                <gene>Skin_Melanin5</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld">
+                <gene>Skin_Melanin6</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld">
+                <gene>Skin_Melanin7</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld">
+                <gene>Skin_Melanin8</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld">
+                <gene>Skin_Melanin9</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Hair_BaldOnly</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Hair_ShortOnly</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Hair_LongOnly</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Hair_Grayless</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Beard_BushyOnly</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Beard_NoBeardOnly</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Beard_Always</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Skin_InkBlack</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Skin_SlateGray</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Skin_LightGray</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Skin_SheerWhite</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Skin_Blue</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Skin_Purple</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Skin_PaleRed</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Skin_DeepRed</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Skin_PaleYellow</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Skin_DeepYellow</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Skin_Orange</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Skin_Green</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Furskin</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Eyes_Red</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Eyes_Gray</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Brow_Heavy</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Tail_Furry</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Tail_Smooth</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>FacialRidges</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Body_Fat</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Body_Thin</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Body_Hulk</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Body_Standard</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Ears_Human</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Ears_Pig</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Ears_Floppy</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Ears_Cat</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Ears_Pointed</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Nose_Human</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Nose_Pig</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Jaw_Baseline</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Jaw_Heavy</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Head_Gaunt</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Hands_Human</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Hands_Pig</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>ElongatedFingers</gene>
+                <weight>0.5</weight>
+                <geneClassification>skill</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Headbone_Human</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Headbone_MiniHorns</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Headbone_CenterHorn</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Voice_Human</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>VoicePig</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>VoiceRoar</gene>
+                <weight>0.5</weight>
+                <geneClassification>cosmetic</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Hemogenic</gene>
+                <weight>0.3</weight>
+                <geneClassification>ability</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>HemogenDrain</gene>
+                <weight>0.3</weight>
+                <geneClassification>ability</geneClassification>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <gene>Deathrest</gene>
+                <weight>0.1</weight>
+                <geneClassification>health</geneClassification>
+            </li>
+            <li MayRequire="neronix17.archotech.genetics">
+                <gene>ArchoGenes_Eyes_Archotech</gene>
+                <weight>0.001</weight>
+                <geneClassification />
+                <requires>
+                    <li>ArchoGenes_ArchotechSight</li>
+                </requires>
+            </li>
+            <li MayRequire="neronix17.archotech.genetics">
+                <gene>ArchoGenes_Skin_Archotech</gene>
+                <weight>0.001</weight>
+                <geneClassification />
+                <requires>
+                    <li>ArchoGenes_ArchotechSkin</li>
+                </requires>
+            </li>
+            <li MayRequire="neronix17.archotech.genetics">
+                <gene>ArchoGenes_Hair_Archotech</gene>
+                <weight>0.001</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="void.charactereditor">
+                <gene>SZBodySize_40</gene>
+                <weight>0.001</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="void.charactereditor">
+                <gene>SZBodySize_30</gene>
+                <weight>0.001</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="void.charactereditor">
+                <gene>SZBodySize_20</gene>
+                <weight>0.0025</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="void.charactereditor">
+                <gene>SZBodySize_19</gene>
+                <weight>0.0025</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="void.charactereditor">
+                <gene>SZBodySize_18</gene>
+                <weight>0.0025</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="void.charactereditor">
+                <gene>SZBodySize_17</gene>
+                <weight>0.0025</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="void.charactereditor">
+                <gene>SZBodySize_16</gene>
+                <weight>0.0025</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="void.charactereditor">
+                <gene>SZBodySize_15</gene>
+                <weight>0.005</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="void.charactereditor">
+                <gene>SZBodySize_14</gene>
+                <weight>0.005</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="void.charactereditor">
+                <gene>SZBodySize_13</gene>
+                <weight>0.005</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="void.charactereditor">
+                <gene>SZBodySize_12</gene>
+                <weight>0.005</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="void.charactereditor">
+                <gene>SZBodySize_11</gene>
+                <weight>0.005</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="void.charactereditor">
+                <gene>SZBodySize_09</gene>
+                <weight>0.005</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="void.charactereditor">
+                <gene>SZBodySize_08</gene>
+                <weight>0.0025</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="void.charactereditor">
+                <gene>SZBodySize_07</gene>
+                <weight>0.001</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_PsychicSight</gene>
+                <weight>0.05</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_Mood_Unfeeling</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_Teratophilia</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_ChemfuelBlood</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_SlimeBlood</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_AcidicBlood</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_TarBlood</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_InsectBlood</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_FirefoamBlood</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_PebbleBlood</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_WaterBlood</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_CryoBlood</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_ForsakenBlood</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_SlimeBody</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_SlugBody</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_ScalyBody</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_RockyBody</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_CancerousBody</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_GauntBody</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_DrakonoriBody</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_NereidBody</gene>
+                <weight>0.0999999999999997</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_ForsakenBody</gene>
+                <weight>0.0999999999999997</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_Digitigrade</gene>
+                <weight>0.0999999999999997</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_LargerBodySize</gene>
+                <weight>0.0999999999999997</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_SmallerBodySize</gene>
+                <weight>0.0999999999999997</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_NoAntennae</gene>
+                <weight>0.0999999999999997</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_MothAntennae</gene>
+                <weight>0.0999999999999997</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_OutwardsAntennas</gene>
+                <weight>0.0999999999999997</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_DownwardsAntennas</gene>
+                <weight>0.0999999999999997</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_FormicAntennas</gene>
+                <weight>0.0999999999999996</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_NoLowerAntennae</gene>
+                <weight>0.0999999999999996</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_LowerAntennas</gene>
+                <weight>0.0999999999999996</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_RadYakEars</gene>
+                <weight>0.0999999999999996</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_AnimusEars</gene>
+                <weight>0.0999999999999996</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_SingleEar</gene>
+                <weight>0.0999999999999996</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_LongEars</gene>
+                <weight>0.0999999999999996</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_DemonEars</gene>
+                <weight>0.0999999999999996</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_EarWings</gene>
+                <weight>0.0999999999999996</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_NereidFins</gene>
+                <weight>0.0999999999999996</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_FeraliskEyes</gene>
+                <weight>0.0999999999999996</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_ThirdEye</gene>
+                <weight>0.0999999999999996</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_EyeOfShubNiggurath</gene>
+                <weight>0.0999999999999996</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_NearBlindness</gene>
+                <weight>0.0999999999999995</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_ChameleonVision</gene>
+                <weight>0.0999999999999995</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_DevilEyes</gene>
+                <weight>0.0999999999999995</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_BioluminescentEyes</gene>
+                <weight>0.0999999999999995</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_ForsakenEyes</gene>
+                <weight>0.0999999999999995</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_VenomFangs</gene>
+                <weight>0.0999999999999995</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_AcidFangs</gene>
+                <weight>0.0999999999999995</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_Hair_DeepRed</gene>
+                <weight>0.0999999999999995</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_Hair_DeepOrange</gene>
+                <weight>0.0999999999999995</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_Hair_PaleGreen</gene>
+                <weight>0.0999999999999995</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_Hair_Golden</gene>
+                <weight>0.0999999999999995</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_ChameleonYakHorns</gene>
+                <weight>0.0999999999999995</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_DevilsheepHorns</gene>
+                <weight>0.0999999999999994</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_BullHorns</gene>
+                <weight>0.0999999999999994</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_AntlerHorns</gene>
+                <weight>0.0999999999999994</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_RayHoundTentacles</gene>
+                <weight>0.0999999999999994</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_EldritchHorns</gene>
+                <weight>0.0999999999999994</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_HornCrown</gene>
+                <weight>0.0999999999999994</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_UpperTentacles</gene>
+                <weight>0.0999999999999994</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_Stalks</gene>
+                <weight>0.0999999999999994</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_OrnateEldritchHorns</gene>
+                <weight>0.0999999999999989</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_DemonHorns</gene>
+                <weight>0.0999999999999989</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_DemonHornsQuadruple</gene>
+                <weight>0.0999999999999989</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_TerrorMask</gene>
+                <weight>0.0999999999999989</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_Drakonori_Horns</gene>
+                <weight>0.0999999999999988</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_NereidGlowlure</gene>
+                <weight>0.0999999999999988</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_ForsakenHornsBull</gene>
+                <weight>0.0999999999999988</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_ForsakenHornsSheep</gene>
+                <weight>0.0999999999999988</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_ForsakenHornsReptilian</gene>
+                <weight>0.0999999999999988</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_ForsakenHornsCrown</gene>
+                <weight>0.0999999999999988</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_ForsakenHornsDevil</gene>
+                <weight>0.0999999999999988</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_ForsakenHornsGoat</gene>
+                <weight>0.0999999999999987</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_ForsakenQuadruple</gene>
+                <weight>0.0999999999999987</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_HeavilyScarred</gene>
+                <weight>0.0999999999999987</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_ChainsawHands</gene>
+                <weight>0.0999999999999987</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_ScytherHands</gene>
+                <weight>0.0999999999999987</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_CrabClaw</gene>
+                <weight>0.0999999999999987</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_BodyTentacles</gene>
+                <weight>0.0999999999999987</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_Proboscis</gene>
+                <weight>0.0999999999999987</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_FungalClumps</gene>
+                <weight>0.0999999999999986</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_FungalSprout</gene>
+                <weight>0.0999999999999986</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_FungalTentacles</gene>
+                <weight>0.0999999999999986</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_Skin_DeepGreen</gene>
+                <weight>0.0999999999999986</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_Skin_PlantGreen</gene>
+                <weight>0.0999999999999986</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_Skin_DeeperRed</gene>
+                <weight>0.0999999999999986</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_Skin_DeepPurple</gene>
+                <weight>0.0999999999999986</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_Skin_DeepBlue</gene>
+                <weight>0.0999999999999985</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_Skin_Drakonori_PaleRed</gene>
+                <weight>0.0999999999999985</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_Skin_Drakonori_PaleBlue</gene>
+                <weight>0.0999999999999985</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_Skin_Rot</gene>
+                <weight>0.0999999999999985</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_Skin_PaleBlueFish</gene>
+                <weight>0.0999999999999985</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_Skin_BlueFish</gene>
+                <weight>0.0999999999999985</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_Skin_DeepBlueFish</gene>
+                <weight>0.0999999999999985</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_Skin_Silver</gene>
+                <weight>0.0999999999999985</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_Skin_Gold</gene>
+                <weight>0.0999999999999985</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_Skin_TrueBlack</gene>
+                <weight>0.0999999999999985</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_NoTusks</gene>
+                <weight>0.0999999999999985</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_Tusks</gene>
+                <weight>0.0999999999999985</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_PincerMandibles</gene>
+                <weight>0.0999999999999985</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_FaceTentacles</gene>
+                <weight>0.0999999999999985</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_BeetleMandibles</gene>
+                <weight>0.0999999999999985</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_BeeMandibles</gene>
+                <weight>0.0999999999999985</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_BoomNodules</gene>
+                <weight>0.0999999999999985</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_TetraCoils</gene>
+                <weight>0.0999999999999985</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_InsectJellyProduction</gene>
+                <weight>0.0999999999999985</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_Polluter</gene>
+                <weight>0.0999999999999985</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_FrailStomach</gene>
+                <weight>0.0999999999999985</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_CorpseFeeding</gene>
+                <weight>0.0999999999999985</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_LightSustenance</gene>
+                <weight>0.0999999999999985</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_EfficientMandibles</gene>
+                <weight>0.0999999999999985</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_UnderdevelopedTeeth</gene>
+                <weight>0.0999999999999985</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_RatAffinity</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_WolfAffinity</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_JorisAffinity</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_SmokeProducer</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_RotStinkProducer</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_ClawedHands</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_AerofleetHead</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_SlugFace</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_FoxFace</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_RockSpurs</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_DrakonoriHead</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_VeryGauntHead</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_NereidHead</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_ForsakenHead</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_Deaf</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_ToxicEnvironmentResistance_Frail</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_ToxResist_Vulnerability</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_HardBones</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_PlainLeather</gene>
+                <weight>0.005</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_WoolLeather</gene>
+                <weight>0.005</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_WoodLeather</gene>
+                <weight>0.005</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_ClothLeather</gene>
+                <weight>0.005</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_JellyFlesh</gene>
+                <weight>0.005</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_ChocolateFlesh</gene>
+                <weight>0.005</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_Painless</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_PsychicRemapping</gene>
+                <weight>0.01</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_FertilityDarkness</gene>
+                <weight>0.005</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_FertilityLight</gene>
+                <weight>0.005</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_FertilityOutdoors</gene>
+                <weight>0.005</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_FertilityIndoors</gene>
+                <weight>0.005</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_EggLaying</gene>
+                <weight>0.005</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_MetalEater</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_SpeedByTemperature</gene>
+                <weight>0.2</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_LightStriding</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_NightStriding</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_UVPowered_Mild</gene>
+                <weight>0.005</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_UVPowered_Major</gene>
+                <weight>0.005</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_FoxTail</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_DemonTail</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_Drakonori_Tail</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_NereidTail</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_SlugVoice</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_RockVoice</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_FrogVoice</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_GutturalVoice</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_GrowlingVoice</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_HivelingVoice</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_ChemfuelVomit</gene>
+                <weight>0.05</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_PukeWater</gene>
+                <weight>0.05</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_PukeBile</gene>
+                <weight>0.05</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_PukeCryo</gene>
+                <weight>0.05</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_RainbowWings</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_BatWings</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_PegasusWings</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_MothWings</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_BumbledroneWings</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_WaspWings</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_DrainerWings</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_FeatheredWings</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_DemonWings</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_GasBags</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="sarg.alphagenes">
+                <gene>AG_DrakonoriWings</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="resplice.xotr.core">
+                <gene>RS_Tentacle_Limbs</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="resplice.xotr.core">
+                <gene>RS_Tentacle_Whip</gene>
+                <weight>0.1</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="resplice.xotr.core">
+                <gene>RS_Hair_OrangeReddish</gene>
+                <weight>0.5</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="resplice.xotr.core">
+                <gene>RS_Hair_Purple</gene>
+                <weight>0.5</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="vanillaracesexpanded.archon">
+                <gene>VRE_SerratedEars</gene>
+                <weight>0.05</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="vanillaracesexpanded.archon">
+                <gene>VRE_FacialSpots</gene>
+                <weight>0.05</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="vanillaracesexpanded.archon">
+                <gene>VRE_DreadHair</gene>
+                <weight>0.05</weight>
+                <geneClassification />
+            </li>
+            <li MayRequire="vanillaracesexpanded.archon">
+                <gene>VRE_Maniac</gene>
+                <weight>0.05</weight>
+                <geneClassification />
+            </li>
+        </genes>
+    </MSSFP.Genes.GeneClassificationDef>
+</Defs>

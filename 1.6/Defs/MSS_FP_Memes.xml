@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<Defs>
+    <!-- Memes? No not like that. Ok, maybe a little bit like that. -->
+    <MemeDef>
+        <defName>MSS_FP_Frooge</defName>
+        <label>frogge</label>
+        <description>he's just a lil guy.</description>
+        <iconPath>Things/Pawn/Animal/Frogge/MSSFP_Frogge</iconPath>
+        <groupDef>Misc</groupDef>
+        <impact>1</impact>
+        <renderOrder>80</renderOrder>
+        <requireOne>
+            <li>
+                <li>FungusEating_Preferred</li>
+            </li>
+        </requireOne>
+        <generalRules>
+            <rulesStrings>
+                <li>memeAdjective->frogge</li>
+                <li>memeCreed->spawn</li>
+                <li>memeHyphenPrefix->frogge</li>
+                <li>memeConcept->frogge</li>
+                <li>memeLeaderNoun->froggomancer</li>
+                <li>memeMoralist->froggeling</li>
+            </rulesStrings>
+        </generalRules>
+        <descriptionMaker>
+            <rules>
+                <rulesStrings>
+                    <!-- theist myth -->
+                    <li>episode(uses=1,tag=meme_MSS_FP_Frooge)  ->[deity0_name] liked frogge.</li>
+
+                    <!-- theist founder -->
+                    <li>victory(tag=meme_MSS_FP_Frooge)         ->frogge discovered [founderName], and made new friend.</li>
+
+                    <!-- ideological founder -->
+                    <li>story(tag=meme_MSS_FP_Frooge)           ->frogge discovered [founderName], and made new friend.</li>
+
+                    <!-- ideological lesson -->
+                    <li>lessonReinforcement(tag=meme_MSS_FP_Frooge) ->frogge liked [place_name]. frogge made new friend.</li>
+
+                    <!-- archist -->
+                    <li>archistProphecy(tag=meme_MSS_FP_Frooge) ->frogge liked [place_name]. frogge made new friend.</li>
+
+                    <!-- animist -->
+                    <li>animistFact(tag=meme_MSS_FP_Frooge)     ->frogge wandered into [place_summary] [place_name]. frogge liked [place_name]. but frogge was alone. people wandered in. frogge made new friend.</li>
+                </rulesStrings>
+            </rules>
+        </descriptionMaker>
+        <ritualsToMake>1</ritualsToMake>
+    </MemeDef>
+</Defs>

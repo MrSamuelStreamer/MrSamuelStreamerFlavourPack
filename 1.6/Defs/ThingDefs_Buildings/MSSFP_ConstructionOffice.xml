@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<Defs>
+    <ThingDef ParentName="ConditionCauserBase">
+        <defName>MSSFP_ConstructionOffice</defName>
+        <label>Construction Office</label>
+        <description>The construction office for this site.</description>
+        <graphicData>
+            <graphicClass>Graphic_Single</graphicClass>
+            <texPath>Things/Building/MSS_ConstructionOffice</texPath>
+            <drawSize>(8,8)</drawSize>
+            <damageData>
+                <rect>(0.38,0.2,0.56375,0.8)</rect>
+                <cornerTL>Damage/Corner</cornerTL>
+            </damageData>
+            <shadowData>
+                <offset>(-0.13,-0.87,-0.1)</offset>
+                <volume>(0.5,0.4,1.05)</volume>
+            </shadowData>
+        </graphicData>
+        <size>(8,6)</size>
+        <statBases>
+            <MaxHitPoints>6000</MaxHitPoints>
+        </statBases>
+        <killedLeavings>
+            <Steel>60</Steel>
+            <MSS_TurboEncabulator>2</MSS_TurboEncabulator>
+            <ComponentIndustrial>4</ComponentIndustrial>
+            <Plasteel>10</Plasteel>
+            <ChunkSlagSteel>4</ChunkSlagSteel>
+            <MSS_MeleeWeapon_BortusLegsBladelink>1</MSS_MeleeWeapon_BortusLegsBladelink>
+        </killedLeavings>
+    </ThingDef>
+</Defs>

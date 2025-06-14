@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <ResearchProjectDef>
+        <defName>MSS_FroggeLeapResearch</defName>
+        <label>Frogge migration</label>
+        <description>Learn about the migration habits of frogge.</description>
+        <baseCost>1500</baseCost>
+        <techLevel>Industrial</techLevel>
+        <researchViewX>11.00</researchViewX>
+        <researchViewY>7.60</researchViewY>
+        <discoveredLetterTitle>Frogge Migration</discoveredLetterTitle>
+        <discoveredLetterText>After much research, covering everything from frogge anatomy, exploring folklore, and excavating through frogge dung, the answer has finally been found. Interestingly, it also answers the question of why frogge hunger for gems.\n\nArchites tend to naturally coalesce inside many gems and precious metals. When frogge consumes enough of these gems, they're able to absorb the archites temporarily to give themselves the ability to leap great distances. Great enough to cover small seas even!\n\nIt's unknown as of yet how exactly frogge managed to evolve the ability to control archites, even in this temporary and limited fashion, but your researchers are excited to find out!\n\nWhen caravanning with a frogge, you can now leap the caravan a small distance near instantly, for the cost of 1000 silvers worth of gems in the frogge inventory.</discoveredLetterText>
+    </ResearchProjectDef>
+</Defs>

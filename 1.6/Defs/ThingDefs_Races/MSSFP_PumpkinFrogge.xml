@@ -1,0 +1,241 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Defs>
+    <ThingDef ParentName="AnimalThingBase">
+        <defName>MSFP_PumpkinFrogge</defName>
+        <label>Pumpkin Frogge</label>
+        <description>pumpkin frogge.</description>
+        <statBases>
+            <MoveSpeed>4.5</MoveSpeed>
+            <MarketValue>2400</MarketValue>
+            <ComfyTemperatureMax>45</ComfyTemperatureMax>
+            <ComfyTemperatureMin>-35</ComfyTemperatureMin>
+            <ArmorRating_Sharp>0.40</ArmorRating_Sharp>
+            <ArmorRating_Blunt>0.80</ArmorRating_Blunt>
+            <ArmorRating_Heat>0.40</ArmorRating_Heat>
+            <CaravanRidingSpeedFactor>1.5</CaravanRidingSpeedFactor>
+            <Wildness>0</Wildness>
+        </statBases>
+        <tools>
+            <li  IfModActive="oskarpotocki.vanillafactionsexpanded.core">
+                <capacities>
+                    <li>MSS_SwallowWhole</li>
+                </capacities>
+                <power>20</power>
+                <cooldownTime>60</cooldownTime>
+                <linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+                <chanceFactor>0.8</chanceFactor>
+            </li>
+            <li>
+                <capacities>
+                    <li>Bite</li>
+                </capacities>
+                <power>16</power>
+                <cooldownTime>2</cooldownTime>
+                <linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+                <chanceFactor>0.7</chanceFactor>
+                <surpriseAttack>
+                    <extraMeleeDamages>
+                        <li>
+                            <def>Stun</def>
+                            <amount>14</amount>
+                        </li>
+                    </extraMeleeDamages>
+                </surpriseAttack>
+            </li>
+            <li>
+                <label>head</label>
+                <capacities>
+                    <li>Blunt</li>
+                </capacities>
+                <power>12</power>
+                <cooldownTime>2</cooldownTime>
+                <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+                <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+                <chanceFactor>0.3</chanceFactor>
+            </li>
+        </tools>
+        <uiIconScale>1.5</uiIconScale>
+        <race>
+            <thinkTreeMain>MSSFP_Frogge</thinkTreeMain>
+            <packAnimal>true</packAnimal>
+            <headPosPerRotation>
+                <li>(0.0, 0, 0.07)</li>
+                <li>(0.19, 0, 0)</li>
+                <li>(0.0, 0, -0.07)</li>
+                <li>(-0.19, 0, 0)</li>
+            </headPosPerRotation>
+            <body>QuadrupedAnimalWithPawsAndTail</body>
+            <baseBodySize>2</baseBodySize>
+            <baseHungerRate>0.215</baseHungerRate>
+            <baseHealthScale>0.9</baseHealthScale>
+            <foodType>VegetarianRoughAnimal, DendrovoreAnimal</foodType>
+            <leatherDef>Leather_Light</leatherDef>
+            <trainability>Advanced</trainability>
+            <petness>1</petness>
+            <mateMtbHours>8</mateMtbHours>
+            <gestationPeriodDays>12</gestationPeriodDays>
+            <soundEating>Rodent_Eat</soundEating>
+            <lifeExpectancy>120</lifeExpectancy>
+            <lifeStageAges>
+                <li>
+                    <def>AnimalBaby</def>
+                    <minAge>0</minAge>
+                </li>
+                <li>
+                    <def>AnimalJuvenile</def>
+                    <minAge>0.1</minAge>
+                </li>
+                <li>
+                    <def>AnimalAdult</def>
+                    <minAge>0.2222</minAge>
+                    <soundWounded>Pawn_Hare_Wounded</soundWounded>
+                    <soundDeath>Pawn_Hare_Death</soundDeath>
+                    <soundCall>Pawn_Hare_Call</soundCall>
+                    <soundAngry>Pawn_Hare_Angry</soundAngry>
+                </li>
+            </lifeStageAges>
+            <soundMeleeHitPawn>Pawn_Melee_SmallScratch_HitPawn</soundMeleeHitPawn>
+            <soundMeleeHitBuilding>Pawn_Melee_SmallScratch_HitBuilding</soundMeleeHitBuilding>
+            <soundMeleeMiss>Pawn_Melee_SmallScratch_Miss</soundMeleeMiss>
+        </race>
+        <comps>
+            <li Class="CompProperties_MoteEmitter">
+                <mote>Mote_PsychicEmanatorEffect</mote>
+                <emissionInterval>350</emissionInterval>
+            </li>
+            <li Class="CompProperties_EggLayer">
+                <eggUnfertilizedDef>MSSFP_EggPumpkinFroggeUnfertilized</eggUnfertilizedDef>
+                <eggFertilizedDef>MSSFP_EggPumpkinFroggeFertilized</eggFertilizedDef>
+                <eggFertilizationCountMax>3</eggFertilizationCountMax>
+                <eggLayIntervalDays>60</eggLayIntervalDays>
+                <eggProgressUnfertilizedMax>0.5</eggProgressUnfertilizedMax>
+                <eggCountRange>4~12</eggCountRange>
+            </li>
+            <!-- <li IfModActive="oskarpotocki.vanillafactionsexpanded.core" Class="AnimalBehaviours.CompProperties_Draftable">
+                <makeNonFleeingToo>true</makeNonFleeingToo>
+            </li>
+            <li IfModActive="oskarpotocki.vanillafactionsexpanded.core" Class="AnimalBehaviours.CompProperties_LastStand">
+                <finalCoolDownMultiplier>6</finalCoolDownMultiplier>
+            </li>
+            <li IfModActive="oskarpotocki.vanillafactionsexpanded.core" Class="AnimalBehaviours.CompProperties_SwallowWhole">
+                <sendLetterWhenEating>true</sendLetterWhenEating>
+                <letterLabel>Colonist being eaten!</letterLabel>
+                <letterText>{0} is being eaten by a frogge!</letterText>
+                <playSoundWhenKilled>true</playSoundWhenKilled>
+                <createFilthWhenKilled>true</createFilthWhenKilled>
+            </li> -->
+        </comps>
+        <tradeTags>
+            <li>AnimalExotic</li>
+        </tradeTags>
+    </ThingDef>
+
+    <ManeuverDef IfModActive="oskarpotocki.vanillafactionsexpanded.core" >
+        <defName>MSS_SwallowWhole</defName>
+        <requiredCapacity>MSS_SwallowWhole</requiredCapacity>
+        <verb>
+            <verbClass>Verb_MeleeAttackDamage</verbClass>
+            <meleeDamageDef>MSS_SwallowWhole</meleeDamageDef>
+        </verb>
+        <logEntryDef>MeleeAttack</logEntryDef>
+        <combatLogRulesHit>Maneuver_Stab_MeleeHit</combatLogRulesHit>
+        <combatLogRulesDeflect>Maneuver_Stab_MeleeDeflect</combatLogRulesDeflect>
+        <combatLogRulesMiss>Maneuver_Stab_MeleeMiss</combatLogRulesMiss>
+        <combatLogRulesDodge>Maneuver_Stab_MeleeDodge</combatLogRulesDodge>
+    </ManeuverDef>
+
+    <DamageDef  IfModActive="oskarpotocki.vanillafactionsexpanded.core">
+        <defName>MSS_SwallowWhole</defName>
+        <label>swallow whole</label>
+        <workerClass>DamageWorker_Cut</workerClass>
+        <externalViolence>true</externalViolence>
+        <deathMessage>{0} has been bitten to death.</deathMessage>
+        <hediff>Stab</hediff>
+        <hediffSolid>Crack</hediffSolid>
+        <harmAllLayersUntilOutside>true</harmAllLayersUntilOutside>
+        <impactSoundType>Slice</impactSoundType>
+        <armorCategory>Sharp</armorCategory>
+    </DamageDef>
+
+    <ToolCapacityDef  IfModActive="oskarpotocki.vanillafactionsexpanded.core">
+        <defName>MSS_SwallowWhole</defName>
+        <label>swallow whole</label>
+    </ToolCapacityDef>
+
+    <ThingDef ParentName="EggUnfertBase">
+        <defName>MSSFP_EggPumpkinFroggeUnfertilized</defName>
+        <label>pumpkin frogge spawn (unfert.)</label>
+        <description>unfertilized pumpkin frogge spawn. It can be eaten raw, but it's much, much better cooked.</description>
+        <graphicData>
+            <color>(168, 105, 50)</color>
+            <drawSize>2</drawSize>
+        </graphicData>
+        <statBases>
+            <Nutrition>0.6</Nutrition>
+            <MarketValue>23.0</MarketValue>
+        </statBases>
+    </ThingDef>
+
+    <ThingDef ParentName="EggFertBase">
+        <defName>MSSFP_EggPumpkinFroggeFertilized</defName>
+        <label>pumpkin frogge spawn (fert.)</label>
+        <description>fertilized pumpkin frogge spawn. If all goes well, it should hatch into a baby pumpkin frogge. It can be eaten raw, but it's much better cooked.</description>
+        <possessionCount>1</possessionCount>
+        <graphicData>
+            <color>(125, 62, 9)</color>
+            <drawSize>2</drawSize>
+        </graphicData>
+        <statBases>
+            <Nutrition>0.6</Nutrition>
+            <MarketValue>23.0</MarketValue>
+        </statBases>
+        <comps>
+            <li Class="CompProperties_Hatcher">
+                <hatcherDaystoHatch>24</hatcherDaystoHatch>
+                <hatcherPawn>MSSFP_PumpkinFrogge</hatcherPawn>
+            </li>
+        </comps>
+    </ThingDef>
+
+    <PawnKindDef ParentName="AnimalKindBase">
+        <defName>MSSFP_PumpkinFrogge</defName>
+        <label>pumpkin frogge</label>
+        <race>MSFP_PumpkinFrogge</race>
+        <combatPower>100</combatPower>
+        <ecoSystemWeight>0.25</ecoSystemWeight>
+        <lifeStages>
+            <li>
+                <bodyGraphicData>
+                    <texPath>Things/Pawn/Animal/MSFP_PumpkinFrogge/MSFP_PumpkinFrogge</texPath>
+                    <drawSize>2</drawSize>
+                    <color>(255,255,255)</color>
+                </bodyGraphicData>
+            </li>
+            <li>
+                <bodyGraphicData>
+                    <texPath>Things/Pawn/Animal/MSFP_PumpkinFrogge/MSFP_PumpkinFrogge</texPath>
+                    <drawSize>3</drawSize>
+                    <color>(255,255,255)</color>
+                </bodyGraphicData>
+            </li>
+            <li>
+                <bodyGraphicData>
+                    <texPath>Things/Pawn/Animal/MSFP_PumpkinFrogge/MSFP_PumpkinFrogge</texPath>
+                    <drawSize>4</drawSize>
+                    <color>(255,255,255)</color>
+                    <shadowData>
+                        <volume>(0.32, 0.35, 0.32)</volume>
+                        <offset>(0,0,0)</offset>
+                    </shadowData>
+                </bodyGraphicData>
+            </li>
+        </lifeStages>
+        <modExtensions>
+            <li Class="MSSFP.ModExtensions.FroggeModExtension"/>
+        </modExtensions>
+        <abilities>
+            <li>MSS_FP_Ability_Shoot_Thing</li>
+        </abilities>
+    </PawnKindDef>
+</Defs>

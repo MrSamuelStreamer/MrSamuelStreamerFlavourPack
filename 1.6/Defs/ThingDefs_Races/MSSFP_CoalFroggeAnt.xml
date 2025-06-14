@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Defs>
+    <ThingDef ParentName="AnimalThingBase">
+        <defName>MSSFP_CoalFroggeAnt</defName>
+        <label>coal frogge</label>
+        <description>some people call them Ant.</description>
+        <statBases>
+            <MoveSpeed>5.5</MoveSpeed>
+            <MarketValue>2900</MarketValue>
+            <ComfyTemperatureMax>65</ComfyTemperatureMax>
+            <ComfyTemperatureMin>-55</ComfyTemperatureMin>
+            <ArmorRating_Sharp>0.70</ArmorRating_Sharp>
+            <ArmorRating_Blunt>0.90</ArmorRating_Blunt>
+            <ArmorRating_Heat>0.60</ArmorRating_Heat>
+            <CaravanRidingSpeedFactor>1.6</CaravanRidingSpeedFactor>
+            <Wildness>0</Wildness>
+        </statBases>
+        <tools>
+            <li>
+                <capacities>
+                    <li>Bite</li>
+                </capacities>
+                <power>22</power>
+                <cooldownTime>2</cooldownTime>
+                <linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+                <chanceFactor>0.7</chanceFactor>
+                <surpriseAttack>
+                    <extraMeleeDamages>
+                        <li>
+                            <def>Stun</def>
+                            <amount>14</amount>
+                        </li>
+                    </extraMeleeDamages>
+                </surpriseAttack>
+            </li>
+            <li>
+                <label>head</label>
+                <capacities>
+                    <li>Blunt</li>
+                </capacities>
+                <power>18</power>
+                <cooldownTime>2</cooldownTime>
+                <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+                <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+                <chanceFactor>0.3</chanceFactor>
+            </li>
+        </tools>
+        <uiIconScale>1.5</uiIconScale>
+        <race>
+            <thinkTreeMain>MSSFP_CoalFrogge</thinkTreeMain>
+            <packAnimal>true</packAnimal>
+            <headPosPerRotation>
+                <li>(0.0, 0, 0.07)</li>
+                <li>(0.19, 0, 0)</li>
+                <li>(0.0, 0, -0.07)</li>
+                <li>(-0.19, 0, 0)</li>
+            </headPosPerRotation>
+            <body>QuadrupedAnimalWithPawsAndTail</body>
+            <baseBodySize>2</baseBodySize>
+            <baseHungerRate>0.215</baseHungerRate>
+            <baseHealthScale>0.9</baseHealthScale>
+            <foodType>VegetarianRoughAnimal, DendrovoreAnimal</foodType>
+            <leatherDef>Leather_Light</leatherDef>
+            <trainability>Advanced</trainability>
+            <petness>1</petness>
+            <mateMtbHours>8</mateMtbHours>
+            <gestationPeriodDays>12</gestationPeriodDays>
+            <soundEating>Rodent_Eat</soundEating>
+            <lifeExpectancy>120</lifeExpectancy>
+            <lifeStageAges>
+                <li>
+                    <def>AnimalBaby</def>
+                    <minAge>0</minAge>
+                </li>
+                <li>
+                    <def>AnimalJuvenile</def>
+                    <minAge>0.1</minAge>
+                </li>
+                <li>
+                    <def>AnimalAdult</def>
+                    <minAge>0.2222</minAge>
+                    <soundWounded>Pawn_Hare_Wounded</soundWounded>
+                    <soundDeath>Pawn_Hare_Death</soundDeath>
+                    <soundCall>Pawn_Hare_Call</soundCall>
+                    <soundAngry>Pawn_Hare_Angry</soundAngry>
+                </li>
+            </lifeStageAges>
+            <soundMeleeHitPawn>Pawn_Melee_SmallScratch_HitPawn</soundMeleeHitPawn>
+            <soundMeleeHitBuilding>Pawn_Melee_SmallScratch_HitBuilding</soundMeleeHitBuilding>
+            <soundMeleeMiss>Pawn_Melee_SmallScratch_Miss</soundMeleeMiss>
+        </race>
+        <comps>
+            <li Class="CompProperties_MoteEmitter">
+                <mote>Mote_PsychicEmanatorEffect</mote>
+                <emissionInterval>350</emissionInterval>
+            </li>
+            <li Class="CompProperties_EggLayer">
+                <eggUnfertilizedDef>MSSFP_EggCoalFroggeAntUnfertilized</eggUnfertilizedDef>
+                <eggFertilizedDef>MSSFP_EggCoalFroggeAntFertilized</eggFertilizedDef>
+                <eggFertilizationCountMax>3</eggFertilizationCountMax>
+                <eggLayIntervalDays>60</eggLayIntervalDays>
+                <eggProgressUnfertilizedMax>0.5</eggProgressUnfertilizedMax>
+                <eggCountRange>4~12</eggCountRange>
+            </li>
+            <!-- <li IfModActive="oskarpotocki.vanillafactionsexpanded.core" Class="AnimalBehaviours.CompProperties_Draftable">
+                <makeNonFleeingToo>true</makeNonFleeingToo>
+            </li>
+            <li IfModActive="oskarpotocki.vanillafactionsexpanded.core" Class="AnimalBehaviours.CompProperties_LastStand">
+                <finalCoolDownMultiplier>6</finalCoolDownMultiplier>
+            </li> -->
+        </comps>
+        <tradeTags>
+            <li>AnimalExotic</li>
+        </tradeTags>
+    </ThingDef>
+
+    <ThingDef ParentName="EggUnfertBase">
+        <defName>MSSFP_EggCoalFroggeAntUnfertilized</defName>
+        <label>coal frogge spawn (unfert.)</label>
+        <description>unfertilized coal frogge spawn. It can be eaten raw, but it's much, much better cooked.</description>
+        <graphicData>
+            <color>(227, 224, 222)</color>
+            <drawSize>1</drawSize>
+        </graphicData>
+        <statBases>
+            <Nutrition>0.6</Nutrition>
+            <MarketValue>23.0</MarketValue>
+        </statBases>
+    </ThingDef>
+
+    <ThingDef ParentName="EggFertBase">
+        <defName>MSSFP_EggCoalFroggeAntFertilized</defName>
+        <label>coal frogge spawn (fert.)</label>
+        <description>fertilized coal frogge spawn. If all goes well, it should hatch into a baby coal frogge. It can be eaten raw, but it's much better cooked.</description>
+        <possessionCount>1</possessionCount>
+        <graphicData>
+            <color>(227, 224, 222)</color>
+            <drawSize>1</drawSize>
+        </graphicData>
+        <statBases>
+            <Nutrition>0.6</Nutrition>
+            <MarketValue>23.0</MarketValue>
+        </statBases>
+        <comps>
+            <li Class="CompProperties_Hatcher">
+                <hatcherDaystoHatch>24</hatcherDaystoHatch>
+                <hatcherPawn>MSSFP_CoalFroggeAnt</hatcherPawn>
+            </li>
+        </comps>
+    </ThingDef>
+
+    <PawnKindDef ParentName="AnimalKindBase">
+        <defName>MSSFP_CoalFroggeAnt</defName>
+        <label>coal frogge</label>
+        <race>MSSFP_CoalFroggeAnt</race>
+        <combatPower>150</combatPower>
+        <ecoSystemWeight>0.25</ecoSystemWeight>
+        <lifeStages>
+            <li>
+                <bodyGraphicData>
+                    <texPath>Things/Pawn/Animal/MSS_CoalFrogge/MSS_CoalFroggeAnt</texPath>
+                    <drawSize>2</drawSize>
+                    <color>(255,255,255)</color>
+                </bodyGraphicData>
+            </li>
+            <li>
+                <bodyGraphicData>
+                    <texPath>Things/Pawn/Animal/MSS_CoalFrogge/MSS_CoalFroggeAnt</texPath>
+                    <drawSize>2.5</drawSize>
+                    <color>(255,255,255)</color>
+                </bodyGraphicData>
+            </li>
+            <li>
+                <bodyGraphicData>
+                    <texPath>Things/Pawn/Animal/MSS_CoalFrogge/MSS_CoalFroggeAnt</texPath>
+                    <drawSize>3</drawSize>
+                    <color>(255,255,255)</color>
+                    <shadowData>
+                        <volume>(0.32, 0.35, 0.32)</volume>
+                        <offset>(0,0,0)</offset>
+                    </shadowData>
+                </bodyGraphicData>
+            </li>
+        </lifeStages>
+        <modExtensions>
+            <li Class="MSSFP.ModExtensions.FroggeModExtension"/>
+        </modExtensions>
+        <abilities>
+            <li>MSS_FP_Ability_Shoot_Thing</li>
+        </abilities>
+    </PawnKindDef>
+</Defs>

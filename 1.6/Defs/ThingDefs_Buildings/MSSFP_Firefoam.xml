@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<Defs>
+    <ThingDef ParentName="BaseArtilleryBuilding">
+        <defName>MSSFP_Turret_Mortar_Firefoam</defName>
+        <label>firefoam mortar</label>
+        <description>An umanned firefoam mortar that launches firefoam shells. While it can inflict devastating damage, it'll make sure the fire is out.</description>
+        <thingClass>MSSFP.Buildings.Building_FirefoamTurretGun</thingClass>
+        <drawerType>MapMeshAndRealTime</drawerType>
+        <graphicData>
+            <graphicClass>Graphic_Single</graphicClass>
+            <texPath>Things/Building/Security/TurretMortar_Base</texPath>
+            <drawSize>(4,4)</drawSize>
+            <damageData>
+                <rect>(0.38,0.2,0.56375,0.8)</rect>
+                <cornerTL>Damage/Corner</cornerTL>
+            </damageData>
+            <shadowData>
+                <offset>(-0.13,-0.87,-0.1)</offset>
+                <volume>(0.5,0.4,1.05)</volume>
+            </shadowData>
+        </graphicData>
+        <minifiedDef>MinifiedThing</minifiedDef>
+        <altitudeLayer>Building</altitudeLayer>
+        <stealable>true</stealable>
+        <hasInteractionCell>false</hasInteractionCell>
+        <size>(2,2)</size>
+        <passability>PassThroughOnly</passability>
+        <pathCost>50</pathCost>
+        <fillPercent>0.4</fillPercent>
+        <stuffCategories>
+            <li>Metallic</li>
+        </stuffCategories>
+        <tickerType>Normal</tickerType>
+        <designationCategory>Security</designationCategory>
+        <costStuffCount>95</costStuffCount>
+        <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+        <costList>
+            <Steel>200</Steel>
+            <ComponentIndustrial>3</ComponentIndustrial>
+            <MSS_TurboEncabulator>1</MSS_TurboEncabulator>
+        </costList>
+        <inspectorTabs>
+            <li>ITab_Shells</li>
+        </inspectorTabs>
+        <statBases>
+            <MaxHitPoints>180</MaxHitPoints>
+            <Flammability>0.7</Flammability>
+            <WorkToBuild>2000</WorkToBuild>
+            <Mass>30</Mass>
+            <Beauty>-20</Beauty>
+        </statBases>
+        <placeWorkers>
+            <li>PlaceWorker_NotUnderRoof</li>
+            <li>PlaceWorker_TurretTop</li>
+            <li>PlaceWorker_PreventInteractionSpotOverlap</li>
+        </placeWorkers>
+        <researchPrerequisites>
+            <li>Mortars</li>
+            <li>Firefoam</li>
+        </researchPrerequisites>
+        <comps Inherit="False">
+            <li Class="CompProperties_Forbiddable" />
+            <li Class="CompProperties_Explosive">
+                <wickTicks>240</wickTicks>
+                <explosiveRadius>4.9</explosiveRadius>
+                <explosiveDamageType>Bomb</explosiveDamageType>
+            </li>
+            <li Class="CompProperties_Power">
+                <compClass>CompPowerTrader</compClass>
+                <basePowerConsumption>250</basePowerConsumption>
+            </li>
+            <li Class="CompProperties_Stunnable">
+                <affectedDamageDefs>
+                    <li>Stun</li>
+                    <li>EMP</li>
+                </affectedDamageDefs>
+            </li>
+        </comps>
+        <costListForDifficulty>
+            <difficultyVar>classicMortars</difficultyVar>
+            <invert>true</invert>
+            <costList>
+                <ComponentIndustrial>6</ComponentIndustrial>
+                <ReinforcedBarrel>1</ReinforcedBarrel>
+            </costList>
+            <costStuffCount>50</costStuffCount>
+        </costListForDifficulty>
+        <designationHotKey>Misc4</designationHotKey>
+        <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+        <building>
+            <turretGunDef>MSSFP_Artillery_Mortar_Firefoam</turretGunDef>
+            <buildingTags>
+                <li>Artillery</li>
+                <li>Artillery_BaseDestroyer</li>
+                <li>Artillery_MannedMortar</li>
+            </buildingTags>
+            <turretBurstWarmupTime>4.0</turretBurstWarmupTime>
+            <turretBurstCooldownTime>28.0</turretBurstCooldownTime>
+        </building>
+        <uiIconPath>Things/Building/Security/TurretMortar_MenuIcon</uiIconPath>
+        <uiIconScale>0.9</uiIconScale>
+    </ThingDef>
+
+    <DamageDef>
+        <defName>MSSFP_Extinguish</defName>
+        <label>extinguish</label>
+        <workerClass>MSSFP.DamageWorker_DestructiveExtinguish</workerClass>
+        <canInterruptJobs>false</canInterruptJobs>
+        <makesBlood>false</makesBlood>
+        <isExplosive>true</isExplosive>
+        <deathMessage>{0} has died in a firefoam explosion.</deathMessage>
+        <hediff>Shredded</hediff>
+        <hediffSolid>Crack</hediffSolid>
+        <explosionCellFleck>FoamSpray</explosionCellFleck>
+        <explosionColorEdge>(1, 1, 1, 0.05)</explosionColorEdge>
+        <soundExplosion>Explosion_Stun</soundExplosion>
+        <harmsHealth>false</harmsHealth>
+        <consideredHelpful>true</consideredHelpful>
+        <makesAnimalsFlee>true</makesAnimalsFlee>
+        <causeStun>true</causeStun>
+        <harmAllLayersUntilOutside>true</harmAllLayersUntilOutside>
+        <impactSoundType>Blunt</impactSoundType>
+        <armorCategory>Sharp</armorCategory>
+        <minDamageToFragment>15</minDamageToFragment>
+        <defaultDamage>50</defaultDamage>
+        <defaultStoppingPower>4</defaultStoppingPower>
+        <defaultArmorPenetration>0.01</defaultArmorPenetration>
+        <buildingDamageFactor>8</buildingDamageFactor>
+        <buildingDamageFactorImpassable>12</buildingDamageFactorImpassable>
+        <buildingDamageFactorPassable>8</buildingDamageFactorPassable>
+        <explosionSnowMeltAmount>0.1</explosionSnowMeltAmount>
+        <expolosionPropagationSpeed>0.25</expolosionPropagationSpeed>
+        <plantDamageFactor>0.1</plantDamageFactor>
+        <corpseDamageFactor>0.1</corpseDamageFactor>
+        <explosionAffectOutsidePartsOnly>false</explosionAffectOutsidePartsOnly>
+        <explosionHeatEnergyPerCell>0</explosionHeatEnergyPerCell>
+        <combatLogRules>Damage_Extinguish</combatLogRules>
+    </DamageDef>
+
+    <ThingDef ParentName="BaseBullet">
+        <defName>MSSFP_FirefoamProjectile</defName>
+        <label>high-explosive shell</label>
+        <graphicData>
+            <texPath>Things/Projectile/ShellHighExplosive</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>TransparentPostLight</shaderType>
+        </graphicData>
+        <thingClass>Projectile_Explosive</thingClass>
+        <projectile>
+            <damageDef>MSSFP_Extinguish</damageDef>
+            <speed>10</speed>
+            <damageAmountBase>190</damageAmountBase>
+            <explosionRadius>6</explosionRadius>
+            <arcHeightFactor>0.7</arcHeightFactor>
+            <armorPenetrationBase>0.8</armorPenetrationBase>
+            <stoppingPower>3</stoppingPower>
+            <shadowSize>0</shadowSize>
+            <flyOverhead>true</flyOverhead>
+            <soundHitThickRoof>Artillery_HitThickRoof</soundHitThickRoof>
+            <filth>Filth_FireFoam</filth>
+            <filthCount>8~32</filthCount>
+            <landedEffecter>ExtinguisherExplosion</landedEffecter>
+            <numExtraHitCells>6</numExtraHitCells>
+            <soundImpact>Explosion_FirefoamPopper</soundImpact>
+            <soundImpactAnticipate>MortarRound_PreImpact</soundImpactAnticipate>
+            <soundAmbient>MortarRound_Ambient</soundAmbient>
+            <soundExplode>MortarBomb_Explode</soundExplode>
+        </projectile>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseArtilleryWeapon">
+        <defName>MSSFP_Artillery_Mortar_Firefoam</defName>
+        <label>firefoam mortar</label>
+        <description>Firefoam Mortar launcher. Lobs bombs over walls. Very inaccurate but long-ranged.</description>
+        <recoilPower>3</recoilPower>
+        <graphicData>
+            <texPath>Things/Building/Security/MSSFP_Artillery_Mortar_Firefoam_Top</texPath>
+        </graphicData>
+        <weaponTags>
+            <li>Artillery_BaseDestroyer</li>
+        </weaponTags>
+        <verbs>
+            <li>
+                <verbClass>Verb_Shoot</verbClass>
+                <forceNormalTimeSpeed>false</forceNormalTimeSpeed>
+                <warmupTime>16.0</warmupTime>
+                <forcedMissRadius>6</forcedMissRadius>
+                <forcedMissRadiusClassicMortars>9</forcedMissRadiusClassicMortars>
+                <isMortar>true</isMortar>
+                <requireLineOfSight>false</requireLineOfSight>
+                <minRange>18.9</minRange>
+                <range>500</range>
+                <burstShotCount>1</burstShotCount>
+                <soundCast>Mortar_LaunchA</soundCast>
+                <muzzleFlashScale>16</muzzleFlashScale>
+                <consumeFuelPerShot>1</consumeFuelPerShot>
+                <targetParams>
+                    <canTargetLocations>true</canTargetLocations>
+                </targetParams>
+                <defaultProjectile>MSSFP_FirefoamProjectile</defaultProjectile>
+            </li>
+        </verbs>
+        <building>
+            <fixedStorageSettings>
+                <filter>
+                    <categories>
+                        <li>MortarShells</li>
+                    </categories>
+                </filter>
+            </fixedStorageSettings>
+            <defaultStorageSettings>
+                <filter>
+                    <categories>
+                        <li>MortarShells</li>
+                    </categories>
+                    <disallowedThingDefs>
+                        <li>Shell_Firefoam</li>
+                        <li>Shell_AntigrainWarhead</li>
+                    </disallowedThingDefs>
+                </filter>
+            </defaultStorageSettings>
+        </building>
+    </ThingDef>
+</Defs>

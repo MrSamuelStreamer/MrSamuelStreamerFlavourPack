@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <RulePackDef>
+    <defName>MSS_Description_FroggeTome</defName>
+    <include>
+      <li>ArtDescriptionUtility_Global</li>
+    </include>
+    <rulePack>
+      <rulesStrings>
+
+        <!-- Roots -->
+
+        <li>desc->[poem]\n\n - [author].</li>
+
+        <!-- Book description intro -->
+
+        <li>poem->Beneath the moon’s pale silver glow, \nA frog with emerald skin does grow. \nBut not the kind you'd think to see— \nA frog of strange, deep mystery. \nHis hat, a mushroom—cap so wide, \nIt bends the wind, it sways the tide. \nA crown of spores upon his head, \nWhile secret thoughts swirl in his stead. \nThey call him mad, they call him lost, \nBut they don’t know the price he’s crossed. \nHe sits alone in marshy dew, \nWith jewels in hand, so bright, so new. \nA ruby’s glow, a diamond’s sheen, \nThe things he eats, no one’s seen. \nHe chews their light with gentle grace, \nEach stone a tear, each bite a trace— \nOf something deeper, far beyond, \nA longing that no heart can bond. \nFor jewels are not his only fare— \nHe seeks a solace, rare, unfair. \nBeneath the laughing moonlit sky, \nHe croaks his sorrow, soft, and shy. \n"I wear this hat of mushrooms old, \nNot for the warmth, nor for the cold, \nBut as a crown of my own fate, \nA king of all who hesitate. \nIn silence, I consume the gems, \nBut none of them will cure my whims." \nFor all the frogs that leap and play, \nNone know his hunger, none can say \nWhat drives him deep within the night, \nWhat calls to him, what tempts his flight. \nSo he remains, a lonely thing, \nA toadstool crown, a jewel-scarred king. \nMisunderstood, with hunger vast, \nHe eats the light—he eats the past. \nFor in each gem he tastes the pain \nOf lives unlived, of hearts in strain. \nEach sparkling stone, each glittering gem, \nA fragment of a world that’s dim. \nAnd though they whisper, laugh, and scorn, \nThis lonely frog, so bruised, so worn, \nWill eat the jewels, and dream his dreams, \nA prince of sorrow, lost between.</li>
+        <li>poem->A Frog's Symphony in Silence\n\nUpon a lilypad, beneath the gleam, A froggy soul, adrift in dreams. With a mushroom hat atop his head, His plight, unspoken, left unsaid.\nIn shadows cast by moonlight's trace, He hides his sorrow, masked in grace. To eat the jewels, a secret sweet, A yearning that his heart does meet.\nThe world, unkind, and quick to jeer, Misunderstands this frog so dear. His sparkling meals, his silent cry, A truth unseen by every eye.\nIn murmurs soft, the ripples dance, A whisper of his heart's romance. For jewels he craves, in colors bright, To stave off darkness, seek the light.\nYet scorn does chase him, near and far, A burden heavy, like a star. A misunderstood, a fragile heart, His story, written in the dark.\nAnd in the stillness of the pond, He finds his peace, where he belongs. A froggy tale, in silence kept, A song unsung, a tear unwept.\nFor though the world may never see, The beauty in his mystery. He wears his mushroom hat with pride, And in his jewels, he will confide.\nA gentle soul, a heart so pure, Whose struggles, silent, will endure. In every jewel, a piece of hope, A love that helps him learn to cope.</li>
+          <li>poem->He croaks his sorrow, soft, and shy.\nI wear this hat of mushrooms old,\nNot for the warmth, nor for the cold,\nBut as a crown of my own fate,\nA king of all who hesitate.</li>
+          <li>poem->On a lilypad, Frogge sits.\nWith a mushroom hat that fits.\nHe eat jewels, shiny and bright.\nIn the day and in the night.</li>
+          <li>poem->A tear rolls down his green-hewn face,\nthe mushroom shadow upon forlorn pace,\nhopping to jewels once more, no end,\nfor Frogge's hunger shall cost him friend.\nthat is a story about how frogge ate his friends jewels</li>
+          <li>poem->In dreams their facets dance and scream,\nno breath to draw, nor light to gleam,\ncut down amid foe and friend,\nfor Frogge rides to war without end</li>
+          <li>poem->Frogge bite big human\nthen head bright, 2000 lumen!\nneck get broken\nYeetmore Jones hath spoken</li>
+          <li>poem->The Frogge\n\nFrogs leap into pond\nGrow mushrooms on their lil heads\nWhere are my gems</li>
+          <li>poem->I once met a frogge so friendly,\nOn my person were gems, incidentally,\nFrogge did spot,\nResist it could not,\nFrogge swallowed the rubies quite intently.</li>
+          <li>poem->Frogge, eyes bright\nFrogge, hat, a sight\nFrogge, rage, insight \nFrogge, detractors indict\nFrogge, to jewels, a blight\nFrogge, fear, ignite \nFrogge, happy, despite</li>
+
+
+        <!-- Common intros -->
+
+        <li>author(p=3)->the author</li>
+        <li>author(p=3)->[anAuthorDesc] [PersonJob]</li>
+        <li>author->[anAuthorDesc] researcher</li>
+        <li>author->[anAuthorDesc] spiritualist</li>
+        <li>author->[anAuthorDesc] occultist</li>
+        <li>author->[anAuthorDesc] cultist</li>
+        <li>author->[anAuthorDesc] cult member</li>
+        <li>author->[anAuthorDesc] cult escapee</li>
+        <li>author->[anAuthorDesc] antique dealer</li>
+        <li>author->[anAuthorDesc] gravedigger</li>
+        <li>author->[anAuthorDesc] void researcher</li>
+        <li>author->[anAuthorDesc] wanderer</li>
+        <li>author->[anAuthorDesc] skeptic</li>
+        <li>author->[anAuthorDesc] scholar</li>
+        <li>author->[anAuthorDesc] hunter</li>
+        <li>author->[anAuthorDesc] investigator</li>
+        <li>author->[anAuthorDesc] elder</li>
+        <li>author->[anAuthorDesc] believer</li>
+        <li>author->[anAuthorDesc] harbinger</li>
+        <li>author->[anAuthorDesc] heir</li>
+        <li>author->[anAuthorDesc] noble</li>
+        <li>author->[anAuthorDesc] translator</li>
+        <li>author->[anAuthorDesc] monk</li>
+        <li>author->[anAuthorDesc] doppelgänger</li>
+        <li>author->[anAuthorDesc] author</li>
+        <li>author->[anAuthorDesc] agent</li>
+        <li>author->[anAuthorDesc] hero</li>
+        <li>author->[anAuthorDesc] author</li>
+      </rulesStrings>
+    </rulePack>
+  </RulePackDef>
+</Defs>

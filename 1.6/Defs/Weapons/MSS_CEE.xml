@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Defs>
+    <ThingDef Name="MSS_BatBase" ParentName="BaseMeleeWeapon_Blunt" Abstract="True">
+        <techLevel>Medieval</techLevel>
+        <weaponTags>
+            <li>MedievalMeleeDecent</li>
+            <li>MedievalMeleeAdvanced</li>
+            <li>UltratechMelee</li>
+        </weaponTags>
+        <weaponClasses>
+            <li>Melee</li>
+        </weaponClasses>
+        <costStuffCount>400</costStuffCount>
+        <statBases>
+            <WorkToMake>4500</WorkToMake>
+            <Mass>2</Mass>
+        </statBases>
+        <equippedAngleOffset>-65</equippedAngleOffset>
+        <stuffCategories>
+            <li>Metallic</li>
+            <li>Woody</li>
+            <li>Stony</li>
+        </stuffCategories>
+        <thingSetMakerTags><li>RewardStandardQualitySuper</li></thingSetMakerTags>
+        <recipeMaker>
+            <researchPrerequisite>MSS_CEE</researchPrerequisite>
+            <recipeUsers>
+                <li>CraftingSpot</li>
+            </recipeUsers>
+            <displayPriority>300</displayPriority>
+        </recipeMaker>
+        <tools>
+            <li>
+                <label>handle</label>
+                <capacities>
+                    <li>Poke</li>
+                </capacities>
+                <power>22</power>
+                <cooldownTime>2</cooldownTime>
+            </li>
+            <li>
+                <label>head</label>
+                <labelUsedInLogging>false</labelUsedInLogging>
+                <capacities>
+                    <li>Blunt</li>
+                </capacities>
+                <power>20</power>
+                <cooldownTime>2</cooldownTime>
+            </li>
+        </tools>
+    </ThingDef>
+
+    <ThingDef ParentName="MSS_BatBase">
+        <defName>MSS_Longrat_Extended</defName>
+        <label>Longrat Extended</label>
+        <description>Extend your combat abilities with a rat, on a bat.</description>
+        <graphicData>
+            <texPath>Things/WeaponMelee/MSS_Longrat_Extended</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <costStuffCount>400</costStuffCount>
+        <statBases>
+            <WorkToMake>5000</WorkToMake>
+            <Mass>2</Mass>
+        </statBases>
+        <tools>
+            <li>
+                <label>teeth</label>
+                <capacities>
+                    <li>Bite</li>
+                </capacities>
+                <power>18</power>
+                <cooldownTime>2</cooldownTime>
+                <soundMeleeHit>Pawn_Melee_HumanBite_Hit</soundMeleeHit>
+                <soundMeleeMiss>Pawn_Melee_HumanBite_Miss</soundMeleeMiss>
+            </li>
+        </tools>
+    </ThingDef>
+
+    <ThingDef ParentName="MSS_BatBase">
+        <defName>MSS_Wombat_Extended</defName>
+        <label>Wombat Extended</label>
+        <description>Extend your combat abilities with a wombat, on a bat.</description>
+        <graphicData>
+            <texPath>Things/WeaponMelee/MSS_WombatExtended</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <costStuffCount>400</costStuffCount>
+        <statBases>
+            <WorkToMake>5000</WorkToMake>
+            <Mass>2</Mass>
+        </statBases>
+        <tools>
+            <li>
+                <label>teeth</label>
+                <capacities>
+                    <li>Bite</li>
+                </capacities>
+                <power>18</power>
+                <cooldownTime>2</cooldownTime>
+                <soundMeleeHit>Pawn_Melee_HumanBite_Hit</soundMeleeHit>
+                <soundMeleeMiss>Pawn_Melee_HumanBite_Miss</soundMeleeMiss>
+            </li>
+        </tools>
+    </ThingDef>
+
+    <ThingDef ParentName="MSS_BatBase">
+        <defName>MSS_Thongbat_Extended</defName>
+        <label>Longrat Extended</label>
+        <description>Extend your combat abilities with a thong, on a bat.</description>
+        <graphicData>
+            <texPath>Things/WeaponMelee/MSS_Thongbat_Extended</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <costStuffCount>400</costStuffCount>
+        <statBases>
+            <WorkToMake>5000</WorkToMake>
+            <Mass>2</Mass>
+        </statBases>
+        <tools>
+            <li>
+                <label>thong whip</label>
+                <capacities>
+                    <li>ScratchToxic</li>
+                </capacities>
+                <power>18</power>
+                <cooldownTime>2</cooldownTime>
+                <soundMeleeHit>MeleeHit_BionicSlash</soundMeleeHit>
+                <soundMeleeMiss>MeleeMiss_BionicSlash</soundMeleeMiss>
+            </li>
+        </tools>
+    </ThingDef>
+
+    <ThingDef ParentName="MSS_BatBase">
+        <defName>MSS_Dongbat_Extended</defName>
+        <label>Dongbat Extended</label>
+        <description>Extend your combat abilities with a *censored*, on a bat.</description>
+        <graphicData>
+            <texPath>Things/WeaponMelee/MSS_DongBat</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <costStuffCount>400</costStuffCount>
+        <statBases>
+            <WorkToMake>5000</WorkToMake>
+            <Mass>2</Mass>
+        </statBases>
+        <tools>
+            <li>
+                <label>*censored*</label>
+                <capacities>
+                    <li>Bite</li>
+                    <li>Poke</li>
+                    <li>Blunt</li>
+                </capacities>
+                <power>18</power>
+                <cooldownTime>2</cooldownTime>
+                <soundMeleeHit>MeleeHit_BionicSlash</soundMeleeHit>
+                <soundMeleeMiss>MeleeMiss_BionicSlash</soundMeleeMiss>
+            </li>
+        </tools>
+    </ThingDef>
+
+    <ThingDef ParentName="MSS_BatBase">
+        <defName>MSS_Batbat_Extended</defName>
+        <label>Batbat Extended</label>
+        <description>Extend your combat abilities with a bat, on a bat.</description>
+        <graphicData>
+            <texPath>Things/WeaponMelee/MSS_BatBat</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>2</drawSize>
+        </graphicData>
+        <costStuffCount>800</costStuffCount>
+        <statBases>
+            <WorkToMake>7000</WorkToMake>
+            <Mass>4</Mass>
+        </statBases>
+        <tools Inherit="false">
+            <li>
+                <label>handle</label>
+                <capacities>
+                    <li>Poke</li>
+                </capacities>
+                <power>22</power>
+                <cooldownTime>3</cooldownTime>
+            </li>
+            <li>
+                <label>head</label>
+                <labelUsedInLogging>false</labelUsedInLogging>
+                <capacities>
+                    <li>Blunt</li>
+                </capacities>
+                <power>26</power>
+                <cooldownTime>3</cooldownTime>
+            </li>
+        </tools>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseMeleeWeapon_Sharp_Quality">
+        <defName>MSS_LongBat</defName>
+        <label>Longbat Extended</label>
+        <description>Extend your combat abilities by throwing a bat.</description>
+        <graphicData>
+            <texPath>Things/WeaponMelee/MSS_LongBat</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <techLevel>Medieval</techLevel>
+        <weaponTags Inherit="False">
+            <li>RangedLight</li>
+            <li>MedievalMeleeAdvanced</li>
+            <li>Spear</li>
+        </weaponTags>
+        <weaponClasses>
+            <li>Melee</li>
+        </weaponClasses>
+        <costStuffCount>75</costStuffCount>
+        <thingSetMakerTags><li>RewardStandardQualitySuper</li></thingSetMakerTags>
+        <statBases>
+            <WorkToMake>12000</WorkToMake>
+            <Mass>2</Mass>
+        </statBases>
+        <equippedAngleOffset>-25</equippedAngleOffset>
+        <stuffCategories>
+            <li>Metallic</li>
+            <li>Woody</li>
+        </stuffCategories>
+        <tools>
+            <li>
+                <label>bat</label>
+                <capacities>
+                    <li>Blunt</li>
+                </capacities>
+                <power>19</power>
+                <cooldownTime>2.2</cooldownTime>
+            </li>
+        </tools>
+        <recipeMaker>
+            <researchPrerequisite>MSS_CEE</researchPrerequisite>
+            <skillRequirements>
+                <Crafting>4</Crafting>
+            </skillRequirements>
+            <displayPriority>330</displayPriority>
+        </recipeMaker>
+    </ThingDef>
+</Defs>
