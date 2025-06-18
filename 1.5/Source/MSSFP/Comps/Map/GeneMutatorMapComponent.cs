@@ -10,7 +10,7 @@ public class GeneMutatorMapComponent(Verse.Map map) : MapComponent(map)
         base.MapComponentUpdate();
         foreach (GeneMutatorDef def in DefDatabase<GeneMutatorDef>.AllDefs)
         {
-            def.Worker.MapComponentUpdate(map);
+            def?.Worker.MapComponentUpdate(map);
         }
     }
 
@@ -19,7 +19,7 @@ public class GeneMutatorMapComponent(Verse.Map map) : MapComponent(map)
         base.MapComponentTick();
         foreach (GeneMutatorDef def in DefDatabase<GeneMutatorDef>.AllDefs)
         {
-            def.Worker.MapComponentTick(map);
+            def?.Worker.MapComponentTick(map);
         }
     }
 
@@ -28,7 +28,7 @@ public class GeneMutatorMapComponent(Verse.Map map) : MapComponent(map)
         base.MapComponentOnGUI();
         foreach (GeneMutatorDef def in DefDatabase<GeneMutatorDef>.AllDefs)
         {
-            def.Worker.MapComponentOnGUI(map);
+            def?.Worker.MapComponentOnGUI(map);
         }
     }
 
@@ -37,7 +37,7 @@ public class GeneMutatorMapComponent(Verse.Map map) : MapComponent(map)
         base.FinalizeInit();
         foreach (GeneMutatorDef def in DefDatabase<GeneMutatorDef>.AllDefs)
         {
-            def.Worker.MapFinalizeInit(map);
+            def?.Worker.MapFinalizeInit(map);
         }
     }
 
@@ -46,7 +46,7 @@ public class GeneMutatorMapComponent(Verse.Map map) : MapComponent(map)
         base.MapGenerated();
         foreach (GeneMutatorDef def in DefDatabase<GeneMutatorDef>.AllDefs)
         {
-            def.Worker.MapGenerated(map);
+            def?.Worker.MapGenerated(map);
         }
     }
 
@@ -55,7 +55,7 @@ public class GeneMutatorMapComponent(Verse.Map map) : MapComponent(map)
         base.MapRemoved();
         foreach (GeneMutatorDef def in DefDatabase<GeneMutatorDef>.AllDefs)
         {
-            def.Worker.MapRemoved(map);
+            def?.Worker.MapRemoved(map);
         }
     }
 }
