@@ -11,7 +11,7 @@ public class GeneMutatorWorldComponent(RimWorld.Planet.World world) : WorldCompo
         base.WorldComponentTick();
         foreach (GeneMutatorDef def in DefDatabase<GeneMutatorDef>.AllDefs)
         {
-            def.Worker.WorldTick(world);
+            def?.Worker?.WorldTick(world);
         }
     }
 
@@ -20,7 +20,7 @@ public class GeneMutatorWorldComponent(RimWorld.Planet.World world) : WorldCompo
         base.FinalizeInit();
         foreach (GeneMutatorDef def in DefDatabase<GeneMutatorDef>.AllDefs)
         {
-            def.Worker.WorldFinalizeInit(world);
+            def?.Worker?.WorldFinalizeInit(world);
         }
     }
 
@@ -29,7 +29,7 @@ public class GeneMutatorWorldComponent(RimWorld.Planet.World world) : WorldCompo
         base.WorldComponentUpdate();
         foreach (GeneMutatorDef def in DefDatabase<GeneMutatorDef>.AllDefs)
         {
-            def.Worker.WorldComponentUpdate(world);
+            def?.Worker?.WorldComponentUpdate(world);
         }
     }
 }
