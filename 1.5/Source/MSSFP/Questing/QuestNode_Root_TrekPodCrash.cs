@@ -10,7 +10,8 @@ public class QuestNode_Root_TrekPodCrash : QuestNode_Root_WandererJoin
     public override Pawn GeneratePawn()
     {
         Pawn pawn = ThingUtility.FindPawn(MSSFPDefOf.MSSFP_TrekCharacter.root.Generate());
-        pawn.guest.Recruitable = true;
+        if (pawn != null)
+            pawn.guest.Recruitable = true;
         return pawn;
     }
 

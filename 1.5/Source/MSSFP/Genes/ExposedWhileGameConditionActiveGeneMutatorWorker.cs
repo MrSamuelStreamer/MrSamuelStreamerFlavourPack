@@ -31,10 +31,14 @@ public class ExposedWhileGameConditionActiveGeneMutatorWorker : GeneMutatorWorke
                     bool isXenoGene = Rand.Chance(0.95f);
                     if (!pawn.genes.Xenogenes.Any(g => g.def.ConflictsWith(gene.gene)) && !pawn.genes.Endogenes.Any(g => g.def.ConflictsWith(gene.gene)))
                     {
-                        foreach (GeneDef geneRequire in gene.requires)
+                        if (!gene.requires.NullOrEmpty())
                         {
-                            pawn.genes.AddGene(geneRequire, isXenoGene);
+                            foreach (GeneDef geneRequire in gene.requires)
+                            {
+                                pawn.genes.AddGene(geneRequire, isXenoGene);
+                            }
                         }
+
                         pawn.genes.AddGene(gene.gene, isXenoGene);
                         Messages.Message(
                             "MSS_GainedGeneFromConditionNew".Translate(pawn.Named("PAWN"), def.ReasonString, gene.gene.LabelCap),
