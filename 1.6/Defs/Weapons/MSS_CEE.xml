@@ -1,4 +1,5 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
 <Defs>
     <ThingDef Name="MSS_BatBase" ParentName="BaseMeleeWeapon_Blunt" Abstract="True">
         <techLevel>Medieval</techLevel>
@@ -21,7 +22,9 @@
             <li>Woody</li>
             <li>Stony</li>
         </stuffCategories>
-        <thingSetMakerTags><li>RewardStandardQualitySuper</li></thingSetMakerTags>
+        <thingSetMakerTags>
+            <li>RewardStandardQualitySuper</li>
+        </thingSetMakerTags>
         <recipeMaker>
             <researchPrerequisite>MSS_CEE</researchPrerequisite>
             <recipeUsers>
@@ -213,7 +216,9 @@
             <li>Melee</li>
         </weaponClasses>
         <costStuffCount>75</costStuffCount>
-        <thingSetMakerTags><li>RewardStandardQualitySuper</li></thingSetMakerTags>
+        <thingSetMakerTags>
+            <li>RewardStandardQualitySuper</li>
+        </thingSetMakerTags>
         <statBases>
             <WorkToMake>12000</WorkToMake>
             <Mass>2</Mass>
@@ -240,5 +245,349 @@
             </skillRequirements>
             <displayPriority>330</displayPriority>
         </recipeMaker>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseHumanMakeableGun">
+        <defName>MSS_GunBat_Autopistol</defName>
+        <label>autopistol extended</label>
+        <description>An ancient pattern blowback-operated self-loading pistol, taped to a bat. It lacks stopping power, but is quick to fire, and the bat extends it's range by 50%. The bat also makes it more formidable in melee.</description>
+        <graphicData>
+            <texPath>Things/WeaponRanged/MSS_Bat_AutoPistol</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <uiIconScale>1.5</uiIconScale>
+        <soundInteract>Interact_Autopistol</soundInteract>
+        <recipeMaker>
+            <researchPrerequisites>
+                <li>MSS_CEE</li>
+                <li>BlowbackOperation</li>
+            </researchPrerequisites>
+            <skillRequirements>
+                <Crafting>4</Crafting>
+            </skillRequirements>
+            <displayPriority>405</displayPriority>
+        </recipeMaker>
+        <weaponTags>
+            <li>SimpleGun</li>
+            <li>Autopistol</li>
+        </weaponTags>
+        <weaponClasses>
+            <li>RangedLight</li>
+        </weaponClasses>
+        <statBases>
+            <WorkToMake>5000</WorkToMake>
+            <Mass>2.2</Mass>
+            <AccuracyTouch>0.70</AccuracyTouch>
+            <AccuracyShort>0.60</AccuracyShort>
+            <AccuracyMedium>0.40</AccuracyMedium>
+            <AccuracyLong>0.25</AccuracyLong>
+            <RangedWeapon_Cooldown>1</RangedWeapon_Cooldown>
+        </statBases>
+        <costList>
+            <Steel>30</Steel>
+            <ComponentIndustrial>2</ComponentIndustrial>
+            <WoodLog>1</WoodLog>
+        </costList>
+        <verbs>
+            <li>
+                <verbClass>Verb_Shoot</verbClass>
+                <hasStandardCommand>true</hasStandardCommand>
+                <defaultProjectile>Bullet_Autopistol</defaultProjectile>
+                <warmupTime>0.3</warmupTime>
+                <range>38.9</range>
+                <soundCast>Shot_Autopistol</soundCast>
+                <soundCastTail>GunTail_Light</soundCastTail>
+                <muzzleFlashScale>9</muzzleFlashScale>
+            </li>
+        </verbs>
+        <tools>
+            <li>
+                <label>grip</label>
+                <capacities>
+                    <li>Blunt</li>
+                </capacities>
+                <power>18</power>
+                <cooldownTime>2</cooldownTime>
+            </li>
+            <li>
+                <label>barrel</label>
+                <capacities>
+                    <li>Blunt</li>
+                    <li>Poke</li>
+                </capacities>
+                <power>18</power>
+                <cooldownTime>2</cooldownTime>
+            </li>
+        </tools>
+    </ThingDef>
+    <ThingDef ParentName="BaseBullet">
+        <defName>Bullet_Autopistol</defName>
+        <label>autopistol bullet</label>
+        <graphicData>
+            <texPath>Things/Projectile/Bullet_Small</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <projectile>
+            <damageDef>Bullet</damageDef>
+            <damageAmountBase>10</damageAmountBase>
+            <speed>55</speed>
+        </projectile>
+    </ThingDef>
+
+
+    <ThingDef ParentName="BaseHumanMakeableGun">
+        <defName>MSS_GunBat_AssaultRifle</defName>
+        <label>assault rifle extended</label>
+        <description>A general-purpose gas-operated assault rifle for field or urban combat, taped to a bat. It has better range thanks to the bat, decent power, and good accuracy. The bat also makes it more formidable in melee.</description>
+        <graphicData>
+            <texPath>Things/WeaponRanged/MSS_Bat_AssaultRifle</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <soundInteract>Interact_Rifle</soundInteract>
+        <recipeMaker>
+            <researchPrerequisites>
+                <li>MSS_CEE</li>
+                <li>PrecisionRifling</li>
+            </researchPrerequisites>
+            <skillRequirements>
+                <Crafting>6</Crafting>
+            </skillRequirements>
+            <displayPriority>420</displayPriority>
+        </recipeMaker>
+
+        <thingSetMakerTags>
+            <li>RewardStandardQualitySuper</li>
+        </thingSetMakerTags>
+        <statBases>
+            <WorkToMake>40000</WorkToMake>
+            <Mass>4.5</Mass>
+            <AccuracyTouch>0.55</AccuracyTouch>
+            <AccuracyShort>0.65</AccuracyShort>
+            <AccuracyMedium>0.6</AccuracyMedium>
+            <AccuracyLong>0.5</AccuracyLong>
+            <RangedWeapon_Cooldown>1.70</RangedWeapon_Cooldown>
+        </statBases>
+        <costList>
+            <Steel>60</Steel>
+            <ComponentIndustrial>7</ComponentIndustrial>
+            <WoodLog>1</WoodLog>
+        </costList>
+        <verbs>
+            <li>
+                <verbClass>Verb_Shoot</verbClass>
+                <hasStandardCommand>true</hasStandardCommand>
+                <defaultProjectile>Bullet_AssaultRifle</defaultProjectile>
+                <warmupTime>1.0</warmupTime>
+                <range>45.9</range>
+                <burstShotCount>3</burstShotCount>
+                <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+                <soundCast>Shot_AssaultRifle</soundCast>
+                <soundCastTail>GunTail_Medium</soundCastTail>
+                <muzzleFlashScale>9</muzzleFlashScale>
+            </li>
+        </verbs>
+        <weaponTags>
+            <li>IndustrialGunAdvanced</li>
+            <li>AssaultRifle</li>
+        </weaponTags>
+        <tools>
+            <li>
+                <label>stock</label>
+                <capacities>
+                    <li>Blunt</li>
+                </capacities>
+                <power>18</power>
+                <cooldownTime>2</cooldownTime>
+            </li>
+            <li>
+                <label>barrel</label>
+                <capacities>
+                    <li>Blunt</li>
+                    <li>Poke</li>
+                </capacities>
+                <power>18</power>
+                <cooldownTime>2</cooldownTime>
+            </li>
+        </tools>
+    </ThingDef>
+    <ThingDef ParentName="BaseBullet">
+        <defName>Bullet_AssaultRifle</defName>
+        <label>assault rifle bullet</label>
+        <graphicData>
+            <texPath>Things/Projectile/Bullet_Small</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <projectile>
+            <damageDef>Bullet</damageDef>
+            <damageAmountBase>11</damageAmountBase>
+            <speed>70</speed>
+        </projectile>
+    </ThingDef>
+
+
+    <ThingDef ParentName="BaseHumanMakeableGun">
+        <defName>MSS_GunBat_PumpShotgun</defName>
+        <label>pump shotgun extended</label>
+        <description>An ancient design of shotgun that emits a tight-packed spray of pellets, all taped to a stick. Deadly, but traditionally short range, the bat extends that range, and boosts it's use in melee.</description>
+        <possessionCount>1</possessionCount>
+        <graphicData>
+            <texPath>Things/WeaponRanged/MSS_Bat_Shotgun</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <soundInteract>Interact_Shotgun</soundInteract>
+        <weaponClasses>
+            <li>ShortShots</li>
+        </weaponClasses>
+        <weaponTags>
+            <li>ShortShots</li>
+            <li>PumpShotgun</li>
+        </weaponTags>
+        <statBases>
+            <WorkToMake>12000</WorkToMake>
+            <Mass>4.4</Mass>
+            <AccuracyTouch>0.75</AccuracyTouch>
+            <AccuracyShort>0.82</AccuracyShort>
+            <AccuracyMedium>0.72</AccuracyMedium>
+            <AccuracyLong>0.6</AccuracyLong>
+            <RangedWeapon_Cooldown>1.25</RangedWeapon_Cooldown>
+        </statBases>
+        <costList>
+            <Steel>60</Steel>
+            <ComponentIndustrial>3</ComponentIndustrial>
+            <WoodLog>1</WoodLog>
+        </costList>
+        <recipeMaker>
+            <researchPrerequisites>
+                <li>Gunsmithing</li>
+                <li>MSS_CEE</li>
+            </researchPrerequisites>
+            <skillRequirements>
+                <Crafting>5</Crafting>
+            </skillRequirements>
+            <displayPriority>430</displayPriority>
+        </recipeMaker>
+        <verbs>
+            <li>
+                <verbClass>Verb_Shoot</verbClass>
+                <hasStandardCommand>true</hasStandardCommand>
+                <defaultProjectile>Bullet_Shotgun</defaultProjectile>
+                <warmupTime>0.9</warmupTime>
+                <range>22.9</range>
+                <soundCast>Shot_Shotgun</soundCast>
+                <soundCastTail>GunTail_Heavy</soundCastTail>
+                <muzzleFlashScale>9</muzzleFlashScale>
+            </li>
+        </verbs>
+        <tools>
+            <li>
+                <label>stock</label>
+                <capacities>
+                    <li>Blunt</li>
+                </capacities>
+                <power>18</power>
+                <cooldownTime>2</cooldownTime>
+            </li>
+            <li>
+                <label>barrel</label>
+                <capacities>
+                    <li>Blunt</li>
+                    <li>Poke</li>
+                </capacities>
+                <power>18</power>
+                <cooldownTime>2</cooldownTime>
+            </li>
+        </tools>
+    </ThingDef>
+
+
+    <ThingDef ParentName="BaseHumanMakeableGun">
+        <defName>MSS_GunBat_SniperRifle</defName>
+        <label>sniper rifle</label>
+        <description>An ancient design of precision sniper rifle, taped to a bat. Bolt action. It has an exceptionally long range, great accuracy (that is marred somewhat by the bat) and good power. Because it's so unwieldy, other weapons outclass it at close range.</description>
+        <possessionCount>1</possessionCount>
+        <graphicData>
+            <texPath>Things/WeaponRanged/MSS_Bat_SniperRifle</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <soundInteract>Interact_Rifle</soundInteract>
+        <weaponClasses>
+            <li>LongShots</li>
+            <li>RangedHeavy</li>
+        </weaponClasses>
+        <recipeMaker>
+            <researchPrerequisites>
+                <li>MSS_CEE</li>
+                <li>PrecisionRifling</li>
+            </researchPrerequisites>
+            <skillRequirements>
+                <Crafting>7</Crafting>
+            </skillRequirements>
+            <displayPriority>425</displayPriority>
+        </recipeMaker>
+        <thingSetMakerTags>
+            <li>RewardStandardQualitySuper</li>
+        </thingSetMakerTags>
+        <statBases>
+            <WorkToMake>45000</WorkToMake>
+            <Mass>5</Mass>
+            <AccuracyTouch>0.40</AccuracyTouch>
+            <AccuracyShort>0.60</AccuracyShort>
+            <AccuracyMedium>0.7</AccuracyMedium>
+            <AccuracyLong>0.72</AccuracyLong>
+            <RangedWeapon_Cooldown>2.3</RangedWeapon_Cooldown>
+        </statBases>
+        <costList>
+            <Steel>60</Steel>
+            <ComponentIndustrial>8</ComponentIndustrial>
+            <WoodLog>1</WoodLog>
+        </costList>
+        <verbs>
+            <li>
+                <verbClass>Verb_Shoot</verbClass>
+                <hasStandardCommand>true</hasStandardCommand>
+                <defaultProjectile>Bullet_SniperRifle</defaultProjectile>
+                <warmupTime>3.5</warmupTime>
+                <range>66.9</range>
+                <soundCast>Shot_SniperRifle</soundCast>
+                <soundCastTail>GunTail_Heavy</soundCastTail>
+                <muzzleFlashScale>9</muzzleFlashScale>
+            </li>
+        </verbs>
+        <tools>
+            <li>
+                <label>stock</label>
+                <capacities>
+                    <li>Blunt</li>
+                </capacities>
+                <power>18</power>
+                <cooldownTime>2</cooldownTime>
+            </li>
+            <li>
+                <label>barrel</label>
+                <capacities>
+                    <li>Blunt</li>
+                    <li>Poke</li>
+                </capacities>
+                <power>18</power>
+                <cooldownTime>2</cooldownTime>
+            </li>
+        </tools>
+        <weaponTags Inherit="False">
+            <li>SniperRifle</li>
+        </weaponTags>
+    </ThingDef>
+    <ThingDef ParentName="BaseBullet">
+        <defName>Bullet_SniperRifle</defName>
+        <label>sniper rifle bullet</label>
+        <graphicData>
+            <texPath>Things/Projectile/Bullet_Big</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <projectile>
+            <damageDef>Bullet</damageDef>
+            <damageAmountBase>25</damageAmountBase>
+            <stoppingPower>1.5</stoppingPower>
+            <speed>100</speed>
+        </projectile>
     </ThingDef>
 </Defs>
