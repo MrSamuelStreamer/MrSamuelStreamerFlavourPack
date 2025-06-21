@@ -175,12 +175,19 @@ public class HediffComp_Haunt : HediffComp
 
     public virtual void SetPawnToDraw(Pawn pawn)
     {
+        if (parent == null || parent.pawn == null || parent.pawn.skills == null)
+            return;
         if (pawn == null)
+            return;
+
+        SkillRecord parentSkill = parent.pawn.skills.GetSkill(skillToBoost);
+
+        if (parentSkill == null)
             return;
 
         if (pawnToDraw is { skills: not null })
         {
-            parent.pawn.skills.GetSkill(skillToBoost).Level -= SkillBoostLevel;
+            parentSkill.Level -= SkillBoostLevel;
         }
 
         pawnToDraw = pawn;
@@ -194,7 +201,7 @@ public class HediffComp_Haunt : HediffComp
             skillToBoost = maxSkill.def;
             SkillBoostLevel = Mathf.CeilToInt(maxSkill.Level / 3f);
 
-            parent.pawn.skills.GetSkill(skillToBoost).Level += SkillBoostLevel;
+            parentSkill.Level += SkillBoostLevel;
         }
 
         if (Pawn.needs?.mood?.thoughts?.memories?.GetFirstMemoryOfDef(Props.thought) is { } thought)
