@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
+    <MSS_MRStreamer>Rimworld: Extreme Warfare by Mr Samuel Streamer on Youtube</MSS_MRStreamer>
+    <MSS_FP_Settings_DrawByMrStreamer>Show "By Mr Samuel Streamer" label in the bottom left (only used to disuade video theft and other digital larceny, leave disabled)</MSS_FP_Settings_DrawByMrStreamer>
+    
     <MSSFP_SettingsCategory>Mr Samuel Streamer Flavour Pack</MSSFP_SettingsCategory>
     <MSS_FP_Settings_OverrideRelicPool>Override the possible pool of relics with this mods list</MSS_FP_Settings_OverrideRelicPool>
     <MSS_FP_Settings_disableFroggeNom>Disable Frogge's Nom, you monster.</MSS_FP_Settings_disableFroggeNom>
@@ -12,9 +15,6 @@
     <MSS_FP_CompSpawnThings>Next spawn in</MSS_FP_CompSpawnThings>
 
     <MSS_FP_RitualOutcomeExtraDesc_SkylanternRaid>Your skylanterns landed in a {0} colony, setting widespread fires and causing immense damage. They're here for revenge.</MSS_FP_RitualOutcomeExtraDesc_SkylanternRaid>
-
-    <MSS_MRStreamer>Rimworld: Golden Gods by Mr Samuel Streamer on Youtube</MSS_MRStreamer>
-    <MSS_FP_Settings_DrawByMrStreamer>Show "By Mr Samuel Streamer" label in the bottom left (only used to disuade video theft and other digital larceny, leave disabled)</MSS_FP_Settings_DrawByMrStreamer>
 
     <MSSFP_LoversRetreatLabel>Lovers' Retreat</MSSFP_LoversRetreatLabel>
     <MSSFP_LoversRetreadText>{0} and {1} have left the colony to spend some time alone. They'll be back in about {2} hours.</MSSFP_LoversRetreadText>
