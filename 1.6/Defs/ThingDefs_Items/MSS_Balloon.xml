@@ -28,14 +28,40 @@
         <soundDrop>Standard_Drop</soundDrop>
         <stackLimit>5</stackLimit>
         <healthAffectsPrice>false</healthAffectsPrice>
-        <orderedTakeGroup>MSS_Balloon</orderedTakeGroup>
         <statBases>
             <MaxHitPoints>70</MaxHitPoints>
             <MarketValue>220</MarketValue>
             <Mass>0.6</Mass>
             <Flammability>0.6</Flammability>
             <DeteriorationRate>2.0</DeteriorationRate>
+            <WorkToMake>1500</WorkToMake>
         </statBases>
+        <stuffCategories>
+            <li>Fabric</li>
+            <li>Leathery</li>
+        </stuffCategories>
+        <costStuffCount>200</costStuffCount>
+        <orderedTakeGroup>MSS_Balloon</orderedTakeGroup>
+        <recipeMaker>
+            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+            <workSkill>Crafting</workSkill>
+            <effectWorking>Tailor</effectWorking>
+            <soundWorking>Recipe_Tailor</soundWorking>
+            <recipeUsers>
+                <li>ElectricTailoringBench</li>
+                <li>HandTailoringBench</li>
+            </recipeUsers>
+            <unfinishedThingDef>UnfinishedApparel</unfinishedThingDef>
+            <researchPrerequisite>MSS_CEE</researchPrerequisite>
+            <skillRequirements>
+                <Crafting>7</Crafting>
+            </skillRequirements>
+            <displayPriority>300</displayPriority>
+        </recipeMaker>
+        <costList>
+            <Steel>20</Steel>
+            <ComponentIndustrial>1</ComponentIndustrial>
+        </costList>
         <resourceReadoutPriority>Middle</resourceReadoutPriority>
         <useHitPoints>true</useHitPoints>
         <intricate>true</intricate>
@@ -71,63 +97,4 @@
             <drawOffset>0,0,2.5</drawOffset>
         </graphicData>
     </ThingDef>
-
-    <RecipeDef>
-        <defName>MSS_Make_Balloon</defName>
-        <label>make rimton surface to air recovery device</label>
-        <description>Make a rimton surface to air recovery device.</description>
-        <jobString>Making rimton surface to air recovery device.</jobString>
-        <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-        <effectWorking>Cook</effectWorking>
-        <soundWorking>Recipe_Machining</soundWorking>
-        <workAmount>1500</workAmount>
-        <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-        <researchPrerequisite>MSS_CEE</researchPrerequisite>
-        <ingredients>
-            <li>
-                <filter>
-                    <thingDefs>
-                        <li>Steel</li>
-                    </thingDefs>
-                </filter>
-                <count>20</count>
-            </li>
-            <li>
-                <filter>
-                    <categories>
-                        <li>Fabric</li>
-                        <li>Leathery</li>
-                    </categories>
-                </filter>
-                <count>200</count>
-            </li>
-            <li>
-                <filter>
-                    <thingDefs>
-                        <li>ComponentIndustrial</li>
-                    </thingDefs>
-                </filter>
-                <count>1</count>
-            </li>
-        </ingredients>
-        <fixedIngredientFilter>
-            <thingDefs>
-                <li>Steel</li>
-                <li>ComponentIndustrial</li>
-            </thingDefs>
-            <categories>
-                <li>Fabric</li>
-                <li>Leathery</li>
-            </categories>
-        </fixedIngredientFilter>
-        <products>
-            <MSS_Balloon>1</MSS_Balloon>
-        </products>
-        <skillRequirements>
-            <Crafting>6</Crafting>
-        </skillRequirements>
-        <workSkill>Crafting</workSkill>
-        <displayPriority>0</displayPriority>
-    </RecipeDef>
-
 </Defs>
