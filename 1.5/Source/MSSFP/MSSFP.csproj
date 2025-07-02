@@ -104,6 +104,10 @@
         <ReleaseFiles Update="..\..\..\1.6\Defs\ThingDefs_Races\MSSFP_Kreebster.xml">
           <Link>MrSamuelStreamerFlavourPack\1.6\Defs\ThingDefs_Races\MSSFP_Kreebster.xml</Link>
         </ReleaseFiles>
+
+        <ReleaseFiles Update="..\..\Defs\ThingDefs_Items\MSS_Balloon.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.5\Defs\ThingDefs_Items\MSS_Balloon.xml</Link>
+        </ReleaseFiles>
     </ItemGroup>
     <Target Name="PostBuild" AfterTargets="Build" Condition=" '$(Configuration)' == 'Release' ">
         <RemoveDir Condition="Exists('../../../Release')" Directories="../../../Release" />

@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <ThingDef ParentName="ResourceBase">
+        <thingClass>ThingWithComps</thingClass>
+        <defName>MSS_Balloon</defName>
+        <label>Rimton Surface to Air Recovery Device</label>
+        <description>This is a system used by various militaries for retrieving persons from the ground. It comprises of a self-inflating balloon attached to a harness on the target to be extracted.</description>
+        <possessionCount>2</possessionCount>
+        <graphicData>
+            <texPath>Things/MSS_Balloon_Icon</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <uiIconPath>Things/MSS_Balloon_Icon</uiIconPath>
+        <soundInteract>Metal_Drop</soundInteract>
+        <soundDrop>Standard_Drop</soundDrop>
+        <stackLimit>5</stackLimit>
+        <healthAffectsPrice>false</healthAffectsPrice>
+        <statBases>
+            <MaxHitPoints>70</MaxHitPoints>
+            <MarketValue>220</MarketValue>
+            <Mass>0.6</Mass>
+            <Flammability>0.6</Flammability>
+            <DeteriorationRate>2.0</DeteriorationRate>
+        </statBases>
+        <resourceReadoutPriority>Middle</resourceReadoutPriority>
+        <useHitPoints>true</useHitPoints>
+        <intricate>true</intricate>
+        <thingCategories>
+            <li>Manufactured</li>
+        </thingCategories>
+        <tradeTags>
+            <li>ExoticMisc</li>
+        </tradeTags>
+        <thingSetMakerTags><li>RewardStandardCore</li></thingSetMakerTags>
+        <allowedArchonexusCount>10</allowedArchonexusCount>
+        <comps>
+            <li Class="CompProperties_Usable">
+                <useJob>UseItem</useJob>
+                <useLabel>Use {0_label}</useLabel>
+                <useDuration>100</useDuration>
+                <showUseGizmo>true</showUseGizmo>
+            </li>
+            <li Class="CompProperties_UseEffect">
+                <compClass>MSSFP.Comps.CompUseEffect_RimtonDevice</compClass>
+            </li>
+            <li Class="CompProperties_UseEffectDestroySelf" />
+        </comps>
+    </ThingDef>
+
+    <ThingDef ParentName="PawnFlyerBase">
+        <defName>MSS_PawnFlyer_Balloon</defName>
+        <thingClass>MSSFP.PawnFlyerBalloon</thingClass>
+        <pawnFlyer>
+            <workerClass>MSSFP.Comps.BalloonPawnFlyerWorker</workerClass>
+            <flightDurationMin>30</flightDurationMin>
+            <flightSpeed>4</flightSpeed>
+            <progressCurve>
+                <points>
+                    <li>(0, 0)</li>
+                    <li>(1, 1)</li>
+                </points>
+            </progressCurve>
+        </pawnFlyer>
+        <graphicData>
+            <texPath>Things/MSS_Balloon</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>5</drawSize>
+            <drawOffset>0,0,2.5</drawOffset>
+        </graphicData>
+    </ThingDef>
+
+    <RecipeDef>
+        <defName>MSS_Make_Balloon</defName>
+        <label>make rimton surface to air recovery device</label>
+        <description>Make a rimton surface to air recovery device.</description>
+        <jobString>Making rimton surface to air recovery device.</jobString>
+        <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+        <effectWorking>Cook</effectWorking>
+        <soundWorking>Recipe_Machining</soundWorking>
+        <workAmount>1500</workAmount>
+        <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+        <researchPrerequisite>MSS_CEE</researchPrerequisite>
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Steel</li>
+                    </thingDefs>
+                </filter>
+                <count>20</count>
+            </li>
+            <li>
+                <filter>
+                    <categories>
+                        <li>Fabric</li>
+                        <li>Leathery</li>
+                    </categories>
+                </filter>
+                <count>200</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>ComponentIndustrial</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>Steel</li>
+                <li>ComponentIndustrial</li>
+            </thingDefs>
+            <categories>
+                <li>Fabric</li>
+                <li>Leathery</li>
+            </categories>
+        </fixedIngredientFilter>
+        <products>
+            <MSS_Balloon>1</MSS_Balloon>
+        </products>
+        <skillRequirements>
+            <Crafting>6</Crafting>
+        </skillRequirements>
+        <workSkill>Crafting</workSkill>
+        <displayPriority>0</displayPriority>
+    </RecipeDef>
+
+</Defs>
