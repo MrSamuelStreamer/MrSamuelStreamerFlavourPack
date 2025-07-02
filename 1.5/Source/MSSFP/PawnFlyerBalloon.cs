@@ -38,36 +38,15 @@ public class PawnFlyerBalloon : PawnFlyer
         set => _effectiveHeight.Value.SetValue(this, value);
     }
 
-    public override Vector3 DrawPos
-    {
-        get
-        {
-            RecomputePosition();
-            return effectivePos;
-        }
-    }
-
     public override void SpawnSetup(Map map, bool respawningAfterLoad)
     {
         base.SpawnSetup(map, respawningAfterLoad);
         if (respawningAfterLoad)
             return;
-        var dist = DestinationPos.z - startVec.z;
-        var time = dist / 20;
-        ticksFlightTime = time.SecondsToTicks();
+        float dist = DestinationPos.z - startVec.z;
+        float time = dist / 20;
+        ticksFlightTime = Math.Max(10, time.SecondsToTicks());
         ticksFlying = 0;
-    }
-
-    private void RecomputePosition()
-    {
-        if (positionLastComputedTick == ticksFlying)
-            return;
-        positionLastComputedTick = ticksFlying;
-        float t = def.pawnFlyer.Worker.AdjustedProgress(ticksFlying / (float)ticksFlightTime);
-        effectiveHeight = def.pawnFlyer.Worker.GetHeight(t);
-        groundPos = Vector3.Lerp(startVec, DestinationPos, t);
-        effectivePos = groundPos + Altitudes.AltIncVect * effectiveHeight + Vector3.up * (def.pawnFlyer.heightFactor * effectiveHeight);
-        Position = groundPos.ToIntVec3();
     }
 
     protected override void DrawAt(Vector3 drawLoc, bool flip = false)
@@ -75,11 +54,11 @@ public class PawnFlyerBalloon : PawnFlyer
         base.DrawAt(drawLoc, flip);
         drawLoc.y = AltitudeLayer.Skyfaller.AltitudeFor();
         Graphic.Draw(drawLoc, Rotation, this);
-        // if (def.drawerType == DrawerType.RealtimeOnly || !Spawned)
-        // Graphic.Draw(drawLoc, flip ? Rotation.Opposite : Rotation, this);
-        //
-        // PawnRenderUtility.CalculateCarriedDrawPos(FlyingPawn, this, ref drawLoc, out flip);
-        //
-        // ext?.graphicData?.Graphic.Draw(drawLoc, flip ? Rotation.Opposite : Rotation, this);
+    }
+
+    protected override void RespawnPawn()
+    {
+        base.RespawnPawn();
+        //TODO: move pawn to home map and drop onto a prisoner bed.
     }
 }
