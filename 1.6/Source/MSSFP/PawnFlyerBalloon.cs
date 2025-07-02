@@ -89,7 +89,7 @@ public class PawnFlyerBalloon : PawnFlyer
     {
         bed = null;
 
-        if (pawn.IsColonist || pawn.IsColonyMutant)
+        if (pawn.IsColonist || pawn.IsColonySubhuman)
         {
             if (pawn.Downed)
             {
@@ -128,7 +128,7 @@ public class PawnFlyerBalloon : PawnFlyer
             }
         }
 
-        if (!pawn.IsColonist && !pawn.IsColonyMutant)
+        if (!pawn.IsColonist && !pawn.IsColonySubhuman)
         {
             // find prisoner bed
             CaptureUtility.TryGetBed(null, pawn, out Thing bedThing);

@@ -100,5 +100,10 @@ public static class MSSFPDefOf
 
     public static readonly WorkTypeDef MSS_AnomalyPrevention;
 
+    public static readonly ThingDef MSS_PawnFlyer_Balloon;
+    public static readonly ThingDef MSS_Balloon;
+
+    public static readonly JobDef MSSFP_ExtractTarget;
+
     static MSSFPDefOf() => DefOfHelper.EnsureInitializedInCtor(typeof(MSSFPDefOf));
 }

@@ -209,7 +209,7 @@ public class SymbolResolver_ConstructionSite : SymbolResolver
         {
             IntVec3 centerCell = rp.rect.CenterCell;
 
-            LordJob_DefendBase lordJobDefendBase = new(enemyFaction, centerCell, true);
+            LordJob_DefendBase lordJobDefendBase = new(enemyFaction, centerCell, 0);
             lord = LordMaker.MakeNewLord(enemyFaction, lordJobDefendBase, map);
         }
 

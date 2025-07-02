@@ -118,4 +118,7 @@
     <MSS_FP_Settings_disableMogus>Disable Moguses</MSS_FP_Settings_disableMogus>
 
     <MSS_Balloon_NotDowned>{PAWN_labelShort} is not downed.</MSS_Balloon_NotDowned>
+    <MSSFP_Extract>Extract {0_labelShort}</MSSFP_Extract>
+    <MSSFP_CannotExtract>Cannot extract {0_labelShort}</MSSFP_CannotExtract>
+    <MSSFP_NoBed>No beds available</MSSFP_NoBed>
 </LanguageData>

@@ -96,6 +96,10 @@
         <ExtraFiles Include="../../../LoadFolders.xml;../../../LICENSE;../../../README.md" />
 
         <ReleaseFiles Remove="..\..\..\Compatability\**" />
+
+        <ReleaseFiles Update="..\..\Defs\ThingDefs_Items\MSS_Balloon.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.6\Defs\ThingDefs_Items\MSS_Balloon.xml</Link>
+        </ReleaseFiles>
     </ItemGroup>
     <Target Name="PostBuild" AfterTargets="Build" Condition=" '$(Configuration)' == 'Release' ">
         <RemoveDir Condition="Exists('../../../Release')" Directories="../../../Release" />
