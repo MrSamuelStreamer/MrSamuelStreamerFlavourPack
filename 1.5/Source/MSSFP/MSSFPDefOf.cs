@@ -105,5 +105,10 @@ public static class MSSFPDefOf
 
     public static readonly JobDef MSSFP_ExtractTarget;
 
+    public static readonly ThingDef MSS_Drone;
+
+    public static readonly SoundDef MSS_DroneFly;
+    public static readonly SoundDef MSS_DroneExplode;
+
     static MSSFPDefOf() => DefOfHelper.EnsureInitializedInCtor(typeof(MSSFPDefOf));
 }

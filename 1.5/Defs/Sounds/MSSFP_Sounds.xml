@@ -50,4 +50,49 @@
             </li>
         </subSounds>
     </SoundDef>
+
+    <SoundDef>
+        <defName>MSS_DroneFly</defName>
+        <context>MapOnly</context>
+        <sustain>True</sustain>
+        <priorityMode>PrioritizeNearest</priorityMode>
+        <subSounds>
+            <li>
+                <muteWhenPaused>True</muteWhenPaused>
+                <randomStartPoint>True</randomStartPoint>
+                <grains>
+                    <li Class="AudioGrain_Clip">
+                        <clipPath>MSS_DroneFly</clipPath>
+                    </li>
+                </grains>
+                <volumeRange>30</volumeRange>
+                <distRange>20~40</distRange>
+            </li>
+        </subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>MSS_DroneExplode</defName>
+        <context>MapOnly</context>
+        <eventNames/>
+        <subSounds>
+            <li>
+                <grains>
+                    <li Class="AudioGrain_Clip">
+                        <clipPath>MSS_DroneExplode</clipPath>
+                    </li>
+                </grains>
+                <pitchRange>
+                    <min>0.9</min>
+                    <max>1.1</max>
+                </pitchRange>
+                <distRange>
+                    <min>0</min>
+                    <max>25</max>
+                </distRange>
+                <volumeRange>10~100</volumeRange>
+                <sustainLoop>False</sustainLoop>
+            </li>
+        </subSounds>
+    </SoundDef>
 </Defs>

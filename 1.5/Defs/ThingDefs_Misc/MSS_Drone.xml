@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Defs>
+    <!--
+    A specialized neural implant that integrates with the brain's motor cortex, allowing the user to mentally control a swarm of miniature combat drones. Once per day, the user can deploy these small machines that emerge from specialized fabricators within the implant, forming a deadly swarm that seeks out and eliminates threats through coordinated kamikaze attacks. Each drone delivers a variety of damage types upon impact, from blunt trauma to electrical burns.
+
+    The neural interface required for drone control puts significant strain on the user's motor cortex, resulting in reduced manipulation capability and mental clarity.
+
+    The drones will circle around their controller when not engaged, creating an intimidating display of technological superiority. Once a target is designated, they'll break formation to execute devastating dive-bomb attacks.
+
+    Note: The significant neural load from controlling multiple drones simultaneously is why this implant affects both consciousness and manipulation. Users report the sensation as "trying to coordinate dozens of extra limbs while solving complex equations."
+
+    Stats:
+    Consciousness: -15%
+    Manipulation: -20%
+    Cooldown: 1 day
+    Drone swarm duration: Until all drones are destroyed or expended
+     -->
+    <ThingDef Name="BaseDrone" Abstract="True">
+        <thingClass>MSSFP.Drone</thingClass>
+        <category>Mote</category>
+        <tickerType>Normal</tickerType>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+        <useHitPoints>true</useHitPoints>
+        <drawerType>RealtimeOnly</drawerType>
+        <statBases>
+            <MaxHitPoints>1</MaxHitPoints>
+        </statBases>
+        <graphicData>
+            <graphicClass>Graphic_Single</graphicClass>
+            <!-- <shaderType>CutoutFlying</shaderType> -->
+        </graphicData>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseDrone">
+        <defName>MSS_Drone</defName>
+        <label>Drone</label>
+        <graphicData>
+            <texPath>Things/MSS_Drone</texPath>
+        </graphicData>
+    </ThingDef>
+</Defs>
