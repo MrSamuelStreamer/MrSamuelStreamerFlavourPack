@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="128"
+   height="128"
+   viewBox="0 0 33.866665 33.866667"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4 (86a8ad7, 2024-10-11)"
+   sodipodi:docname="MSS_Drone.svg"
+   inkscape:export-filename="MSS_Drone.png"
+   inkscape:export-xdpi="48"
+   inkscape:export-ydpi="48"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showguides="false"
+     showgrid="true"
+     inkscape:zoom="5.9213252"
+     inkscape:cx="45.766782"
+     inkscape:cy="42.811363"
+     inkscape:window-width="2560"
+     inkscape:window-height="1377"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <linearGradient
+       id="linearGradient14"
+       inkscape:collect="always">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0.23076923"
+         id="stop13" />
+      <stop
+         style="stop-color:#a8a8a8;stop-opacity:1;"
+         offset="1"
+         id="stop14" />
+    </linearGradient>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient14"
+       id="radialGradient10"
+       cx="103.10945"
+       cy="48.364628"
+       fx="103.10945"
+       fy="48.364628"
+       r="17.061701"
+       gradientTransform="matrix(1,0,0,0.20756367,0,38.325888)"
+       gradientUnits="userSpaceOnUse" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient14"
+       id="radialGradient13"
+       cx="32.357216"
+       cy="48.364628"
+       fx="32.357216"
+       fy="48.364628"
+       r="17.061701"
+       gradientTransform="matrix(1,0,0,0.20756367,11.641668,38.325888)"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g21"
+       transform="matrix(0.32610386,0,0,0.32610386,-7.0490406,-2.0180835)">
+      <path
+         style="fill:#757575;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-dashoffset:1.13386;stroke-opacity:0.38166"
+         d="m 43.99889,48.364627 20.853192,6.738349 v 6.698298 z"
+         id="path1"
+         sodipodi:nodetypes="cccc" />
+      <path
+         style="fill:#757575;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-dashoffset:1.13386;stroke-opacity:0.38166"
+         d="m 103.10945,48.364627 -20.853191,6.738349 v 6.698298 z"
+         id="path1-8"
+         sodipodi:nodetypes="cccc" />
+      <path
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.774613;stroke-linecap:round;stroke-linejoin:round;stroke-dashoffset:1.13386;stroke-opacity:0.38166"
+         d="m 64.828021,55.102976 h 17.428236 v 6.698298 l -8.714118,9.605104 -8.714118,-9.605104 z"
+         id="path2"
+         sodipodi:nodetypes="cccccc" />
+      <ellipse
+         style="fill:url(#radialGradient13);fill-opacity:1;stroke:none;stroke-width:1.01873;stroke-linecap:round;stroke-linejoin:round;stroke-dashoffset:1.13386;stroke-opacity:0.38166"
+         id="path4"
+         cx="43.998894"
+         cy="48.364628"
+         rx="17.061701"
+         ry="3.5413892" />
+      <ellipse
+         style="fill:url(#radialGradient10);fill-opacity:1;stroke:none;stroke-width:1.01873;stroke-linecap:round;stroke-linejoin:round;stroke-dashoffset:1.13386;stroke-opacity:0.38166"
+         id="path4-5"
+         cx="103.10945"
+         cy="48.364628"
+         rx="17.061701"
+         ry="3.5413892" />
+      <path
+         id="path1-3"
+         style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-dashoffset:1.13386;stroke-opacity:1"
+         d="m 43.986579,44.822986 a 17.061701,3.5413892 0 0 0 -17.0615,3.541386 17.061701,3.5413892 0 0 0 17.0615,3.541386 17.061701,3.5413892 0 0 0 5.22242,-0.176217 l 15.6068,10.056234 v 0.0155 l 8.7142,9.605098 8.71419,-9.605098 15.63109,-10.071737 a 17.061701,3.5413892 0 0 0 5.221901,0.176217 17.061701,3.5413892 0 0 0 17.06201,-3.541386 17.061701,3.5413892 0 0 0 -17.06201,-3.541386 17.061701,3.5413892 0 0 0 -17.061491,3.541386 17.061701,3.5413892 0 0 0 7.8543,2.975529 l -11.6458,3.763078 h -17.4041 l -11.6458,-3.763078 a 17.061701,3.5413892 0 0 0 7.8543,-2.975529 17.061701,3.5413892 0 0 0 -17.06201,-3.541386 z" />
+      <path
+         style="fill:#33dc10;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-dashoffset:1.13386;stroke-opacity:1"
+         d="m 71.843439,57.031004 v 7.133967 L 69.296502,61.618034 V 57.01567 Z"
+         id="path21"
+         sodipodi:nodetypes="ccccc" />
+      <path
+         style="fill:#33dc10;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-dashoffset:1.13386;stroke-opacity:1"
+         d="m 74.960107,57.031004 v 7.133967 l 2.546937,-2.546937 V 57.01567 Z"
+         id="path21-4"
+         sodipodi:nodetypes="ccccc" />
+    </g>
+  </g>
+  <metadata
+     id="metadata9">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>Kieran David Evans</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:rights>
+          <cc:Agent>
+            <dc:title>CC BY-SA - https://creativecommons.org/licenses/by-sa/4.0/</dc:title>
+          </cc:Agent>
+        </dc:rights>
+        <cc:license
+           rdf:resource="http://creativecommons.org/licenses/by-sa/4.0/" />
+      </cc:Work>
+      <cc:License
+         rdf:about="http://creativecommons.org/licenses/by-sa/4.0/">
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Reproduction" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Distribution" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#Notice" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#Attribution" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#ShareAlike" />
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+</svg>
