@@ -8,7 +8,7 @@
     <DamageDef>
         <defName>MSSFP_Dirtman_SwallowWhole</defName>
         <label>swallow whole</label>
-        <workerClass>AnimalBehaviours.DamageWorker_SwallowWhole</workerClass>
+        <workerClass>VEF.AnimalBehaviours.DamageWorker_SwallowWhole</workerClass>
         <externalViolence>true</externalViolence>
         <deathMessage>{0} has been bitten to death.</deathMessage>
         <hediff>Stab</hediff>
@@ -36,7 +36,7 @@
         <defName>MSSFP_Dirtman</defName>
         <label>dirt man</label>
         <description>You didn't put any dirt under your pillow, so the dirt man is coming to take you to his lair.</description>
-        <!-- <thingClass>AnimalBehaviours.Pawn_SwallowWhole</thingClass> -->
+        <thingClass>VEF.AnimalBehaviours.Pawn_SwallowWhole</thingClass>
         <statBases>
             <Flammability>0.1</Flammability>
             <MoveSpeed>15.5</MoveSpeed>
@@ -109,7 +109,7 @@
             <soundMeleeMiss>Pawn_Melee_SmallScratch_Miss</soundMeleeMiss>
         </race>
         <comps>
-            <!-- <li IfModActive="oskarpotocki.vanillafactionsexpanded.core" Class="AnimalBehaviours.CompProperties_SwallowWhole">
+            <li IfModActive="oskarpotocki.vanillafactionsexpanded.core" Class="VEF.AnimalBehaviours.CompProperties_SwallowWhole">
                 <sendLetterWhenEating>true</sendLetterWhenEating>
                 <letterLabel>MSSFP_DirtManEatingLabel</letterLabel>
                 <letterText>MSSFP_DirtManEatingText</letterText>
@@ -117,15 +117,15 @@
                 <createFilthWhenKilled>true</createFilthWhenKilled>
                 <stomachCapacity>1</stomachCapacity>
             </li>
-            <li Class="AnimalBehaviours.CompProperties_DoesntFlee">
+            <li Class="VEF.AnimalBehaviours.CompProperties_DoesntFlee">
 
             </li>
-            <li Class="AnimalBehaviours.CompProperties_FilthProducer">
+            <li Class="VEF.AnimalBehaviours.CompProperties_FilthProducer">
                 <filthType>Filth_Dirt</filthType>
                 <rate>1</rate>
                 <radius>3</radius>
                 <ticksToCreateFilth>400</ticksToCreateFilth>
-            </li> -->
+            </li>
         </comps>
     </ThingDef>
 

@@ -17,7 +17,6 @@
             <downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
         </li>
     </modDependencies>
-
     <loadAfter>
         <li>brrainz.harmony</li>
         <li>Ludeon.RimWorld</li>
@@ -25,6 +24,8 @@
         <li>Ludeon.RimWorld.Royalty</li>
         <li>Ludeon.RimWorld.Biotech</li>
         <li>Ludeon.RimWorld.Anomaly</li>
+        <li>Ludeon.RimWorld.Odyssey</li>
+        <li>redmattis.bigsmall.core</li>
         <li>vanillaexpanded.achievements</li>
         <li>Aoba.Fortress.Industrial.Citadel</li>
         <li>Azazellz.TransportShuttleStandalone</li>

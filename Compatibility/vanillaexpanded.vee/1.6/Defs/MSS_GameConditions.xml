@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <GameConditionDef>
+        <defName>MSS_NuclearFallout</defName>
+        <conditionClass>MSSFP.VEE.NuclearFallout</conditionClass>
+        <label>Nuclear Fallout</label>
+        <description>A distant faction taking their first steps into nuclear power made some very insignificantly small, catastrophic miscalculations.
+
+            The fallout from the rapid unplanned disassembly of their experimental reactor is heading your way.
+
+            It will last anywhere between a season to several years.</description>
+        <endMessage>The nuclear fallout is ending</endMessage>
+        <canBePermanent>true</canBePermanent>
+        <exclusiveConditions>
+            <li>GlobalWarming</li>
+            <li>IceAge</li>
+            <li>LongNight</li>
+            <li>PsychicBloom</li>
+            <li>Drought</li>
+            <li>PsychicRain</li>
+        </exclusiveConditions>
+    </GameConditionDef>
+
+    <IncidentDef>
+        <defName>MSS_NuclearFallout</defName>
+        <label>Nuclear Fallout</label>
+        <category>Misc</category>
+        <targetTags>
+            <li>World</li>
+        </targetTags>
+        <modExtensions>
+            <li Class="MSSFP.VEE.IncidentDefModExtension">
+                <extraConditions>
+                    <li MayRequire="Aoba.Fortress.Industrial.NuclearDawn">FTND_NuclearWinter</li>
+                </extraConditions>
+            </li>
+        </modExtensions>
+        <workerClass>VEE.IncidentWorker_MakeGameConditionPurple</workerClass>
+        <gameCondition>MSS_NuclearFallout</gameCondition>
+        <letterLabel>Nuclear Fallout</letterLabel>
+        <letterText>A distant faction taking their first steps into nuclear power made some very insignificantly small, catastrophic miscalculations.
+
+The fallout from the rapid unplanned disassembly of their experimental reactor is heading your way.
+
+It will last anywhere between a few hours to several days.</letterText>
+        <letterDef>PurpleEvent</letterDef>
+        <baseChance>5</baseChance>
+        <earliestDay>240</earliestDay>
+        <minRefireDays>80</minRefireDays>
+        <durationDays>
+            <min>0.25</min>
+            <max>5</max>
+        </durationDays>
+    </IncidentDef>
+
+
+    <MSSFP.Genes.GeneMutatorDef>
+        <defName>MSS_GlobalWarming</defName>
+        <label>Global Warming Genes</label>
+        <conditionActive>GlobalWarming</conditionActive>
+        <type>Birth</type>
+        <chanceToApply>1</chanceToApply>
+        <genes>
+            <li>
+                <gene>MaxTemp_SmallDecrease</gene>
+                <weight>0.25</weight>
+            </li>
+            <li>
+                <gene>MaxTemp_SmallIncrease</gene>
+                <weight>0.75</weight>
+            </li>
+            <li>
+                <gene>MaxTemp_LargeIncrease</gene>
+                <weight>0.1</weight>
+            </li>
+        </genes>
+    </MSSFP.Genes.GeneMutatorDef>
+</Defs>

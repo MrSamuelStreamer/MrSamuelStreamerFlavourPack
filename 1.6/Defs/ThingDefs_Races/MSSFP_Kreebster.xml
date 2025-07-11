@@ -14,6 +14,7 @@
             <ArmorRating_Blunt>0.80</ArmorRating_Blunt>
             <ArmorRating_Heat>0.40</ArmorRating_Heat>
             <CaravanRidingSpeedFactor>0.75</CaravanRidingSpeedFactor>
+            <Wildness>0.6</Wildness>
         </statBases>
 
         <colorGenerator Class="ColorGenerator_Options">
@@ -40,7 +41,7 @@
                 </capacities>
                 <power>12</power>
                 <cooldownTime>2</cooldownTime>
-                <linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+                <linkedBodyPartsGroup>TurtleBeakAttackTool</linkedBodyPartsGroup>
                 <chanceFactor>0.7</chanceFactor>
                 <surpriseAttack>
                     <extraMeleeDamages>
@@ -100,7 +101,6 @@
             <baseHungerRate>0.215</baseHungerRate>
             <baseHealthScale>0.9</baseHealthScale>
             <foodType>VegetarianRoughAnimal, DendrovoreAnimal</foodType>
-            <wildness>0.6</wildness>
             <trainability>None</trainability>
             <petness>1</petness>
             <mateMtbHours>8</mateMtbHours>

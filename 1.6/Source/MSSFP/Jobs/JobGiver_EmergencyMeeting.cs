@@ -15,7 +15,7 @@ public class JobGiver_EmergencyMeeting : ThinkNode_JobGiver
 
         Ability ability = pawn.abilities?.GetAbility(MSSFPDefOf.MSSFP_EmergencyMeeting);
 
-        if (ability is null || !ability.CanCast.Accepted)
+        if (ability is null || !ability.CanCast)
             return null;
 
         LocalTargetInfo target = pawn.Position;

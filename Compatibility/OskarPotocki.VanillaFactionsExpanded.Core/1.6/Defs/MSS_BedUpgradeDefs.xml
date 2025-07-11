@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Defs>
+    <MSSFP.Comps.BedUpgradeDef>
+        <defName>MSSFP_BedUpgrade_VEF_MTBLovinFactor</defName>
+        <label>MTB Lovin Factor</label>
+        <description>A factor of the mean time between (MTB) this person looking for some lovin'.</description>
+        <stat>VEF_MTBLovinFactor</stat>
+        <offset>1.1</offset>
+    </MSSFP.Comps.BedUpgradeDef>
+    <MSSFP.Comps.BedUpgradeDef>
+        <defName>MSSFP_BedUpgrade_Fertility</defName>
+        <label>Fertility</label>
+        <description>Fertility Upgrade</description>
+        <stat>Fertility</stat>
+        <offset>1.1</offset>
+    </MSSFP.Comps.BedUpgradeDef>
+
+    <MSSFP.Comps.BedUpgradeDef>
+        <defName>MSSFP_BedUpgrade_MoveSpeed</defName>
+        <label>Move Speed</label>
+        <description>MoveSpeed Upgrade</description>
+        <stat>MoveSpeed</stat>
+        <offset>1.1</offset>
+    </MSSFP.Comps.BedUpgradeDef>
+
+    <MSSFP.Comps.BedUpgradeDef>
+        <defName>MSSFP_BedUpgrade_GlobalLearningFactor</defName>
+        <label>Global Learning Factor</label>
+        <description>Global Learning Factor Upgrade</description>
+        <stat>GlobalLearningFactor</stat>
+        <offset>1.1</offset>
+    </MSSFP.Comps.BedUpgradeDef>
+
+    <MSSFP.Comps.BedUpgradeDef>
+        <defName>MSSFP_BedUpgrade_InjuryHealingFactor</defName>
+        <label>Injury Healing Factor</label>
+        <description>Injury Healing Factor Upgrade</description>
+        <stat>InjuryHealingFactor</stat>
+        <offset>1.1</offset>
+    </MSSFP.Comps.BedUpgradeDef>
+
+    <MSSFP.Comps.BedUpgradeDef>
+        <defName>MSSFP_BedUpgrade_PainShockThreshold</defName>
+        <label>Pain Shock Threshold</label>
+        <description>Pain Shock Threshold Upgrade</description>
+        <stat>PainShockThreshold</stat>
+        <offset>1.1</offset>
+    </MSSFP.Comps.BedUpgradeDef>
+
+    <MSSFP.Comps.BedUpgradeDef>
+        <defName>MSSFP_BedUpgrade_JoyFallRateFactor</defName>
+        <label>Joy Fall Rate Factor</label>
+        <description>Joy Fall Rate Factor Upgrade</description>
+        <stat>JoyFallRateFactor</stat>
+        <offset>0.9</offset>
+    </MSSFP.Comps.BedUpgradeDef>
+
+    <MSSFP.Comps.BedUpgradeDef>
+        <defName>MSSFP_BedUpgrade_NegotiationAbility</defName>
+        <label>Negotiation Ability</label>
+        <description>Negotiation Ability Upgrade</description>
+        <stat>NegotiationAbility</stat>
+        <offset>1.1</offset>
+    </MSSFP.Comps.BedUpgradeDef>
+
+    <MSSFP.Comps.BedUpgradeDef>
+        <defName>MSSFP_BedUpgrade_PawnBeauty</defName>
+        <label>Pawn Beauty</label>
+        <description>Pawn Beauty Upgrade</description>
+        <stat>PawnBeauty</stat>
+        <offset>1.1</offset>
+    </MSSFP.Comps.BedUpgradeDef>
+
+    <MSSFP.Comps.BedUpgradeDef>
+        <defName>MSSFP_BedUpgrade_SocialImpact</defName>
+        <label>Social Impact</label>
+        <description>Social Impact Upgrade</description>
+        <stat>SocialImpact</stat>
+        <offset>1.1</offset>
+    </MSSFP.Comps.BedUpgradeDef>
+
+    <MSSFP.Comps.BedUpgradeDef>
+        <defName>MSSFP_BedUpgrade_TameAnimalChance</defName>
+        <label>Tame Animal Chance</label>
+        <description>Tame Animal Chance Upgrade</description>
+        <stat>TameAnimalChance</stat>
+        <offset>1.1</offset>
+    </MSSFP.Comps.BedUpgradeDef>
+
+    <MSSFP.Comps.BedUpgradeDef>
+        <defName>MSSFP_BedUpgrade_WorkSpeedGlobal</defName>
+        <label>Work Speed Global</label>
+        <description>Work Speed Global Upgrade</description>
+        <stat>WorkSpeedGlobal</stat>
+        <offset>1.1</offset>
+    </MSSFP.Comps.BedUpgradeDef>
+
+    <MSSFP.Comps.BedUpgradeDef>
+        <defName>MSSFP_BedUpgrade_MiningSpeed</defName>
+        <label>Mining Speed</label>
+        <description>Mining Speed Upgrade</description>
+        <stat>MiningSpeed</stat>
+        <offset>1.1</offset>
+    </MSSFP.Comps.BedUpgradeDef>
+
+    <MSSFP.Comps.BedUpgradeDef>
+        <defName>MSSFP_BedUpgrade_DeepDrillingSpeed</defName>
+        <label>Deep Drilling Speed</label>
+        <description>Deep Drilling Speed Upgrade</description>
+        <stat>DeepDrillingSpeed</stat>
+        <offset>1.1</offset>
+    </MSSFP.Comps.BedUpgradeDef>
+
+    <MSSFP.Comps.BedUpgradeDef>
+        <defName>MSSFP_BedUpgrade_ResearchSpeed</defName>
+        <label>Research Speed</label>
+        <description>Research Speed Upgrade</description>
+        <stat>ResearchSpeed</stat>
+        <offset>1.1</offset>
+    </MSSFP.Comps.BedUpgradeDef>
+
+    <MSSFP.Comps.BedUpgradeDef>
+        <defName>MSSFP_BedUpgrade_PlantWorkSpeed</defName>
+        <label>Plant Work Speed</label>
+        <description>Plant Work Speed Upgrade</description>
+        <stat>PlantWorkSpeed</stat>
+        <offset>1.1</offset>
+    </MSSFP.Comps.BedUpgradeDef>
+
+    <MSSFP.Comps.BedUpgradeDef>
+        <defName>MSSFP_BedUpgrade_ConstructionSpeed</defName>
+        <label>Construction Speed</label>
+        <description>Construction Speed Upgrade</description>
+        <stat>ConstructionSpeed</stat>
+        <offset>1.1</offset>
+    </MSSFP.Comps.BedUpgradeDef>
+
+    <MSSFP.Comps.BedUpgradeDef>
+        <defName>MSSFP_BedUpgrade_BirthRitualQualityOffset</defName>
+        <label>Birth Quality Offset</label>
+        <description>Birth Quality Offset Upgrade</description>
+        <stat>BirthRitualQualityOffset</stat>
+        <offset>1.1</offset>
+        <appliesDirectToBed>true</appliesDirectToBed>
+    </MSSFP.Comps.BedUpgradeDef>
+
+    <MSSFP.Comps.BedUpgradeDef>
+        <defName>MSSFP_BedUpgrade_SurgerySuccessChanceFactor</defName>
+        <label>Surgery Success Chance Factor</label>
+        <description>Surgery Success Chance Factor Upgrade</description>
+        <stat>SurgerySuccessChanceFactor</stat>
+        <offset>1.1</offset>
+        <appliesDirectToBed>true</appliesDirectToBed>
+    </MSSFP.Comps.BedUpgradeDef>
+
+    <MSSFP.Comps.BedUpgradeDef>
+        <defName>MSSFP_BedUpgrade_ImmunityGainSpeedFactor</defName>
+        <label>Immunity Gain Speed Factor</label>
+        <description>Immunity Gain Speed Factor</description>
+        <stat>ImmunityGainSpeedFactor</stat>
+        <offset>1.1</offset>
+        <appliesDirectToBed>true</appliesDirectToBed>
+    </MSSFP.Comps.BedUpgradeDef>
+
+    <MSSFP.Comps.BedUpgradeDef>
+        <defName>MSSFP_BedUpgrade_Comfort</defName>
+        <label>Comfort</label>
+        <description>Comfort Upgrade</description>
+        <stat>Comfort</stat>
+        <offset>1.1</offset>
+        <appliesDirectToBed>true</appliesDirectToBed>
+    </MSSFP.Comps.BedUpgradeDef>
+</Defs>

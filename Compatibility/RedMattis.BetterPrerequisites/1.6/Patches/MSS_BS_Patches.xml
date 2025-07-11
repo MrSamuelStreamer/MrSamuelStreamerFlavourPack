@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Patch>
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/GeneDef[defName="BS_Incorporate"]</xpath>
+        <value>
+            <enablesNeeds><li>MSS_Need_GeneStealer</li></enablesNeeds>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationConditional">
+        <xpath>Defs/StatDef[defName="SM_BodySizeMultiplier"]/parts</xpath>
+        <nomatch Class="PatchOperationAdd">
+            <xpath>Defs/StatDef[defName="SM_BodySizeMultiplier"]</xpath>
+            <value>
+                <parts />
+            </value>
+        </nomatch>
+    </Operation>
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/StatDef[defName="SM_BodySizeMultiplier"]/parts</xpath>
+        <value>
+            <li Class="MSSFP.BS.StatPart_BodyOffset" />
+        </value>
+    </Operation>
+
+
+    <Operation Class="PatchOperationReplace">
+        <xpath>Defs/AbilityDef[defName="BS_Incorporate_Abillity"]/cooldownTicksRange</xpath>
+        <value>
+            <cooldownTicksRange>60000</cooldownTicksRange>
+        </value>
+    </Operation>
+</Patch>

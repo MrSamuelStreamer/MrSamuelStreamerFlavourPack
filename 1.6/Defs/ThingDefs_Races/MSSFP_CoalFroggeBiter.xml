@@ -103,12 +103,12 @@
                 <eggProgressUnfertilizedMax>0.5</eggProgressUnfertilizedMax>
                 <eggCountRange>4~12</eggCountRange>
             </li>
-            <!-- <li IfModActive="oskarpotocki.vanillafactionsexpanded.core" Class="AnimalBehaviours.CompProperties_Draftable">
+            <li IfModActive="oskarpotocki.vanillafactionsexpanded.core" Class="VEF.AnimalBehaviours.CompProperties_Draftable">
                 <makeNonFleeingToo>true</makeNonFleeingToo>
             </li>
-            <li IfModActive="oskarpotocki.vanillafactionsexpanded.core" Class="AnimalBehaviours.CompProperties_LastStand">
+            <li IfModActive="oskarpotocki.vanillafactionsexpanded.core" Class="VEF.AnimalBehaviours.CompProperties_LastStand">
                 <finalCoolDownMultiplier>6</finalCoolDownMultiplier>
-            </li> -->
+            </li>
         </comps>
         <tradeTags>
             <li>AnimalExotic</li>

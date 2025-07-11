@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Defs>
+    <PreceptDef>
+        <defName>MSSFP_AdvanceToArcho</defName>
+        <label>advance to archotech</label>
+        <iconPath>UI/Icons/Rituals/Ritual_FormNexus</iconPath>
+        <ritualPatternBase>MSSFP_AdvanceToArcho_Pattern</ritualPatternBase>
+        
+        <issue>Ritual</issue>
+		<preceptClass>Precept_Ritual</preceptClass>
+		<visible>false</visible>
+		<classic>true</classic>
+		<showRitualFloatMenuOption>false</showRitualFloatMenuOption>
+		<useRepeatPenalty>false</useRepeatPenalty>
+		<usesIdeoVisualEffects>false</usesIdeoVisualEffects>
+		<mergeRitualGizmosFromAllIdeos>true</mergeRitualGizmosFromAllIdeos>
+		<countsTowardsPreceptLimit>false</countsTowardsPreceptLimit>
+		<selectionWeight>1.0</selectionWeight>
+		<notifyPlayerOnOpportunity>false</notifyPlayerOnOpportunity>
+    </PreceptDef>
+
+    <VFETribals.EraAdvancementDef>
+        <defName>MSSFP_FormArchoMind</defName>
+        <label>Archo tech level</label>
+        <description>You have successfully completed all ultratech research projects and have advanced to archotech tech level. This will allow you to pick 3 Cornerstones - powerful bonuses that apply only to your civilization.</description>
+        <newTechLevel>Archotech</newTechLevel>
+        <cornerstonePoint>3</cornerstonePoint>
+    </VFETribals.EraAdvancementDef>
+
+    <RitualOutcomeEffectDef>
+        <defName>MSSFP_AdvanceToArcho_Outcome</defName>
+        <description>Upon completing all ultratech research projects, advance to archotech tech level. This will allow you to pick a Cornerstone - a powerful bonus that applies only to your civilization.</description>
+        <workerClass>MSSFP.VET.RitualOutcomeEffectWorker_AdvanceToArcho</workerClass>
+        <givesDevelopmentPoints>false</givesDevelopmentPoints>
+        <warnOnLowQuality>false</warnOnLowQuality>
+        <comps>
+            <li Class="RitualOutcomeComp_ParticipantCount">
+                <label>participant count</label>
+                <curve>
+                    <points>
+                        <li>(1,  1)</li>
+                    </points>
+                </curve>
+            </li>
+        </comps>
+    </RitualOutcomeEffectDef>
+
+    <RitualPatternDef>
+        <defName>MSSFP_AdvanceToArcho_Pattern</defName>
+        <descOverride>Upon completing all ultratech research projects, advance to archotech tech level. This will allow you to pick a Cornerstone - a powerful bonus that applies only to your civilization.</descOverride>
+        <ritualOnlyForIdeoMembers>false</ritualOnlyForIdeoMembers>
+        <ritualObligationTargetFilter>VFET_GatheringSpotForAdvancement</ritualObligationTargetFilter>
+        <ritualBehavior>MSSFP_AdvanceToArcho_Behaviour</ritualBehavior>
+        <maxTechLevel>Ultra</maxTechLevel>
+        <ritualOutcomeEffect>MSSFP_AdvanceToArcho_Outcome</ritualOutcomeEffect>
+        <playsIdeoMusic>false</playsIdeoMusic>
+        <alwaysStartAnytime>true</alwaysStartAnytime>
+        <ritualObligationTriggers>
+            <li Class="VFETribals.RitualObligationTrigger_TargetTechlevel_Props">
+                <targetTechLevel>Archotech</targetTechLevel>
+            </li>
+        </ritualObligationTriggers>
+    </RitualPatternDef>
+
+    <RitualBehaviorDef>
+        <defName>MSSFP_AdvanceToArcho_Behaviour</defName>
+        <durationTicks>12000</durationTicks>
+        <workerClass>MSSFP.VET.RitualBehaviourWorker_ArchoGathering</workerClass>
+        <roles>
+            <li Class="RitualRoleTag">
+                <label>Organizer</label>
+                <tag>Organizer</tag>
+                <id>organizer</id>
+                <required>True</required>
+                <substitutable>True</substitutable>
+                <maxCount>1</maxCount>
+                <countsAsParticipant>true</countsAsParticipant>
+                <allowChild>false</allowChild>
+                <mustBeAbleToReachTarget>True</mustBeAbleToReachTarget>
+            </li>
+        </roles>
+        <spectatorsLabel>Participants</spectatorsLabel>
+        <spectatorGerund>participate</spectatorGerund>
+        <stages>
+            <li>
+                <defaultDuty>Spectate</defaultDuty>
+                <essential>True</essential>
+                <endTriggers>
+                    <li Class="StageEndTrigger_DurationPercentage">
+                        <percentage>0.2</percentage>
+                    </li>
+                </endTriggers>
+                <postAction Class="RitualStageAction_Message">
+                    <text>{0}: The archtroduction is archover and the archogroup is archonalyzing all archvailable archodata. Archo.</text>
+                    <messageTypeDef>NeutralEvent</messageTypeDef>
+                </postAction>
+                <roleBehaviors>
+                    <li>
+                        <roleId>organizer</roleId>
+                        <dutyDef>VFET_SpeakOnCellFacingSpectators</dutyDef>
+                        <speakerInteraction>VFET_TribalGatheringInteraction</speakerInteraction>
+                        <customPositions>
+                            <li Class="RitualPosition_BesideThing"/>
+                        </customPositions>
+                    </li>
+                </roleBehaviors>
+            </li>
+            <li>
+                <defaultDuty>VFET_SpectateSociallyActive</defaultDuty>
+                <endTriggers>
+                    <li Class="StageEndTrigger_DurationPercentage">
+                        <percentage>0.7</percentage>
+                    </li>
+                </endTriggers>
+            </li>
+        </stages>
+    </RitualBehaviorDef>
+</Defs>

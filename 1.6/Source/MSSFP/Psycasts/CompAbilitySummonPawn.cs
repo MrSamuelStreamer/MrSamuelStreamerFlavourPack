@@ -54,7 +54,6 @@ public class CompAbilitySummonPawn : CompAbilityEffect
             }
             if (Props.mentalState != null)
             {
-                pawn.mindState.mentalBreaker.MentalBreakerTickInterval(1);
                 pawn.mindState.mentalStateHandler.TryStartMentalState(Props.mentalState, Props.mentalStateReason.Translate(pawn.Name.ToStringShort), forced: true);
             }
 
