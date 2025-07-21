@@ -43,7 +43,7 @@ public class CompFloorKiller : ThingComp
 
     public bool TryDestroyFloor()
     {
-        if (!MSSFPMod.settings.destroyFloors)
+        if (!MSSFPMod.settings.MabelDestroyFloors)
             return true; // If the setting is off, skip the destruction
         if (!CanDestroy)
             return false;

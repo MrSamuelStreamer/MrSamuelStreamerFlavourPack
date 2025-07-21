@@ -21,7 +21,7 @@ public class HauntedMapComponent(Verse.Map map) : MapComponent(map)
 
     public override void MapComponentTick()
     {
-        if (!MSSFPMod.settings.ShowHaunts)
+        if (!MSSFPMod.settings.EnablePossession)
             return;
 
         //It's ok if we miss some ticks, so the simple check is fine
@@ -61,6 +61,8 @@ public class HauntedMapComponent(Verse.Map map) : MapComponent(map)
 
     public override void MapComponentUpdate()
     {
+        if (!MSSFPMod.settings.ShowHaunts)
+            return;
         foreach (Pawn pawn in map.mapPawns.AllHumanlike)
         {
             HauntsCache.TryDrawAt(pawn.thingIDNumber, pawn.TrueCenter());

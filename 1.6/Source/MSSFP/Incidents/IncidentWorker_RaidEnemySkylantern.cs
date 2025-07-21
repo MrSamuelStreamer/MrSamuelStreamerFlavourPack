@@ -7,6 +7,8 @@ namespace MSSFP.Incidents;
 
 public class IncidentWorker_RaidEnemySkylantern : IncidentWorker_RaidEnemy
 {
+    protected override bool CanFireNowSub(IncidentParms parms) => MSSFPMod.settings.EnableSkylanternRaids;
+
     protected override void PostProcessSpawnedPawns(IncidentParms parms, List<Pawn> pawns)
     {
         foreach (Pawn pawn in pawns)

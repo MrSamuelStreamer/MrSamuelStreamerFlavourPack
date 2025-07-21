@@ -52,6 +52,9 @@ public class LoversRetreatMapComponent(Verse.Map map) : MapComponent(map), IThin
 
     public override void MapComponentTick()
     {
+        if (!MSSFPMod.settings.EnableLoversRetreat)
+            return;
+
         if (Find.TickManager.TicksGame % 600 == 0)
             return;
 

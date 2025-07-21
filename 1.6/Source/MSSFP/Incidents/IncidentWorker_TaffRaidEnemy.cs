@@ -5,6 +5,11 @@ namespace MSSFP.Incidents;
 
 public class IncidentWorker_TaffRaidEnemy : IncidentWorker_RaidEnemy
 {
+    protected override bool CanFireNowSub(IncidentParms parms)
+    {
+        return base.CanFireNowSub(parms) && MSSFPMod.settings.EnableTaffRaids;
+    }
+
     protected override bool TryExecuteWorker(IncidentParms parms)
     {
         parms.faction = Find.FactionManager.FirstFactionOfDef(MSSFPDefOf.MSSFP_TaffsFaction);

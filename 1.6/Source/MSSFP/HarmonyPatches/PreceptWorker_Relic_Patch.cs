@@ -17,7 +17,7 @@ public static class PreceptWorker_Relic_Patch
     [HarmonyPrefix]
     public static bool ThingDefsGetter(ref IEnumerable<PreceptThingChance> __result)
     {
-        if (!MSSFPMod.settings.overrideRelicPool)
+        if (!MSSFPMod.settings.OverrideRelicPool)
             return true;
 
         __result = DefDatabase<ThingDef>

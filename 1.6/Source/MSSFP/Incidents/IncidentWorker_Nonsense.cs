@@ -22,7 +22,7 @@ public class IncidentWorker_Nonsense : IncidentWorker
 
     public override float ChanceFactorNow(IIncidentTarget target) => 1f;
 
-    protected override bool CanFireNowSub(IncidentParms parms) => !MSSFPMod.settings.DisableNonsenseIncidents;
+    protected override bool CanFireNowSub(IncidentParms parms) => MSSFPMod.settings.EnableNonsenseIncidents;
 
     protected override bool TryExecuteWorker(IncidentParms parms)
     {

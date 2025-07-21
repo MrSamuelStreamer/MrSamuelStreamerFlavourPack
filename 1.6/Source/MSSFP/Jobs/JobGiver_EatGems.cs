@@ -14,7 +14,7 @@ public class JobGiver_EatGems : ThinkNode_JobGiver
 
     protected override Job TryGiveJob(Pawn pawn)
     {
-        if (MSSFPMod.settings.disableFroggeNom)
+        if (MSSFPMod.settings.DisableFroggeNom)
             return null;
         if (gemEaters.NullOrEmpty() || !gemEaters.Contains(pawn.def))
             return null;

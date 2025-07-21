@@ -33,7 +33,7 @@ public class IncidentWorker_FroggeJoin : IncidentWorker
 
     protected override bool TryExecuteWorker(IncidentParms parms)
     {
-        if (MSSFPMod.settings.disableFroggeNom)
+        if (MSSFPMod.settings.DisableFroggeNom)
             return false;
 
         Map target = (Map)parms.target;

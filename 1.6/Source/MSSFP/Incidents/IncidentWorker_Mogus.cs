@@ -17,7 +17,7 @@ public class IncidentWorker_Mogus : IncidentWorker
 
     protected override bool CanFireNowSub(IncidentParms parms)
     {
-        return !MSSFPMod.settings.disableMogus && base.CanFireNowSub(parms) && TryFindEntryCell((Map)parms.target, out IntVec3 _);
+        return MSSFPMod.settings.EnableMogus && base.CanFireNowSub(parms) && TryFindEntryCell((Map)parms.target, out IntVec3 _);
     }
 
     public static bool TryFindEntryCell(Map map, out IntVec3 cell)
@@ -46,7 +46,7 @@ public class IncidentWorker_Mogus : IncidentWorker
 
     protected override bool TryExecuteWorker(IncidentParms parms)
     {
-        if (MSSFPMod.settings.disableMogus)
+        if (!MSSFPMod.settings.EnableMogus)
             return false;
 
         Map target = (Map)parms.target;

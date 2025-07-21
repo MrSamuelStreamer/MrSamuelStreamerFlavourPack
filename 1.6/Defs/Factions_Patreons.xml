@@ -152,9 +152,9 @@
         </options>
       </li>
     </pawnGroupMakers>
-    <settlementTexturePath>World/WorldObjects/PatreonSettlement</settlementTexturePath>
+    <settlementTexturePath>World/WorldObjects/PatreonTown</settlementTexturePath>
   </FactionDef>
-  
+
   <ThingSetMakerDef>
     <defName>PatreonRaidLootMaker</defName>
     <root Class="ThingSetMaker_MarketValue">
@@ -171,7 +171,7 @@
       </fixedParams>
     </root>
   </ThingSetMakerDef>
-  
+
   <FactionDef ParentName="PatreonFactionBase">
     <defName>PatreonCivil</defName>
     <label>Wealthy Settlers</label>

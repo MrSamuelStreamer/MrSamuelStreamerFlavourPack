@@ -7,6 +7,11 @@ namespace MSSFP.Questing;
 
 public class QuestNode_Root_TrekPodCrash : QuestNode_Root_WandererJoin
 {
+    protected override bool TestRunInt(Slate slate)
+    {
+        return MSSFPMod.settings.EnableTrekBeamers && base.TestRunInt(slate);
+    }
+
     public override Pawn GeneratePawn()
     {
         Pawn pawn = ThingUtility.FindPawn(MSSFPDefOf.MSSFP_TrekCharacter.root.Generate());

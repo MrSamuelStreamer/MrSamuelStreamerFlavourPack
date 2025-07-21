@@ -63,10 +63,10 @@
 
     <MSS_FP_Settings_SingleUseMentalFuses>Patch the Altered Carbon 2 Mental Fuse to be single use</MSS_FP_Settings_SingleUseMentalFuses>
 
-    <MSS_FP_Settings_DisablePossession>Disable the possession event</MSS_FP_Settings_DisablePossession>
+    <MSS_FP_Settings_EnablePossession>Enable the possession event</MSS_FP_Settings_EnablePossession>
     <MSS_FP_Settings_DisableBSIncorporateGeneLimit>Disable the complexity limit for the B&amp;S Incorporate gene</MSS_FP_Settings_DisableBSIncorporateGeneLimit>
     <MSS_FP_Settings_EnableExtendedMetabolismMultipliers>Enable extended metabolism multiplier based on gene complexity (above 225%)</MSS_FP_Settings_EnableExtendedMetabolismMultipliers>
-    <MSS_FP_Settings_DisableNonsenseIncidents>Disable the nonsense events (e.g. Scrungle has been Bloorped).</MSS_FP_Settings_DisableNonsenseIncidents>
+    <MSS_FP_Settings_EnableNonsenseIncidents>Enable the nonsense events (e.g. Scrungle has been Bloorped).</MSS_FP_Settings_EnableNonsenseIncidents>
 
     <MSSFP_BS_BodySizeFactor>Incorporation: {0}</MSSFP_BS_BodySizeFactor>
 
@@ -115,8 +115,12 @@
 
     <MSSFP_EmergencyMeeting>Emergency Meeting!</MSSFP_EmergencyMeeting>
 
-    <MSS_FP_Settings_disableMogus>Disable Moguses</MSS_FP_Settings_disableMogus>
+    <MSS_FP_Settings_enableMogus>Enable Moguses</MSS_FP_Settings_enableMogus>
 
+    <MSS_FP_Settings_EnableTaffRaids>Enable Taff Raids</MSS_FP_Settings_EnableTaffRaids>
+    <MSS_FP_Settings_EnableGenesOnGrowthMoment>Enable giving new genes on growth moments</MSS_FP_Settings_EnableGenesOnGrowthMoment>
+    <MSS_FP_Settings_EnableGeneMutators>Enable gene mutators, e.g Heat Wave has a chance to give heat related genes</MSS_FP_Settings_EnableGeneMutators>
+    <MSS_FP_Settings_EnableTrekBeamers>Enable Trek Beamers</MSS_FP_Settings_EnableTrekBeamers>
     <MSS_Balloon_NotDowned>{PAWN_labelShort} is not downed.</MSS_Balloon_NotDowned>
     <MSSFP_Extract>Extract {0_labelShort}</MSSFP_Extract>
     <MSSFP_CannotExtract>Cannot extract {0_labelShort}</MSSFP_CannotExtract>

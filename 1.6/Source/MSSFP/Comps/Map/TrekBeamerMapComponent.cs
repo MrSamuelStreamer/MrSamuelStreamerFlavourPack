@@ -7,30 +7,51 @@ namespace MSSFP.Comps.Map;
 
 public class TrekBeamerMapComponent(Verse.Map map) : MapComponent(map)
 {
-    public Dictionary<int, Pawn> PawnsToBeam = new Dictionary<int, Pawn>();
+    public class PawnBeamer : IExposable
+    {
+        public Pawn pawn;
+        public int ticks;
+
+        public void ExposeData()
+        {
+            Scribe_References.Look(ref pawn, "pawn");
+            Scribe_Values.Look(ref ticks, "ticks");
+        }
+    }
+
+    public List<PawnBeamer> PawnsToBeam = [];
 
     public void BeamAwayPawn(Pawn pawn, int delay = 600)
     {
-        PawnsToBeam.Add(Find.TickManager.TicksGame + delay, pawn);
+        PawnBeamer beamer = new PawnBeamer();
+        beamer.pawn = pawn;
+        beamer.ticks = Find.TickManager.TicksGame + delay;
+        PawnsToBeam.Add(beamer);
     }
 
     public override void ExposeData()
     {
         base.ExposeData();
-        Scribe_Collections.Look(ref PawnsToBeam, "BeamPawns", LookMode.Value, LookMode.Reference);
+        Scribe_Collections.Look(ref PawnsToBeam, "PawnsToBeam", LookMode.Deep);
+
+        if (PawnsToBeam == null)
+            PawnsToBeam = [];
     }
 
     public override void MapComponentTick()
     {
-        foreach (int tick in PawnsToBeam.Keys.Where(key => key <= Find.TickManager.TicksGame).ToList())
+        if (!MSSFPMod.settings.EnableTrekBeamers)
+            return;
+        if (PawnsToBeam == null)
+            PawnsToBeam = [];
+        foreach (PawnBeamer beamer in PawnsToBeam.Where(key => key.ticks <= Find.TickManager.TicksGame).ToList())
         {
-            Pawn p = PawnsToBeam[tick];
-            SendLetter(p);
-            Effecter e = EffecterDefOf.Skip_ExitNoDelay.Spawn(p.Position, map);
-            e.Trigger(new TargetInfo(p.Position, map), new TargetInfo(p.Position, map));
-            PawnsToBeam.Remove(tick);
-            p.DeSpawn();
-            Find.WorldPawns.PassToWorld(p);
+            SendLetter(beamer.pawn);
+            Effecter e = EffecterDefOf.Skip_ExitNoDelay.Spawn(beamer.pawn.Position, map);
+            e.Trigger(new TargetInfo(beamer.pawn.Position, map), new TargetInfo(beamer.pawn.Position, map));
+            PawnsToBeam.Remove(beamer);
+            beamer.pawn.DeSpawn();
+            Find.WorldPawns.PassToWorld(beamer.pawn);
         }
     }
 
