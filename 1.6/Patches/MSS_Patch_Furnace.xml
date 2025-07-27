@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+  <Operation Class="PatchOperationSequence">
+    <operations>
+      <li Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName="ElectricSmelter"]/recipes</xpath>
+        <value>
+          <li>MSS_BurnTainted</li>
+        </value>
+      </li>
+      <li Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName="ElectricSmelter"]/recipes</xpath>
+        <value>
+          <li>MSS_SmeltOrDestroyBiocoded</li>
+        </value>
+      </li>
+      <li Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName="ElectricCrematorium"]/recipes</xpath>
+        <value>
+          <li>MSS_Cremate_Rotten</li>
+        </value>
+      </li>
+      <li Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName="ElectricCrematorium"]/recipes</xpath>
+        <value>
+          <li>MSS_Cremate_Strangers</li>
+        </value>
+      </li>
+    </operations>
+  </Operation>
+</Patch>
