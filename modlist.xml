@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ModsConfigData>
-	<version>1.6.4518 rev84</version>
+	<version>1.6.4543 rev1057</version>
 	<activeMods>
 		<li>brrainz.harmony</li>
 		<li>ludeon.rimworld</li>
@@ -10,8 +10,9 @@
 		<li>ludeon.rimworld.anomaly</li>
 		<li>ludeon.rimworld.odyssey</li>
 		<li>redmattis.betterprerequisites</li>
-		<li>hailuan.customquestframework</li>
+		<li>keyz182.keyzallowutilities</li>
 		<li>keyz182.keyzlocalmodalert</li>
+		<li>mlie.resourcegenerator</li>
 		<li>ray1203.simplecamerasetting</li>
 		<li>imranfish.xmlextensions</li>
 		<li>smashphil.xmlpatchhelper</li>
@@ -20,7 +21,6 @@
 		<li>sarg.alphagenes</li>
 		<li>redmattis.dryads</li>
 		<li>mss.flavourpack</li>
-		<li>silencer59.timekills</li>
 		<li>vanillaexpanded.vanillaanimalsexpanded</li>
 		<li>vanillaexpanded.vaeendandext</li>
 		<li>vanillaexpanded.vaeroy</li>

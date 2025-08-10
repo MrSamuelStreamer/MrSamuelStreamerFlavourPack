@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using MSSFP.HarmonyPatches;
 using RimWorld;
 using UnityEngine;
 using Verse;
@@ -171,6 +172,8 @@ public class HediffComp_Haunt : HediffComp
         base.CompPostMake();
         HauntsCache.AddHaunt(Pawn.thingIDNumber, this);
         NextProxCheck = Find.TickManager.TicksGame + Props.ProximityTransferCheckTicks + Rand.Range(0, GenDate.TicksPerHour);
+
+        HauntsCache.RebuildCacheForPawn(Pawn);
     }
 
     public virtual void SetPawnToDraw(Pawn pawn)
@@ -197,6 +200,8 @@ public class HediffComp_Haunt : HediffComp
             parent.pawn.skills.GetSkill(skillToBoost).Level += SkillBoostLevel;
         }
 
+        HauntsCache.RebuildCacheForPawn(Pawn);
+
         if (Pawn.needs?.mood?.thoughts?.memories?.GetFirstMemoryOfDef(Props.thought) is { } thought)
         {
             thought.otherPawn = pawnToDraw;
@@ -220,6 +225,8 @@ public class HediffComp_Haunt : HediffComp
 
         if (Props.thought != null)
             Pawn.needs?.mood?.thoughts?.memories?.RemoveMemoriesOfDef(Props.thought);
+
+        HauntsCache.RebuildCacheForPawn(Pawn);
     }
 
     public override void CompExposeData()
@@ -267,9 +274,14 @@ public class HediffComp_Haunt : HediffComp
     {
         base.CompPostPostAdd(dinfo);
         TryAddMemory();
+        HauntsCache.RebuildCacheForPawn(Pawn);
     }
 
-    public override void Notify_Spawned() => TryAddMemory();
+    public override void Notify_Spawned()
+    {
+        TryAddMemory();
+        HauntsCache.RebuildCacheForPawn(Pawn);
+    }
 
     private void TryAddMemory()
     {

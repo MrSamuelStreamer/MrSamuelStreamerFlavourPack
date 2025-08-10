@@ -1,4 +1,5 @@
-﻿using RimWorld;
+﻿using System;
+using RimWorld;
 using RimWorld.QuestGen;
 using Verse;
 using Verse.Grammar;
@@ -20,6 +21,7 @@ public class QuestNode_Root_TrekPodCrash : QuestNode_Root_WandererJoin
         return pawn;
     }
 
+    [Obsolete]
     public override void SendLetter(Quest quest, Pawn pawn)
     {
         TaggedString title = GetLetterTitle();
@@ -28,7 +30,7 @@ public class QuestNode_Root_TrekPodCrash : QuestNode_Root_WandererJoin
 
         QuestNode_Root_WandererJoin_WalkIn.AppendCharityInfoToLetter("JoinerCharityInfo".Translate((NamedArgument)(Thing)pawn), ref text);
         PawnRelationUtility.TryAppendRelationsWithColonistsInfo(ref text, ref title, pawn);
-        Find.LetterStack.ReceiveLetter(title, text, LetterDefOf.NeutralEvent, (LookTargets)new TargetInfo((Thing)pawn));
+        Find.LetterStack.ReceiveLetter(title, text, LetterDefOf.NeutralEvent, new TargetInfo(pawn));
     }
 
     public virtual string GetLetterTitle()

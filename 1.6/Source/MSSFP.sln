@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MSSFP-VET", "MSSFP-VET\MSSF
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MSSFP-BS", "MSSFP-BS\MSSFP-BS.csproj", "{6693f930-bf94-4b33-a275-0f532566633f}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MSSFP-ResourceGenerator", "MSSFP-ResourceGenerator\MSSFP-ResourceGenerator.csproj", "{402b0342-e2ec-42f7-9f94-0054ea507d5c}"
+EndProject
 
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,6 +46,11 @@ Global
 		{6693f930-bf94-4b33-a275-0f532566633f}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6693f930-bf94-4b33-a275-0f532566633f}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6693f930-bf94-4b33-a275-0f532566633f}.Release|Any CPU.Build.0 = Release|Any CPU
+
+		{402b0342-e2ec-42f7-9f94-0054ea507d5c}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{402b0342-e2ec-42f7-9f94-0054ea507d5c}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{402b0342-e2ec-42f7-9f94-0054ea507d5c}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{402b0342-e2ec-42f7-9f94-0054ea507d5c}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

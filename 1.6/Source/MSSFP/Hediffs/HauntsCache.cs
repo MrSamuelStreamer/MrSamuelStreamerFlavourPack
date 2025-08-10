@@ -1,5 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+using RimWorld;
 using UnityEngine;
+using Verse;
 
 namespace MSSFP.Hediffs;
 
@@ -45,6 +48,44 @@ public static class HauntsCache
             {
                 haunt.DrawAt(drawPos);
             }
+        }
+    }
+
+    public static Dictionary<Pawn, Dictionary<SkillDef, int>> Cache = new();
+
+    public static int BoostForPawnAndSkill(Pawn p, SkillDef s)
+    {
+        if (!Cache.ContainsKey(p))
+            return 0;
+        return !Cache[p].ContainsKey(s) ? 0 : Cache[p][s];
+    }
+
+    public static void AddToCache(Pawn p, SkillDef s, int level)
+    {
+        if (!Cache.ContainsKey(p))
+            Cache[p] = new Dictionary<SkillDef, int>();
+        Cache[p][s] = level;
+    }
+
+    public static void ClearCacheForPawn(Pawn p)
+    {
+        Cache.Remove(p);
+    }
+
+    public static void RebuildCacheForPawn(Pawn p)
+    {
+        ClearCacheForPawn(p);
+
+        List<HediffWithComps> comps = p.health.hediffSet.hediffs.OfType<HediffWithComps>().ToList();
+
+        if (comps.NullOrEmpty())
+            return;
+
+        foreach (HediffComp_Haunt hediffCompHaunt in comps.SelectMany(hediff => hediff.comps).OfType<HediffComp_Haunt>())
+        {
+            if (!Cache[p].ContainsKey(hediffCompHaunt.skillToBoost))
+                Cache[p][hediffCompHaunt.skillToBoost] = 0;
+            Cache[p][hediffCompHaunt.skillToBoost] += hediffCompHaunt.SkillBoostLevel;
         }
     }
 }
