@@ -4,15 +4,17 @@
     <ThingDef ParentName="AnimalThingBase">
         <defName>MSSFP_Kreebster</defName>
         <label>Kreebster</label>
-        <description>Kreeeeeeeeeeeeeeeeeeeeeeeeeeeeebster.</description>
+        <description>A small, turtle-beaked oddity with a suspicious love of stacking blocks and "mining" anything vaguely cubic. Its shell looks tough, but it's mostly bluff; the creature is delicate and easily broken. It is also volatile, with a tendency to explode when startled or slain. Tameable as a quirky companion that occasionally nuzzles for a small mood boost. Trainability: Intermediate.
+
+Can be g̶r̶o̶o̶m̶e̶d̶ trained to nuzzle.</description>
         <statBases>
             <MoveSpeed>4.5</MoveSpeed>
-            <MarketValue>2400</MarketValue>
+            <MarketValue>2009</MarketValue>
             <ComfyTemperatureMax>45</ComfyTemperatureMax>
             <ComfyTemperatureMin>-35</ComfyTemperatureMin>
-            <ArmorRating_Sharp>0.40</ArmorRating_Sharp>
-            <ArmorRating_Blunt>0.80</ArmorRating_Blunt>
-            <ArmorRating_Heat>0.40</ArmorRating_Heat>
+            <ArmorRating_Sharp>0.05</ArmorRating_Sharp>
+            <ArmorRating_Blunt>0.05</ArmorRating_Blunt>
+            <ArmorRating_Heat>0.05</ArmorRating_Heat>
             <CaravanRidingSpeedFactor>0.75</CaravanRidingSpeedFactor>
         </statBases>
 
@@ -85,6 +87,9 @@
             <herdAnimal>false</herdAnimal>
             <predator>false</predator>
             <body>TurtleLike</body>
+            <deathAction>
+                <workerClass>DeathActionWorker_SmallExplosion</workerClass>
+            </deathAction>
 
             <headPosPerRotation>
                 <li>(0.0, 0, 0.07)</li>
@@ -98,10 +103,11 @@
             <baseBodySize>1</baseBodySize>
 
             <baseHungerRate>0.215</baseHungerRate>
-            <baseHealthScale>0.9</baseHealthScale>
+            <baseHealthScale>0.4</baseHealthScale>
             <foodType>VegetarianRoughAnimal, DendrovoreAnimal</foodType>
             <wildness>0.6</wildness>
-            <trainability>None</trainability>
+            <trainability>Intermediate</trainability>
+            <nuzzleMtbHours>6</nuzzleMtbHours>
             <petness>1</petness>
             <mateMtbHours>8</mateMtbHours>
             <gestationPeriodDays>12</gestationPeriodDays>
