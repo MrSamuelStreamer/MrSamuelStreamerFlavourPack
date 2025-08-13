@@ -126,4 +126,7 @@
     <MSSFP_Extract>Extract {0_labelShort}</MSSFP_Extract>
     <MSSFP_CannotExtract>Cannot extract {0_labelShort}</MSSFP_CannotExtract>
     <MSSFP_NoBed>No beds available</MSSFP_NoBed>
+    <MSS_FP_Settings_EnableWanderDelayModification>Enable wander delay modification - allows you to control how long pawns wait before moving to a new spot while wandering</MSS_FP_Settings_EnableWanderDelayModification>
+    <MSS_FP_Settings_WanderDelaySeconds>Wander delay: {0} seconds</MSS_FP_Settings_WanderDelaySeconds>
+    <MSS_FP_Settings_WanderDelaySeconds_Tooltip>Controls how long pawns wait before moving to a new location while wandering. Positive values make pawns wander slower (wait longer), negative values make them wander faster. Range: -2 to 200 seconds (3.3 minutes).</MSS_FP_Settings_WanderDelaySeconds_Tooltip>
 </LanguageData>

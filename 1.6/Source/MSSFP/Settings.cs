@@ -39,6 +39,8 @@ public class Settings : ModSettings
     public bool EnableGeneMutators = false;
     public bool EnableTrekBeamers = true;
     public bool EnableTaffRaids = true;
+    public bool EnableWanderDelayModification = false;
+    public int WanderDelayTicks = 0;
 
     public void DrawCheckBox(Listing_Standard options, string label, ref bool value, ref float svh)
     {
@@ -85,6 +87,22 @@ public class Settings : ModSettings
             DrawCheckBox(options, "MSS_FP_Settings_EnableTaffRaids".Translate(), ref EnableTaffRaids, ref ScrollViewHeight);
             DrawCheckBox(options, "MSS_FP_Settings_EnableOskarianTech".Translate(), ref EnableOskarianTech, ref ScrollViewHeight);
             DrawCheckBox(options, "MSS_FP_Settings_EnableGeneMutators".Translate(), ref EnableGeneMutators, ref ScrollViewHeight);
+
+            DrawCheckBox(options, "MSS_FP_Settings_EnableWanderDelayModification".Translate(), ref EnableWanderDelayModification, ref ScrollViewHeight);
+
+            if (EnableWanderDelayModification)
+            {
+                float wanderDelaySeconds = WanderDelayTicks / 60f;
+                wanderDelaySeconds = options.SliderLabeled(
+                    "MSS_FP_Settings_WanderDelaySeconds".Translate((wanderDelaySeconds).ToString("F1")),
+                    wanderDelaySeconds,
+                    -2f,
+                    200f,
+                    tooltip: "MSS_FP_Settings_WanderDelaySeconds_Tooltip"
+                );
+                WanderDelayTicks = Mathf.RoundToInt(wanderDelaySeconds * 60f);
+                ScrollViewHeight += 30f;
+            }
 
             DrawCheckBox(options, "MSS_FP_Settings_EnableGenesOnGrowthMoment".Translate(), ref EnableGenesOnGrowthMoment, ref ScrollViewHeight);
 
@@ -201,6 +219,8 @@ public class Settings : ModSettings
         Scribe_Values.Look(ref EnableDirtJobs, "EnableDirtJobs", false);
         Scribe_Values.Look(ref EnableTrekBeamers, "EnableTrekBeamers", true);
         Scribe_Values.Look(ref EnableTaffRaids, "EnableTaffRaids", true);
+        Scribe_Values.Look(ref EnableWanderDelayModification, "EnableWanderDelayModification", false);
+        Scribe_Values.Look(ref WanderDelayTicks, "WanderDelayTicks", 0);
         Scribe_Values.Look(ref GeneEventChance, "GeneEventChance", 1f);
         Scribe_Values.Look(ref GoodGeneChance, "GoodGeneChance", 1f / 4f);
         Scribe_Values.Look(ref BadGeneChance, "BadGeneChance", 1f / 4f);
