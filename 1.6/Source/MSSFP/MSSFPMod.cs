@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using HarmonyLib;
 using MSSFP.HarmonyPatches;
+using MSSFP.Utils;
 using RimWorld;
 using UnityEngine;
 using Verse;
@@ -21,6 +22,16 @@ public class MSSFPMod : Mod
 
         // initialize settings
         settings = GetSettings<Settings>();
+
+        // ReSharper disable once ObjectCreationAsStatement
+        new MainSettingsTab(settings, this);
+        // ReSharper disable once ObjectCreationAsStatement
+        new GeneSettingsTab(settings, this);
+        // ReSharper disable once ObjectCreationAsStatement
+        new HauntSettingsTab(settings, this);
+        // ReSharper disable once ObjectCreationAsStatement
+        new MemesSettingsTab(settings, this);
+
 #if DEBUG
         Harmony.DEBUG = true;
 #endif
@@ -32,6 +43,19 @@ public class MSSFPMod : Mod
         MethodInfo MI = AccessTools.Method(typeof(NameContext_Patch), nameof(NameContext_Patch.Postfix));
 
         harmony.Patch(CI, null, new HarmonyMethod(MI));
+    }
+
+    public override void WriteSettings()
+    {
+        base.WriteSettings();
+
+        //For saving from other assemblies
+        foreach (Action postSaveAction in SettingsTab.PostSaveActions)
+        {
+            postSaveAction.Invoke();
+        }
+
+        SettingsTab.PostSaveActions.Clear();
     }
 
     public override void DoSettingsWindowContents(Rect inRect)
