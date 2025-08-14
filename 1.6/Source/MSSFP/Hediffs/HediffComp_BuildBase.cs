@@ -26,7 +26,8 @@ public class HediffComp_BuildBase : HediffComp
             if (hasBuildBase)
             {
                 //positive buff
-                Thought_Memory newThought = (Thought_Memory)ThoughtMaker.MakeThought(Props.GoodThought);
+                Thought_Memory newThought = (Thought_Memory)
+                    ThoughtMaker.MakeThought(Props.GoodThought);
                 this.Pawn.needs?.mood?.thoughts?.memories?.TryGainMemory(newThought);
 
                 hasBuildBase = false;
@@ -34,7 +35,8 @@ public class HediffComp_BuildBase : HediffComp
             else
             {
                 //negative buff
-                Thought_Memory newThought = (Thought_Memory)ThoughtMaker.MakeThought(Props.BadThought);
+                Thought_Memory newThought = (Thought_Memory)
+                    ThoughtMaker.MakeThought(Props.BadThought);
                 this.Pawn.needs?.mood?.thoughts?.memories?.TryGainMemory(newThought);
 
                 hasBuildBase = false;

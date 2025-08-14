@@ -34,7 +34,11 @@ public class CompAbilityWorldLeap : CompAbilityEffect_Farskip
 
     public bool HasEnoughGems(out float gems)
     {
-        gems = parent.pawn.inventory.innerContainer.InnerListForReading.Where(t => Props.EdibleGems.Contains(t.def)).Sum(t => t.stackCount * t.MarketValue);
+        gems = parent
+            .pawn.inventory.innerContainer.InnerListForReading.Where(t =>
+                Props.EdibleGems.Contains(t.def)
+            )
+            .Sum(t => t.stackCount * t.MarketValue);
 
         return gems > Props.ValueRequired;
     }
@@ -43,7 +47,11 @@ public class CompAbilityWorldLeap : CompAbilityEffect_Farskip
     {
         float gems = Props.ValueRequired;
 
-        foreach (Thing thing in parent.pawn.inventory.innerContainer.InnerListForReading.Where(t => Props.EdibleGems.Contains(t.def)))
+        foreach (
+            Thing thing in parent.pawn.inventory.innerContainer.InnerListForReading.Where(t =>
+                Props.EdibleGems.Contains(t.def)
+            )
+        )
         {
             for (int i = 0; i < thing.stackCount; i++)
             {
@@ -71,7 +79,8 @@ public class CompAbilityWorldLeap : CompAbilityEffect_Farskip
         if (Find.World.Impassable(target.Tile))
             return false;
 
-        return Find.WorldGrid.ApproxDistanceInTiles(target.Tile, caravan.Tile) < Props.LeapRange && HasEnoughGems(out float _);
+        return Find.WorldGrid.ApproxDistanceInTiles(target.Tile, caravan.Tile) < Props.LeapRange
+            && HasEnoughGems(out float _);
     }
 
     public override string WorldMapExtraLabel(GlobalTargetInfo target)

@@ -11,8 +11,10 @@ public class ThingSetMaker_TrekCharacter : ThingSetMaker
 {
     private const float RelationWithColonistWeight = 20f;
 
-    public static List<TraitDef> Traits => [TraitDefOf.Bisexual, TraitDefOf.Joyous, TraitDefOf.GreatMemory];
-    public static List<XenotypeDef> XenoTypes => [XenotypeDefOf.Baseliner, DefDatabase<XenotypeDef>.GetNamed("Genie")];
+    public static List<TraitDef> Traits =>
+        [TraitDefOf.Bisexual, TraitDefOf.Joyous, TraitDefOf.GreatMemory];
+    public static List<XenotypeDef> XenoTypes =>
+        [XenotypeDefOf.Baseliner, DefDatabase<XenotypeDef>.GetNamed("Genie")];
 
     protected override void Generate(ThingSetMakerParams parms, List<Thing> outThings)
     {
@@ -44,7 +46,10 @@ public class ThingSetMaker_TrekCharacter : ThingSetMaker
         if (reason != null)
             throw new Exception(reason);
 
-        pawn?.health.AddHediff(HediffDefOf.LoveEnhancer, pawn.RaceProps.body.GetPartsWithDef(BodyPartDefOf.Torso).FirstOrDefault());
+        pawn?.health.AddHediff(
+            HediffDefOf.LoveEnhancer,
+            pawn.RaceProps.body.GetPartsWithDef(BodyPartDefOf.Torso).FirstOrDefault()
+        );
         outThings.Add(pawn);
     }
 

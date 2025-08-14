@@ -12,7 +12,9 @@ namespace MSSFP;
 
 public class PawnHauntGraphic : Graphic_Multi
 {
-    public static Lazy<FieldInfo> matsInfo = new Lazy<FieldInfo>(() => AccessTools.Field(typeof(PawnHauntGraphic), "mats"));
+    public static Lazy<FieldInfo> matsInfo = new Lazy<FieldInfo>(() =>
+        AccessTools.Field(typeof(PawnHauntGraphic), "mats")
+    );
     public Material[] _mats;
     public float zoom = 0.9f;
     protected Shader _shader;
@@ -42,7 +44,14 @@ public class PawnHauntGraphic : Graphic_Multi
     {
         MaterialRequest req1 = new()
         {
-            mainTex = PortraitsCache.Get(pawn, new Vector2(175f, 175f), Rot4.South, new Vector3(0f, 0f, 0.1f), zoom, healthStateOverride: PawnHealthState.Mobile),
+            mainTex = PortraitsCache.Get(
+                pawn,
+                new Vector2(175f, 175f),
+                Rot4.South,
+                new Vector3(0f, 0f, 0.1f),
+                zoom,
+                healthStateOverride: PawnHealthState.Mobile
+            ),
             shader = _shader,
             color = color,
             colorTwo = colorTwo,

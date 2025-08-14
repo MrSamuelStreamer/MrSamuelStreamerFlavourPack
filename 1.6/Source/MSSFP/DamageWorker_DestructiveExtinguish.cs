@@ -54,16 +54,34 @@ public class DamageWorker_DestructiveExtinguish : DamageWorker_AddInjury
         effecter.Cleanup();
     }
 
-    public override void ExplosionAffectCell(Explosion explosion, IntVec3 c, List<Thing> damagedThings, List<Thing> ignoredThings, bool canThrowMotes)
+    public override void ExplosionAffectCell(
+        Explosion explosion,
+        IntVec3 c,
+        List<Thing> damagedThings,
+        List<Thing> ignoredThings,
+        bool canThrowMotes
+    )
     {
         bool inRange = c.DistanceTo(explosion.Position) <= explosion.radius;
-        base.ExplosionAffectCell(explosion, c, damagedThings, ignoredThings, canThrowMotes && inRange);
+        base.ExplosionAffectCell(
+            explosion,
+            c,
+            damagedThings,
+            ignoredThings,
+            canThrowMotes && inRange
+        );
         if (!inRange)
             return;
         FleckMaker.ThrowSmoke(c.ToVector3Shifted(), explosion.Map, explosion.radius);
     }
 
-    protected override void ExplosionDamageThing(Explosion explosion, Thing t, List<Thing> damagedThings, List<Thing> ignoredThings, IntVec3 cell)
+    protected override void ExplosionDamageThing(
+        Explosion explosion,
+        Thing t,
+        List<Thing> damagedThings,
+        List<Thing> ignoredThings,
+        IntVec3 cell
+    )
     {
         if (cell.DistanceTo(explosion.Position) > explosion.radius)
             return;
@@ -102,7 +120,14 @@ public class DamageWorker_DestructiveExtinguish : DamageWorker_AddInjury
             for (int index2 = 0; index2 < 4; ++index2)
             {
                 IntVec3 c = openCell + GenAdj.CardinalDirections[index2];
-                if (c.InHorDistOf(center, radius) && c.InBounds(map) && !c.Standable(map) && c.GetEdifice(map) != null && !openCells.Contains(c) && !adjWallCells.Contains(c))
+                if (
+                    c.InHorDistOf(center, radius)
+                    && c.InBounds(map)
+                    && !c.Standable(map)
+                    && c.GetEdifice(map) != null
+                    && !openCells.Contains(c)
+                    && !adjWallCells.Contains(c)
+                )
                     adjWallCells.Add(c);
             }
         }

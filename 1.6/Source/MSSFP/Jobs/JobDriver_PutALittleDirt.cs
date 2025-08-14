@@ -21,8 +21,12 @@ public class JobDriver_PutALittleDirt : JobDriver
     {
         if (!MSSFPMod.settings.EnableDirtJobs)
             return false;
-        if (pawn.CanReserveAndReach(Dirtable, PathEndMode.ClosestTouch, Danger.None) && pawn.CanReserveAndReach(DirtLoc, PathEndMode.ClosestTouch, Danger.None))
-            return pawn.Reserve((LocalTargetInfo)Dirtable, job, errorOnFailed: errorOnFailed) && pawn.Reserve(DirtLoc, job, errorOnFailed: errorOnFailed);
+        if (
+            pawn.CanReserveAndReach(Dirtable, PathEndMode.ClosestTouch, Danger.None)
+            && pawn.CanReserveAndReach(DirtLoc, PathEndMode.ClosestTouch, Danger.None)
+        )
+            return pawn.Reserve((LocalTargetInfo)Dirtable, job, errorOnFailed: errorOnFailed)
+                && pawn.Reserve(DirtLoc, job, errorOnFailed: errorOnFailed);
         return false;
     }
 
@@ -30,7 +34,9 @@ public class JobDriver_PutALittleDirt : JobDriver
     {
         job.count = 1;
         this.FailOnDespawnedNullOrForbidden(TargetIndex.A);
-        AddEndCondition(() => !DirtHaverComp.HasDirt ? JobCondition.Ongoing : JobCondition.Succeeded);
+        AddEndCondition(() =>
+            !DirtHaverComp.HasDirt ? JobCondition.Ongoing : JobCondition.Succeeded
+        );
 
         Toil reserveDirt = Toils_Reserve.Reserve(TargetIndex.B, 1, -1, null, false);
         yield return reserveDirt;

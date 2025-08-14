@@ -29,7 +29,9 @@ public static class SkillUI_Patch
 
         foreach (HediffComp_Haunt comp in comps)
         {
-            sb.Append("\n  - " + comp.parent.LabelCap + ": " + comp.SkillBoostLevel.ToStringWithSign());
+            sb.Append(
+                "\n  - " + comp.parent.LabelCap + ": " + comp.SkillBoostLevel.ToStringWithSign()
+            );
         }
 
         __result = sb.ToString();

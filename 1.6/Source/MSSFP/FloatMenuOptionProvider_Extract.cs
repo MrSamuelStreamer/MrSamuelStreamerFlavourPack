@@ -20,16 +20,35 @@ public class FloatMenuOptionProvider_Extract : FloatMenuOptionProvider
         return base.SelectedPawnValid(pawn, context) && (pawn.Downed || pawn.guilt.IsGuilty);
     }
 
-    protected override FloatMenuOption GetSingleOptionFor(Pawn clickedPawn, FloatMenuContext context)
+    protected override FloatMenuOption GetSingleOptionFor(
+        Pawn clickedPawn,
+        FloatMenuContext context
+    )
     {
-        if (!context.FirstSelectedPawn.CanReach(clickedPawn, PathEndMode.ClosestTouch, Danger.Deadly))
+        if (
+            !context.FirstSelectedPawn.CanReach(
+                clickedPawn,
+                PathEndMode.ClosestTouch,
+                Danger.Deadly
+            )
+        )
         {
-            return new FloatMenuOption("MSSFP_CannotExtract".Translate((NamedArgument)clickedPawn) + ": " + "NoPath".Translate().CapitalizeFirst(), null);
+            return new FloatMenuOption(
+                "MSSFP_CannotExtract".Translate((NamedArgument)clickedPawn)
+                    + ": "
+                    + "NoPath".Translate().CapitalizeFirst(),
+                null
+            );
         }
 
         if (!PawnFlyerBalloon.BedAvailableFor(clickedPawn, out Building_Bed _))
         {
-            return new FloatMenuOption("MSSFP_CannotExtract".Translate((NamedArgument)clickedPawn) + ": " + "MSSFP_NoBed".Translate().CapitalizeFirst(), null);
+            return new FloatMenuOption(
+                "MSSFP_CannotExtract".Translate((NamedArgument)clickedPawn)
+                    + ": "
+                    + "MSSFP_NoBed".Translate().CapitalizeFirst(),
+                null
+            );
         }
 
         return FloatMenuUtility.DecoratePrioritizedTask(

@@ -17,7 +17,10 @@ public class Projectile_ExplosiveAndSpawnPawn : Projectile_Explosive
         {
             if (c.GetFirstBuilding(map) == null && c.Standable(map) && Rand.Chance(.75f))
             {
-                Pawn p = PawnGenerator.GeneratePawn(MSSFPDefOf.MSSFP_BabyCritter, Find.FactionManager.OfInsects);
+                Pawn p = PawnGenerator.GeneratePawn(
+                    MSSFPDefOf.MSSFP_BabyCritter,
+                    Find.FactionManager.OfInsects
+                );
 
                 GenSpawn.Spawn(p, loc, map);
             }
@@ -31,9 +34,14 @@ public class Projectile_ExplosiveAndSpawnPawn : Projectile_Explosive
 
     protected virtual void TryAddMemory(Pawn pawn)
     {
-        if (pawn.needs?.mood?.thoughts?.memories?.GetFirstMemoryOfDef(MSSFPDefOf.MSSFP_BabyCannonWTF) != null)
+        if (
+            pawn.needs?.mood?.thoughts?.memories?.GetFirstMemoryOfDef(
+                MSSFPDefOf.MSSFP_BabyCannonWTF
+            ) != null
+        )
             return;
-        Thought_Memory newThought = (Thought_Memory)ThoughtMaker.MakeThought(MSSFPDefOf.MSSFP_BabyCannonWTF);
+        Thought_Memory newThought = (Thought_Memory)
+            ThoughtMaker.MakeThought(MSSFPDefOf.MSSFP_BabyCannonWTF);
         pawn.needs?.mood?.thoughts?.memories?.TryGainMemory(newThought);
     }
 }

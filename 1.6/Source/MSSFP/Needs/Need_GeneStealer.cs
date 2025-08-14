@@ -21,12 +21,18 @@ public class Need_GeneStealer : Need
 
     protected override bool IsFrozen
     {
-        get => pawn.ageTracker.AgeBiologicalYears < 13.0 || !MSSFPMod.settings.EnableGeneStealerNeed || base.IsFrozen;
+        get =>
+            pawn.ageTracker.AgeBiologicalYears < 13.0
+            || !MSSFPMod.settings.EnableGeneStealerNeed
+            || base.IsFrozen;
     }
 
     public override bool ShowOnNeedList
     {
-        get => pawn.ageTracker.AgeBiologicalYears >= 13.0 && MSSFPMod.settings.EnableGeneStealerNeed && base.ShowOnNeedList;
+        get =>
+            pawn.ageTracker.AgeBiologicalYears >= 13.0
+            && MSSFPMod.settings.EnableGeneStealerNeed
+            && base.ShowOnNeedList;
     }
 
     public Need_GeneStealer(Pawn newPawn)
@@ -41,8 +47,12 @@ public class Need_GeneStealer : Need
             return;
         CurLevel -= FallPerInterval;
 
-        Hediff exhaustion = pawn.health.hediffSet.GetFirstHediffOfDef(MSSFPDefOf.MSS_Need_GeneStealer_Exhaustion);
-        Hediff restless = pawn.health.hediffSet.GetFirstHediffOfDef(MSSFPDefOf.MSS_Need_GeneStealer_Restless);
+        Hediff exhaustion = pawn.health.hediffSet.GetFirstHediffOfDef(
+            MSSFPDefOf.MSS_Need_GeneStealer_Exhaustion
+        );
+        Hediff restless = pawn.health.hediffSet.GetFirstHediffOfDef(
+            MSSFPDefOf.MSS_Need_GeneStealer_Restless
+        );
 
         switch (CurLevel)
         {

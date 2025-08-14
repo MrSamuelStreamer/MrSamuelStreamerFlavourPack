@@ -8,7 +8,8 @@ using Verse;
 
 namespace MSSFP.Dialogs;
 
-public class Dialog_BedUpgrade(CompUpgradableBed bed, IWindowDrawing customWindowDrawing = null) : Window(customWindowDrawing)
+public class Dialog_BedUpgrade(CompUpgradableBed bed, IWindowDrawing customWindowDrawing = null)
+    : Window(customWindowDrawing)
 {
     protected readonly CompUpgradableBed Bed = bed;
 
@@ -40,7 +41,10 @@ public class Dialog_BedUpgrade(CompUpgradableBed bed, IWindowDrawing customWindo
 
         RectDivider BottomButtonRow = Outer.NewRow(42f, marginOverride: 0f);
 
-        RectDivider BottomSpacer = BottomButtonRow.NewCol(BottomButtonRow.Rect.width - 140f, marginOverride: 0f);
+        RectDivider BottomSpacer = BottomButtonRow.NewCol(
+            BottomButtonRow.Rect.width - 140f,
+            marginOverride: 0f
+        );
         RectDivider BottomButton = BottomButtonRow.NewCol(140f, marginOverride: 0f);
         if (Widgets.ButtonText(BottomButton.Rect.ContractedBy(10f), "Close"))
         {
@@ -68,7 +72,11 @@ public class Dialog_BedUpgrade(CompUpgradableBed bed, IWindowDrawing customWindo
 
     public void DrawBedStatBox(Rect rect)
     {
-        Rect statColContent = new(rect.ContractedBy(10f)) { height = BedStatBoxColHeight, width = rect.width - 16f };
+        Rect statColContent = new(rect.ContractedBy(10f))
+        {
+            height = BedStatBoxColHeight,
+            width = rect.width - 16f,
+        };
 
         BedStatBoxColHeight = 0;
 
@@ -82,14 +90,20 @@ public class Dialog_BedUpgrade(CompUpgradableBed bed, IWindowDrawing customWindo
             BedStatBoxColHeight += 30f;
         }
 
-        IEnumerator<BedUpgradeDef> enumerator = CompUpgradableBed.BedUpgradesAvailable.GetEnumerator();
+        IEnumerator<BedUpgradeDef> enumerator =
+            CompUpgradableBed.BedUpgradesAvailable.GetEnumerator();
 
         while (enumerator.MoveNext())
         {
             BedUpgradeDef upgrade = enumerator.Current;
 
             RectDivider statRow = new(
-                new Rect(statColContent.x, statColContent.y + BedStatBoxColHeight, statColContent.width, 44f),
+                new Rect(
+                    statColContent.x,
+                    statColContent.y + BedStatBoxColHeight,
+                    statColContent.width,
+                    44f
+                ),
                 145232335,
                 new Vector2(0f, BedStatBoxColHeight)
             );
@@ -108,7 +122,12 @@ public class Dialog_BedUpgrade(CompUpgradableBed bed, IWindowDrawing customWindo
 
             if (Bed.Levels >= 1)
             {
-                if (Widgets.ButtonText(rect: leftButton, label: upgrade?.Worker.ButtonText(Bed) ?? "+"))
+                if (
+                    Widgets.ButtonText(
+                        rect: leftButton,
+                        label: upgrade?.Worker.ButtonText(Bed) ?? "+"
+                    )
+                )
                 {
                     upgrade?.Worker.DoUpgrade(Bed);
                 }
@@ -123,7 +142,12 @@ public class Dialog_BedUpgrade(CompUpgradableBed bed, IWindowDrawing customWindo
                 upgrade = enumerator.Current;
                 if (Bed.Levels >= 1)
                 {
-                    if (Widgets.ButtonText(rect: rightButton, label: upgrade?.Worker.ButtonText(Bed) ?? "+"))
+                    if (
+                        Widgets.ButtonText(
+                            rect: rightButton,
+                            label: upgrade?.Worker.ButtonText(Bed) ?? "+"
+                        )
+                    )
                     {
                         upgrade?.Worker.DoUpgrade(Bed);
                     }

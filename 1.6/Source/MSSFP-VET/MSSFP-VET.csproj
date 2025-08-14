@@ -1,5 +1,4 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <TargetFramework>net48</TargetFramework>
@@ -57,35 +56,29 @@
     <ItemGroup>
         <PackageReference Include="Lib.Harmony" Version="2.*" ExcludeAssets="runtime" />
     </ItemGroup>
-
-    <ItemGroup Condition="'@(Reference->WithMetadataValue('Identity', 'Assembly-CSharp')->Metadata('HintPath')->Exists())' == ''">
+    <ItemGroup Condition="'@(Reference-&gt;WithMetadataValue('Identity', 'Assembly-CSharp')-&gt;Metadata('HintPath')-&gt;Exists())' == ''">
         <PackageReference Include="Krafs.Rimworld.Ref" Version="1.6-*" />
     </ItemGroup>
-
     <ItemGroup>
         <ProjectReference Include="..\MSSFP\MSSFP.csproj">
             <Private>false</Private>
         </ProjectReference>
     </ItemGroup>
-
     <ItemGroup>
-      <Folder Include="..\..\..\Compatibility\oskarpotocki.vfe.tribals\1.6\Assemblies\">
-        <Link>ModCompatFiles\Assemblies</Link>
-      </Folder>
-      <Folder Include="..\..\..\Compatibility\oskarpotocki.vfe.tribals\1.6\Patches\">
-        <Link>ModCompatFiles\Patches</Link>
-      </Folder>
+        <Folder Include="..\..\..\Compatibility\oskarpotocki.vfe.tribals\1.6\Assemblies\">
+            <Link>ModCompatFiles\Assemblies</Link>
+        </Folder>
+        <Folder Include="..\..\..\Compatibility\oskarpotocki.vfe.tribals\1.6\Patches\">
+            <Link>ModCompatFiles\Patches</Link>
+        </Folder>
     </ItemGroup>
-
     <ItemGroup>
-      <Content Include="..\..\..\Compatibility\oskarpotocki.vfe.tribals\1.6\Defs\MSSFP_Archotech.xml">
-        <Link>ModCompatFiles\Defs\MSSFP_Archotech.xml</Link>
-      </Content>
+        <Content Include="..\..\..\Compatibility\oskarpotocki.vfe.tribals\1.6\Defs\MSSFP_Archotech.xml">
+            <Link>ModCompatFiles\Defs\MSSFP_Archotech.xml</Link>
+        </Content>
     </ItemGroup>
-
     <PropertyGroup>
         <StartAction>Program</StartAction>
         <StartProgram>$(SolutionDir)../../../../RimWorldWin64.exe</StartProgram>
     </PropertyGroup>
-
 </Project>

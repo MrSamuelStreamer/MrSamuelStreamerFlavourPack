@@ -32,7 +32,11 @@ public class LoversRetreatMapComponent(Verse.Map map) : MapComponent(map), IThin
     {
         base.ExposeData();
         Scribe_Collections.Look(ref pairs, "pairs", LookMode.Deep);
-        Scribe_Collections.Look(ref PawnsToStoreNextTick, "PawnsToStoreNextTick", LookMode.Reference);
+        Scribe_Collections.Look(
+            ref PawnsToStoreNextTick,
+            "PawnsToStoreNextTick",
+            LookMode.Reference
+        );
         Scribe_Deep.Look(ref innerContainer, "innerContainer", this);
 
         innerContainer ??= new ThingOwner<Pawn>(this);
@@ -65,7 +69,13 @@ public class LoversRetreatMapComponent(Verse.Map map) : MapComponent(map), IThin
             {
                 toRemove.Add(pair);
 
-                if (RCellFinder.TryFindRandomPawnEntryCell(out IntVec3 loc, map, CellFinder.EdgeRoadChance_Ignore))
+                if (
+                    RCellFinder.TryFindRandomPawnEntryCell(
+                        out IntVec3 loc,
+                        map,
+                        CellFinder.EdgeRoadChance_Ignore
+                    )
+                )
                 {
                     GenSpawn.Spawn(pair.firstLover, loc, map);
                     GenSpawn.Spawn(pair.secondLover, loc, map);
@@ -73,13 +83,25 @@ public class LoversRetreatMapComponent(Verse.Map map) : MapComponent(map), IThin
                     innerContainer.Remove(pair.secondLover);
                     if (Rand.Chance(0.5f))
                     {
-                        Hediff_Pregnant preg = pair.firstLover.health.AddHediff(HediffDefOf.PregnantHuman) as Hediff_Pregnant;
-                        preg!.SetParents(pair.firstLover, pair.secondLover, PregnancyUtility.GetInheritedGeneSet(pair.secondLover, pair.firstLover));
+                        Hediff_Pregnant preg =
+                            pair.firstLover.health.AddHediff(HediffDefOf.PregnantHuman)
+                            as Hediff_Pregnant;
+                        preg!.SetParents(
+                            pair.firstLover,
+                            pair.secondLover,
+                            PregnancyUtility.GetInheritedGeneSet(pair.secondLover, pair.firstLover)
+                        );
                     }
                     if (Rand.Chance(0.5f))
                     {
-                        Hediff_Pregnant preg = pair.secondLover.health.AddHediff(HediffDefOf.PregnantHuman) as Hediff_Pregnant;
-                        preg!.SetParents(pair.secondLover, pair.firstLover, PregnancyUtility.GetInheritedGeneSet(pair.firstLover, pair.secondLover));
+                        Hediff_Pregnant preg =
+                            pair.secondLover.health.AddHediff(HediffDefOf.PregnantHuman)
+                            as Hediff_Pregnant;
+                        preg!.SetParents(
+                            pair.secondLover,
+                            pair.firstLover,
+                            PregnancyUtility.GetInheritedGeneSet(pair.firstLover, pair.secondLover)
+                        );
                     }
                 }
             }

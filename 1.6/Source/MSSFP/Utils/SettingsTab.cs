@@ -27,13 +27,23 @@ public abstract class SettingsTab
     private float ScrollViewHeight = 0;
     public Vector2 scrollPosition = Vector2.zero;
 
-    public static List<Type> Tabs => AppDomain.CurrentDomain.GetAssemblies().SelectMany(assembly => assembly.GetTypes()).Where(t => t.IsSubclassOf(typeof(SettingsTab))).ToList();
+    public static List<Type> Tabs =>
+        AppDomain
+            .CurrentDomain.GetAssemblies()
+            .SelectMany(assembly => assembly.GetTypes())
+            .Where(t => t.IsSubclassOf(typeof(SettingsTab)))
+            .ToList();
 
     public virtual void ExposeData() { }
 
     public void DrawTab(Rect tabRect)
     {
-        Rect contentScrollContainerRect = new(tabRect.xMin, tabRect.yMin, tabRect.width, Mathf.Max(ScrollViewHeight, tabRect.height));
+        Rect contentScrollContainerRect = new(
+            tabRect.xMin,
+            tabRect.yMin,
+            tabRect.width,
+            Mathf.Max(ScrollViewHeight, tabRect.height)
+        );
 #if DEBUG
         Widgets.DrawRectFast(contentScrollContainerRect, Color.blue);
 #endif
@@ -65,12 +75,23 @@ public abstract class SettingsTab
         svh += height;
     }
 
-    public void DrawIntAdjuster(Listing_Standard options, string label, ref int value, int countChange, int min, ref float svh)
+    public void DrawIntAdjuster(
+        Listing_Standard options,
+        string label,
+        ref int value,
+        int countChange,
+        int min,
+        ref float svh
+    )
     {
         svh += options.Label(label).height;
         options.IntAdjuster(ref value, countChange, min);
         svh += 24f + options.verticalSpacing;
     }
 
-    public virtual void DoTabContents(Listing_Standard options, Rect scrollViewRect, ref float scrollViewHeight) { }
+    public virtual void DoTabContents(
+        Listing_Standard options,
+        Rect scrollViewRect,
+        ref float scrollViewHeight
+    ) { }
 }

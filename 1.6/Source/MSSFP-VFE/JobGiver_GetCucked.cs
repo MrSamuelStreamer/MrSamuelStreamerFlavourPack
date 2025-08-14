@@ -10,7 +10,10 @@ public class JobGiver_GetCucked : ThinkNode_JobGiver
 {
     protected override Job TryGiveJob(Pawn pawn)
     {
-        LordJob_Ritual lordRitual = pawn.Map.lordManager.lords.FirstOrDefault(lord => lord.LordJob is LordJob_Ritual && lord.ownedPawns.Contains(pawn)).LordJob as LordJob_Ritual;
+        LordJob_Ritual lordRitual =
+            pawn.Map.lordManager.lords.FirstOrDefault(lord =>
+                lord.LordJob is LordJob_Ritual && lord.ownedPawns.Contains(pawn)
+            ).LordJob as LordJob_Ritual;
 
         if (lordRitual == null || lordRitual.selectedTarget == null)
             return null;

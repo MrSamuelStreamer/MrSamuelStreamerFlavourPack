@@ -14,7 +14,11 @@ public class IncidentWorker_TaffRaidEnemy : IncidentWorker_RaidEnemy
     {
         parms.faction = Find.FactionManager.FirstFactionOfDef(MSSFPDefOf.MSSFP_TaffsFaction);
 
-        if (parms.faction == null || parms.faction.defeated || parms.faction.AllyOrNeutralTo(Faction.OfPlayer))
+        if (
+            parms.faction == null
+            || parms.faction.defeated
+            || parms.faction.AllyOrNeutralTo(Faction.OfPlayer)
+        )
             return false;
 
         return base.TryExecuteWorker(parms);

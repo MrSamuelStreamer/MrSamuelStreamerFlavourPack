@@ -14,7 +14,10 @@ public class GenStep_BuildingSupplies : GenStep
 
     public override void Generate(Map map, GenStepParams parms)
     {
-        Faction faction = map.ParentFaction == null || map.ParentFaction == Faction.OfPlayer ? Find.FactionManager.RandomEnemyFaction() : map.ParentFaction;
+        Faction faction =
+            map.ParentFaction == null || map.ParentFaction == Faction.OfPlayer
+                ? Find.FactionManager.RandomEnemyFaction()
+                : map.ParentFaction;
         if (!MapGenerator.TryGetVar("UsedRects", out List<CellRect> usedRects))
         {
             usedRects = [];

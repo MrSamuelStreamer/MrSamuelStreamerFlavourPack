@@ -54,7 +54,11 @@ public class CompAbilitySummonPawn : CompAbilityEffect
             }
             if (Props.mentalState != null)
             {
-                pawn.mindState.mentalStateHandler.TryStartMentalState(Props.mentalState, Props.mentalStateReason.Translate(pawn.Name.ToStringShort), forced: true);
+                pawn.mindState.mentalStateHandler.TryStartMentalState(
+                    Props.mentalState,
+                    Props.mentalStateReason.Translate(pawn.Name.ToStringShort),
+                    forced: true
+                );
             }
 
             GenSpawn.Spawn(pawn, target.Cell, parent.pawn.Map);

@@ -23,13 +23,29 @@ public class MSSFPGameManager : GameComponent
 
     public override void ExposeData()
     {
-        Scribe_Collections.Look(ref ScheduledOnThreadTasks, "ScheduledOnThreadTasks", LookMode.Value, LookMode.Deep);
-        Scribe_Collections.Look(ref ScheduledOffThreadTasks, "ScheduledOffThreadTasks", LookMode.Value, LookMode.Deep);
+        Scribe_Collections.Look(
+            ref ScheduledOnThreadTasks,
+            "ScheduledOnThreadTasks",
+            LookMode.Value,
+            LookMode.Deep
+        );
+        Scribe_Collections.Look(
+            ref ScheduledOffThreadTasks,
+            "ScheduledOffThreadTasks",
+            LookMode.Value,
+            LookMode.Deep
+        );
     }
 
     public override void GameComponentTick()
     {
-        if (!ScheduledOffThreadTasks.NullOrEmpty() && ScheduledOffThreadTasks.TryGetValue(Find.TickManager.TicksGame, out List<IOffThreadTask> offThreadTasks))
+        if (
+            !ScheduledOffThreadTasks.NullOrEmpty()
+            && ScheduledOffThreadTasks.TryGetValue(
+                Find.TickManager.TicksGame,
+                out List<IOffThreadTask> offThreadTasks
+            )
+        )
         {
             GenThreading.ParallelForEach(
                 offThreadTasks,
@@ -42,7 +58,13 @@ public class MSSFPGameManager : GameComponent
             ScheduledOffThreadTasks.Remove(Find.TickManager.TicksGame);
         }
 
-        if (!ScheduledOnThreadTasks.NullOrEmpty() && ScheduledOnThreadTasks.TryGetValue(Find.TickManager.TicksGame, out List<IOnThreadTask> tasks))
+        if (
+            !ScheduledOnThreadTasks.NullOrEmpty()
+            && ScheduledOnThreadTasks.TryGetValue(
+                Find.TickManager.TicksGame,
+                out List<IOnThreadTask> tasks
+            )
+        )
         {
             foreach (IOnThreadTask onThreadTask in tasks)
             {
@@ -87,12 +109,18 @@ public class MSSFPGameManager : GameComponent
 
     public static void UnregisterAllOnThreadTask(IOnThreadTask onThreadTask)
     {
-        Manager.ScheduledOnThreadTasks.SelectMany(kv => kv.Value).ToList().RemoveAll(t => t == onThreadTask);
+        Manager
+            .ScheduledOnThreadTasks.SelectMany(kv => kv.Value)
+            .ToList()
+            .RemoveAll(t => t == onThreadTask);
     }
 
     public static void UnregisterAllOffThreadTask(IOffThreadTask offThreadTask)
     {
-        Manager.ScheduledOffThreadTasks.SelectMany(kv => kv.Value).ToList().RemoveAll(t => t == offThreadTask);
+        Manager
+            .ScheduledOffThreadTasks.SelectMany(kv => kv.Value)
+            .ToList()
+            .RemoveAll(t => t == offThreadTask);
     }
 
     public override void FinalizeInit()

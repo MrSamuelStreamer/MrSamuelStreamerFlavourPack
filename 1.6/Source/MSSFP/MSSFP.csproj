@@ -17,12 +17,15 @@
         <Optimize>false</Optimize>
         <DebugSymbols>true</DebugSymbols>
         <DebugType>portable</DebugType>
+        <CSharpier_Check>false</CSharpier_Check>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
         <DebugType>full</DebugType>
         <DebugSymbols>true</DebugSymbols>
         <Optimize>true</Optimize>
+        <CSharpier_Check>true</CSharpier_Check>
     </PropertyGroup>
+    
     <ItemGroup>
         <Reference Include="Assembly-CSharp">
             <HintPath Condition="Exists('../../../../../RimWorldWin64_Data/Managed/Assembly-CSharp.dll')">../../../../../RimWorldWin64_Data/Managed/Assembly-CSharp.dll</HintPath>
@@ -112,11 +115,4 @@
         <RemoveDir Directories="$(ReleasePath)" Condition="Exists('$(ReleasePath)')" />
         <Delete Files="$(ZipFilePath)" Condition="Exists('$(ZipFilePath)')" />
     </Target>
-    <ItemGroup>
-        <PackageReference Include="CSharpier.MsBuild" Version="1.1.1">
-            <PrivateAssets>all</PrivateAssets>
-            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-            <Private>False</Private>
-        </PackageReference>
-    </ItemGroup>
 </Project>

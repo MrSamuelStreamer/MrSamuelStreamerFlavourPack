@@ -22,7 +22,8 @@ public class IncidentWorker_Nonsense : IncidentWorker
 
     public override float ChanceFactorNow(IIncidentTarget target) => 1f;
 
-    protected override bool CanFireNowSub(IncidentParms parms) => MSSFPMod.settings.EnableNonsenseIncidents;
+    protected override bool CanFireNowSub(IncidentParms parms) =>
+        MSSFPMod.settings.EnableNonsenseIncidents;
 
     protected override bool TryExecuteWorker(IncidentParms parms)
     {
@@ -60,12 +61,21 @@ public class IncidentWorker_Nonsense : IncidentWorker
             thoughtDef = MSSFPDefOf.MSSFP_Nonsense_Thought_Good;
         }
 
-        SendIncidentLetter(letterLabel, letterDesc, letterDef, parms, new LookTargets([pawn]), def, "");
+        SendIncidentLetter(
+            letterLabel,
+            letterDesc,
+            letterDef,
+            parms,
+            new LookTargets([pawn]),
+            def,
+            ""
+        );
         TaleRecorder.RecordTale(MSSFPDefOf.MSSFP_Nonsense_Tale, pawn);
 
         try
         {
-            Thought_Memory instance = (Thought_Memory)Activator.CreateInstance(thoughtDef.ThoughtClass);
+            Thought_Memory instance = (Thought_Memory)
+                Activator.CreateInstance(thoughtDef.ThoughtClass);
             instance.def = thoughtDef;
             instance.Init();
 
@@ -73,13 +83,19 @@ public class IncidentWorker_Nonsense : IncidentWorker
         }
         catch (Exception ex)
         {
-            Log.Error($"Failed to gain memory for {thoughtDef.defName} on {pawn.NameShortColored} due to {ex}");
+            Log.Error(
+                $"Failed to gain memory for {thoughtDef.defName} on {pawn.NameShortColored} due to {ex}"
+            );
         }
 
         return true;
     }
 
-    public static string ResolveAbsoluteText(Pawn pawn, string absoluteRootKeyword = "root", bool capitalizeFirstSentence = true)
+    public static string ResolveAbsoluteText(
+        Pawn pawn,
+        string absoluteRootKeyword = "root",
+        bool capitalizeFirstSentence = true
+    )
     {
         GrammarRequest req = new GrammarRequest();
         req.Rules.AddRange(MSSFPDefOf.MSS_Nonsense.RulesPlusIncludes);
@@ -87,6 +103,10 @@ public class IncidentWorker_Nonsense : IncidentWorker
         foreach (Rule rule in TaleData_Pawn.GenerateFrom(pawn).GetRules("PAWN", req.Constants))
             req.Rules.Add(rule);
 
-        return GrammarResolver.Resolve(absoluteRootKeyword, req, capitalizeFirstSentence: capitalizeFirstSentence);
+        return GrammarResolver.Resolve(
+            absoluteRootKeyword,
+            req,
+            capitalizeFirstSentence: capitalizeFirstSentence
+        );
     }
 }

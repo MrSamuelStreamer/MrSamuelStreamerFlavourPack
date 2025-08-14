@@ -18,12 +18,16 @@ public static class ModLog
 
     public static void Log(string msg)
     {
-        Verse.Log.Message($"<color=#1c6beb>[Mr_Samuel_Streamer_Flavour_Pack]</color> {msg ?? "<null>"}");
+        Verse.Log.Message(
+            $"<color=#1c6beb>[Mr_Samuel_Streamer_Flavour_Pack]</color> {msg ?? "<null>"}"
+        );
     }
 
     public static void Warn(string msg)
     {
-        Verse.Log.Warning($"<color=#1c6beb>[Mr_Samuel_Streamer_Flavour_Pack]</color> {msg ?? "<null>"}");
+        Verse.Log.Warning(
+            $"<color=#1c6beb>[Mr_Samuel_Streamer_Flavour_Pack]</color> {msg ?? "<null>"}"
+        );
     }
 
     public static string GetExtendedexceptionDetails(object e, string indent = null)
@@ -35,7 +39,9 @@ public static class ModLog
             // it's good to know the type of exception
             sb.AppendLine("Type: " + e.GetType().FullName);
             // fetch instance level properties that we can read
-            IEnumerable<PropertyInfo> props = e.GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance).Where(p => p.CanRead);
+            IEnumerable<PropertyInfo> props = e.GetType()
+                .GetProperties(BindingFlags.Public | BindingFlags.Instance)
+                .Where(p => p.CanRead);
 
             foreach (PropertyInfo p in props)
             {
@@ -84,7 +90,9 @@ public static class ModLog
 
     public static void Error(string msg, Exception e = null)
     {
-        Verse.Log.Error($"<color=#1c6beb>[Mr_Samuel_Streamer_Flavour_Pack]</color> {msg ?? "<null>"}");
+        Verse.Log.Error(
+            $"<color=#1c6beb>[Mr_Samuel_Streamer_Flavour_Pack]</color> {msg ?? "<null>"}"
+        );
         if (e != null)
             Verse.Log.Error(GetExtendedexceptionDetails(e));
     }

@@ -10,7 +10,10 @@ public class ExposedWhileGameConditionActiveGeneMutatorWorker : GeneMutatorWorke
     public override void MapComponentTick(Map map)
     {
         base.MapComponentTick(map);
-        if (!Find.World.GameConditionManager.ConditionIsActive(def.conditionActive) && !map.GameConditionManager.ConditionIsActive(def.conditionActive))
+        if (
+            !Find.World.GameConditionManager.ConditionIsActive(def.conditionActive)
+            && !map.GameConditionManager.ConditionIsActive(def.conditionActive)
+        )
             return;
 
         if (Find.TickManager.TicksGame % 250 != 0)
@@ -20,7 +23,13 @@ public class ExposedWhileGameConditionActiveGeneMutatorWorker : GeneMutatorWorke
 
         foreach (Pawn pawn in allPawnsSpawned)
         {
-            if (def.chanceToApply != null && !pawn.Position.Roofed(map) && pawn.def.race.IsFlesh && pawn.genes != null && Rand.Chance(def.chanceToApply.Value))
+            if (
+                def.chanceToApply != null
+                && !pawn.Position.Roofed(map)
+                && pawn.def.race.IsFlesh
+                && pawn.genes != null
+                && Rand.Chance(def.chanceToApply.Value)
+            )
             {
                 LookTargets lookTargets = new LookTargets();
                 lookTargets.targets.Add(pawn);
@@ -29,7 +38,10 @@ public class ExposedWhileGameConditionActiveGeneMutatorWorker : GeneMutatorWorke
                 {
                     GeneClassification gene = def.RandomGene;
                     bool isXenoGene = Rand.Chance(0.95f);
-                    if (!pawn.genes.Xenogenes.Any(g => g.def.ConflictsWith(gene.gene)) && !pawn.genes.Endogenes.Any(g => g.def.ConflictsWith(gene.gene)))
+                    if (
+                        !pawn.genes.Xenogenes.Any(g => g.def.ConflictsWith(gene.gene))
+                        && !pawn.genes.Endogenes.Any(g => g.def.ConflictsWith(gene.gene))
+                    )
                     {
                         if (!gene.requires.NullOrEmpty())
                         {
@@ -40,7 +52,11 @@ public class ExposedWhileGameConditionActiveGeneMutatorWorker : GeneMutatorWorke
                         }
                         pawn.genes.AddGene(gene.gene, isXenoGene);
                         Messages.Message(
-                            "MSS_GainedGeneFromConditionNew".Translate(pawn.Named("PAWN"), def.ReasonString, gene.gene.LabelCap),
+                            "MSS_GainedGeneFromConditionNew".Translate(
+                                pawn.Named("PAWN"),
+                                def.ReasonString,
+                                gene.gene.LabelCap
+                            ),
                             lookTargets,
                             MessageTypeDefOf.NeutralEvent,
                             true
@@ -57,7 +73,11 @@ public class ExposedWhileGameConditionActiveGeneMutatorWorker : GeneMutatorWorke
                         {
                             pawn.genes.AddGene(geneDef, addAsXeno);
                             Messages.Message(
-                                "MSS_GainedGeneFromConditionNew".Translate(pawn.Named("PAWN"), "Nuclear Fallout Exposure", geneDef.LabelCap),
+                                "MSS_GainedGeneFromConditionNew".Translate(
+                                    pawn.Named("PAWN"),
+                                    "Nuclear Fallout Exposure",
+                                    geneDef.LabelCap
+                                ),
                                 lookTargets,
                                 MessageTypeDefOf.NeutralEvent,
                                 true
@@ -67,11 +87,19 @@ public class ExposedWhileGameConditionActiveGeneMutatorWorker : GeneMutatorWorke
 
                     if (Rand.Chance(def.chanceToApply.Value / 2))
                     {
-                        foreach (Gene gene in pawn.genes.Xenogenes.Take(def.pinataModeChance.RandomInRange))
+                        foreach (
+                            Gene gene in pawn.genes.Xenogenes.Take(
+                                def.pinataModeChance.RandomInRange
+                            )
+                        )
                         {
                             pawn.genes.RemoveGene(gene);
                             Messages.Message(
-                                "MSS_GainedGeneFromConditionNew".Translate(pawn.Named("PAWN"), "Nuclear Fallout Exposure", gene.LabelCap),
+                                "MSS_GainedGeneFromConditionNew".Translate(
+                                    pawn.Named("PAWN"),
+                                    "Nuclear Fallout Exposure",
+                                    gene.LabelCap
+                                ),
                                 lookTargets,
                                 MessageTypeDefOf.NeutralEvent,
                                 true
@@ -88,21 +116,33 @@ public class ExposedWhileGameConditionActiveGeneMutatorWorker : GeneMutatorWorke
         int tries = 10;
         while (tries-- > 0)
         {
-            List<GeneDef> pawnGenes = pawn.genes.Endogenes.Select(g => g.def).Concat(pawn.genes.Xenogenes.Select(g => g.def)).ToList();
+            List<GeneDef> pawnGenes = pawn
+                .genes.Endogenes.Select(g => g.def)
+                .Concat(pawn.genes.Xenogenes.Select(g => g.def))
+                .ToList();
 
             IEnumerable<GeneDef> validGenePool = DefDatabase<GeneDef>.AllDefs.Except(pawnGenes);
 
-            List<GeneDef> selected = validGenePool.Take(def.pinataModeChance.RandomInRange).ToList();
+            List<GeneDef> selected = validGenePool
+                .Take(def.pinataModeChance.RandomInRange)
+                .ToList();
 
             if (selected.Count <= 0)
                 continue;
 
-            List<GeneDef> prereqs = selected.Where(g => g.prerequisite != null).Select(g => g.prerequisite).ToList();
+            List<GeneDef> prereqs = selected
+                .Where(g => g.prerequisite != null)
+                .Select(g => g.prerequisite)
+                .ToList();
 
             while (prereqs.Count > 0)
             {
                 selected = selected.Concat(prereqs).ToList();
-                prereqs = selected.Where(g => g.prerequisite != null).Select(g => g.prerequisite).Except(prereqs).ToList();
+                prereqs = selected
+                    .Where(g => g.prerequisite != null)
+                    .Select(g => g.prerequisite)
+                    .Except(prereqs)
+                    .ToList();
             }
 
             List<GeneDef> conflicts = new List<GeneDef>();
@@ -111,7 +151,12 @@ public class ExposedWhileGameConditionActiveGeneMutatorWorker : GeneMutatorWorke
             {
                 if (!conflicts.Contains(gene))
                 {
-                    foreach (GeneDef otherGene in pawnGenes.Concat(conflicts).Except(gene).Except(conflicts))
+                    foreach (
+                        GeneDef otherGene in pawnGenes
+                            .Concat(conflicts)
+                            .Except(gene)
+                            .Except(conflicts)
+                    )
                     {
                         if (gene.ConflictsWith(otherGene))
                         {

@@ -11,9 +11,12 @@ public class CompAbilityEffect_EmergencyMeeting : CompAbilityEffect
 {
     public static int lastCalledTick = -1;
 
-    public override bool CanApplyOn(GlobalTargetInfo target) => MSSFPMod.settings.EnableMogus && Find.TickManager.TicksGame - lastCalledTick > (GenDate.TicksPerDay * 30);
+    public override bool CanApplyOn(GlobalTargetInfo target) =>
+        MSSFPMod.settings.EnableMogus
+        && Find.TickManager.TicksGame - lastCalledTick > (GenDate.TicksPerDay * 30);
 
-    public override bool CanApplyOn(LocalTargetInfo target, LocalTargetInfo dest) => CanApplyOn(target.ToGlobalTargetInfo(parent.pawn.Map));
+    public override bool CanApplyOn(LocalTargetInfo target, LocalTargetInfo dest) =>
+        CanApplyOn(target.ToGlobalTargetInfo(parent.pawn.Map));
 
     public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
     {
@@ -37,7 +40,9 @@ public class CompAbilityEffect_EmergencyMeeting : CompAbilityEffect
 
         // Visual and sound effects
         FleckMaker.ThrowLightningGlow(parent.pawn.Position.ToVector3(), map, 2f);
-        MSSFPDefOf.MSSFP_EmergencyMeetingKlaxon.PlayOneShot(new TargetInfo(parent.pawn.Position, map));
+        MSSFPDefOf.MSSFP_EmergencyMeetingKlaxon.PlayOneShot(
+            new TargetInfo(parent.pawn.Position, map)
+        );
 
         Dialog_MessageBox confirmation = Dialog_MessageBox.CreateConfirmation(
             "MSSFP_EmergencyMeeting".Translate(),

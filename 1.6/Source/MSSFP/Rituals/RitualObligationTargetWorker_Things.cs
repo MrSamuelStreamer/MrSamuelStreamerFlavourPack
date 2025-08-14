@@ -12,7 +12,10 @@ public class RitualObligationTargetWorker_Things : RitualObligationTargetWorker_
     public RitualObligationTargetWorker_Things(RitualObligationTargetFilterDef def)
         : base(def) { }
 
-    protected override RitualTargetUseReport CanUseTargetInternal(TargetInfo target, RitualObligation obligation)
+    protected override RitualTargetUseReport CanUseTargetInternal(
+        TargetInfo target,
+        RitualObligation obligation
+    )
     {
         if (!base.CanUseTargetInternal(target, obligation).canUse)
             return false;
@@ -24,9 +27,17 @@ public class RitualObligationTargetWorker_Things : RitualObligationTargetWorker_
             if (thing1.def == thingDef)
                 continue;
 
-            List<Thing> forCell = target.Map.listerBuldingOfDefInProximity.GetForCell(target.Cell, 20, thingDef);
+            List<Thing> forCell = target.Map.listerBuldingOfDefInProximity.GetForCell(
+                target.Cell,
+                20,
+                thingDef
+            );
             if (forCell.Count == 0)
-                return "MSSFP_RitualObligationTargetWorker_Things_NotFound".Translate(thingDef.label, 20, thing1.def.label);
+                return "MSSFP_RitualObligationTargetWorker_Things_NotFound".Translate(
+                    thingDef.label,
+                    20,
+                    thing1.def.label
+                );
         }
         return true;
     }

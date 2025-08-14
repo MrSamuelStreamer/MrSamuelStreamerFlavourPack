@@ -9,7 +9,10 @@ public class CompFroggoHeal : CompAbilityEffect
 {
     public override bool CanApplyOn(LocalTargetInfo target, LocalTargetInfo dest)
     {
-        return base.CanApplyOn(target, dest) && target.Pawn != null && !target.Pawn.health.Dead && target.Pawn.Faction == Faction.OfPlayer;
+        return base.CanApplyOn(target, dest)
+            && target.Pawn != null
+            && !target.Pawn.health.Dead
+            && target.Pawn.Faction == Faction.OfPlayer;
     }
 
     public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
@@ -18,14 +21,21 @@ public class CompFroggoHeal : CompAbilityEffect
 
         if (ModsConfig.AnomalyActive)
         {
-            Effecter effecter = EffecterDefOf.PsychicRitual_Sustained.SpawnAttached(target.Pawn, target.Pawn.Map);
+            Effecter effecter = EffecterDefOf.PsychicRitual_Sustained.SpawnAttached(
+                target.Pawn,
+                target.Pawn.Map
+            );
             effecter.Trigger((TargetInfo)(Thing)target.Pawn, (TargetInfo)(Thing)target.Pawn);
             effecter.Cleanup();
         }
 
         for (int i = 0; i < 100; i++) // emergency breakout
         {
-            HealthUtility.TryGetWorstHealthCondition(target.Pawn, out Hediff hediff, out BodyPartRecord part);
+            HealthUtility.TryGetWorstHealthCondition(
+                target.Pawn,
+                out Hediff hediff,
+                out BodyPartRecord part
+            );
 
             if (hediff is not null)
             {
@@ -43,7 +53,9 @@ public class CompFroggoHeal : CompAbilityEffect
             }
         }
 
-        List<Hediff> partsToHeal = target.Pawn.health.hediffSet.hediffs.Where(h => h.Visible && h.def.isBad).ToList();
+        List<Hediff> partsToHeal = target
+            .Pawn.health.hediffSet.hediffs.Where(h => h.Visible && h.def.isBad)
+            .ToList();
 
         foreach (Hediff hediff in partsToHeal)
         {

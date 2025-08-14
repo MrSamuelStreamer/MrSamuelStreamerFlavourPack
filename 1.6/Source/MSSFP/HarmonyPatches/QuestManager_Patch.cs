@@ -23,7 +23,13 @@ public static class QuestManager_Patch
 
         foreach (GeneMutatorDef birthGeneDef in DefDatabase<GeneMutatorDef>.AllDefs)
         {
-            if (ConditionActive(Find.World, pawn.Map, birthGeneDef.conditionActive) && (!birthGeneDef.chanceToApply.HasValue || Rand.Chance(birthGeneDef.chanceToApply.Value)))
+            if (
+                ConditionActive(Find.World, pawn.Map, birthGeneDef.conditionActive)
+                && (
+                    !birthGeneDef.chanceToApply.HasValue
+                    || Rand.Chance(birthGeneDef.chanceToApply.Value)
+                )
+            )
             {
                 int tries = 10;
                 GeneClassification gene = birthGeneDef.RandomGene;
@@ -38,7 +44,10 @@ public static class QuestManager_Patch
                     ModLog.Warn($"Couldn't find a gene to give {baby}");
                     return;
                 }
-                if (!pawn.genes.Xenogenes.Any(g => g.def.ConflictsWith(gene.gene)) && !pawn.genes.Endogenes.Any(g => g.def.ConflictsWith(gene.gene)))
+                if (
+                    !pawn.genes.Xenogenes.Any(g => g.def.ConflictsWith(gene.gene))
+                    && !pawn.genes.Endogenes.Any(g => g.def.ConflictsWith(gene.gene))
+                )
                 {
                     if (!gene.requires.NullOrEmpty())
                     {
@@ -52,7 +61,11 @@ public static class QuestManager_Patch
                     LookTargets lookTargets = new LookTargets();
                     lookTargets.targets.Add(pawn);
                     Messages.Message(
-                        "MSS_GainedGeneFromConditionNew".Translate(pawn.Named("PAWN"), birthGeneDef.ReasonString, gene.gene.LabelCap),
+                        "MSS_GainedGeneFromConditionNew".Translate(
+                            pawn.Named("PAWN"),
+                            birthGeneDef.ReasonString,
+                            gene.gene.LabelCap
+                        ),
                         lookTargets,
                         MessageTypeDefOf.NeutralEvent,
                         true
@@ -67,5 +80,6 @@ public static class QuestManager_Patch
     }
 
     public static bool ConditionActive(World world, Map map, GameConditionDef conditionDef) =>
-        world.GameConditionManager.ConditionIsActive(conditionDef) || map.GameConditionManager.ConditionIsActive(conditionDef);
+        world.GameConditionManager.ConditionIsActive(conditionDef)
+        || map.GameConditionManager.ConditionIsActive(conditionDef);
 }

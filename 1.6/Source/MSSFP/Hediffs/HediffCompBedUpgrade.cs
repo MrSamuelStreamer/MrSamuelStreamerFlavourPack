@@ -26,7 +26,11 @@ public class HediffCompBedUpgrade : HediffComp
         {
             StringBuilder sb = new();
 
-            foreach (BedUpgradeDef def in DefDatabase<BedUpgradeDef>.AllDefs.Where(def => def.stat != null && !def.appliesDirectToBed))
+            foreach (
+                BedUpgradeDef def in DefDatabase<BedUpgradeDef>.AllDefs.Where(def =>
+                    def.stat != null && !def.appliesDirectToBed
+                )
+            )
             {
                 if (CompUpgradableBed.StatMultipliers.TryGetValue(def.stat, out float mult))
                 {

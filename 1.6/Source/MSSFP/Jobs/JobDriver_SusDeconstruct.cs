@@ -37,8 +37,15 @@ public class JobDriver_SusDeconstruct : JobDriver_Deconstruct
                 return Building.TryGetComp(out compExplosive) && compExplosive.wickStarted;
             }
         );
-        yield return Toils_Goto.GotoThing(TargetIndex.A, (Target is Building_Trap) ? PathEndMode.OnCell : PathEndMode.Touch, false);
-        Toil doWork = ToilMaker.MakeToil("MakeNewToils").FailOnDestroyedNullOrForbidden(TargetIndex.A).FailOnCannotTouch(TargetIndex.A, PathEndMode.Touch);
+        yield return Toils_Goto.GotoThing(
+            TargetIndex.A,
+            (Target is Building_Trap) ? PathEndMode.OnCell : PathEndMode.Touch,
+            false
+        );
+        Toil doWork = ToilMaker
+            .MakeToil("MakeNewToils")
+            .FailOnDestroyedNullOrForbidden(TargetIndex.A)
+            .FailOnCannotTouch(TargetIndex.A, PathEndMode.Touch);
         doWork.initAction = delegate
         {
             susTotalNeededWork = TotalNeededWork;
@@ -54,7 +61,13 @@ public class JobDriver_SusDeconstruct : JobDriver_Deconstruct
         };
         doWork.defaultCompleteMode = ToilCompleteMode.Never;
 
-        doWork.WithProgressBar(TargetIndex.A, () => 1f - susWorkLeft / susTotalNeededWork, false, -0.5f, false);
+        doWork.WithProgressBar(
+            TargetIndex.A,
+            () => 1f - susWorkLeft / susTotalNeededWork,
+            false,
+            -0.5f,
+            false
+        );
         doWork.activeSkill = () => SkillDefOf.Construction;
         yield return doWork;
     }

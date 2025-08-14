@@ -7,7 +7,11 @@ namespace MSSFP.BS;
 
 public class Hediff_Bigger : HediffWithComps
 {
-    public override string Label => base.Label.Replace("MSS_Bigger_Label", "MSS_Bigger_Label".Translate(Mathf.Floor(Severity).ToStringPercent()));
+    public override string Label =>
+        base.Label.Replace(
+            "MSS_Bigger_Label",
+            "MSS_Bigger_Label".Translate(Mathf.Floor(Severity).ToStringPercent())
+        );
 
     public override bool Visible => false;
 
@@ -15,7 +19,9 @@ public class Hediff_Bigger : HediffWithComps
     {
         get
         {
-            StringBuilder stringBuilder = new(def.Description.Translate(Mathf.Floor(Severity).ToStringPercent()));
+            StringBuilder stringBuilder = new(
+                def.Description.Translate(Mathf.Floor(Severity).ToStringPercent())
+            );
             int index = 0;
             while (true)
             {

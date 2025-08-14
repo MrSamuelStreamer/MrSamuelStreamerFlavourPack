@@ -49,7 +49,11 @@ public class PersistentGeneGameComponent(Verse.Game game) : GameComponent
 
     public void Notify_PawnDied(Pawn pawn)
     {
-        RespawnContext ctx = new RespawnContext(pawn, pawn.Map, Find.TickManager.TicksGame + RespawnDelayRange.RandomInRange);
+        RespawnContext ctx = new RespawnContext(
+            pawn,
+            pawn.Map,
+            Find.TickManager.TicksGame + RespawnDelayRange.RandomInRange
+        );
         RespawnJobs.Add(ctx);
     }
 
@@ -57,7 +61,9 @@ public class PersistentGeneGameComponent(Verse.Game game) : GameComponent
     {
         if (Find.TickManager.TicksGame % 600 == 0)
         {
-            List<RespawnContext> valid = RespawnJobs.Where(j => j.tick < Find.TickManager.TicksGame).ToList();
+            List<RespawnContext> valid = RespawnJobs
+                .Where(j => j.tick < Find.TickManager.TicksGame)
+                .ToList();
             ResurrectionParams parms = new() { dontSpawn = true };
 
             foreach (RespawnContext respawnContext in valid)

@@ -81,7 +81,11 @@ public static class HauntsCache
         if (comps.NullOrEmpty())
             return;
 
-        foreach (HediffComp_Haunt hediffCompHaunt in comps.SelectMany(hediff => hediff.comps).OfType<HediffComp_Haunt>())
+        foreach (
+            HediffComp_Haunt hediffCompHaunt in comps
+                .SelectMany(hediff => hediff.comps)
+                .OfType<HediffComp_Haunt>()
+        )
         {
             if (!Cache[p].ContainsKey(hediffCompHaunt.skillToBoost))
                 Cache[p][hediffCompHaunt.skillToBoost] = 0;

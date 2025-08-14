@@ -12,7 +12,10 @@ public static class IncidentWorker_FarmAnimalsWanderIn_Patch
     [HarmonyPostfix]
     public static void SelectionChancePatch(PawnKindDef pawnKind, ref float __result)
     {
-        if (!MSSFPMod.settings.EnableFroggeIncidents && pawnKind.HasModExtension<FroggeModExtension>())
+        if (
+            !MSSFPMod.settings.EnableFroggeIncidents
+            && pawnKind.HasModExtension<FroggeModExtension>()
+        )
             __result = 0f;
     }
 }

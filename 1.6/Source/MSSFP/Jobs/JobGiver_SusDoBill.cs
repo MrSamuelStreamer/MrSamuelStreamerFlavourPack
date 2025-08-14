@@ -11,7 +11,11 @@ public class JobGiver_SusDoBill : ThinkNode_JobGiver
 {
     public IEnumerable<Thing> PotentialWorkThingsGlobal(Pawn pawn)
     {
-        foreach (Designation designation in pawn.Map.designationManager.SpawnedDesignationsOfDef(DesignationDefOf.Deconstruct))
+        foreach (
+            Designation designation in pawn.Map.designationManager.SpawnedDesignationsOfDef(
+                DesignationDefOf.Deconstruct
+            )
+        )
             yield return designation.target.Thing;
     }
 
@@ -22,7 +26,11 @@ public class JobGiver_SusDoBill : ThinkNode_JobGiver
 
         Thing t = PotentialWorkThingsGlobal(pawn).RandomElementWithFallback();
 
-        if (t is null || !pawn.CanReserve((LocalTargetInfo)t) || pawn.Map.designationManager.DesignationOn(t, DesignationDefOf.Deconstruct) == null)
+        if (
+            t is null
+            || !pawn.CanReserve((LocalTargetInfo)t)
+            || pawn.Map.designationManager.DesignationOn(t, DesignationDefOf.Deconstruct) == null
+        )
             return null;
 
         if (t.TryGetComp(out CompExplosive comp) && comp.wickStarted)

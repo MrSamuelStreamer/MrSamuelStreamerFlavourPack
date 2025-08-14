@@ -27,14 +27,22 @@ public class JobGiver_EatGems : ThinkNode_JobGiver
         if (pawn.Map == null)
             return null;
 
-        IEnumerable<Thing> validThings = pawn.Map.listerThings.GetAllThings((thing) => EdibleGems.Contains(thing.def), true);
+        IEnumerable<Thing> validThings = pawn.Map.listerThings.GetAllThings(
+            (thing) => EdibleGems.Contains(thing.def),
+            true
+        );
 
-        Thing target = validThings.Where(thing => thing.stackCount > 0).RandomElementByWeight((thing) => thing.stackCount * thing.def.BaseMarketValue);
+        Thing target = validThings
+            .Where(thing => thing.stackCount > 0)
+            .RandomElementByWeight((thing) => thing.stackCount * thing.def.BaseMarketValue);
 
         if (target == null)
             return null;
 
-        if (!pawn.CanReserveAndReach((LocalTargetInfo)target, PathEndMode.Touch, Danger.Deadly) || target.IsBurning())
+        if (
+            !pawn.CanReserveAndReach((LocalTargetInfo)target, PathEndMode.Touch, Danger.Deadly)
+            || target.IsBurning()
+        )
             return null;
 
         int count = Rand.RangeInclusive(0, target.stackCount);

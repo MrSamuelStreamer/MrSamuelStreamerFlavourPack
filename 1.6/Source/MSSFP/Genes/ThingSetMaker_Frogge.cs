@@ -11,7 +11,11 @@ public class ThingSetMaker_Frogge : ThingSetMaker
     {
         PawnKindDef frogge = DefDatabase<PawnKindDef>.GetNamed("MSSFP_Frogge");
 
-        PawnGenerationRequest request = new(frogge, Faction.OfPlayer, PawnGenerationContext.NonPlayer);
+        PawnGenerationRequest request = new(
+            frogge,
+            Faction.OfPlayer,
+            PawnGenerationContext.NonPlayer
+        );
         Pawn pawn = PawnGenerator.GeneratePawn(request);
 
         outThings.Add(pawn);

@@ -28,10 +28,15 @@ public class MSSFPResourceGeneratorMod : Mod
         Harmony harmony = new Harmony("MrSamuelStreamer.rimworld.MSSFP.ResourceGenerator.main");
         harmony.PatchAll();
 
-        Type compResourceSpawnerType = AccessTools.TypeByName("ResourceGenerator.CompResourceSpawner");
+        Type compResourceSpawnerType = AccessTools.TypeByName(
+            "ResourceGenerator.CompResourceSpawner"
+        );
         MethodInfo tryDoSpawnMethod = AccessTools.Method(compResourceSpawnerType, "tryDoSpawn");
 
-        MethodInfo patch = AccessTools.Method(typeof(CompResourceSpawner_Patch), nameof(CompResourceSpawner_Patch.Transpiler));
+        MethodInfo patch = AccessTools.Method(
+            typeof(CompResourceSpawner_Patch),
+            nameof(CompResourceSpawner_Patch.Transpiler)
+        );
 
         harmony.Patch(tryDoSpawnMethod, null, null, new HarmonyMethod(patch));
     }
@@ -45,8 +50,14 @@ public class MSSFPResourceGeneratorMod : Mod
         }
         Main.ValidResources.Clear();
 
-        Main.ValidResources.AddRange(DefDatabase<ThingDef>.AllDefsListForReading.Where(def => def.IsStuff));
-        Main.ValidResources.AddRange(DefDatabase<ThingDef>.AllDefsListForReading.Where(def => def.mineable).Select(def => def.building.mineableThing));
+        Main.ValidResources.AddRange(
+            DefDatabase<ThingDef>.AllDefsListForReading.Where(def => def.IsStuff)
+        );
+        Main.ValidResources.AddRange(
+            DefDatabase<ThingDef>
+                .AllDefsListForReading.Where(def => def.mineable)
+                .Select(def => def.building.mineableThing)
+        );
 
         if (settings.ExtraBuildables != null)
         {
@@ -55,6 +66,8 @@ public class MSSFPResourceGeneratorMod : Mod
 
         Main.ValidResources.RemoveWhere(t => t == null);
 
-        ModLog.Log($"[ResourceGenerator]: Added {Main.ValidResources.Count} resources as possible to generate");
+        ModLog.Log(
+            $"[ResourceGenerator]: Added {Main.ValidResources.Count} resources as possible to generate"
+        );
     }
 }

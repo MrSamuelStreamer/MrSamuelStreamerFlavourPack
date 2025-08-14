@@ -21,7 +21,8 @@ public class CompProperties_AbilitySummonPawn : CompProperties_AbilityEffect
     public string fixedBirthName = null;
     public ThoughtDef thoughtOnSummon = null;
 
-    public PawnKindDef RandomPawnKind => pawnKinds.NullOrEmpty() ? PawnKindDefOf.SpaceRefugee : pawnKinds.RandomElement();
+    public PawnKindDef RandomPawnKind =>
+        pawnKinds.NullOrEmpty() ? PawnKindDefOf.SpaceRefugee : pawnKinds.RandomElement();
 
     public CompProperties_AbilitySummonPawn()
     {

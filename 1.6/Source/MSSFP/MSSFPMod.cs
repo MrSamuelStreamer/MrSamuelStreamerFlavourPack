@@ -39,8 +39,21 @@ public class MSSFPMod : Mod
         harmony.PatchAll();
 
         Type NC = AccessTools.Inner(typeof(Dialog_NamePawn), "NameContext");
-        ConstructorInfo CI = AccessTools.Constructor(NC, [typeof(string), typeof(int), typeof(string), typeof(int), typeof(bool), typeof(List<string>)]);
-        MethodInfo MI = AccessTools.Method(typeof(NameContext_Patch), nameof(NameContext_Patch.Postfix));
+        ConstructorInfo CI = AccessTools.Constructor(
+            NC,
+            [
+                typeof(string),
+                typeof(int),
+                typeof(string),
+                typeof(int),
+                typeof(bool),
+                typeof(List<string>),
+            ]
+        );
+        MethodInfo MI = AccessTools.Method(
+            typeof(NameContext_Patch),
+            nameof(NameContext_Patch.Postfix)
+        );
 
         harmony.Patch(CI, null, new HarmonyMethod(MI));
     }

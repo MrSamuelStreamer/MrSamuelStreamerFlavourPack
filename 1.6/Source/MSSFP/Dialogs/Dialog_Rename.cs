@@ -4,7 +4,11 @@ using Verse;
 
 namespace MSSFP.Dialogs;
 
-public class Dialog_Rename(CompUpgradableBed compUpgradableBed, string name, IWindowDrawing customWindowDrawing = null) : Window(customWindowDrawing)
+public class Dialog_Rename(
+    CompUpgradableBed compUpgradableBed,
+    string name,
+    IWindowDrawing customWindowDrawing = null
+) : Window(customWindowDrawing)
 {
     private string _name = name;
     public override Vector2 InitialSize => new(400f, 150f);

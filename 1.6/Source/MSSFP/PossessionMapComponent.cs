@@ -10,8 +10,14 @@ public class PossessionMapComponent(Map map) : MapComponent(map)
 {
     public Map Map => map;
 
-    public bool MapHasPossessedPawn => map.mapPawns.AllHumanlikeSpawned.Any(pawn => pawn.health.hediffSet.HasHediff(MSSFPDefOf.MSS_FP_PossessionHaunt));
-    public IEnumerable<Pawn> PossessedPawns => map.mapPawns.AllHumanlikeSpawned.Where(pawn => pawn.health.hediffSet.HasHediff(MSSFPDefOf.MSS_FP_PossessionHaunt));
+    public bool MapHasPossessedPawn =>
+        map.mapPawns.AllHumanlikeSpawned.Any(pawn =>
+            pawn.health.hediffSet.HasHediff(MSSFPDefOf.MSS_FP_PossessionHaunt)
+        );
+    public IEnumerable<Pawn> PossessedPawns =>
+        map.mapPawns.AllHumanlikeSpawned.Where(pawn =>
+            pawn.health.hediffSet.HasHediff(MSSFPDefOf.MSS_FP_PossessionHaunt)
+        );
 
     public int CheckInterval = GenDate.TicksPerHour;
 
@@ -27,7 +33,9 @@ public class PossessionMapComponent(Map map) : MapComponent(map)
             Pawn target = possessedOrNearPossessed.RandomElementWithFallback();
             if (target != null)
             {
-                target.needs.mood.thoughts.memories.TryGainMemory(MSSFPDefOf.MSS_FP_PossessedThought);
+                target.needs.mood.thoughts.memories.TryGainMemory(
+                    MSSFPDefOf.MSS_FP_PossessedThought
+                );
             }
         }
     }

@@ -27,7 +27,14 @@ public class PawnGraphicUtils
 
     public static string SavePawnTexture(Pawn pawn, Action<bool, string> onComplete = null)
     {
-        RenderTexture tex = PortraitsCache.Get(pawn, new Vector2(175f, 175f), Rot4.South, new Vector3(0f, 0f, 0.1f), 0.9f, healthStateOverride: PawnHealthState.Mobile);
+        RenderTexture tex = PortraitsCache.Get(
+            pawn,
+            new Vector2(175f, 175f),
+            Rot4.South,
+            new Vector3(0f, 0f, 0.1f),
+            0.9f,
+            healthStateOverride: PawnHealthState.Mobile
+        );
         Guid guid = Guid.NewGuid();
 
         if (!Directory.Exists(SaveDataPath))
@@ -48,7 +55,13 @@ public class PawnGraphicUtils
         return $"{guid}.png";
     }
 
-    public static void SaveTextureToFile(Texture source, string filePath, int width, int height, Action<bool, string> done = null)
+    public static void SaveTextureToFile(
+        Texture source,
+        string filePath,
+        int width,
+        int height,
+        Action<bool, string> done = null
+    )
     {
         // check that the input we're getting is something we can handle:
         if (source is not (Texture2D or RenderTexture))
@@ -69,7 +82,11 @@ public class PawnGraphicUtils
         Graphics.Blit(source, resizeRT);
 
         // create a native array to receive data from the GPU:
-        NativeArray<byte> narray = new(width * height * 4, Allocator.Persistent, NativeArrayOptions.UninitializedMemory);
+        NativeArray<byte> narray = new(
+            width * height * 4,
+            Allocator.Persistent,
+            NativeArrayOptions.UninitializedMemory
+        );
 
         // request the texture data back from the GPU:
         AsyncGPUReadbackRequest request = AsyncGPUReadback.RequestIntoNativeArray(
@@ -84,7 +101,12 @@ public class PawnGraphicUtils
                     try
                     {
                         NativeArray<byte> encoded;
-                        encoded = ImageConversion.EncodeNativeArrayToPNG(narray, resizeRT.graphicsFormat, (uint)width, (uint)height);
+                        encoded = ImageConversion.EncodeNativeArrayToPNG(
+                            narray,
+                            resizeRT.graphicsFormat,
+                            (uint)width,
+                            (uint)height
+                        );
                         System.IO.File.WriteAllBytes(filePath, encoded.ToArray());
                         encoded.Dispose();
                     }

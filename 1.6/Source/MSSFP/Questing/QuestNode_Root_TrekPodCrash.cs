@@ -26,9 +26,14 @@ public class QuestNode_Root_TrekPodCrash : QuestNode_Root_WandererJoin
     {
         TaggedString title = GetLetterTitle();
         TaggedString taggedString = GetLetterText() + "\n\n";
-        TaggedString text = taggedString + "MSSFP_TrekPodCrash_Factionless".Translate(pawn.Named("PAWN")).AdjustedFor(pawn);
+        TaggedString text =
+            taggedString
+            + "MSSFP_TrekPodCrash_Factionless".Translate(pawn.Named("PAWN")).AdjustedFor(pawn);
 
-        QuestNode_Root_WandererJoin_WalkIn.AppendCharityInfoToLetter("JoinerCharityInfo".Translate((NamedArgument)(Thing)pawn), ref text);
+        QuestNode_Root_WandererJoin_WalkIn.AppendCharityInfoToLetter(
+            "JoinerCharityInfo".Translate((NamedArgument)(Thing)pawn),
+            ref text
+        );
         PawnRelationUtility.TryAppendRelationsWithColonistsInfo(ref text, ref title, pawn);
         Find.LetterStack.ReceiveLetter(title, text, LetterDefOf.NeutralEvent, new TargetInfo(pawn));
     }
@@ -42,6 +47,9 @@ public class QuestNode_Root_TrekPodCrash : QuestNode_Root_WandererJoin
 
     public virtual string GetLetterText()
     {
-        return QuestGenUtility.ResolveLocalTextWithDescriptionRules(MSSFPDefOf.MSS_TrekPodCrash.questDescriptionRules, "questDescription");
+        return QuestGenUtility.ResolveLocalTextWithDescriptionRules(
+            MSSFPDefOf.MSS_TrekPodCrash.questDescriptionRules,
+            "questDescription"
+        );
     }
 }

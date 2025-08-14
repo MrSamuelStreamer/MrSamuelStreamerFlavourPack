@@ -17,7 +17,11 @@ public class Gene_GrassToucher : Gene
             return;
 
         Hediff hediff = pawn.health.GetOrAddHediff(MSSFPDefOf.MSSFP_TouchedGrass);
-        foreach (Plant plant in GenRadial.RadialDistinctThingsAround(pawn.Position, pawn.Map, 6, true).OfType<Plant>())
+        foreach (
+            Plant plant in GenRadial
+                .RadialDistinctThingsAround(pawn.Position, pawn.Map, 6, true)
+                .OfType<Plant>()
+        )
         {
             hediff.Severity += SeverityGain;
         }
@@ -25,7 +29,9 @@ public class Gene_GrassToucher : Gene
 
     public override void PostRemove()
     {
-        Hediff firstHediffOfDef = pawn.health.hediffSet.GetFirstHediffOfDef(MSSFPDefOf.MSSFP_TouchedGrass);
+        Hediff firstHediffOfDef = pawn.health.hediffSet.GetFirstHediffOfDef(
+            MSSFPDefOf.MSSFP_TouchedGrass
+        );
         if (firstHediffOfDef != null)
             this.pawn.health.RemoveHediff(firstHediffOfDef);
         base.PostRemove();

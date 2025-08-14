@@ -49,7 +49,11 @@ public class JobDriver_SusDoBill : JobDriver_DoBill
                 return false;
             }
         );
-        Toil gotoBillGiver = Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.InteractionCell, false);
+        Toil gotoBillGiver = Toils_Goto.GotoThing(
+            TargetIndex.A,
+            PathEndMode.InteractionCell,
+            false
+        );
         Toil toil = ToilMaker.MakeToil("MakeNewToils");
         toil.initAction = delegate
         {
@@ -63,14 +67,28 @@ public class JobDriver_SusDoBill : JobDriver_DoBill
             job.bill.Notify_DoBillStarted(pawn);
         };
         yield return toil;
-        yield return Toils_Jump.JumpIf(gotoBillGiver, () => job.GetTargetQueue(TargetIndex.B).NullOrEmpty());
-        foreach (Toil toil2 in CollectIngredientsToils(TargetIndex.B, TargetIndex.A, TargetIndex.C, false, true, BillGiver is Building_WorkTableAutonomous))
+        yield return Toils_Jump.JumpIf(
+            gotoBillGiver,
+            () => job.GetTargetQueue(TargetIndex.B).NullOrEmpty()
+        );
+        foreach (
+            Toil toil2 in CollectIngredientsToils(
+                TargetIndex.B,
+                TargetIndex.A,
+                TargetIndex.C,
+                false,
+                true,
+                BillGiver is Building_WorkTableAutonomous
+            )
+        )
         {
             yield return toil2;
         }
         yield return gotoBillGiver;
         yield return Toils_Recipe.MakeUnfinishedThingIfNeeded();
-        yield return DoFakeRecipeWork().FailOnDespawnedNullOrForbiddenPlacedThings(TargetIndex.A).FailOnCannotTouch(TargetIndex.A, PathEndMode.InteractionCell);
+        yield return DoFakeRecipeWork()
+            .FailOnDespawnedNullOrForbiddenPlacedThings(TargetIndex.A)
+            .FailOnCannotTouch(TargetIndex.A, PathEndMode.InteractionCell);
         yield return Toils_Recipe.CheckIfRecipeCanFinishNow();
     }
 
@@ -93,7 +111,9 @@ public class JobDriver_SusDoBill : JobDriver_DoBill
                 {
                     curDriver.workLeft = curJob.bill.GetWorkAmount(thing);
                     if (unfinishedThing != null)
-                        unfinishedThing.workLeft = !unfinishedThing.debugCompleted ? curDriver.workLeft : (curDriver.workLeft = 0.0f);
+                        unfinishedThing.workLeft = !unfinishedThing.debugCompleted
+                            ? curDriver.workLeft
+                            : (curDriver.workLeft = 0.0f);
                 }
                 curDriver.billStartTick = Find.TickManager.TicksGame;
                 curDriver.ticksSpentDoingRecipeWork = 0;
@@ -105,7 +125,8 @@ public class JobDriver_SusDoBill : JobDriver_DoBill
                 Pawn actor = toil.actor;
                 Job curJob = actor.jobs.curJob;
                 JobDriver_DoBill curDriver = (JobDriver_DoBill)actor.jobs.curDriver;
-                UnfinishedThing unfinishedThing = curJob.GetTarget(TargetIndex.B).Thing as UnfinishedThing;
+                UnfinishedThing unfinishedThing =
+                    curJob.GetTarget(TargetIndex.B).Thing as UnfinishedThing;
                 if (unfinishedThing is { Destroyed: true })
                 {
                     actor.jobs.EndCurrentJob(JobCondition.Incompletable);
@@ -114,12 +135,20 @@ public class JobDriver_SusDoBill : JobDriver_DoBill
                 {
                     ++curDriver.ticksSpentDoingRecipeWork;
 
-                    float workDone = curJob.RecipeDef.workSpeedStat == null ? 1f : actor.GetStatValue(curJob.RecipeDef.workSpeedStat);
-                    if (curJob.RecipeDef.workTableSpeedStat != null && curDriver.BillGiver is Building_WorkTable billGiver2)
+                    float workDone =
+                        curJob.RecipeDef.workSpeedStat == null
+                            ? 1f
+                            : actor.GetStatValue(curJob.RecipeDef.workSpeedStat);
+                    if (
+                        curJob.RecipeDef.workTableSpeedStat != null
+                        && curDriver.BillGiver is Building_WorkTable billGiver2
+                    )
                         workDone *= billGiver2.GetStatValue(curJob.RecipeDef.workTableSpeedStat);
                     curDriver.workLeft -= workDone;
                     if (unfinishedThing != null)
-                        unfinishedThing.workLeft = !unfinishedThing.debugCompleted ? curDriver.workLeft : (curDriver.workLeft = 0.0f);
+                        unfinishedThing.workLeft = !unfinishedThing.debugCompleted
+                            ? curDriver.workLeft
+                            : (curDriver.workLeft = 0.0f);
 
                     if (curDriver.workLeft <= 0.0)
                     {
@@ -138,8 +167,13 @@ public class JobDriver_SusDoBill : JobDriver_DoBill
             }
         );
         toil.defaultCompleteMode = ToilCompleteMode.Never;
-        toil.WithEffect((Func<EffecterDef>)(() => toil.actor.CurJob.bill.recipe.effectWorking), TargetIndex.A);
-        toil.PlaySustainerOrSound((Func<SoundDef>)(() => toil.actor.CurJob.bill.recipe.soundWorking));
+        toil.WithEffect(
+            (Func<EffecterDef>)(() => toil.actor.CurJob.bill.recipe.effectWorking),
+            TargetIndex.A
+        );
+        toil.PlaySustainerOrSound(
+            (Func<SoundDef>)(() => toil.actor.CurJob.bill.recipe.soundWorking)
+        );
         toil.WithProgressBar(
             TargetIndex.A,
             (Func<float>)(
@@ -151,7 +185,11 @@ public class JobDriver_SusDoBill : JobDriver_DoBill
                     return (float)(
                         1.0
                         - ((JobDriver_DoBill)actor.jobs.curDriver).workLeft
-                            / (curJob.bill is not Bill_Mech { State: FormingState.Formed } ? curJob.bill.recipe.WorkAmountTotal(thing5) : 300.0)
+                            / (
+                                curJob.bill is not Bill_Mech { State: FormingState.Formed }
+                                    ? curJob.bill.recipe.WorkAmountTotal(thing5)
+                                    : 300.0
+                            )
                     );
                 }
             )

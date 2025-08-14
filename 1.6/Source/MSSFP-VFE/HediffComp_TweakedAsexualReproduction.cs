@@ -29,7 +29,8 @@ public class HediffComp_TweakedAsexualReproduction : HediffComp_AsexualReproduct
                 if (
                     asexualFissionCounter >= ticksInday * reproductionIntervalDays
                     && pawn.Map != null
-                    && pawn.Map.listerThings.ThingsOfDef(ThingDef.Named(Props.GreenGooTarget)).Count < Props.GreenGooLimit
+                    && pawn.Map.listerThings.ThingsOfDef(ThingDef.Named(Props.GreenGooTarget)).Count
+                        < Props.GreenGooLimit
                 )
                 {
                     //The offspring has the pawn as both mother and father and I find __instance funny
@@ -37,7 +38,14 @@ public class HediffComp_TweakedAsexualReproduction : HediffComp_AsexualReproduct
                     //Only show a message if the pawn is part of the player's faction
                     if (pawn.Faction == Faction.OfPlayer)
                     {
-                        Messages.Message(Props.asexualCloningMessage.Translate(pawn.LabelIndefinite().CapitalizeFirst()), pawn, MessageTypeDefOf.PositiveEvent, true);
+                        Messages.Message(
+                            Props.asexualCloningMessage.Translate(
+                                pawn.LabelIndefinite().CapitalizeFirst()
+                            ),
+                            pawn,
+                            MessageTypeDefOf.PositiveEvent,
+                            true
+                        );
                     }
 
                     asexualFissionCounter = 0;
@@ -59,7 +67,14 @@ public class HediffComp_TweakedAsexualReproduction : HediffComp_AsexualReproduct
                     if (Props.produceEggs)
                     {
                         GenSpawn.Spawn(ThingDef.Named(Props.eggDef), pawn.Position, pawn.Map);
-                        Messages.Message(Props.asexualEggMessage.Translate(pawn.LabelIndefinite().CapitalizeFirst()), pawn, MessageTypeDefOf.PositiveEvent, true);
+                        Messages.Message(
+                            Props.asexualEggMessage.Translate(
+                                pawn.LabelIndefinite().CapitalizeFirst()
+                            ),
+                            pawn,
+                            MessageTypeDefOf.PositiveEvent,
+                            true
+                        );
                         asexualFissionCounter = 0;
                     }
                     //If not, do a normal fission
@@ -106,13 +121,25 @@ public class HediffComp_TweakedAsexualReproduction : HediffComp_AsexualReproduct
                             );
                             Pawn pawnToGenerate = PawnGenerator.GeneratePawn(request);
                             PawnUtility.TrySpawnHatchedOrBornPawn(pawnToGenerate, pawn);
-                            Messages.Message(Props.asexualHatchedMessage.Translate(pawn.LabelIndefinite().CapitalizeFirst()), pawn, MessageTypeDefOf.PositiveEvent, true);
+                            Messages.Message(
+                                Props.asexualHatchedMessage.Translate(
+                                    pawn.LabelIndefinite().CapitalizeFirst()
+                                ),
+                                pawn,
+                                MessageTypeDefOf.PositiveEvent,
+                                true
+                            );
                             asexualFissionCounter = 0;
                         }
                         else
                         {
                             Pawn progenitor = parent.pawn;
-                            int num = progenitor.RaceProps.litterSizeCurve == null ? 1 : Mathf.RoundToInt(Rand.ByCurve(progenitor.RaceProps.litterSizeCurve));
+                            int num =
+                                progenitor.RaceProps.litterSizeCurve == null
+                                    ? 1
+                                    : Mathf.RoundToInt(
+                                        Rand.ByCurve(progenitor.RaceProps.litterSizeCurve)
+                                    );
                             if (num < 1)
                             {
                                 num = 1;
@@ -185,9 +212,16 @@ public class HediffComp_TweakedAsexualReproduction : HediffComp_AsexualReproduct
                                         pawnCreated.genes?.SetXenotype(progenitor.genes?.Xenotype);
                                     }
 
-                                    GeneDef repro = DefDatabase<GeneDef>.AllDefsListForReading.FirstOrDefault(g => g.defName == "AG_AsexualFission");
+                                    GeneDef repro =
+                                        DefDatabase<GeneDef>.AllDefsListForReading.FirstOrDefault(
+                                            g => g.defName == "AG_AsexualFission"
+                                        );
 
-                                    if (repro != null && progenitor.genes.HasActiveGene(repro) && Rand.Chance(0.25f))
+                                    if (
+                                        repro != null
+                                        && progenitor.genes.HasActiveGene(repro)
+                                        && Rand.Chance(0.25f)
+                                    )
                                     {
                                         pawnCreated.genes.AddGene(repro, true);
                                     }
@@ -195,14 +229,23 @@ public class HediffComp_TweakedAsexualReproduction : HediffComp_AsexualReproduct
 
                                 if (PawnUtility.TrySpawnHatchedOrBornPawn(pawnCreated, progenitor))
                                 {
-                                    if (pawnCreated.playerSettings != null && progenitor.playerSettings != null)
+                                    if (
+                                        pawnCreated.playerSettings != null
+                                        && progenitor.playerSettings != null
+                                    )
                                     {
-                                        pawnCreated.playerSettings.AreaRestrictionInPawnCurrentMap = progenitor.playerSettings.AreaRestrictionInPawnCurrentMap;
+                                        pawnCreated.playerSettings.AreaRestrictionInPawnCurrentMap =
+                                            progenitor
+                                                .playerSettings
+                                                .AreaRestrictionInPawnCurrentMap;
                                     }
 
                                     if (pawnCreated.RaceProps.IsFlesh)
                                     {
-                                        pawnCreated.relations.AddDirectRelation(PawnRelationDefOf.Parent, progenitor);
+                                        pawnCreated.relations.AddDirectRelation(
+                                            PawnRelationDefOf.Parent,
+                                            progenitor
+                                        );
                                     }
 
                                     if (progenitor.Spawned)
@@ -212,20 +255,36 @@ public class HediffComp_TweakedAsexualReproduction : HediffComp_AsexualReproduct
                                 }
                                 else
                                 {
-                                    Find.WorldPawns.PassToWorld(pawnCreated, PawnDiscardDecideMode.Discard);
+                                    Find.WorldPawns.PassToWorld(
+                                        pawnCreated,
+                                        PawnDiscardDecideMode.Discard
+                                    );
                                 }
 
                                 TaleRecorder.RecordTale(TaleDefOf.GaveBirth, progenitor, pawn);
 
                                 if (progenitor.Spawned)
                                 {
-                                    FilthMaker.TryMakeFilth(progenitor.Position, progenitor.Map, ThingDefOf.Filth_AmnioticFluid, progenitor.LabelIndefinite(), 5);
+                                    FilthMaker.TryMakeFilth(
+                                        progenitor.Position,
+                                        progenitor.Map,
+                                        ThingDefOf.Filth_AmnioticFluid,
+                                        progenitor.LabelIndefinite(),
+                                        5
+                                    );
                                     progenitor.caller?.DoCall();
                                     pawn.caller?.DoCall();
                                 }
 
                                 MSSFPCFEDefOf.MSSFP_Squelch.PlayOneShot(SoundInfo.InMap(Pawn));
-                                Messages.Message(Props.asexualHatchedMessage.Translate(pawn.LabelIndefinite().CapitalizeFirst()), pawn, MessageTypeDefOf.PositiveEvent, true);
+                                Messages.Message(
+                                    Props.asexualHatchedMessage.Translate(
+                                        pawn.LabelIndefinite().CapitalizeFirst()
+                                    ),
+                                    pawn,
+                                    MessageTypeDefOf.PositiveEvent,
+                                    true
+                                );
                             }
                             asexualFissionCounter = 0;
                         }
@@ -241,9 +300,21 @@ public class HediffComp_TweakedAsexualReproduction : HediffComp_AsexualReproduct
     {
         Pawn pawn = parent.pawn;
         if (Props.isGreenGoo)
-            return customString + (asexualFissionCounter / (float)(ticksInday * reproductionIntervalDays)).ToStringPercent() + " (" + reproductionIntervalDays + " days)";
+            return customString
+                + (
+                    asexualFissionCounter / (float)(ticksInday * reproductionIntervalDays)
+                ).ToStringPercent()
+                + " ("
+                + reproductionIntervalDays
+                + " days)";
         if (pawn.Faction != Faction.OfPlayer || !pawn.ageTracker.CurLifeStage.reproductive)
             return "";
-        return customString + (asexualFissionCounter / (float)(ticksInday * reproductionIntervalDays)).ToStringPercent() + " (" + reproductionIntervalDays + " days)";
+        return customString
+            + (
+                asexualFissionCounter / (float)(ticksInday * reproductionIntervalDays)
+            ).ToStringPercent()
+            + " ("
+            + reproductionIntervalDays
+            + " days)";
     }
 }

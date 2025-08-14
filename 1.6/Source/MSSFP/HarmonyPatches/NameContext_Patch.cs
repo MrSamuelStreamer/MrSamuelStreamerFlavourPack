@@ -10,8 +10,15 @@ namespace MSSFP.HarmonyPatches;
 /// </summary>
 public static class NameContext_Patch
 {
-    public static Lazy<FieldInfo> textboxWidth = new Lazy<FieldInfo>(() => AccessTools.Field(AccessTools.Inner(typeof(Dialog_NamePawn), "NameContext"), "textboxWidth"));
-    public static Lazy<FieldInfo> maximumNameLength = new Lazy<FieldInfo>(() => AccessTools.Field(AccessTools.Inner(typeof(Dialog_NamePawn), "NameContext"), "maximumNameLength"));
+    public static Lazy<FieldInfo> textboxWidth = new Lazy<FieldInfo>(() =>
+        AccessTools.Field(AccessTools.Inner(typeof(Dialog_NamePawn), "NameContext"), "textboxWidth")
+    );
+    public static Lazy<FieldInfo> maximumNameLength = new Lazy<FieldInfo>(() =>
+        AccessTools.Field(
+            AccessTools.Inner(typeof(Dialog_NamePawn), "NameContext"),
+            "maximumNameLength"
+        )
+    );
 
     public static void Postfix(object __instance)
     {

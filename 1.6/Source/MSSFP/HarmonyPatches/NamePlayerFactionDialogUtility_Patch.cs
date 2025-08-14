@@ -19,7 +19,9 @@ public static class NamePlayerFactionDialogUtility_Patch
         __result =
             s.Length != 0
             && s.Length <= 4096
-            && !new Regex("[" + Regex.Escape(GenText.GetInvalidFilenameCharacters()) + "]").IsMatch(s)
+            && !new Regex("[" + Regex.Escape(GenText.GetInvalidFilenameCharacters()) + "]").IsMatch(
+                s
+            )
             && !GrammarResolver.ContainsSpecialChars(s);
         return false;
     }

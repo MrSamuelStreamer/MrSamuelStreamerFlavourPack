@@ -11,12 +11,20 @@ public class IncidentWorker_DirtManNoVisit : IncidentWorker
         if (parms.target is not Map map)
             return false;
 
-        return map.listerThings.AllThings.Count(t => t.TryGetComp(out CompDirtHaver dh) && !dh.hasDirt) <= 1;
+        return map.listerThings.AllThings.Count(t =>
+                t.TryGetComp(out CompDirtHaver dh) && !dh.hasDirt
+            ) <= 1;
     }
 
     protected override bool TryExecuteWorker(IncidentParms parms)
     {
-        SendStandardLetter(def.letterLabel.Translate(), def.letterText.Translate(), LetterDefOf.NeutralEvent, parms, null);
+        SendStandardLetter(
+            def.letterLabel.Translate(),
+            def.letterText.Translate(),
+            LetterDefOf.NeutralEvent,
+            parms,
+            null
+        );
         return true;
     }
 }

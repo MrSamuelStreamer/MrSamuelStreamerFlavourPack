@@ -19,7 +19,10 @@ public class QuestNode_Perganante : QuestNode
         QuestGen.quest.AddPart(
             new QuestPart_Perganante
             {
-                inSignal = (QuestGenUtility.HardcodedSignalWithQuestID(inSignal.GetValue(slate)) ?? QuestGen.slate.Get<string>("inSignal")),
+                inSignal = (
+                    QuestGenUtility.HardcodedSignalWithQuestID(inSignal.GetValue(slate))
+                    ?? QuestGen.slate.Get<string>("inSignal")
+                ),
                 mapParent = mapParent.GetValue(slate),
             }
         );

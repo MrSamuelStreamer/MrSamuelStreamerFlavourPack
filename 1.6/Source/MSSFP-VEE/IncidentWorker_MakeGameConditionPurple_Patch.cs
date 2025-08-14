@@ -16,25 +16,39 @@ public static class IncidentWorker_MakeGameConditionPurple_Patch
             AccessTools.Method(
                 typeof(IncidentWorker_MakeGameConditionPurple),
                 "SendStandardLetter",
-                [typeof(TaggedString), typeof(TaggedString), typeof(LetterDef), typeof(IncidentParms), typeof(LookTargets), typeof(NamedArgument[])]
+                [
+                    typeof(TaggedString),
+                    typeof(TaggedString),
+                    typeof(LetterDef),
+                    typeof(IncidentParms),
+                    typeof(LookTargets),
+                    typeof(NamedArgument[]),
+                ]
             )
     );
 
     [HarmonyPatch("TryExecuteWorker")]
     [HarmonyPostfix]
-    public static void TryExecuteWorker(IncidentWorker_MakeGameConditionPurple __instance, IncidentParms parms)
+    public static void TryExecuteWorker(
+        IncidentWorker_MakeGameConditionPurple __instance,
+        IncidentParms parms
+    )
     {
         if (!__instance.def.HasModExtension<IncidentDefModExtension>())
             return;
 
-        IncidentDefModExtension defModExtension = __instance.def.GetModExtension<IncidentDefModExtension>();
+        IncidentDefModExtension defModExtension =
+            __instance.def.GetModExtension<IncidentDefModExtension>();
 
         if (defModExtension.extraConditions.NullOrEmpty())
             return;
 
         foreach (GameConditionDef extraGameCondition in defModExtension.extraConditions)
         {
-            GameCondition cond = GameConditionMaker.MakeCondition(extraGameCondition, Mathf.RoundToInt(__instance.def.durationDays.RandomInRange * 60000f));
+            GameCondition cond = GameConditionMaker.MakeCondition(
+                extraGameCondition,
+                Mathf.RoundToInt(__instance.def.durationDays.RandomInRange * 60000f)
+            );
             parms.target.GameConditionManager.RegisterCondition(cond);
             parms.letterHyperlinkThingDefs = cond.def.letterHyperlinks;
             SendStandardLetter.Value.Invoke(

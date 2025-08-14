@@ -43,7 +43,14 @@ public class Verb_BackwardShoot : Verb_Shoot
 
         CasterPawn.TakeDamage(damageInfo);
 
-        BattleLogEntry_RangedImpact logEntry = new(CasterPawn, CasterPawn, currentTarget.Thing, EquipmentSource?.def, verbProps.defaultProjectile, null);
+        BattleLogEntry_RangedImpact logEntry = new(
+            CasterPawn,
+            CasterPawn,
+            currentTarget.Thing,
+            EquipmentSource?.def,
+            verbProps.defaultProjectile,
+            null
+        );
         Find.BattleLog.Add(logEntry);
 
         return true;

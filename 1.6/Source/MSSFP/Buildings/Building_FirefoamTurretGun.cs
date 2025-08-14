@@ -27,9 +27,16 @@ public class Building_FirefoamTurretGun : Building_TurretGun
         )
             return (LocalTargetInfo)result;
 
-        TargetScanFlags flags = TargetScanFlags.NeedAutoTargetable | TargetScanFlags.NeedNotUnderThickRoof;
+        TargetScanFlags flags =
+            TargetScanFlags.NeedAutoTargetable | TargetScanFlags.NeedNotUnderThickRoof;
 
-        return (LocalTargetInfo)(Thing)AttackTargetFinder.BestShootTargetFromCurrentPosition(searcher, flags, IsValidTarget);
+        return (LocalTargetInfo)
+            (Thing)
+                AttackTargetFinder.BestShootTargetFromCurrentPosition(
+                    searcher,
+                    flags,
+                    IsValidTarget
+                );
     }
 
     private bool IsValidTarget(Thing t)

@@ -12,12 +12,24 @@ public class IncidentWorker_FroggeJoin : IncidentWorker
 
     public static bool TryFindEntryCell(Map map, out IntVec3 cell)
     {
-        return CellFinder.TryFindRandomEdgeCellWith(c => map.reachability.CanReachColony(c) && !c.Fogged(map), map, CellFinder.EdgeRoadChance_Neutral, out cell);
+        return CellFinder.TryFindRandomEdgeCellWith(
+            c => map.reachability.CanReachColony(c) && !c.Fogged(map),
+            map,
+            CellFinder.EdgeRoadChance_Neutral,
+            out cell
+        );
     }
 
     public virtual Pawn SpawnPawn(Map map, Gender gender)
     {
-        Pawn pawn = PawnGenerator.GeneratePawn(new PawnGenerationRequest(def.pawnKind, Faction.OfPlayer, forceGenerateNewPawn: true, fixedGender: gender));
+        Pawn pawn = PawnGenerator.GeneratePawn(
+            new PawnGenerationRequest(
+                def.pawnKind,
+                Faction.OfPlayer,
+                forceGenerateNewPawn: true,
+                fixedGender: gender
+            )
+        );
 
         IntVec3 cell;
         TryFindEntryCell(map, out cell);
@@ -45,7 +57,13 @@ public class IncidentWorker_FroggeJoin : IncidentWorker
         Pawn pawnMale = SpawnPawn(target, Gender.Male);
         Pawn pawnFemale = SpawnPawn(target, Gender.Female);
 
-        SendStandardLetter(def.letterLabel.Formatted(), def.letterText.Formatted(), LetterDefOf.PositiveEvent, parms, new(pawnMale, pawnFemale));
+        SendStandardLetter(
+            def.letterLabel.Formatted(),
+            def.letterText.Formatted(),
+            LetterDefOf.PositiveEvent,
+            parms,
+            new(pawnMale, pawnFemale)
+        );
         return true;
     }
 }

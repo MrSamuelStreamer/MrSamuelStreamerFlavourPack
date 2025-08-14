@@ -19,7 +19,9 @@ public class JobGiver_SusActivity : ThinkNode_JobGiver
         if (rand < 0.33f)
         {
             // Try to start a fire
-            Building_Storage stockpile = pawn.Map?.listerBuildings.AllBuildingsColonistOfClass<Building_Storage>().RandomElementWithFallback();
+            Building_Storage stockpile = pawn
+                .Map?.listerBuildings.AllBuildingsColonistOfClass<Building_Storage>()
+                .RandomElementWithFallback();
             if (stockpile != null)
             {
                 return JobMaker.MakeJob(JobDefOf.Ignite, stockpile);
@@ -28,7 +30,11 @@ public class JobGiver_SusActivity : ThinkNode_JobGiver
         else if (rand < 0.66f)
         {
             // Try to attack a colonist or animal
-            Pawn target = pawn.Map?.mapPawns.AllPawnsSpawned.Where(p => p != pawn && (p.RaceProps.Animal || p.IsColonist)).RandomElementWithFallback();
+            Pawn target = pawn
+                .Map?.mapPawns.AllPawnsSpawned.Where(p =>
+                    p != pawn && (p.RaceProps.Animal || p.IsColonist)
+                )
+                .RandomElementWithFallback();
             if (target != null)
             {
                 return JobMaker.MakeJob(JobDefOf.AttackMelee, target);
@@ -37,7 +43,9 @@ public class JobGiver_SusActivity : ThinkNode_JobGiver
         else
         {
             // Try to destroy unfinished things
-            UnfinishedThing unfinishedThing = pawn.Map?.listerThings.GetThingsOfType<UnfinishedThing>().RandomElementWithFallback();
+            UnfinishedThing unfinishedThing = pawn
+                .Map?.listerThings.GetThingsOfType<UnfinishedThing>()
+                .RandomElementWithFallback();
             if (unfinishedThing != null)
             {
                 return JobMaker.MakeJob(JobDefOf.Ignite, unfinishedThing);

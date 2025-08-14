@@ -132,15 +132,4 @@
         <RemoveDir Directories="$(ReleasePath)" Condition="Exists('$(ReleasePath)')" />
         <Delete Files="$(ZipFilePath)" Condition="Exists('$(ZipFilePath)')" />
     </Target>
-    <ItemGroup>
-        <PackageReference Include="CSharpier.MsBuild" Version="0.30.6">
-            <PrivateAssets>all</PrivateAssets>
-            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-                        <Private>False</Private>
-        </PackageReference>
-    </ItemGroup>
-    <Target Name="Husky" BeforeTargets="Restore;CollectPackageReferences" Condition="'$(HUSKY)' != 0">
-        <Exec Command="dotnet tool restore" StandardOutputImportance="Low" StandardErrorImportance="High" WorkingDirectory="..\..\.."/>
-        <Exec Command="dotnet husky install" StandardOutputImportance="Low" StandardErrorImportance="High" WorkingDirectory="..\..\.." />
-    </Target>
 </Project>

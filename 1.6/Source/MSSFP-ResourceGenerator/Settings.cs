@@ -24,7 +24,13 @@ public class Settings : ModSettings
 
     public List<ThingDef> ExtraBuildables
     {
-        get { return strings.Select(s => DefDatabase<ThingDef>.GetNamed(s)).Where(d => d is not null).ToList(); }
+        get
+        {
+            return strings
+                .Select(s => DefDatabase<ThingDef>.GetNamed(s))
+                .Where(d => d is not null)
+                .ToList();
+        }
     }
 
     public override void ExposeData()

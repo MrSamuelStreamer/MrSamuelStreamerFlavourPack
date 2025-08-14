@@ -20,7 +20,13 @@ public static class WeightPriceExtensions
 [HarmonyPatch(typeof(TransferableOneWayWidget), "DoRow")]
 public static class MSSFP_TransferableOneWayWidget_DoRow_WeightPrice
 {
-    static bool Prefix(TransferableOneWayWidget __instance, Rect rect, TransferableOneWay trad, int index, float availableMass)
+    static bool Prefix(
+        TransferableOneWayWidget __instance,
+        Rect rect,
+        TransferableOneWay trad,
+        int index,
+        float availableMass
+    )
     {
         DoRowWithWeightPriceColumn(__instance, rect, trad, index, availableMass);
         return false; // Skip original method
@@ -46,7 +52,13 @@ public static class MSSFP_TransferableOneWayWidget_DoRow_WeightPrice
     }
 
     // Custom row implementation with weight/price column inserted between mass and count
-    static void DoRowWithWeightPriceColumn(TransferableOneWayWidget widget, Rect rect, TransferableOneWay trad, int index, float availableMass)
+    static void DoRowWithWeightPriceColumn(
+        TransferableOneWayWidget widget,
+        Rect rect,
+        TransferableOneWay trad,
+        int index,
+        float availableMass
+    )
     {
         if (index % 2 == 1)
             Widgets.DrawLightHighlight(rect);
@@ -59,7 +71,16 @@ public static class MSSFP_TransferableOneWayWidget_DoRow_WeightPrice
 
         // Transfer controls (buttons)
         Rect adjustRect = new(currentX - 240f, 0f, 240f, rect.height);
-        TransferableUIUtility.DoCountAdjustInterface(adjustRect, trad, index, 0, maxCount, false, null, false);
+        TransferableUIUtility.DoCountAdjustInterface(
+            adjustRect,
+            trad,
+            index,
+            0,
+            maxCount,
+            false,
+            null,
+            false
+        );
         currentX -= 240f;
 
         // Market value column
@@ -106,7 +127,12 @@ public static class MSSFP_TransferableOneWayWidget_DoRow_WeightPrice
             Rect countRect = new(currentX - 65f, 0f, 65f, rect.height);
             Widgets.DrawHighlightIfMouseover(countRect);
             Text.Anchor = TextAnchor.MiddleLeft;
-            Rect labelRect = new(countRect.x + 5f, countRect.y, countRect.width - 10f, countRect.height);
+            Rect labelRect = new(
+                countRect.x + 5f,
+                countRect.y,
+                countRect.width - 10f,
+                countRect.height
+            );
             Widgets.Label(labelRect, maxCount.ToStringCached());
             if (Mouse.IsOver(countRect))
                 TooltipHandler.TipRegion(countRect, "Number available to send with the caravan.");

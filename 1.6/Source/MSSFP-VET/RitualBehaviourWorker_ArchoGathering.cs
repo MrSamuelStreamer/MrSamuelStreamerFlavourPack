@@ -23,7 +23,10 @@ public class RitualBehaviourWorker_ArchoGathering : RitualBehaviorWorker
             {
                 TargetInfo selectedTarget = ritual.selectedTarget;
                 soundPlaying = VFET_DefOf.VFET_RitualSustainer_UltraGathering.TrySpawnSustainer(
-                    SoundInfo.InMap(new TargetInfo(selectedTarget.Cell, selectedTarget.Map, false), MaintenanceType.PerTick)
+                    SoundInfo.InMap(
+                        new TargetInfo(selectedTarget.Cell, selectedTarget.Map, false),
+                        MaintenanceType.PerTick
+                    )
                 );
             }
             Sustainer sustainer = soundPlaying;

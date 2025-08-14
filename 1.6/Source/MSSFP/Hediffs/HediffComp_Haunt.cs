@@ -34,7 +34,9 @@ public class HediffComp_Haunt : HediffComp
         {
             if (pawnTexture == null)
             {
-                pawnTexture = PawnGraphicUtils.LoadTexture(Path.Combine(PawnGraphicUtils.SaveDataPath, TexPath));
+                pawnTexture = PawnGraphicUtils.LoadTexture(
+                    Path.Combine(PawnGraphicUtils.SaveDataPath, TexPath)
+                );
             }
             return pawnTexture;
         }
@@ -55,7 +57,9 @@ public class HediffComp_Haunt : HediffComp
         {
             if (PawnName != null)
                 return "MSS_FP_HauntedBy".Translate(PawnName);
-            return pawnToDraw == null ? null : "MSS_FP_HauntedBy".Translate(pawnToDraw.NameShortColored);
+            return pawnToDraw == null
+                ? null
+                : "MSS_FP_HauntedBy".Translate(pawnToDraw.NameShortColored);
         }
     }
 
@@ -67,9 +71,22 @@ public class HediffComp_Haunt : HediffComp
                 return null;
             if (skillToBoost != null && SkillBoostLevel > 0)
             {
-                return pawnToDraw == null ? null : "\n\n" + "MSS_FP_HauntedBuff".Translate(pawnToDraw.NameShortColored, skillToBoost.LabelCap, SkillBoostLevel);
+                return pawnToDraw == null
+                    ? null
+                    : "\n\n"
+                        + "MSS_FP_HauntedBuff".Translate(
+                            pawnToDraw.NameShortColored,
+                            skillToBoost.LabelCap,
+                            SkillBoostLevel
+                        );
             }
-            return pawnToDraw == null ? null : "\n\n" + "MSS_FP_HauntedUnBuff".Translate(pawnToDraw.NameShortColored, parent.pawn.NameShortColored);
+            return pawnToDraw == null
+                ? null
+                : "\n\n"
+                    + "MSS_FP_HauntedUnBuff".Translate(
+                        pawnToDraw.NameShortColored,
+                        parent.pawn.NameShortColored
+                    );
         }
     }
 
@@ -83,7 +100,13 @@ public class HediffComp_Haunt : HediffComp
                 return;
             Pawn pawn = GenRadial
                 .RadialCellsAround(parent.pawn.Position, Props.ProximityRadius, true)
-                .SelectMany(cell => parent.pawn.Map.thingGrid.ThingsAt(cell).OfType<Pawn>().Except([parent.pawn]).Where(p => p.RaceProps.Humanlike))
+                .SelectMany(cell =>
+                    parent
+                        .pawn.Map.thingGrid.ThingsAt(cell)
+                        .OfType<Pawn>()
+                        .Except([parent.pawn])
+                        .Where(p => p.RaceProps.Humanlike)
+                )
                 .RandomElementWithFallback();
 
             if (pawn != null)
@@ -164,14 +187,21 @@ public class HediffComp_Haunt : HediffComp
         {
             rot = Rot4.North;
         }
-        Props.graphicData?.Graphic.Draw(new Vector3(drawPos.x, AltitudeLayer.Pawn.AltitudeFor(), drawPos.z) + offset, rot, pawnToDraw ?? parent.pawn);
+        Props.graphicData?.Graphic.Draw(
+            new Vector3(drawPos.x, AltitudeLayer.Pawn.AltitudeFor(), drawPos.z) + offset,
+            rot,
+            pawnToDraw ?? parent.pawn
+        );
     }
 
     public override void CompPostMake()
     {
         base.CompPostMake();
         HauntsCache.AddHaunt(Pawn.thingIDNumber, this);
-        NextProxCheck = Find.TickManager.TicksGame + Props.ProximityTransferCheckTicks + Rand.Range(0, GenDate.TicksPerHour);
+        NextProxCheck =
+            Find.TickManager.TicksGame
+            + Props.ProximityTransferCheckTicks
+            + Rand.Range(0, GenDate.TicksPerHour);
 
         HauntsCache.RebuildCacheForPawn(Pawn);
     }

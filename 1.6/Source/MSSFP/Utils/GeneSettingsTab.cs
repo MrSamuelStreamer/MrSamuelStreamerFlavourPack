@@ -10,13 +10,37 @@ public class GeneSettingsTab(ModSettings settings, Mod mod) : SettingsTab(settin
     public override string TabName => "Genes";
     public override int TabOrder => 2;
 
-    public override void DoTabContents(Listing_Standard options, Rect scrollViewRect, ref float scrollViewHeight)
+    public override void DoTabContents(
+        Listing_Standard options,
+        Rect scrollViewRect,
+        ref float scrollViewHeight
+    )
     {
-        DrawCheckBox(options, "MSS_FP_Settings_DisableBSIncorporateGeneLimit".Translate(), ref Settings.DisableBSIncorporateGeneLimit, ref scrollViewHeight);
-        DrawCheckBox(options, "MSS_FP_Settings_EnableGeneStealerNeed".Translate(), ref Settings.EnableGeneStealerNeed, ref scrollViewHeight);
-        DrawCheckBox(options, "MSS_FP_Settings_EnableGeneMutators".Translate(), ref Settings.EnableGeneMutators, ref scrollViewHeight);
+        DrawCheckBox(
+            options,
+            "MSS_FP_Settings_DisableBSIncorporateGeneLimit".Translate(),
+            ref Settings.DisableBSIncorporateGeneLimit,
+            ref scrollViewHeight
+        );
+        DrawCheckBox(
+            options,
+            "MSS_FP_Settings_EnableGeneStealerNeed".Translate(),
+            ref Settings.EnableGeneStealerNeed,
+            ref scrollViewHeight
+        );
+        DrawCheckBox(
+            options,
+            "MSS_FP_Settings_EnableGeneMutators".Translate(),
+            ref Settings.EnableGeneMutators,
+            ref scrollViewHeight
+        );
 
-        DrawCheckBox(options, "MSS_FP_Settings_EnableGenesOnGrowthMoment".Translate(), ref Settings.EnableGenesOnGrowthMoment, ref scrollViewHeight);
+        DrawCheckBox(
+            options,
+            "MSS_FP_Settings_EnableGenesOnGrowthMoment".Translate(),
+            ref Settings.EnableGenesOnGrowthMoment,
+            ref scrollViewHeight
+        );
 
         if (Settings.EnableGenesOnGrowthMoment)
         {
@@ -64,28 +88,53 @@ public class GeneSettingsTab(ModSettings settings, Mod mod) : SettingsTab(settin
 
             if (!Mathf.Approximately(Settings.GoodGeneChance, GoodGeneChanceUpd))
             {
-                AdjustChanceRatios(Settings.GoodGeneChance - GoodGeneChanceUpd, ref Settings.BadGeneChance, ref Settings.NeutralGeneChance, ref Settings.RandomGeneChance);
+                AdjustChanceRatios(
+                    Settings.GoodGeneChance - GoodGeneChanceUpd,
+                    ref Settings.BadGeneChance,
+                    ref Settings.NeutralGeneChance,
+                    ref Settings.RandomGeneChance
+                );
                 Settings.GoodGeneChance = GoodGeneChanceUpd;
             }
             else if (!Mathf.Approximately(Settings.BadGeneChance, BadGeneChanceUpd))
             {
-                AdjustChanceRatios(Settings.BadGeneChance - BadGeneChanceUpd, ref Settings.GoodGeneChance, ref Settings.NeutralGeneChance, ref Settings.RandomGeneChance);
+                AdjustChanceRatios(
+                    Settings.BadGeneChance - BadGeneChanceUpd,
+                    ref Settings.GoodGeneChance,
+                    ref Settings.NeutralGeneChance,
+                    ref Settings.RandomGeneChance
+                );
                 Settings.BadGeneChance = BadGeneChanceUpd;
             }
             else if (!Mathf.Approximately(Settings.NeutralGeneChance, NeutralGeneChanceUpd))
             {
-                AdjustChanceRatios(Settings.NeutralGeneChance - NeutralGeneChanceUpd, ref Settings.GoodGeneChance, ref Settings.BadGeneChance, ref Settings.RandomGeneChance);
+                AdjustChanceRatios(
+                    Settings.NeutralGeneChance - NeutralGeneChanceUpd,
+                    ref Settings.GoodGeneChance,
+                    ref Settings.BadGeneChance,
+                    ref Settings.RandomGeneChance
+                );
                 Settings.NeutralGeneChance = NeutralGeneChanceUpd;
             }
             else if (!Mathf.Approximately(Settings.RandomGeneChance, RandomGeneChanceUpd))
             {
-                AdjustChanceRatios(Settings.RandomGeneChance - RandomGeneChanceUpd, ref Settings.GoodGeneChance, ref Settings.BadGeneChance, ref Settings.NeutralGeneChance);
+                AdjustChanceRatios(
+                    Settings.RandomGeneChance - RandomGeneChanceUpd,
+                    ref Settings.GoodGeneChance,
+                    ref Settings.BadGeneChance,
+                    ref Settings.NeutralGeneChance
+                );
                 Settings.RandomGeneChance = RandomGeneChanceUpd;
             }
         }
     }
 
-    public void AdjustChanceRatios(float change, ref float chanceA, ref float chanceB, ref float chanceC)
+    public void AdjustChanceRatios(
+        float change,
+        ref float chanceA,
+        ref float chanceB,
+        ref float chanceC
+    )
     {
         float total = chanceA + chanceB + chanceC;
         float aRatio = chanceA / total;
@@ -99,9 +148,17 @@ public class GeneSettingsTab(ModSettings settings, Mod mod) : SettingsTab(settin
 
     public override void ExposeData()
     {
-        Scribe_Values.Look(ref Settings.DisableBSIncorporateGeneLimit, "DisableBSIncorporateGeneLimit", false);
+        Scribe_Values.Look(
+            ref Settings.DisableBSIncorporateGeneLimit,
+            "DisableBSIncorporateGeneLimit",
+            false
+        );
         Scribe_Values.Look(ref Settings.EnableGeneStealerNeed, "EnableGeneStealerNeed", false);
-        Scribe_Values.Look(ref Settings.EnableGenesOnGrowthMoment, "EnableGenesOnGrowthMoment", false);
+        Scribe_Values.Look(
+            ref Settings.EnableGenesOnGrowthMoment,
+            "EnableGenesOnGrowthMoment",
+            false
+        );
         Scribe_Values.Look(ref Settings.EnableOskarianTech, "EnableGeneMutators", false);
         Scribe_Values.Look(ref Settings.GeneEventChance, "GeneEventChance", 1f);
         Scribe_Values.Look(ref Settings.GoodGeneChance, "GoodGeneChance", 1f / 4f);
@@ -114,13 +171,20 @@ public class GeneSettingsTab(ModSettings settings, Mod mod) : SettingsTab(settin
             GeneDef incorporateGeneDef = DefDatabase<GeneDef>.GetNamed("BS_Incorporate", false);
             if (incorporateGeneDef != null)
             {
-                incorporateGeneDef.description = Settings.DisableBSIncorporateGeneLimit ? "MSSFP_BS_Incorporate_Desc2".Translate() : "MSSFP_BS_Incorporate_Desc1".Translate();
+                incorporateGeneDef.description = Settings.DisableBSIncorporateGeneLimit
+                    ? "MSSFP_BS_Incorporate_Desc2".Translate()
+                    : "MSSFP_BS_Incorporate_Desc1".Translate();
             }
 
-            AbilityDef incorporateAbilityDef = DefDatabase<AbilityDef>.GetNamed("BS_Incorporate_Abillity", false);
+            AbilityDef incorporateAbilityDef = DefDatabase<AbilityDef>.GetNamed(
+                "BS_Incorporate_Abillity",
+                false
+            );
             if (incorporateAbilityDef != null)
             {
-                incorporateAbilityDef.description = Settings.DisableBSIncorporateGeneLimit ? "MSSFP_BS_Incorporate_Desc2".Translate() : "MSSFP_BS_Incorporate_Desc1".Translate();
+                incorporateAbilityDef.description = Settings.DisableBSIncorporateGeneLimit
+                    ? "MSSFP_BS_Incorporate_Desc2".Translate()
+                    : "MSSFP_BS_Incorporate_Desc1".Translate();
             }
         }
     }

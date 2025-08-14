@@ -15,14 +15,17 @@ public class CompAbilityRandomiseGenome : CompAbilityEffect
         {
             if (allValidGeneDefs.NullOrEmpty())
             {
-                allValidGeneDefs = DefDatabase<GeneDef>.AllDefs.Where(def => def.GetType().Name != "AndroidGeneDef ").ToList();
+                allValidGeneDefs = DefDatabase<GeneDef>
+                    .AllDefs.Where(def => def.GetType().Name != "AndroidGeneDef ")
+                    .ToList();
             }
 
             return allValidGeneDefs;
         }
     }
 
-    public new CompProperties_AbilityRandomiseGenome Props => props as CompProperties_AbilityRandomiseGenome;
+    public new CompProperties_AbilityRandomiseGenome Props =>
+        props as CompProperties_AbilityRandomiseGenome;
 
     public override bool CanApplyOn(LocalTargetInfo target, LocalTargetInfo dest)
     {
@@ -35,8 +38,12 @@ public class CompAbilityRandomiseGenome : CompAbilityEffect
         if (target.Pawn?.genes == null)
             return;
 
-        List<GeneDef> endogenes = AllValidGeneDefs.TakeRandom(Props.numberOfEndogenes.RandomInRange).ToList();
-        List<GeneDef> xenogenes = AllValidGeneDefs.TakeRandom(Props.numberOfXenogenes.RandomInRange).ToList();
+        List<GeneDef> endogenes = AllValidGeneDefs
+            .TakeRandom(Props.numberOfEndogenes.RandomInRange)
+            .ToList();
+        List<GeneDef> xenogenes = AllValidGeneDefs
+            .TakeRandom(Props.numberOfXenogenes.RandomInRange)
+            .ToList();
 
         target.Pawn.genes.ClearXenogenes();
 

@@ -16,6 +16,8 @@ public static class AggressiveAnimalIncidentUtility_Patch
     {
         if (MSSFPMod.settings.EnableFroggeIncidents)
             return;
-        animals = animals.Except(animals.Where(p => p.HasModExtension<FroggeModExtension>())).ToList();
+        animals = animals
+            .Except(animals.Where(p => p.HasModExtension<FroggeModExtension>()))
+            .ToList();
     }
 }

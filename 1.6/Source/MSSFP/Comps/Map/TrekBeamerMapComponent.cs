@@ -44,11 +44,18 @@ public class TrekBeamerMapComponent(Verse.Map map) : MapComponent(map)
             return;
         if (PawnsToBeam == null)
             PawnsToBeam = [];
-        foreach (PawnBeamer beamer in PawnsToBeam.Where(key => key.ticks <= Find.TickManager.TicksGame).ToList())
+        foreach (
+            PawnBeamer beamer in PawnsToBeam
+                .Where(key => key.ticks <= Find.TickManager.TicksGame)
+                .ToList()
+        )
         {
             SendLetter(beamer.pawn);
             Effecter e = EffecterDefOf.Skip_ExitNoDelay.Spawn(beamer.pawn.Position, map);
-            e.Trigger(new TargetInfo(beamer.pawn.Position, map), new TargetInfo(beamer.pawn.Position, map));
+            e.Trigger(
+                new TargetInfo(beamer.pawn.Position, map),
+                new TargetInfo(beamer.pawn.Position, map)
+            );
             PawnsToBeam.Remove(beamer);
             beamer.pawn.DeSpawn();
             Find.WorldPawns.PassToWorld(beamer.pawn);

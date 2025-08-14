@@ -25,7 +25,13 @@ public class CompFloorKiller : ThingComp
     private CompProperties_FloorKiller Props => (CompProperties_FloorKiller)props;
 
     private bool CanDestroy =>
-        parent is Pawn pawn && pawn.Awake() && !pawn.health.Downed && (pawn.mindState.exitMapAfterTick <= 0 || GenTicks.TicksGame < pawn.mindState.exitMapAfterTick);
+        parent is Pawn pawn
+        && pawn.Awake()
+        && !pawn.health.Downed
+        && (
+            pawn.mindState.exitMapAfterTick <= 0
+            || GenTicks.TicksGame < pawn.mindState.exitMapAfterTick
+        );
 
     public override void Initialize(CompProperties initProps)
     {
@@ -38,7 +44,9 @@ public class CompFloorKiller : ThingComp
         base.CompTick();
         if (GenTicks.TicksGame < _nextDestruction)
             return;
-        _nextDestruction += TryDestroyFloor() ? Props.ticksBetweenFloorDestruction.RandomInRange : friendshipDate;
+        _nextDestruction += TryDestroyFloor()
+            ? Props.ticksBetweenFloorDestruction.RandomInRange
+            : friendshipDate;
     }
 
     public bool TryDestroyFloor()
@@ -53,9 +61,26 @@ public class CompFloorKiller : ThingComp
             return false;
         parentMap.terrainGrid.RemoveTopLayer(cell);
         FilthMaker.RemoveAllFilth(cell, parentMap);
-        FilthMaker.TryMakeFilth(cell.RandomAdjacentCell8Way(), parentMap, ThingDefOf.Filth_Dirt, 2, FilthSourceFlags.Terrain);
-        FilthMaker.TryMakeFilth(cell.RandomAdjacentCell8Way(), parentMap, ThingDefOf.Filth_Vomit, 1, FilthSourceFlags.Pawn);
-        Messages.Message("MSS_Mabel_FloorDestructionMessage".Translate(parent.LabelShort), parent, MessageTypeDefOf.NegativeEvent, historical: false);
+        FilthMaker.TryMakeFilth(
+            cell.RandomAdjacentCell8Way(),
+            parentMap,
+            ThingDefOf.Filth_Dirt,
+            2,
+            FilthSourceFlags.Terrain
+        );
+        FilthMaker.TryMakeFilth(
+            cell.RandomAdjacentCell8Way(),
+            parentMap,
+            ThingDefOf.Filth_Vomit,
+            1,
+            FilthSourceFlags.Pawn
+        );
+        Messages.Message(
+            "MSS_Mabel_FloorDestructionMessage".Translate(parent.LabelShort),
+            parent,
+            MessageTypeDefOf.NegativeEvent,
+            historical: false
+        );
         return true;
     }
 
@@ -80,7 +105,9 @@ public class CompFloorKiller : ThingComp
         // Gizmo to give the parent a Job to dig the floor in a radius
         if (parent as Pawn is not { } pawn || pawn.Faction != Faction.OfPlayer)
             yield break;
-        bool enabled = pawn.IsPlayerControlled || (pawn.training?.HasLearned(TrainableDefOf.Obedience) ?? false);
+        bool enabled =
+            pawn.IsPlayerControlled
+            || (pawn.training?.HasLearned(TrainableDefOf.Obedience) ?? false);
 
         yield return new Command_TargetRadius
         {
@@ -107,12 +134,20 @@ public class CompFloorKiller : ThingComp
                     .Where(c => Validator(new TargetInfo(c, pawn.Map)))
                     .InRandomOrder()
                     .Select(v => JobMaker.MakeJob(JobDefOf.RemoveFloor, v))
-                    .Do(j => pawn.jobs.TryTakeOrderedJob(j, JobTag.TrainedAnimalBehavior, requestQueueing: true));
+                    .Do(j =>
+                        pawn.jobs.TryTakeOrderedJob(
+                            j,
+                            JobTag.TrainedAnimalBehavior,
+                            requestQueueing: true
+                        )
+                    );
             },
         };
         yield break;
 
         bool Validator(TargetInfo info) =>
-            info.IsValid && info.Map.terrainGrid.CanRemoveTopLayerAt(info.Cell) && !WorkGiver_ConstructRemoveFloor.AnyBuildingBlockingFloorRemoval(info.Cell, info.Map);
+            info.IsValid
+            && info.Map.terrainGrid.CanRemoveTopLayerAt(info.Cell)
+            && !WorkGiver_ConstructRemoveFloor.AnyBuildingBlockingFloorRemoval(info.Cell, info.Map);
     }
 }
