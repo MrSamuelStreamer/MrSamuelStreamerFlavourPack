@@ -1,5 +1,4 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <TargetFramework>net48</TargetFramework>
@@ -58,13 +57,13 @@
             <CopyToOutputDirectory>Never</CopyToOutputDirectory>
         </Content>
         <Content Include="..\..\..\modlist-minimal.xml">
-          <Link>MrSamuelStreamerFlavourPack\modlist-minimal.xml</Link>
+            <Link>MrSamuelStreamerFlavourPack\modlist-minimal.xml</Link>
         </Content>
         <Content Include="..\..\..\modlist-mo-test.xml">
-          <Link>MrSamuelStreamerFlavourPack\modlist-mo-test.xml</Link>
+            <Link>MrSamuelStreamerFlavourPack\modlist-mo-test.xml</Link>
         </Content>
         <Content Include="..\..\..\modlist.xml">
-          <Link>MrSamuelStreamerFlavourPack\modlist.xml</Link>
+            <Link>MrSamuelStreamerFlavourPack\modlist.xml</Link>
         </Content>
     </ItemGroup>
     <ItemGroup>
@@ -73,8 +72,7 @@
     <ItemGroup>
         <PackageReference Include="Lib.Harmony" Version="2.*" ExcludeAssets="runtime" />
     </ItemGroup>
-
-    <ItemGroup Condition="'@(Reference->WithMetadataValue('Identity', 'Assembly-CSharp')->Metadata('HintPath')->Exists())' == ''">
+    <ItemGroup Condition="'@(Reference-&gt;WithMetadataValue('Identity', 'Assembly-CSharp')-&gt;Metadata('HintPath')-&gt;Exists())' == ''">
         <PackageReference Include="Krafs.Rimworld.Ref" Version="1.6-*" />
     </ItemGroup>
     <PropertyGroup>
@@ -83,52 +81,42 @@
     </PropertyGroup>
     <ItemGroup>
         <CompatibilityFiles Include="..\..\Defs\MSSFP_Critters.xml">
-          <Link>MrSamuelStreamerFlavourPack\1.6\Defs\MSSFP_Critters.xml</Link>
+            <Link>MrSamuelStreamerFlavourPack\1.6\Defs\MSSFP_Critters.xml</Link>
         </CompatibilityFiles>
         <CompatibilityFiles Include="..\..\Defs\Quests\MSS_LoversAdvance.xml">
-          <Link>MrSamuelStreamerFlavourPack\1.6\Defs\Quests\MSS_LoversAdvance.xml</Link>
+            <Link>MrSamuelStreamerFlavourPack\1.6\Defs\Quests\MSS_LoversAdvance.xml</Link>
         </CompatibilityFiles>
         <ReleaseFiles Include="../../../1.*/**" Exclude="../../../1.*/Source/**" />
         <AboutFiles Include="../../../About/**" Exclude="../../../About/*.png~" />
         <CommonFiles Include="../../../Common/**" />
         <CompatibilityFiles Include="../../../Compatibility/**" />
-
         <ExtraFiles Include="../../../LoadFolders.xml;../../../LICENSE;../../../README.md" />
-
         <ReleaseFiles Remove="..\..\..\Compatability\**" />
-
         <ReleaseFiles Update="..\..\Defs\ThingDefs_Items\MSS_Balloon.xml">
-          <Link>MrSamuelStreamerFlavourPack\1.6\Defs\ThingDefs_Items\MSS_Balloon.xml</Link>
+            <Link>MrSamuelStreamerFlavourPack\1.6\Defs\ThingDefs_Items\MSS_Balloon.xml</Link>
         </ReleaseFiles>
     </ItemGroup>
     <Target Name="PostBuild" AfterTargets="Build" Condition=" '$(Configuration)' == 'Release' ">
         <RemoveDir Condition="Exists('../../../Release')" Directories="../../../Release" />
         <Delete Condition="Exists('../../../$(AssemblyName).zip')" Files="../../../$(AssemblyName).zip" />
-        <Copy SourceFiles="@(AboutFiles)" DestinationFiles="@(AboutFiles->'../../../Release/About/%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="true" />
-        <Copy SourceFiles="@(CommonFiles)" DestinationFiles="@(CommonFiles->'../../../Release/Common/%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="true" />
-        <Copy SourceFiles="@(CompatibilityFiles)" DestinationFiles="@(CompatibilityFiles->'../../../Release/Compatibility/%(RecursiveDir)%(Filename)%(Extension)')"
-              SkipUnchangedFiles="true" />
-
-        <Copy SourceFiles="@(ReleaseFiles)" DestinationFiles="@(ReleaseFiles->'../../../Release/%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="false" />
+        <Copy SourceFiles="@(AboutFiles)" DestinationFiles="@(AboutFiles-&gt;'../../../Release/About/%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="true" />
+        <Copy SourceFiles="@(CommonFiles)" DestinationFiles="@(CommonFiles-&gt;'../../../Release/Common/%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="true" />
+        <Copy SourceFiles="@(CompatibilityFiles)" DestinationFiles="@(CompatibilityFiles-&gt;'../../../Release/Compatibility/%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="true" />
+        <Copy SourceFiles="@(ReleaseFiles)" DestinationFiles="@(ReleaseFiles-&gt;'../../../Release/%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="false" />
         <Copy SourceFiles="@(ExtraFiles)" DestinationFolder="../../../Release/" SkipUnchangedFiles="false" />
         <ZipDirectory DestinationFile="../../../$(AssemblyName).zip" SourceDirectory="../../../Release" />
         <RemoveDir Condition="Exists('$(SteamModsPath)')" Directories="$(SteamModsPath)/$(AssemblyName)" ContinueOnError="true" />
-        <Copy Condition="Exists('$(SteamModsPath)')" SourceFiles="@(ReleaseFolder)"
-              DestinationFiles="@(ReleaseFolder->'$(SteamModsPath)/$(AssemblyName)/%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="true" />
+        <Copy Condition="Exists('$(SteamModsPath)')" SourceFiles="@(ReleaseFolder)" DestinationFiles="@(ReleaseFolder-&gt;'$(SteamModsPath)/$(AssemblyName)/%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="true" />
     </Target>
     <Target Name="CleanRelease" AfterTargets="Clean">
         <RemoveDir Directories="$(ReleasePath)" Condition="Exists('$(ReleasePath)')" />
         <Delete Files="$(ZipFilePath)" Condition="Exists('$(ZipFilePath)')" />
     </Target>
     <ItemGroup>
-        <PackageReference Include="CSharpier.MsBuild" Version="0.30.6">
+        <PackageReference Include="CSharpier.MsBuild" Version="1.1.1">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-                        <Private>False</Private>
+            <Private>False</Private>
         </PackageReference>
     </ItemGroup>
-    <Target Name="Husky" BeforeTargets="Restore;CollectPackageReferences" Condition="'$(HUSKY)' != 0">
-        <Exec Command="dotnet tool restore" StandardOutputImportance="Low" StandardErrorImportance="High" WorkingDirectory="..\..\.."/>
-        <Exec Command="dotnet husky install" StandardOutputImportance="Low" StandardErrorImportance="High" WorkingDirectory="..\..\.." />
-    </Target>
 </Project>
