@@ -11,19 +11,18 @@ namespace MSSFP.Jobs;
 public class WorkGiver_PutALittleDirt : WorkGiver_Scanner
 {
     public static Lazy<HashSet<TerrainDef>> validTerrainDefs =>
-        new(
-            () =>
+        new(() =>
 
-                [
-                    TerrainDefOf.PackedDirt,
-                    TerrainDefOf.Soil,
-                    TerrainDefOf.Sand,
-                    TerrainDefOf.SoilRich,
-                    TerrainDefOf.Gravel,
-                    TerrainDefOf.Ice,
-                    TerrainDefOf.BrokenAsphalt,
-                    TerrainDefOf.FungalGravel,
-                ]
+            [
+                TerrainDefOf.PackedDirt,
+                TerrainDefOf.Soil,
+                TerrainDefOf.Sand,
+                TerrainDefOf.SoilRich,
+                TerrainDefOf.Gravel,
+                TerrainDefOf.Ice,
+                TerrainDefOf.BrokenAsphalt,
+                TerrainDefOf.FungalGravel,
+            ]
         );
 
     public override IEnumerable<Thing> PotentialWorkThingsGlobal(Pawn pawn)

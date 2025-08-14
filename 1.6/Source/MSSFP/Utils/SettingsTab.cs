@@ -33,7 +33,7 @@ public abstract class SettingsTab
 
     public void DrawTab(Rect tabRect)
     {
-        Rect contentScrollContainerRect = new(tabRect.xMin, tabRect.yMin, tabRect.width - 16, Mathf.Max(ScrollViewHeight, tabRect.height));
+        Rect contentScrollContainerRect = new(tabRect.xMin, tabRect.yMin, tabRect.width, Mathf.Max(ScrollViewHeight, tabRect.height));
 #if DEBUG
         Widgets.DrawRectFast(contentScrollContainerRect, Color.blue);
 #endif
@@ -41,7 +41,7 @@ public abstract class SettingsTab
         scrollPosition = GUI.BeginScrollView(tabRect, scrollPosition, contentScrollContainerRect);
 
         Listing_Standard options = new();
-        options.Begin(contentScrollContainerRect);
+        options.Begin(contentScrollContainerRect.ContractedBy(2f));
 
         try
         {

@@ -61,10 +61,14 @@ public class Settings : ModSettings
 
     public static GUIContent TempGuiContent(string t) => _TempGuiContent.Value.Invoke(null, [t]) as GUIContent;
 
+    public static Color TabRectColor = new Color(0.4f, 0.4f, 0.4f, 1f);
+
     public void DoWindowContents(Rect wrect)
     {
-        Rect tabButtonScrollerRect = new(wrect.x, wrect.y, wrect.width, 30);
+        float tabsHeight = 30 + 16;
+        Rect tabButtonScrollerRect = new(wrect.x, wrect.y, wrect.width, tabsHeight);
         Rect tabScrollContainerRect = new(wrect.x, wrect.y, ScrollViewWidth, 30);
+
 #if DEBUG
         Widgets.DrawRectFast(tabButtonScrollerRect, Color.red);
         Widgets.DrawRectFast(tabScrollContainerRect, Color.green);
@@ -102,11 +106,12 @@ public class Settings : ModSettings
 
         GUI.EndScrollView();
 
-        Rect tabRect = new(tabButtonScrollerRect.xMin, tabButtonScrollerRect.yMax + 16, wrect.width, wrect.height - tabButtonScrollerRect.height - 16);
+        Widgets.DrawLineHorizontal(0, wrect.yMin + tabsHeight + 1, wrect.width, Color.grey);
+        Widgets.DrawLineHorizontal(0, wrect.yMin + tabsHeight + 2, wrect.width, Color.grey);
 
-#if DEBUG
-        Widgets.DrawRectFast(tabRect, Color.magenta);
-#endif
+        Rect tabRect = new(tabButtonScrollerRect.xMin, wrect.yMin + tabsHeight + 3, wrect.width, wrect.height - tabButtonScrollerRect.height - 3);
+
+        Widgets.DrawRectFast(tabRect, TabRectColor);
 
         SelectedTab ??= DefaultTab;
 
