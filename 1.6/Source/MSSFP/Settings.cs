@@ -72,6 +72,12 @@ public class Settings : ModSettings
 
     public static Color TabRectColor = new Color(0.4f, 0.4f, 0.4f, 1f);
 
+    public Vector2 RectForLabelText(string text)
+    {
+        GUIContent content = new(text);
+        return Text.CurFontStyle.CalcSize(content);
+    }
+
     public void DoWindowContents(Rect wrect)
     {
         float tabsHeight = 30 + 16;
@@ -91,10 +97,7 @@ public class Settings : ModSettings
 
         foreach (SettingsTab tab in Tabs)
         {
-            // Unicode? No, I don't need code thanks, I've just written it
-            // This assumes all chars are fixed width, Unicode modifiers and variable width fonts be damned.
-            // It's "good enough" for a tab button that doesn't take user input (beyond a click) and probably won't be localized
-            float width = 4 + 4 + (tab.TabName.Length * 12);
+            float width = RectForLabelText(tab.TabName).x + 8;
 
             Rect buttonRect = new(
                 tabScrollContainerRect.x + ScrollViewWidth,
