@@ -77,13 +77,17 @@ public class Settings : ModSettings
             // Unicode? No, I don't need code thanks, I've just written it
             // This assumes all chars are fixed width, Unicode modifiers and variable width fonts be damned.
             // It's "good enough" for a tab button that doesn't take user input (beyond a click) and probably won't be localized
-            float width = 2 + 2 + (tab.TabName.Length * 10);
+            float width = 4 + 4 + (tab.TabName.Length * 12);
 
             Rect buttonRect = new(tabScrollContainerRect.x + ScrollViewWidth, tabScrollContainerRect.y, width, 30);
 
             if (SelectedTab == tab)
             {
-                Widgets.Label(buttonRect.ContractedBy(3f), tab.TabName);
+                TextAnchor anchor = Text.Anchor;
+                Text.Anchor = TextAnchor.MiddleCenter;
+                Widgets.DrawAtlas(buttonRect, Widgets.ButtonBGAtlasClick);
+                Widgets.Label(buttonRect, tab.TabName);
+                Text.Anchor = anchor;
             }
             else
             {
