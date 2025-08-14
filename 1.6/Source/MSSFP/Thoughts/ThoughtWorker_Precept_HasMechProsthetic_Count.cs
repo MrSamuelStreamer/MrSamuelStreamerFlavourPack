@@ -3,7 +3,8 @@ using Verse;
 
 namespace MSSFP.Thoughts;
 
-public class ThoughtWorker_Precept_HasMechProsthetic_Count : ThoughtWorker_Precept_HasProsthetic_Count
+public class ThoughtWorker_Precept_HasMechProsthetic_Count
+    : ThoughtWorker_Precept_HasProsthetic_Count
 {
     public BodyModExtension ext => def.GetModExtension<BodyModExtension>();
 

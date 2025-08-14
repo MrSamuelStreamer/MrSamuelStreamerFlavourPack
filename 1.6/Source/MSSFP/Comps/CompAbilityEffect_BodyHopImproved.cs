@@ -11,7 +11,8 @@ namespace MSSFP.Comps;
 
 public class CompAbilityEffect_BodyHopImproved : CompAbilityEffect
 {
-    public new CompProperties_AbilityBodyHopImproved Props => (CompProperties_AbilityBodyHopImproved)props;
+    public new CompProperties_AbilityBodyHopImproved Props =>
+        (CompProperties_AbilityBodyHopImproved)props;
 
     public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
     {
@@ -154,7 +155,8 @@ public class CompAbilityEffect_BodyHopImproved : CompAbilityEffect
             memories.Clear();
             foreach (Thought_Memory memory in caster.needs.mood.thoughts.memories.Memories)
             {
-                Thought_Memory thought_Memory = (Thought_Memory)ThoughtMaker.MakeThought(memory.def);
+                Thought_Memory thought_Memory = (Thought_Memory)
+                    ThoughtMaker.MakeThought(memory.def);
                 thought_Memory.CopyFrom(memory);
                 thought_Memory.pawn = host;
                 memories.Add(thought_Memory);
@@ -167,8 +169,14 @@ public class CompAbilityEffect_BodyHopImproved : CompAbilityEffect
         }
 
         caster.health.AddHediff(Props.hediffOnSelf);
-        host.health.hediffSet.TryGetHediff(MSSFPDefOf.MSS_FP_PawnDisplayerPossession, out Hediff hostHediff);
-        caster.health.hediffSet.TryGetHediff(MSSFPDefOf.MSS_FP_PawnDisplayerPossession, out Hediff casterHediff);
+        host.health.hediffSet.TryGetHediff(
+            MSSFPDefOf.MSS_FP_PawnDisplayerPossession,
+            out Hediff hostHediff
+        );
+        caster.health.hediffSet.TryGetHediff(
+            MSSFPDefOf.MSS_FP_PawnDisplayerPossession,
+            out Hediff casterHediff
+        );
 
         hostHediff ??= host.health.AddHediff(MSSFPDefOf.MSS_FP_PawnDisplayerPossession);
 
@@ -177,7 +185,8 @@ public class CompAbilityEffect_BodyHopImproved : CompAbilityEffect
         if (haunt is null)
             return;
 
-        HediffComp_BodyHopHaunt casterHauntComp = casterHediff?.TryGetComp<HediffComp_BodyHopHaunt>();
+        HediffComp_BodyHopHaunt casterHauntComp =
+            casterHediff?.TryGetComp<HediffComp_BodyHopHaunt>();
         if (casterHauntComp != null)
         {
             foreach (HediffComp_BodyHopHaunt.PawnInfo pawn in casterHauntComp.pawns.ToList())

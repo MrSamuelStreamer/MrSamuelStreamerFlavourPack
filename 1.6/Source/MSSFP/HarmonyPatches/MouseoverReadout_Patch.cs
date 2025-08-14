@@ -18,12 +18,17 @@ public static class MouseoverReadout_Patch
     [HarmonyPatch(nameof(MouseoverReadout.MouseoverReadoutOnGUI))]
     [HarmonyTranspiler]
     [HarmonyDebug]
-    public static IEnumerable<CodeInstruction> MouseoverReadoutOnGUI(IEnumerable<CodeInstruction> instructions)
+    public static IEnumerable<CodeInstruction> MouseoverReadoutOnGUI(
+        IEnumerable<CodeInstruction> instructions
+    )
     {
         bool found = false;
 
         // Reflection reference to the injected method
-        MethodInfo drawMrStreamerMethod = AccessTools.Method(typeof(MouseoverReadout_Patch), nameof(DrawMrStreamer));
+        MethodInfo drawMrStreamerMethod = AccessTools.Method(
+            typeof(MouseoverReadout_Patch),
+            nameof(DrawMrStreamer)
+        );
 
         List<CodeInstruction> codes = new List<CodeInstruction>(instructions);
 
@@ -60,7 +65,9 @@ public static class MouseoverReadout_Patch
 
         if (!found)
         {
-            UnityEngine.Debug.LogError("Initialization point for `num1` not found in MouseoverReadout_Patch.Transpiler");
+            UnityEngine.Debug.LogError(
+                "Initialization point for `num1` not found in MouseoverReadout_Patch.Transpiler"
+            );
         }
     }
 
@@ -69,7 +76,10 @@ public static class MouseoverReadout_Patch
         if (!MSSFPMod.settings.DrawByMrStreamer)
             return 0;
 
-        Widgets.Label(new Rect(BotLeft.x, UI.screenHeight - BotLeft.y, 999f, 999f), "MSS_MRStreamer".Translate());
+        Widgets.Label(
+            new Rect(BotLeft.x, UI.screenHeight - BotLeft.y, 999f, 999f),
+            "MSS_MRStreamer".Translate()
+        );
 
         return 19f;
     }

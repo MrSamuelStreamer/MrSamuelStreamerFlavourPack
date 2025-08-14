@@ -8,7 +8,13 @@ public static class DrawUtils
 {
     public static Texture2D MakeReadableTextureInstance(this RenderTexture source)
     {
-        RenderTexture temporary = RenderTexture.GetTemporary(source.width, source.height, 0, RenderTextureFormat.Default, RenderTextureReadWrite.Linear);
+        RenderTexture temporary = RenderTexture.GetTemporary(
+            source.width,
+            source.height,
+            0,
+            RenderTextureFormat.Default,
+            RenderTextureReadWrite.Linear
+        );
         temporary.name = "MakeReadableTexture_Temp";
         Graphics.Blit(source, temporary);
         RenderTexture active = RenderTexture.active;
@@ -38,14 +44,28 @@ public static class DrawUtils
         return texture;
     }
 
-    public static void Print(SectionLayer layer, Pawn pawn, Rot4 rot, Vector3 pos, Graphic graphic, float zoom = 1.5f)
+    public static void Print(
+        SectionLayer layer,
+        Pawn pawn,
+        Rot4 rot,
+        Vector3 pos,
+        Graphic graphic,
+        float zoom = 1.5f
+    )
     {
         Vector3 s = new(1.3f, 1f, 1.3f);
 
         pos += graphic.DrawOffset(rot);
 
         // Pass in PawnHealthState.Mobile as an override to ensure the pawn is drawn upright
-        RenderTexture texture = PortraitsCache.Get(pawn, new Vector2(175f, 175f), rot, new Vector3(0f, 0f, 0.1f), zoom, healthStateOverride: PawnHealthState.Mobile);
+        RenderTexture texture = PortraitsCache.Get(
+            pawn,
+            new Vector2(175f, 175f),
+            rot,
+            new Vector3(0f, 0f, 0.1f),
+            zoom,
+            healthStateOverride: PawnHealthState.Mobile
+        );
 
         MaterialRequest req2 = default;
         req2.mainTex = texture.GetGreyscale();

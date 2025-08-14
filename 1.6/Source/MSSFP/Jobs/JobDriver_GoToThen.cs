@@ -18,7 +18,9 @@ public class JobDriver_GoToThen : JobDriver_Goto
                 {
                     if (job.controlGroupTag == null || job.controlGroupTag == null)
                         return;
-                    pawn.GetOverseer()?.mechanitor.GetControlGroup(pawn).SetTag(pawn, job.controlGroupTag);
+                    pawn.GetOverseer()
+                        ?.mechanitor.GetControlGroup(pawn)
+                        .SetTag(pawn, job.controlGroupTag);
                 }
             )
         );

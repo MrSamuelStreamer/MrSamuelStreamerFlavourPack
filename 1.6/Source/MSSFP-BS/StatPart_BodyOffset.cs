@@ -11,7 +11,9 @@ public class StatPart_BodyOffset : StatPart
         if (t is not Pawn pawn)
             return 1f;
 
-        return !pawn.health.hediffSet.TryGetHediff(out Hediff_Bigger hediff) ? 1f : hediff.BodySizeMultiplier;
+        return !pawn.health.hediffSet.TryGetHediff(out Hediff_Bigger hediff)
+            ? 1f
+            : hediff.BodySizeMultiplier;
     }
 
     public override void TransformValue(StatRequest req, ref float val)
@@ -23,6 +25,8 @@ public class StatPart_BodyOffset : StatPart
     {
         float multiplier = GetMultiplier(req.Thing);
 
-        return Mathf.Approximately(multiplier, 1f) ? null : "MSSFP_BS_BodySizeFactor".Translate(multiplier.ToString("0.00" + "%"));
+        return Mathf.Approximately(multiplier, 1f)
+            ? null
+            : "MSSFP_BS_BodySizeFactor".Translate(multiplier.ToString("0.00" + "%"));
     }
 }

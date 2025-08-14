@@ -40,7 +40,8 @@ public class QuestPart_Perganante : QuestPart
             if (spouse == null)
                 continue;
 
-            Hediff_Pregnant preg = pawn.health.AddHediff(HediffDefOf.PregnantHuman) as Hediff_Pregnant;
+            Hediff_Pregnant preg =
+                pawn.health.AddHediff(HediffDefOf.PregnantHuman) as Hediff_Pregnant;
             preg!.SetParents(pawn, spouse, PregnancyUtility.GetInheritedGeneSet(spouse, pawn));
         }
     }

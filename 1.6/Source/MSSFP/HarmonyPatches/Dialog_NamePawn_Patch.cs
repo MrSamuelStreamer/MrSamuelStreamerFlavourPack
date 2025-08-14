@@ -12,11 +12,23 @@ namespace MSSFP.HarmonyPatches;
 [HarmonyPatch(
     typeof(Dialog_NamePawn),
     MethodType.Constructor,
-    [typeof(Pawn), typeof(NameFilter), typeof(NameFilter), typeof(Dictionary<NameFilter, List<string>>), typeof(string), typeof(string), typeof(string), typeof(string)]
+    [
+        typeof(Pawn),
+        typeof(NameFilter),
+        typeof(NameFilter),
+        typeof(Dictionary<NameFilter, List<string>>),
+        typeof(string),
+        typeof(string),
+        typeof(string),
+        typeof(string),
+    ]
 )]
 public static class Dialog_NamePawn_Patch
 {
-    public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions, ILGenerator generator)
+    public static IEnumerable<CodeInstruction> Transpiler(
+        IEnumerable<CodeInstruction> instructions,
+        ILGenerator generator
+    )
     {
         foreach (CodeInstruction instruction in instructions)
         {

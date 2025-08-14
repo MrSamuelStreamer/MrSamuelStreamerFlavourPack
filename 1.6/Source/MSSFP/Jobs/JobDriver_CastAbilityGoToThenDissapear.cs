@@ -14,7 +14,8 @@ public class JobDriver_CastAbilityGoToThenDissapear : JobDriver_CastAbilityGoTo
             (JobCondition c) =>
             {
                 // SkipUtility.SkipTo(pawn, pawn.Position, null);
-                ThingComp thingComp = (ThingComp)Activator.CreateInstance(typeof(CompSkipDespawnNextTick));
+                ThingComp thingComp = (ThingComp)
+                    Activator.CreateInstance(typeof(CompSkipDespawnNextTick));
                 thingComp.parent = pawn;
                 pawn.AllComps.Add(thingComp);
                 thingComp.Initialize(new CompProperties());

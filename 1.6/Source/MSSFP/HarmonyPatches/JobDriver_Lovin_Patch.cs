@@ -14,7 +14,10 @@ public static class JobDriver_Lovin_Patch
 {
     [HarmonyPatch("MakeNewToils", [])]
     [HarmonyPostfix]
-    public static void MakeNewToils_PatchPostfix(JobDriver_Lovin __instance, ref IEnumerable<Toil> __result)
+    public static void MakeNewToils_PatchPostfix(
+        JobDriver_Lovin __instance,
+        ref IEnumerable<Toil> __result
+    )
     {
         List<Toil> toils = __result.ToList();
 

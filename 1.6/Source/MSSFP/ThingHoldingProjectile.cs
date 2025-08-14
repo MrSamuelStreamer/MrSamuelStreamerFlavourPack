@@ -13,7 +13,9 @@ public class ThingHoldingProjectile : Bullet, IThingHolder
 {
     protected ThingOwner innerContainer;
 
-    public Lazy<MethodInfo> NotifyImpactInfo = new Lazy<MethodInfo>(() => AccessTools.Method(typeof(Bullet), "NotifyImpact"));
+    public Lazy<MethodInfo> NotifyImpactInfo = new Lazy<MethodInfo>(() =>
+        AccessTools.Method(typeof(Bullet), "NotifyImpact")
+    );
 
     public Thing HeldThing
     {
@@ -51,7 +53,12 @@ public class ThingHoldingProjectile : Bullet, IThingHolder
         get
         {
             int baseDamage = base.DamageAmount;
-            return HeldThing == null ? 0 : Math.Max(2, Mathf.RoundToInt(baseDamage * HeldThing.GetStatValue(StatDefOf.Mass)));
+            return HeldThing == null
+                ? 0
+                : Math.Max(
+                    2,
+                    Mathf.RoundToInt(baseDamage * HeldThing.GetStatValue(StatDefOf.Mass))
+                );
         }
     }
 
@@ -62,7 +69,14 @@ public class ThingHoldingProjectile : Bullet, IThingHolder
 
         GenClamor.DoClamor(this, 12f, ClamorDefOf.Impact);
 
-        BattleLogEntry_RangedImpact entryRangedImpact = new BattleLogEntry_RangedImpact(launcher, hitThing, intendedTarget.Thing, equipmentDef, def, targetCoverDef);
+        BattleLogEntry_RangedImpact entryRangedImpact = new BattleLogEntry_RangedImpact(
+            launcher,
+            hitThing,
+            intendedTarget.Thing,
+            equipmentDef,
+            def,
+            targetCoverDef
+        );
         Find.BattleLog.Add(entryRangedImpact);
         NotifyImpactInfo.Value.Invoke(this, [hitThing, map, position]);
 
@@ -105,6 +119,9 @@ public class ThingHoldingProjectile : Bullet, IThingHolder
 
     public void GetChildHolders(List<IThingHolder> outChildren)
     {
-        ThingOwnerUtility.AppendThingHoldersFromThings(outChildren, (IList<Thing>)this.GetDirectlyHeldThings());
+        ThingOwnerUtility.AppendThingHoldersFromThings(
+            outChildren,
+            (IList<Thing>)this.GetDirectlyHeldThings()
+        );
     }
 }

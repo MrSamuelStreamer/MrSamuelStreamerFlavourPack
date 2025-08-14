@@ -34,7 +34,9 @@ public static class RitualOutcomeEffectWorker_Skylantern_Patch
         if (!MSSFPDefOf.MSSFP_RaidEnemy_Skylantern.Worker.TryExecute(parms))
             return;
 
-        string outstr = "MSS_FP_RitualOutcomeExtraDesc_SkylanternRaid".Translate(parms.faction.NameColored);
+        string outstr = "MSS_FP_RitualOutcomeExtraDesc_SkylanternRaid".Translate(
+            parms.faction.NameColored
+        );
 
         extraOutcomeDesc = extraOutcomeDesc == null ? outstr : $"{extraOutcomeDesc}\n\n{outstr}";
     }

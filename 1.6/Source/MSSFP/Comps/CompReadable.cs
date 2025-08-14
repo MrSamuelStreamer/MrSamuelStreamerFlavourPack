@@ -27,7 +27,11 @@ public class CompReadable : ThingComp
 
     public virtual void Read()
     {
-        Find.LetterStack.ReceiveLetter(Props.letterLabel.Formatted(), Props.letterText.Formatted(), Props.letterDef);
+        Find.LetterStack.ReceiveLetter(
+            Props.letterLabel.Formatted(),
+            Props.letterText.Formatted(),
+            Props.letterDef
+        );
         parent.Destroy();
     }
 

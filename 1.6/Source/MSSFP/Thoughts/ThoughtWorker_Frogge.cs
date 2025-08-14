@@ -9,6 +9,8 @@ public class ThoughtWorker_Frogge : ThoughtWorker
 
     protected override ThoughtState CurrentStateInternal(Pawn p)
     {
-        return p.Spawned && p.Map.listerThings.ThingsOfDef(MSSFPDefOf.MSSFP_Frogge).Any(thing => p.Position.InHorDistOf(thing.Position, Radius));
+        return p.Spawned
+            && p.Map.listerThings.ThingsOfDef(MSSFPDefOf.MSSFP_Frogge)
+                .Any(thing => p.Position.InHorDistOf(thing.Position, Radius));
     }
 }

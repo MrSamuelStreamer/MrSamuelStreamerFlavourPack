@@ -11,7 +11,9 @@ public static class ResourceGenerator_Patches
 {
     [HarmonyPatch("selectProduct")]
     [HarmonyTranspiler]
-    public static IEnumerable<CodeInstruction> selectProduct(IEnumerable<CodeInstruction> instructions)
+    public static IEnumerable<CodeInstruction> selectProduct(
+        IEnumerable<CodeInstruction> instructions
+    )
     {
         List<CodeInstruction> codes = new(instructions);
         int insertIndex = -1;
@@ -20,7 +22,10 @@ public static class ResourceGenerator_Patches
         for (int i = 0; i < codes.Count; i++)
         {
             // Look for the stackLimit field access
-            if (codes[i].opcode == OpCodes.Ldfld && codes[i].operand is FieldInfo { Name: "stackLimit" })
+            if (
+                codes[i].opcode == OpCodes.Ldfld
+                && codes[i].operand is FieldInfo { Name: "stackLimit" }
+            )
             {
                 // Insert our custom check right before the stackLimit check
                 insertIndex = i - 1; // Position of the thingDef local variable
@@ -46,7 +51,9 @@ public static class ResourceGenerator_Patches
 
             if (branchIndex == -1)
             {
-                Log.Error("[MSSFP ResourceGenerator] Could not find branch instruction in selectProduct method");
+                Log.Error(
+                    "[MSSFP ResourceGenerator] Could not find branch instruction in selectProduct method"
+                );
                 return codes;
             }
 
@@ -57,14 +64,22 @@ public static class ResourceGenerator_Patches
                 insertIndex,
                 [
                     new CodeInstruction(OpCodes.Dup), // Duplicate thingDef on stack
-                    new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(ResourceGenerator_Patches), nameof(ShouldSkipChecks))),
+                    new CodeInstruction(
+                        OpCodes.Call,
+                        AccessTools.Method(
+                            typeof(ResourceGenerator_Patches),
+                            nameof(ShouldSkipChecks)
+                        )
+                    ),
                     new CodeInstruction(OpCodes.Brtrue, continueLabel), // If ShouldSkipChecks returns true, jump to continue
                 ]
             );
         }
         else
         {
-            Log.Error("[MSSFP ResourceGenerator] Could not find insertIndex in selectProduct method");
+            Log.Error(
+                "[MSSFP ResourceGenerator] Could not find insertIndex in selectProduct method"
+            );
         }
 
         return codes;
@@ -73,11 +88,13 @@ public static class ResourceGenerator_Patches
     // Helper method to determine if we should skip the checks
     public static bool ShouldSkipChecks(object objIn)
     {
-        ThingDef thingDef = AccessTools.Field(objIn.GetType(), "thingDef").GetValue(objIn) as ThingDef;
+        ThingDef thingDef =
+            AccessTools.Field(objIn.GetType(), "thingDef").GetValue(objIn) as ThingDef;
         if (thingDef == null)
             return false;
         // Skip checks (i.e., continue the loop) if thingDef is in ExtraBuildables
-        bool isInExtraBuildables = MSSFPResourceGeneratorMod.settings?.ExtraBuildables?.Contains(thingDef) == true;
+        bool isInExtraBuildables =
+            MSSFPResourceGeneratorMod.settings?.ExtraBuildables?.Contains(thingDef) == true;
         ModLog.Debug($"Checking {thingDef.LabelCap} -> isInExtraBuildables={isInExtraBuildables}");
         return isInExtraBuildables;
     }

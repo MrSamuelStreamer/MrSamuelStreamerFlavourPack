@@ -23,7 +23,12 @@ public class CompAbilitySummonPawn : CompAbilityEffect_WithDest
                 {
                     foreach (IntVec3 spawnPosition in spawnPositions)
                     {
-                        FleckMaker.Static(spawnPosition, parent.pawn.Map, FleckDefOf.PsycastSkipOuterRingExit, 1f);
+                        FleckMaker.Static(
+                            spawnPosition,
+                            parent.pawn.Map,
+                            FleckDefOf.PsycastSkipOuterRingExit,
+                            1f
+                        );
                     }
                 }
             },
@@ -43,23 +48,40 @@ public class CompAbilitySummonPawn : CompAbilityEffect_WithDest
             Pawn pawn = PawnGenerator.GeneratePawn(AbilityProps.pawnDef, Faction.OfPlayer);
             GenSpawn.Spawn(pawn, spawnPosition, parent.pawn.Map);
             pawn.Notify_Teleported();
-            parent.AddEffecterToMaintain(EffecterDefOf.Skip_Exit.Spawn(spawnPosition, pawn.Map, 1f), spawnPosition, 60, null);
+            parent.AddEffecterToMaintain(
+                EffecterDefOf.Skip_Exit.Spawn(spawnPosition, pawn.Map, 1f),
+                spawnPosition,
+                60,
+                null
+            );
             FloodFillerFog.FloodUnfog(pawn.Position, pawn.Map);
 
             if (Props.destClamorType != null)
             {
-                GenClamor.DoClamor(pawn, spawnPosition, (float)Props.destClamorRadius, Props.destClamorType);
+                GenClamor.DoClamor(
+                    pawn,
+                    spawnPosition,
+                    (float)Props.destClamorRadius,
+                    Props.destClamorType
+                );
             }
         }
     }
 
-    public virtual bool IdentifyValidSpawnPositions(LocalTargetInfo target, out List<IntVec3> positions)
+    public virtual bool IdentifyValidSpawnPositions(
+        LocalTargetInfo target,
+        out List<IntVec3> positions
+    )
     {
         positions = null;
 
         IEnumerable<IntVec3> validCells = GenRadial
             .RadialCellsAround(target.Cell, 5, true)
-            .Where(cell => parent.pawn.Map.thingGrid.ThingsAt(cell).All(thing => thing.def.passability != Traversability.Impassable))
+            .Where(cell =>
+                parent
+                    .pawn.Map.thingGrid.ThingsAt(cell)
+                    .All(thing => thing.def.passability != Traversability.Impassable)
+            )
             .InRandomOrder()
             .ToList();
 
@@ -73,11 +95,14 @@ public class CompAbilitySummonPawn : CompAbilityEffect_WithDest
 
     public override bool CanHitTarget(LocalTargetInfo target)
     {
-        return CanPlaceSelectedTargetAt(target) && base.CanHitTarget(target) && IdentifyValidSpawnPositions(target, out List<IntVec3> _);
+        return CanPlaceSelectedTargetAt(target)
+            && base.CanHitTarget(target)
+            && IdentifyValidSpawnPositions(target, out List<IntVec3> _);
     }
 
     public override bool Valid(LocalTargetInfo target, bool showMessages = false)
     {
-        return IdentifyValidSpawnPositions(target, out List<IntVec3> _) && base.Valid(target, showMessages);
+        return IdentifyValidSpawnPositions(target, out List<IntVec3> _)
+            && base.Valid(target, showMessages);
     }
 }

@@ -20,7 +20,13 @@ public class SymbolResolver_ConstructionSite : SymbolResolver
 
     public static List<Thing> GetLoot()
     {
-        return MSSFPDefOf.MSSFP_Construction.root.Generate(new ThingSetMakerParams { maxThingMarketValue = null, allowNonStackableDuplicates = true });
+        return MSSFPDefOf.MSSFP_Construction.root.Generate(
+            new ThingSetMakerParams
+            {
+                maxThingMarketValue = null,
+                allowNonStackableDuplicates = true,
+            }
+        );
     }
 
     public override void Resolve(ResolveParams rp)
@@ -30,7 +36,10 @@ public class SymbolResolver_ConstructionSite : SymbolResolver
         int edgeDefenseWidth = 0;
         if (rp.edgeDefenseWidth.HasValue)
             edgeDefenseWidth = rp.edgeDefenseWidth.Value;
-        else if (rp.rect is { Width: >= 20, Height: >= 20 } && (enemyFaction.def.techLevel >= TechLevel.Industrial || Rand.Bool))
+        else if (
+            rp.rect is { Width: >= 20, Height: >= 20 }
+            && (enemyFaction.def.techLevel >= TechLevel.Industrial || Rand.Bool)
+        )
             edgeDefenseWidth = Rand.Bool ? 2 : 4;
 
         int step = rp.rect.Width - 2 * InsetPathFromEdgeBy - PathWidth;
@@ -41,11 +50,29 @@ public class SymbolResolver_ConstructionSite : SymbolResolver
         List<CellRect> areas = [];
 
         areas.Add(CellRect.FromLimits(rp.rect.minX, rp.rect.minZ, startVert, startHoriz)); // Top Left
-        areas.Add(CellRect.FromLimits(startVert + PathWidth, startHoriz + PathWidth, rp.rect.maxX, rp.rect.maxZ)); // Bottom Right
-        areas.Add(CellRect.FromLimits(startVert + PathWidth, rp.rect.minZ, rp.rect.maxX, startHoriz)); // Top Right
-        areas.Add(CellRect.FromLimits(rp.rect.minX, startHoriz + PathWidth, startVert, rp.rect.maxZ)); // Bottom Left
+        areas.Add(
+            CellRect.FromLimits(
+                startVert + PathWidth,
+                startHoriz + PathWidth,
+                rp.rect.maxX,
+                rp.rect.maxZ
+            )
+        ); // Bottom Right
+        areas.Add(
+            CellRect.FromLimits(startVert + PathWidth, rp.rect.minZ, rp.rect.maxX, startHoriz)
+        ); // Top Right
+        areas.Add(
+            CellRect.FromLimits(rp.rect.minX, startHoriz + PathWidth, startVert, rp.rect.maxZ)
+        ); // Bottom Left
 
-        BaseGen.symbolStack.Push("rectTrigger", rp with { rect = rp.rect, rectTriggerSignalTag = AmbushTag });
+        BaseGen.symbolStack.Push(
+            "rectTrigger",
+            rp with
+            {
+                rect = rp.rect,
+                rectTriggerSignalTag = AmbushTag,
+            }
+        );
 
         BaseGen.symbolStack.Push(
             "ambush",
@@ -59,7 +86,14 @@ public class SymbolResolver_ConstructionSite : SymbolResolver
         );
 
         SpawnPawns(rp, enemyFaction, map);
-        BaseGen.symbolStack.Push("thing", rp with { rect = areas.RandomElement(), singleThingToSpawn = rp.conditionCauser });
+        BaseGen.symbolStack.Push(
+            "thing",
+            rp with
+            {
+                rect = areas.RandomElement(),
+                singleThingToSpawn = rp.conditionCauser,
+            }
+        );
 
         foreach (CellRect cellRect in areas)
         {
@@ -73,13 +107,21 @@ public class SymbolResolver_ConstructionSite : SymbolResolver
 
         BaseGen.symbolStack.Push("clear", rp with { clearRoof = true });
 
-        ResolveParams ensureCanReachMapEdgeRP = rp with { rect = rp.rect.ContractedBy(edgeDefenseWidth), faction = enemyFaction };
+        ResolveParams ensureCanReachMapEdgeRP = rp with
+        {
+            rect = rp.rect.ContractedBy(edgeDefenseWidth),
+            faction = enemyFaction,
+        };
         BaseGen.symbolStack.Push("ensureCanReachMapEdge", ensureCanReachMapEdgeRP);
     }
 
     public static Dictionary<ThingDef, float> _weightedConstructionThingDefs = [];
 
-    public static void MaybeGetDef(ref Dictionary<ThingDef, float> defs, string defName, float chance = 0.05f)
+    public static void MaybeGetDef(
+        ref Dictionary<ThingDef, float> defs,
+        string defName,
+        float chance = 0.05f
+    )
     {
         ThingDef def = DefDatabase<ThingDef>.GetNamed(defName, false);
         if (def != null)
@@ -93,10 +135,22 @@ public class SymbolResolver_ConstructionSite : SymbolResolver
             if (_weightedConstructionThingDefs.NullOrEmpty())
             {
                 _weightedConstructionThingDefs = new Dictionary<ThingDef, float>();
-                _weightedConstructionThingDefs.Add(DefDatabase<ThingDef>.GetNamed("TableStonecutter"), 0.05f);
-                _weightedConstructionThingDefs.Add(DefDatabase<ThingDef>.GetNamed("ElectricSmelter"), 0.05f);
-                _weightedConstructionThingDefs.Add(DefDatabase<ThingDef>.GetNamed("FueledSmithy"), 0.05f);
-                _weightedConstructionThingDefs.Add(DefDatabase<ThingDef>.GetNamed("ShelfSmall"), 0.5f);
+                _weightedConstructionThingDefs.Add(
+                    DefDatabase<ThingDef>.GetNamed("TableStonecutter"),
+                    0.05f
+                );
+                _weightedConstructionThingDefs.Add(
+                    DefDatabase<ThingDef>.GetNamed("ElectricSmelter"),
+                    0.05f
+                );
+                _weightedConstructionThingDefs.Add(
+                    DefDatabase<ThingDef>.GetNamed("FueledSmithy"),
+                    0.05f
+                );
+                _weightedConstructionThingDefs.Add(
+                    DefDatabase<ThingDef>.GetNamed("ShelfSmall"),
+                    0.5f
+                );
                 _weightedConstructionThingDefs.Add(DefDatabase<ThingDef>.GetNamed("Shelf"), 0.5f);
 
                 MaybeGetDef(ref _weightedConstructionThingDefs, "FT_TableConcreteMixer");
@@ -104,7 +158,11 @@ public class SymbolResolver_ConstructionSite : SymbolResolver
                 MaybeGetDef(ref _weightedConstructionThingDefs, "DankPyon_Bricks2x2c", 0.3f);
                 MaybeGetDef(ref _weightedConstructionThingDefs, "DankPyon_Kiln");
                 MaybeGetDef(ref _weightedConstructionThingDefs, "VBY_PrimitiveKiln");
-                MaybeGetDef(ref _weightedConstructionThingDefs, "BasicStorageIndustrialContainer", 0.3f);
+                MaybeGetDef(
+                    ref _weightedConstructionThingDefs,
+                    "BasicStorageIndustrialContainer",
+                    0.3f
+                );
                 MaybeGetDef(ref _weightedConstructionThingDefs, "VBY_PrimitiveStoneCuttingTable");
                 MaybeGetDef(ref _weightedConstructionThingDefs, "DankPyon_MiningTools");
                 MaybeGetDef(ref _weightedConstructionThingDefs, "DankPyon_BarrelWater", 0.3f);
@@ -142,9 +200,18 @@ public class SymbolResolver_ConstructionSite : SymbolResolver
 
     public static void GenerateStockpile(ResolveParams rp, Map map, Faction enemyFaction)
     {
-        ResolveParams wallRP = rp with { wallThingDef = ThingDefOf.AncientFence, chanceToSkipWallBlock = 0.05f };
+        ResolveParams wallRP = rp with
+        {
+            wallThingDef = ThingDefOf.AncientFence,
+            chanceToSkipWallBlock = 0.05f,
+        };
 
-        ResolveParams pathRP = rp with { floorDef = TerrainDefOf.Concrete, allowBridgeOnAnyImpassableTerrain = true, floorOnlyIfTerrainSupports = true };
+        ResolveParams pathRP = rp with
+        {
+            floorDef = TerrainDefOf.Concrete,
+            allowBridgeOnAnyImpassableTerrain = true,
+            floorOnlyIfTerrainSupports = true,
+        };
 
         List<Thing> loot = GetLoot();
 
@@ -160,7 +227,14 @@ public class SymbolResolver_ConstructionSite : SymbolResolver
 
             loot.Remove(thing);
 
-            BaseGen.symbolStack.Push("thing", rp with { singleThingToSpawn = container, singleThingInnerThings = [thing] });
+            BaseGen.symbolStack.Push(
+                "thing",
+                rp with
+                {
+                    singleThingToSpawn = container,
+                    singleThingInnerThings = [thing],
+                }
+            );
         }
 
         List<Thing> list = ThingSetMakerDefOf.MapGen_AncientTempleContents.root.Generate();
@@ -221,7 +295,8 @@ public class SymbolResolver_ConstructionSite : SymbolResolver
             faction = enemyFaction,
             singlePawnLord = lord,
             pawnGroupKindDef = PawnGroupKindDefOf.Loggers,
-            singlePawnSpawnCellExtraPredicate = x => map.reachability.CanReachMapEdge(x, TraverseParms.For(TraverseMode.PassDoors)),
+            singlePawnSpawnCellExtraPredicate = x =>
+                map.reachability.CanReachMapEdge(x, TraverseParms.For(TraverseMode.PassDoors)),
         };
 
         if (pawnGenerationParams.pawnGroupMakerParams == null)

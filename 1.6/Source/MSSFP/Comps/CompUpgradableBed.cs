@@ -39,7 +39,8 @@ public class CompUpgradableBed : ThingComp
 
     public CompProperties_UpgradableBed Props => props as CompProperties_UpgradableBed;
 
-    public static IEnumerable<BedUpgradeDef> BedUpgradesAvailable => DefDatabase<BedUpgradeDef>.AllDefs;
+    public static IEnumerable<BedUpgradeDef> BedUpgradesAvailable =>
+        DefDatabase<BedUpgradeDef>.AllDefs;
     public Building_Bed Bed => parent as Building_Bed;
     public float Experience = 0;
     public int Levels = 0;
@@ -60,7 +61,8 @@ public class CompUpgradableBed : ThingComp
 
     public string NewName = null;
 
-    public virtual int TotalLevelsGained => StatOffsets.Count + StatMultipliers.Count + AppliedOneshotUpgrades.Count + Levels;
+    public virtual int TotalLevelsGained =>
+        StatOffsets.Count + StatMultipliers.Count + AppliedOneshotUpgrades.Count + Levels;
 
     public virtual void Reset(bool all = false)
     {
@@ -89,7 +91,9 @@ public class CompUpgradableBed : ThingComp
             Experience -= PointsPerLevel;
             Levels++;
             Messages.Message(
-                reasonString != null ? "MSSFP_BedLevelUpWithReason".Translate(parent.LabelCap, reasonString) : "MSSFP_BedLevelUp".Translate(parent.LabelCap),
+                reasonString != null
+                    ? "MSSFP_BedLevelUpWithReason".Translate(parent.LabelCap, reasonString)
+                    : "MSSFP_BedLevelUp".Translate(parent.LabelCap),
                 new LookTargets([Bed]),
                 MessageTypeDefOf.PositiveEvent,
                 false
@@ -104,7 +108,9 @@ public class CompUpgradableBed : ThingComp
 
     public static CompUpgradableBed CompForPregnancy(Hediff_Pregnant hediff)
     {
-        return AllBeds.FirstOrDefault(c => c.RegisteredPregnancies.Any(p => p.Mother == hediff.pawn));
+        return AllBeds.FirstOrDefault(c =>
+            c.RegisteredPregnancies.Any(p => p.Mother == hediff.pawn)
+        );
     }
 
     public List<Pawn> ParentsForPregnancy(Hediff_Pregnant hediff)
@@ -140,9 +146,18 @@ public class CompUpgradableBed : ThingComp
         Scribe_Values.Look(ref Levels, "Levels", 0);
         Scribe_Values.Look(ref NewName, "NewName", null);
         Scribe_Collections.Look(ref PawnsLovedInThisBed, "PawnsLovedInThisBed", LookMode.Reference);
-        Scribe_Collections.Look(ref PawnsConcievedInThisBed, "PawnsConcievedInThisBed", LookMode.Reference);
+        Scribe_Collections.Look(
+            ref PawnsConcievedInThisBed,
+            "PawnsConcievedInThisBed",
+            LookMode.Reference
+        );
         Scribe_Collections.Look(ref RegisteredPregnancies, "RegisteredPregnancies", LookMode.Deep);
-        Scribe_Collections.Look(ref StatMultipliers, "StatMultipliers", LookMode.Def, LookMode.Value);
+        Scribe_Collections.Look(
+            ref StatMultipliers,
+            "StatMultipliers",
+            LookMode.Def,
+            LookMode.Value
+        );
         Scribe_Collections.Look(ref StatOffsets, "StatOffsets", LookMode.Def, LookMode.Value);
         Scribe_Collections.Look(ref PawnsSleptInThisBed, "PawnsSleptInThisBed", LookMode.Reference);
         Scribe_Collections.Look(ref AppliedOneshotUpgrades, "AppliedOneshotUpgrades", LookMode.Def);
@@ -194,7 +209,9 @@ public class CompUpgradableBed : ThingComp
         {
             AddExperience(0.025f, "MSSFP_BedLevelUpBecauseSlept".Translate(occupant.LabelShort));
             Hediff hediff = occupant.health.GetOrAddHediff(MSSFPDefOf.MSS_FP_WellSlept);
-            hediff.Severity += (Props.wellRestedCurve.Evaluate(TotalLevelsGained) * HediffMultiplier);
+            hediff.Severity += (
+                Props.wellRestedCurve.Evaluate(TotalLevelsGained) * HediffMultiplier
+            );
             HediffCompBedUpgrade hcomp = hediff.TryGetComp<HediffCompBedUpgrade>();
             if (hcomp == null)
                 continue;
@@ -208,7 +225,9 @@ public class CompUpgradableBed : ThingComp
     public override string CompInspectStringExtra()
     {
         StringBuilder stringBuilder = new(base.CompInspectStringExtra());
-        stringBuilder.AppendLine("MSSFP_BedExp".Translate(Experience.ToStringDecimalIfSmall(), PointsPerLevel));
+        stringBuilder.AppendLine(
+            "MSSFP_BedExp".Translate(Experience.ToStringDecimalIfSmall(), PointsPerLevel)
+        );
         stringBuilder.AppendLine("MSSFP_BedLevels".Translate(Levels));
 
         if (!PawnsSleptInThisBed.NullOrEmpty())

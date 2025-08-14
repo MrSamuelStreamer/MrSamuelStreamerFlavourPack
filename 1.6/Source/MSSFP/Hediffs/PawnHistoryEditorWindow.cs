@@ -73,10 +73,18 @@ public class PawnHistoryEditorWindow(HediffComp_BodyHopHaunt comp) : Window
             Selected.name = Widgets.TextField(nameEntry.Rect.ContractedBy(4f), Selected.name);
 
             Widgets.Label(descriptionLabel.Rect.ContractedBy(10f), "Description: ");
-            Selected.description = Widgets.TextArea(descriptionEntry.Rect.ContractedBy(4f), Selected.description);
+            Selected.description = Widgets.TextArea(
+                descriptionEntry.Rect.ContractedBy(4f),
+                Selected.description
+            );
 
             Widgets.Label(skillLabel.Rect.ContractedBy(10f), "Best Skill: ");
-            if (Widgets.ButtonText(skillEntry.Rect.ContractedBy(4f), Selected.bestSkill == null ? "Select skill" : Selected.bestSkill.label))
+            if (
+                Widgets.ButtonText(
+                    skillEntry.Rect.ContractedBy(4f),
+                    Selected.bestSkill == null ? "Select skill" : Selected.bestSkill.label
+                )
+            )
             {
                 // Show float
                 List<FloatMenuOption> options = new List<FloatMenuOption>();
@@ -96,7 +104,11 @@ public class PawnHistoryEditorWindow(HediffComp_BodyHopHaunt comp) : Window
             }
 
             Widgets.Label(skillLevelLabel.Rect.ContractedBy(10f), "Skill Boost: ");
-            Widgets.IntEntry(skillLevelEntry.Rect.ContractedBy(4f), ref Selected.skillOffset, ref buffer);
+            Widgets.IntEntry(
+                skillLevelEntry.Rect.ContractedBy(4f),
+                ref Selected.skillOffset,
+                ref buffer
+            );
 
             Widgets.Label(traitLabel.Rect.ContractedBy(10f), "Traits: ");
             if (Widgets.ButtonText(traitEntry.Rect.ContractedBy(4f), "Select trait"))
@@ -134,15 +146,29 @@ public class PawnHistoryEditorWindow(HediffComp_BodyHopHaunt comp) : Window
                     traitScrollContainer.xMax -= 30;
 
                     int scrollViewHeight = Selected.passedTraits.Count * 45;
-                    Rect scrollViewRect = new Rect(0f, 0f, traitScrollContainer.width, scrollViewHeight);
-                    Widgets.BeginScrollView(traitScrollContainer, ref traitScrollPosition, scrollViewRect);
+                    Rect scrollViewRect = new Rect(
+                        0f,
+                        0f,
+                        traitScrollContainer.width,
+                        scrollViewHeight
+                    );
+                    Widgets.BeginScrollView(
+                        traitScrollContainer,
+                        ref traitScrollPosition,
+                        scrollViewRect
+                    );
 
                     int currentHeight = 0;
                     TraitDef toRemove = null;
 
                     foreach (TraitDef traitDef in Selected.passedTraits)
                     {
-                        if (Widgets.ButtonText(new Rect(0, currentHeight, 300f, 40), $"Remove: {traitDef.defName}"))
+                        if (
+                            Widgets.ButtonText(
+                                new Rect(0, currentHeight, 300f, 40),
+                                $"Remove: {traitDef.defName}"
+                            )
+                        )
                         {
                             toRemove = traitDef;
                         }
@@ -160,7 +186,11 @@ public class PawnHistoryEditorWindow(HediffComp_BodyHopHaunt comp) : Window
             }
 
             Widgets.Label(tickAddedLabel.Rect.ContractedBy(10f), "Tick Added: ");
-            Widgets.IntEntry(tickAddedEntry.Rect.ContractedBy(4f), ref Selected.swapTick, ref buffer2);
+            Widgets.IntEntry(
+                tickAddedEntry.Rect.ContractedBy(4f),
+                ref Selected.swapTick,
+                ref buffer2
+            );
 
             RectDivider saveRect = save.NewCol(200f);
             RectDivider closeRect = save.NewCol(200f);

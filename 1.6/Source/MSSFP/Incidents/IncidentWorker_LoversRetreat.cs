@@ -27,7 +27,10 @@ public class IncidentWorker_LoversRetreat : IncidentWorker
             {
                 foreach (Pawn spouse in pawn.GetSpouses(false))
                 {
-                    if (!spouse.health.hediffSet.HasHediff(HediffDefOf.PregnantHuman) && spouse.Map == map)
+                    if (
+                        !spouse.health.hediffSet.HasHediff(HediffDefOf.PregnantHuman)
+                        && spouse.Map == map
+                    )
                     {
                         return true;
                     }
@@ -55,7 +58,11 @@ public class IncidentWorker_LoversRetreat : IncidentWorker
         return parms.target is not Map map
             ? null
             : map
-                .mapPawns.AllPawnsSpawned.Where(pawn => pawn.ageTracker.Adult && !pawn.Downed && pawn.GetSpouses(false).Any(spouse => spouse.Map == map))
+                .mapPawns.AllPawnsSpawned.Where(pawn =>
+                    pawn.ageTracker.Adult
+                    && !pawn.Downed
+                    && pawn.GetSpouses(false).Any(spouse => spouse.Map == map)
+                )
                 .RandomElementWithFallback();
     }
 
@@ -65,9 +72,18 @@ public class IncidentWorker_LoversRetreat : IncidentWorker
         Pawn spouse = pawn?.GetSpouses(false).RandomElement();
         if (spouse is null)
             return false;
-        if (!RCellFinder.TryFindBestExitSpot(pawn, out IntVec3 pawnSpot, TraverseMode.ByPawn, false))
+        if (
+            !RCellFinder.TryFindBestExitSpot(pawn, out IntVec3 pawnSpot, TraverseMode.ByPawn, false)
+        )
             return false;
-        if (!RCellFinder.TryFindBestExitSpot(spouse, out IntVec3 spouseSpot, TraverseMode.ByPawn, false))
+        if (
+            !RCellFinder.TryFindBestExitSpot(
+                spouse,
+                out IntVec3 spouseSpot,
+                TraverseMode.ByPawn,
+                false
+            )
+        )
             return false;
 
         LoversRetreatMapComponent comp = pawn.Map.GetComponent<LoversRetreatMapComponent>();
@@ -76,15 +92,32 @@ public class IncidentWorker_LoversRetreat : IncidentWorker
             return false;
 
         //wander to midpoint, then exit at spot
-        if (!RCellFinder.TryFindRandomClearCellsNear(spouse.Position, 3, spouse.Map, out List<IntVec3> cells))
+        if (
+            !RCellFinder.TryFindRandomClearCellsNear(
+                spouse.Position,
+                3,
+                spouse.Map,
+                out List<IntVec3> cells
+            )
+        )
             return false;
 
-        Job pawnJob1 = JobMaker.MakeJob(MSSFPDefOf.MSSFP_GoToThen, cells.RandomElement(), GenDate.TicksPerHour * 6, true);
+        Job pawnJob1 = JobMaker.MakeJob(
+            MSSFPDefOf.MSSFP_GoToThen,
+            cells.RandomElement(),
+            GenDate.TicksPerHour * 6,
+            true
+        );
         pawnJob1.targetB = pawnSpot;
         pawnJob1.targetC = spouse;
         pawn.jobs.StartJob(pawnJob1, JobCondition.InterruptForced);
 
-        Job spouseJob1 = JobMaker.MakeJob(MSSFPDefOf.MSSFP_GoToThen, spouse.Position, GenDate.TicksPerHour * 6, true);
+        Job spouseJob1 = JobMaker.MakeJob(
+            MSSFPDefOf.MSSFP_GoToThen,
+            spouse.Position,
+            GenDate.TicksPerHour * 6,
+            true
+        );
         spouseJob1.targetB = spouseSpot;
         spouseJob1.targetC = pawn;
         spouse.jobs.StartJob(spouseJob1, JobCondition.InterruptForced);
@@ -96,7 +129,11 @@ public class IncidentWorker_LoversRetreat : IncidentWorker
 
         Find.LetterStack.ReceiveLetter(
             "MSSFP_LoversRetreatLabel".Translate(pawn.NameShortColored, spouse.NameShortColored),
-            "MSSFP_LoversRetreadText".Translate(pawn.NameShortColored, spouse.NameShortColored, timeAway / GenDate.TicksPerHour),
+            "MSSFP_LoversRetreadText".Translate(
+                pawn.NameShortColored,
+                spouse.NameShortColored,
+                timeAway / GenDate.TicksPerHour
+            ),
             LetterDefOf.PositiveEvent,
             targets
         );

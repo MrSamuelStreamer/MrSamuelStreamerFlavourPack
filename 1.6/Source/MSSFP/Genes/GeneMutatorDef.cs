@@ -36,7 +36,8 @@ public class GeneMutatorDef : Def
                 return workerInt;
             }
 
-            workerInt = (GeneMutatorWorker)Activator.CreateInstance(mutatorWorker ?? typeof(GeneMutatorWorker));
+            workerInt = (GeneMutatorWorker)
+                Activator.CreateInstance(mutatorWorker ?? typeof(GeneMutatorWorker));
             workerInt.Initialize(this);
 
             return workerInt;
@@ -73,7 +74,11 @@ public class GeneMutatorDef : Def
             yield return "can't enable pinataMode when not a Worker type";
         if (type == MutatorType.Worker && mutatorWorker == null)
             yield return "mutatorWorker must be set if type is Exposure";
-        if (type == MutatorType.Worker && mutatorWorker != null && !typeof(GeneMutatorWorker).IsAssignableFrom(mutatorWorker))
+        if (
+            type == MutatorType.Worker
+            && mutatorWorker != null
+            && !typeof(GeneMutatorWorker).IsAssignableFrom(mutatorWorker)
+        )
             yield return "mutatorWorker must be GeneMutatorWorker or a subclass of it";
         if (!genes.NullOrEmpty() && geneClassificationDef != null)
             yield return "can't define both genes and geneClassificationDef";

@@ -8,7 +8,12 @@ namespace MSSFP.VEE;
 
 public class NuclearFallout : GameCondition
 {
-    public SkyColorSet FalloutRainColors = new(new ColorInt(20, 91, 17).ToColor, new ColorInt(7, 54, 5).ToColor, new ColorInt(25, 149, 21).ToColor, 0.85f);
+    public SkyColorSet FalloutRainColors = new(
+        new ColorInt(20, 91, 17).ToColor,
+        new ColorInt(7, 54, 5).ToColor,
+        new ColorInt(25, 149, 21).ToColor,
+        0.85f
+    );
     public readonly List<SkyOverlay> overlays = [new WeatherOverlay_Rain()];
 
     public override bool AllowEnjoyableOutsideNow(Map map) => false;
@@ -32,7 +37,10 @@ public class NuclearFallout : GameCondition
 
     public override void Init()
     {
-        LessonAutoActivator.TeachOpportunity(ConceptDefOf.ForbiddingDoors, OpportunityType.Critical);
+        LessonAutoActivator.TeachOpportunity(
+            ConceptDefOf.ForbiddingDoors,
+            OpportunityType.Critical
+        );
         LessonAutoActivator.TeachOpportunity(ConceptDefOf.AllowedAreas, OpportunityType.Critical);
     }
 

@@ -91,7 +91,8 @@ public class BedUpgradeDef : Def
                 return workerInt;
             }
 
-            workerInt = (BedUpgradeWorker)Activator.CreateInstance(workerClass ?? typeof(BedUpgradeWorker));
+            workerInt = (BedUpgradeWorker)
+                Activator.CreateInstance(workerClass ?? typeof(BedUpgradeWorker));
             workerInt.Initialize(this);
 
             return workerInt;

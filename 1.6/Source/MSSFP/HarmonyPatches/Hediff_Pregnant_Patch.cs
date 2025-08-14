@@ -36,7 +36,10 @@ public static class Hediff_Pregnant_Patch
                         inbredChanceOnChild = relation1.inbredChanceOnChild;
                         relation = relation1;
                     }
-                    inbredChanceOnChild = Mathf.Max(inbredChanceOnChild, relation1.inbredChanceOnChild);
+                    inbredChanceOnChild = Mathf.Max(
+                        inbredChanceOnChild,
+                        relation1.inbredChanceOnChild
+                    );
                 }
             }
         }
@@ -53,7 +56,10 @@ public static class Hediff_Pregnant_Patch
             {
                 foreach (Gene endogene in parent.genes.Endogenes)
                 {
-                    if (endogene.def.endogeneCategory != EndogeneCategory.Melanin && endogene.def.biostatArc <= 0)
+                    if (
+                        endogene.def.endogeneCategory != EndogeneCategory.Melanin
+                        && endogene.def.biostatArc <= 0
+                    )
                     {
                         if (!tmpGenesShuffled.Contains(endogene.def))
                             tmpGenesShuffled.Add(endogene.def);
@@ -85,7 +91,11 @@ public static class Hediff_Pregnant_Patch
         } while (generationTries < 50);
         success = generationTries < 50;
 
-        if (PawnSkinColors.SkinColorsFromParents(parents.RandomElement(), parents.RandomElement()).TryRandomElement(out GeneDef result))
+        if (
+            PawnSkinColors
+                .SkinColorsFromParents(parents.RandomElement(), parents.RandomElement())
+                .TryRandomElement(out GeneDef result)
+        )
             tmpGenes.Add(result);
 
         if (!tmpGenes.Any(x => x.endogeneCategory == EndogeneCategory.HairColor))
@@ -93,7 +103,9 @@ public static class Hediff_Pregnant_Patch
             List<GeneDef> endogeneByCategory = [];
             foreach (Pawn parent in parents)
             {
-                endogeneByCategory.Add(parent?.genes?.GetFirstEndogeneByCategory(EndogeneCategory.HairColor));
+                endogeneByCategory.Add(
+                    parent?.genes?.GetFirstEndogeneByCategory(EndogeneCategory.HairColor)
+                );
             }
 
             if (endogeneByCategory.Count > 0)
@@ -103,12 +115,19 @@ public static class Hediff_Pregnant_Patch
             else
             {
                 GeneDef result2;
-                if (DefDatabase<GeneDef>.AllDefs.Where(x => x.endogeneCategory == EndogeneCategory.HairColor).TryRandomElementByWeight(x => x.selectionWeight, out result2))
+                if (
+                    DefDatabase<GeneDef>
+                        .AllDefs.Where(x => x.endogeneCategory == EndogeneCategory.HairColor)
+                        .TryRandomElementByWeight(x => x.selectionWeight, out result2)
+                )
                     tmpGenes.Add(result2);
             }
         }
 
-        if (!tmpGenes.Contains(GeneDefOf.Inbred) && Rand.Value < (double)InbredChanceFromParents(parents, out PawnRelationDef _))
+        if (
+            !tmpGenes.Contains(GeneDefOf.Inbred)
+            && Rand.Value < (double)InbredChanceFromParents(parents, out PawnRelationDef _)
+        )
             tmpGenes.Add(GeneDefOf.Inbred);
         tmpGeneChances.Clear();
         tmpGenesShuffled.Clear();
@@ -119,7 +138,9 @@ public static class Hediff_Pregnant_Patch
     [HarmonyPostfix]
     public static void PostAdd_Patch(Hediff_Pregnant __instance)
     {
-        Building_Bed bed = CompUpgradableBed.AllBeds.Select(comp => comp.Bed).FirstOrDefault(b => b.CurOccupants.Contains(__instance.pawn));
+        Building_Bed bed = CompUpgradableBed
+            .AllBeds.Select(comp => comp.Bed)
+            .FirstOrDefault(b => b.CurOccupants.Contains(__instance.pawn));
 
         CompUpgradableBed comp = bed?.TryGetComp<CompUpgradableBed>();
         if (comp == null)
@@ -150,16 +171,27 @@ public static class Hediff_Pregnant_Patch
         if (mother.RaceProps.Humanlike && !ModsConfig.BiotechActive)
             return false;
 
-        int litterSize = mother.RaceProps.litterSizeCurve != null ? Mathf.RoundToInt(Rand.ByCurve(mother.RaceProps.litterSizeCurve)) : 1;
+        int litterSize =
+            mother.RaceProps.litterSizeCurve != null
+                ? Mathf.RoundToInt(Rand.ByCurve(mother.RaceProps.litterSizeCurve))
+                : 1;
         if (litterSize < 1)
             litterSize = 1;
 
         if (litterSize == 1)
         {
-            litterSize = Rand.RangeInclusive(1, Math.Max(1, comp.ParentsForPregnancy(__instance).Count));
+            litterSize = Rand.RangeInclusive(
+                1,
+                Math.Max(1, comp.ParentsForPregnancy(__instance).Count)
+            );
         }
 
-        PawnGenerationRequest request = new(mother.kindDef, mother.Faction, allowDowned: true, developmentalStages: DevelopmentalStage.Newborn);
+        PawnGenerationRequest request = new(
+            mother.kindDef,
+            mother.Faction,
+            allowDowned: true,
+            developmentalStages: DevelopmentalStage.Newborn
+        );
         Pawn pawn = null;
         for (int index = 0; index < litterSize; ++index)
         {
@@ -167,7 +199,9 @@ public static class Hediff_Pregnant_Patch
             if (PawnUtility.TrySpawnHatchedOrBornPawn(pawn, mother))
             {
                 if (pawn.playerSettings != null && mother.playerSettings != null)
-                    pawn.playerSettings.AreaRestrictionInPawnCurrentMap = mother.playerSettings.AreaRestrictionInPawnCurrentMap;
+                    pawn.playerSettings.AreaRestrictionInPawnCurrentMap = mother
+                        .playerSettings
+                        .AreaRestrictionInPawnCurrentMap;
                 if (pawn.RaceProps.IsFlesh)
                 {
                     foreach (Pawn parent in comp.ParentsForPregnancy(__instance))
@@ -193,7 +227,13 @@ public static class Hediff_Pregnant_Patch
         }
         if (!mother.Spawned)
             return false;
-        FilthMaker.TryMakeFilth(mother.Position, mother.Map, ThingDefOf.Filth_AmnioticFluid, mother.LabelIndefinite(), 5);
+        FilthMaker.TryMakeFilth(
+            mother.Position,
+            mother.Map,
+            ThingDefOf.Filth_AmnioticFluid,
+            mother.LabelIndefinite(),
+            5
+        );
         mother.caller?.DoCall();
         pawn.caller?.DoCall();
 

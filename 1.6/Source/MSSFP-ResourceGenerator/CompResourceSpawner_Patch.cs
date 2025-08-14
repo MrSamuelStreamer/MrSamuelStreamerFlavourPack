@@ -14,8 +14,14 @@ public static class CompResourceSpawner_Patch
     // [HarmonyTranspiler]
     public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
     {
-        MethodInfo thingMakerMakeThingMethod = AccessTools.Method(typeof(ThingMaker), nameof(ThingMaker.MakeThing));
-        MethodInfo spawnThingMethod = AccessTools.Method(typeof(CompResourceSpawner_Patch), nameof(SpawnThing));
+        MethodInfo thingMakerMakeThingMethod = AccessTools.Method(
+            typeof(ThingMaker),
+            nameof(ThingMaker.MakeThing)
+        );
+        MethodInfo spawnThingMethod = AccessTools.Method(
+            typeof(CompResourceSpawner_Patch),
+            nameof(SpawnThing)
+        );
 
         bool found = false;
 

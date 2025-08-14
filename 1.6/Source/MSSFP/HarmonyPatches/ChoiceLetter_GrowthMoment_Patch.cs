@@ -22,7 +22,9 @@ public static class ChoiceLetter_GrowthMoment_Patch
         if (__instance.def != LetterDefOf.ChildToAdult)
             return;
 
-        List<GeneDef> genePool = DefDatabase<GeneDef>.AllDefs.Where(g => g.HasModExtension<AgeUpGeneModDefExtension>()).ToList();
+        List<GeneDef> genePool = DefDatabase<GeneDef>
+            .AllDefs.Where(g => g.HasModExtension<AgeUpGeneModDefExtension>())
+            .ToList();
         if (genePool.Count <= 0)
             return;
 
@@ -31,17 +33,33 @@ public static class ChoiceLetter_GrowthMoment_Patch
 
         for (int i = 0; i < geneCount; i++)
         {
-            if (!genePool.Except(genesToExclude).TryRandomElementByWeight(g => g.GetModExtension<AgeUpGeneModDefExtension>().WeightingForRandomSelection, out GeneDef selectedGene))
+            if (
+                !genePool
+                    .Except(genesToExclude)
+                    .TryRandomElementByWeight(
+                        g =>
+                            g.GetModExtension<AgeUpGeneModDefExtension>().WeightingForRandomSelection,
+                        out GeneDef selectedGene
+                    )
+            )
             {
                 continue;
             }
 
             genesToExclude.Add(selectedGene);
-            genesToExclude.AddRange(selectedGene.GetModExtension<AgeUpGeneModDefExtension>().ConflictsWith);
+            genesToExclude.AddRange(
+                selectedGene.GetModExtension<AgeUpGeneModDefExtension>().ConflictsWith
+            );
 
             __instance.pawn.genes.AddGene(selectedGene, true);
 
-            Messages.Message("MSS_Gen_RandomGene".Translate(__instance.pawn.NameFullColored, selectedGene.LabelCap), MessageTypeDefOf.NeutralEvent);
+            Messages.Message(
+                "MSS_Gen_RandomGene".Translate(
+                    __instance.pawn.NameFullColored,
+                    selectedGene.LabelCap
+                ),
+                MessageTypeDefOf.NeutralEvent
+            );
         }
     }
 }

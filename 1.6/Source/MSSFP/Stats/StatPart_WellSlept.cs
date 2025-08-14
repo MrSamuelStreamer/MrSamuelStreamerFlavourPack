@@ -15,7 +15,9 @@ public class StatPart_WellSlept : StatPart
         if (!pawn.health.hediffSet.HasHediff(MSSFPDefOf.MSS_FP_WellSlept))
             return null;
 
-        List<HediffCompBedUpgrade> comps = pawn.health.hediffSet.GetHediffComps<HediffCompBedUpgrade>().ToList();
+        List<HediffCompBedUpgrade> comps = pawn
+            .health.hediffSet.GetHediffComps<HediffCompBedUpgrade>()
+            .ToList();
         if (!comps.Any())
             return null;
 

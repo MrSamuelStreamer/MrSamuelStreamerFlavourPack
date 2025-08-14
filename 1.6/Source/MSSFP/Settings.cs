@@ -57,9 +57,18 @@ public class Settings : ModSettings
 
     public SettingsTab SelectedTab;
 
-    public static Lazy<MethodInfo> _TempGuiContent = new(() => typeof(GUIContent).GetMethod("Temp", BindingFlags.NonPublic | BindingFlags.Static, null, [typeof(string)], null));
+    public static Lazy<MethodInfo> _TempGuiContent = new(() =>
+        typeof(GUIContent).GetMethod(
+            "Temp",
+            BindingFlags.NonPublic | BindingFlags.Static,
+            null,
+            [typeof(string)],
+            null
+        )
+    );
 
-    public static GUIContent TempGuiContent(string t) => _TempGuiContent.Value.Invoke(null, [t]) as GUIContent;
+    public static GUIContent TempGuiContent(string t) =>
+        _TempGuiContent.Value.Invoke(null, [t]) as GUIContent;
 
     public static Color TabRectColor = new Color(0.4f, 0.4f, 0.4f, 1f);
 
@@ -74,7 +83,11 @@ public class Settings : ModSettings
         Widgets.DrawRectFast(tabScrollContainerRect, Color.green);
 #endif
         ScrollViewWidth = 0;
-        scrollPosition = GUI.BeginScrollView(tabButtonScrollerRect, scrollPosition, tabScrollContainerRect);
+        scrollPosition = GUI.BeginScrollView(
+            tabButtonScrollerRect,
+            scrollPosition,
+            tabScrollContainerRect
+        );
 
         foreach (SettingsTab tab in Tabs)
         {
@@ -83,7 +96,12 @@ public class Settings : ModSettings
             // It's "good enough" for a tab button that doesn't take user input (beyond a click) and probably won't be localized
             float width = 4 + 4 + (tab.TabName.Length * 12);
 
-            Rect buttonRect = new(tabScrollContainerRect.x + ScrollViewWidth, tabScrollContainerRect.y, width, 30);
+            Rect buttonRect = new(
+                tabScrollContainerRect.x + ScrollViewWidth,
+                tabScrollContainerRect.y,
+                width,
+                30
+            );
 
             if (SelectedTab == tab)
             {
@@ -109,7 +127,12 @@ public class Settings : ModSettings
         Widgets.DrawLineHorizontal(0, wrect.yMin + tabsHeight + 1, wrect.width, Color.grey);
         Widgets.DrawLineHorizontal(0, wrect.yMin + tabsHeight + 2, wrect.width, Color.grey);
 
-        Rect tabRect = new(tabButtonScrollerRect.xMin, wrect.yMin + tabsHeight + 3, wrect.width, wrect.height - tabButtonScrollerRect.height - 3);
+        Rect tabRect = new(
+            tabButtonScrollerRect.xMin,
+            wrect.yMin + tabsHeight + 3,
+            wrect.width,
+            wrect.height - tabButtonScrollerRect.height - 3
+        );
 
         Widgets.DrawRectFast(tabRect, TabRectColor);
 

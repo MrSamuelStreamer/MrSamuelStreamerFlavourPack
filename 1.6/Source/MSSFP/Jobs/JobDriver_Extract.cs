@@ -16,7 +16,10 @@ public class JobDriver_Extract : JobDriver
 
     public override bool TryMakePreToilReservations(bool errorOnFailed)
     {
-        if (pawn.Reserve((LocalTargetInfo)(Thing)Takee, job, errorOnFailed: errorOnFailed) && PawnFlyerBalloon.BedAvailableFor(Takee, out bed))
+        if (
+            pawn.Reserve((LocalTargetInfo)(Thing)Takee, job, errorOnFailed: errorOnFailed)
+            && PawnFlyerBalloon.BedAvailableFor(Takee, out bed)
+        )
         {
             Takee.Reserve(bed, job);
             return true;
@@ -54,7 +57,14 @@ public class JobDriver_Extract : JobDriver
                 IntVec3 PositionOrig = Position;
                 Position.z = map.info.Size.z - 1;
 
-                PawnFlyerBalloon newThing = (PawnFlyerBalloon)PawnFlyer.MakeFlyer(MSSFPDefOf.MSS_PawnFlyer_Balloon, thing, Position, null, null);
+                PawnFlyerBalloon newThing = (PawnFlyerBalloon)
+                    PawnFlyer.MakeFlyer(
+                        MSSFPDefOf.MSS_PawnFlyer_Balloon,
+                        thing,
+                        Position,
+                        null,
+                        null
+                    );
                 if (newThing == null)
                     return;
                 newThing.SetBed(bed);

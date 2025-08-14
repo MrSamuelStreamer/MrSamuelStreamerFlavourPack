@@ -11,7 +11,11 @@ public class ThingSetMaker_Jrogge : ThingSetMaker
     {
         PawnKindDef jrogge = MSSFPDefOf.MSSFP_Jrogge;
 
-        PawnGenerationRequest request = new(jrogge, Faction.OfPlayer, PawnGenerationContext.NonPlayer);
+        PawnGenerationRequest request = new(
+            jrogge,
+            Faction.OfPlayer,
+            PawnGenerationContext.NonPlayer
+        );
         Pawn pawn = PawnGenerator.GeneratePawn(request);
 
         outThings.Add(pawn);

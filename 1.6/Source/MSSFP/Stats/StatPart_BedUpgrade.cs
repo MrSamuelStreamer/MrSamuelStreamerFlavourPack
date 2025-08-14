@@ -10,7 +10,10 @@ public class StatPart_BedUpgrade : StatPart
 {
     public override void TransformValue(StatRequest req, ref float val)
     {
-        if (req.Thing is not Building_Bed bed || !bed.TryGetComp<CompUpgradableBed>(out CompUpgradableBed comp))
+        if (
+            req.Thing is not Building_Bed bed
+            || !bed.TryGetComp<CompUpgradableBed>(out CompUpgradableBed comp)
+        )
             return;
 
         if (comp.StatOffsets.TryGetValue(parentStat, out float offset))
@@ -26,7 +29,10 @@ public class StatPart_BedUpgrade : StatPart
     public override string ExplanationPart(StatRequest req)
     {
         StringBuilder sb = new();
-        if (req.Thing is not Building_Bed bed || !bed.TryGetComp<CompUpgradableBed>(out CompUpgradableBed comp))
+        if (
+            req.Thing is not Building_Bed bed
+            || !bed.TryGetComp<CompUpgradableBed>(out CompUpgradableBed comp)
+        )
             return sb.ToString();
 
         if (comp is null)

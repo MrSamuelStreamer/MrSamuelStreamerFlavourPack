@@ -23,7 +23,10 @@ public class FroggeLeapResearchComponent(RimWorld.Planet.World world) : WorldCom
         if (Find.TickManager.TicksGame % GenDate.TicksPerDay == GenDate.TicksPerDay / 2)
         {
             IncidentParms iParams = new IncidentParms { target = Find.CurrentMap, forced = true };
-            EventHasFired = Find.Storyteller.TryFire(new FiringIncident(MSSFPDefOf.MSS_FroggeResearch, null, iParams), false);
+            EventHasFired = Find.Storyteller.TryFire(
+                new FiringIncident(MSSFPDefOf.MSS_FroggeResearch, null, iParams),
+                false
+            );
         }
     }
 }

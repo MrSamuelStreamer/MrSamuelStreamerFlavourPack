@@ -16,7 +16,10 @@ public static class LordToil_EntitySwarm_Patches
 {
     [HarmonyPatch(nameof(LordToil_EntitySwarm.LordToilTick))]
     [HarmonyTranspiler]
-    public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions, ILGenerator il)
+    public static IEnumerable<CodeInstruction> Transpiler(
+        IEnumerable<CodeInstruction> instructions,
+        ILGenerator il
+    )
     {
         List<CodeInstruction> codes = new(instructions);
         int targetIndex = -1;
@@ -24,7 +27,10 @@ public static class LordToil_EntitySwarm_Patches
         // Find the index of the instruction to patch.
         for (int i = 0; i < codes.Count; i++)
         {
-            if (codes[i].opcode == OpCodes.Ldfld && codes[i].operand.ToString().Contains("Verse.Pawn::pather"))
+            if (
+                codes[i].opcode == OpCodes.Ldfld
+                && codes[i].operand.ToString().Contains("Verse.Pawn::pather")
+            )
             {
                 targetIndex = i;
                 break;

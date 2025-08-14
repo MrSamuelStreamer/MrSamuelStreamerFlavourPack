@@ -21,8 +21,14 @@ public static class PreceptWorker_Relic_Patch
             return true;
 
         __result = DefDatabase<ThingDef>
-            .AllDefsListForReading.Where(def => def.HasComp<CompStyleable>() || def.HasModExtension<RelicModExtension>())
-            .Select(thing => new PreceptThingChance { def = thing, chance = thing.GetModExtension<RelicModExtension>()?.chance ?? 0.01f });
+            .AllDefsListForReading.Where(def =>
+                def.HasComp<CompStyleable>() || def.HasModExtension<RelicModExtension>()
+            )
+            .Select(thing => new PreceptThingChance
+            {
+                def = thing,
+                chance = thing.GetModExtension<RelicModExtension>()?.chance ?? 0.01f,
+            });
 
         return false;
     }

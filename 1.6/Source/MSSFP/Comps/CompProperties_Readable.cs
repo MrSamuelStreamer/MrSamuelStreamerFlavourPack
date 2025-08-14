@@ -14,7 +14,8 @@ public class CompProperties_Readable : CompProperties
     public string buttonIcon;
 
     public bool destroyOnRead = false;
-    public Texture2D buttonIconTex => buttonIcon is not null ? ContentFinder<Texture2D>.Get(buttonIcon) : BaseContent.BadTex;
+    public Texture2D buttonIconTex =>
+        buttonIcon is not null ? ContentFinder<Texture2D>.Get(buttonIcon) : BaseContent.BadTex;
 
     public CompProperties_Readable()
     {

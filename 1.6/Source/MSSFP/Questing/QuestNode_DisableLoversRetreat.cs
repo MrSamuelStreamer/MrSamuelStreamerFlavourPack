@@ -16,7 +16,13 @@ public class QuestNode_DisableLoversRetreat : QuestNode
     {
         Slate slate = QuestGen.slate;
         QuestGen.quest.AddPart(
-            new QuestPart_DisableLoversRetreat { inSignal = (QuestGenUtility.HardcodedSignalWithQuestID(inSignal.GetValue(slate)) ?? QuestGen.slate.Get<string>("inSignal")) }
+            new QuestPart_DisableLoversRetreat
+            {
+                inSignal = (
+                    QuestGenUtility.HardcodedSignalWithQuestID(inSignal.GetValue(slate))
+                    ?? QuestGen.slate.Get<string>("inSignal")
+                ),
+            }
         );
     }
 }

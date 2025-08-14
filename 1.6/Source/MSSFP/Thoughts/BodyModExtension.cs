@@ -11,11 +11,15 @@ public class BodyModExtension : DefModExtension
 
     public int NaturalImplantCount(Pawn pawn)
     {
-        return pawn.health.hediffSet.hediffs.Where(h => BodyMods.Contains(h.def)).Count(t => t.def.countsAsAddedPartOrImplant);
+        return pawn
+            .health.hediffSet.hediffs.Where(h => BodyMods.Contains(h.def))
+            .Count(t => t.def.countsAsAddedPartOrImplant);
     }
 
     public int UnnaturalImplantCount(Pawn pawn)
     {
-        return pawn.health.hediffSet.hediffs.Where(h => !BodyMods.Contains(h.def)).Count(t => t.def.countsAsAddedPartOrImplant);
+        return pawn
+            .health.hediffSet.hediffs.Where(h => !BodyMods.Contains(h.def))
+            .Count(t => t.def.countsAsAddedPartOrImplant);
     }
 }

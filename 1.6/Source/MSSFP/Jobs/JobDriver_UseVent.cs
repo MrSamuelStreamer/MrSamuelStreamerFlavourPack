@@ -9,7 +9,8 @@ namespace MSSFP.Jobs;
 
 public class JobDriver_UseVent : JobDriver
 {
-    public VentModExtension Extension => MSSFPDefOf.MSSFP_UseVent.GetModExtension<VentModExtension>();
+    public VentModExtension Extension =>
+        MSSFPDefOf.MSSFP_UseVent.GetModExtension<VentModExtension>();
 
     public override bool TryMakePreToilReservations(bool errorOnFailed)
     {
@@ -25,7 +26,9 @@ public class JobDriver_UseVent : JobDriver
             initAction = () =>
             {
                 // Find random other vent/geyser
-                Thing randomVent = Map.listerThings.AllThings.Where(t => Extension.VentableThings.Contains(t.def)).RandomElementWithFallback();
+                Thing randomVent = Map
+                    .listerThings.AllThings.Where(t => Extension.VentableThings.Contains(t.def))
+                    .RandomElementWithFallback();
                 if (randomVent != null)
                 {
                     if (randomVent != job.targetA.Thing)

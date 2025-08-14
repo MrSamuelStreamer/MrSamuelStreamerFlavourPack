@@ -13,15 +13,25 @@ namespace MSSFP.HarmonyPatches;
 [HarmonyPatch(typeof(Hediff_LaborPushing))]
 public static class Hediff_LaborPushing_Patch
 {
-    public static Lazy<FieldInfo> debugForceBirthOutcome = new(() => AccessTools.Field(typeof(Hediff_LaborPushing), "debugForceBirthOutcome"));
-    public static Lazy<FieldInfo> preventLetter = new(() => AccessTools.Field(typeof(Hediff_LaborPushing), "preventLetter"));
+    public static Lazy<FieldInfo> debugForceBirthOutcome = new(() =>
+        AccessTools.Field(typeof(Hediff_LaborPushing), "debugForceBirthOutcome")
+    );
+    public static Lazy<FieldInfo> preventLetter = new(() =>
+        AccessTools.Field(typeof(Hediff_LaborPushing), "preventLetter")
+    );
 
     [HarmonyPatch(nameof(Hediff_LaborPushing.PreRemoved))]
     [HarmonyPrefix]
     public static bool PreRemoved_Prefix(Hediff_LaborPushing __instance)
     {
         ModLog.Debug("Running Patched Hediff_LaborPushing.PreRemoved");
-        if (!RitualOutcomeEffectWorker_ChildBirth_Patch.CheckConcievedInUpgradableBed(__instance.pawn, out _, out _))
+        if (
+            !RitualOutcomeEffectWorker_ChildBirth_Patch.CheckConcievedInUpgradableBed(
+                __instance.pawn,
+                out _,
+                out _
+            )
+        )
         {
             return true;
         }
@@ -32,14 +42,23 @@ public static class Hediff_LaborPushing_Patch
         Find.WorldPawns.RemovePreservedPawnHediff(__instance.Father, __instance);
 
         LordJob_Ritual lordJob = __instance.pawn.GetLord()?.LordJob as LordJob_Ritual;
-        Precept_Ritual precept = (Precept_Ritual)__instance.pawn.Ideo.GetPrecept(PreceptDefOf.ChildBirth);
-        if (lordJob?.Ritual == null || lordJob.Ritual.def != PreceptDefOf.ChildBirth || lordJob.assignments.FirstAssignedPawn("mother") != __instance.pawn)
+        Precept_Ritual precept = (Precept_Ritual)
+            __instance.pawn.Ideo.GetPrecept(PreceptDefOf.ChildBirth);
+        if (
+            lordJob?.Ritual == null
+            || lordJob.Ritual.def != PreceptDefOf.ChildBirth
+            || lordJob.assignments.FirstAssignedPawn("mother") != __instance.pawn
+        )
         {
             float birthQualityFor = PregnancyUtility.GetBirthQualityFor(__instance.pawn);
             RitualOutcomePossibility outcome =
                 ((RitualOutcomePossibility)debugForceBirthOutcome.Value.GetValue(__instance))
-                ?? ((RitualOutcomeEffectWorker_FromQuality)precept.outcomeEffect).GetOutcome(birthQualityFor, null);
-            RitualRoleAssignments ritualRoleAssignments = PregnancyUtility.RitualAssignmentsForBirth(precept, __instance.pawn);
+                ?? ((RitualOutcomeEffectWorker_FromQuality)precept.outcomeEffect).GetOutcome(
+                    birthQualityFor,
+                    null
+                );
+            RitualRoleAssignments ritualRoleAssignments =
+                PregnancyUtility.RitualAssignmentsForBirth(precept, __instance.pawn);
             double quality = birthQualityFor;
             Precept_Ritual ritual = precept;
             List<GeneDef> genesListForReading = __instance.geneSet?.GenesListForReading;

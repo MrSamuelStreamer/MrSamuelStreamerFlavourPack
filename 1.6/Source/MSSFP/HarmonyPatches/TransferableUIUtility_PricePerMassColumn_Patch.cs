@@ -164,7 +164,13 @@ public static class MSSFP_TradeUI_DrawTradeableRow_WeightPrice
 [HarmonyPatch(typeof(TransferableOneWayWidget), "DoRow")]
 public static class MSSFP_TransferableOneWayWidget_DoRow_WeightPrice
 {
-    static bool Prefix(TransferableOneWayWidget __instance, Rect rect, TransferableOneWay trad, int index, float availableMass)
+    static bool Prefix(
+        TransferableOneWayWidget __instance,
+        Rect rect,
+        TransferableOneWay trad,
+        int index,
+        float availableMass
+    )
     {
         DoRowWithWeightPriceColumn(__instance, rect, trad, index, availableMass);
         return false; // Skip original method
@@ -190,7 +196,13 @@ public static class MSSFP_TransferableOneWayWidget_DoRow_WeightPrice
     }
 
     // Custom row implementation with weight/price column inserted between mass and count
-    static void DoRowWithWeightPriceColumn(TransferableOneWayWidget widget, Rect rect, TransferableOneWay trad, int index, float availableMass)
+    static void DoRowWithWeightPriceColumn(
+        TransferableOneWayWidget widget,
+        Rect rect,
+        TransferableOneWay trad,
+        int index,
+        float availableMass
+    )
     {
         if (index % 2 == 1)
             Widgets.DrawLightHighlight(rect);

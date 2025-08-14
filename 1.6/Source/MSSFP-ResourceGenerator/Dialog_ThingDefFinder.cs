@@ -11,7 +11,9 @@ public class Dialog_ThingDefFinder(Settings settings) : Dialog_OptionLister
     public Settings settings = settings;
 
     public List<ThingDef> Things = DefDatabase<ThingDef>
-        .AllDefsListForReading.Where(def => def.recipeMaker != null || !def.costList.NullOrEmpty() && def.costStuffCount > 0)
+        .AllDefsListForReading.Where(def =>
+            def.recipeMaker != null || !def.costList.NullOrEmpty() && def.costStuffCount > 0
+        )
         .ToList();
 
     public void NewColumn(float columnWidth)
@@ -29,7 +31,11 @@ public class Dialog_ThingDefFinder(Settings settings) : Dialog_OptionLister
 
     protected override void DoListingItems(Rect inRect, float columnWidth)
     {
-        foreach (ThingDef thingDef in Things.Where(def => def.defName.Contains(filter) || def.label.Contains(filter)).Except(settings.ExtraBuildables))
+        foreach (
+            ThingDef thingDef in Things
+                .Where(def => def.defName.Contains(filter) || def.label.Contains(filter))
+                .Except(settings.ExtraBuildables)
+        )
         {
             Text.Font = GameFont.Tiny;
             NewColumnIfNeeded(columnWidth, 22f);

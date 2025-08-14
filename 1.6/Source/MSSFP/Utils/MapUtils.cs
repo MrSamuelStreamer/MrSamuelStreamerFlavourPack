@@ -17,6 +17,9 @@ public static class MapUtils
     public static IEnumerable<Thing> GetThingsInRadius<T>(this Map map, IntVec3 center, int radius)
         where T : Thing
     {
-        return GenRadial.RadialCellsAround(center, radius, true).SelectMany(c => map.thingGrid.ThingsAt(c)).OfType<T>();
+        return GenRadial
+            .RadialCellsAround(center, radius, true)
+            .SelectMany(c => map.thingGrid.ThingsAt(c))
+            .OfType<T>();
     }
 }

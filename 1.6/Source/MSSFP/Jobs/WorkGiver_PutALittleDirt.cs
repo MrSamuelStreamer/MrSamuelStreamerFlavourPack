@@ -44,7 +44,8 @@ public class WorkGiver_PutALittleDirt : WorkGiver_Scanner
     {
         if (!MSSFPMod.settings.EnableDirtJobs)
             return false;
-        return pawn.CanReserve((LocalTargetInfo)t, 1, 0, ignoreOtherReservations: forced) && !t.TryGetComp<CompDirtHaver>().HasDirt;
+        return pawn.CanReserve((LocalTargetInfo)t, 1, 0, ignoreOtherReservations: forced)
+            && !t.TryGetComp<CompDirtHaver>().HasDirt;
     }
 
     public override PathEndMode PathEndMode => PathEndMode.ClosestTouch;
@@ -55,7 +56,11 @@ public class WorkGiver_PutALittleDirt : WorkGiver_Scanner
     {
         if (!MSSFPMod.settings.EnableDirtJobs)
             return true;
-        return !pawn.Map.spawnedThings.Any(thing => thing.Faction == Faction.OfPlayer && thing.HasComp<CompDirtHaver>() && !thing.TryGetComp<CompDirtHaver>().HasDirt);
+        return !pawn.Map.spawnedThings.Any(thing =>
+            thing.Faction == Faction.OfPlayer
+            && thing.HasComp<CompDirtHaver>()
+            && !thing.TryGetComp<CompDirtHaver>().HasDirt
+        );
     }
 
     public override bool HasJobOnCell(Pawn pawn, IntVec3 c, bool forced = false)
@@ -70,16 +75,30 @@ public class WorkGiver_PutALittleDirt : WorkGiver_Scanner
 
     public virtual IntVec3 FindDirtSpot(Pawn pawn, Thing dirtHaver)
     {
-        CellFinder.TryFindRandomReachableCellNearPosition(pawn.Position, dirtHaver.Position, pawn.Map, 50, TraverseParms.For(pawn), Validator, null, out IntVec3 result);
+        CellFinder.TryFindRandomReachableCellNearPosition(
+            pawn.Position,
+            dirtHaver.Position,
+            pawn.Map,
+            50,
+            TraverseParms.For(pawn),
+            Validator,
+            null,
+            out IntVec3 result
+        );
         return result;
         bool Validator(IntVec3 c) =>
-            validTerrainDefs.Value.Contains(pawn.Map.terrainGrid.TerrainAt(c)) && pawn.CanReach(pawn.Position, c, PathEndMode, MaxPathDanger(pawn)) && pawn.CanReserve(c, 1, 0);
+            validTerrainDefs.Value.Contains(pawn.Map.terrainGrid.TerrainAt(c))
+            && pawn.CanReach(pawn.Position, c, PathEndMode, MaxPathDanger(pawn))
+            && pawn.CanReserve(c, 1, 0);
     }
 
     public override Job JobOnThing(Pawn pawn, Thing t, bool forced = false)
     {
         IntVec3 DirtSpot = FindDirtSpot(pawn, t);
-        Job job = JobMaker.MakeJob(MSSFPDefOf.MSSFP_PutALittleDirtUnderThePillow, (LocalTargetInfo)t);
+        Job job = JobMaker.MakeJob(
+            MSSFPDefOf.MSSFP_PutALittleDirtUnderThePillow,
+            (LocalTargetInfo)t
+        );
         job.targetB = DirtSpot;
         job.count = 1;
         pawn.Reserve(t, job, 1, 0, ignoreOtherReservations: forced);

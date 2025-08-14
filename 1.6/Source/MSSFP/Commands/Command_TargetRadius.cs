@@ -17,7 +17,12 @@ public class Command_TargetRadius : Command
         base.ProcessInput(ev);
         SoundDefOf.Tick_Tiny.PlayOneShotOnCamera();
         Find.DesignatorManager.Deselect();
-        Find.Targeter.BeginTargeting(targetingParams, target => action(target), highlightAction: info => GenDraw.DrawRadiusRing(info.Cell, radius), targetValidator: _ => true);
+        Find.Targeter.BeginTargeting(
+            targetingParams,
+            target => action(target),
+            highlightAction: info => GenDraw.DrawRadiusRing(info.Cell, radius),
+            targetValidator: _ => true
+        );
     }
 
     public override bool InheritInteractionsFrom(Gizmo other) => false;

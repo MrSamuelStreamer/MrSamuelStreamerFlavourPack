@@ -19,14 +19,25 @@ public static class RitualOutcomeEffectWorker_ChildBirth_Patch
 {
     [HarmonyPatch(nameof(RitualOutcomeEffectWorker_ChildBirth.Apply))]
     [HarmonyTranspiler]
-    public static IEnumerable<CodeInstruction> Apply_Transpiler(IEnumerable<CodeInstruction> instructions)
+    public static IEnumerable<CodeInstruction> Apply_Transpiler(
+        IEnumerable<CodeInstruction> instructions
+    )
     {
-        MethodInfo methodToReplace = AccessTools.Method(typeof(PregnancyUtility), "ApplyBirthOutcome");
-        MethodInfo replacementMethod = AccessTools.Method(typeof(RitualOutcomeEffectWorker_ChildBirth_Patch), "ApplyBirthOutcome");
+        MethodInfo methodToReplace = AccessTools.Method(
+            typeof(PregnancyUtility),
+            "ApplyBirthOutcome"
+        );
+        MethodInfo replacementMethod = AccessTools.Method(
+            typeof(RitualOutcomeEffectWorker_ChildBirth_Patch),
+            "ApplyBirthOutcome"
+        );
 
         foreach (CodeInstruction instruction in instructions)
         {
-            if (instruction.opcode == OpCodes.Callvirt && instruction.operand as MethodInfo == methodToReplace)
+            if (
+                instruction.opcode == OpCodes.Callvirt
+                && instruction.operand as MethodInfo == methodToReplace
+            )
             {
                 instruction.operand = replacementMethod;
             }
@@ -35,17 +46,28 @@ public static class RitualOutcomeEffectWorker_ChildBirth_Patch
         }
     }
 
-    public static bool CheckConcievedInUpgradableBed(Thing birtherThing, out CompUpgradableBed comp, out Pawn birtherPawn)
+    public static bool CheckConcievedInUpgradableBed(
+        Thing birtherThing,
+        out CompUpgradableBed comp,
+        out Pawn birtherPawn
+    )
     {
         comp = null;
         birtherPawn = birtherThing as Pawn;
-        if (birtherPawn is null || !CompUpgradableBed.AllBeds.ToList().Any(b => b.ParentsForPregnancy(birtherThing as Pawn).Any()))
+        if (
+            birtherPawn is null
+            || !CompUpgradableBed
+                .AllBeds.ToList()
+                .Any(b => b.ParentsForPregnancy(birtherThing as Pawn).Any())
+        )
         {
             ModLog.Debug("No pregnancies registered at an upgradable bed for this pregnancy");
             return false;
         }
 
-        comp = CompUpgradableBed.AllBeds.FirstOrDefault(b => b.ParentsForPregnancy(birtherThing as Pawn).Any());
+        comp = CompUpgradableBed.AllBeds.FirstOrDefault(b =>
+            b.ParentsForPregnancy(birtherThing as Pawn).Any()
+        );
         if (comp == null)
         {
             ModLog.Debug("No upgradable bed for this pregnancy");
@@ -69,7 +91,18 @@ public static class RitualOutcomeEffectWorker_ChildBirth_Patch
     )
     {
         ModLog.Debug("Running Patched ApplyBirthOutcome_NewTemp");
-        return ApplyBirthOutcome(outcome, quality, ritual, genes, geneticMother, birtherThing, father, doctor, lordJobRitual, assignments);
+        return ApplyBirthOutcome(
+            outcome,
+            quality,
+            ritual,
+            genes,
+            geneticMother,
+            birtherThing,
+            father,
+            doctor,
+            lordJobRitual,
+            assignments
+        );
     }
 
     public static Thing ApplyBirthOutcome(
@@ -85,9 +118,26 @@ public static class RitualOutcomeEffectWorker_ChildBirth_Patch
         RitualRoleAssignments assignments
     )
     {
-        if (!CheckConcievedInUpgradableBed(birtherThing, out CompUpgradableBed comp, out Pawn birtherPawn))
+        if (
+            !CheckConcievedInUpgradableBed(
+                birtherThing,
+                out CompUpgradableBed comp,
+                out Pawn birtherPawn
+            )
+        )
         {
-            return PregnancyUtility.ApplyBirthOutcome(outcome, quality, ritual, genes, geneticMother, birtherThing, father, doctor, lordJobRitual, assignments);
+            return PregnancyUtility.ApplyBirthOutcome(
+                outcome,
+                quality,
+                ritual,
+                genes,
+                geneticMother,
+                birtherThing,
+                father,
+                doctor,
+                lordJobRitual,
+                assignments
+            );
         }
 
         List<Pawn> parents = comp.ParentsForPregnancy(birtherPawn);
@@ -97,7 +147,8 @@ public static class RitualOutcomeEffectWorker_ChildBirth_Patch
         bool babiesAreHealthy = Find.Storyteller.difficulty.babiesAreHealthy;
         int positivityIndex = outcome.positivityIndex;
         bool shouldDieDuringBirth =
-            Rand.Chance(PregnancyUtility.ChanceMomDiesDuringBirth(quality)) && (birtherPawn.genes == null || !birtherPawn.genes.HasActiveGene(GeneDefOf.Deathless));
+            Rand.Chance(PregnancyUtility.ChanceMomDiesDuringBirth(quality))
+            && (birtherPawn.genes == null || !birtherPawn.genes.HasActiveGene(GeneDefOf.Deathless));
 
         IntVec3? positionOverride = null;
         IntVec3? slotPos;
@@ -141,7 +192,9 @@ public static class RitualOutcomeEffectWorker_ChildBirth_Patch
             if (positivityIndex >= 0 || babiesAreHealthy)
             {
                 if (babyPawn.playerSettings != null && geneticMother?.playerSettings != null)
-                    babyPawn.playerSettings.AreaRestrictionInPawnCurrentMap = geneticMother.playerSettings.AreaRestrictionInPawnCurrentMap;
+                    babyPawn.playerSettings.AreaRestrictionInPawnCurrentMap = geneticMother
+                        .playerSettings
+                        .AreaRestrictionInPawnCurrentMap;
                 if (positivityIndex == 0)
                     babyPawn.health.AddHediff(HediffDefOf.InfantIllness);
                 if (birtherPawn != null)
@@ -157,23 +210,44 @@ public static class RitualOutcomeEffectWorker_ChildBirth_Patch
                     if (
                         nullable2.GetValueOrDefault() == flag5 & nullable2.HasValue
                         && birtherPawn != null
-                        && doctor.CanReachImmediate((LocalTargetInfo)(Thing)birtherPawn, PathEndMode.Touch)
+                        && doctor.CanReachImmediate(
+                            (LocalTargetInfo)(Thing)birtherPawn,
+                            PathEndMode.Touch
+                        )
                     )
                     {
-                        Job newJob = JobMaker.MakeJob(JobDefOf.CarryToMomAfterBirth, (LocalTargetInfo)(Thing)babyPawn, (LocalTargetInfo)(Thing)birtherPawn);
+                        Job newJob = JobMaker.MakeJob(
+                            JobDefOf.CarryToMomAfterBirth,
+                            (LocalTargetInfo)(Thing)babyPawn,
+                            (LocalTargetInfo)(Thing)birtherPawn
+                        );
                         newJob.count = 1;
-                        doctor.jobs.StartJob(newJob, JobCondition.Succeeded, keepCarryingThingOverride: true);
+                        doctor.jobs.StartJob(
+                            newJob,
+                            JobCondition.Succeeded,
+                            keepCarryingThingOverride: true
+                        );
                         canPassToWorld = false;
                     }
                 }
-                if (canPassToWorld && !PawnUtility.TrySpawnHatchedOrBornPawn(babyPawn, birtherThing, positionOverride))
+                if (
+                    canPassToWorld
+                    && !PawnUtility.TrySpawnHatchedOrBornPawn(
+                        babyPawn,
+                        birtherThing,
+                        positionOverride
+                    )
+                )
                     Find.WorldPawns.PassToWorld(babyPawn, PawnDiscardDecideMode.Discard);
 
                 if (positivityIndex != 0)
                 {
                     foreach (Pawn parent in parents)
                     {
-                        parent?.needs?.mood?.thoughts?.memories?.TryGainMemory(ThoughtDefOf.BabyBorn, babyPawn);
+                        parent?.needs?.mood?.thoughts?.memories?.TryGainMemory(
+                            ThoughtDefOf.BabyBorn,
+                            babyPawn
+                        );
                     }
                 }
             }
@@ -183,7 +257,15 @@ public static class RitualOutcomeEffectWorker_ChildBirth_Patch
                 badOutcome = true;
                 birtherPawn?.Ideo?.Notify_MemberDied(babyPawn);
                 babyPawn.babyNamingDeadline = Find.TickManager.TicksGame + 1;
-                Find.BattleLog.Add(new BattleLogEntry_StateTransition((Thing)babyPawn, babyPawn.RaceProps.DeathActionWorker.DeathRules, null, culpritHediff, null));
+                Find.BattleLog.Add(
+                    new BattleLogEntry_StateTransition(
+                        (Thing)babyPawn,
+                        babyPawn.RaceProps.DeathActionWorker.DeathRules,
+                        null,
+                        culpritHediff,
+                        null
+                    )
+                );
                 if (birtherThing.Spawned)
                 {
                     Corpse corpse = babyPawn.Corpse;
@@ -198,7 +280,17 @@ public static class RitualOutcomeEffectWorker_ChildBirth_Patch
 
             if (ritual != null)
             {
-                DoBabyLetter(badOutcome ? babyPawn.Corpse : babyPawn, birtherPawn, badOutcome, shouldDieDuringBirth, quality, ritual, outcome, lordJobRitual, assignments);
+                DoBabyLetter(
+                    badOutcome ? babyPawn.Corpse : babyPawn,
+                    birtherPawn,
+                    badOutcome,
+                    shouldDieDuringBirth,
+                    quality,
+                    ritual,
+                    outcome,
+                    lordJobRitual,
+                    assignments
+                );
             }
         }
 
@@ -224,35 +316,73 @@ public static class RitualOutcomeEffectWorker_ChildBirth_Patch
 
         if (birtherPawn != null && !badOutcome)
         {
-            RitualOutcomeEffectWorker_ChildBirth instance = (RitualOutcomeEffectWorker_ChildBirth)RitualOutcomeEffectDefOf.ChildBirth.GetInstance();
+            RitualOutcomeEffectWorker_ChildBirth instance = (RitualOutcomeEffectWorker_ChildBirth)
+                RitualOutcomeEffectDefOf.ChildBirth.GetInstance();
             if (lordJobRitual != null)
-                letterText += "\n\n" + instance.OutcomeQualityBreakdownDesc(quality, 1f, lordJobRitual);
+                letterText +=
+                    "\n\n" + instance.OutcomeQualityBreakdownDesc(quality, 1f, lordJobRitual);
             else
-                letterText += "\n\n" + RitualUtility.QualityBreakdownAbstract(ritual, new TargetInfo(birtherPawn.PositionHeld, birtherPawn.MapHeld, true), assignments);
+                letterText +=
+                    "\n\n"
+                    + RitualUtility.QualityBreakdownAbstract(
+                        ritual,
+                        new TargetInfo(birtherPawn.PositionHeld, birtherPawn.MapHeld, true),
+                        assignments
+                    );
 
-            letterText += "\n\n" + "BirthRitualHealthyBabyChance".Translate(instance.GetOutcomeChanceAtQuality(lordJobRitual, instance.def.BestOutcome, quality));
+            letterText +=
+                "\n\n"
+                + "BirthRitualHealthyBabyChance".Translate(
+                    instance.GetOutcomeChanceAtQuality(
+                        lordJobRitual,
+                        instance.def.BestOutcome,
+                        quality
+                    )
+                );
 
             if (shouldDieDuringBirth)
-                letterText += "\n\n" + "LetterPartColonistDiedAfterChildbirth".Translate((NamedArgument)(Thing)birtherPawn);
+                letterText +=
+                    "\n\n"
+                    + "LetterPartColonistDiedAfterChildbirth".Translate(
+                        (NamedArgument)(Thing)birtherPawn
+                    );
         }
         if (baby is Pawn p && p.genes.HasActiveGene(GeneDefOf.Inbred))
             letterText += "\n\n" + "InbredBabyBorn".Translate();
         letterText += ("\n\n" + "LetterPartTempBabyName".Translate((NamedArgument)baby) + " ");
         letterText = !badOutcome
-            ? letterText + "LetterPartLiveBirthNameDeadline".Translate((NamedArgument)60000.ToStringTicksToPeriod())
+            ? letterText
+                + "LetterPartLiveBirthNameDeadline".Translate(
+                    (NamedArgument)60000.ToStringTicksToPeriod()
+                )
             : letterText + "LetterPartStillbirthNameDeadline".Translate();
         ChoiceLetter_BabyBirth let = (ChoiceLetter_BabyBirth)
-            LetterMaker.MakeLetter("OutcomeLetterLabel".Translate(outcome.label.Named("OUTCOMELABEL"), ritual.Label.Named("RITUALLABEL")), letterText, LetterDefOf.BabyBirth, baby);
+            LetterMaker.MakeLetter(
+                "OutcomeLetterLabel".Translate(
+                    outcome.label.Named("OUTCOMELABEL"),
+                    ritual.Label.Named("RITUALLABEL")
+                ),
+                letterText,
+                LetterDefOf.BabyBirth,
+                baby
+            );
         let.Start();
         Find.LetterStack.ReceiveLetter(let);
     }
 
-    public static IEnumerable<Pawn> MakeBabies(Pawn birtherPawn, List<Pawn> parents, CompUpgradableBed comp)
+    public static IEnumerable<Pawn> MakeBabies(
+        Pawn birtherPawn,
+        List<Pawn> parents,
+        CompUpgradableBed comp
+    )
     {
         if (birtherPawn.RaceProps.Humanlike && !ModsConfig.BiotechActive)
             yield break;
 
-        int litterSize = birtherPawn.RaceProps.litterSizeCurve != null ? Mathf.RoundToInt(Rand.ByCurve(birtherPawn.RaceProps.litterSizeCurve)) : 1;
+        int litterSize =
+            birtherPawn.RaceProps.litterSizeCurve != null
+                ? Mathf.RoundToInt(Rand.ByCurve(birtherPawn.RaceProps.litterSizeCurve))
+                : 1;
         if (litterSize < 1)
             litterSize = 1;
 
@@ -261,7 +391,12 @@ public static class RitualOutcomeEffectWorker_ChildBirth_Patch
             litterSize = Rand.RangeInclusive(1, Math.Max(1, parents.Count / 2));
         }
 
-        PawnGenerationRequest request = new(birtherPawn.kindDef, birtherPawn.Faction, allowDowned: true, developmentalStages: DevelopmentalStage.Newborn);
+        PawnGenerationRequest request = new(
+            birtherPawn.kindDef,
+            birtherPawn.Faction,
+            allowDowned: true,
+            developmentalStages: DevelopmentalStage.Newborn
+        );
         for (int index = 0; index < litterSize; ++index)
         {
             Pawn pawn = PawnGenerator.GeneratePawn(request);
@@ -276,6 +411,11 @@ public static class RitualOutcomeEffectWorker_ChildBirth_Patch
     {
         int randomInRange = new IntRange(4, 7).RandomInRange;
         for (int index = 0; index < randomInRange; ++index)
-            FilthMaker.TryMakeFilth(CellFinder.RandomClosewalkCellNear(center, mother.Map, radius), mother.Map, filth, mother.LabelIndefinite());
+            FilthMaker.TryMakeFilth(
+                CellFinder.RandomClosewalkCellNear(center, mother.Map, radius),
+                mother.Map,
+                filth,
+                mother.LabelIndefinite()
+            );
     }
 }

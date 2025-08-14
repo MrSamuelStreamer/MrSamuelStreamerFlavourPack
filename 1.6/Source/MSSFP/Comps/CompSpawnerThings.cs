@@ -86,15 +86,30 @@ public class CompSpawnerThings : ThingComp
         if (PropsSpawner.inheritFaction && thing.Faction != parent.Faction)
             thing.SetFaction(parent.Faction);
         Thing lastResultingThing;
-        GenPlace.TryPlaceThing(thing, result, parent.Map, ThingPlaceMode.Direct, out lastResultingThing);
+        GenPlace.TryPlaceThing(
+            thing,
+            result,
+            parent.Map,
+            ThingPlaceMode.Direct,
+            out lastResultingThing
+        );
         if (PropsSpawner.spawnForbidden)
             lastResultingThing.SetForbidden(true);
         if (PropsSpawner.showMessageIfOwned && parent.Faction == Faction.OfPlayer)
-            Messages.Message("MessageCompSpawnerSpawnedItem".Translate(thingToSpawn.LabelCap), thing, MessageTypeDefOf.PositiveEvent);
+            Messages.Message(
+                "MessageCompSpawnerSpawnedItem".Translate(thingToSpawn.LabelCap),
+                thing,
+                MessageTypeDefOf.PositiveEvent
+            );
         return true;
     }
 
-    public static bool TryFindSpawnCell(Thing parent, ThingDef thingToSpawn, int spawnCount, out IntVec3 result)
+    public static bool TryFindSpawnCell(
+        Thing parent,
+        ThingDef thingToSpawn,
+        int spawnCount,
+        out IntVec3 result
+    )
     {
         foreach (IntVec3 intVec3 in GenAdj.CellsAdjacent8Way(parent).InRandomOrder())
         {
@@ -104,7 +119,10 @@ public class CompSpawnerThings : ThingComp
                 if (
                     (edifice == null || !thingToSpawn.IsEdifice())
                     && (!(edifice is Building_Door buildingDoor) || buildingDoor.FreePassage)
-                    && (parent.def.passability == Traversability.Impassable || GenSight.LineOfSight(parent.Position, intVec3, parent.Map))
+                    && (
+                        parent.def.passability == Traversability.Impassable
+                        || GenSight.LineOfSight(parent.Position, intVec3, parent.Map)
+                    )
                 )
                 {
                     bool flag = false;
@@ -112,7 +130,13 @@ public class CompSpawnerThings : ThingComp
                     for (int index = 0; index < thingList.Count; ++index)
                     {
                         Thing thing = thingList[index];
-                        if (thing.def.category == ThingCategory.Item && (thing.def != thingToSpawn || thing.stackCount > thingToSpawn.stackLimit - spawnCount))
+                        if (
+                            thing.def.category == ThingCategory.Item
+                            && (
+                                thing.def != thingToSpawn
+                                || thing.stackCount > thingToSpawn.stackLimit - spawnCount
+                            )
+                        )
                         {
                             flag = true;
                             break;
@@ -137,11 +161,19 @@ public class CompSpawnerThings : ThingComp
 
     public override void PostExposeData()
     {
-        Scribe_Values.Look(ref ticksUntilSpawn, (PropsSpawner.saveKeysPrefix.NullOrEmpty() ? null : PropsSpawner.saveKeysPrefix + "_") + "ticksUntilSpawn");
+        Scribe_Values.Look(
+            ref ticksUntilSpawn,
+            (PropsSpawner.saveKeysPrefix.NullOrEmpty() ? null : PropsSpawner.saveKeysPrefix + "_")
+                + "ticksUntilSpawn"
+        );
     }
 
     public override string CompInspectStringExtra()
     {
-        return PropsSpawner.writeTimeLeftToSpawn ? "MSS_FP_CompSpawnThings".Translate() + ": " + ticksUntilSpawn.ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor) : null;
+        return PropsSpawner.writeTimeLeftToSpawn
+            ? "MSS_FP_CompSpawnThings".Translate()
+                + ": "
+                + ticksUntilSpawn.ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor)
+            : null;
     }
 }

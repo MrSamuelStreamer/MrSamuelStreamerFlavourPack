@@ -32,9 +32,11 @@ public class ThingHoldingProjectileGraphicPassthrough : Graphic
 
     public override bool ShouldDrawRotated => HeldThing?.Graphic.ShouldDrawRotated ?? false;
 
-    public override float DrawRotatedExtraAngleOffset => HeldThing?.Graphic.DrawRotatedExtraAngleOffset ?? 0f;
+    public override float DrawRotatedExtraAngleOffset =>
+        HeldThing?.Graphic.DrawRotatedExtraAngleOffset ?? 0f;
 
-    public override bool UseSameGraphicForGhost => HeldThing?.Graphic.UseSameGraphicForGhost ?? false;
+    public override bool UseSameGraphicForGhost =>
+        HeldThing?.Graphic.UseSameGraphicForGhost ?? false;
 
     public override void TryInsertIntoAtlas(TextureAtlasGroup groupKey)
     {
@@ -63,12 +65,20 @@ public class ThingHoldingProjectileGraphicPassthrough : Graphic
 
     public override Material MatSingleFor(Thing thing) => HeldThing?.Graphic.MatSingleFor(thing);
 
-    public override void DrawWorker(Vector3 loc, Rot4 rot, ThingDef thingDef, Thing thing, float extraRotation)
+    public override void DrawWorker(
+        Vector3 loc,
+        Rot4 rot,
+        ThingDef thingDef,
+        Thing thing,
+        float extraRotation
+    )
     {
         HeldThing?.Graphic.DrawWorker(loc, rot, thingDef, thing, extraRotation);
     }
 
-    public Lazy<MethodInfo> DrawMeshIntAccess = new Lazy<MethodInfo>(() => AccessTools.Method(typeof(Graphic), "DrawMeshInt"));
+    public Lazy<MethodInfo> DrawMeshIntAccess = new Lazy<MethodInfo>(() =>
+        AccessTools.Method(typeof(Graphic), "DrawMeshInt")
+    );
 
     protected override void DrawMeshInt(Mesh mesh, Vector3 loc, Quaternion quat, Material mat)
     {

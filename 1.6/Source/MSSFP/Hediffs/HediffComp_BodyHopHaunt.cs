@@ -35,7 +35,9 @@ public class HediffComp_BodyHopHaunt : HediffComp_Haunt
                 return null;
             if (!pawnTextureCache.ContainsKey(pawnToShow))
             {
-                pawnTextureCache[pawnToShow] = PawnGraphicUtils.LoadTexture(Path.Combine(PawnGraphicUtils.SaveDataPath, TexPath));
+                pawnTextureCache[pawnToShow] = PawnGraphicUtils.LoadTexture(
+                    Path.Combine(PawnGraphicUtils.SaveDataPath, TexPath)
+                );
             }
 
             return pawnTextureCache[pawnToShow];
@@ -139,7 +141,8 @@ public class HediffComp_BodyHopHaunt : HediffComp_Haunt
                     parent.pawn.story.traits.RemoveTrait(trait);
             }
 
-            parent.pawn.skills.GetSkill(existingPawn.bestSkill).levelInt -= existingPawn.skillOffset;
+            parent.pawn.skills.GetSkill(existingPawn.bestSkill).levelInt -=
+                existingPawn.skillOffset;
         }
 
         if (pawnInfo.swapTick < 0)
@@ -188,7 +191,9 @@ public class HediffComp_BodyHopHaunt : HediffComp_Haunt
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.AppendLine("This pawn is co-existing with the memories and personalities of the following:");
+            sb.AppendLine(
+                "This pawn is co-existing with the memories and personalities of the following:"
+            );
 
             foreach (PawnInfo pawnInfo in pawns)
             {
