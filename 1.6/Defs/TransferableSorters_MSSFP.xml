@@ -4,7 +4,7 @@
   <TransferableSorterDef>
     <defName>weightPrice</defName>
     <label>Weight/Price</label>
-    <comparerClass>MSSFP.TransferableComparers.TransferableComparer_MSSFP_PricePerMass</comparerClass>
+    <comparerClass>MSSFP.Utils.TransferableComparer_MSSFP_PricePerMass</comparerClass>
   </TransferableSorterDef>
 </Defs>
 

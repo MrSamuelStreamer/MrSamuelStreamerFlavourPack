@@ -19,6 +19,9 @@ public class MSSFPResourceGeneratorMod : Mod
 
         // initialize settings
         settings = GetSettings<Settings>();
+
+        ResourceGeneratorSettingsTab _ = new(settings, this);
+
 #if DEBUG
         Harmony.DEBUG = true;
 #endif
@@ -31,17 +34,6 @@ public class MSSFPResourceGeneratorMod : Mod
         MethodInfo patch = AccessTools.Method(typeof(CompResourceSpawner_Patch), nameof(CompResourceSpawner_Patch.Transpiler));
 
         harmony.Patch(tryDoSpawnMethod, null, null, new HarmonyMethod(patch));
-    }
-
-    public override void DoSettingsWindowContents(Rect inRect)
-    {
-        base.DoSettingsWindowContents(inRect);
-        settings.DoWindowContents(inRect);
-    }
-
-    public override string SettingsCategory()
-    {
-        return "MSSFP_RGSettingsCategory".Translate();
     }
 
     public static void UpdateExtras()
