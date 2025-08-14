@@ -21,7 +21,7 @@ public class Verb_BackwardShoot : Verb_Shoot
             FleckMaker.ThrowMicroSparks(CasterPawn.DrawPos, CasterPawn.Map);
         }
 
-        var projectileProps = verbProps.defaultProjectile.projectile;
+        ProjectileProperties projectileProps = verbProps.defaultProjectile.projectile;
         int damageAmount = projectileProps.GetDamageAmount(EquipmentSource);
 
         if (damageAmount <= 0)
@@ -43,14 +43,7 @@ public class Verb_BackwardShoot : Verb_Shoot
 
         CasterPawn.TakeDamage(damageInfo);
 
-        BattleLogEntry_RangedImpact logEntry = new BattleLogEntry_RangedImpact(
-            CasterPawn,
-            CasterPawn,
-            currentTarget.Thing,
-            EquipmentSource?.def,
-            verbProps.defaultProjectile,
-            null
-        );
+        BattleLogEntry_RangedImpact logEntry = new(CasterPawn, CasterPawn, currentTarget.Thing, EquipmentSource?.def, verbProps.defaultProjectile, null);
         Find.BattleLog.Add(logEntry);
 
         return true;
