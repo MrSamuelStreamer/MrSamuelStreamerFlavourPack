@@ -139,4 +139,15 @@
     <MSS_FP_Settings_EnableWanderDelayModification>Enable wander delay modification - allows you to control how long pawns wait before moving to a new spot while wandering</MSS_FP_Settings_EnableWanderDelayModification>
     <MSS_FP_Settings_WanderDelaySeconds>Wander delay: {0} seconds</MSS_FP_Settings_WanderDelaySeconds>
     <MSS_FP_Settings_WanderDelaySeconds_Tooltip>Controls how long pawns wait before moving to a new location while wandering. Positive values make pawns wander slower (wait longer), negative values make them wander faster. Range: -2 to 200 seconds (3.3 minutes).</MSS_FP_Settings_WanderDelaySeconds_Tooltip>
+
+    <MSSFP_HireMercenariesOfferTitle>Mercenary Hiring Offer</MSSFP_HireMercenariesOfferTitle>
+    <MSSFP_HireMercenariesOfferLabel>Mercenary Available</MSSFP_HireMercenariesOfferLabel>
+    <MSSFP_HireMercenariesOfferText>A {0} is available for hire. Cost: {1} silver. Contract duration: {2} days. You have 24 hours to decide.</MSSFP_HireMercenariesOfferText>
+    <MSSFP_HireMercenariesAcceptedLabel>Mercenary Contract Signed</MSSFP_HireMercenariesAcceptedLabel>
+    <MSSFP_HireMercenariesAcceptedText>You have hired {0} for {1} silver. The contract will last for {2} days.</MSSFP_HireMercenariesAcceptedText>
+    <MSSFP_HireMercenariesFailedLabel>Mercenary Hiring Failed</MSSFP_HireMercenariesFailedLabel>
+    <MSSFP_HireMercenariesFailedText>You no longer have enough silver to hire the mercenary. Required: {0} silver.</MSSFP_HireMercenariesFailedText>
+    <MSSFP_MercenaryContractEndedLabel>Mercenary Contract Ended</MSSFP_MercenaryContractEndedLabel>
+    <MSSFP_MercenaryContractEndedText>Your mercenary contract has expired. {0} have left the colony.</MSSFP_MercenaryContractEndedText>
+    <MSS_FP_Settings_EnableMercenaryHiring>Enable Mercenary Hiring</MSS_FP_Settings_EnableMercenaryHiring>
 </LanguageData>

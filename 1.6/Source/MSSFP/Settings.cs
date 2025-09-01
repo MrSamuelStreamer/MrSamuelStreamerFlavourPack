@@ -39,6 +39,7 @@ public class Settings : ModSettings
     public bool EnableGeneMutators = false;
     public bool EnableTrekBeamers = true;
     public bool EnableTaffRaids = true;
+    public bool EnableMercenaryHiring = true;
     public bool EnableWanderDelayModification = false;
     public int WanderDelayTicks = 0;
 
