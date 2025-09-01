@@ -22,7 +22,9 @@ public static class Dialog_GrowthMomentChoices_Patch
     {
         public Choices()
         {
-            ShouldDoChoice = Rand.Chance(MSSFPMod.settings.GeneEventChance);
+            ShouldDoChoice =
+                MSSFPMod.settings.EnableGenesOnGrowthMoment
+                && Rand.Chance(MSSFPMod.settings.GeneEventChance);
         }
 
         public GeneClassification selectedGene;

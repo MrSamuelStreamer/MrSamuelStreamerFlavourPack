@@ -52,11 +52,5 @@ public class MainSettingsTab(ModSettings settings, Mod mod) : SettingsTab(settin
             return;
         Scribe_Values.Look(ref Settings.OverrideRelicPool, "overrideRelicPool", false);
         Scribe_Values.Look(ref Settings.DrawByMrStreamer, "DrawByMrStreamer", false);
-        Scribe_Values.Look(
-            ref Settings.EnableWanderDelayModification,
-            "EnableWanderDelayModification",
-            false
-        );
-        Scribe_Values.Look(ref Settings.WanderDelayTicks, "WanderDelayTicks", 0);
     }
 }
