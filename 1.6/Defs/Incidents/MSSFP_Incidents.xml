@@ -26,9 +26,9 @@
         <usableForArt>true</usableForArt>
         <rulePack>
             <rulesStrings>
-                <li>tale_noun-&gt;[LOVERA_nameDef] whisked [LOVERB_nameDef] away for a romantic retreat</li>
-                <li>tale_noun-&gt;[LOVERA_nameDef] lead [LOVERB_nameDef] out of the colony for some personal time</li>
-                <li>tale_noun-&gt;[LOVERB_nameDef] caught [LOVERB_nameDef]'s eye with a cheeky grin before quickly sneaking off to a secluded location.</li>
+                <li>tale_noun->[LOVERA_nameDef] whisked [LOVERB_nameDef] away for a romantic retreat</li>
+                <li>tale_noun->[LOVERA_nameDef] lead [LOVERB_nameDef] out of the colony for some personal time</li>
+                <li>tale_noun->[LOVERB_nameDef] caught [LOVERB_nameDef]'s eye with a cheeky grin before quickly sneaking off to a secluded location.</li>
             </rulesStrings>
         </rulePack>
     </TaleDef>
