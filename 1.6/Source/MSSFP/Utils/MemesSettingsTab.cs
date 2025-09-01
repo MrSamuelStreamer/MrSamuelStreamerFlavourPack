@@ -83,6 +83,12 @@ public class MemesSettingsTab(ModSettings settings, Mod mod) : SettingsTab(setti
         );
         DrawCheckBox(
             options,
+            "MSS_FP_Settings_EnableMercenaryHiring".Translate(),
+            ref Settings.EnableMercenaryHiring,
+            ref scrollViewHeight
+        );
+        DrawCheckBox(
+            options,
             "MSS_FP_Settings_EnableOskarianTech".Translate(),
             ref Settings.EnableOskarianTech,
             ref scrollViewHeight
@@ -129,6 +135,7 @@ public class MemesSettingsTab(ModSettings settings, Mod mod) : SettingsTab(setti
         Scribe_Values.Look(ref Settings.EnableTrekBeamers, "EnableTrekBeamers", true);
         Scribe_Values.Look(ref Settings.EnableTaffRaids, "EnableTaffRaids", true);
         Scribe_Values.Look(ref Settings.EnableSkylanternRaids, "EnableSkylanternRaids", false);
+        Scribe_Values.Look(ref Settings.EnableMercenaryHiring, "EnableMercenaryHiring", true);
         Scribe_Values.Look(ref Settings.DaysForOutpostFission, "DaysForOutpostFission", 7);
         Scribe_Values.Look(ref Settings.DaysForFission, "DaysForFission", 7);
     }

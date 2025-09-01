@@ -1,5 +1,4 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-
 <Defs>
     <IncidentDef>
         <defName>MSSFP_RaidEnemy_Skylantern</defName>
@@ -9,13 +8,13 @@
             <li>Map_PlayerHome</li>
         </targetTags>
         <workerClass>MSSFP.Incidents.IncidentWorker_RaidEnemySkylantern</workerClass>
-        <baseChance>0</baseChance> <!-- given by a special storyteller comp -->
+        <baseChance>0</baseChance>
+        <!-- given by a special storyteller comp -->
         <requireColonistsPresent>True</requireColonistsPresent>
         <pointsScaleable>true</pointsScaleable>
         <tale>Raid</tale>
         <ignoreRecentSelectionWeighting>true</ignoreRecentSelectionWeighting>
     </IncidentDef>
-
     <TaleDef>
         <defName>MSSFP_Lovers_Retreat_Tale</defName>
         <label>lovers retreat</label>
@@ -27,13 +26,12 @@
         <usableForArt>true</usableForArt>
         <rulePack>
             <rulesStrings>
-                <li>tale_noun->[LOVERA_nameDef] whisked [LOVERB_nameDef] away for a romantic retreat</li>
-                <li>tale_noun->[LOVERA_nameDef] lead [LOVERB_nameDef] out of the colony for some personal time</li>
-                <li>tale_noun->[LOVERB_nameDef] caught [LOVERB_nameDef]'s eye with a cheeky grin before quickly sneaking off to a secluded location.</li>
+                <li>tale_noun-&gt;[LOVERA_nameDef] whisked [LOVERB_nameDef] away for a romantic retreat</li>
+                <li>tale_noun-&gt;[LOVERA_nameDef] lead [LOVERB_nameDef] out of the colony for some personal time</li>
+                <li>tale_noun-&gt;[LOVERB_nameDef] caught [LOVERB_nameDef]'s eye with a cheeky grin before quickly sneaking off to a secluded location.</li>
             </rulesStrings>
         </rulePack>
     </TaleDef>
-
     <JobDef>
         <defName>MSSFP_GoToThen</defName>
         <driverClass>MSSFP.Jobs.JobDriver_GoToThen</driverClass>
@@ -42,7 +40,6 @@
         <carryThingAfterJob>true</carryThingAfterJob>
         <dropThingBeforeJob>false</dropThingBeforeJob>
     </JobDef>
-
     <IncidentDef>
         <defName>MSSFP_Lovers_Retreat</defName>
         <label>lovers retreat</label>
@@ -55,5 +52,26 @@
         </targetTags>
         <workerClass>MSSFP.Incidents.IncidentWorker_LoversRetreat</workerClass>
         <requireColonistsPresent>true</requireColonistsPresent>
+    </IncidentDef>
+    <LetterDef>
+        <defName>MSSFP_HireMercenariesOffer</defName>
+        <label>mercenary hiring offer</label>
+        <letterClass>MSSFP.Letters.ChoiceLetter_HireMercenaries</letterClass>
+        <color>(0.7, 0.7, 0.7)</color>
+        <arriveSound>LetterArrive</arriveSound>
+    </LetterDef>
+    <IncidentDef>
+        <defName>MSSFP_Hire_Mercenaries</defName>
+        <label>hire mercenaries</label>
+        <category>Misc</category>
+        <baseChance>3</baseChance>
+        <earliestDay>30</earliestDay>
+        <minRefireDays>60</minRefireDays>
+        <targetTags>
+            <li>Map_PlayerHome</li>
+        </targetTags>
+        <workerClass>MSSFP.Incidents.IncidentWorker_HireMercenaries</workerClass>
+        <requireColonistsPresent>true</requireColonistsPresent>
+        <letterDef>MSSFP_HireMercenariesOffer</letterDef>
     </IncidentDef>
 </Defs>
