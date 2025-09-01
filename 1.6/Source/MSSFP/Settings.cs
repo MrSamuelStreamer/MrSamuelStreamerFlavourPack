@@ -146,6 +146,15 @@ public class Settings : ModSettings
 
     public override void ExposeData()
     {
+        // Save/load main settings directly to ensure they persist
+        Scribe_Values.Look(
+            ref EnableWanderDelayModification,
+            "EnableWanderDelayModification",
+            false
+        );
+        Scribe_Values.Look(ref WanderDelayTicks, "WanderDelayTicks", 0);
+        Scribe_Values.Look(ref EnableGenesOnGrowthMoment, "EnableGenesOnGrowthMoment", false);
+
         foreach (SettingsTab settingsTab in Tabs)
         {
             settingsTab.ExposeData();

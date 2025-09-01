@@ -59,6 +59,12 @@ public class MemesSettingsTab(ModSettings settings, Mod mod) : SettingsTab(setti
         );
         DrawCheckBox(
             options,
+            "MSS_FP_Settings_SingleUseMentalFuses".Translate(),
+            ref Settings.SingleUseMentalFuses,
+            ref scrollViewHeight
+        );
+        DrawCheckBox(
+            options,
             "MSS_FP_Settings_EnableDirtJobs".Translate(),
             ref Settings.EnableDirtJobs,
             ref scrollViewHeight
@@ -81,6 +87,14 @@ public class MemesSettingsTab(ModSettings settings, Mod mod) : SettingsTab(setti
             ref Settings.EnableOskarianTech,
             ref scrollViewHeight
         );
+        bool disableSkylanternRaids = !Settings.EnableSkylanternRaids;
+        DrawCheckBox(
+            options,
+            "MSS_FP_Settings_NoSkylanternRaids".Translate(),
+            ref disableSkylanternRaids,
+            ref scrollViewHeight
+        );
+        Settings.EnableSkylanternRaids = !disableSkylanternRaids;
 
         DrawIntAdjuster(
             options,
@@ -109,11 +123,12 @@ public class MemesSettingsTab(ModSettings settings, Mod mod) : SettingsTab(setti
         Scribe_Values.Look(ref Settings.EnableLoversRetreat, "EnableLoversRetreat", false);
         Scribe_Values.Look(ref Settings.EnableFroggeIncidents, "EnableFroggeIncidents", false);
         Scribe_Values.Look(ref Settings.SingleUseMentalFuses, "SingleUseMentalFuses", false);
-        Scribe_Values.Look(ref Settings.EnableNonsenseIncidents, "DisableNonsenseIncidents", true);
+        Scribe_Values.Look(ref Settings.EnableNonsenseIncidents, "EnableNonsenseIncidents", false);
         Scribe_Values.Look(ref Settings.EnableOskarianTech, "EnableOskarianTech", false);
         Scribe_Values.Look(ref Settings.EnableDirtJobs, "EnableDirtJobs", false);
         Scribe_Values.Look(ref Settings.EnableTrekBeamers, "EnableTrekBeamers", true);
         Scribe_Values.Look(ref Settings.EnableTaffRaids, "EnableTaffRaids", true);
+        Scribe_Values.Look(ref Settings.EnableSkylanternRaids, "EnableSkylanternRaids", false);
         Scribe_Values.Look(ref Settings.DaysForOutpostFission, "DaysForOutpostFission", 7);
         Scribe_Values.Look(ref Settings.DaysForFission, "DaysForFission", 7);
     }

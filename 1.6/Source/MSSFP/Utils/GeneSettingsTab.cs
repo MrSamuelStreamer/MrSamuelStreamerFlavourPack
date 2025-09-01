@@ -154,12 +154,7 @@ public class GeneSettingsTab(ModSettings settings, Mod mod) : SettingsTab(settin
             false
         );
         Scribe_Values.Look(ref Settings.EnableGeneStealerNeed, "EnableGeneStealerNeed", false);
-        Scribe_Values.Look(
-            ref Settings.EnableGenesOnGrowthMoment,
-            "EnableGenesOnGrowthMoment",
-            false
-        );
-        Scribe_Values.Look(ref Settings.EnableOskarianTech, "EnableGeneMutators", false);
+        Scribe_Values.Look(ref Settings.EnableGeneMutators, "EnableGeneMutators", false);
         Scribe_Values.Look(ref Settings.GeneEventChance, "GeneEventChance", 1f);
         Scribe_Values.Look(ref Settings.GoodGeneChance, "GoodGeneChance", 1f / 4f);
         Scribe_Values.Look(ref Settings.BadGeneChance, "BadGeneChance", 1f / 4f);
