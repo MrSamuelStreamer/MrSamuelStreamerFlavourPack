@@ -32,6 +32,6 @@ public class HauntSettingsTab(ModSettings settings, Mod mod) : SettingsTab(setti
     public override void ExposeData()
     {
         Scribe_Values.Look(ref Settings.ShowHaunts, "ShowHaunts", false);
-        Scribe_Values.Look(ref Settings.EnablePossession, "DisablePossession", false);
+        Scribe_Values.Look(ref Settings.EnablePossession, "EnablePossession", false);
     }
 }
