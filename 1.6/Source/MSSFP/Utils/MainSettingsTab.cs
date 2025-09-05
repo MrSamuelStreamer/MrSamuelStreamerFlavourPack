@@ -44,6 +44,23 @@ public class MainSettingsTab(ModSettings settings, Mod mod) : SettingsTab(settin
             Settings.WanderDelayTicks = Mathf.RoundToInt(wanderDelaySeconds * 60f);
             scrollViewHeight += 30f;
         }
+
+        DrawCheckBox(
+            options,
+            "MSS_FP_Settings_EnableColonistPortraitHiding".Translate(),
+            ref Settings.EnableColonistPortraitHiding,
+            ref scrollViewHeight
+        );
+
+        if (Settings.EnableColonistPortraitHiding)
+        {
+            DrawCheckBox(
+                options,
+                "MSS_FP_Settings_ShowHiddenPortraits".Translate(),
+                ref Settings.ShowHiddenPortraits,
+                ref scrollViewHeight
+            );
+        }
     }
 
     public override void ExposeData()
@@ -52,5 +69,7 @@ public class MainSettingsTab(ModSettings settings, Mod mod) : SettingsTab(settin
             return;
         Scribe_Values.Look(ref Settings.OverrideRelicPool, "overrideRelicPool", false);
         Scribe_Values.Look(ref Settings.DrawByMrStreamer, "DrawByMrStreamer", false);
+        Scribe_Values.Look(ref Settings.EnableColonistPortraitHiding, "EnableColonistPortraitHiding", true);
+        Scribe_Values.Look(ref Settings.ShowHiddenPortraits, "ShowHiddenPortraits", false);
     }
 }
