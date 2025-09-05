@@ -45,6 +45,7 @@ public class MainSettingsTab(ModSettings settings, Mod mod) : SettingsTab(settin
             scrollViewHeight += 30f;
         }
 
+        bool oldEnableValue = Settings.EnableColonistPortraitHiding;
         DrawCheckBox(
             options,
             "MSS_FP_Settings_EnableColonistPortraitHiding".Translate(),
@@ -52,14 +53,43 @@ public class MainSettingsTab(ModSettings settings, Mod mod) : SettingsTab(settin
             ref scrollViewHeight
         );
 
+        if (oldEnableValue != Settings.EnableColonistPortraitHiding)
+        {
+            Find.ColonistBar?.MarkColonistsDirty();
+        }
+
         if (Settings.EnableColonistPortraitHiding)
         {
+            bool oldValue = Settings.ShowHiddenPortraits;
             DrawCheckBox(
                 options,
                 "MSS_FP_Settings_ShowHiddenPortraits".Translate(),
                 ref Settings.ShowHiddenPortraits,
                 ref scrollViewHeight
             );
+
+            if (oldValue != Settings.ShowHiddenPortraits)
+            {
+                Find.ColonistBar?.MarkColonistsDirty();
+            }
+
+            options.Gap(10f);
+            scrollViewHeight += 10f;
+
+            if (options.ButtonText("MSS_FP_Settings_RestoreAllHiddenColonists".Translate()))
+            {
+                var worldComp = Find.World?.GetComponent<ColonistHidingWorldComponent>();
+                if (worldComp != null)
+                {
+                    var hiddenColonists = worldComp.GetHiddenColonists();
+                    foreach (var colonist in hiddenColonists)
+                    {
+                        worldComp.ShowColonist(colonist);
+                    }
+                    Find.ColonistBar?.MarkColonistsDirty();
+                }
+            }
+            scrollViewHeight += 30f;
         }
     }
 
@@ -69,7 +99,11 @@ public class MainSettingsTab(ModSettings settings, Mod mod) : SettingsTab(settin
             return;
         Scribe_Values.Look(ref Settings.OverrideRelicPool, "overrideRelicPool", false);
         Scribe_Values.Look(ref Settings.DrawByMrStreamer, "DrawByMrStreamer", false);
-        Scribe_Values.Look(ref Settings.EnableColonistPortraitHiding, "EnableColonistPortraitHiding", true);
+        Scribe_Values.Look(
+            ref Settings.EnableColonistPortraitHiding,
+            "EnableColonistPortraitHiding",
+            true
+        );
         Scribe_Values.Look(ref Settings.ShowHiddenPortraits, "ShowHiddenPortraits", false);
     }
 }

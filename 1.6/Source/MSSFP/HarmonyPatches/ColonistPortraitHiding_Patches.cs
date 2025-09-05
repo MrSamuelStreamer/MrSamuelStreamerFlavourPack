@@ -13,10 +13,14 @@ public static class ColonistBar_ColonistsOrCorpsesInScreenRect_Patch
     [HarmonyPostfix]
     public static void Postfix(ref List<Thing> __result)
     {
-        if (
-            MSSFPMod.settings?.EnableColonistPortraitHiding != true
-            || MSSFPMod.settings.ShowHiddenPortraits
-        )
+        if (MSSFPMod.settings?.EnableColonistPortraitHiding != true)
+            return;
+
+        if (MSSFPMod.settings.ShowHiddenPortraits)
+            return;
+
+        var worldComp = Find.World.GetComponent<ColonistHidingWorldComponent>();
+        if (worldComp == null)
             return;
 
         __result = __result
@@ -24,8 +28,7 @@ public static class ColonistBar_ColonistsOrCorpsesInScreenRect_Patch
             {
                 if (thing is Pawn pawn && pawn.RaceProps?.Humanlike == true)
                 {
-                    return MSSFPMod.settings.HiddenColonistIds?.Contains(pawn.thingIDNumber)
-                        != true;
+                    return !worldComp.IsHidden(pawn);
                 }
                 return true;
             })
@@ -39,10 +42,14 @@ public static class ColonistBar_CheckRecacheEntries_Patch
     [HarmonyPostfix]
     public static void Postfix(ColonistBar __instance)
     {
-        if (
-            MSSFPMod.settings?.EnableColonistPortraitHiding != true
-            || MSSFPMod.settings.ShowHiddenPortraits
-        )
+        if (MSSFPMod.settings?.EnableColonistPortraitHiding != true)
+            return;
+
+        if (MSSFPMod.settings.ShowHiddenPortraits)
+            return;
+
+        var worldComp = Find.World.GetComponent<ColonistHidingWorldComponent>();
+        if (worldComp == null)
             return;
 
         var cachedEntriesField = typeof(ColonistBar).GetField(
@@ -62,12 +69,7 @@ public static class ColonistBar_CheckRecacheEntries_Patch
             for (int i = cachedEntries.Count - 1; i >= 0; i--)
             {
                 var entry = cachedEntries[i];
-                if (
-                    entry.pawn != null
-                    && entry.pawn.IsColonist
-                    && MSSFPMod.settings.HiddenColonistIds?.Contains(entry.pawn.thingIDNumber)
-                        == true
-                )
+                if (entry.pawn != null && entry.pawn.IsColonist && worldComp.IsHidden(entry.pawn))
                 {
                     cachedEntries.RemoveAt(i);
                     if (i < cachedDrawLocs.Count)
@@ -119,9 +121,11 @@ public static class ColonistBar_ProcessInput_Patch
             Vector2 currentMousePos = Event.current.mousePosition;
             if (Vector2.Distance(currentMousePos, lastMousePos) < 5f)
             {
-                bool isHidden =
-                    MSSFPMod.settings.HiddenColonistIds?.Contains(lastClickedPawn.thingIDNumber)
-                    == true;
+                var worldComp = Find.World.GetComponent<ColonistHidingWorldComponent>();
+                if (worldComp == null)
+                    return true;
+
+                bool isHidden = worldComp.IsHidden(lastClickedPawn);
                 string menuText = isHidden
                     ? "MSS_FP_RestoreColonist".Translate()
                     : "MSS_FP_HideColonist".Translate();
@@ -138,16 +142,12 @@ public static class ColonistBar_ProcessInput_Patch
 
                             if (isHidden)
                             {
-                                MSSFPMod.settings.HiddenColonistIds?.Remove(
-                                    capturedPawn.thingIDNumber
-                                );
+                                worldComp.ShowColonist(capturedPawn);
                             }
                             else
                             {
-                                MSSFPMod.settings.HiddenColonistIds ??= new HashSet<int>();
-                                MSSFPMod.settings.HiddenColonistIds.Add(capturedPawn.thingIDNumber);
+                                worldComp.HideColonist(capturedPawn);
                             }
-                            MSSFPMod.settings.Write();
                             Find.ColonistBar.MarkColonistsDirty();
                         }
                     ),
@@ -181,7 +181,8 @@ public static class PlaySettings_ColonistPortraitHiding_Patch
         if (MSSFPMod.settings?.EnableColonistPortraitHiding != true)
             return;
 
-        if (MSSFPMod.settings.HiddenColonistIds?.Any() != true)
+        var worldComp = Find.World.GetComponent<ColonistHidingWorldComponent>();
+        if (worldComp?.GetHiddenColonists().Any() != true)
             return;
 
         if (row.ButtonIcon(ToggleTex, "MSS_FP_RightClickToRestore".Translate()))
@@ -195,26 +196,27 @@ public static class PlaySettings_ColonistPortraitHiding_Patch
 
     private static void ShowHiddenColonistsContextMenu()
     {
-        var hiddenColonists = MSSFPMod.settings.HiddenColonistIds?.ToList() ?? new List<int>();
+        var worldComp = Find.World.GetComponent<ColonistHidingWorldComponent>();
+        if (worldComp == null)
+            return;
+
+        var hiddenColonists = worldComp.GetHiddenColonists();
         if (!hiddenColonists.Any())
             return;
 
         var options = new List<FloatMenuOption>();
 
-        foreach (int colonistId in hiddenColonists)
+        foreach (var colonist in hiddenColonists)
         {
-            var colonist = Find.CurrentMap?.mapPawns?.AllPawnsSpawned?.FirstOrDefault(p =>
-                p.thingIDNumber == colonistId
-            );
             if (colonist != null)
             {
+                var capturedColonist = colonist;
                 options.Add(
                     new FloatMenuOption(
                         "MSS_FP_RestoreColonist".Translate() + ": " + colonist.Name?.ToStringFull,
                         () =>
                         {
-                            MSSFPMod.settings.HiddenColonistIds?.Remove(colonistId);
-                            MSSFPMod.settings.Write();
+                            worldComp.ShowColonist(capturedColonist);
                             Find.ColonistBar.MarkColonistsDirty();
                         }
                     )
