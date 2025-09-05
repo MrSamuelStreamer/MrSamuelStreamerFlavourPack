@@ -41,5 +41,5 @@ Portions of the materials used to create this content/mod are trademarks and/or 
 * Ghastlyskull for the frogge visage mask
 * [Ferris](https://github.com/FerrisComplex) for bugfixes
 * stroganoff-short_4.wav by chemicalcrux -- https://freesound.org/s/429609/ -- License: Attribution 4.0
-* Retrobo99 for various fixes, wander delay, and mercenary quests
+* Retrobo99 for various fixes, wander delay, colonist bar display toggles, and mercenary quests
 * Retroboy99 for actually being Retrobo99 all along 
