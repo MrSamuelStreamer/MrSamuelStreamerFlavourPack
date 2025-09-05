@@ -42,6 +42,8 @@ public class Settings : ModSettings
     public bool EnableMercenaryHiring = true;
     public bool EnableWanderDelayModification = false;
     public int WanderDelayTicks = 0;
+    public bool EnableColonistPortraitHiding = true;
+    public bool ShowHiddenPortraits = false;
 
     protected static List<SettingsTab> Tabs = new();
 
@@ -155,6 +157,8 @@ public class Settings : ModSettings
         );
         Scribe_Values.Look(ref WanderDelayTicks, "WanderDelayTicks", 0);
         Scribe_Values.Look(ref EnableGenesOnGrowthMoment, "EnableGenesOnGrowthMoment", false);
+        Scribe_Values.Look(ref EnableColonistPortraitHiding, "EnableColonistPortraitHiding", true);
+        Scribe_Values.Look(ref ShowHiddenPortraits, "ShowHiddenPortraits", false);
 
         foreach (SettingsTab settingsTab in Tabs)
         {

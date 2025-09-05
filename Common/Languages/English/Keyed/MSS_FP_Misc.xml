@@ -136,4 +136,14 @@
   <MSSFP_WeightPriceTipTip>Weight price: </MSSFP_WeightPriceTipTip>
   <MSSFP_WeightPriceTipSell>Sell price per mass</MSSFP_WeightPriceTipSell>
   <MSSFP_WeightPriceTipBuy>Buy price per mass</MSSFP_WeightPriceTipBuy>
+  
+  <!-- Colonist Portrait Hiding -->
+  <MSS_FP_Settings_EnableColonistPortraitHiding>Enable colonist portrait hiding</MSS_FP_Settings_EnableColonistPortraitHiding>
+  <MSS_FP_Settings_ShowHiddenPortraits>Show hidden portraits</MSS_FP_Settings_ShowHiddenPortraits>
+  <MSS_FP_Settings_RestoreAllHiddenColonists>Restore all hidden colonists</MSS_FP_Settings_RestoreAllHiddenColonists>
+  <MSS_FP_HideColonist>Hide colonist</MSS_FP_HideColonist>
+  <MSS_FP_RestoreColonist>Restore colonist</MSS_FP_RestoreColonist>
+  <MSS_FP_ShowHiddenColonists>Show hidden colonists</MSS_FP_ShowHiddenColonists>
+  <MSS_FP_HideHiddenColonists>Hide hidden colonists</MSS_FP_HideHiddenColonists>
+  <MSS_FP_RightClickToRestore>Right-click to restore colonists</MSS_FP_RightClickToRestore>
 </LanguageData>
