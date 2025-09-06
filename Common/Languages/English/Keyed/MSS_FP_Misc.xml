@@ -146,4 +146,9 @@
   <MSS_FP_ShowHiddenColonists>Show hidden colonists</MSS_FP_ShowHiddenColonists>
   <MSS_FP_HideHiddenColonists>Hide hidden colonists</MSS_FP_HideHiddenColonists>
   <MSS_FP_RightClickToRestore>Right-click to restore colonists</MSS_FP_RightClickToRestore>
+  
+  <MSS_FP_Settings_EnableMercenaryHiring>Enable mercenary hiring</MSS_FP_Settings_EnableMercenaryHiring>
+  <MSS_FP_Settings_EnableWanderDelayModification>Enable wander delay modification</MSS_FP_Settings_EnableWanderDelayModification>
+  <MSS_FP_Settings_WanderDelaySeconds>Wander delay: {0} seconds</MSS_FP_Settings_WanderDelaySeconds>
+  <MSS_FP_Settings_WanderDelaySeconds_Tooltip>Modify the delay before pawns start wandering around the map</MSS_FP_Settings_WanderDelaySeconds_Tooltip>
 </LanguageData>
