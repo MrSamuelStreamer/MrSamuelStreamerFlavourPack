@@ -185,11 +185,26 @@ public static class PlaySettings_ColonistPortraitHiding_Patch
         if (worldComp?.GetHiddenColonists().Any() != true)
             return;
 
-        if (row.ButtonIcon(ToggleTex, "MSS_FP_RightClickToRestore".Translate()))
+        bool previousState = MSSFPMod.settings.ShowHiddenPortraits;
+        bool wasRightClick = Event.current.button == 1;
+
+        row.ToggleableIcon(
+            ref MSSFPMod.settings.ShowHiddenPortraits,
+            ToggleTex,
+            "MSS_FP_ShowHiddenColonists".Translate(),
+            SoundDefOf.Mouseover_ButtonToggle
+        );
+
+        if (previousState != MSSFPMod.settings.ShowHiddenPortraits)
         {
-            if (Event.current.button == 1)
+            if (wasRightClick)
             {
+                MSSFPMod.settings.ShowHiddenPortraits = previousState;
                 ShowHiddenColonistsContextMenu();
+            }
+            else
+            {
+                Find.ColonistBar?.MarkColonistsDirty();
             }
         }
     }
@@ -204,25 +219,17 @@ public static class PlaySettings_ColonistPortraitHiding_Patch
         if (!hiddenColonists.Any())
             return;
 
-        var options = new List<FloatMenuOption>();
-
-        foreach (var colonist in hiddenColonists)
-        {
-            if (colonist != null)
-            {
-                var capturedColonist = colonist;
-                options.Add(
-                    new FloatMenuOption(
-                        "MSS_FP_RestoreColonist".Translate() + ": " + colonist.Name?.ToStringFull,
-                        () =>
-                        {
-                            worldComp.ShowColonist(capturedColonist);
-                            Find.ColonistBar.MarkColonistsDirty();
-                        }
-                    )
-                );
-            }
-        }
+        var options = hiddenColonists
+            .Where(colonist => colonist != null)
+            .Select(colonist => new FloatMenuOption(
+                "MSS_FP_RestoreColonist".Translate() + ": " + colonist.Name?.ToStringFull,
+                () =>
+                {
+                    worldComp.ShowColonist(colonist);
+                    Find.ColonistBar.MarkColonistsDirty();
+                }
+            ))
+            .ToList();
 
         if (options.Any())
         {
