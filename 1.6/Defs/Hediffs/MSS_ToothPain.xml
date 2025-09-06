@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <HediffDef ParentName="DiseaseBase">
+        <defName>MSS_ToothPain</defName>
+        <label>tooth pain</label>
+        <description>This person's teeth are in excruciating pain from being hit by a plaque gun.</description>
+        <isBad>true</isBad>
+        <initialSeverity>0.1</initialSeverity>
+        <minSeverity>0.1</minSeverity>
+        <maxSeverity>1.0</maxSeverity>
+        <makesSickThought>true</makesSickThought>
+        <tendable>true</tendable>
+        <everCurableByItem>false</everCurableByItem>
+        <comps>
+            <li Class="HediffCompProperties_SeverityPerDay">
+                <severityPerDay>-0.05</severityPerDay>
+                <showDaysToRecover>true</showDaysToRecover>
+            </li>
+        </comps>
+        <stages>
+            <li>
+                <label>mild tooth pain</label>
+                <minSeverity>0.1</minSeverity>
+                <painOffset>0.05</painOffset>
+            </li>
+            <li>
+                <label>moderate tooth pain</label>
+                <minSeverity>0.3</minSeverity>
+                <painOffset>0.10</painOffset>
+            </li>
+            <li>
+                <label>severe tooth pain</label>
+                <minSeverity>0.6</minSeverity>
+                <painOffset>0.15</painOffset>
+            </li>
+            <li>
+                <label>excruciating tooth pain</label>
+                <minSeverity>0.9</minSeverity>
+                <painOffset>0.20</painOffset>
+            </li>
+        </stages>
+    </HediffDef>
+</Defs>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <ThingDef ParentName="BuildingBase">
+        <defName>MSS_PlaqueSign</defName>
+        <label>plaque sign</label>
+        <description>A sign created by the plaque gun. It contains a transformed pawn that can be restored by destroying or deconstructing the sign.</description>
+        <graphicData>
+            <texPath>Things/Building/Furniture/PenMarker</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <thingClass>Building</thingClass>
+        <category>Building</category>
+        <selectable>true</selectable>
+        <altitudeLayer>Building</altitudeLayer>
+        <passability>PassThroughOnly</passability>
+        <fillPercent>0.8</fillPercent>
+        <pathCost>0</pathCost>
+        <statBases>
+            <WorkToBuild>100</WorkToBuild>
+            <Mass>1</Mass>
+            <Flammability>0.5</Flammability>
+        </statBases>
+        <comps>
+            <li Class="MSSFP.Comps.CompProperties_PlaqueSign" />
+        </comps>
+        <building>
+            <preventDeteriorationInside>true</preventDeteriorationInside>
+        </building>
+    </ThingDef>
+</Defs>
