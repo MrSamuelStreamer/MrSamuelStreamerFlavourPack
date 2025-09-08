@@ -1,5 +1,4 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-
 <Defs>
     <ThingDef Name="MSS_BatBase" ParentName="BaseMeleeWeapon_Blunt" Abstract="True">
         <techLevel>Medieval</techLevel>
@@ -52,7 +51,6 @@
             </li>
         </tools>
     </ThingDef>
-
     <ThingDef ParentName="MSS_BatBase">
         <defName>MSS_Longrat_Extended</defName>
         <label>Longrat Extended</label>
@@ -79,7 +77,6 @@
             </li>
         </tools>
     </ThingDef>
-
     <ThingDef ParentName="MSS_BatBase">
         <defName>MSS_Wombat_Extended</defName>
         <label>Wombat Extended</label>
@@ -106,7 +103,6 @@
             </li>
         </tools>
     </ThingDef>
-
     <ThingDef ParentName="MSS_BatBase">
         <defName>MSS_Thongbat_Extended</defName>
         <label>Longrat Extended</label>
@@ -133,7 +129,6 @@
             </li>
         </tools>
     </ThingDef>
-
     <ThingDef ParentName="MSS_BatBase">
         <defName>MSS_Dongbat_Extended</defName>
         <label>Dongbat Extended</label>
@@ -162,7 +157,6 @@
             </li>
         </tools>
     </ThingDef>
-
     <ThingDef ParentName="MSS_BatBase">
         <defName>MSS_Batbat_Extended</defName>
         <label>Batbat Extended</label>
@@ -197,7 +191,6 @@
             </li>
         </tools>
     </ThingDef>
-
     <ThingDef ParentName="BaseMeleeWeapon_Sharp_Quality">
         <defName>MSS_LongBat</defName>
         <label>Longbat Extended</label>
@@ -246,7 +239,6 @@
             <displayPriority>330</displayPriority>
         </recipeMaker>
     </ThingDef>
-
     <ThingDef ParentName="BaseHumanMakeableGun">
         <defName>MSS_GunBat_Autopistol</defName>
         <label>autopistol extended</label>
@@ -333,8 +325,6 @@
             <speed>55</speed>
         </projectile>
     </ThingDef>
-
-
     <ThingDef ParentName="BaseHumanMakeableGun">
         <defName>MSS_GunBat_AssaultRifle</defName>
         <label>assault rifle extended</label>
@@ -354,7 +344,6 @@
             </skillRequirements>
             <displayPriority>420</displayPriority>
         </recipeMaker>
-
         <thingSetMakerTags>
             <li>RewardStandardQualitySuper</li>
         </thingSetMakerTags>
@@ -423,8 +412,6 @@
             <speed>70</speed>
         </projectile>
     </ThingDef>
-
-
     <ThingDef ParentName="BaseHumanMakeableGun">
         <defName>MSS_GunBat_PumpShotgun</defName>
         <label>pump shotgun extended</label>
@@ -498,8 +485,6 @@
             </li>
         </tools>
     </ThingDef>
-
-
     <ThingDef ParentName="BaseHumanMakeableGun">
         <defName>MSS_GunBat_SniperRifle</defName>
         <label>sniper rifle</label>
@@ -590,7 +575,6 @@
             <speed>100</speed>
         </projectile>
     </ThingDef>
-
     <!-- Backward Gun - shoots the user instead of the target -->
     <ThingDef ParentName="BaseHumanMakeableGun">
         <defName>MSS_BackwardGun</defName>
@@ -634,6 +618,95 @@
                 <verbClass>MSSFP.Verbs.Verb_BackwardShoot</verbClass>
                 <hasStandardCommand>true</hasStandardCommand>
                 <defaultProjectile>Bullet_Revolver</defaultProjectile>
+                <warmupTime>0.3</warmupTime>
+                <range>25.9</range>
+                <soundCast>Shot_Revolver</soundCast>
+                <soundCastTail>GunTail_Light</soundCastTail>
+                <muzzleFlashScale>9</muzzleFlashScale>
+            </li>
+        </verbs>
+        <tools>
+            <li>
+                <label>grip</label>
+                <capacities>
+                    <li>Blunt</li>
+                </capacities>
+                <power>9</power>
+                <cooldownTime>2</cooldownTime>
+            </li>
+            <li>
+                <label>barrel</label>
+                <capacities>
+                    <li>Blunt</li>
+                    <li>Poke</li>
+                </capacities>
+                <power>9</power>
+                <cooldownTime>2</cooldownTime>
+            </li>
+        </tools>
+    </ThingDef>
+    <ThingDef ParentName="BaseBullet">
+        <defName>MSS_PlaqueBullet</defName>
+        <thingClass>MSSFP.Projectiles.Projectile_PlaqueBullet</thingClass>
+        <label>plaque bullet</label>
+        <graphicData>
+            <texPath>Things/Projectile/Bullet_Small</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <projectile>
+            <damageDef>Bullet</damageDef>
+            <damageAmountBase>12</damageAmountBase>
+            <stoppingPower>1</stoppingPower>
+            <speed>55</speed>
+        </projectile>
+    </ThingDef>
+    <ThingDef ParentName="BaseHumanMakeableGun">
+        <defName>MSS_PlaqueGun</defName>
+        <label>plaque gun</label>
+        <description>A gun that gives you toothaches, turns you into a “Live, Laugh, Love” wall sign, or removes your butthole. Great for party tricks, less great for survival.</description>
+        <graphicData>
+            <texPath>Things/WeaponRanged/plaque_gun</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <uiIconScale>1.4</uiIconScale>
+        <soundInteract>Interact_Revolver</soundInteract>
+        <thingSetMakerTags>
+            <li>RewardStandardQualitySuper</li>
+            <li>RewardStandardCore</li>
+        </thingSetMakerTags>
+        <statBases>
+            <WorkToMake>6000</WorkToMake>
+            <Mass>1.4</Mass>
+            <AccuracyTouch>0.80</AccuracyTouch>
+            <AccuracyShort>0.75</AccuracyShort>
+            <AccuracyMedium>0.45</AccuracyMedium>
+            <AccuracyLong>0.35</AccuracyLong>
+            <RangedWeapon_Cooldown>3.5</RangedWeapon_Cooldown>
+        </statBases>
+        <weaponTags>
+            <li>SimpleGun</li>
+            <li>Revolver</li>
+        </weaponTags>
+        <weaponClasses>
+            <li>RangedLight</li>
+        </weaponClasses>
+        <costList>
+            <Steel>50</Steel>
+            <ComponentIndustrial>4</ComponentIndustrial>
+            <ComponentSpacer>1</ComponentSpacer>
+        </costList>
+        <recipeMaker>
+            <researchPrerequisite>MSS_CEE</researchPrerequisite>
+            <skillRequirements>
+                <Crafting>10</Crafting>
+            </skillRequirements>
+            <displayPriority>410</displayPriority>
+        </recipeMaker>
+        <verbs>
+            <li>
+                <verbClass>Verb_Shoot</verbClass>
+                <hasStandardCommand>true</hasStandardCommand>
+                <defaultProjectile>MSS_PlaqueBullet</defaultProjectile>
                 <warmupTime>0.3</warmupTime>
                 <range>25.9</range>
                 <soundCast>Shot_Revolver</soundCast>
