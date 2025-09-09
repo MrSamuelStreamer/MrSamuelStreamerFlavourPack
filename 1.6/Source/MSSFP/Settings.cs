@@ -44,6 +44,7 @@ public class Settings : ModSettings
     public int WanderDelayTicks = 0;
     public bool EnableColonistPortraitHiding = true;
     public bool ShowHiddenPortraits = false;
+    public bool Enable10SecondsToSpeed = false;
 
     protected static List<SettingsTab> Tabs = new();
 
@@ -159,6 +160,7 @@ public class Settings : ModSettings
         Scribe_Values.Look(ref EnableGenesOnGrowthMoment, "EnableGenesOnGrowthMoment", false);
         Scribe_Values.Look(ref EnableColonistPortraitHiding, "EnableColonistPortraitHiding", true);
         Scribe_Values.Look(ref ShowHiddenPortraits, "ShowHiddenPortraits", false);
+        Scribe_Values.Look(ref Enable10SecondsToSpeed, "Enable10SecondsToSpeed", false);
 
         foreach (SettingsTab settingsTab in Tabs)
         {

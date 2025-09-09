@@ -28,6 +28,12 @@ public class MainSettingsTab(ModSettings settings, Mod mod) : SettingsTab(settin
             ref Settings.EnableWanderDelayModification,
             ref scrollViewHeight
         );
+        DrawCheckBox(
+            options,
+            "MSS_FP_Settings_Enable10SecondsToSpeed".Translate(),
+            ref Settings.Enable10SecondsToSpeed,
+            ref scrollViewHeight
+        );
 
         if (Settings.EnableWanderDelayModification)
         {
@@ -105,5 +111,6 @@ public class MainSettingsTab(ModSettings settings, Mod mod) : SettingsTab(settin
             true
         );
         Scribe_Values.Look(ref Settings.ShowHiddenPortraits, "ShowHiddenPortraits", false);
+        Scribe_Values.Look(ref Settings.Enable10SecondsToSpeed, "Enable10SecondsToSpeed", false);
     }
 }
