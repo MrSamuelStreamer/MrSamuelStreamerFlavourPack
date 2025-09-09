@@ -157,5 +157,5 @@
   <MSS_FP_Settings_TenSecondsToSpeedDelay>Delay: {0} seconds</MSS_FP_Settings_TenSecondsToSpeedDelay>
   <MSS_FP_Settings_TenSecondsToSpeedDelay_Tooltip>How many seconds to wait before automatically switching to ultrafast speed</MSS_FP_Settings_TenSecondsToSpeedDelay_Tooltip>
   <MSS_FP_Settings_MonitorSpeeds>Monitor these speeds:</MSS_FP_Settings_MonitorSpeeds>
-  <MSSFP_10SecondsToSpeed_Tooltip>When enabled, automatically switches to ultrafast speed after the specified delay when on monitored speeds. Press 5 to toggle.</MSSFP_10SecondsToSpeed_Tooltip>
+  <MSSFP_10SecondsToSpeed_Tooltip>When enabled, automatically switches to ultrafast speed after the specified delay when on monitored speeds. Use the key binding to toggle this feature on/off. You can configure the delay, key binding, and which speeds trigger the auto-speed-up in the mod settings.</MSSFP_10SecondsToSpeed_Tooltip>
 </LanguageData>
