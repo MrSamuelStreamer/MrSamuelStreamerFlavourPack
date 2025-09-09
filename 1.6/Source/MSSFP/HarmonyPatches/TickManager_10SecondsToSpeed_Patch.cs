@@ -10,7 +10,6 @@ namespace MSSFP.HarmonyPatches;
 internal static class TickManager_10SecondsToSpeed_Patch
 {
     private static Timer _speedUpTimer;
-    private const double TimerIntervalMs = 10000.0;
 
     [HarmonyPostfix]
     private static void Postfix()
@@ -21,16 +20,13 @@ internal static class TickManager_10SecondsToSpeed_Patch
         if (Find.TickManager.CurTimeSpeed == TimeSpeed.Ultrafast)
             return;
 
-        if (Find.TickManager.CurTimeSpeed == TimeSpeed.Paused)
+        if (!MSSFPMod.settings.IsSpeedMonitored(Find.TickManager.CurTimeSpeed))
             return;
 
         _speedUpTimer?.Dispose();
 
-        _speedUpTimer = new Timer(TimerIntervalMs)
-        {
-            AutoReset = false,
-            Enabled = true,
-        };
+        double delayMs = MSSFPMod.settings.TenSecondsToSpeedDelay * 1000.0;
+        _speedUpTimer = new Timer(delayMs) { AutoReset = false, Enabled = true };
 
         _speedUpTimer.Elapsed += OnTimerElapsed;
     }

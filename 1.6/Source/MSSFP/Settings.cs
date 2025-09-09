@@ -45,6 +45,36 @@ public class Settings : ModSettings
     public bool EnableColonistPortraitHiding = true;
     public bool ShowHiddenPortraits = false;
     public bool Enable10SecondsToSpeed = false;
+    public int TenSecondsToSpeedDelay = 10;
+    public HashSet<Verse.TimeSpeed> MonitoredSpeeds = new()
+    {
+        Verse.TimeSpeed.Paused,
+        Verse.TimeSpeed.Normal,
+    };
+
+    public bool IsSpeedMonitored(Verse.TimeSpeed speed)
+    {
+        return MonitoredSpeeds?.Contains(speed) ?? false;
+    }
+
+    public void ToggleSpeedMonitoring(Verse.TimeSpeed speed)
+    {
+        if (MonitoredSpeeds == null)
+            MonitoredSpeeds = new HashSet<Verse.TimeSpeed>();
+
+        if (MonitoredSpeeds.Contains(speed))
+            MonitoredSpeeds.Remove(speed);
+        else
+            MonitoredSpeeds.Add(speed);
+    }
+
+    public string GetMonitoredSpeedsText()
+    {
+        if (MonitoredSpeeds == null || MonitoredSpeeds.Count == 0)
+            return "None";
+
+        return string.Join(", ", MonitoredSpeeds.Select(s => s.ToString()));
+    }
 
     protected static List<SettingsTab> Tabs = new();
 
@@ -161,6 +191,8 @@ public class Settings : ModSettings
         Scribe_Values.Look(ref EnableColonistPortraitHiding, "EnableColonistPortraitHiding", true);
         Scribe_Values.Look(ref ShowHiddenPortraits, "ShowHiddenPortraits", false);
         Scribe_Values.Look(ref Enable10SecondsToSpeed, "Enable10SecondsToSpeed", false);
+        Scribe_Values.Look(ref TenSecondsToSpeedDelay, "TenSecondsToSpeedDelay", 10);
+        Scribe_Collections.Look(ref MonitoredSpeeds, "MonitoredSpeeds", LookMode.Value);
 
         foreach (SettingsTab settingsTab in Tabs)
         {
