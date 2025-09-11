@@ -151,4 +151,11 @@
   <MSS_FP_Settings_EnableWanderDelayModification>Enable wander delay modification</MSS_FP_Settings_EnableWanderDelayModification>
   <MSS_FP_Settings_WanderDelaySeconds>Wander delay: {0} seconds</MSS_FP_Settings_WanderDelaySeconds>
   <MSS_FP_Settings_WanderDelaySeconds_Tooltip>Modify the delay before pawns start wandering around the map</MSS_FP_Settings_WanderDelaySeconds_Tooltip>
+  
+  <!-- 10 Seconds to Speed -->
+  <MSS_FP_Settings_Enable10SecondsToSpeed>Enable 10 Seconds to Speed</MSS_FP_Settings_Enable10SecondsToSpeed>
+  <MSS_FP_Settings_TenSecondsToSpeedDelay>Delay: {0} seconds</MSS_FP_Settings_TenSecondsToSpeedDelay>
+  <MSS_FP_Settings_TenSecondsToSpeedDelay_Tooltip>How many seconds to wait before automatically switching to ultrafast speed</MSS_FP_Settings_TenSecondsToSpeedDelay_Tooltip>
+  <MSS_FP_Settings_MonitorSpeeds>Monitor these speeds:</MSS_FP_Settings_MonitorSpeeds>
+  <MSSFP_10SecondsToSpeed_Tooltip>When enabled, automatically switches to ultrafast speed after the specified delay when on monitored speeds. Use the key binding to toggle this feature on/off. You can configure the delay, key binding, and which speeds trigger the auto-speed-up in the mod settings.</MSSFP_10SecondsToSpeed_Tooltip>
 </LanguageData>

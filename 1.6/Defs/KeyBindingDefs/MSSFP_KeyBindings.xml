@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <KeyBindingDef>
+        <defName>MSSFP_Toggle10SecondsToSpeed</defName>
+        <label>Toggle 10 Seconds to Speed</label>
+        <description>Toggle the 10 Seconds to Speed feature on/off.</description>
+        <category>MSSFP_KeyBindings</category>
+        <defaultKeyCodeA>Alpha5</defaultKeyCodeA>
+    </KeyBindingDef>
+</Defs>

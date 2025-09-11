@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <KeyBindingCategoryDef>
+        <defName>MSSFP_KeyBindings</defName>
+        <label>MSSFP Key Bindings</label>
+        <description>Key bindings for Mr Samuel Streamer Flavour Pack features.</description>
+    </KeyBindingCategoryDef>
+</Defs>
