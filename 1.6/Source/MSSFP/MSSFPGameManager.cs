@@ -37,6 +37,20 @@ public class MSSFPGameManager : GameComponent
         );
     }
 
+    public override void GameComponentUpdate()
+    {
+        if (Current.ProgramState != ProgramState.Playing)
+            return;
+
+        if (
+            DefDatabase<KeyBindingDef>.GetNamed("MSSFP_Toggle10SecondsToSpeed")?.KeyDownEvent
+            ?? false
+        )
+        {
+            MSSFPMod.settings.Enable10SecondsToSpeed = !MSSFPMod.settings.Enable10SecondsToSpeed;
+        }
+    }
+
     public override void GameComponentTick()
     {
         if (
