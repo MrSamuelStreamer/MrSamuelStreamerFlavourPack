@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <RecipeDef>
+        <defName>MSS_DonateBlood_Colonist</defName>
+        <label>donate blood (colonist)</label>
+        <description>Donate blood to create a hemogen pack. This procedure is designed to be comfortable and voluntary for your own people, avoiding the mood penalties associated with extracting from prisoners or strangers.
+
+Hemogen packs can be administered to others to reduce blood loss or to satiate those who feed on blood.</description>
+        <workerClass>MSSFP.Recipe_DonateBloodColonist</workerClass>
+        <jobString>Donating blood.</jobString>
+        <workAmount>500</workAmount>
+        <hideBodyPartNames>true</hideBodyPartNames>
+        <targetsBodyPart>false</targetsBodyPart>
+        <isViolation>false</isViolation>
+        <anesthetize>false</anesthetize>
+        <surgerySuccessChanceFactor>1.0</surgerySuccessChanceFactor>
+        <deathOnFailedSurgeryChance>0.0</deathOnFailedSurgeryChance>
+        <descriptionHyperlinks>
+            <ThingDef>HemogenPack</ThingDef>
+        </descriptionHyperlinks>
+        <uiIconThing>HemogenPack</uiIconThing>
+        <workSkillLearnFactor>2</workSkillLearnFactor>
+        <recipeUsers>
+            <li>Human</li>
+        </recipeUsers>
+    </RecipeDef>
+</Defs>
