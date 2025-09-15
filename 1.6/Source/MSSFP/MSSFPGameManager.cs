@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using MSSFP.HarmonyPatches;
 using MSSFP.Interfaces;
+using UnityEngine;
 using Verse;
 
 namespace MSSFP;
@@ -20,6 +22,7 @@ public class MSSFPGameManager : GameComponent
 
     protected Dictionary<int, List<IOnThreadTask>> ScheduledOnThreadTasks;
     protected Dictionary<int, List<IOffThreadTask>> ScheduledOffThreadTasks;
+    protected List<SpeedChangeTask> RealTimeSpeedChangeTasks;
 
     public override void ExposeData()
     {
@@ -35,9 +38,65 @@ public class MSSFPGameManager : GameComponent
             LookMode.Value,
             LookMode.Deep
         );
+        Scribe_Collections.Look(
+            ref RealTimeSpeedChangeTasks,
+            "RealTimeSpeedChangeTasks",
+            LookMode.Deep
+        );
     }
 
+    private static TimeSpeed _lastKnownSpeed = TimeSpeed.Normal;
+
     public override void GameComponentUpdate()
+    {
+        if (Current.ProgramState != ProgramState.Playing)
+            return;
+
+        // Fallback detection for pause button (doesn't trigger Harmony patch)
+        TimeSpeed currentSpeed = Find.TickManager.CurTimeSpeed;
+        if (currentSpeed != _lastKnownSpeed)
+        {
+            if (
+                MSSFPMod.settings.Enable10SecondsToSpeed
+                && MSSFPMod.settings.IsSpeedMonitored(currentSpeed)
+                && currentSpeed != TimeSpeed.Ultrafast
+            )
+            {
+                SpeedChangeTask.CancelPendingSpeedChange();
+
+                float targetTime =
+                    Time.realtimeSinceStartup + MSSFPMod.settings.TenSecondsToSpeedDelay;
+                SpeedChangeTask speedChangeTask = new SpeedChangeTask(targetTime);
+                RegisterRealTimeSpeedChangeTask(speedChangeTask);
+            }
+
+            _lastKnownSpeed = currentSpeed;
+        }
+
+        // Execute ready tasks
+        if (RealTimeSpeedChangeTasks != null && RealTimeSpeedChangeTasks.Count > 0)
+        {
+            float currentTime = Time.realtimeSinceStartup;
+            var tasksToExecute = RealTimeSpeedChangeTasks
+                .Where(task => task.ShouldExecute(currentTime))
+                .ToList();
+
+            foreach (var task in tasksToExecute)
+            {
+                try
+                {
+                    task.OnThreadTask(this);
+                }
+                catch (Exception e)
+                {
+                    Log.Error($"Exception occurred in SpeedChangeTask: {e}");
+                }
+                RealTimeSpeedChangeTasks.Remove(task);
+            }
+        }
+    }
+
+    public override void GameComponentOnGUI()
     {
         if (Current.ProgramState != ProgramState.Playing)
             return;
@@ -48,6 +107,7 @@ public class MSSFPGameManager : GameComponent
         )
         {
             MSSFPMod.settings.Enable10SecondsToSpeed = !MSSFPMod.settings.Enable10SecondsToSpeed;
+            Event.current?.Use();
         }
     }
 
@@ -135,6 +195,24 @@ public class MSSFPGameManager : GameComponent
             .ScheduledOffThreadTasks.SelectMany(kv => kv.Value)
             .ToList()
             .RemoveAll(t => t == offThreadTask);
+    }
+
+    public static void RegisterRealTimeSpeedChangeTask(SpeedChangeTask task)
+    {
+        if (Manager?.RealTimeSpeedChangeTasks == null)
+        {
+            if (Manager != null)
+                Manager.RealTimeSpeedChangeTasks = new List<SpeedChangeTask>();
+            else
+                return;
+        }
+
+        Manager.RealTimeSpeedChangeTasks.Add(task);
+    }
+
+    public static void UnregisterRealTimeSpeedChangeTask(SpeedChangeTask task)
+    {
+        Manager?.RealTimeSpeedChangeTasks?.Remove(task);
     }
 
     public override void FinalizeInit()
