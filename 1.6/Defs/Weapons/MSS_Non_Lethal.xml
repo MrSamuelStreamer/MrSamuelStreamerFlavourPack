@@ -72,7 +72,7 @@
         </graphicData>
         <thingClass>MSSFP.Projectiles.Projectile_TranquilizerDart</thingClass>
         <projectile>
-            <damageDef>Bullet</damageDef>
+            <damageDef>Stab</damageDef>
             <damageAmountBase>3</damageAmountBase>
             <speed>35</speed>
             <stoppingPower>0.1</stoppingPower>

@@ -10,14 +10,42 @@ namespace MSSFP.Projectiles
             base.Impact(hitThing, blockedByShield);
 
             if (hitThing is Pawn targetPawn && !blockedByShield)
-                ApplyTranquilizerEffect(targetPawn);
+            {
+                var damageInfo = new DamageInfo(
+                    DamageDef,
+                    DamageAmount,
+                    ArmorPenetration,
+                    ExactRotation.eulerAngles.y,
+                    launcher,
+                    intendedTarget: intendedTarget.Thing
+                );
+
+                var damageResult = targetPawn.TakeDamage(damageInfo);
+
+                if (damageResult.totalDamageDealt > 0 && CausedBleeding(damageResult, targetPawn))
+                    ApplyTranquilizerEffect(targetPawn);
+
+                targetPawn.stances?.stagger.StaggerFor(95);
+            }
+        }
+
+        private bool CausedBleeding(DamageWorker.DamageResult damageResult, Pawn targetPawn)
+        {
+            // Only works on flesh creatures (not mechanoids)
+            if (!targetPawn.RaceProps.IsFlesh || targetPawn.RaceProps.IsMechanoid)
+                return false;
+
+            foreach (var hediff in damageResult.hediffs)
+            {
+                if (hediff is Hediff_Injury injury && injury.Bleeding)
+                    return true;
+            }
+
+            return false;
         }
 
         private void ApplyTranquilizerEffect(Pawn target)
         {
-            if (target.RaceProps.IsMechanoid)
-                return;
-
             var tranquilizerHediff = DefDatabase<HediffDef>.GetNamed("MSS_Tranquilized");
 
             if (target.health.hediffSet.HasHediff(tranquilizerHediff))
