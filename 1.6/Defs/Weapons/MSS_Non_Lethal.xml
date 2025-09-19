@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <!-- Blowgun - Non-lethal tranquilizer weapon -->
+    <ThingDef ParentName="BaseHumanMakeableGun">
+        <defName>MSS_Blowgun</defName>
+        <label>tranquilizer blowgun</label>
+        <description>A simple bamboo tube used to shoot tranquilizer darts. Deals minimal damage but can put targets to sleep with a sedative dart. Perfect for non-lethal takedowns.</description>
+        <possessionCount>1</possessionCount>
+        <graphicData>
+            <texPath>Things/WeaponRanged/blowgun</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <soundInteract>Interact_BeatFire</soundInteract>
+        <weaponClasses>
+            <li>Neolithic</li>
+        </weaponClasses>
+        <recipeMaker>
+            <researchPrerequisites>
+                <li>Smithing</li>
+            </researchPrerequisites>
+            <skillRequirements>
+                <Crafting>3</Crafting>
+            </skillRequirements>
+            <displayPriority>200</displayPriority>
+        </recipeMaker>
+        <statBases>
+            <WorkToMake>8000</WorkToMake>
+            <Mass>0.8</Mass>
+            <AccuracyTouch>0.7</AccuracyTouch>
+            <AccuracyShort>0.8</AccuracyShort>
+            <AccuracyMedium>0.65</AccuracyMedium>
+            <AccuracyLong>0.4</AccuracyLong>
+            <RangedWeapon_Cooldown>1.8</RangedWeapon_Cooldown>
+        </statBases>
+        <costList>
+            <WoodLog>15</WoodLog>
+            <Steel>5</Steel>
+        </costList>
+        <verbs>
+            <li>
+                <verbClass>Verb_Shoot</verbClass>
+                <hasStandardCommand>true</hasStandardCommand>
+                <defaultProjectile>MSS_TranquilizerDart</defaultProjectile>
+                <warmupTime>1.2</warmupTime>
+                <range>18</range>
+                <soundCast>Pawn_Melee_Punch_HitPawn</soundCast>
+                <muzzleFlashScale>0</muzzleFlashScale>
+            </li>
+        </verbs>
+        <weaponTags>
+            <li>SimpleGun</li>
+            <li>NeolithicRangedBasic</li>
+        </weaponTags>
+        <tools>
+            <li>
+                <label>stock</label>
+                <capacities>
+                    <li>Blunt</li>
+                </capacities>
+                <power>6</power>
+                <cooldownTime>2</cooldownTime>
+            </li>
+        </tools>
+    </ThingDef>
+    <!-- Tranquilizer Dart Projectile -->
+    <ThingDef ParentName="BaseBullet">
+        <defName>MSS_TranquilizerDart</defName>
+        <label>tranquilizer dart</label>
+        <graphicData>
+            <texPath>Things/Projectile/Arrow_Small</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <thingClass>MSSFP.Projectiles.Projectile_TranquilizerDart</thingClass>
+        <projectile>
+            <damageDef>Bullet</damageDef>
+            <damageAmountBase>3</damageAmountBase>
+            <speed>35</speed>
+            <stoppingPower>0.1</stoppingPower>
+        </projectile>
+    </ThingDef>
+</Defs>
