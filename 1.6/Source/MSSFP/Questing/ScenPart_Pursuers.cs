@@ -402,7 +402,7 @@ public class ScenPart_Pursuers : ScenPart
 
             section.Gap();
             raidPointMultiplier =
-                section.SliderLabeled("MSSFP_Pursuer_RaidPointMultiplier".Translate(raidPointMultiplier.ToString("0.##")), raidPointMultiplier, 0, 100);
+                section.SliderLabeled("MSSFP_Pursuer_RaidPointMultiplier".Translate(raidPointMultiplier.ToString("0.##")), raidPointMultiplier, 0, 10, 0.6f);
 
             section.Gap();
             section.Label("MSSFP_Pursuer_GravEngineCheckInterval".Translate(gravEngineCheckInterval));
