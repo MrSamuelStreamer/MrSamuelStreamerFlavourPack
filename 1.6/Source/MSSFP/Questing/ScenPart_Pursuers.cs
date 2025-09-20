@@ -47,12 +47,15 @@ public class PursuersModExtension : DefModExtension
     public FactionDef faction = FactionDefOf.Mechanoid;
     public PawnsArrivalModeDef raidArrivalMode = PawnsArrivalModeDefOf.RandomDrop;
     public List<MapGeneratorDef> safeMapGenerators = [];
+    public List<LandmarkDef> safeLandmarks = [];
     public string alertPursuerThreatCriticalText;
     public string alertPursuerThreatText;
     public string alertPursuerThreatCriticalDescText;
     public string alertPursuerThreatDescText;
     public string letterLabelPursuerThreat;
     public string letterTextPursuerThreat;
+    public string letterLabelPursuerThreatFoiled;
+    public string letterTextPursuerThreatFoiled;
 }
 
 public class ScenPart_Pursuers : ScenPart
@@ -186,8 +189,18 @@ public class ScenPart_Pursuers : ScenPart
 
     private void StartTimers(Map map)
     {
-        if (pursuersModExtension.Value.safeMapGenerators.Contains(map.generatorDef))
+        bool safe = pursuersModExtension.Value.safeMapGenerators.Contains(map.generatorDef);
+        if (!safe && Find.World.landmarks.landmarks.TryGetValue(map.Tile, out Landmark landmark) && pursuersModExtension.Value.safeLandmarks.Contains(landmark.def))
+        {
+            safe = true;
+        }
+
+        if (safe)
+        {
+            Find.LetterStack.ReceiveLetter(pursuersModExtension.Value.letterLabelPursuerThreatFoiled, pursuersModExtension.Value.letterTextPursuerThreatFoiled, LetterDefOf.PositiveEvent);
             return;
+        }
+
         if (map.IsStartingMap)
         {
             mapWarningTimers[map] = Find.TickManager.TicksGame + pursuersModExtension.Value.initialWarningDelay;
