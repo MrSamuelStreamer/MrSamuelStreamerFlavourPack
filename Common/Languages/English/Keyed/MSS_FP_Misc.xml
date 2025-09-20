@@ -162,12 +162,12 @@
     <MSSFP_ThrowOffPursuerUseMessage>This seems to have thrown off your pursuers... for a while</MSSFP_ThrowOffPursuerUseMessage>
 
   <!-- pursuer scen editor -->
-  <MSSFP_Pursuer_InitialWarningDelay>Initial delay for warning</MSSFP_Pursuer_InitialWarningDelay>
-  <MSSFP_Pursuer_InitialRaidDelay>Initial delay for raid</MSSFP_Pursuer_InitialRaidDelay>
+  <MSSFP_Pursuer_InitialWarningDelay>Initial delay for warning - {0}</MSSFP_Pursuer_InitialWarningDelay>
+  <MSSFP_Pursuer_InitialRaidDelay>Initial delay for raid - {0}</MSSFP_Pursuer_InitialRaidDelay>
   <MSSFP_Pursuer_WarningDelayRange>Range for delay before warning [{0} - {1}]</MSSFP_Pursuer_WarningDelayRange>
   <MSSFP_Pursuer_RaidDelayRange>Range for delay before first raid [{0} - {1}]</MSSFP_Pursuer_RaidDelayRange>
   <MSSFP_Pursuer_MinRaidPoints>Min raid points - {0}</MSSFP_Pursuer_MinRaidPoints>
-  <MSSFP_Pursuer_RaidPointMultiplier>Raid point multiplier</MSSFP_Pursuer_RaidPointMultiplier>
+  <MSSFP_Pursuer_RaidPointMultiplier>Raid point multiplier - {0}</MSSFP_Pursuer_RaidPointMultiplier>
   <MSSFP_Pursuer_GravEngineCheckInterval>Grav engine check interval - {0}</MSSFP_Pursuer_GravEngineCheckInterval>
   <MSSFP_Pursuer_RaidArrivalMode>Raid arrival mode - {0}</MSSFP_Pursuer_RaidArrivalMode>
   <MSSFP_Pursuer_SafeMapGenerators>Map generators</MSSFP_Pursuer_SafeMapGenerators>

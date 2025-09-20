@@ -167,6 +167,7 @@ public static class ColonistBar_ProcessInput_Patch
     }
 }
 
+[StaticConstructorOnStartup]
 [HarmonyPatch(typeof(PlaySettings))]
 public static class PlaySettings_ColonistPortraitHiding_Patch
 {

@@ -372,48 +372,47 @@ public class ScenPart_Pursuers : ScenPart
         {
             if (section.ButtonText(faction.LabelCap))
             {
-                FloatMenuUtility.MakeMenu(DefDatabase<FactionDef>.AllDefsListForReading, (selectedFaction) => selectedFaction.LabelCap, (selectedFaction) => delegate
+                FloatMenuUtility.MakeMenu(DefDatabase<FactionDef>.AllDefsListForReading, selectedFaction => selectedFaction.LabelCap, selectedFaction => delegate
                 {
                     faction = selectedFaction;
                 });
             }
 
             section.Gap();
-            section.Label("MSSFP_Pursuer_InitialWarningDelay".Translate(initialWarningDelay));
-            section.IntAdjuster(ref initialWarningDelay, 60, 0);
+            section.Label("MSSFP_Pursuer_InitialWarningDelay".Translate(initialWarningDelay.ToStringTicksToPeriodVerbose()));
+            section.IntAdjuster(ref initialWarningDelay, 2500, 0);
 
             section.Gap();
-            section.Label("MSSFP_Pursuer_InitialRaidDelay".Translate(initialRaidDelay));
-            section.IntAdjuster(ref initialRaidDelay, 60, 0);
+            section.Label("MSSFP_Pursuer_InitialRaidDelay".Translate(initialRaidDelay.ToStringTicksToPeriodVerbose()));
+            section.IntAdjuster(ref initialRaidDelay, 2500, 0);
 
             section.Gap();
-            section.Label("MSSFP_Pursuer_WarningDelayRange".Translate(warningDelayRange.min, warningDelayRange.max));
-            section.IntAdjuster(ref warningDelayRange.min, 60, 0);
-            section.IntAdjuster(ref warningDelayRange.max, 60, 0);
+            section.Label("MSSFP_Pursuer_WarningDelayRange".Translate(warningDelayRange.min.ToStringTicksToPeriodVerbose(), warningDelayRange.max.ToStringTicksToPeriodVerbose()));
+            section.IntAdjuster(ref warningDelayRange.min, 2500, 0);
+            section.IntAdjuster(ref warningDelayRange.max, 2500, 0);
 
             section.Gap();
-            section.Label("MSSFP_Pursuer_RaidDelayRange".Translate(raidDelayRange.min, raidDelayRange.max));
-            section.IntAdjuster(ref raidDelayRange.min, 60, 0);
-            section.IntAdjuster(ref raidDelayRange.max, 60, 0);
+            section.Label("MSSFP_Pursuer_RaidDelayRange".Translate(raidDelayRange.min.ToStringTicksToPeriodVerbose(), raidDelayRange.max.ToStringTicksToPeriodVerbose()));
+            section.IntAdjuster(ref raidDelayRange.min, 2500, 0);
+            section.IntAdjuster(ref raidDelayRange.max, 2500, 0);
 
             section.Gap();
             section.Label("MSSFP_Pursuer_MinRaidPoints".Translate(minRaidPoints));
             section.IntAdjuster(ref minRaidPoints, 100, 0);
 
             section.Gap();
-            section.Label("MSSFP_Pursuer_RaidPointMultiplier".Translate());
             raidPointMultiplier =
-                section.SliderLabeled("MSSFP_Pursuer_RaidPointMultiplier".Translate(), raidPointMultiplier, 0, 100);
+                section.SliderLabeled("MSSFP_Pursuer_RaidPointMultiplier".Translate(raidPointMultiplier.ToString("0.##")), raidPointMultiplier, 0, 100);
 
             section.Gap();
             section.Label("MSSFP_Pursuer_GravEngineCheckInterval".Translate(gravEngineCheckInterval));
-            section.IntAdjuster(ref gravEngineCheckInterval, 100, 0);
+            section.IntAdjuster(ref gravEngineCheckInterval, 100, -1);
 
             section.Gap();
             string ram_label = raidArrivalMode?.defName ?? "";
             if (section.ButtonText("MSSFP_Pursuer_RaidArrivalMode".Translate(ram_label)))
             {
-                FloatMenuUtility.MakeMenu(DefDatabase<PawnsArrivalModeDef>.AllDefsListForReading, (mode) => mode.defName, (PawnsArrivalModeDef mode) => delegate
+                FloatMenuUtility.MakeMenu(DefDatabase<PawnsArrivalModeDef>.AllDefsListForReading, mode => mode.defName, mode => delegate
                 {
                     raidArrivalMode = mode;
                 });
@@ -423,7 +422,7 @@ public class ScenPart_Pursuers : ScenPart
 
             if (section.ButtonText("MSSFP_Pursuer_SafeMapGenerators".Translate()))
             {
-                FloatMenuUtility.MakeMenu(DefDatabase<MapGeneratorDef>.AllDefsListForReading.Except(safeMapGenerators), (gen) => gen.defName,
+                FloatMenuUtility.MakeMenu(DefDatabase<MapGeneratorDef>.AllDefsListForReading.Except(safeMapGenerators), gen => gen.defName,
                     gen => delegate
                     {
                         safeMapGenerators.Add(gen);
@@ -446,7 +445,7 @@ public class ScenPart_Pursuers : ScenPart
 
             if (section.ButtonText("MSSFP_Pursuer_Landmarks".Translate()))
             {
-                FloatMenuUtility.MakeMenu(DefDatabase<LandmarkDef>.AllDefsListForReading.Except(safeLandmarks), (gen) => gen.defName,
+                FloatMenuUtility.MakeMenu(DefDatabase<LandmarkDef>.AllDefsListForReading.Except(safeLandmarks), gen => gen.defName,
                     gen => delegate
                     {
                         safeLandmarks.Add(gen);
