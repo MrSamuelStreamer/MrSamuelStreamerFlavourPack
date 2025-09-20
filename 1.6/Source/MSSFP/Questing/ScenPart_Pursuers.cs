@@ -379,20 +379,20 @@ public class ScenPart_Pursuers : ScenPart
             }
 
             section.Gap();
-            section.Label("MSSFP_Pursuer_InitialWarningDelay".Translate(initialWarningDelay.ToStringTicksToPeriodVerbose()));
+            section.Label("MSSFP_Pursuer_InitialWarningDelay".Translate(initialWarningDelay.ToStringTicksToPeriodVerbose(allowQuadrums: false)));
             section.IntAdjuster(ref initialWarningDelay, 2500, 0);
 
             section.Gap();
-            section.Label("MSSFP_Pursuer_InitialRaidDelay".Translate(initialRaidDelay.ToStringTicksToPeriodVerbose()));
+            section.Label("MSSFP_Pursuer_InitialRaidDelay".Translate(initialRaidDelay.ToStringTicksToPeriodVerbose(allowQuadrums: false)));
             section.IntAdjuster(ref initialRaidDelay, 2500, 0);
 
             section.Gap();
-            section.Label("MSSFP_Pursuer_WarningDelayRange".Translate(warningDelayRange.min.ToStringTicksToPeriodVerbose(), warningDelayRange.max.ToStringTicksToPeriodVerbose()));
+            section.Label("MSSFP_Pursuer_WarningDelayRange".Translate(warningDelayRange.min.ToStringTicksToPeriodVerbose(allowQuadrums: false), warningDelayRange.max.ToStringTicksToPeriodVerbose(allowQuadrums: false)));
             section.IntAdjuster(ref warningDelayRange.min, 2500, 0);
             section.IntAdjuster(ref warningDelayRange.max, 2500, 0);
 
             section.Gap();
-            section.Label("MSSFP_Pursuer_RaidDelayRange".Translate(raidDelayRange.min.ToStringTicksToPeriodVerbose(), raidDelayRange.max.ToStringTicksToPeriodVerbose()));
+            section.Label("MSSFP_Pursuer_RaidDelayRange".Translate(raidDelayRange.min.ToStringTicksToPeriodVerbose(allowQuadrums: false), raidDelayRange.max.ToStringTicksToPeriodVerbose(allowQuadrums: false)));
             section.IntAdjuster(ref raidDelayRange.min, 2500, 0);
             section.IntAdjuster(ref raidDelayRange.max, 2500, 0);
 
