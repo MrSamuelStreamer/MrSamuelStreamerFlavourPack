@@ -54,8 +54,8 @@ public class PursuersModExtension : DefModExtension
     public string alertPursuerThreatDescText = "MSSFP_Scen_Pursuers_alertPursuerThreatDescText";
     public string letterLabelPursuerThreat = "MSSFP_Scen_Pursuers_letterLabelPursuerThreat";
     public string letterTextPursuerThreat = "MSSFP_Scen_Pursuers_letterTextPursuerThreat";
-    public string letterLabelPursuerThreatFoiled;
-    public string letterTextPursuerThreatFoiled;
+    public string letterLabelPursuerThreatFoiled = "MSSFP_Scen_Pursuers_letterLabelPursuerThreatFoiled";
+    public string letterTextPursuerThreatFoiled = "MSSFP_Scen_Pursuers_letterTextPursuerThreatFoiled";
 
     public void CopyToScenPart(ScenPart_Pursuers scenPart)
     {
@@ -89,7 +89,7 @@ public class ScenPart_Pursuers : ScenPart
     public bool questCompleted;
     public Map cachedAlertMap;
     public Alert_PursuerThreat alertCached;
-    public bool hasGravEngineCached = true;
+    public bool hasGravEngineCached = false;
     public int lastCheckedGravEngineTick = -999999;
     public List<Map> tmpWarningKeys;
     public List<int> tmpWarningValues;
@@ -114,20 +114,19 @@ public class ScenPart_Pursuers : ScenPart
     public string alertPursuerThreatDescText = "MSSFP_Scen_Pursuers_alertPursuerThreatDescText";
     public string letterLabelPursuerThreat = "MSSFP_Scen_Pursuers_letterLabelPursuerThreat";
     public string letterTextPursuerThreat = "MSSFP_Scen_Pursuers_letterTextPursuerThreat";
-    public string letterLabelPursuerThreatFoiled;
-    public string letterTextPursuerThreatFoiled;
+    public string letterLabelPursuerThreatFoiled = "MSSFP_Scen_Pursuers_letterLabelPursuerThreatFoiled";
+    public string letterTextPursuerThreatFoiled = "MSSFP_Scen_Pursuers_letterTextPursuerThreatFoiled";
 
-    public ScenPart_Pursuers()
+    public override IEnumerable<string> ConfigErrors()
     {
-        ModLog.Log("here");
+        foreach (string error in base.ConfigErrors()) yield return error;
+        if (PursuersModExt.Value == null)
+            yield return "ScenPart_Pursuers requires a PursuersModExtension.";
     }
 
     public virtual void PostLoad()
     {
-        if (def.HasModExtension<PursuersModExtension>())
-        {
-            def.GetModExtension<PursuersModExtension>().CopyToScenPart(this);
-        }
+        PursuersModExt.Value.CopyToScenPart(this);
     }
 
     [DebugAction("Scenario", "Reset Pursuer Timers", actionType = DebugActionType.Action, allowedGameStates = AllowedGameStates.PlayingOnMap)]
@@ -144,7 +143,7 @@ public class ScenPart_Pursuers : ScenPart
         Log.Message("Pursuer timers reset.");
     }
 
-    public Lazy<PursuersModExtension> pursuersModExtension => new(() => def.GetModExtension<PursuersModExtension>());
+    public Lazy<PursuersModExtension> PursuersModExt => new(() => def.GetModExtension<PursuersModExtension>());
 
     public Faction Faction => Find.FactionManager.FirstFactionOfDef(faction);
 
@@ -198,33 +197,34 @@ public class ScenPart_Pursuers : ScenPart
         Scribe_Collections.Look(ref mapWarningTimers, "mapWarningTimers", LookMode.Reference, LookMode.Value, ref tmpWarningKeys, ref tmpWarningValues);
         Scribe_Collections.Look(ref mapRaidTimers, "mapRaidTimers", LookMode.Reference, LookMode.Value, ref tmpRaidKeys, ref tmpRaidValues);
         Scribe_Values.Look(ref questCompleted, "questCompleted");
-        if (Scribe.mode == LoadSaveMode.PostLoadInit)
-        {
-            mapWarningTimers ??= new Dictionary<Map, int>();
-            mapRaidTimers ??= new Dictionary<Map, int>();
-        }
-
-        lastCheckedGravEngineTick = -999999;
-
-        Scribe_Values.Look(ref initialWarningDelay, "initialWarningDelay", pursuersModExtension.Value.initialWarningDelay);
-        Scribe_Values.Look(ref initialRaidDelay, "initialRaidDelay", pursuersModExtension.Value.initialRaidDelay);
-        Scribe_Values.Look(ref warningDelayRange, "warningDelayRange", pursuersModExtension.Value.warningDelayRange);
-        Scribe_Values.Look(ref raidDelayRange, "raidDelayRange", pursuersModExtension.Value.raidDelayRange);;
-        Scribe_Values.Look(ref minRaidPoints, "minRaidPoints", pursuersModExtension.Value.minRaidPoints);;
-        Scribe_Values.Look(ref raidPointMultiplier, "raidPointMultiplier", pursuersModExtension.Value.raidPointMultiplier);
-        Scribe_Values.Look(ref gravEngineCheckInterval, "gravEngineCheckInterval", pursuersModExtension.Value.gravEngineCheckInterval);;
+        Scribe_Values.Look(ref initialWarningDelay, "initialWarningDelay", PursuersModExt.Value.initialWarningDelay);
+        Scribe_Values.Look(ref initialRaidDelay, "initialRaidDelay", PursuersModExt.Value.initialRaidDelay);
+        Scribe_Values.Look(ref warningDelayRange, "warningDelayRange", PursuersModExt.Value.warningDelayRange);
+        Scribe_Values.Look(ref raidDelayRange, "raidDelayRange", PursuersModExt.Value.raidDelayRange);
+        Scribe_Values.Look(ref minRaidPoints, "minRaidPoints", PursuersModExt.Value.minRaidPoints);
+        Scribe_Values.Look(ref raidPointMultiplier, "raidPointMultiplier", PursuersModExt.Value.raidPointMultiplier);
+        Scribe_Values.Look(ref gravEngineCheckInterval, "gravEngineCheckInterval", PursuersModExt.Value.gravEngineCheckInterval);
         Scribe_Defs.Look(ref faction, "faction");
         Scribe_Defs.Look(ref raidArrivalMode, "raidArrivalMode");
         Scribe_Collections.Look(ref safeMapGenerators, "safeMapGenerators", LookMode.Def);
         Scribe_Collections.Look(ref safeLandmarks, "safeLandmarks", LookMode.Def);
-        Scribe_Values.Look(ref alertPursuerThreatCriticalText, "alertPursuerThreatCriticalText", pursuersModExtension.Value.alertPursuerThreatCriticalText);;
-        Scribe_Values.Look(ref alertPursuerThreatText, "alertPursuerThreatText", pursuersModExtension.Value.alertPursuerThreatText);;
-        Scribe_Values.Look(ref alertPursuerThreatCriticalDescText, "alertPursuerThreatCriticalDescText", pursuersModExtension.Value.alertPursuerThreatCriticalDescText);
-        Scribe_Values.Look(ref alertPursuerThreatDescText, "alertPursuerThreatDescText", pursuersModExtension.Value.alertPursuerThreatDescText);;
-        Scribe_Values.Look(ref letterLabelPursuerThreat, "letterLabelPursuerThreat", pursuersModExtension.Value.letterLabelPursuerThreat);
-        Scribe_Values.Look(ref letterTextPursuerThreat, "letterTextPursuerThreat", pursuersModExtension.Value.letterTextPursuerThreat);;
-        Scribe_Values.Look(ref letterLabelPursuerThreatFoiled, "letterLabelPursuerThreatFoiled", pursuersModExtension.Value.letterLabelPursuerThreatFoiled);
-        Scribe_Values.Look(ref letterTextPursuerThreatFoiled, "letterTextPursuerThreatFoiled", pursuersModExtension.Value.letterTextPursuerThreatFoiled);;
+        Scribe_Values.Look(ref alertPursuerThreatCriticalText, "alertPursuerThreatCriticalText", PursuersModExt.Value.alertPursuerThreatCriticalText);
+        Scribe_Values.Look(ref alertPursuerThreatText, "alertPursuerThreatText", PursuersModExt.Value.alertPursuerThreatText);
+        Scribe_Values.Look(ref alertPursuerThreatCriticalDescText, "alertPursuerThreatCriticalDescText", PursuersModExt.Value.alertPursuerThreatCriticalDescText);
+        Scribe_Values.Look(ref alertPursuerThreatDescText, "alertPursuerThreatDescText", PursuersModExt.Value.alertPursuerThreatDescText);
+        Scribe_Values.Look(ref letterLabelPursuerThreat, "letterLabelPursuerThreat", PursuersModExt.Value.letterLabelPursuerThreat);
+        Scribe_Values.Look(ref letterTextPursuerThreat, "letterTextPursuerThreat", PursuersModExt.Value.letterTextPursuerThreat);
+        Scribe_Values.Look(ref letterLabelPursuerThreatFoiled, "letterLabelPursuerThreatFoiled", PursuersModExt.Value.letterLabelPursuerThreatFoiled);
+        Scribe_Values.Look(ref letterTextPursuerThreatFoiled, "letterTextPursuerThreatFoiled", PursuersModExt.Value.letterTextPursuerThreatFoiled);
+
+        if (Scribe.mode != LoadSaveMode.PostLoadInit) return;
+
+        mapWarningTimers ??= new Dictionary<Map, int>();
+        mapRaidTimers ??= new Dictionary<Map, int>();
+        faction ??= PursuersModExt.Value.faction;
+        raidArrivalMode ??= PursuersModExt.Value.raidArrivalMode;
+        lastCheckedGravEngineTick = -999999;
+
     }
 
     public override void PostWorldGenerate()
@@ -345,11 +345,6 @@ public class ScenPart_Pursuers : ScenPart
             raidArrivalMode = raidArrivalMode ?? PawnsArrivalModeDefOf.RandomDrop,
             raidStrategy = RaidStrategyDefOf.ImmediateAttack
         });
-    }
-
-    public override void Randomize()
-    {
-        base.Randomize();
     }
 
     public override IEnumerable<Alert> GetAlerts()

@@ -6,4 +6,6 @@
     <MSSFP_Scen_Pursuers_alertPursuerThreatDescText>{0} are closing in on your location</MSSFP_Scen_Pursuers_alertPursuerThreatDescText>
     <MSSFP_Scen_Pursuers_letterLabelPursuerThreat>Incoming: {0}</MSSFP_Scen_Pursuers_letterLabelPursuerThreat>
     <MSSFP_Scen_Pursuers_letterTextPursuerThreat>{0} are close to determining your location. When they locate you, they will send a massive force to kill you.\n\nGather your supplies, then flee!</MSSFP_Scen_Pursuers_letterTextPursuerThreat>
+    <MSSFP_Scen_Pursuers_letterLabelPursuerThreatFoiled>Safe from {0}</MSSFP_Scen_Pursuers_letterLabelPursuerThreatFoiled>
+    <MSSFP_Scen_Pursuers_letterTextPursuerThreatFoiled>{0} don't seem to be able to follow you here. Is this... safety? A place to rebuild?\n\nNow that the pursuit is over... what will the next chapter hold?</MSSFP_Scen_Pursuers_letterTextPursuerThreatFoiled>
 </LanguageData>
