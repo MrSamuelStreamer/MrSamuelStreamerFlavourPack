@@ -44,10 +44,12 @@ public class PursuersModExtension : DefModExtension
     public int minRaidPoints = 5000;
     public float raidPointMultiplier = 1.5f;
     public int gravEngineCheckInterval = 2500;
+    public int safetyCheckInterval = 3000;
     public FactionDef faction;
     public PawnsArrivalModeDef raidArrivalMode;
     public List<MapGeneratorDef> safeMapGenerators = [];
     public List<LandmarkDef> safeLandmarks = [];
+    public List<ThingDef> safeThings = [];
     public string alertPursuerThreatCriticalText = "MSSFP_Scen_Pursuers_alertPursuerThreatCriticalText";
     public string alertPursuerThreatText = "MSSFP_Scen_Pursuers_alertPursuerThreatText";
     public string alertPursuerThreatCriticalDescText = "MSSFP_Scen_Pursuers_alertPursuerThreatCriticalDescText";
@@ -67,10 +69,12 @@ public class PursuersModExtension : DefModExtension
         scenPart.minRaidPoints = minRaidPoints;
         scenPart.raidPointMultiplier = raidPointMultiplier;
         scenPart.gravEngineCheckInterval = gravEngineCheckInterval;
+        scenPart.safetyCheckInterval = safetyCheckInterval;
         scenPart.faction = faction;
         scenPart.raidArrivalMode = raidArrivalMode;
         scenPart.safeMapGenerators = safeMapGenerators;
         scenPart.safeLandmarks = safeLandmarks;
+        scenPart.safeThings = safeThings;
     }
 
     public override void ResolveReferences(Def parentDef)
@@ -86,11 +90,14 @@ public class ScenPart_Pursuers : ScenPart
     public bool onStartMap = true;
     public Dictionary<Map, int> mapWarningTimers = new();
     public Dictionary<Map, int> mapRaidTimers = new();
+    public HashSet<int> eternallySafeMaps = [];
     public bool questCompleted;
     public Map cachedAlertMap;
     public Alert_PursuerThreat alertCached;
     public bool hasGravEngineCached = false;
+    public bool hasSafetyThingCached = false;
     public int lastCheckedGravEngineTick = -999999;
+    public int lastCheckedSafetyTick = -999999;
     public List<Map> tmpWarningKeys;
     public List<int> tmpWarningValues;
     public List<Map> tmpRaidKeys;
@@ -104,10 +111,12 @@ public class ScenPart_Pursuers : ScenPart
     public int minRaidPoints;
     public float raidPointMultiplier;
     public int gravEngineCheckInterval;
+    public int safetyCheckInterval;
     public FactionDef faction;
     public PawnsArrivalModeDef raidArrivalMode;
     public List<MapGeneratorDef> safeMapGenerators = [];
     public List<LandmarkDef> safeLandmarks = [];
+    public List<ThingDef> safeThings = [];
     public string alertPursuerThreatCriticalText = "MSSFP_Scen_Pursuers_alertPursuerThreatCriticalText";
     public string alertPursuerThreatText = "MSSFP_Scen_Pursuers_alertPursuerThreatText";
     public string alertPursuerThreatCriticalDescText = "MSSFP_Scen_Pursuers_alertPursuerThreatCriticalDescText";
@@ -204,10 +213,12 @@ public class ScenPart_Pursuers : ScenPart
         Scribe_Values.Look(ref minRaidPoints, "minRaidPoints", PursuersModExt.Value.minRaidPoints);
         Scribe_Values.Look(ref raidPointMultiplier, "raidPointMultiplier", PursuersModExt.Value.raidPointMultiplier);
         Scribe_Values.Look(ref gravEngineCheckInterval, "gravEngineCheckInterval", PursuersModExt.Value.gravEngineCheckInterval);
+        Scribe_Values.Look(ref safetyCheckInterval, "safetyCheckInterval", PursuersModExt.Value.safetyCheckInterval);
         Scribe_Defs.Look(ref faction, "faction");
         Scribe_Defs.Look(ref raidArrivalMode, "raidArrivalMode");
         Scribe_Collections.Look(ref safeMapGenerators, "safeMapGenerators", LookMode.Def);
         Scribe_Collections.Look(ref safeLandmarks, "safeLandmarks", LookMode.Def);
+        Scribe_Collections.Look(ref safeThings, "safeThings", LookMode.Def);
         Scribe_Values.Look(ref alertPursuerThreatCriticalText, "alertPursuerThreatCriticalText", PursuersModExt.Value.alertPursuerThreatCriticalText);
         Scribe_Values.Look(ref alertPursuerThreatText, "alertPursuerThreatText", PursuersModExt.Value.alertPursuerThreatText);
         Scribe_Values.Look(ref alertPursuerThreatCriticalDescText, "alertPursuerThreatCriticalDescText", PursuersModExt.Value.alertPursuerThreatCriticalDescText);
@@ -224,6 +235,7 @@ public class ScenPart_Pursuers : ScenPart
         faction ??= PursuersModExt.Value.faction;
         raidArrivalMode ??= PursuersModExt.Value.raidArrivalMode;
         lastCheckedGravEngineTick = -999999;
+        lastCheckedSafetyTick = -999999;
 
     }
 
@@ -247,6 +259,7 @@ public class ScenPart_Pursuers : ScenPart
         if (startMapId < 0) startMapId = map.uniqueID;
         StartTimers(map);
         lastCheckedGravEngineTick = -999999;
+        lastCheckedSafetyTick = -999999;
     }
 
     public override void MapRemoved(Map map)
@@ -267,12 +280,37 @@ public class ScenPart_Pursuers : ScenPart
         AlertCached.raidTick = mapRaidTimers[map];
     }
 
+    public bool HasAnySafetyThing(Map map)
+    {
+        foreach (ThingDef safeDef in safeThings)
+        {
+            if (map.listerThings.ThingsOfDef(safeDef).Any()) return true;
+        }
+        return false;
+    }
+
     public override void Tick()
     {
+        if (questCompleted) return;
         if (gravEngineCheckInterval > 0 && Find.TickManager.TicksGame > lastCheckedGravEngineTick + gravEngineCheckInterval)
         {
             hasGravEngineCached = GravshipUtility.PlayerHasGravEngine();
             lastCheckedGravEngineTick = Find.TickManager.TicksGame;
+        }
+
+        Map currentMap = Find.CurrentMap;
+        if (safetyCheckInterval > 0 && safeThings.Count > 0 && Find.TickManager.TicksGame > lastCheckedSafetyTick + safetyCheckInterval && !eternallySafeMaps.Contains(currentMap.uniqueID))
+        {
+            hasSafetyThingCached = HasAnySafetyThing(currentMap);
+            lastCheckedSafetyTick = Find.TickManager.TicksGame;
+            if (mapWarningTimers.ContainsKey(currentMap) && hasSafetyThingCached)
+            {
+                MarkMapSafe(currentMap);
+            }
+            if (!hasSafetyThingCached && !mapWarningTimers.ContainsKey(currentMap) && currentMap.IsPlayerHome)
+            {
+                StartTimers(currentMap);
+            }
         }
 
         if (Disabled)
@@ -305,8 +343,20 @@ public class ScenPart_Pursuers : ScenPart
         }
     }
 
+    public void MarkMapSafe(Map map, bool sendLetter = true, bool eternal = false)
+    {
+        if (sendLetter) Find.LetterStack.ReceiveLetter(letterLabelPursuerThreatFoiled.Translate(Faction), letterTextPursuerThreatFoiled.Translate(Faction),
+            LetterDefOf.PositiveEvent);
+        mapWarningTimers.Remove(map);
+        mapRaidTimers.Remove(map);
+        if (eternal) eternallySafeMaps.Add(map.uniqueID);
+        if (cachedAlertMap != map) return;
+        alertCached = null;
+    }
+
     public virtual void StartTimers(Map map)
     {
+        if (eternallySafeMaps.Contains(map.uniqueID)) return;
         bool safe = safeMapGenerators.Contains(map.generatorDef);
         if (!safe && Find.World.landmarks.landmarks.TryGetValue(map.Tile, out Landmark landmark) && safeLandmarks.Contains(landmark.def))
         {
@@ -315,8 +365,7 @@ public class ScenPart_Pursuers : ScenPart
 
         if (safe)
         {
-            Find.LetterStack.ReceiveLetter(letterLabelPursuerThreatFoiled.Translate(Faction), letterTextPursuerThreatFoiled.Translate(Faction),
-                LetterDefOf.PositiveEvent);
+            MarkMapSafe(map, sendLetter: true, eternal: true);
             return;
         }
 
@@ -353,7 +402,8 @@ public class ScenPart_Pursuers : ScenPart
             yield return AlertCached;
     }
 
-    private float scenPartRectHeight = 700;
+    private float scenPartRectHeight = 850;
+
     public override void DoEditInterface(Listing_ScenEdit listing)
     {
         if(safeMapGenerators == null) safeMapGenerators = [];
@@ -361,6 +411,7 @@ public class ScenPart_Pursuers : ScenPart
 
         float height = scenPartRectHeight +
                        (safeMapGenerators.Count * 30) +
+                       (safeThings.Count * 30) +
                        (safeLandmarks.Count * 30);
         Rect scenPartRect = listing.GetScenPartRect(this, RowHeight + height);
 
@@ -407,6 +458,10 @@ public class ScenPart_Pursuers : ScenPart
             section.Gap();
             section.Label("MSSFP_Pursuer_GravEngineCheckInterval".Translate(gravEngineCheckInterval));
             section.IntAdjuster(ref gravEngineCheckInterval, 100, -1);
+
+            section.Gap();
+            section.Label("MSSFP_Pursuer_SafetyCheckInterval".Translate(safetyCheckInterval));
+            section.IntAdjuster(ref safetyCheckInterval, 100, -1);
 
             section.Gap();
             string ram_label = raidArrivalMode?.defName ?? "";
@@ -463,6 +518,29 @@ public class ScenPart_Pursuers : ScenPart
             }
 
             if (selectedLandmark != null) safeLandmarks.Remove(selectedLandmark);
+
+            section.GapLine();
+
+            if (section.ButtonText("MSSFP_Pursuer_Things".Translate()))
+            {
+                FloatMenuUtility.MakeMenu(DefDatabase<ThingDef>.AllDefsListForReading.Except(safeThings).Where(t => !t.IsBlueprint && !t.isFrameInt && !t.isUnfinishedThing), gen => gen.defName,
+                    gen => delegate
+                    {
+                        safeThings.Add(gen);
+                    });
+            }
+
+            ThingDef selectedThing = null;
+            foreach (ThingDef gen in safeThings)
+            {
+                if (section.ButtonText("MSSFP_Pursuer_ThingsRemove".Translate(gen.defName)))
+                {
+                    selectedThing = gen;
+                    break;
+                }
+            }
+
+            if (selectedThing != null) safeThings.Remove(selectedThing);
         }
         finally
         {
