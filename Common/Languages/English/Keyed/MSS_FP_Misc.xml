@@ -126,7 +126,7 @@
     <MSSFP_Extract>Extract {0_labelShort}</MSSFP_Extract>
     <MSSFP_CannotExtract>Cannot extract {0_labelShort}</MSSFP_CannotExtract>
     <MSSFP_NoBed>No beds available</MSSFP_NoBed>
-  
+
   <!-- Price/Mass UI -->
   <MSSFP_WeightPrice>Weight/Price</MSSFP_WeightPrice>
   <MSSFP_WeightPriceFormat>{0} $/kg</MSSFP_WeightPriceFormat>
@@ -136,7 +136,7 @@
   <MSSFP_WeightPriceTipTip>Weight price: </MSSFP_WeightPriceTipTip>
   <MSSFP_WeightPriceTipSell>Sell price per mass</MSSFP_WeightPriceTipSell>
   <MSSFP_WeightPriceTipBuy>Buy price per mass</MSSFP_WeightPriceTipBuy>
-  
+
   <!-- Colonist Portrait Hiding -->
   <MSS_FP_Settings_EnableColonistPortraitHiding>Enable colonist portrait hiding</MSS_FP_Settings_EnableColonistPortraitHiding>
   <MSS_FP_Settings_ShowHiddenPortraits>Show hidden portraits</MSS_FP_Settings_ShowHiddenPortraits>
@@ -146,16 +146,18 @@
   <MSS_FP_ShowHiddenColonists>Show hidden colonists</MSS_FP_ShowHiddenColonists>
   <MSS_FP_HideHiddenColonists>Hide hidden colonists</MSS_FP_HideHiddenColonists>
   <MSS_FP_RightClickToRestore>Right-click to restore colonists</MSS_FP_RightClickToRestore>
-  
+
   <MSS_FP_Settings_EnableMercenaryHiring>Enable mercenary hiring</MSS_FP_Settings_EnableMercenaryHiring>
   <MSS_FP_Settings_EnableWanderDelayModification>Enable wander delay modification</MSS_FP_Settings_EnableWanderDelayModification>
   <MSS_FP_Settings_WanderDelaySeconds>Wander delay: {0} seconds</MSS_FP_Settings_WanderDelaySeconds>
   <MSS_FP_Settings_WanderDelaySeconds_Tooltip>Modify the delay before pawns start wandering around the map</MSS_FP_Settings_WanderDelaySeconds_Tooltip>
-  
+
   <!-- 10 Seconds to Speed -->
   <MSS_FP_Settings_Enable10SecondsToSpeed>Enable 10 Seconds to Speed</MSS_FP_Settings_Enable10SecondsToSpeed>
   <MSS_FP_Settings_TenSecondsToSpeedDelay>Delay: {0} seconds</MSS_FP_Settings_TenSecondsToSpeedDelay>
   <MSS_FP_Settings_TenSecondsToSpeedDelay_Tooltip>How many seconds to wait before automatically switching to ultrafast speed</MSS_FP_Settings_TenSecondsToSpeedDelay_Tooltip>
   <MSS_FP_Settings_MonitorSpeeds>Monitor these speeds:</MSS_FP_Settings_MonitorSpeeds>
   <MSSFP_10SecondsToSpeed_Tooltip>When enabled, automatically switches to ultrafast speed after the specified delay when on monitored speeds. Use the key binding to toggle this feature on/off. You can configure the delay, key binding, and which speeds trigger the auto-speed-up in the mod settings.</MSSFP_10SecondsToSpeed_Tooltip>
+
+    <MSSFP_ThrowOffPursuerUseMessage>This seems to have thrown off your pursuers... for a while</MSSFP_ThrowOffPursuerUseMessage>
 </LanguageData>
