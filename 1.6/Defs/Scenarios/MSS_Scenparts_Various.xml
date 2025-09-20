@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <Defs>
     <ScenPartDef>
-        <defName>MSSFP_PursuingFaction</defName>
-        <label>pursuers</label>
+        <defName>MSSFP_PursuingFaction_Insect</defName>
+        <label>Pursuing Insections</label>
         <category>Misc</category>
         <scenPartClass>MSSFP.Questing.ScenPart_Pursuers</scenPartClass>
         <maxUses>1</maxUses>
