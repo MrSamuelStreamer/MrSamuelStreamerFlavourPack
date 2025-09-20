@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+    <MSSFP_Scen_Pursuers_alertPursuerThreatCriticalText>Incoming: {0}</MSSFP_Scen_Pursuers_alertPursuerThreatCriticalText>
+    <MSSFP_Scen_Pursuers_alertPursuerThreatText>{0}</MSSFP_Scen_Pursuers_alertPursuerThreatText>
+    <MSSFP_Scen_Pursuers_alertPursuerThreatCriticalDescText>{0} have found you, they will not stop</MSSFP_Scen_Pursuers_alertPursuerThreatCriticalDescText>
+    <MSSFP_Scen_Pursuers_alertPursuerThreatDescText>{0} are closing in on your location</MSSFP_Scen_Pursuers_alertPursuerThreatDescText>
+    <MSSFP_Scen_Pursuers_letterLabelPursuerThreat>Incoming: {0}</MSSFP_Scen_Pursuers_letterLabelPursuerThreat>
+    <MSSFP_Scen_Pursuers_letterTextPursuerThreat>{0} are close to determining your location. When they locate you, they will send a massive force to kill you.\n\nGather your supplies, then flee!</MSSFP_Scen_Pursuers_letterTextPursuerThreat>
+</LanguageData>
