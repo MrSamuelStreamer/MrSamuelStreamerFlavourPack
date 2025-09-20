@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Defs>
+    <ScenPartDef>
+        <defName>MSSFP_PursuingFaction</defName>
+        <label>pursuers</label>
+        <category>Misc</category>
+        <scenPartClass>MSSFP.Questing.ScenPart_Pursuers</scenPartClass>
+        <maxUses>1</maxUses>
+        <preventRemovalOfFaction>Insect</preventRemovalOfFaction>
+        <modExtensions>
+            <li Class="MSSFP.Questing.PursuersModExtension">
+                <gravEngineCheckInterval>-1</gravEngineCheckInterval>
+                <faction>Insect</faction>
+                <raidArrivalMode>EdgeWalkIn</raidArrivalMode>
+                <alertPursuerThreatText>Pursuers</alertPursuerThreatText>
+                <alertPursuerThreatDescText>The pursuers are closing in on your location</alertPursuerThreatDescText>
+                <alertPursuerThreatCriticalText>Incoming Pursuers</alertPursuerThreatCriticalText>
+                <alertPursuerThreatCriticalDescText>They've found you, they will not stop</alertPursuerThreatCriticalDescText>
+                <letterLabelPursuerThreat>Incoming Pursuers</letterLabelPursuerThreat>
+                <letterTextPursuerThreat>Pursuers are close to determining your location. When they locate you, they will send a massive force to kill you.\n\nGather your supplies, then flee!</letterTextPursuerThreat>
+            </li>
+        </modExtensions>
+    </ScenPartDef>
+</Defs>
