@@ -44,8 +44,9 @@
             <Private>False</Private>
         </Reference>
         <Reference Include="ResourceGenerator">
-            <HintPath Condition="Exists('..\..\..\..\ResourceGenerator\1.6\Assemblies\ResourceGenerator.dll')">..\..\..\..\ResourceGenerator\1.6\Assemblies\ResourceGenerator.dll</HintPath>
-            <!-- <HintPath Condition="Exists('..\..\..\..\..\..\..\workshop\content\294100\2747511650\1.6\Assemblies\ResourceGenerator.dll')">..\..\..\..\..\..\..\workshop\content\294100\2747511650\1.6\Assemblies\ResourceGenerator.dll</HintPath> -->
+            <HintPath Condition="Exists('../../../../ResourceGenerator/1.6/Assemblies/ResourceGenerator.dll')">../../../../ResourceGenerator/1.6/Assemblies/ResourceGenerator.dll</HintPath>
+            <HintPath Condition="Exists('../../../../2747511650/1.6/Assemblies/ResourceGenerator.dll')">../../../../2747511650/1.6/Assemblies/ResourceGenerator.dll</HintPath>
+            <!-- <HintPath Condition="Exists('../../../../../../../workshop/content/294100/2747511650/1.6/Assemblies/ResourceGenerator.dll')">../../../../../../../workshop/content/294100/2747511650/1.6/Assemblies/ResourceGenerator.dll</HintPath> -->
             <Private>False</Private>
         </Reference>
     </ItemGroup>
@@ -59,21 +60,21 @@
         <PackageReference Include="Krafs.Rimworld.Ref" Version="1.6-*" />
     </ItemGroup>
     <ItemGroup>
-        <ProjectReference Include="..\MSSFP\MSSFP.csproj">
+        <ProjectReference Include="../MSSFP/MSSFP.csproj">
             <Private>false</Private>
         </ProjectReference>
     </ItemGroup>
     <ItemGroup>
-        <Folder Include="..\..\..\Compatibility\vanillaexpanded.outposts\1.6\Assemblies\">
-            <Link>ModCompatFiles\Assemblies</Link>
+        <Folder Include="../../../Compatibility/vanillaexpanded.outposts/1.6/Assemblies/">
+            <Link>ModCompatFiles/Assemblies</Link>
         </Folder>
-        <Folder Include="..\..\..\Compatibility\vanillaexpanded.outposts\1.6\Patches\">
-            <Link>ModCompatFiles\Patches</Link>
+        <Folder Include="../../../Compatibility/vanillaexpanded.outposts/1.6/Patches/">
+            <Link>ModCompatFiles/Patches</Link>
         </Folder>
     </ItemGroup>
     <ItemGroup>
-        <Content Include="..\..\..\Compatibility\vanillaexpanded.outposts\1.6\Defs\MSSFP_Outposts.xml">
-            <Link>ModCompatFiles\Defs\MSSFP_Outposts.xml</Link>
+        <Content Include="../../../Compatibility/vanillaexpanded.outposts/1.6/Defs/MSSFP_Outposts.xml">
+            <Link>ModCompatFiles/Defs/MSSFP_Outposts.xml</Link>
         </Content>
     </ItemGroup>
     <PropertyGroup>
