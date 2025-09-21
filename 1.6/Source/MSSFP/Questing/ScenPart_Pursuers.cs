@@ -177,22 +177,27 @@ public class ScenPart_Pursuers : ScenPart
     {
         get
         {
+            Map currentMap = Find.CurrentMap;
             ModLog.Debug(Faction.NameColored);
-            if (Disabled)
-                return null;
-            if (cachedAlertMap != Find.CurrentMap)
+            if (currentMap == null || cachedAlertMap != currentMap)
+            {
                 alertCached = null;
-            if (alertCached != null || !mapWarningTimers.TryGetValue(Find.CurrentMap, out int mapRaidTick) || Find.TickManager.TicksGame <= mapRaidTick)
+                cachedAlertMap = null;
+            }
+            if (Disabled || currentMap == null)
+                return null;
+            if (alertCached != null || !mapWarningTimers.TryGetValue(currentMap, out int mapRaidWarnTick) || Find.TickManager.TicksGame <= mapRaidWarnTick)
                 return alertCached;
+            if (!mapRaidTimers.TryGetValue(currentMap, out int raidTick)) return null;
             alertCached = new Alert_PursuerThreat
             {
-                raidTick = mapRaidTimers[Find.CurrentMap],
+                raidTick = raidTick,
                 alertPursuerThreatCriticalDescText = alertPursuerThreatCriticalDescText.Translate(Faction.NameColored),
                 alertPursuerThreatCriticalText = alertPursuerThreatCriticalText.Translate(Faction.NameColored),
                 alertPursuerThreatDescText = alertPursuerThreatDescText.Translate(Faction.NameColored),
                 alertPursuerThreatText = alertPursuerThreatText.Translate(Faction.NameColored)
             };
-            cachedAlertMap = Find.CurrentMap;
+            cachedAlertMap = currentMap;
             return alertCached;
         }
     }
