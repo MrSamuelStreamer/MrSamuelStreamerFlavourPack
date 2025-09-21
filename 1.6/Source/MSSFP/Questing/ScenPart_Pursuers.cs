@@ -58,6 +58,7 @@ public class PursuersModExtension : DefModExtension
     public string letterTextPursuerThreat = "MSSFP_Scen_Pursuers_letterTextPursuerThreat";
     public string letterLabelPursuerThreatFoiled = "MSSFP_Scen_Pursuers_letterLabelPursuerThreatFoiled";
     public string letterTextPursuerThreatFoiled = "MSSFP_Scen_Pursuers_letterTextPursuerThreatFoiled";
+    public bool allowOnNonPlayerHome = true;
 
     public void CopyToScenPart(ScenPart_Pursuers scenPart)
     {
@@ -75,6 +76,15 @@ public class PursuersModExtension : DefModExtension
         scenPart.safeMapGenerators = safeMapGenerators;
         scenPart.safeLandmarks = safeLandmarks;
         scenPart.safeThings = safeThings;
+        scenPart.alertPursuerThreatCriticalText = alertPursuerThreatCriticalText;
+        scenPart.alertPursuerThreatText = alertPursuerThreatText;
+        scenPart.alertPursuerThreatCriticalDescText = alertPursuerThreatCriticalDescText;
+        scenPart.alertPursuerThreatDescText = alertPursuerThreatDescText;
+        scenPart.letterLabelPursuerThreat = letterLabelPursuerThreat;
+        scenPart.letterTextPursuerThreat = letterTextPursuerThreat;
+        scenPart.letterLabelPursuerThreatFoiled = letterLabelPursuerThreatFoiled;
+        scenPart.letterTextPursuerThreatFoiled = letterTextPursuerThreatFoiled;
+        scenPart.allowOnNonPlayerHome = allowOnNonPlayerHome;
     }
 
     public override void ResolveReferences(Def parentDef)
@@ -112,6 +122,7 @@ public class ScenPart_Pursuers : ScenPart
     public float raidPointMultiplier;
     public int gravEngineCheckInterval;
     public int safetyCheckInterval;
+    public bool allowOnNonPlayerHome = true;
     public FactionDef faction;
     public PawnsArrivalModeDef raidArrivalMode;
     public List<MapGeneratorDef> safeMapGenerators = [];
@@ -156,6 +167,12 @@ public class ScenPart_Pursuers : ScenPart
 
     public Faction Faction => Find.FactionManager.FirstFactionOfDef(faction);
 
+    public bool MapAllowed(Map map)
+    {
+        ModLog.Debug($"Map {map.uniqueID} is player home: {map.IsPlayerHome}, allowOnNonPlayerHome: {allowOnNonPlayerHome}");
+        return allowOnNonPlayerHome || map.IsPlayerHome;
+    }
+
     public Alert_PursuerThreat AlertCached
     {
         get
@@ -187,6 +204,7 @@ public class ScenPart_Pursuers : ScenPart
     public override void ExposeData()
     {
         base.ExposeData();
+        SafetyNullFix();
         if (Scribe.mode == LoadSaveMode.LoadingVars)
         {
             PostLoad();
@@ -196,6 +214,7 @@ public class ScenPart_Pursuers : ScenPart
             foreach (Map key in mapWarningTimers.Keys.ToList())
             {
                 if (key == null || key.Parent is { Destroyed: false }) continue;
+                ModLog.Debug($"Removing timers for map {key?.uniqueID} during save");
                 mapWarningTimers.Remove(key);
                 mapRaidTimers.Remove(key);
             }
@@ -214,6 +233,7 @@ public class ScenPart_Pursuers : ScenPart
         Scribe_Values.Look(ref raidPointMultiplier, "raidPointMultiplier", PursuersModExt.Value.raidPointMultiplier);
         Scribe_Values.Look(ref gravEngineCheckInterval, "gravEngineCheckInterval", PursuersModExt.Value.gravEngineCheckInterval);
         Scribe_Values.Look(ref safetyCheckInterval, "safetyCheckInterval", PursuersModExt.Value.safetyCheckInterval);
+        Scribe_Values.Look(ref allowOnNonPlayerHome, "allowOnNonPlayerHome", PursuersModExt.Value.allowOnNonPlayerHome);
         Scribe_Defs.Look(ref faction, "faction");
         Scribe_Defs.Look(ref raidArrivalMode, "raidArrivalMode");
         Scribe_Collections.Look(ref safeMapGenerators, "safeMapGenerators", LookMode.Def);
@@ -230,13 +250,22 @@ public class ScenPart_Pursuers : ScenPart
 
         if (Scribe.mode != LoadSaveMode.PostLoadInit) return;
 
-        mapWarningTimers ??= new Dictionary<Map, int>();
-        mapRaidTimers ??= new Dictionary<Map, int>();
+        SafetyNullFix();
         faction ??= PursuersModExt.Value.faction;
         raidArrivalMode ??= PursuersModExt.Value.raidArrivalMode;
         lastCheckedGravEngineTick = -999999;
         lastCheckedSafetyTick = -999999;
 
+    }
+
+    public void SafetyNullFix()
+    {
+        mapWarningTimers ??= new Dictionary<Map, int>();
+        mapRaidTimers ??= new Dictionary<Map, int>();
+        safeMapGenerators ??= [];
+        safeLandmarks ??= [];
+        safeThings ??= [];
+        eternallySafeMaps ??= [];
     }
 
     public override void PostWorldGenerate()
@@ -254,7 +283,7 @@ public class ScenPart_Pursuers : ScenPart
 
     public override void PostMapGenerate(Map map)
     {
-        if (!map.IsPlayerHome)
+        if (!MapAllowed(map))
             return;
         if (startMapId < 0) startMapId = map.uniqueID;
         StartTimers(map);
@@ -307,7 +336,7 @@ public class ScenPart_Pursuers : ScenPart
             {
                 MarkMapSafe(currentMap);
             }
-            if (!hasSafetyThingCached && !mapWarningTimers.ContainsKey(currentMap) && currentMap.IsPlayerHome)
+            if (!hasSafetyThingCached && !mapWarningTimers.ContainsKey(currentMap) && MapAllowed(currentMap))
             {
                 StartTimers(currentMap);
             }
@@ -379,6 +408,7 @@ public class ScenPart_Pursuers : ScenPart
             mapWarningTimers[map] = Find.TickManager.TicksGame + warningDelayRange.RandomInRange;
             mapRaidTimers[map] = Find.TickManager.TicksGame + raidDelayRange.RandomInRange;
         }
+        ModLog.Debug($"Started Pursuer timers on map {map.uniqueID}: warning at {mapWarningTimers[map]}, raid at {mapRaidTimers[map]}");
     }
 
     public void Notify_QuestCompleted() => questCompleted = true;
@@ -398,11 +428,11 @@ public class ScenPart_Pursuers : ScenPart
 
     public override IEnumerable<Alert> GetAlerts()
     {
-        if (Find.CurrentMap is { IsPlayerHome: true } && AlertCached != null)
+        if (MapAllowed(Find.CurrentMap) && AlertCached != null)
             yield return AlertCached;
     }
 
-    private float scenPartRectHeight = 850;
+    private float scenPartRectHeight = 900;
 
     public override void DoEditInterface(Listing_ScenEdit listing)
     {
@@ -450,6 +480,9 @@ public class ScenPart_Pursuers : ScenPart
             section.Gap();
             section.Label("MSSFP_Pursuer_MinRaidPoints".Translate(minRaidPoints));
             section.IntAdjuster(ref minRaidPoints, 100, 0);
+
+            section.Gap();
+            section.CheckboxLabeled("MSSFP_Pursuer_AllowOnNonPlayerHome".Translate(), ref allowOnNonPlayerHome);
 
             section.Gap();
             raidPointMultiplier =
@@ -523,7 +556,15 @@ public class ScenPart_Pursuers : ScenPart
 
             if (section.ButtonText("MSSFP_Pursuer_Things".Translate()))
             {
-                FloatMenuUtility.MakeMenu(DefDatabase<ThingDef>.AllDefsListForReading.Except(safeThings).Where(t => !t.IsBlueprint && !t.isFrameInt && !t.isUnfinishedThing), gen => gen.defName,
+                FloatMenuUtility.MakeMenu(DefDatabase<ThingDef>.AllDefsListForReading
+                        .Except(safeThings)
+                        .Where(t => !t.IsBlueprint &&
+                            !t.isFrameInt &&
+                            !t.isUnfinishedThing &&
+                            !t.IsApparel &&
+                            !t.IsWeapon &&
+                            !t.IsWall &&
+                            !t.IsFilth), gen => gen.defName,
                     gen => delegate
                     {
                         safeThings.Add(gen);
@@ -546,6 +587,7 @@ public class ScenPart_Pursuers : ScenPart
         {
             listing.EndSection(section);
         }
+        ExposeData();
     }
 }
 

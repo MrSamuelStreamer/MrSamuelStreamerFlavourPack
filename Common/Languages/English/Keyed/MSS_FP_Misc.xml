@@ -177,5 +177,6 @@
   <MSSFP_Pursuer_LandmarksRemove>Remove {0}</MSSFP_Pursuer_LandmarksRemove>
   <MSSFP_Pursuer_Things>Things</MSSFP_Pursuer_Things>
   <MSSFP_Pursuer_ThingsRemove>Remove {0}</MSSFP_Pursuer_ThingsRemove>
+  <MSSFP_Pursuer_AllowOnNonPlayerHome>Allow on non-player home maps</MSSFP_Pursuer_AllowOnNonPlayerHome>
 
 </LanguageData>
