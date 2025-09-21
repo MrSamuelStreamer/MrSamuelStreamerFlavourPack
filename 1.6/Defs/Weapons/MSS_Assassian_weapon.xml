@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <ThingDef ParentName="BaseMeleeWeapon_Sharp_Quality">
+        <defName>MSS_PoisonedKnife</defName>
+        <label>poisoned knife</label>
+        <description>A sharp knife coated with a virulent poison. Wounds inflicted by this blade often become infected, making it a feared weapon among assassins.</description>
+        <techLevel>Medieval</techLevel>
+        <graphicData>
+            <texPath>Things/WeaponMelee/poisoned_knife</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <weaponClasses>
+            <li>Melee</li>
+        </weaponClasses>
+        <weaponTags>
+            <li>MedievalMeleeBasic</li>
+        </weaponTags>
+        <statBases>
+            <WorkToMake>6000</WorkToMake>
+            <Mass>0.4</Mass>
+            <Flammability>1.0</Flammability>
+            <MarketValue>150</MarketValue>
+        </statBases>
+        <costStuffCount>30</costStuffCount>
+        <stuffCategories>
+            <li>Metallic</li>
+        </stuffCategories>
+        <costList>
+            <PsychoidLeaves>5</PsychoidLeaves>
+        </costList>
+        <recipeMaker>
+            <researchPrerequisite>Smithing</researchPrerequisite>
+            <skillRequirements>
+                <Crafting>4</Crafting>
+            </skillRequirements>
+            <displayPriority>200</displayPriority>
+        </recipeMaker>
+        <tools>
+            <li>
+                <label>handle</label>
+                <capacities>
+                    <li>Blunt</li>
+                </capacities>
+                <power>2</power>
+                <cooldownTime>2</cooldownTime>
+            </li>
+            <li>
+                <label>poisoned blade</label>
+                <capacities>
+                    <li>Cut</li>
+                    <li>Stab</li>
+                </capacities>
+                <power>8</power>
+                <cooldownTime>2.6</cooldownTime>
+                <armorPenetration>0.3</armorPenetration>
+                <chanceFactor>0.9</chanceFactor>
+            </li>
+        </tools>
+    </ThingDef>
+</Defs>
