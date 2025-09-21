@@ -2,11 +2,12 @@
 <Defs>
     <ScenPartDef>
         <defName>MSSFP_PursuingFaction_Insect</defName>
-        <label>Pursuing Insections</label>
+        <label>Pursuing Faction</label>
         <category>Misc</category>
         <scenPartClass>MSSFP.Questing.ScenPart_Pursuers</scenPartClass>
         <maxUses>1</maxUses>
         <preventRemovalOfFaction>Insect</preventRemovalOfFaction>
+        <canBePlayerAddedRemoved>true</canBePlayerAddedRemoved>
         <modExtensions>
             <li Class="MSSFP.Questing.PursuersModExtension">
                 <gravEngineCheckInterval>-1</gravEngineCheckInterval>

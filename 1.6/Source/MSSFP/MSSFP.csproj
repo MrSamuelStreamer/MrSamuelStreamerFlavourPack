@@ -25,31 +25,36 @@
         <Optimize>true</Optimize>
         <CSharpier_Check>true</CSharpier_Check>
     </PropertyGroup>
-    
+
     <ItemGroup>
         <Reference Include="Assembly-CSharp">
             <HintPath Condition="Exists('../../../../../RimWorldWin64_Data/Managed/Assembly-CSharp.dll')">../../../../../RimWorldWin64_Data/Managed/Assembly-CSharp.dll</HintPath>
+            <HintPath Condition="Exists('../../../../../RimWorldLinux_Data/Managed/Assembly-CSharp.dll')">../../../../../RimWorldLinux_Data/Managed/Assembly-CSharp.dll</HintPath>
             <HintPath Condition="Exists('../../../../../Contents/Resources/Data/Managed/Assembly-CSharp.dll')">../../../../../Contents/Resources/Data/Managed/Assembly-CSharp.dll</HintPath>
             <HintPath Condition="Exists('../../../../../Contents/Resources/Data/Managed/Assembly-CSharp.dll')">../../../../../Contents/Resources/Data/Managed/Assembly-CSharp.dll</HintPath>
             <Private>False</Private>
         </Reference>
         <Reference Include="UnityEngine.CoreModule">
             <HintPath Condition="Exists('../../../../../RimWorldWin64_Data/Managed/UnityEngine.CoreModule.dll')">../../../../../RimWorldWin64_Data/Managed/UnityEngine.CoreModule.dll</HintPath>
+            <HintPath Condition="Exists('../../../../../RimWorldLinux_Data/Managed/UnityEngine.CoreModule.dll')">../../../../../RimWorldLinux_Data/Managed/UnityEngine.CoreModule.dll</HintPath>
             <HintPath Condition="Exists('../../../../../Contents/Resources/Data/Managed/UnityEngine.CoreModule.dll')">../../../../../Contents/Resources/Data/Managed/UnityEngine.CoreModule.dll</HintPath>
             <Private>False</Private>
         </Reference>
         <Reference Include="UnityEngine.IMGUIModule">
             <HintPath Condition="Exists('../../../../../RimWorldWin64_Data/Managed/UnityEngine.IMGUIModule.dll')">../../../../../RimWorldWin64_Data/Managed/UnityEngine.IMGUIModule.dll</HintPath>
+            <HintPath Condition="Exists('../../../../../RimWorldLinux_Data/Managed/UnityEngine.IMGUIModule.dll')">../../../../../RimWorldLinux_Data/Managed/UnityEngine.IMGUIModule.dll</HintPath>
             <HintPath Condition="Exists('../../../../../Contents/Resources/Data/Managed/UnityEngine.IMGUIModule.dll')">../../../../../Contents/Resources/Data/Managed/UnityEngine.IMGUIModule.dll</HintPath>
             <Private>False</Private>
         </Reference>
         <Reference Include="UnityEngine.TextRenderingModule">
             <HintPath Condition="Exists('../../../../../RimWorldWin64_Data/Managed/UnityEngine.TextRenderingModule.dll')">../../../../../RimWorldWin64_Data/Managed/UnityEngine.TextRenderingModule.dll</HintPath>
+            <HintPath Condition="Exists('../../../../../RimWorldLinux_Data/Managed/UnityEngine.TextRenderingModule.dll')">../../../../../RimWorldLinux_Data/Managed/UnityEngine.TextRenderingModule.dll</HintPath>
             <HintPath Condition="Exists('../../../../../Contents/Resources/Data/Managed/UnityEngine.TextRenderingModule.dll')">../../../../../Contents/Resources/Data/Managed/UnityEngine.TextRenderingModule.dll</HintPath>
             <Private>False</Private>
         </Reference>
         <Reference Include="UnityEngine.ImageConversionModule">
             <HintPath Condition="Exists('../../../../../RimWorldWin64_Data/Managed/UnityEngine.ImageConversionModule.dll')">../../../../../RimWorldWin64_Data/Managed/UnityEngine.ImageConversionModule.dll</HintPath>
+            <HintPath Condition="Exists('../../../../../RimWorldLinux_Data/Managed/UnityEngine.ImageConversionModule.dll')">../../../../../RimWorldLinux_Data/Managed/UnityEngine.ImageConversionModule.dll</HintPath>
             <HintPath Condition="Exists('../../../../../Contents/Resources/Data/Managed/UnityEngine.ImageConversionModule.dll')">../../../../../Contents/Resources/Data/Managed/UnityEngine.ImageConversionModule.dll</HintPath>
             <Private>False</Private>
         </Reference>
@@ -93,11 +98,14 @@
         <AboutFiles Include="../../../About/**" Exclude="../../../About/*.png~" />
         <CommonFiles Include="../../../Common/**" />
         <CompatibilityFiles Include="../../../Compatibility/**" />
-        <ExtraFiles Include="../../../LoadFolders.xml;../../../LICENSE;../../../README.md" />
+        <ExtraFiles Include="../../../loadFolders.xml;../../../LICENSE;../../../README.md" />
         <ReleaseFiles Remove="..\..\..\Compatability\**" />
         <ReleaseFiles Update="..\..\Defs\ThingDefs_Items\MSS_Balloon.xml">
             <Link>MrSamuelStreamerFlavourPack\1.6\Defs\ThingDefs_Items\MSS_Balloon.xml</Link>
         </ReleaseFiles>
+        <CommonFiles Update="..\..\..\Common\Languages\English\Keyed\MSS_FP_Scen.xml">
+          <Link>MrSamuelStreamerFlavourPack\Common\Languages\English\Keyed\MSS_FP_Scen.xml</Link>
+        </CommonFiles>
     </ItemGroup>
     <Target Name="PostBuild" AfterTargets="Build" Condition=" '$(Configuration)' == 'Release' ">
         <RemoveDir Condition="Exists('../../../Release')" Directories="../../../Release" />
@@ -106,7 +114,7 @@
         <Copy SourceFiles="@(CommonFiles)" DestinationFiles="@(CommonFiles-&gt;'../../../Release/Common/%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="true" />
         <Copy SourceFiles="@(CompatibilityFiles)" DestinationFiles="@(CompatibilityFiles-&gt;'../../../Release/Compatibility/%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="true" />
         <Copy SourceFiles="@(ReleaseFiles)" DestinationFiles="@(ReleaseFiles-&gt;'../../../Release/%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="false" />
-        <Copy SourceFiles="@(ExtraFiles)" DestinationFolder="../../../Release/" SkipUnchangedFiles="false" />
+        <!-- <Copy SourceFiles="@(ExtraFiles)" DestinationFolder="../../../Release/" SkipUnchangedFiles="false" /> -->
         <ZipDirectory DestinationFile="../../../$(AssemblyName).zip" SourceDirectory="../../../Release" />
         <RemoveDir Condition="Exists('$(SteamModsPath)')" Directories="$(SteamModsPath)/$(AssemblyName)" ContinueOnError="true" />
         <Copy Condition="Exists('$(SteamModsPath)')" SourceFiles="@(ReleaseFolder)" DestinationFiles="@(ReleaseFolder-&gt;'$(SteamModsPath)/$(AssemblyName)/%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="true" />
