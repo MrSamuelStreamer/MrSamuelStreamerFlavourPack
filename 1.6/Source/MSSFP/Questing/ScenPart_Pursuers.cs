@@ -188,9 +188,10 @@ public class ScenPart_Pursuers : ScenPart
                 return null;
             if (alertCached != null || !mapWarningTimers.TryGetValue(currentMap, out int mapRaidWarnTick) || Find.TickManager.TicksGame <= mapRaidWarnTick)
                 return alertCached;
+            if (!mapRaidTimers.TryGetValue(currentMap, out int raidTick)) return null;
             alertCached = new Alert_PursuerThreat
             {
-                raidTick = mapRaidTimers[currentMap],
+                raidTick = raidTick,
                 alertPursuerThreatCriticalDescText = alertPursuerThreatCriticalDescText.Translate(Faction.NameColored),
                 alertPursuerThreatCriticalText = alertPursuerThreatCriticalText.Translate(Faction.NameColored),
                 alertPursuerThreatDescText = alertPursuerThreatDescText.Translate(Faction.NameColored),
