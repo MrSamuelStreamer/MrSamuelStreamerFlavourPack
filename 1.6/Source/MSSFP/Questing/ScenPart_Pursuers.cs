@@ -76,6 +76,14 @@ public class PursuersModExtension : DefModExtension
         scenPart.safeMapGenerators = safeMapGenerators;
         scenPart.safeLandmarks = safeLandmarks;
         scenPart.safeThings = safeThings;
+        scenPart.alertPursuerThreatCriticalText = alertPursuerThreatCriticalText;
+        scenPart.alertPursuerThreatText = alertPursuerThreatText;
+        scenPart.alertPursuerThreatCriticalDescText = alertPursuerThreatCriticalDescText;
+        scenPart.alertPursuerThreatDescText = alertPursuerThreatDescText;
+        scenPart.letterLabelPursuerThreat = letterLabelPursuerThreat;
+        scenPart.letterTextPursuerThreat = letterTextPursuerThreat;
+        scenPart.letterLabelPursuerThreatFoiled = letterLabelPursuerThreatFoiled;
+        scenPart.letterTextPursuerThreatFoiled = letterTextPursuerThreatFoiled;
         scenPart.allowOnNonPlayerHome = allowOnNonPlayerHome;
     }
 
