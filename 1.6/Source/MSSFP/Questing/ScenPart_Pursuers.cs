@@ -50,6 +50,7 @@ public class PursuersModExtension : DefModExtension
     public List<MapGeneratorDef> safeMapGenerators = [];
     public List<LandmarkDef> safeLandmarks = [];
     public List<ThingDef> safeThings = [];
+    public List<TileMutatorDef> safeMutators = [];
     public string alertPursuerThreatCriticalText = "MSSFP_Scen_Pursuers_alertPursuerThreatCriticalText";
     public string alertPursuerThreatText = "MSSFP_Scen_Pursuers_alertPursuerThreatText";
     public string alertPursuerThreatCriticalDescText = "MSSFP_Scen_Pursuers_alertPursuerThreatCriticalDescText";
@@ -76,6 +77,7 @@ public class PursuersModExtension : DefModExtension
         scenPart.safeMapGenerators = safeMapGenerators;
         scenPart.safeLandmarks = safeLandmarks;
         scenPart.safeThings = safeThings;
+        scenPart.safeMutators = safeMutators;
         scenPart.alertPursuerThreatCriticalText = alertPursuerThreatCriticalText;
         scenPart.alertPursuerThreatText = alertPursuerThreatText;
         scenPart.alertPursuerThreatCriticalDescText = alertPursuerThreatCriticalDescText;
@@ -128,6 +130,7 @@ public class ScenPart_Pursuers : ScenPart
     public List<MapGeneratorDef> safeMapGenerators = [];
     public List<LandmarkDef> safeLandmarks = [];
     public List<ThingDef> safeThings = [];
+    public List<TileMutatorDef> safeMutators = [];
     public string alertPursuerThreatCriticalText = "MSSFP_Scen_Pursuers_alertPursuerThreatCriticalText";
     public string alertPursuerThreatText = "MSSFP_Scen_Pursuers_alertPursuerThreatText";
     public string alertPursuerThreatCriticalDescText = "MSSFP_Scen_Pursuers_alertPursuerThreatCriticalDescText";
@@ -245,6 +248,7 @@ public class ScenPart_Pursuers : ScenPart
         Scribe_Collections.Look(ref safeMapGenerators, "safeMapGenerators", LookMode.Def);
         Scribe_Collections.Look(ref safeLandmarks, "safeLandmarks", LookMode.Def);
         Scribe_Collections.Look(ref safeThings, "safeThings", LookMode.Def);
+        Scribe_Collections.Look(ref safeMutators, "safeMutators", LookMode.Def);
         Scribe_Values.Look(ref alertPursuerThreatCriticalText, "alertPursuerThreatCriticalText", PursuersModExt.Value.alertPursuerThreatCriticalText);
         Scribe_Values.Look(ref alertPursuerThreatText, "alertPursuerThreatText", PursuersModExt.Value.alertPursuerThreatText);
         Scribe_Values.Look(ref alertPursuerThreatCriticalDescText, "alertPursuerThreatCriticalDescText", PursuersModExt.Value.alertPursuerThreatCriticalDescText);
@@ -271,6 +275,7 @@ public class ScenPart_Pursuers : ScenPart
         safeMapGenerators ??= [];
         safeLandmarks ??= [];
         safeThings ??= [];
+        safeMutators ??= [];
         eternallySafeMaps ??= [];
     }
 
@@ -390,12 +395,11 @@ public class ScenPart_Pursuers : ScenPart
 
     public virtual void StartTimers(Map map)
     {
+        if (map == null) return;
         if (eternallySafeMaps.Contains(map.uniqueID)) return;
-        bool safe = safeMapGenerators.Contains(map.generatorDef);
-        if (!safe && Find.World.landmarks.landmarks.TryGetValue(map.Tile, out Landmark landmark) && safeLandmarks.Contains(landmark.def))
-        {
-            safe = true;
-        }
+        bool safe = (map.TileInfo?.Landmark is { } landmarkInfo && safeLandmarks.Contains(landmarkInfo.def)) ||
+                    (map.generatorDef is { } generatorDef && safeMapGenerators.Contains(generatorDef)) ||
+                    (map.TileInfo?.Mutators?.Any(m => safeMutators.Contains(m)) ?? false);
 
         if (safe)
         {
@@ -443,10 +447,13 @@ public class ScenPart_Pursuers : ScenPart
     {
         safeMapGenerators ??= [];
         safeLandmarks ??= [];
+        safeThings ??= [];
+        safeMutators ??= [];
 
         float height = scenPartRectHeight +
                        (safeMapGenerators.Count * 30) +
                        (safeThings.Count * 30) +
+                       (safeMutators.Count * 30) +
                        (safeLandmarks.Count * 30);
         Rect scenPartRect = listing.GetScenPartRect(this, RowHeight + height);
 
@@ -558,6 +565,29 @@ public class ScenPart_Pursuers : ScenPart
             if (selectedLandmark != null) safeLandmarks.Remove(selectedLandmark);
 
             section.GapLine();
+
+            if (section.ButtonText("MSSFP_Pursuer_Mutators".Translate()))
+            {
+                FloatMenuUtility.MakeMenu(DefDatabase<TileMutatorDef>.AllDefsListForReading.Except(safeMutators), gen => gen.defName,
+                    gen => delegate
+                    {
+                        safeMutators.Add(gen);
+                    });
+            }
+
+            TileMutatorDef selectedMutator = null;
+            foreach (TileMutatorDef gen in safeMutators)
+            {
+                if (section.ButtonText("MSSFP_Pursuer_MutatorsRemove".Translate(gen.defName)))
+                {
+                    selectedMutator = gen;
+                    break;
+                }
+            }
+            if (selectedMutator != null) safeMutators.Remove(selectedMutator);
+
+            section.GapLine();
+
 
             if (section.ButtonText("MSSFP_Pursuer_Things".Translate()))
             {
