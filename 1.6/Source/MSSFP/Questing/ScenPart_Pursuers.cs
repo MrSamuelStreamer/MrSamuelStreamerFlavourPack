@@ -169,6 +169,7 @@ public class ScenPart_Pursuers : ScenPart
 
     public bool MapAllowed(Map map)
     {
+        if (map == null) return false;
         ModLog.Debug($"Map {map.uniqueID} is player home: {map.IsPlayerHome}, allowOnNonPlayerHome: {allowOnNonPlayerHome}");
         return allowOnNonPlayerHome || map.IsPlayerHome;
     }
@@ -332,8 +333,7 @@ public class ScenPart_Pursuers : ScenPart
             lastCheckedGravEngineTick = Find.TickManager.TicksGame;
         }
 
-        Map currentMap = Find.CurrentMap;
-        if (safetyCheckInterval > 0 && safeThings.Count > 0 && Find.TickManager.TicksGame > lastCheckedSafetyTick + safetyCheckInterval && !eternallySafeMaps.Contains(currentMap.uniqueID))
+        if (Find.CurrentMap is {} currentMap && safetyCheckInterval > 0 && safeThings.Count > 0 && Find.TickManager.TicksGame > lastCheckedSafetyTick + safetyCheckInterval && !eternallySafeMaps.Contains(currentMap.uniqueID))
         {
             hasSafetyThingCached = HasAnySafetyThing(currentMap);
             lastCheckedSafetyTick = Find.TickManager.TicksGame;
@@ -441,8 +441,8 @@ public class ScenPart_Pursuers : ScenPart
 
     public override void DoEditInterface(Listing_ScenEdit listing)
     {
-        if(safeMapGenerators == null) safeMapGenerators = [];
-        if(safeLandmarks == null) safeLandmarks = [];
+        safeMapGenerators ??= [];
+        safeLandmarks ??= [];
 
         float height = scenPartRectHeight +
                        (safeMapGenerators.Count * 30) +
