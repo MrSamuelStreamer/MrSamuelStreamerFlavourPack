@@ -17,8 +17,6 @@ public abstract class SettingsTab
     {
         this.settings = settings;
         this.mod = mod;
-
-        Settings.RegisterTab(this);
     }
 
     public virtual string TabName => "Settings Tab";

@@ -6,9 +6,8 @@ using Verse;
 
 namespace MSSFP.ResourceGeneratorMod;
 
-public class Dialog_ThingDefFinder(Settings settings) : Dialog_OptionLister
+public class Dialog_ThingDefFinder : Dialog_OptionLister
 {
-    public Settings settings = settings;
 
     public List<ThingDef> Things = DefDatabase<ThingDef>
         .AllDefsListForReading.Where(def =>
@@ -34,7 +33,7 @@ public class Dialog_ThingDefFinder(Settings settings) : Dialog_OptionLister
         foreach (
             ThingDef thingDef in Things
                 .Where(def => def.defName.Contains(filter) || def.label.Contains(filter))
-                .Except(settings.ExtraBuildables)
+                .Except(MSSFPResourceGeneratorMod.settings.ExtraBuildables)
         )
         {
             Text.Font = GameFont.Tiny;
@@ -43,7 +42,7 @@ public class Dialog_ThingDefFinder(Settings settings) : Dialog_OptionLister
             TooltipHandler.TipRegion(rect, thingDef.description);
             if (DevGUI.ButtonText(rect, $"Add {thingDef.LabelCap}"))
             {
-                settings.AddBuildable(thingDef);
+                MSSFPResourceGeneratorMod.settings.AddBuildable(thingDef);
             }
 
             curY += 22f + verticalSpacing;

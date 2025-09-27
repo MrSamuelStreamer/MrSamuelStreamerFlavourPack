@@ -36,34 +36,40 @@ public static class ResourceGenerator_Patches
 
         if (insertIndex > 0)
         {
-            // Find the branch instruction that jumps to 'continue' if condition is true
-            // It should be a few instructions after the stackLimit check
-            int branchIndex = -1;
+            // Find a conditional branch that skips/continues this candidate
+            // Accept any short/long conditional branch and capture its target label.
+            object continueLabel = null;
 
-            for (int i = insertIndex; i < codes.Count - 1; i++)
+            for (int i = insertIndex; i < codes.Count; i++)
             {
-                if (codes[i].opcode != OpCodes.Brfalse_S || codes[i + 1].opcode != OpCodes.Nop)
-                    continue;
+                OpCode op = codes[i].opcode;
+                bool isCondBranch =
+                    op == OpCodes.Brtrue_S || op == OpCodes.Brfalse_S ||
+                    op == OpCodes.Brtrue   || op == OpCodes.Brfalse ||
+                    op == OpCodes.Bne_Un_S || op == OpCodes.Bne_Un  ||
+                    op == OpCodes.Beq_S    || op == OpCodes.Beq;
 
-                branchIndex = i;
-                break;
+                if (!isCondBranch) continue;
+
+                // Harmony emits Label as operand for branch destinations
+                if (codes[i].operand != null)
+                {
+                    continueLabel = codes[i].operand;
+                    break;
+                }
             }
 
-            if (branchIndex == -1)
+            if (continueLabel == null)
             {
-                Log.Error(
-                    "[MSSFP ResourceGenerator] Could not find branch instruction in selectProduct method"
-                );
+                Log.Error("[MSSFP ResourceGenerator] Could not find branch target in selectProduct method");
                 return codes;
             }
 
-            // Get the continue label from the branch instruction
-            object continueLabel = codes[branchIndex].operand;
-
             codes.InsertRange(
                 insertIndex,
-                [
-                    new CodeInstruction(OpCodes.Dup), // Duplicate thingDef on stack
+                new[]
+                {
+                    new CodeInstruction(OpCodes.Dup), // Duplicate thingDef on stack (or the local carrying it)
                     new CodeInstruction(
                         OpCodes.Call,
                         AccessTools.Method(
@@ -71,8 +77,9 @@ public static class ResourceGenerator_Patches
                             nameof(ShouldSkipChecks)
                         )
                     ),
-                    new CodeInstruction(OpCodes.Brtrue, continueLabel), // If ShouldSkipChecks returns true, jump to continue
-                ]
+                    // If ShouldSkipChecks is true, jump to the same 'continue' label used by original logic
+                    new CodeInstruction(OpCodes.Brtrue, continueLabel),
+                }
             );
         }
         else

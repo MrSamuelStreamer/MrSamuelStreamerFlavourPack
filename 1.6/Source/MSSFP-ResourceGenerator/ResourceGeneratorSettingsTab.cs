@@ -14,6 +14,7 @@ public class ResourceGeneratorSettingsTab(ModSettings settings, Mod mod)
     public override string TabName => "Resource Generator";
     public override int TabOrder => 5;
 
+
     public override void DoTabContents(
         Listing_Standard options,
         Rect scrollViewRect,
@@ -22,25 +23,54 @@ public class ResourceGeneratorSettingsTab(ModSettings settings, Mod mod)
     {
         if (options.ButtonText("Add ThingDef to resource generator list"))
         {
-            Dialog_ThingDefFinder finder = new(Settings);
+            Dialog_ThingDefFinder finder = new();
             Find.WindowStack.Add(finder);
         }
 
         List<ThingDef> toRemove = [];
 
-        foreach (ThingDef extraBuildable in Settings.ExtraBuildables.Where(t => t != null).ToList()) // Handle mods removed and such
+        foreach (ThingDef extraBuildable in ExtraBuildables.Where(t => t != null).ToList()) // Handle mods removed and such
         {
             scrollViewHeight += 30;
             if (options.ButtonText($"{extraBuildable.defName} | {extraBuildable.LabelCap}"))
             {
-                Settings.RemoveBuildable(extraBuildable);
+                RemoveBuildable(extraBuildable);
             }
         }
     }
 
+
+    public List<string> strings = [];
+
+    public void RemoveBuildable(ThingDef buildable)
+    {
+        strings.Remove(buildable.defName);
+    }
+
+    public void AddBuildable(ThingDef buildable)
+    {
+        strings.Add(buildable.defName);
+    }
+
+    public List<ThingDef> ExtraBuildables
+    {
+        get
+        {
+            return strings
+                .Select(s => DefDatabase<ThingDef>.GetNamed(s))
+                .Where(d => d is not null)
+                .ToList();
+        }
+    }
+
+
     public override void ExposeData()
     {
-        // pass through to base settings
-        PostSaveActions.Add(Settings.Mod.WriteSettings);
+        Scribe_Collections.Look(ref strings, "ExtraBuildables", LookMode.Value);
+
+        if (Scribe.mode == LoadSaveMode.Saving)
+        {
+            MSSFPResourceGeneratorMod.UpdateExtras();
+        }
     }
 }

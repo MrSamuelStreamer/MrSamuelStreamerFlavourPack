@@ -10,17 +10,12 @@ namespace MSSFP.ResourceGeneratorMod;
 
 public class MSSFPResourceGeneratorMod : Mod
 {
-    public static Settings settings;
+    public static ResourceGeneratorSettingsTab settings => MSSFPMod.settings.GetSettings<ResourceGeneratorSettingsTab>();
 
     public MSSFPResourceGeneratorMod(ModContentPack content)
         : base(content)
     {
         ModLog.Debug("Hello world from MSSFPResourceGeneratorMod");
-
-        // initialize settings
-        settings = GetSettings<Settings>();
-
-        ResourceGeneratorSettingsTab _ = new(settings, this);
 
 #if DEBUG
         Harmony.DEBUG = true;

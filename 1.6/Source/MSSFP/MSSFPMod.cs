@@ -14,23 +14,16 @@ namespace MSSFP;
 public class MSSFPMod : Mod
 {
     public static Settings settings;
+    public static MSSFPMod Mod;
 
     public MSSFPMod(ModContentPack content)
         : base(content)
     {
+        Mod = this;
         ModLog.Log("Loading the Mr Samuel Streamer Flavour Pack");
 
         // initialize settings
         settings = GetSettings<Settings>();
-
-        // ReSharper disable once ObjectCreationAsStatement
-        new MainSettingsTab(settings, this);
-        // ReSharper disable once ObjectCreationAsStatement
-        new GeneSettingsTab(settings, this);
-        // ReSharper disable once ObjectCreationAsStatement
-        new HauntSettingsTab(settings, this);
-        // ReSharper disable once ObjectCreationAsStatement
-        new MemesSettingsTab(settings, this);
 
 #if DEBUG
         Harmony.DEBUG = true;

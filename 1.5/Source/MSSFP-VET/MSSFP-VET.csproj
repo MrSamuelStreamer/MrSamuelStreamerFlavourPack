@@ -7,7 +7,7 @@
         <LangVersion>latest</LangVersion>
         <RootNamespace>MSSFP.VET</RootNamespace>
         <AssemblyName>MSSFP.VET</AssemblyName>
-        <OutputPath>../../../Compatibility/oskarpotocki.vfe.tribals/1.5/Assemblies</OutputPath>
+        <OutputPath>../../../Compatibility/OskarPotocki.VFE.Tribals/1.5/Assemblies</OutputPath>
         <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
         <SteamModsPath>$(RIMWORLD_STEAM_MODS_PATH)</SteamModsPath>
@@ -69,16 +69,16 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="..\..\..\Compatibility\oskarpotocki.vfe.tribals\1.5\Assemblies\">
+      <Folder Include="..\..\..\Compatibility\OskarPotocki.VFE.Tribals\1.5\Assemblies\">
         <Link>ModCompatFiles\Assemblies</Link>
       </Folder>
-      <Folder Include="..\..\..\Compatibility\oskarpotocki.vfe.tribals\1.5\Patches\">
+      <Folder Include="..\..\..\Compatibility\OskarPotocki.VFE.Tribals\1.5\Patches\">
         <Link>ModCompatFiles\Patches</Link>
       </Folder>
     </ItemGroup>
 
     <ItemGroup>
-      <Content Include="..\..\..\Compatibility\oskarpotocki.vfe.tribals\1.5\Defs\MSSFP_Archotech.xml">
+      <Content Include="..\..\..\Compatibility\OskarPotocki.VFE.Tribals\1.5\Defs\MSSFP_Archotech.xml">
         <Link>ModCompatFiles\Defs\MSSFP_Archotech.xml</Link>
       </Content>
     </ItemGroup>

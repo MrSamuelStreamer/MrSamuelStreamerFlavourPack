@@ -76,7 +76,63 @@ public class Settings : ModSettings
         return string.Join(", ", MonitoredSpeeds.Select(s => s.ToString()));
     }
 
+    public Settings()
+    {
+        Assembly[] assemblies;
+        List<Type> types = [];
+
+        // Get assemblies
+        try
+        {
+            assemblies = AppDomain.CurrentDomain.GetAssemblies();
+        }
+        catch (Exception ex)
+        {
+            ModLog.Error($"Failed to load assemblies: {ex}");
+            return;
+        }
+
+        // get all SettingsTab subtypes
+        foreach (Assembly assembly in assemblies)
+        {
+            foreach (Type type in assembly.GetTypes()
+                         .Where(t => !t.IsAbstract && typeof(SettingsTab).IsAssignableFrom(t)))
+            {
+                try
+                {
+                    types.Add(type);
+                }
+                catch (Exception ex)
+                {
+                    ModLog.Error($"Failed to load types from assembly {assembly.FullName}: {ex}");
+                }
+            }
+        }
+
+        // init all SettingsTabs
+        foreach (Type type in types.Distinct())
+        {
+            try
+            {
+                if(Tabs.Any(t=>t.GetType() == type)) continue;
+                if (Activator.CreateInstance(type, this, MSSFPMod.Mod) is SettingsTab tab)
+                {
+                    RegisterTab(tab);
+                }
+            }
+            catch (Exception ex)
+            {
+                ModLog.Error($"Failed to create instance of tab {type.FullName}: {ex}");
+            }
+        }
+    }
+
     protected static List<SettingsTab> Tabs = new();
+
+    public T GetSettings<T>() where T: SettingsTab
+    {
+        return Tabs.FirstOrDefault(t => t is T) as T;
+    }
 
     public static void RegisterTab(SettingsTab tab)
     {
@@ -180,6 +236,7 @@ public class Settings : ModSettings
 
     public override void ExposeData()
     {
+        ModLog.Debug($"ExposeData {Scribe.mode} - {Tabs.Count}");
         // Save/load main settings directly to ensure they persist
         Scribe_Values.Look(
             ref EnableWanderDelayModification,
