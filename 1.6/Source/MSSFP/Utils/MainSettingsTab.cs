@@ -38,6 +38,12 @@ public class MainSettingsTab(ModSettings settings, Mod mod) : SettingsTab(settin
             ref Settings.Enable10SecondsToSpeed,
             ref scrollViewHeight
         );
+        DrawCheckBox(
+            options,
+            "MSS_FP_Settings_DrawByMrStreamer".Translate(),
+            ref Settings.DrawByMrStreamer,
+            ref scrollViewHeight
+        );
 
         if (Settings.Enable10SecondsToSpeed)
         {
