@@ -80,7 +80,7 @@
     <ItemGroup>
         <PackageReference Include="Lib.Harmony" Version="2.*" ExcludeAssets="runtime" />
     </ItemGroup>
-    <ItemGroup Condition="'@(Reference-&gt;WithMetadataValue('Identity', 'Assembly-CSharp')-&gt;Metadata('HintPath')-&gt;Exists())' == ''">
+    <ItemGroup Condition="'@(Reference->WithMetadataValue('Identity', 'Assembly-CSharp')->Metadata('HintPath')->Exists())' == ''">
         <PackageReference Include="Krafs.Rimworld.Ref" Version="1.6-*" />
     </ItemGroup>
     <PropertyGroup>
@@ -110,14 +110,14 @@
     <Target Name="PostBuild" AfterTargets="Build" Condition=" '$(Configuration)' == 'Release' ">
         <RemoveDir Condition="Exists('../../../Release')" Directories="../../../Release" />
         <Delete Condition="Exists('../../../$(AssemblyName).zip')" Files="../../../$(AssemblyName).zip" />
-        <Copy SourceFiles="@(AboutFiles)" DestinationFiles="@(AboutFiles-&gt;'../../../Release/About/%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="true" />
-        <Copy SourceFiles="@(CommonFiles)" DestinationFiles="@(CommonFiles-&gt;'../../../Release/Common/%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="true" />
-        <Copy SourceFiles="@(CompatibilityFiles)" DestinationFiles="@(CompatibilityFiles-&gt;'../../../Release/Compatibility/%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="true" />
-        <Copy SourceFiles="@(ReleaseFiles)" DestinationFiles="@(ReleaseFiles-&gt;'../../../Release/%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="false" />
+        <Copy SourceFiles="@(AboutFiles)" DestinationFiles="@(AboutFiles->'../../../Release/About/%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="true" />
+        <Copy SourceFiles="@(CommonFiles)" DestinationFiles="@(CommonFiles->'../../../Release/Common/%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="true" />
+        <Copy SourceFiles="@(CompatibilityFiles)" DestinationFiles="@(CompatibilityFiles->'../../../Release/Compatibility/%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="true" />
+        <Copy SourceFiles="@(ReleaseFiles)" DestinationFiles="@(ReleaseFiles->'../../../Release/%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="false" />
         <!-- <Copy SourceFiles="@(ExtraFiles)" DestinationFolder="../../../Release/" SkipUnchangedFiles="false" /> -->
         <ZipDirectory DestinationFile="../../../$(AssemblyName).zip" SourceDirectory="../../../Release" />
         <RemoveDir Condition="Exists('$(SteamModsPath)')" Directories="$(SteamModsPath)/$(AssemblyName)" ContinueOnError="true" />
-        <Copy Condition="Exists('$(SteamModsPath)')" SourceFiles="@(ReleaseFolder)" DestinationFiles="@(ReleaseFolder-&gt;'$(SteamModsPath)/$(AssemblyName)/%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="true" />
+        <Copy Condition="Exists('$(SteamModsPath)')" SourceFiles="@(ReleaseFolder)" DestinationFiles="@(ReleaseFolder->'$(SteamModsPath)/$(AssemblyName)/%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="true" />
     </Target>
     <Target Name="CleanRelease" AfterTargets="Clean">
         <RemoveDir Directories="$(ReleasePath)" Condition="Exists('$(ReleasePath)')" />
