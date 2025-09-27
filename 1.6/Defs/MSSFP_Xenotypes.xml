@@ -182,34 +182,4 @@
             <li>LongShots</li>
         </forbiddenWeaponClasses>
     </XenotypeDef>
-
-    <XenotypeDef>
-        <defName>MSSFP_Taff</defName>
-        <label>taff</label>
-        <description>A filthy inbred Taff. Beware, they multiply quickly!</description>
-        <descriptionShort>A filthy inbred Taff. Beware, they multiply quickly!</descriptionShort>
-        <iconPath>UI/Icons/Xenotypes/MSSFP_Taff</iconPath>
-        <inheritable>true</inheritable>
-        <nameMaker>MSSFP_NamerPersonTaff</nameMaker>
-        <nameMakerFemale>MSSFP_NamerPersonTaff</nameMakerFemale>
-        <chanceToUseNameMaker>1</chanceToUseNameMaker>
-        <genes>
-            <li MayRequire="sarg.alphagenes">AG_AsexualFission</li>
-            <li MayRequire="sarg.alphagenes">AG_Filthy</li>
-            <li>Immunity_Strong</li>
-            <li>PsychicAbility_Enhanced</li>
-            <li>MaxTemp_SmallIncrease</li>
-            <li>Aggression_Aggressive</li>
-            <li>MeleeDamage_Strong</li>
-            <li>Robust</li>
-            <li>Beauty_Pretty</li>
-            <li>Hair_MidBlack</li>
-            <li>Skin_Melanin5</li>
-            <li>Body_Hulk</li>
-            <li MayRequire="void.charactereditor">SZBodySize_07</li>
-            <li MayRequire="vanillaracesexpanded.archon">VRE_SlowMeleeHitter</li>
-            <li>AptitudePoor_Shooting</li>
-            <li>Inbred</li>
-        </genes>
-    </XenotypeDef>
 </Defs>

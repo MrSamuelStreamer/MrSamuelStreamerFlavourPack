@@ -70,9 +70,6 @@ public static class MSSFPDefOf
     public static readonly HediffDef MSS_Need_GeneStealer_Restless;
     public static readonly HediffDef MSS_Need_GeneStealer_Exhaustion;
 
-    public static readonly XenotypeDef MSSFP_Taff;
-    public static readonly FactionDef MSSFP_TaffsFaction;
-
     public static readonly IncidentDef MSSFP_Hire_Mercenaries;
     public static readonly LetterDef MSSFP_HireMercenariesOffer;
 
