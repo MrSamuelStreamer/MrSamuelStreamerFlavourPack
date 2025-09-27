@@ -31,7 +31,6 @@
             <HintPath Condition="Exists('../../../../../RimWorldWin64_Data/Managed/Assembly-CSharp.dll')">../../../../../RimWorldWin64_Data/Managed/Assembly-CSharp.dll</HintPath>
             <HintPath Condition="Exists('../../../../../RimWorldLinux_Data/Managed/Assembly-CSharp.dll')">../../../../../RimWorldLinux_Data/Managed/Assembly-CSharp.dll</HintPath>
             <HintPath Condition="Exists('../../../../../Contents/Resources/Data/Managed/Assembly-CSharp.dll')">../../../../../Contents/Resources/Data/Managed/Assembly-CSharp.dll</HintPath>
-            <HintPath Condition="Exists('../../../../../Contents/Resources/Data/Managed/Assembly-CSharp.dll')">../../../../../Contents/Resources/Data/Managed/Assembly-CSharp.dll</HintPath>
             <Private>False</Private>
         </Reference>
         <Reference Include="UnityEngine.CoreModule">

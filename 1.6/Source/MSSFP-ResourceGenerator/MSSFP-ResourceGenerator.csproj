@@ -51,6 +51,7 @@
             <HintPath Condition="Exists('../../../../ResourceGenerator/1.6/Assemblies/ResourceGenerator.dll')">../../../../ResourceGenerator/1.6/Assemblies/ResourceGenerator.dll</HintPath>
             <HintPath Condition="Exists('../../../../../../../workshop/content/294100/2747511650/1.6/Assemblies/ResourceGenerator.dll')">../../../../../../../workshop/content/294100/2747511650/1.6/Assemblies/ResourceGenerator.dll</HintPath>
             <HintPath Condition="Exists('../../../../2747511650/1.6/Assemblies/ResourceGenerator.dll')">../../../../2747511650/1.6/Assemblies/ResourceGenerator.dll</HintPath>
+            <HintPath Condition="Exists('../../../../../../../../workshop/content/294100/2747511650/1.6/Assemblies/ResourceGenerator.dll')">../../../../../../../../workshop/content/294100/2747511650/1.6/Assemblies/ResourceGenerator.dll</HintPath>
             <Private>False</Private>
         </Reference>
     </ItemGroup>
