@@ -38,7 +38,6 @@ public class Settings : ModSettings
     public bool EnableOskarianTech = false;
     public bool EnableGeneMutators = false;
     public bool EnableTrekBeamers = true;
-    public bool EnableTaffRaids = true;
     public bool EnableMercenaryHiring = true;
     public bool EnableWanderDelayModification = false;
     public bool WanderDelayIncludeHumanoids = false;
