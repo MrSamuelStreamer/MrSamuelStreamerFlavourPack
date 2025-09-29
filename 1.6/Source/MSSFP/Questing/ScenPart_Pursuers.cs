@@ -329,6 +329,8 @@ public class ScenPart_Pursuers : ScenPart
         return false;
     }
 
+    public bool MapIsSafeNow(Map map) => hasSafetyThingCached || questCompleted || eternallySafeMaps.Contains(map.uniqueID);
+
     public override void Tick()
     {
         if (questCompleted) return;
