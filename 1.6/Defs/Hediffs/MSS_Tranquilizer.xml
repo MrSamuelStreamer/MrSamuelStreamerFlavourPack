@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <HediffDef ParentName="DiseaseBase">
+        <defName>MSS_Tranquilized</defName>
+        <label>tranquilized</label>
+        <description>This person has been hit by a tranquilizer dart and is heavily sedated. Their movement is severely impaired and they may fall unconscious, but the effect is temporary and non-lethal.</description>
+        <isBad>true</isBad>
+        <initialSeverity>0.15</initialSeverity>
+        <minSeverity>0.05</minSeverity>
+        <maxSeverity>1.0</maxSeverity>
+        <makesSickThought>false</makesSickThought>
+        <tendable>false</tendable>
+        <everCurableByItem>false</everCurableByItem>
+        <comps>
+            <li Class="HediffCompProperties_SeverityPerSecond">
+                <severityPerSecond>-0.0018</severityPerSecond>
+            </li>
+        </comps>
+        <stages>
+            <li>
+                <label>drowsy</label>
+                <minSeverity>0.05</minSeverity>
+                <capMods>
+                    <li>
+                        <capacity>Moving</capacity>
+                        <offset>-0.1</offset>
+                    </li>
+                </capMods>
+            </li>
+            <li>
+                <label>mild sedation</label>
+                <minSeverity>0.25</minSeverity>
+                <capMods>
+                    <li>
+                        <capacity>Moving</capacity>
+                        <offset>-0.3</offset>
+                    </li>
+                    <li>
+                        <capacity>Manipulation</capacity>
+                        <offset>-0.1</offset>
+                    </li>
+                </capMods>
+            </li>
+            <li>
+                <label>moderate sedation</label>
+                <minSeverity>0.4</minSeverity>
+                <capMods>
+                    <li>
+                        <capacity>Moving</capacity>
+                        <offset>-0.5</offset>
+                    </li>
+                    <li>
+                        <capacity>Manipulation</capacity>
+                        <offset>-0.2</offset>
+                    </li>
+                    <li>
+                        <capacity>Talking</capacity>
+                        <offset>-0.15</offset>
+                    </li>
+                </capMods>
+                <hungerRateFactor>0.7</hungerRateFactor>
+            </li>
+            <li>
+                <label>heavy sedation</label>
+                <minSeverity>0.6</minSeverity>
+                <capMods>
+                    <li>
+                        <capacity>Moving</capacity>
+                        <offset>-0.7</offset>
+                    </li>
+                    <li>
+                        <capacity>Manipulation</capacity>
+                        <offset>-0.35</offset>
+                    </li>
+                    <li>
+                        <capacity>Talking</capacity>
+                        <offset>-0.3</offset>
+                    </li>
+                </capMods>
+                <hungerRateFactor>0.5</hungerRateFactor>
+                <restFallFactor>0.3</restFallFactor>
+            </li>
+            <li>
+                <label>deep sedation</label>
+                <minSeverity>0.8</minSeverity>
+                <capMods>
+                    <li>
+                        <capacity>Moving</capacity>
+                        <postFactor>0.1</postFactor>
+                    </li>
+                    <li>
+                        <capacity>Manipulation</capacity>
+                        <postFactor>0.2</postFactor>
+                    </li>
+                    <li>
+                        <capacity>Talking</capacity>
+                        <postFactor>0.15</postFactor>
+                    </li>
+                    <li>
+                        <capacity>Consciousness</capacity>
+                        <postFactor>0.4</postFactor>
+                    </li>
+                </capMods>
+                <hungerRateFactor>0.3</hungerRateFactor>
+                <restFallFactor>0.15</restFallFactor>
+            </li>
+        </stages>
+    </HediffDef>
+</Defs>
