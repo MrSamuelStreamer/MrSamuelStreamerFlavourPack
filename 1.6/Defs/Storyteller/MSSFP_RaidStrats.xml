@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <RaidStrategyDef Name="ImmediateAttack">
+        <defName>MSSFP_SneakySteal</defName>
+        <workerClass>MSSFP.Raids.RaidStrategyWorker_SneakySteal</workerClass>
+        <selectionWeightPerPointsCurve>
+            <points>
+                <li>(0, 1)</li>
+            </points>
+        </selectionWeightPerPointsCurve>
+        <selectionWeightCurvesPerFaction>
+            <li>
+                <faction>Mechanoid</faction>
+                <selectionWeightPerPointsCurve>
+                    <points>
+                        <li>(0, 0)</li>
+                    </points>
+                </selectionWeightPerPointsCurve>
+            </li>
+        </selectionWeightCurvesPerFaction>
+        <pointsFactorCurve>
+            <points>
+                <li>0, 1</li>
+            </points>
+        </pointsFactorCurve>
+        <arriveModes>
+            <li>EdgeDrop</li>
+            <li>EdgeWalkIn</li>
+        </arriveModes>
+        <letterLabelEnemy>Raid</letterLabelEnemy>
+        <arrivalTextEnemy>They are attacking immediately.</arrivalTextEnemy>
+        <letterLabelFriendly>Friendlies</letterLabelFriendly>
+        <arrivalTextFriendly>They are moving in to help you immediately.</arrivalTextFriendly>
+    </RaidStrategyDef>
+</Defs>

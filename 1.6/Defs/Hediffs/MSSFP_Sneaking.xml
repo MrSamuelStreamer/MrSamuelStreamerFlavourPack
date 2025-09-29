@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Defs>
+    <HediffDef>
+        <defName>MSSFP_Sneaking</defName>
+        <label>sneaking</label>
+        <description>This person is sneaking.</description>
+        <hediffClass>HediffWithComps</hediffClass>
+        <maxSeverity>1.0</maxSeverity>
+        <initialSeverity>1.0</initialSeverity>
+        <makesAlert>false</makesAlert>
+        <tendable>false</tendable>
+        <scenarioCanAdd>false</scenarioCanAdd>
+        <alwaysShowSeverity>false</alwaysShowSeverity>
+        <isBad>false</isBad>
+        <stages>
+            <li>
+                <minSeverity>0</minSeverity>
+                <label>Sneaking</label>
+            </li>
+        </stages>
+    </HediffDef>
+</Defs>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <IncidentDef>
+        <defName>MSSFP_SneakySteal</defName>
+        <label>enemy thief</label>
+        <category>ThreatSmall</category>
+        <targetTags>
+            <li>Map_PlayerHome</li>
+        </targetTags>
+        <workerClass>MSSFP.Raids.IncidentWorker_SneakySteal</workerClass>
+        <baseChance>7.4</baseChance>
+        <pointsScaleable>true</pointsScaleable>
+        <tale>Raid</tale>
+        <ignoreRecentSelectionWeighting>true</ignoreRecentSelectionWeighting>
+        <canOccurOnAllPlanetLayers>true</canOccurOnAllPlanetLayers>
+    </IncidentDef>
+</Defs>

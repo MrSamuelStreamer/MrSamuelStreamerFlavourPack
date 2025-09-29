@@ -105,6 +105,12 @@
         <CommonFiles Update="..\..\..\Common\Languages\English\Keyed\MSS_FP_Scen.xml">
           <Link>MrSamuelStreamerFlavourPack\Common\Languages\English\Keyed\MSS_FP_Scen.xml</Link>
         </CommonFiles>
+        <ReleaseFiles Update="..\..\Defs\Hediffs\MSSFP_Sneaking.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.6\Defs\Hediffs\MSSFP_Sneaking.xml</Link>
+        </ReleaseFiles>
+        <ReleaseFiles Update="..\..\Defs\Incidents\MSSFP_SneakySteal.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.6\Defs\Incidents\MSSFP_SneakySteal</Link>
+        </ReleaseFiles>
     </ItemGroup>
     <Target Name="PostBuild" AfterTargets="Build" Condition=" '$(Configuration)' == 'Release' ">
         <RemoveDir Condition="Exists('../../../Release')" Directories="../../../Release" />

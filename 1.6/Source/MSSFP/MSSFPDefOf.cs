@@ -108,5 +108,8 @@ public static class MSSFPDefOf
 
     public static readonly JobDef MSSFP_ExtractTarget;
 
+    public static readonly HediffDef MSSFP_Sneaking;
+    public static readonly RaidStrategyDef MSSFP_SneakySteal;
+
     static MSSFPDefOf() => DefOfHelper.EnsureInitializedInCtor(typeof(MSSFPDefOf));
 }
