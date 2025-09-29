@@ -27,6 +27,8 @@ public static class MSSFPDefOf
 
     public static readonly IncidentDef MSSFP_Lovers_Retreat;
 
+    public static readonly ThingDef MSS_SiegeLadder;
+
     public static readonly TaleDef MSSFP_Lovers_Retreat_Tale;
 
     public static readonly JobDef MSSFP_GoToThen;
