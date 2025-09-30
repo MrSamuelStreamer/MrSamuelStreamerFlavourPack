@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <KCSG.SymbolDef>
+        <defName>MA_IncenseBurner_Steel</defName>
+        <thing>MA_IncenseBurner</thing>
+        <stuff>Steel</stuff>
+    </KCSG.SymbolDef>
+
+    <KCSG.SymbolDef>
+        <defName>BotchJob_ProfanedChair_BlocksGranite</defName>
+        <thing>BotchJob_ProfanedChair</thing>
+        <stuff>BlocksGranite</stuff>
+        <rotation>East</rotation>
+    </KCSG.SymbolDef>
+
+    <KCSG.SymbolDef>
+        <defName>DankPyon_OnTop_Kitchen_EmbeddedCleaver_WoodLog</defName>
+        <thing>DankPyon_OnTop_Kitchen_EmbeddedCleaver</thing>
+        <stuff>WoodLog</stuff>
+    </KCSG.SymbolDef>
+
+    <KCSG.SymbolDef>
+        <defName>SculptureLarge_DankPyon_DarkWood</defName>
+        <thing>SculptureLarge</thing>
+        <stuff>DankPyon_DarkWood</stuff>
+    </KCSG.SymbolDef>
+
+    <KCSG.SymbolDef>
+        <defName>RB_RusticWall_WoodLog</defName>
+        <thing>RB_RusticWall</thing>
+        <stuff>WoodLog</stuff>
+    </KCSG.SymbolDef>
+
+    <KCSG.SymbolDef>
+        <defName>DA_ButcheringTools_WoodLog</defName>
+        <thing>DA_ButcheringTools</thing>
+        <stuff>WoodLog</stuff>
+        <rotation>West</rotation>
+    </KCSG.SymbolDef>
+
+    <KCSG.SymbolDef>
+        <defName>RF_SunstonePedestal_WoodLog</defName>
+        <thing>RF_SunstonePedestal</thing>
+        <stuff>WoodLog</stuff>
+    </KCSG.SymbolDef>
+
+    <KCSG.SymbolDef>
+        <defName>DiningChair_DankPyon_RawDarkWood</defName>
+        <thing>DiningChair</thing>
+        <stuff>DankPyon_RawDarkWood</stuff>
+        <rotation>East</rotation>
+    </KCSG.SymbolDef>
+
+    <KCSG.SymbolDef>
+        <defName>BarrelProcessor_WoodLog</defName>
+        <thing>BarrelProcessor</thing>
+        <stuff>WoodLog</stuff>
+        <rotation>West</rotation>
+    </KCSG.SymbolDef>
+
+    <KCSG.SymbolDef>
+        <defName>DA_GrandCandelabra_Steel</defName>
+        <thing>DA_GrandCandelabra</thing>
+        <stuff>Steel</stuff>
+    </KCSG.SymbolDef>
+
+    <KCSG.SymbolDef>
+        <defName>DankPyon_BannerArrow_WoodLog</defName>
+        <thing>DankPyon_BannerArrow</thing>
+        <stuff>WoodLog</stuff>
+        <rotation>West</rotation>
+    </KCSG.SymbolDef>
+
+    <KCSG.SymbolDef>
+        <defName>DankPyon_RoyalTable2x4c_WoodLog</defName>
+        <thing>DankPyon_RoyalTable2x4c</thing>
+        <stuff>WoodLog</stuff>
+    </KCSG.SymbolDef>
+
+    <KCSG.SymbolDef>
+        <defName>Tea_party_chairA</defName>
+        <thing>Tea_party_chairA</thing>
+        <rotation>West</rotation>
+    </KCSG.SymbolDef>
+
+    <KCSG.SymbolDef>
+        <defName>SculptureSmall_DankPyon_RawDarkWood</defName>
+        <thing>SculptureSmall</thing>
+        <stuff>DankPyon_RawDarkWood</stuff>
+    </KCSG.SymbolDef>
+
+    <KCSG.SymbolDef>
+        <defName>DankPyon_IronIngot</defName>
+        <thing>DankPyon_IronIngot</thing>
+    </KCSG.SymbolDef>
+
+    <KCSG.SymbolDef>
+        <defName>SculptureLarge_Mashed_Ashlands_VolcanicGlass</defName>
+        <thing>SculptureLarge</thing>
+        <stuff>Mashed_Ashlands_VolcanicGlass</stuff>
+    </KCSG.SymbolDef>
+
+    <KCSG.SymbolDef>
+        <defName>SculptureLarge_Mashed_Ashlands_PurpleCrystalShard</defName>
+        <thing>SculptureLarge</thing>
+        <stuff>Mashed_Ashlands_PurpleCrystalShard</stuff>
+    </KCSG.SymbolDef>
+
+    <KCSG.SymbolDef>
+        <defName>DankPyon_OnTop_Kitchen_Cup_WoodLog</defName>
+        <thing>DankPyon_OnTop_Kitchen_Cup</thing>
+        <stuff>WoodLog</stuff>
+    </KCSG.SymbolDef>
+
+    <KCSG.SymbolDef>
+        <defName>DankPyon_OnTop_Kitchen_Plate_WoodLog</defName>
+        <thing>DankPyon_OnTop_Kitchen_Plate</thing>
+        <stuff>WoodLog</stuff>
+    </KCSG.SymbolDef>
+
+    <KCSG.SymbolDef>
+        <defName>DA_StonecuttingTools_WoodLog</defName>
+        <thing>DA_StonecuttingTools</thing>
+        <stuff>WoodLog</stuff>
+        <rotation>West</rotation>
+    </KCSG.SymbolDef>
+
+    <KCSG.SymbolDef>
+        <defName>DankPyon_RimWar_WoodLog</defName>
+        <thing>DankPyon_RimWar</thing>
+        <stuff>WoodLog</stuff>
+        <rotation>West</rotation>
+    </KCSG.SymbolDef>
+
+    <KCSG.SymbolDef>
+        <defName>VFEM2_Hearth_BlocksLimestone</defName>
+        <thing>VFEM2_Hearth</thing>
+        <stuff>BlocksLimestone</stuff>
+        <rotation>West</rotation>
+    </KCSG.SymbolDef>
+
+    <KCSG.SymbolDef>
+        <defName>DankPyon_Furnace_BlocksLimestone</defName>
+        <thing>DankPyon_Furnace</thing>
+        <stuff>BlocksLimestone</stuff>
+    </KCSG.SymbolDef>
+
+    <KCSG.SymbolDef>
+        <defName>Statue_AB_AlcyoniteChunk</defName>
+        <thing>Statue</thing>
+        <stuff>AB_AlcyoniteChunk</stuff>
+    </KCSG.SymbolDef>
+
+    <KCSG.SymbolDef>
+        <defName>DankPyon_MendingBench_WoodLog</defName>
+        <thing>DankPyon_MendingBench</thing>
+        <stuff>WoodLog</stuff>
+        <rotation>West</rotation>
+    </KCSG.SymbolDef>
+
+    <KCSG.SymbolDef>
+        <defName>MA_StandingIncenseBurner_Steel</defName>
+        <thing>MA_StandingIncenseBurner</thing>
+        <stuff>Steel</stuff>
+    </KCSG.SymbolDef>
+
+    <KCSG.SymbolDef>
+        <defName>DankPyon_Silk</defName>
+        <thing>DankPyon_Silk</thing>
+    </KCSG.SymbolDef>
+
+    <KCSG.SymbolDef>
+        <defName>AB_CrystalWood</defName>
+        <thing>AB_CrystalWood</thing>
+    </KCSG.SymbolDef>
+
+    <KCSG.SymbolDef>
+        <defName>DankPyon_OnTop_Kitchen_CookingPot_WoodLog</defName>
+        <thing>DankPyon_OnTop_Kitchen_CookingPot</thing>
+        <stuff>WoodLog</stuff>
+    </KCSG.SymbolDef>
+
+    <KCSG.SymbolDef>
+        <defName>DankPyon_RoyalChest</defName>
+        <thing>DankPyon_RoyalChest</thing>
+        <rotation>South</rotation>
+    </KCSG.SymbolDef>
+
+    <KCSG.SymbolDef>
+        <defName>SculptureLarge_GU_RedWood</defName>
+        <thing>SculptureLarge</thing>
+        <stuff>GU_RedWood</stuff>
+    </KCSG.SymbolDef>
+
+    <KCSG.SymbolDef>
+        <defName>Statue_AB_MushroomWoodLog</defName>
+        <thing>Statue</thing>
+        <stuff>AB_MushroomWoodLog</stuff>
+    </KCSG.SymbolDef>
+
+    <KCSG.SymbolDef>
+        <defName>MSS_CrackedWall_BlocksLimestone</defName>
+        <thing>MSS_CrackedWall</thing>
+        <stuff>BlocksLimestone</stuff>
+    </KCSG.SymbolDef>
+
+    <KCSG.SymbolDef>
+        <defName>DankPyon_HerbTable_WoodLog</defName>
+        <thing>DankPyon_HerbTable</thing>
+        <stuff>WoodLog</stuff>
+    </KCSG.SymbolDef>
+
+    <KCSG.SymbolDef>
+        <defName>Statue_AB_BlocksMudstone</defName>
+        <thing>Statue</thing>
+        <stuff>AB_BlocksMudstone</stuff>
+    </KCSG.SymbolDef>
+
+    <KCSG.SymbolDef>
+        <defName>DankPyon_CleaningBench_WoodLog</defName>
+        <thing>DankPyon_CleaningBench</thing>
+        <stuff>WoodLog</stuff>
+    </KCSG.SymbolDef>
+
+    <KCSG.SymbolDef>
+        <defName>Statue_AB_BlocksCragstone</defName>
+        <thing>Statue</thing>
+        <stuff>AB_BlocksCragstone</stuff>
+    </KCSG.SymbolDef>
+
+    <KCSG.SymbolDef>
+        <defName>SculptureLarge_AB_BlocksObsidian</defName>
+        <thing>SculptureLarge</thing>
+        <stuff>AB_BlocksObsidian</stuff>
+    </KCSG.SymbolDef>
+
+    <KCSG.SymbolDef>
+        <defName>DA_TailoringTools_WoodLog</defName>
+        <thing>DA_TailoringTools</thing>
+        <stuff>WoodLog</stuff>
+    </KCSG.SymbolDef>
+
+    <KCSG.SymbolDef>
+        <defName>Plant_Grass</defName>
+        <thing>Plant_Grass</thing>
+    </KCSG.SymbolDef>
+
+    <KCSG.SymbolDef>
+        <defName>DankPyon_Plant_Mushrooms</defName>
+        <thing>DankPyon_Plant_Mushrooms</thing>
+    </KCSG.SymbolDef>
+
+    <KCSG.SymbolDef>
+        <defName>RG_Plant_TemperateIvy</defName>
+        <thing>RG_Plant_TemperateIvy</thing>
+    </KCSG.SymbolDef>
+
+    <KCSG.SymbolDef>
+        <defName>VFEM2_Apiary_WoodLog</defName>
+        <thing>VFEM2_Apiary</thing>
+        <stuff>WoodLog</stuff>
+    </KCSG.SymbolDef>
+
+    <KCSG.SymbolDef>
+        <defName>Statue_AB_BlocksObsidian</defName>
+        <thing>Statue</thing>
+        <stuff>AB_BlocksObsidian</stuff>
+    </KCSG.SymbolDef>
+</Defs>

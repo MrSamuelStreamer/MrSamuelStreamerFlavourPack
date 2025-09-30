@@ -105,6 +105,20 @@
         <CommonFiles Update="..\..\..\Common\Languages\English\Keyed\MSS_FP_Scen.xml">
           <Link>MrSamuelStreamerFlavourPack\Common\Languages\English\Keyed\MSS_FP_Scen.xml</Link>
         </CommonFiles>
+        <ReleaseFiles Update="..\..\Defs\Structures\MSSFP_Skull.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.6\Defs\Structures\MSSFP_Skull.xml</Link>
+        </ReleaseFiles>
+        <ReleaseFiles Update="..\..\Defs\Structures\MSSFP_Skull_Symbols.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.6\Defs\Structures\MSSFP_Skull_Symbols.xml</Link>
+        </ReleaseFiles>
+        <ReleaseFiles Update="..\..\Defs\Quests\MSSFP_Skull.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.6\Defs\Quests\MSSFP_Skull.xml</Link>
+        </ReleaseFiles>
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="..\..\..\Common\Textures\World\WorldObjects\Sites\">
+        <Link>MrSamuelStreamerFlavourPack\Common\Textures\World\WorldObjects\Sites</Link>
+      </Folder>
     </ItemGroup>
     <Target Name="PostBuild" AfterTargets="Build" Condition=" '$(Configuration)' == 'Release' ">
         <RemoveDir Condition="Exists('../../../Release')" Directories="../../../Release" />
