@@ -111,9 +111,6 @@
         <ReleaseFiles Update="..\..\Defs\Structures\MSSFP_Skull_Symbols.xml">
           <Link>MrSamuelStreamerFlavourPack\1.6\Defs\Structures\MSSFP_Skull_Symbols.xml</Link>
         </ReleaseFiles>
-        <ReleaseFiles Update="..\..\Defs\Quests\MSSFP_Skull.xml">
-          <Link>MrSamuelStreamerFlavourPack\1.6\Defs\Quests\MSSFP_Skull.xml</Link>
-        </ReleaseFiles>
     </ItemGroup>
     <ItemGroup>
       <Folder Include="..\..\..\Common\Textures\World\WorldObjects\Sites\">
