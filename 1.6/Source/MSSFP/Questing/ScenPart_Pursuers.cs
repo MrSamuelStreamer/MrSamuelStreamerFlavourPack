@@ -173,7 +173,6 @@ public class ScenPart_Pursuers : ScenPart
     public bool MapAllowed(Map map)
     {
         if (map == null) return false;
-        ModLog.Debug($"Map {map.uniqueID} is player home: {map.IsPlayerHome}, allowOnNonPlayerHome: {allowOnNonPlayerHome}");
         return allowOnNonPlayerHome || map.IsPlayerHome;
     }
 
@@ -182,7 +181,6 @@ public class ScenPart_Pursuers : ScenPart
         get
         {
             Map currentMap = Find.CurrentMap;
-            ModLog.Debug(Faction.NameColored);
             if (currentMap == null || cachedAlertMap != currentMap)
             {
                 alertCached = null;
