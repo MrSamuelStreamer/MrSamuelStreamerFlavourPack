@@ -158,7 +158,6 @@
   <MSS_FP_Settings_TenSecondsToSpeedDelay_Tooltip>How many seconds to wait before automatically switching to ultrafast speed</MSS_FP_Settings_TenSecondsToSpeedDelay_Tooltip>
   <MSS_FP_Settings_MonitorSpeeds>Monitor these speeds:</MSS_FP_Settings_MonitorSpeeds>
   <MSSFP_10SecondsToSpeed_Tooltip>When enabled, automatically switches to ultrafast speed after the specified delay when on monitored speeds. Use the key binding to toggle this feature on/off. You can configure the delay, key binding, and which speeds trigger the auto-speed-up in the mod settings.</MSSFP_10SecondsToSpeed_Tooltip>
-<<<<<<< HEAD
 
     <MSSFP_ThrowOffPursuerUseMessage>This seems to have thrown off your pursuers... for a while</MSSFP_ThrowOffPursuerUseMessage>
 
@@ -180,11 +179,8 @@
   <MSSFP_Pursuer_ThingsRemove>Remove {0}</MSSFP_Pursuer_ThingsRemove>
   <MSSFP_Pursuer_AllowOnNonPlayerHome>Allow on non-player home maps</MSSFP_Pursuer_AllowOnNonPlayerHome>
 
-=======
-  
   <!-- Siege Ladder -->
   <MSS_SiegeLadder_FarSideRoofed>Cannot climb wall - far side is roofed.</MSS_SiegeLadder_FarSideRoofed>
   <MSS_SiegeLadder_AlreadyPlaced>A siege ladder is already placed here.</MSS_SiegeLadder_AlreadyPlaced>
   <MSS_SiegeLadder_ClimbableTime>Climbable for: {0} minutes</MSS_SiegeLadder_ClimbableTime>
->>>>>>> 31dfd53c (add Siege Ladder)
 </LanguageData>
