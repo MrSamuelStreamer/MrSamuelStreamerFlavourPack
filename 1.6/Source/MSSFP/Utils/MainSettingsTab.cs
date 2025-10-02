@@ -32,6 +32,30 @@ public class MainSettingsTab(ModSettings settings, Mod mod) : SettingsTab(settin
             ref Settings.EnableWanderDelayModification,
             ref scrollViewHeight
         );
+
+        if (Settings.EnableWanderDelayModification)
+        {
+            DrawCheckBox(
+                options,
+                "MSS_FP_Settings_WanderDelayIncludeHumanoids".Translate(),
+                ref Settings.WanderDelayIncludeHumanoids,
+                ref scrollViewHeight
+            );
+
+            float wanderDelaySeconds = Settings.WanderDelayTicks / 60f;
+
+            wanderDelaySeconds = options.SliderLabeled(
+                "MSS_FP_Settings_WanderDelaySeconds".Translate((wanderDelaySeconds).ToString("F1")),
+                wanderDelaySeconds,
+                -2f,
+                200f,
+                tooltip: "MSS_FP_Settings_WanderDelaySeconds_Tooltip"
+            );
+
+            Settings.WanderDelayTicks = Mathf.RoundToInt(wanderDelaySeconds * 60f);
+            scrollViewHeight += 30f;
+        }
+
         DrawCheckBox(
             options,
             "MSS_FP_Settings_Enable10SecondsToSpeed".Translate(),
@@ -69,22 +93,6 @@ public class MainSettingsTab(ModSettings settings, Mod mod) : SettingsTab(settin
             {
                 ShowSpeedSelectionMenu();
             }
-            scrollViewHeight += 30f;
-        }
-
-        if (Settings.EnableWanderDelayModification)
-        {
-            float wanderDelaySeconds = Settings.WanderDelayTicks / 60f;
-
-            wanderDelaySeconds = options.SliderLabeled(
-                "MSS_FP_Settings_WanderDelaySeconds".Translate((wanderDelaySeconds).ToString("F1")),
-                wanderDelaySeconds,
-                -2f,
-                200f,
-                tooltip: "MSS_FP_Settings_WanderDelaySeconds_Tooltip"
-            );
-
-            Settings.WanderDelayTicks = Mathf.RoundToInt(wanderDelaySeconds * 60f);
             scrollViewHeight += 30f;
         }
 
@@ -149,6 +157,11 @@ public class MainSettingsTab(ModSettings settings, Mod mod) : SettingsTab(settin
         );
         Scribe_Values.Look(ref Settings.ShowHiddenPortraits, "ShowHiddenPortraits", false);
         Scribe_Values.Look(ref Settings.Enable10SecondsToSpeed, "Enable10SecondsToSpeed", false);
+        Scribe_Values.Look(
+            ref Settings.WanderDelayIncludeHumanoids,
+            "WanderDelayIncludeHumanoids",
+            false
+        );
     }
 
     private void ShowSpeedSelectionMenu()

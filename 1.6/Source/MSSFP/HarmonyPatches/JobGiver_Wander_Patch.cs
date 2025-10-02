@@ -10,7 +10,7 @@ namespace MSSFP.HarmonyPatches;
 public static class JobGiver_Wander_Patch
 {
     [HarmonyPostfix]
-    public static void Postfix(Job __result)
+    public static void Postfix(Job __result, Pawn pawn)
     {
         // Skip if no job was created or feature is disabled
         if (__result == null || !MSSFPMod.settings.EnableWanderDelayModification)
@@ -18,6 +18,10 @@ public static class JobGiver_Wander_Patch
 
         // Only modify wander wait jobs
         if (__result.def != JobDefOf.Wait_Wander)
+            return;
+
+        // Check if we should include humanoids
+        if (!MSSFPMod.settings.WanderDelayIncludeHumanoids && pawn.RaceProps.Humanlike)
             return;
 
         // Add the configured delay

@@ -149,6 +149,7 @@
 
   <MSS_FP_Settings_EnableMercenaryHiring>Enable mercenary hiring</MSS_FP_Settings_EnableMercenaryHiring>
   <MSS_FP_Settings_EnableWanderDelayModification>Enable wander delay modification</MSS_FP_Settings_EnableWanderDelayModification>
+  <MSS_FP_Settings_WanderDelayIncludeHumanoids>Include humanoid pawns</MSS_FP_Settings_WanderDelayIncludeHumanoids>
   <MSS_FP_Settings_WanderDelaySeconds>Wander delay: {0} seconds</MSS_FP_Settings_WanderDelaySeconds>
   <MSS_FP_Settings_WanderDelaySeconds_Tooltip>Modify the delay before pawns start wandering around the map</MSS_FP_Settings_WanderDelaySeconds_Tooltip>
 
@@ -178,7 +179,7 @@
   <MSSFP_Pursuer_Things>Things</MSSFP_Pursuer_Things>
   <MSSFP_Pursuer_ThingsRemove>Remove {0}</MSSFP_Pursuer_ThingsRemove>
   <MSSFP_Pursuer_AllowOnNonPlayerHome>Allow on non-player home maps</MSSFP_Pursuer_AllowOnNonPlayerHome>
-
+  
   <!-- Siege Ladder -->
   <MSS_SiegeLadder_FarSideRoofed>Cannot climb wall - far side is roofed.</MSS_SiegeLadder_FarSideRoofed>
   <MSS_SiegeLadder_AlreadyPlaced>A siege ladder is already placed here.</MSS_SiegeLadder_AlreadyPlaced>
