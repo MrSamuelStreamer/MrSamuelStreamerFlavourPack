@@ -41,6 +41,7 @@ public class Settings : ModSettings
     public bool EnableTaffRaids = true;
     public bool EnableMercenaryHiring = true;
     public bool EnableWanderDelayModification = false;
+    public bool WanderDelayIncludeHumanoids = false;
     public int WanderDelayTicks = 0;
     public bool EnableColonistPortraitHiding = true;
     public bool ShowHiddenPortraits = false;
@@ -243,6 +244,7 @@ public class Settings : ModSettings
             "EnableWanderDelayModification",
             false
         );
+        Scribe_Values.Look(ref WanderDelayIncludeHumanoids, "WanderDelayIncludeHumanoids", false);
         Scribe_Values.Look(ref WanderDelayTicks, "WanderDelayTicks", 0);
         Scribe_Values.Look(ref EnableGenesOnGrowthMoment, "EnableGenesOnGrowthMoment", false);
         Scribe_Values.Look(ref EnableColonistPortraitHiding, "EnableColonistPortraitHiding", true);
