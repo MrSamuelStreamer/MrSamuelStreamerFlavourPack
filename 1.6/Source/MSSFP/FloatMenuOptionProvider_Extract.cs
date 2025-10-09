@@ -17,7 +17,7 @@ public class FloatMenuOptionProvider_Extract : FloatMenuOptionProvider
 
     public override bool SelectedPawnValid(Pawn pawn, FloatMenuContext context)
     {
-        return base.SelectedPawnValid(pawn, context) && (pawn.Downed || pawn.guilt.IsGuilty);
+        return base.SelectedPawnValid(pawn, context) && (pawn.Downed || (pawn.guilt?.IsGuilty ?? false));
     }
 
     protected override FloatMenuOption GetSingleOptionFor(
