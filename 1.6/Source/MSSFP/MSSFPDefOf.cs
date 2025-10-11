@@ -23,8 +23,6 @@ public static class MSSFPDefOf
 
     public static readonly HediffDef Burn;
 
-    public static readonly ThoughtDef MSSFP_Marked;
-
     public static readonly IncidentDef MSSFP_Lovers_Retreat;
 
     public static readonly ThingDef MSS_SiegeLadder;
@@ -49,9 +47,6 @@ public static class MSSFPDefOf
     public static readonly GeneDef MSSFP_Illiterate;
 
     public static readonly BodyModCategoryDef MSSFP_NaturalMods;
-    public static readonly PawnKindDef MSSFP_BabyCritter;
-    public static readonly ThoughtDef MSSFP_BabyCannonWTF;
-
     public static readonly ThingSetMakerDef MSSFP_Construction;
 
     public static readonly IncidentDef MSS_LoversAdvance;
@@ -69,9 +64,6 @@ public static class MSSFPDefOf
 
     public static readonly HediffDef MSS_Need_GeneStealer_Restless;
     public static readonly HediffDef MSS_Need_GeneStealer_Exhaustion;
-
-    public static readonly XenotypeDef MSSFP_Taff;
-    public static readonly FactionDef MSSFP_TaffsFaction;
 
     public static readonly IncidentDef MSSFP_Hire_Mercenaries;
     public static readonly LetterDef MSSFP_HireMercenariesOffer;
@@ -104,11 +96,6 @@ public static class MSSFPDefOf
     public static readonly AbilityDef MSSFP_EmergencyMeeting;
 
     public static readonly WorkTypeDef MSS_AnomalyPrevention;
-
-    public static readonly ThingDef MSS_PawnFlyer_Balloon;
-    public static readonly ThingDef MSS_Balloon;
-
-    public static readonly JobDef MSSFP_ExtractTarget;
 
     static MSSFPDefOf() => DefOfHelper.EnsureInitializedInCtor(typeof(MSSFPDefOf));
 }
