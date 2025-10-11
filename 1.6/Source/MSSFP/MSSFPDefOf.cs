@@ -47,9 +47,6 @@ public static class MSSFPDefOf
     public static readonly GeneDef MSSFP_Illiterate;
 
     public static readonly BodyModCategoryDef MSSFP_NaturalMods;
-    public static readonly PawnKindDef MSSFP_BabyCritter;
-    public static readonly ThoughtDef MSSFP_BabyCannonWTF;
-
     public static readonly ThingSetMakerDef MSSFP_Construction;
 
     public static readonly IncidentDef MSS_LoversAdvance;
