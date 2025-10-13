@@ -22,17 +22,6 @@ public class CompHaunted : ThingComp
         if (pawn == null || Props.onlyRenderWhenDrafted && pawn.drafter is not { Drafted: true })
             return;
 
-        if (!pawn.ideo.Ideo.HasPrecept(MSSFPDefOf.MSS_FP_IdeoRole_FroggeWarrior))
-            return;
-        Precept_RoleSingle precept =
-            pawn.ideo.Ideo.GetPrecept(MSSFPDefOf.MSS_FP_IdeoRole_FroggeWarrior)
-            as Precept_RoleSingle;
-        if (precept?.chosenPawn.pawn is null)
-            return;
-
-        if (precept?.chosenPawn.pawn != pawn)
-            return;
-
         Vector3 offset = new();
 
         if (Props.offsets != null)

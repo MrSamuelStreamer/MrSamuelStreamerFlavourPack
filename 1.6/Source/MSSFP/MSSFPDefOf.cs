@@ -11,10 +11,7 @@ namespace MSSFP;
 public static class MSSFPDefOf
 {
     public static readonly ThingDef MSSFP_Frogge;
-    public static readonly PawnKindDef MSSFP_Jrogge;
-    public static readonly HediffDef MSS_FP_FroggeHaunt;
     public static readonly HediffDef MSS_FP_PawnDisplayer;
-    public static readonly PreceptDef MSS_FP_IdeoRole_FroggeWarrior;
     public static readonly FleckDef PsycastPsychicEffect;
 
     public static readonly HediffDef MSS_FP_PawnDisplayerPossession;
@@ -31,12 +28,7 @@ public static class MSSFPDefOf
 
     public static readonly JobDef MSSFP_GoToThen;
 
-    public static readonly ResearchProjectDef MSS_FroggeLeapResearch;
     public static readonly ResearchProjectDef MSS_Oskarian_Technology;
-
-    public static readonly IncidentDef MSS_FroggeResearch;
-
-    public static readonly AbilityDef MSS_FP_WorldLeap;
 
     public static readonly GeneClassificationDef MSSFP_GoodGenes;
     public static readonly GeneClassificationDef MSSFP_BadGenes;
@@ -47,9 +39,6 @@ public static class MSSFPDefOf
     public static readonly GeneDef MSSFP_Illiterate;
 
     public static readonly BodyModCategoryDef MSSFP_NaturalMods;
-    public static readonly ThingSetMakerDef MSSFP_Construction;
-
-    public static readonly IncidentDef MSS_LoversAdvance;
 
     public static readonly ThingDef MSSFP_ConstructionOffice;
 
@@ -82,15 +71,7 @@ public static class MSSFPDefOf
 
     public static readonly JobDef MSSFP_PutALittleDirtUnderThePillow;
 
-    public static readonly JobDef MSSFP_UseVent;
-    public static readonly JobDef MSSFP_SusDeconstruct;
-
     public static readonly PawnKindDef MSSFP_Dirtman;
-
-    public static readonly PawnKindDef MSSFP_MogusKind_Blue;
-    public static readonly PawnKindDef MSSFP_MogusKind_Red;
-    public static readonly PawnKindDef MSSFP_MogusKind_Green;
-    public static readonly PawnKindDef MSSFP_MogusKind_Yellow;
 
     public static readonly SoundDef MSSFP_EmergencyMeetingKlaxon;
     public static readonly AbilityDef MSSFP_EmergencyMeeting;
