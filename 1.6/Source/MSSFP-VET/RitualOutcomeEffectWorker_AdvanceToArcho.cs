@@ -56,11 +56,6 @@ public class RitualOutcomeEffectWorker_AdvanceToArcho : RitualOutcomeEffectWorke
             {
                 ModLog.Log($"Starting on map {Find.AnyPlayerHomeMap}");
                 IncidentParms parms = new() { forced = true, target = Find.AnyPlayerHomeMap };
-
-                if (MSSFPDefOf.MSS_LoversAdvance.Worker.CanFireNow(parms))
-                {
-                    MSSFPDefOf.MSS_LoversAdvance.Worker.TryExecute(parms);
-                }
             }
             catch (Exception ex)
             {
