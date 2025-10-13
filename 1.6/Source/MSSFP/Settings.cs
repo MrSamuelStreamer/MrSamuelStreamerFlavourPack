@@ -13,8 +13,6 @@ public class Settings : ModSettings
 {
     public bool MabelDestroyFloors = false;
     public bool OverrideRelicPool = false;
-    public bool DisableFroggeNom = false;
-    public bool EnableMogus = false;
     public bool ShowHaunts = false;
     public bool EnableSkylanternRaids = false;
     public bool DrawByMrStreamer = false;
@@ -28,7 +26,6 @@ public class Settings : ModSettings
     public int DaysForOutpostFission = 15;
     public int DaysForFission = 7;
     public bool EnableLoversRetreat = false;
-    public bool EnableFroggeIncidents = false;
     public bool SingleUseMentalFuses = false;
     public bool EnablePossession = false;
     public bool DisableBSIncorporateGeneLimit = false;
