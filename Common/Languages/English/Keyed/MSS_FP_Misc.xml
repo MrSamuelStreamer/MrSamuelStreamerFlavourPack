@@ -6,7 +6,6 @@
     <MSSFP_SettingsCategory>Mr Samuel Streamer Flavour Pack</MSSFP_SettingsCategory>
     <MSSFP_RGSettingsCategory>Mr Samuel Streamer Flavour Pack - Resource Generator</MSSFP_RGSettingsCategory>
     <MSS_FP_Settings_OverrideRelicPool>Override the possible pool of relics with this mods list</MSS_FP_Settings_OverrideRelicPool>
-    <MSS_FP_Settings_disableFroggeNom>Disable Frogge's Nom, you monster.</MSS_FP_Settings_disableFroggeNom>
     <MSS_FP_Settings_ShowHaunts>Show Haunts</MSS_FP_Settings_ShowHaunts>
     <MSS_FP_Settings_NoSkylanternRaids>Disable skylantern raids</MSS_FP_Settings_NoSkylanternRaids>
     <MSS_FP_ToggleHaunts>Toggle Haunts</MSS_FP_ToggleHaunts>
@@ -23,10 +22,6 @@
     <MSS_GainedGeneFromCondition>{0} gained the {2} gene due to: {1}</MSS_GainedGeneFromCondition>
     <MSS_GainedGeneFromConditionNew>{PAWN_Name} gained the {2} gene due to: {1}</MSS_GainedGeneFromConditionNew>
     <MSS_LostGeneFromCondition>{0} lost the {2} gene due to: {1}</MSS_LostGeneFromCondition>
-
-    <MSSFP_LeapTooFar>frogge can't jump this far (max range {0} tiles)</MSSFP_LeapTooFar>
-    <MSSFP_LeapTo>frogge leap here</MSSFP_LeapTo>
-    <MSSFP_LeapNoFuel>frogge doesn't have enough gems to power their leap (only {0}/{1})</MSSFP_LeapNoFuel>
 
     <MSS_BirthdayPickGene>Choose a {1} gene for {0_nameDef} to gain via mutation</MSS_BirthdayPickGene>
 
@@ -60,7 +55,6 @@
     <MSS_FP_Settings_DaysForFission>Days between fissions -> {0} days</MSS_FP_Settings_DaysForFission>
 
     <MSS_FP_Settings_EnableLoversRetreat>Enable the Lover's Retreat Incidents</MSS_FP_Settings_EnableLoversRetreat>
-    <MSS_FP_Settings_EnableFroggeIncidents>Enable the Frogge Incidents</MSS_FP_Settings_EnableFroggeIncidents>
 
     <MSS_FP_Settings_SingleUseMentalFuses>Patch the Altered Carbon 2 Mental Fuse to be single use</MSS_FP_Settings_SingleUseMentalFuses>
 
@@ -112,11 +106,8 @@
     <MSSFP_DirtManNoVisitLetterText>you put any dirt under your pillow, so you're safe</MSSFP_DirtManNoVisitLetterText>
 
     <MSSFP_DirtManEatingLabel>Colonist being eaten!</MSSFP_DirtManEatingLabel>
-    <MSSFP_DirtManEatingText>{0} is being eaten by a frogge!</MSSFP_DirtManEatingText>
 
     <MSSFP_EmergencyMeeting>Emergency Meeting!</MSSFP_EmergencyMeeting>
-
-    <MSS_FP_Settings_enableMogus>Enable Moguses</MSS_FP_Settings_enableMogus>
 
     <MSS_FP_Settings_EnableTaffRaids>Enable Taff Raids</MSS_FP_Settings_EnableTaffRaids>
     <MSS_FP_Settings_EnableGenesOnGrowthMoment>Enable giving new genes on growth moments</MSS_FP_Settings_EnableGenesOnGrowthMoment>

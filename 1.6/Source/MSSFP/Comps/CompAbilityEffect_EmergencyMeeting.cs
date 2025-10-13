@@ -12,8 +12,7 @@ public class CompAbilityEffect_EmergencyMeeting : CompAbilityEffect
     public static int lastCalledTick = -1;
 
     public override bool CanApplyOn(GlobalTargetInfo target) =>
-        MSSFPMod.settings.EnableMogus
-        && Find.TickManager.TicksGame - lastCalledTick > (GenDate.TicksPerDay * 30);
+        Find.TickManager.TicksGame - lastCalledTick > (GenDate.TicksPerDay * 30);
 
     public override bool CanApplyOn(LocalTargetInfo target, LocalTargetInfo dest) =>
         CanApplyOn(target.ToGlobalTargetInfo(parent.pawn.Map));
