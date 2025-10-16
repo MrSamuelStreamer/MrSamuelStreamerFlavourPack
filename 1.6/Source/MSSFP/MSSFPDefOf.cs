@@ -73,9 +73,6 @@ public static class MSSFPDefOf
 
     public static readonly PawnKindDef MSSFP_Dirtman;
 
-    public static readonly SoundDef MSSFP_EmergencyMeetingKlaxon;
-    public static readonly AbilityDef MSSFP_EmergencyMeeting;
-
     public static readonly WorkTypeDef MSS_AnomalyPrevention;
 
     static MSSFPDefOf() => DefOfHelper.EnsureInitializedInCtor(typeof(MSSFPDefOf));
