@@ -56,6 +56,7 @@ public class ResourceGeneratorSettingsTab(ModSettings settings, Mod mod)
     {
         get
         {
+            strings ??= [];
             return strings
                 .Select(s => DefDatabase<ThingDef>.GetNamed(s))
                 .Where(d => d is not null)
