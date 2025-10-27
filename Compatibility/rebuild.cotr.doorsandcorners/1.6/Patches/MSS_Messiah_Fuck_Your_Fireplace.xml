@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+    <Operation Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef[@Name="RB_Fireplace"]/comps/li[@Class="CompProperties_Refuelable"]</xpath>
+        <value>
+            <li Class="CompProperties_Refuelable">  <!-- Cannot remove outright, causes ticking errors -->
+				<fuelConsumptionRate>0.01</fuelConsumptionRate>
+				<fuelCapacity>120.0</fuelCapacity>
+				<fuelConsumptionPerTickInRain>0.0001</fuelConsumptionPerTickInRain>
+				<fuelFilter>
+					<thingDefs>
+						<li>WoodLog</li>
+					</thingDefs>
+				</fuelFilter>
+				<initialFuelPercent>1</initialFuelPercent>
+				<showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+			</li>
+        </value>
+    </Operation>
+</Patch>
