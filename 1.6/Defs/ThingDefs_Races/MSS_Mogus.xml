@@ -59,16 +59,16 @@
         </race>
         <comps>
             <li Class="MSSFP.Comps.CompProperties_Impostor"/>
-            <li IfModActive="oskarpotocki.vanillafactionsexpanded.core" Class="VEF.AnimalBehaviours.CompProperties_Draftable">
+            <li MayRequire="oskarpotocki.vanillafactionsexpanded.core" Class="VEF.AnimalBehaviours.CompProperties_Draftable">
                 <makeNonFleeingToo>true</makeNonFleeingToo>
             </li>
-            <li IfModActive="oskarpotocki.vanillafactionsexpanded.core" Class="VEF.AnimalBehaviours.CompProperties_LastStand">
+            <li MayRequire="oskarpotocki.vanillafactionsexpanded.core" Class="VEF.AnimalBehaviours.CompProperties_LastStand">
                 <finalCoolDownMultiplier>6</finalCoolDownMultiplier>
             </li>
-            <li IfModActive="oskarpotocki.vanillafactionsexpanded.core" Class="VEF.AnimalBehaviours.CompProperties_DoesntFlee">
+            <li MayRequire="oskarpotocki.vanillafactionsexpanded.core" Class="VEF.AnimalBehaviours.CompProperties_DoesntFlee">
 
             </li>
-            <li IfModActive="oskarpotocki.vanillafactionsexpanded.core" Class="VEF.AnimalBehaviours.CompProperties_NoTamingDecay">
+            <li MayRequire="oskarpotocki.vanillafactionsexpanded.core" Class="VEF.AnimalBehaviours.CompProperties_NoTamingDecay">
 
             </li>
         </comps>

@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
-    <ToolCapacityDef>
+    <ToolCapacityDef MayRequire="oskarpotocki.vanillafactionsexpanded.core">
         <defName>MSSFP_Dirtman_SwallowWhole</defName>
         <label>swallow whole</label>
     </ToolCapacityDef>
 
-    <DamageDef>
+    <DamageDef MayRequire="oskarpotocki.vanillafactionsexpanded.core">
         <defName>MSSFP_Dirtman_SwallowWhole</defName>
         <label>swallow whole</label>
         <workerClass>VEF.AnimalBehaviours.DamageWorker_SwallowWhole</workerClass>
@@ -18,7 +18,7 @@
         <armorCategory>Sharp</armorCategory>
     </DamageDef>
 
-    <ManeuverDef>
+    <ManeuverDef MayRequire="oskarpotocki.vanillafactionsexpanded.core">
         <defName>MSSFP_Dirtman_SwallowWhole</defName>
         <requiredCapacity>MSSFP_Dirtman_SwallowWhole</requiredCapacity>
         <verb>
@@ -32,7 +32,7 @@
         <combatLogRulesDodge>Maneuver_Stab_MeleeDodge</combatLogRulesDodge>
     </ManeuverDef>
 
-    <ThingDef ParentName="BaseBear">
+    <ThingDef MayRequire="oskarpotocki.vanillafactionsexpanded.core" ParentName="BaseBear">
         <defName>MSSFP_Dirtman</defName>
         <label>dirt man</label>
         <description>You didn't put any dirt under your pillow, so the dirt man is coming to take you to his lair.</description>
@@ -109,7 +109,7 @@
             <soundMeleeMiss>Pawn_Melee_SmallScratch_Miss</soundMeleeMiss>
         </race>
         <comps>
-            <li IfModActive="oskarpotocki.vanillafactionsexpanded.core" Class="VEF.AnimalBehaviours.CompProperties_SwallowWhole">
+            <li MayRequire="oskarpotocki.vanillafactionsexpanded.core" Class="VEF.AnimalBehaviours.CompProperties_SwallowWhole">
                 <sendLetterWhenEating>true</sendLetterWhenEating>
                 <letterLabel>MSSFP_DirtManEatingLabel</letterLabel>
                 <letterText>MSSFP_DirtManEatingText</letterText>
@@ -129,7 +129,7 @@
         </comps>
     </ThingDef>
 
-    <PawnKindDef ParentName="AnimalKindBase">
+    <PawnKindDef MayRequire="oskarpotocki.vanillafactionsexpanded.core" ParentName="AnimalKindBase">
         <defName>MSSFP_Dirtman</defName>
         <label>dirt man</label>
         <race>MSSFP_Dirtman</race>
@@ -150,7 +150,7 @@
         </lifeStages>
     </PawnKindDef>
 
-    <IncidentDef>
+    <IncidentDef MayRequire="oskarpotocki.vanillafactionsexpanded.core">
         <defName>MSSFP_DirtManVisit</defName>
         <label>dirt man has come to town</label>
         <category>Special</category>
@@ -167,7 +167,7 @@
     </IncidentDef>
 
 
-    <IncidentDef>
+    <IncidentDef MayRequire="oskarpotocki.vanillafactionsexpanded.core">
         <defName>MSSFP_DirtManNoVisit</defName>
         <label>dirt man has come to town</label>
         <category>Special</category>
