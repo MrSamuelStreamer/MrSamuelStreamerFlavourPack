@@ -17,7 +17,7 @@
             <Wildness>0</Wildness>
         </statBases>
         <tools>
-            <li  IfModActive="oskarpotocki.vanillafactionsexpanded.core">
+            <li  MayRequire="oskarpotocki.vanillafactionsexpanded.core">
                 <capacities>
                     <li>MSS_SwallowWhole</li>
                 </capacities>
@@ -112,13 +112,13 @@
                 <eggProgressUnfertilizedMax>0.5</eggProgressUnfertilizedMax>
                 <eggCountRange>4~12</eggCountRange>
             </li>
-            <li IfModActive="oskarpotocki.vanillafactionsexpanded.core" Class="VEF.AnimalBehaviours.CompProperties_Draftable">
+            <li MayRequire="oskarpotocki.vanillafactionsexpanded.core" Class="VEF.AnimalBehaviours.CompProperties_Draftable">
                 <makeNonFleeingToo>true</makeNonFleeingToo>
             </li>
-            <li IfModActive="oskarpotocki.vanillafactionsexpanded.core" Class="VEF.AnimalBehaviours.CompProperties_LastStand">
+            <li MayRequire="oskarpotocki.vanillafactionsexpanded.core" Class="VEF.AnimalBehaviours.CompProperties_LastStand">
                 <finalCoolDownMultiplier>6</finalCoolDownMultiplier>
             </li>
-            <li IfModActive="oskarpotocki.vanillafactionsexpanded.core" Class="VEF.AnimalBehaviours.CompProperties_SwallowWhole">
+            <li MayRequire="oskarpotocki.vanillafactionsexpanded.core" Class="VEF.AnimalBehaviours.CompProperties_SwallowWhole">
                 <sendLetterWhenEating>true</sendLetterWhenEating>
                 <letterLabel>Colonist being eaten!</letterLabel>
                 <letterText>{0} is being eaten by a frogge!</letterText>
@@ -131,7 +131,7 @@
         </tradeTags>
     </ThingDef>
 
-    <ManeuverDef IfModActive="oskarpotocki.vanillafactionsexpanded.core" >
+    <ManeuverDef MayRequire="oskarpotocki.vanillafactionsexpanded.core" >
         <defName>MSS_SwallowWhole</defName>
         <requiredCapacity>MSS_SwallowWhole</requiredCapacity>
         <verb>
@@ -145,7 +145,7 @@
         <combatLogRulesDodge>Maneuver_Stab_MeleeDodge</combatLogRulesDodge>
     </ManeuverDef>
 
-    <DamageDef  IfModActive="oskarpotocki.vanillafactionsexpanded.core">
+    <DamageDef  MayRequire="oskarpotocki.vanillafactionsexpanded.core">
         <defName>MSS_SwallowWhole</defName>
         <label>swallow whole</label>
         <workerClass>DamageWorker_Cut</workerClass>
@@ -158,7 +158,7 @@
         <armorCategory>Sharp</armorCategory>
     </DamageDef>
 
-    <ToolCapacityDef  IfModActive="oskarpotocki.vanillafactionsexpanded.core">
+    <ToolCapacityDef  MayRequire="oskarpotocki.vanillafactionsexpanded.core">
         <defName>MSS_SwallowWhole</defName>
         <label>swallow whole</label>
     </ToolCapacityDef>
