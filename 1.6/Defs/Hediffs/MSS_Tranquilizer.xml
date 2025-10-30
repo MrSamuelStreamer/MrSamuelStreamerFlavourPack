@@ -3,10 +3,10 @@
     <HediffDef ParentName="DiseaseBase">
         <defName>MSS_Tranquilized</defName>
         <label>tranquilized</label>
-        <description>This person has been hit by a tranquilizer dart and is heavily sedated. Their movement is severely impaired and they may fall unconscious, but the effect is temporary and non-lethal.</description>
+        <description>This person has been hit by a tranquilizer dart and is heavily sedated. Their movement is severely impaired, and they may fall unconscious, but the effect is temporary and non-lethal.</description>
         <isBad>true</isBad>
         <initialSeverity>0.15</initialSeverity>
-        <minSeverity>0.05</minSeverity>
+        <minSeverity>0</minSeverity>
         <maxSeverity>1.0</maxSeverity>
         <makesSickThought>false</makesSickThought>
         <tendable>false</tendable>
