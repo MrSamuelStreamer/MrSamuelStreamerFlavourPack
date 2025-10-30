@@ -69,9 +69,6 @@
         <Content Include="..\..\..\modlist-mo-test.xml">
             <Link>MrSamuelStreamerFlavourPack\modlist-mo-test.xml</Link>
         </Content>
-        <Content Include="..\..\..\modlist.xml">
-            <Link>MrSamuelStreamerFlavourPack\modlist.xml</Link>
-        </Content>
     </ItemGroup>
     <ItemGroup>
         <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
@@ -97,7 +94,8 @@
         <AboutFiles Include="../../../About/**" Exclude="../../../About/*.png~" />
         <CommonFiles Include="../../../Common/**" />
         <CompatibilityFiles Include="../../../Compatibility/**" />
-        <ExtraFiles Include="../../../loadFolders.xml;../../../LICENSE;../../../README.md" />
+        <ExtraFiles Include="../../../LICENSE" />
+        <ExtraFiles Include="../../../README.md" />
         <ReleaseFiles Remove="..\..\..\Compatability\**" />
         <ReleaseFiles Update="..\..\Defs\ThingDefs_Items\MSS_Balloon.xml">
             <Link>MrSamuelStreamerFlavourPack\1.6\Defs\ThingDefs_Items\MSS_Balloon.xml</Link>

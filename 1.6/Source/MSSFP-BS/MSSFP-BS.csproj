@@ -62,9 +62,6 @@
             <Link>Attached/Rimworld/%(RecursiveDir)/%(FileName)%(Extension)</Link>
             <CopyToOutputDirectory>Never</CopyToOutputDirectory>
         </Content>
-        <Content Include="..\..\..\modlist.xml">
-            <Link>MrSamuelStreamerFlavourPack\modlist.xml</Link>
-        </Content>
     </ItemGroup>
     <ItemGroup>
         <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
@@ -79,6 +76,11 @@
         <ProjectReference Include="..\MSSFP\MSSFP.csproj">
             <Private>false</Private>
         </ProjectReference>
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="..\..\..\">
+        <Link>MrSamuelStreamerFlavourPack</Link>
+      </Folder>
     </ItemGroup>
     <PropertyGroup>
         <StartAction>Program</StartAction>

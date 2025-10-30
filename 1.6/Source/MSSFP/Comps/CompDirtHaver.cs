@@ -14,7 +14,7 @@ public class CompDirtHaver : ThingComp
 
     public override void CompTick()
     {
-        if (!MSSFPMod.settings.EnableDirtJobs)
+        if (!(MSSFPMod.settings?.EnableDirtJobs ?? false))
             return;
         base.CompTick();
         if (!hasDirt || !(wasGivenDirtAtTick + Props.dirtExpireTime < Find.TickManager.TicksGame))

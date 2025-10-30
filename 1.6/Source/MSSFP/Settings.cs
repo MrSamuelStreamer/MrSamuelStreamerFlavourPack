@@ -85,7 +85,7 @@ public class Settings : ModSettings
         // Get assemblies
         try
         {
-            assemblies = AppDomain.CurrentDomain.GetAssemblies();
+            assemblies = AppDomain.CurrentDomain.GetAssemblies().Where(a=>a.FullName.Contains("MSSFP")).ToArray();
         }
         catch (Exception ex)
         {
