@@ -12,7 +12,6 @@ namespace MSSFP;
 public class Settings : ModSettings
 {
     public bool MabelDestroyFloors = false;
-    public bool OverrideRelicPool = false;
     public bool ShowHaunts = false;
     public bool EnableSkylanternRaids = false;
     public bool DrawByMrStreamer = false;
