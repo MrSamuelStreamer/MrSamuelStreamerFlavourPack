@@ -23,18 +23,6 @@ public class MemesSettingsTab(ModSettings settings, Mod mod) : SettingsTab(setti
         );
         DrawCheckBox(
             options,
-            "MSS_FP_Settings_disableFroggeNom".Translate(),
-            ref Settings.DisableFroggeNom,
-            ref scrollViewHeight
-        );
-        DrawCheckBox(
-            options,
-            "MSS_FP_Settings_enableMogus".Translate(),
-            ref Settings.EnableMogus,
-            ref scrollViewHeight
-        );
-        DrawCheckBox(
-            options,
             "MSS_FP_Settings_EnableOutpostFission".Translate(),
             ref Settings.EnableOutpostFission,
             ref scrollViewHeight
@@ -43,12 +31,6 @@ public class MemesSettingsTab(ModSettings settings, Mod mod) : SettingsTab(setti
             options,
             "MSS_FP_Settings_EnableLoversRetreat".Translate(),
             ref Settings.EnableLoversRetreat,
-            ref scrollViewHeight
-        );
-        DrawCheckBox(
-            options,
-            "MSS_FP_Settings_EnableFroggeIncidents".Translate(),
-            ref Settings.EnableFroggeIncidents,
             ref scrollViewHeight
         );
         DrawCheckBox(
@@ -73,12 +55,6 @@ public class MemesSettingsTab(ModSettings settings, Mod mod) : SettingsTab(setti
             options,
             "MSS_FP_Settings_EnableTrekBeamers".Translate(),
             ref Settings.EnableTrekBeamers,
-            ref scrollViewHeight
-        );
-        DrawCheckBox(
-            options,
-            "MSS_FP_Settings_EnableTaffRaids".Translate(),
-            ref Settings.EnableTaffRaids,
             ref scrollViewHeight
         );
         DrawCheckBox(
@@ -123,17 +99,14 @@ public class MemesSettingsTab(ModSettings settings, Mod mod) : SettingsTab(setti
     public override void ExposeData()
     {
         Scribe_Values.Look(ref Settings.MabelDestroyFloors, "destroyFloors", false);
-        Scribe_Values.Look(ref Settings.DisableFroggeNom, "disableFrogge", false);
         Scribe_Values.Look(ref Settings.DrawByMrStreamer, "DrawByMrStreamer", false);
         Scribe_Values.Look(ref Settings.EnableOutpostFission, "EnableOutpostFission", false);
         Scribe_Values.Look(ref Settings.EnableLoversRetreat, "EnableLoversRetreat", false);
-        Scribe_Values.Look(ref Settings.EnableFroggeIncidents, "EnableFroggeIncidents", false);
         Scribe_Values.Look(ref Settings.SingleUseMentalFuses, "SingleUseMentalFuses", false);
         Scribe_Values.Look(ref Settings.EnableNonsenseIncidents, "EnableNonsenseIncidents", false);
         Scribe_Values.Look(ref Settings.EnableOskarianTech, "EnableOskarianTech", false);
         Scribe_Values.Look(ref Settings.EnableDirtJobs, "EnableDirtJobs", false);
         Scribe_Values.Look(ref Settings.EnableTrekBeamers, "EnableTrekBeamers", true);
-        Scribe_Values.Look(ref Settings.EnableTaffRaids, "EnableTaffRaids", true);
         Scribe_Values.Look(ref Settings.EnableSkylanternRaids, "EnableSkylanternRaids", false);
         Scribe_Values.Look(ref Settings.EnableMercenaryHiring, "EnableMercenaryHiring", true);
         Scribe_Values.Look(ref Settings.DaysForOutpostFission, "DaysForOutpostFission", 7);
