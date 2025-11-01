@@ -27,7 +27,6 @@
             <ComponentIndustrial>4</ComponentIndustrial>
             <Plasteel>10</Plasteel>
             <ChunkSlagSteel>4</ChunkSlagSteel>
-            <MSS_MeleeWeapon_BortusLegsBladelink>1</MSS_MeleeWeapon_BortusLegsBladelink>
         </killedLeavings>
     </ThingDef>
 </Defs>

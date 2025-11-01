@@ -5,7 +5,6 @@
 
     <MSSFP_SettingsCategory>Mr Samuel Streamer Flavour Pack</MSSFP_SettingsCategory>
     <MSSFP_RGSettingsCategory>Mr Samuel Streamer Flavour Pack - Resource Generator</MSSFP_RGSettingsCategory>
-    <MSS_FP_Settings_OverrideRelicPool>Override the possible pool of relics with this mods list</MSS_FP_Settings_OverrideRelicPool>
     <MSS_FP_Settings_ShowHaunts>Show Haunts</MSS_FP_Settings_ShowHaunts>
     <MSS_FP_Settings_NoSkylanternRaids>Disable skylantern raids</MSS_FP_Settings_NoSkylanternRaids>
     <MSS_FP_ToggleHaunts>Toggle Haunts</MSS_FP_ToggleHaunts>
@@ -107,8 +106,6 @@
 
     <MSSFP_DirtManEatingLabel>Colonist being eaten!</MSSFP_DirtManEatingLabel>
 
-
-    <MSS_FP_Settings_EnableTaffRaids>Enable Taff Raids</MSS_FP_Settings_EnableTaffRaids>
     <MSS_FP_Settings_EnableGenesOnGrowthMoment>Enable giving new genes on growth moments</MSS_FP_Settings_EnableGenesOnGrowthMoment>
     <MSS_FP_Settings_EnableGeneMutators>Enable gene mutators, e.g Heat Wave has a chance to give heat related genes</MSS_FP_Settings_EnableGeneMutators>
     <MSS_FP_Settings_EnableTrekBeamers>Enable Trek Beamers</MSS_FP_Settings_EnableTrekBeamers>
