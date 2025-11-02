@@ -28,8 +28,6 @@ public static class MSSFPDefOf
 
     public static readonly JobDef MSSFP_GoToThen;
 
-    public static readonly ResearchProjectDef MSS_Oskarian_Technology;
-
     public static readonly GeneClassificationDef MSSFP_GoodGenes;
     public static readonly GeneClassificationDef MSSFP_BadGenes;
     public static readonly GeneClassificationDef MSSFP_NeutralGenes;
@@ -57,8 +55,6 @@ public static class MSSFPDefOf
     public static readonly IncidentDef MSSFP_Hire_Mercenaries;
     public static readonly LetterDef MSSFP_HireMercenariesOffer;
 
-    public static readonly HediffDef MSS_FP_WellSlept;
-
     // public static readonly HediffDef MSSFP_Hediff_DRM;
 
     public static readonly ThingSetMakerDef MSSFP_TrekCharacter;
@@ -68,12 +64,6 @@ public static class MSSFPDefOf
     public static readonly QuestScriptDef MSS_TrekPodCrash;
 
     public static readonly BackstoryDef MSSFP_Trek;
-
-    public static readonly JobDef MSSFP_PutALittleDirtUnderThePillow;
-
-    public static readonly PawnKindDef MSSFP_Dirtman;
-
-    public static readonly WorkTypeDef MSS_AnomalyPrevention;
 
     static MSSFPDefOf() => DefOfHelper.EnsureInitializedInCtor(typeof(MSSFPDefOf));
 }
