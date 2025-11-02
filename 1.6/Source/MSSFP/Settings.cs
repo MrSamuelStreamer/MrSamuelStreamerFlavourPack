@@ -11,7 +11,6 @@ namespace MSSFP;
 
 public class Settings : ModSettings
 {
-    public bool MabelDestroyFloors = false;
     public bool ShowHaunts = false;
     public bool EnableSkylanternRaids = false;
     public bool DrawByMrStreamer = false;
@@ -30,8 +29,6 @@ public class Settings : ModSettings
     public bool DisableBSIncorporateGeneLimit = false;
     public bool EnableNonsenseIncidents = false;
     public bool EnableGeneStealerNeed = false;
-    public bool EnableDirtJobs = false;
-    public bool EnableOskarianTech = false;
     public bool EnableGeneMutators = false;
     public bool EnableTrekBeamers = true;
     public bool EnableMercenaryHiring = true;

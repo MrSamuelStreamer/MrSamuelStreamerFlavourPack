@@ -17,12 +17,6 @@ public class MemesSettingsTab(ModSettings settings, Mod mod) : SettingsTab(setti
     {
         DrawCheckBox(
             options,
-            "MSS_Mabel_Settings_DestroyFloors".Translate(),
-            ref Settings.MabelDestroyFloors,
-            ref scrollViewHeight
-        );
-        DrawCheckBox(
-            options,
             "MSS_FP_Settings_EnableOutpostFission".Translate(),
             ref Settings.EnableOutpostFission,
             ref scrollViewHeight
@@ -45,12 +39,7 @@ public class MemesSettingsTab(ModSettings settings, Mod mod) : SettingsTab(setti
             ref Settings.SingleUseMentalFuses,
             ref scrollViewHeight
         );
-        DrawCheckBox(
-            options,
-            "MSS_FP_Settings_EnableDirtJobs".Translate(),
-            ref Settings.EnableDirtJobs,
-            ref scrollViewHeight
-        );
+
         DrawCheckBox(
             options,
             "MSS_FP_Settings_EnableTrekBeamers".Translate(),
@@ -63,12 +52,7 @@ public class MemesSettingsTab(ModSettings settings, Mod mod) : SettingsTab(setti
             ref Settings.EnableMercenaryHiring,
             ref scrollViewHeight
         );
-        DrawCheckBox(
-            options,
-            "MSS_FP_Settings_EnableOskarianTech".Translate(),
-            ref Settings.EnableOskarianTech,
-            ref scrollViewHeight
-        );
+
         bool disableSkylanternRaids = !Settings.EnableSkylanternRaids;
         DrawCheckBox(
             options,
@@ -98,14 +82,11 @@ public class MemesSettingsTab(ModSettings settings, Mod mod) : SettingsTab(setti
 
     public override void ExposeData()
     {
-        Scribe_Values.Look(ref Settings.MabelDestroyFloors, "destroyFloors", false);
         Scribe_Values.Look(ref Settings.DrawByMrStreamer, "DrawByMrStreamer", false);
         Scribe_Values.Look(ref Settings.EnableOutpostFission, "EnableOutpostFission", false);
         Scribe_Values.Look(ref Settings.EnableLoversRetreat, "EnableLoversRetreat", false);
         Scribe_Values.Look(ref Settings.SingleUseMentalFuses, "SingleUseMentalFuses", false);
         Scribe_Values.Look(ref Settings.EnableNonsenseIncidents, "EnableNonsenseIncidents", false);
-        Scribe_Values.Look(ref Settings.EnableOskarianTech, "EnableOskarianTech", false);
-        Scribe_Values.Look(ref Settings.EnableDirtJobs, "EnableDirtJobs", false);
         Scribe_Values.Look(ref Settings.EnableTrekBeamers, "EnableTrekBeamers", true);
         Scribe_Values.Look(ref Settings.EnableSkylanternRaids, "EnableSkylanternRaids", false);
         Scribe_Values.Look(ref Settings.EnableMercenaryHiring, "EnableMercenaryHiring", true);
