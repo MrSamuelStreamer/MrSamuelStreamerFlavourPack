@@ -54,6 +54,7 @@
     <MSS_FP_Settings_DaysForFission>Days between fissions -> {0} days</MSS_FP_Settings_DaysForFission>
 
     <MSS_FP_Settings_EnableLoversRetreat>Enable the Lover's Retreat Incidents</MSS_FP_Settings_EnableLoversRetreat>
+    <MSS_FP_Settings_AllowAnyPregnant>Allow any pawn to get pregnant</MSS_FP_Settings_AllowAnyPregnant>
 
     <MSS_FP_Settings_SingleUseMentalFuses>Patch the Altered Carbon 2 Mental Fuse to be single use</MSS_FP_Settings_SingleUseMentalFuses>
 

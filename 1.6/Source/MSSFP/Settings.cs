@@ -20,10 +20,9 @@ public class Settings : ModSettings
     public float BadGeneChance = 1f / 4f;
     public float NeutralGeneChance = 1f / 4f;
     public float RandomGeneChance = 1f / 4f;
-    public bool EnableOutpostFission = false;
-    public int DaysForOutpostFission = 15;
     public int DaysForFission = 7;
     public bool EnableLoversRetreat = false;
+    public bool allowAnyPregnant = false;
     public bool SingleUseMentalFuses = false;
     public bool EnablePossession = false;
     public bool DisableBSIncorporateGeneLimit = false;
