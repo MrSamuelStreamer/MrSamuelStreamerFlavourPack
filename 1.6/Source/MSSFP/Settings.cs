@@ -27,7 +27,6 @@ public class Settings : ModSettings
     public bool SingleUseMentalFuses = false;
     public bool EnablePossession = false;
     public bool DisableBSIncorporateGeneLimit = false;
-    public bool EnableNonsenseIncidents = false;
     public bool EnableGeneStealerNeed = false;
     public bool EnableGeneMutators = false;
     public bool EnableTrekBeamers = true;
