@@ -200,11 +200,33 @@ namespace MSSFP.Letters
                     return null;
                 }
 
-                // Load the specific pawn from PawnEditor XML
-                Pawn mercenary = SpecificPawnLoader.GetSpecificPawn(mercenaryName);
+                Pawn mercenary = null;
+
+                // If no name provided, generate default combat pawn directly
+                if (string.IsNullOrEmpty(mercenaryName))
+                {
+                    mercenary = GenerateDefaultCombatPawn();
+                }
+                else
+                {
+                    // Try to load the specific pawn from PawnEditor XML
+                    mercenary = SpecificPawnLoader.GetSpecificPawn(mercenaryName);
+
+                    // If specific pawn loading failed, fall back to default combat pawn
+                    if (mercenary == null)
+                    {
+                        Log.Warning(
+                            $"MSSFP: Failed to load specific pawn {mercenaryName}, generating default combat pawn"
+                        );
+                        mercenary = GenerateDefaultCombatPawn();
+                    }
+                }
+
                 if (mercenary == null)
                 {
-                    Log.Error($"MSSFP: Failed to load specific pawn {mercenaryName}");
+                    Log.Error(
+                        "MSSFP: Failed to generate mercenary (both specific and default generation failed)"
+                    );
                     return null;
                 }
 
@@ -221,6 +243,29 @@ namespace MSSFP.Letters
             catch (System.Exception ex)
             {
                 Log.Error("MSSFP: Error generating mercenary: " + ex.Message);
+                return null;
+            }
+        }
+
+        private Pawn GenerateDefaultCombatPawn()
+        {
+            try
+            {
+                // Generate a Man in Black style combat-capable pawn at colony level
+                var request = new PawnGenerationRequest(
+                    PawnKindDefOf.Colonist,
+                    Faction.OfPlayer,
+                    mustBeCapableOfViolence: true,
+                    canGeneratePawnRelations: false,
+                    colonistRelationChanceFactor: 0f
+                );
+
+                Pawn pawn = PawnGenerator.GeneratePawn(request);
+                return pawn;
+            }
+            catch (System.Exception ex)
+            {
+                Log.Error("MSSFP: Error generating default combat pawn: " + ex.Message);
                 return null;
             }
         }

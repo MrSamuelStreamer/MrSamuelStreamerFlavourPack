@@ -136,6 +136,18 @@
   <MSS_FP_RightClickToRestore>Right-click to restore colonists</MSS_FP_RightClickToRestore>
 
   <MSS_FP_Settings_EnableMercenaryHiring>Enable mercenary hiring</MSS_FP_Settings_EnableMercenaryHiring>
+  <MSS_FP_Settings_UseMrStreamerMercenaries>Use Mr Streamer mercenaries</MSS_FP_Settings_UseMrStreamerMercenaries>
+
+  <!-- Mercenary Hiring -->
+  <MSSFP_HireMercenariesOfferTitle>Mercenary Contract Offer</MSSFP_HireMercenariesOfferTitle>
+  <MSSFP_HireMercenariesOfferLabel>Mercenary contract available</MSSFP_HireMercenariesOfferLabel>
+  <MSSFP_HireMercenariesOfferText>A mercenary service is offering to hire out {0} for {1} silver. The contract will last {2} days. Do you accept?</MSSFP_HireMercenariesOfferText>
+  <MSSFP_HireMercenariesAcceptedLabel>Mercenary contract accepted</MSSFP_HireMercenariesAcceptedLabel>
+  <MSSFP_HireMercenariesAcceptedText>{0} has arrived and joined your colony under a mercenary contract. You paid {1} silver for {2} days of service.</MSSFP_HireMercenariesAcceptedText>
+  <MSSFP_HireMercenariesFailedLabel>Mercenary contract failed</MSSFP_HireMercenariesFailedLabel>
+  <MSSFP_HireMercenariesFailedText>The mercenary contract could not be completed. Your silver ({0}) has been returned.</MSSFP_HireMercenariesFailedText>
+  <MSSFP_MercenaryContractEndedLabel>Mercenary contract ended</MSSFP_MercenaryContractEndedLabel>
+  <MSSFP_MercenaryContractEndedText>The mercenary contract for {0} has expired. They are leaving the colony.</MSSFP_MercenaryContractEndedText>
   <MSS_FP_Settings_EnableWanderDelayModification>Enable wander delay modification</MSS_FP_Settings_EnableWanderDelayModification>
   <MSS_FP_Settings_WanderDelayIncludeHumanoids>Include humanoid pawns</MSS_FP_Settings_WanderDelayIncludeHumanoids>
   <MSS_FP_Settings_WanderDelaySeconds>Wander delay: {0} seconds</MSS_FP_Settings_WanderDelaySeconds>
