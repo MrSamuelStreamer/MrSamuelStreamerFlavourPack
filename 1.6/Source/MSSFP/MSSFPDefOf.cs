@@ -42,13 +42,6 @@ public static class MSSFPDefOf
 
     public static readonly HediffDef MSS_FP_PossessionHaunt;
     public static readonly ThoughtDef MSS_FP_PossessedThought;
-
-    public static readonly RulePackDef MSS_Nonsense;
-    public static readonly TaleDef MSSFP_Nonsense_Tale;
-    public static readonly ThoughtDef MSSFP_Nonsense_Thought_Bad;
-    public static readonly ThoughtDef MSSFP_Nonsense_Thought_Neutral;
-    public static readonly ThoughtDef MSSFP_Nonsense_Thought_Good;
-
     public static readonly HediffDef MSS_Need_GeneStealer_Restless;
     public static readonly HediffDef MSS_Need_GeneStealer_Exhaustion;
 
