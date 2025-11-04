@@ -30,6 +30,7 @@ public class Settings : ModSettings
     public bool EnableGeneMutators = false;
     public bool EnableTrekBeamers = true;
     public bool EnableMercenaryHiring = true;
+    public bool useMrStreamerMercenaries = false;
     public bool EnableWanderDelayModification = false;
     public bool WanderDelayIncludeHumanoids = false;
     public int WanderDelayTicks = 0;

@@ -127,12 +127,15 @@ namespace MSSFP.Incidents
         {
             try
             {
+                // Use a default name if mercenaryName is null (for fallback pawn)
+                string displayName = mercenaryName ?? "a combat veteran";
+
                 // Create choice letter using LetterMaker
                 ChoiceLetter_HireMercenaries choiceLetter = (ChoiceLetter_HireMercenaries)
                     LetterMaker.MakeLetter(
                         "MSSFP_HireMercenariesOfferLabel".Translate(),
                         "MSSFP_HireMercenariesOfferText".Translate(
-                            mercenaryName,
+                            displayName,
                             totalCost.ToString(),
                             (contractDuration / GenDate.TicksPerDay).ToString()
                         ),
@@ -164,10 +167,10 @@ namespace MSSFP.Incidents
                 // Get available mercenary names from the list
                 List<string> availableMercenaries = GetAvailableMercenaries();
 
-                if (availableMercenaries.Count == 0)
+                if (availableMercenaries.Count == 0 || !MSSFPMod.settings.useMrStreamerMercenaries)
                 {
-                    // Fallback to basic mercenary if no custom types are available
-                    return "Veteran";
+                    // Return null to indicate we should use default pawn fallback
+                    return null;
                 }
 
                 return availableMercenaries.RandomElement();
@@ -175,7 +178,8 @@ namespace MSSFP.Incidents
             catch (System.Exception ex)
             {
                 Log.Error("MSSFP: Error getting random mercenary name: " + ex.Message);
-                return "Veteran";
+                // Return null to indicate we should use default pawn fallback
+                return null;
             }
         }
 
@@ -183,11 +187,11 @@ namespace MSSFP.Incidents
         {
             // Get available pawn names from PawnEditor XML files
             var availablePawns = SpecificPawnLoader.GetAvailablePawnNames();
-            
+
             if (availablePawns.Count == 0)
             {
                 Log.Warning("MSSFP: No PawnEditor XML files found. Using fallback mercenaries.");
-                return new List<string> { "Veteran" };
+                return new List<string>();
             }
 
             return availablePawns;

@@ -51,6 +51,15 @@ public class MemesSettingsTab(ModSettings settings, Mod mod) : SettingsTab(setti
             ref Settings.EnableMercenaryHiring,
             ref scrollViewHeight
         );
+        if (Settings.EnableMercenaryHiring)
+        {
+            DrawCheckBox(
+                options,
+                "MSS_FP_Settings_UseMrStreamerMercenaries".Translate(),
+                ref Settings.useMrStreamerMercenaries,
+                ref scrollViewHeight
+            );
+        }
 
         bool disableSkylanternRaids = !Settings.EnableSkylanternRaids;
         DrawCheckBox(
