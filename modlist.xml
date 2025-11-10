@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModsConfigData>
+	<version>1.6.4543 rev1057</version>
+	<activeMods>
+		<li>brrainz.harmony</li>
+		<li>ludeon.rimworld</li>
+		<li>ludeon.rimworld.royalty</li>
+		<li>ludeon.rimworld.ideology</li>
+		<li>ludeon.rimworld.biotech</li>
+		<li>ludeon.rimworld.anomaly</li>
+		<li>ludeon.rimworld.odyssey</li>
+		<li>redmattis.betterprerequisites</li>
+		<li>keyz182.keyzallowutilities</li>
+		<li>keyz182.keyzlocalmodalert</li>
+		<li>mlie.resourcegenerator</li>
+		<li>ray1203.simplecamerasetting</li>
+		<li>imranfish.xmlextensions</li>
+		<li>smashphil.xmlpatchhelper</li>
+		<li>redmattis.bigsmall.core</li>
+		<li>oskarpotocki.vanillafactionsexpanded.core</li>
+		<li>sarg.alphagenes</li>
+		<li>redmattis.dryads</li>
+		<li>mss.flavourpack</li>
+		<li>vanillaexpanded.vanillaanimalsexpanded</li>
+		<li>vanillaexpanded.vaeendandext</li>
+		<li>vanillaexpanded.vaeroy</li>
+		<li>vanillaexpanded.vee</li>
+		<li>oskarpotocki.vfe.classical</li>
+		<li>oskarpotocki.vfe.tribals</li>
+		<li>vanillaexpanded.ideo.dryads</li>
+		<li>vanillaexpanded.vmemese</li>
+		<li>vanillaexpanded.outposts</li>
+	</activeMods>
+	<knownExpansions>
+		<li>ludeon.rimworld.royalty</li>
+		<li>ludeon.rimworld.ideology</li>
+		<li>ludeon.rimworld.biotech</li>
+		<li>ludeon.rimworld.anomaly</li>
+		<li>ludeon.rimworld.odyssey</li>
+	</knownExpansions>
+</ModsConfigData>
