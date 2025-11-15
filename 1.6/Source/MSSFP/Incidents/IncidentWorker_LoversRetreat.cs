@@ -21,6 +21,8 @@ public class IncidentWorker_LoversRetreat : IncidentWorker
             return false;
         }
 
+        bool allowAnyPregnant = MSSFPMod.settings.allowAnyPregnant;
+
         foreach (Pawn pawn in map.mapPawns.FreeAdultColonistsSpawned.Where(pawn => !pawn.Downed))
         {
             if (!pawn.health.hediffSet.HasHediff(HediffDefOf.PregnantHuman))
@@ -32,7 +34,14 @@ public class IncidentWorker_LoversRetreat : IncidentWorker
                         && spouse.Map == map
                     )
                     {
-                        return true;
+                        // If following normal rules, check if they can produce a child
+                        if (
+                            allowAnyPregnant
+                            || PregnancyUtility.CanEverProduceChild(pawn, spouse).Accepted
+                        )
+                        {
+                            return true;
+                        }
                     }
                 }
             }

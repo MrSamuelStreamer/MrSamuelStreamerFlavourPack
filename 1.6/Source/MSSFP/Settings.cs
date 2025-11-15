@@ -11,10 +11,6 @@ namespace MSSFP;
 
 public class Settings : ModSettings
 {
-    public bool MabelDestroyFloors = false;
-    public bool OverrideRelicPool = false;
-    public bool DisableFroggeNom = false;
-    public bool EnableMogus = false;
     public bool ShowHaunts = false;
     public bool EnableSkylanternRaids = false;
     public bool DrawByMrStreamer = false;
@@ -24,22 +20,17 @@ public class Settings : ModSettings
     public float BadGeneChance = 1f / 4f;
     public float NeutralGeneChance = 1f / 4f;
     public float RandomGeneChance = 1f / 4f;
-    public bool EnableOutpostFission = false;
-    public int DaysForOutpostFission = 15;
     public int DaysForFission = 7;
     public bool EnableLoversRetreat = false;
-    public bool EnableFroggeIncidents = false;
+    public bool allowAnyPregnant = false;
     public bool SingleUseMentalFuses = false;
     public bool EnablePossession = false;
     public bool DisableBSIncorporateGeneLimit = false;
-    public bool EnableNonsenseIncidents = false;
     public bool EnableGeneStealerNeed = false;
-    public bool EnableDirtJobs = false;
-    public bool EnableOskarianTech = false;
     public bool EnableGeneMutators = false;
     public bool EnableTrekBeamers = true;
-    public bool EnableTaffRaids = true;
     public bool EnableMercenaryHiring = true;
+    public bool useMrStreamerMercenaries = false;
     public bool EnableWanderDelayModification = false;
     public bool WanderDelayIncludeHumanoids = false;
     public int WanderDelayTicks = 0;
