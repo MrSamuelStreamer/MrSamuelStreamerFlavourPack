@@ -81,27 +81,61 @@ public class LoversRetreatMapComponent(Verse.Map map) : MapComponent(map), IThin
                     GenSpawn.Spawn(pair.secondLover, loc, map);
                     innerContainer.Remove(pair.firstLover);
                     innerContainer.Remove(pair.secondLover);
-                    if (Rand.Chance(0.5f))
+
+                    bool allowAnyPregnant = MSSFPMod.settings.allowAnyPregnant;
+
+                    if (allowAnyPregnant)
                     {
-                        Hediff_Pregnant preg =
-                            pair.firstLover.health.AddHediff(HediffDefOf.PregnantHuman)
-                            as Hediff_Pregnant;
-                        preg!.SetParents(
-                            pair.firstLover,
-                            pair.secondLover,
-                            PregnancyUtility.GetInheritedGeneSet(pair.secondLover, pair.firstLover)
-                        );
+                        // Allow any pawn to get pregnant (original behavior - no checks)
+                        if (Rand.Chance(0.5f))
+                        {
+                            Hediff_Pregnant preg =
+                                pair.firstLover.health.AddHediff(HediffDefOf.PregnantHuman)
+                                as Hediff_Pregnant;
+                            preg!.SetParents(
+                                pair.firstLover,
+                                pair.secondLover,
+                                PregnancyUtility.GetInheritedGeneSet(
+                                    pair.secondLover,
+                                    pair.firstLover
+                                )
+                            );
+                        }
+                        if (Rand.Chance(0.5f))
+                        {
+                            Hediff_Pregnant preg =
+                                pair.secondLover.health.AddHediff(HediffDefOf.PregnantHuman)
+                                as Hediff_Pregnant;
+                            preg!.SetParents(
+                                pair.secondLover,
+                                pair.firstLover,
+                                PregnancyUtility.GetInheritedGeneSet(
+                                    pair.firstLover,
+                                    pair.secondLover
+                                )
+                            );
+                        }
                     }
-                    if (Rand.Chance(0.5f))
+                    else
                     {
-                        Hediff_Pregnant preg =
-                            pair.secondLover.health.AddHediff(HediffDefOf.PregnantHuman)
-                            as Hediff_Pregnant;
-                        preg!.SetParents(
-                            pair.secondLover,
-                            pair.firstLover,
-                            PregnancyUtility.GetInheritedGeneSet(pair.firstLover, pair.secondLover)
-                        );
+                        // Follow normal RimWorld rules - check compatibility and determine roles
+                        (bool canProduce, Pawn mother, Pawn father) =
+                            CalculatePregnancyCompatibility(pair.firstLover, pair.secondLover);
+                        if (canProduce && Rand.Chance(0.5f))
+                        {
+                            // Check if mother is already pregnant before adding pregnancy
+                            if (!mother.health.hediffSet.HasHediff(HediffDefOf.PregnantHuman))
+                            {
+                                Hediff_Pregnant preg =
+                                    mother.health.AddHediff(HediffDefOf.PregnantHuman)
+                                    as Hediff_Pregnant;
+                                preg!.SetParents(
+                                    mother,
+                                    father,
+                                    PregnancyUtility.GetInheritedGeneSet(father, mother)
+                                );
+                            }
+                        }
                     }
                 }
             }
@@ -137,4 +171,22 @@ public class LoversRetreatMapComponent(Verse.Map map) : MapComponent(map), IThin
     public ThingOwner GetDirectlyHeldThings() => innerContainer;
 
     public IThingHolder ParentHolder => null;
+
+    private (bool canProduce, Pawn mother, Pawn father) CalculatePregnancyCompatibility(
+        Pawn first,
+        Pawn second
+    )
+    {
+        AcceptanceReport canProduce = PregnancyUtility.CanEverProduceChild(first, second);
+        if (!canProduce.Accepted)
+        {
+            return (false, null, null);
+        }
+
+        // Determine which is the female (can get pregnant) and which is the male
+        Pawn mother = first.gender == Gender.Female ? first : second;
+        Pawn father = first.gender == Gender.Male ? first : second;
+
+        return (true, mother, father);
+    }
 }

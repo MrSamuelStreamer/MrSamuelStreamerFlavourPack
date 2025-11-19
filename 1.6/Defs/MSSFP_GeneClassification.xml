@@ -4,16 +4,6 @@
         <defName>MSSFP_GoodGenes</defName>
         <type>good</type>
         <genes>
-            <li MayRequire="sarg.alphagenes">
-                <gene>MSSFP_FroggeAffinity</gene>
-                <weight>0.3</weight>
-                <geneClassification>ability</geneClassification>
-            </li>
-            <li MayRequire="sarg.alphagenes">
-                <gene>MSSFP_JroggeAffinity</gene>
-                <weight>0.3</weight>
-                <geneClassification>ability</geneClassification>
-            </li>
             <li MayRequire="ludeon.rimworld.biotech">
                 <gene>FireSpew</gene>
                 <weight>0.1</weight>

@@ -190,13 +190,6 @@
                 </bodyGraphicData>
             </li>
         </lifeStages>
-        <modExtensions>
-            <li Class="MSSFP.ModExtensions.FroggeModExtension"/>
-        </modExtensions>
-        <abilities>
-            <li>MSS_FP_Ability_Shoot_Thing</li>
-            <li>MSS_FP_WorldLeap</li>
-        </abilities>
     </PawnKindDef>
 
     <ThoughtDef>
@@ -212,20 +205,4 @@
             </li>
         </stages>
     </ThoughtDef>
-
-    <IncidentDef>
-        <defName>MSSFP_FroggeJoin</defName>
-        <label>frogge</label>
-        <category>Special</category>
-        <targetTags>
-            <li>Map_PlayerHome</li>
-        </targetTags>
-        <workerClass>MSSFP.Incidents.IncidentWorker_FroggeJoin</workerClass>
-        <letterLabel>frogge</letterLabel>
-        <letterText>frogge</letterText>
-        <baseChance>0.4</baseChance>
-        <minRefireDays>60</minRefireDays>
-        <minGreatestPopulation>3</minGreatestPopulation>
-        <pawnKind>MSSFP_Frogge</pawnKind>
-    </IncidentDef>
 </Defs>

@@ -24,7 +24,6 @@ public class HauntedMapComponent(Verse.Map map) : MapComponent(map)
     public IEnumerable<Pawn> PawnPool =>
         PawnsNearGraves.Where(pawn =>
             !pawn.health.hediffSet.HasHediff(MSSFPDefOf.MSS_FP_PawnDisplayer)
-            && !pawn.health.hediffSet.HasHediff(MSSFPDefOf.MSS_FP_FroggeHaunt)
         );
 
     public override void MapComponentTick()
@@ -49,18 +48,11 @@ public class HauntedMapComponent(Verse.Map map) : MapComponent(map)
 
         LastFiredTick += 4 * GenDate.TicksPerDay;
 
-        if (pawn.def == MSSFPDefOf.MSSFP_Frogge)
-        {
-            pawn.health.AddHediff(MSSFPDefOf.MSS_FP_FroggeHaunt);
-        }
-        else
-        {
-            Hediff hediff = pawn.health.AddHediff(MSSFPDefOf.MSS_FP_PawnDisplayer);
+        Hediff hediff = pawn.health.AddHediff(MSSFPDefOf.MSS_FP_PawnDisplayer);
 
-            if (hediff.TryGetComp(out HediffComp_Haunt comp))
-            {
-                comp.SetPawnToDraw(grave.Corpse.InnerPawn);
-            }
+        if (hediff.TryGetComp(out HediffComp_Haunt comp))
+        {
+            comp.SetPawnToDraw(grave.Corpse.InnerPawn);
         }
     }
 
