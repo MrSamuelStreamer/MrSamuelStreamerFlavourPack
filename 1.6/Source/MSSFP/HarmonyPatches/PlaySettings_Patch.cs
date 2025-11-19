@@ -23,7 +23,7 @@ public static class PlaySettings_Patch
         row.ToggleableIcon(
             ref MSSFPMod.settings.ShowHaunts,
             ToggleTex,
-            "MSS_FP_Haunts_Toggle".Translate(),
+            "MSS_FP_ToggleHaunts".Translate(),
             SoundDefOf.Mouseover_ButtonToggle
         );
     }
