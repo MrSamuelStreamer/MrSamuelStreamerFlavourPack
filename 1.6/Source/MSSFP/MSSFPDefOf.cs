@@ -58,5 +58,10 @@ public static class MSSFPDefOf
 
     public static readonly BackstoryDef MSSFP_Trek;
 
+    public static readonly ThingDef MSS_FP_Balloon;
+    public static readonly ThingDef MSS_FP_PawnFlyer_Balloon;
+
+    public static readonly JobDef MSSFP_ExtractTarget;
+
     static MSSFPDefOf() => DefOfHelper.EnsureInitializedInCtor(typeof(MSSFPDefOf));
 }
