@@ -4,15 +4,17 @@
         <xpath>/Defs/InteractionDef[defName="BuildRapport"]/logRulesInitiator/rulesStrings</xpath>
         <value>
             <li>subject(p=2)->their skibidi rizz</li>
-            <li>subject(p=2)->their rizz</li>
-            <li>subject(p=2)->rimrim</li>
-            <li>subject(p=4)->rimrim being late</li>
+            <li>subject->their rizz</li>
+            <li>subject->rimrim</li>
+            <li>subject(p=2)->rimrim being late</li>
             <li>subject->frogge</li>
             <li>subject->almighty frogge</li>
             <li>subject->Joris</li>
             <li>subject->ohio</li>
             <li>subject->brainrot</li>
             <li>subject->snu-snu</li>
+            <li>subject->that one time at band camp</li>
+
         </value>
     </Operation>
     <Operation Class="PatchOperationAdd">
@@ -21,15 +23,27 @@
             <li>wooed->rizzed</li>
             <li>wootactic->asking where rimrim?</li>
             <li>wootactic->dabbing</li>
+            <li>wootactic->repeating "XML boy! XML boy! You're so stinky! XML boy!"</li>
             <li>wootactic->saying they were skibidi ohio</li>
-            <li>wootactic->saying they were dank, fr</li>
+            <li>wootactic->saying they were dank, fr fr</li>
+            <li>wootactic->saying they were giving [vibeType], no cap, fr fr</li>
+            <li>vibeType->BDE</li>
+            <li>vibeType->chill</li>
+            <li>vibeType->blast</li>
+            <li>vibeType->potato</li>
+            <li>vibeType->"sweet baby boy"</li>
             <li>wootactic->moaning about rimrim being late</li>
             <li>wootactic->drawing pictures of frogge</li>
+            <li>wootactic->explaining that life is what we make of it, that life has no meaning but that which we give it</li>
+            <li>wootactic->talking about the pointlessness of life, how nothing we do or say matters, and how we are small and insignificant specs that flitter into and out of existance on unimaginably small scales</li>
             <li>PersonalCharacteristic->rizz</li>
             <li>PersonalCharacteristic->BDE</li>
             <li>PersonalCharacteristic->boujee ways</li>
             <li>PersonalCharacteristic->brainrot</li>
             <li>PersonalCharacteristic->bussy</li>
+            <li>PersonalCharacteristic->ick</li>
+            <li>PersonalCharacteristic->stank</li>
+            <li>PersonalCharacteristic->creep</li>
         </value>
     </Operation>
     <Operation Class="PatchOperationAdd">
@@ -51,9 +65,13 @@
             <li>TalkTopicAny->rizz</li>
             <li>TalkTopicAny->snu-snu</li>
             <li>TalkTopicAny->sussy baka</li>
-            <li>TalkTopicAny->situationship</li>
+            <li>TalkTopicAny->an existential crisis</li>
+            <li>TalkTopicAny->their mental breakdown</li>
+            <li>TalkTopicAny->the empire is ruled by lizard people</li>
+            <li>TalkTopicAny->turbo encabulators and their applications</li>
+            <li>TalkTopicAny->a situationship</li>
             <li>TalkTopicAny->touching grass</li>
-            <li>TalkTopicAny->proletarian labour stolen by the bourgeoisie</li>
+            <li>TalkTopicAny->touching grass</li>
             <li>TalkTopicAny->proletarian labour stolen by the bourgeoisie</li>
         </value>
     </Operation>
@@ -70,6 +88,10 @@
             <li>purveyStuff->Guff</li>
             <li>purveyStuff->Tat</li>
             <li>purveyStuff->Junk</li>
+            <li>purveyStuff->Crap</li>
+            <li>purveyStuff->Garbage</li>
+            <li>purveyStuff->Stuff</li>
+            <li>purveyStuff->Things</li>
         </value>
     </Operation>
 </Patch>
