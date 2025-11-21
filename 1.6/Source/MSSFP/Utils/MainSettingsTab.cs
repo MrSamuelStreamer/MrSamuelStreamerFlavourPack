@@ -62,6 +62,12 @@ public class MainSettingsTab(ModSettings settings, Mod mod) : SettingsTab(settin
             ref Settings.DrawByMrStreamer,
             ref scrollViewHeight
         );
+        DrawCheckBox(
+            options,
+            "MSS_FP_Settings_OverrideFactionLeaderSpawn".Translate(),
+            ref Settings.OverrideFactionLeaderSpawn,
+            ref scrollViewHeight
+        );
 
         if (Settings.Enable10SecondsToSpeed)
         {
