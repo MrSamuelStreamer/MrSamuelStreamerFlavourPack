@@ -179,9 +179,14 @@
   <MSSFP_Pursuer_Things>Things</MSSFP_Pursuer_Things>
   <MSSFP_Pursuer_ThingsRemove>Remove {0}</MSSFP_Pursuer_ThingsRemove>
   <MSSFP_Pursuer_AllowOnNonPlayerHome>Allow on non-player home maps</MSSFP_Pursuer_AllowOnNonPlayerHome>
-  
+
   <!-- Siege Ladder -->
   <MSS_SiegeLadder_FarSideRoofed>Cannot climb wall - far side is roofed.</MSS_SiegeLadder_FarSideRoofed>
   <MSS_SiegeLadder_AlreadyPlaced>A siege ladder is already placed here.</MSS_SiegeLadder_AlreadyPlaced>
   <MSS_SiegeLadder_ClimbableTime>Climbable for: {0} minutes</MSS_SiegeLadder_ClimbableTime>
+
+  <MSSFP_LeaderFoundLabel>Faction leader present</MSSFP_LeaderFoundLabel>
+  <MSSFP_LeaderFoundText>The {LEADER_factionPawnsPlural} faction leader {LEADER_labelShort} is here.</MSSFP_LeaderFoundText>
+
+  <MSS_FP_Settings_OverrideFactionLeaderSpawn>Allow faction leaders to spawn on maps.</MSS_FP_Settings_OverrideFactionLeaderSpawn>
 </LanguageData>
