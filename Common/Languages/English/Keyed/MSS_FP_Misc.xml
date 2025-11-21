@@ -117,7 +117,7 @@
 
   <!-- Price/Mass UI -->
   <MSSFP_WeightPrice>Weight/Price</MSSFP_WeightPrice>
-  <MSSFP_WeightPriceFormat>{0} $/kg</MSSFP_WeightPriceFormat>
+  <MSSFP_WeightPriceFormat>{0} £/kg</MSSFP_WeightPriceFormat>
   <MSSFP_WeightPriceTip>Weight price</MSSFP_WeightPriceTip>
   <MSSFP_WeightPriceTipPrice>Price: </MSSFP_WeightPriceTipPrice>
   <MSSFP_WeightPriceTipMass>Mass: </MSSFP_WeightPriceTipMass>
