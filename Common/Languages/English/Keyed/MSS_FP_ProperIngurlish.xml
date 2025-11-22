@@ -1,8 +1,9 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <LanguageData>
+    <!-- Haemogen -->
     <AlertLowHemogen>Low haemogen</AlertLowHemogen>
     <AlertLowHemogenDesc>A colonist has low haemogen. At zero haemogen, they will develop a painful haemogen craving.\n\nFeed them haemogen packs to prevent this. You can obtain haemogen packs using the 'extract haemogen pack' medical operation on a non-haemogenic human.\n\nThe following colonists have low haemogen</AlertLowHemogenDesc>
-    <NotAllowedHemogen>Hemogen packs disabled by food restriction.</NotAllowedHemogen>
+    <NotAllowedHemogen>Haemogen packs disabled by food restriction.</NotAllowedHemogen>
     <MessagePawnHadNotEnoughBloodToProduceHemogenPack>{PAWN_nameDef} did not have enough blood to produce a haemogen pack. </MessagePawnHadNotEnoughBloodToProduceHemogenPack>
     <MessageCannotStartHemogenExtraction>{PAWN_nameDef} doesn't have enough blood to produce a haemogen pack.</MessageCannotStartHemogenExtraction>
     <Hemogen>haemogen</Hemogen>
@@ -12,6 +13,46 @@
     <NeverConsumeHemogen>Never consume haemogen.</NeverConsumeHemogen>
     <AbilityDisabledNoHemogenGene>{0_labelShort} is not haemogenic.</AbilityDisabledNoHemogenGene>
     <AbilityDisabledNoHemogen>{0_labelShort} does not have enough haemogen.</AbilityDisabledNoHemogen>
-    <AbilityHemogenCost>Hemogen cost</AbilityHemogenCost>
+    <AbilityHemogenCost>Haemogen cost</AbilityHemogenCost>
     <AbilityHemogenGain>Base haemogen gain</AbilityHemogenGain>
+
+    <!-- colour -->
+    <Color>Colour</Color>
+
+    <DesignatorEyedropper>Colour picker</DesignatorEyedropper>
+    <GrabExistingColor>Grab existing colour</GrabExistingColor>
+    <DesignatorEyeDropperDesc_Paint>Grab a colour from an existing building.</DesignatorEyeDropperDesc_Paint>
+    <DesignatorEyeDropperDesc_Carpet>Grab a colour from an existing carpet.</DesignatorEyeDropperDesc_Carpet>
+    <SelectAPaintedBuilding>Select a painted building.</SelectAPaintedBuilding>
+    <SelectColoredFloor>Select coloured carpet.</SelectColoredFloor>
+    <Grab>Grab</Grab>
+    <GrabbedColor>Grabbed colour</GrabbedColor>
+
+    <Stat_Building_PaintColor>Paint colour</Stat_Building_PaintColor>
+    <Stat_Building_PaintColorDesc>The colour this building was painted.</Stat_Building_PaintColorDesc>
+
+    <ColorTemperature>Colour temperature</ColorTemperature>
+    <ChooseAColor>choose a colour</ChooseAColor>
+
+    <CurrentColor>current colour</CurrentColor>
+    <OldColor>old colour</OldColor>
+    <CommandCopyColorLabel>Copy colour</CommandCopyColorLabel>
+    <CommandCopyColorDesc>Copy the current colour to the clipboard.</CommandCopyColorDesc>
+    <CommandPasteColorLabel>Paste colour</CommandPasteColorLabel>
+    <CommandPasteColorDesc>Overwrite the colour with the colour in the clipboard.</CommandPasteColorDesc>
+    <ClipboardInvalidColor>The clipboard does not contain a valid colour.</ClipboardInvalidColor>
+    <ColorCopiedSuccessfully>Colour copied to clipboard.</ColorCopiedSuccessfully>
+    <ColorPastedSuccessfully>Updated colour from the clipboard.</ColorPastedSuccessfully>
+    <ToggleDarklightOff>Change to normal light</ToggleDarklightOff>
+    <ToggleDarklightOffDesc>Change the light colour to its normal colour.</ToggleDarklightOffDesc>
+    <ToggleDarklightOn>Change to darklight</ToggleDarklightOn>
+    <ToggleDarklightOnDesc>Change the light colour to darklight.</ToggleDarklightOnDesc>
+    <ColorTemperatureTooltip>Choose a colour by setting the colour temperature. Note: This only affects visual colour, not heat output.</ColorTemperatureTooltip>
+
+    <CommandChangeColorPlanLabel>Change colour</CommandChangeColorPlanLabel>
+    <CommandChangeColorPlanDesc>Change the colour of this plan.</CommandChangeColorPlanDesc>
+
+    <GlowerChangeColor>change colour</GlowerChangeColor>
+    <GlowerChangeColorDescription>Change the colour of the light.</GlowerChangeColorDescription>
+    <GlowerChangeColorNeedsResearch>You must research {0} to change light colour.</GlowerChangeColorNeedsResearch>
 </LanguageData>
