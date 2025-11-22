@@ -32,7 +32,12 @@ public class FloatMenuOptionProvider_Extract : FloatMenuOptionProvider
         // Check if the clicked pawn is downed or guilty
         if (!clickedPawn.Downed && !clickedPawn.guilt.IsGuilty)
         {
-            return null;
+            return new FloatMenuOption(
+                "MSSFP_CannotExtract".Translate((NamedArgument)clickedPawn)
+                + ": "
+                + "MSSFP_NotDowned".Translate().CapitalizeFirst(),
+                null
+            );
         }
 
         if (

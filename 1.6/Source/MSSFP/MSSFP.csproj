@@ -86,6 +86,9 @@
         <CommonFiles Include="../../../Common/**" />
         <CompatibilityFiles Include="../../../Compatibility/**" />
         <ExtraFiles Include="../../../loadFolders.xml;../../../LICENSE;../../../README.md" />
+        <CommonFiles Update="..\..\..\Common\Languages\English\Keyed\MSS_FP_Settings.xml">
+          <Link>MrSamuelStreamerFlavourPack\Common\Languages\English\Keyed\MSS_FP_Settings.xml</Link>
+        </CommonFiles>
     </ItemGroup>
     <Target Name="PostBuild" AfterTargets="Build" Condition=" '$(Configuration)' == 'Release' ">
         <RemoveDir Condition="Exists('../../../Release')" Directories="../../../Release" />
