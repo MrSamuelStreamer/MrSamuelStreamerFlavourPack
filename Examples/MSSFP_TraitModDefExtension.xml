@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ExampleDefs>
+    <TraitDef>
+        <defName>MSS_SweetBabyBoy</defName>
+        <commonality>0</commonality>
+        <degreeDatas>
+            <li>
+                <label>sweet baby boy</label>
+                <description>{PAWN_nameDef} knows what they did. -6 Social, because everyone else knows what they did too.</description>
+                <skillGains>
+                    <Social>-6</Social>
+                </skillGains>
+            </li>
+        </degreeDatas>
+        <modExtensions>
+            <li Class="MSSFP.ModExtensions.TraitModDefExtension">
+                <!-- <color>(0,128,0)</color> -->
+                <bold>true</bold>
+                <italic>true</italic>
+                <rainbow>true</rainbow>
+            </li>
+        </modExtensions>
+    </TraitDef>
+</ExampleDefs>
