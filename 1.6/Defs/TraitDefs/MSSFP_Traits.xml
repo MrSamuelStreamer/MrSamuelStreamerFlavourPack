@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<TraitDef>
+		<defName>MSSF_MarySue</defName>
+		<commonality>0.0</commonality> <!-- Non-spawning, special trait -->
+		<degreeDatas>
+			<li>
+				<label>Mary Sue</label>
+				<description>{PAWN_nameDef} has a surprising amount of experience and depth compared to most other people found on the Rim, as if they were a main character in an author's story...</description>
+			</li>
+		</degreeDatas>
+		<modExtensions>
+            <li Class="MSSFP.ModExtensions.TraitModDefExtension">
+                <!-- <color>(0,128,0)</color> -->
+                <bold>true</bold>
+                <italic>true</italic>
+                <rainbow>true</rainbow>
+            </li>
+        </modExtensions>
+	</TraitDef>
+</Defs>
