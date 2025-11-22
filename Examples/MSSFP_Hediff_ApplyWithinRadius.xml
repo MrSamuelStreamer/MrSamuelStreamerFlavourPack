@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ExamplePatch>
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/HediffDef[defName="MechlinkImplant"]/comps</xpath>
+        <value>
+            <li Class="MSSFP.Hediffs.HediffCompProperties_ApplyHediffWithinRadius">
+                <hediffDef>MSS_Tranquilized</hediffDef>
+                <targetsPlayer>true</targetsPlayer>
+                <targetsAnimals>false</targetsAnimals>
+                <targetsHumans>true</targetsHumans>
+                <targetsSubHumans>false</targetsSubHumans>
+                <targetsEntities>false</targetsEntities>
+                <targetsMechs>false</targetsMechs>
+
+                <initialSeverity>1</initialSeverity>
+
+                <proximityRadius>5</proximityRadius>
+
+                <ticksBetweenChecks>300</ticksBetweenChecks>
+            </li>
+        </value>
+    </Operation>
+</ExamplePatch>

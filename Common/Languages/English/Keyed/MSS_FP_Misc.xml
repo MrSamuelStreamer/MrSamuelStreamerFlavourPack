@@ -1,18 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LanguageData>
-    <MSS_MRStreamer>Rimworld: Nature's Wrath by Mr Samuel Streamer on Youtube</MSS_MRStreamer>
-    <MSS_FP_Settings_DrawByMrStreamer>Show "By Mr Samuel Streamer" label in the bottom left (only used to disuade video theft and other digital larceny, leave disabled)</MSS_FP_Settings_DrawByMrStreamer>
 
-    <MSSFP_SettingsCategory>Mr Samuel Streamer Flavour Pack</MSSFP_SettingsCategory>
-    <MSSFP_RGSettingsCategory>Mr Samuel Streamer Flavour Pack - Resource Generator</MSSFP_RGSettingsCategory>
-    <MSS_FP_Settings_ShowHaunts>Show Haunts</MSS_FP_Settings_ShowHaunts>
-    <MSS_FP_Settings_NoSkylanternRaids>Disable skylantern raids</MSS_FP_Settings_NoSkylanternRaids>
+<LanguageData>
     <MSS_FP_ToggleHaunts>Toggle Haunts</MSS_FP_ToggleHaunts>
     <MSS_FP_HauntedBy>{0}'s spirit</MSS_FP_HauntedBy>
     <MSS_FP_HauntedBuff>{0}'s spirit is boosting {1} by {2}</MSS_FP_HauntedBuff>
     <MSS_FP_HauntedUnBuff>{0}'s spirit is haunting {1}</MSS_FP_HauntedUnBuff>
     <MSS_FP_CompSpawnThings>Next spawn in</MSS_FP_CompSpawnThings>
-
     <MSS_FP_RitualOutcomeExtraDesc_SkylanternRaid>Your skylanterns landed in a {0} colony, setting widespread fires and causing immense damage. They're here for revenge.</MSS_FP_RitualOutcomeExtraDesc_SkylanternRaid>
 
     <MSSFP_LoversRetreatLabel>Lovers' Retreat</MSSFP_LoversRetreatLabel>
@@ -26,17 +19,6 @@
 
     <MSS_Gen_RandomGene>{0} gained the {1} xenogene</MSS_Gen_RandomGene>
 
-    <MSS_FP_GeneEventChance>Gene Event Chance</MSS_FP_GeneEventChance>
-    <MSS_FP_GeneEventChance_Tooltop>The chance for gene selections to appear on e.g. growth moments</MSS_FP_GeneEventChance_Tooltop>
-    <MSS_FP_GoodGeneChance>Good Gene Chance {0}%</MSS_FP_GoodGeneChance>
-    <MSS_FP_GoodGeneChance_Tooltip>The chance for events that give genes to give good genes.</MSS_FP_GoodGeneChance_Tooltip>
-    <MSS_FP_BadGeneChance>Bad Gene Chance {0}%</MSS_FP_BadGeneChance>
-    <MSS_FP_BadGeneChance_Tooltip>The chance for events that give genes to give bad genes.</MSS_FP_BadGeneChance_Tooltip>
-    <MSS_FP_NeutralGeneChance>Neutral Gene Chance {0}%</MSS_FP_NeutralGeneChance>
-    <MSS_FP_NeutralGeneChance_Tooltip>The chance for events that give genes to give neutral genes.</MSS_FP_NeutralGeneChance_Tooltip>
-    <MSS_FP_RandomGeneChance>Random Gene Chance {0}%</MSS_FP_RandomGeneChance>
-    <MSS_FP_RandomGeneChance_Tooltip>The chance for events that give genes to give random genes.</MSS_FP_RandomGeneChance_Tooltip>
-
     <MSS_FP_RetirementWillProduce>Grandma is clacking away with the knitting needles and will have between {0} and {1} silver worth of knick-knacks ready for you in {2}</MSS_FP_RetirementWillProduce>
     <MSS_FP_AgeInspector>Cumulative retiree age: {0}</MSS_FP_AgeInspector>
 
@@ -48,20 +30,6 @@
 
     <MSSFP_LostBrainPower>{0} lost some experience in {1} when their brain matter was fired out their head-cannon.</MSSFP_LostBrainPower>
     <MSSFP_LostBrainPowerDamaged>With no experience left in {1}, {0} lost an important part of their brain when it was fired out of their head-cannon.</MSSFP_LostBrainPowerDamaged>
-
-    <MSS_FP_Settings_EnableOutpostFission>Enable Asexual Fission in outposts</MSS_FP_Settings_EnableOutpostFission>
-    <MSS_FP_Settings_DaysForOutpostFission>Days between fissions in outposts -> {0} days</MSS_FP_Settings_DaysForOutpostFission>
-    <MSS_FP_Settings_DaysForFission>Days between fissions -> {0} days</MSS_FP_Settings_DaysForFission>
-
-    <MSS_FP_Settings_EnableLoversRetreat>Enable the Lover's Retreat Incidents</MSS_FP_Settings_EnableLoversRetreat>
-    <MSS_FP_Settings_AllowAnyPregnant>Allow any pawn to get pregnant</MSS_FP_Settings_AllowAnyPregnant>
-
-    <MSS_FP_Settings_SingleUseMentalFuses>Patch the Altered Carbon 2 Mental Fuse to be single use</MSS_FP_Settings_SingleUseMentalFuses>
-
-    <MSS_FP_Settings_EnablePossession>Enable the possession event</MSS_FP_Settings_EnablePossession>
-    <MSS_FP_Settings_DisableBSIncorporateGeneLimit>Disable the complexity limit for the B&amp;S Incorporate gene</MSS_FP_Settings_DisableBSIncorporateGeneLimit>
-    <MSS_FP_Settings_EnableExtendedMetabolismMultipliers>Enable extended metabolism multiplier based on gene complexity (above 225%)</MSS_FP_Settings_EnableExtendedMetabolismMultipliers>
-    <MSS_FP_Settings_EnableNonsenseIncidents>Enable the nonsense events (e.g. Scrungle has been Bloorped).</MSS_FP_Settings_EnableNonsenseIncidents>
 
     <MSSFP_BS_BodySizeFactor>Incorporation: {0}</MSSFP_BS_BodySizeFactor>
 
@@ -89,13 +57,9 @@
 
     <MSSFP_RitualObligationTargetWorker_Things_NotFound>{0} not found within {1} tiles of a {1}</MSSFP_RitualObligationTargetWorker_Things_NotFound>
 
-    <MSS_FP_Settings_EnableGeneStealerNeed>Enable the Gene Stealer need for the Big and Small Incorporate Gene</MSS_FP_Settings_EnableGeneStealerNeed>
-    <MSS_FP_Settings_EnableOskarianTech>Enable Oskarian Technology</MSS_FP_Settings_EnableOskarianTech>
-
     <MSSFP_TrekBeamerLetter>{PAWN_nameFull} loves and leaves.</MSSFP_TrekBeamerLetter>
     <MSSFP_TrekBeamerLetterText>Shortly after getting some lovin', {PAWN_nameFull}, in a rushed tone apologised, and announced that {PAWN_possessive} people needed {PAWN_objective}, before promptly dematerializing</MSSFP_TrekBeamerLetterText>
 
-    <MSS_FP_Settings_EnableDirtJobs>Enable Dirtman</MSS_FP_Settings_EnableDirtJobs>
     <MSSFP_HasDirt>There's a little dirt under the pillow</MSSFP_HasDirt>
     <MSSFP_DoesNotHaveDirt>The pillow has no dirt under it</MSSFP_DoesNotHaveDirt>
 
@@ -107,86 +71,69 @@
 
     <MSSFP_DirtManEatingLabel>Colonist being eaten!</MSSFP_DirtManEatingLabel>
 
-    <MSS_FP_Settings_EnableGenesOnGrowthMoment>Enable giving new genes on growth moments</MSS_FP_Settings_EnableGenesOnGrowthMoment>
-    <MSS_FP_Settings_EnableGeneMutators>Enable gene mutators, e.g Heat Wave has a chance to give heat related genes</MSS_FP_Settings_EnableGeneMutators>
-    <MSS_FP_Settings_EnableTrekBeamers>Enable Trek Beamers</MSS_FP_Settings_EnableTrekBeamers>
     <MSS_Balloon_NotDowned>{PAWN_labelShort} is not downed.</MSS_Balloon_NotDowned>
     <MSSFP_Extract>Extract {0_labelShort}</MSSFP_Extract>
     <MSSFP_CannotExtract>Cannot extract {0_labelShort}</MSSFP_CannotExtract>
     <MSSFP_NoBed>No beds available</MSSFP_NoBed>
 
-  <!-- Price/Mass UI -->
-  <MSSFP_WeightPrice>Weight/Price</MSSFP_WeightPrice>
-  <MSSFP_WeightPriceFormat>{0} £/kg</MSSFP_WeightPriceFormat>
-  <MSSFP_WeightPriceTip>Weight price</MSSFP_WeightPriceTip>
-  <MSSFP_WeightPriceTipPrice>Price: </MSSFP_WeightPriceTipPrice>
-  <MSSFP_WeightPriceTipMass>Mass: </MSSFP_WeightPriceTipMass>
-  <MSSFP_WeightPriceTipTip>Weight price: </MSSFP_WeightPriceTipTip>
-  <MSSFP_WeightPriceTipSell>Sell price per mass</MSSFP_WeightPriceTipSell>
-  <MSSFP_WeightPriceTipBuy>Buy price per mass</MSSFP_WeightPriceTipBuy>
+    <!-- Price/Mass UI -->
+    <MSSFP_WeightPrice>Weight/Price</MSSFP_WeightPrice>
+    <MSSFP_WeightPriceFormat>{0} £/kg</MSSFP_WeightPriceFormat>
+    <MSSFP_WeightPriceTip>Weight price</MSSFP_WeightPriceTip>
+    <MSSFP_WeightPriceTipPrice>Price: </MSSFP_WeightPriceTipPrice>
+    <MSSFP_WeightPriceTipMass>Mass: </MSSFP_WeightPriceTipMass>
+    <MSSFP_WeightPriceTipTip>Weight price: </MSSFP_WeightPriceTipTip>
+    <MSSFP_WeightPriceTipSell>Sell price per mass</MSSFP_WeightPriceTipSell>
+    <MSSFP_WeightPriceTipBuy>Buy price per mass</MSSFP_WeightPriceTipBuy>
 
-  <!-- Colonist Portrait Hiding -->
-  <MSS_FP_Settings_EnableColonistPortraitHiding>Enable colonist portrait hiding</MSS_FP_Settings_EnableColonistPortraitHiding>
-  <MSS_FP_Settings_ShowHiddenPortraits>Show hidden portraits</MSS_FP_Settings_ShowHiddenPortraits>
-  <MSS_FP_Settings_RestoreAllHiddenColonists>Restore all hidden colonists</MSS_FP_Settings_RestoreAllHiddenColonists>
-  <MSS_FP_HideColonist>Hide colonist</MSS_FP_HideColonist>
-  <MSS_FP_RestoreColonist>Restore colonist</MSS_FP_RestoreColonist>
-  <MSS_FP_ShowHiddenColonists>Show hidden colonists</MSS_FP_ShowHiddenColonists>
-  <MSS_FP_HideHiddenColonists>Hide hidden colonists</MSS_FP_HideHiddenColonists>
-  <MSS_FP_RightClickToRestore>Right-click to restore colonists</MSS_FP_RightClickToRestore>
+    <!-- Colonist Portrait Hiding -->
+    <MSS_FP_HideColonist>Hide colonist</MSS_FP_HideColonist>
+    <MSS_FP_RestoreColonist>Restore colonist</MSS_FP_RestoreColonist>
+    <MSS_FP_ShowHiddenColonists>Show hidden colonists</MSS_FP_ShowHiddenColonists>
+    <MSS_FP_HideHiddenColonists>Hide hidden colonists</MSS_FP_HideHiddenColonists>
+    <MSS_FP_RightClickToRestore>Right-click to restore colonists</MSS_FP_RightClickToRestore>
 
-  <MSS_FP_Settings_EnableMercenaryHiring>Enable mercenary hiring</MSS_FP_Settings_EnableMercenaryHiring>
-  <MSS_FP_Settings_UseMrStreamerMercenaries>Use Mr Streamer mercenaries</MSS_FP_Settings_UseMrStreamerMercenaries>
+    <!-- Mercenary Hiring -->
+    <MSSFP_HireMercenariesOfferTitle>Mercenary Contract Offer</MSSFP_HireMercenariesOfferTitle>
+    <MSSFP_HireMercenariesOfferLabel>Mercenary contract available</MSSFP_HireMercenariesOfferLabel>
+    <MSSFP_HireMercenariesOfferText>A mercenary service is offering to hire out {0} for {1} silver. The contract will last {2} days. Do you accept?</MSSFP_HireMercenariesOfferText>
+    <MSSFP_HireMercenariesAcceptedLabel>Mercenary contract accepted</MSSFP_HireMercenariesAcceptedLabel>
+    <MSSFP_HireMercenariesAcceptedText>{0} has arrived and joined your colony under a mercenary contract. You paid {1} silver for {2} days of service.</MSSFP_HireMercenariesAcceptedText>
+    <MSSFP_HireMercenariesFailedLabel>Mercenary contract failed</MSSFP_HireMercenariesFailedLabel>
+    <MSSFP_HireMercenariesFailedText>The mercenary contract could not be completed. Your silver ({0}) has been returned.</MSSFP_HireMercenariesFailedText>
+    <MSSFP_MercenaryContractEndedLabel>Mercenary contract ended</MSSFP_MercenaryContractEndedLabel>
+    <MSSFP_MercenaryContractEndedText>The mercenary contract for {0} has expired. They are leaving the colony.</MSSFP_MercenaryContractEndedText>
 
-  <!-- Mercenary Hiring -->
-  <MSSFP_HireMercenariesOfferTitle>Mercenary Contract Offer</MSSFP_HireMercenariesOfferTitle>
-  <MSSFP_HireMercenariesOfferLabel>Mercenary contract available</MSSFP_HireMercenariesOfferLabel>
-  <MSSFP_HireMercenariesOfferText>A mercenary service is offering to hire out {0} for {1} silver. The contract will last {2} days. Do you accept?</MSSFP_HireMercenariesOfferText>
-  <MSSFP_HireMercenariesAcceptedLabel>Mercenary contract accepted</MSSFP_HireMercenariesAcceptedLabel>
-  <MSSFP_HireMercenariesAcceptedText>{0} has arrived and joined your colony under a mercenary contract. You paid {1} silver for {2} days of service.</MSSFP_HireMercenariesAcceptedText>
-  <MSSFP_HireMercenariesFailedLabel>Mercenary contract failed</MSSFP_HireMercenariesFailedLabel>
-  <MSSFP_HireMercenariesFailedText>The mercenary contract could not be completed. Your silver ({0}) has been returned.</MSSFP_HireMercenariesFailedText>
-  <MSSFP_MercenaryContractEndedLabel>Mercenary contract ended</MSSFP_MercenaryContractEndedLabel>
-  <MSSFP_MercenaryContractEndedText>The mercenary contract for {0} has expired. They are leaving the colony.</MSSFP_MercenaryContractEndedText>
-  <MSS_FP_Settings_EnableWanderDelayModification>Enable wander delay modification</MSS_FP_Settings_EnableWanderDelayModification>
-  <MSS_FP_Settings_WanderDelayIncludeHumanoids>Include humanoid pawns</MSS_FP_Settings_WanderDelayIncludeHumanoids>
-  <MSS_FP_Settings_WanderDelaySeconds>Wander delay: {0} seconds</MSS_FP_Settings_WanderDelaySeconds>
-  <MSS_FP_Settings_WanderDelaySeconds_Tooltip>Modify the delay before pawns start wandering around the map</MSS_FP_Settings_WanderDelaySeconds_Tooltip>
-
-  <!-- 10 Seconds to Speed -->
-  <MSS_FP_Settings_Enable10SecondsToSpeed>Enable 10 Seconds to Speed</MSS_FP_Settings_Enable10SecondsToSpeed>
-  <MSS_FP_Settings_TenSecondsToSpeedDelay>Delay: {0} seconds</MSS_FP_Settings_TenSecondsToSpeedDelay>
-  <MSS_FP_Settings_TenSecondsToSpeedDelay_Tooltip>How many seconds to wait before automatically switching to ultrafast speed</MSS_FP_Settings_TenSecondsToSpeedDelay_Tooltip>
-  <MSS_FP_Settings_MonitorSpeeds>Monitor these speeds:</MSS_FP_Settings_MonitorSpeeds>
-  <MSSFP_10SecondsToSpeed_Tooltip>When enabled, automatically switches to ultrafast speed after the specified delay when on monitored speeds. Use the key binding to toggle this feature on/off. You can configure the delay, key binding, and which speeds trigger the auto-speed-up in the mod settings.</MSSFP_10SecondsToSpeed_Tooltip>
-
+    <!-- 10 Seconds to Speed -->
+    <MSSFP_10SecondsToSpeed_Tooltip>When enabled, automatically switches to ultrafast speed after the specified delay when on monitored speeds. Use the key binding to toggle this feature on/off. You can configure the delay, key binding, and which speeds trigger the auto-speed-up in the mod settings.</MSSFP_10SecondsToSpeed_Tooltip>
     <MSSFP_ThrowOffPursuerUseMessage>This seems to have thrown off your pursuers... for a while</MSSFP_ThrowOffPursuerUseMessage>
 
-  <!-- pursuer scen editor -->
-  <MSSFP_Pursuer_InitialWarningDelay>Initial delay for warning: {0}</MSSFP_Pursuer_InitialWarningDelay>
-  <MSSFP_Pursuer_InitialRaidDelay>Initial delay for raid: {0}</MSSFP_Pursuer_InitialRaidDelay>
-  <MSSFP_Pursuer_WarningDelayRange>Range for delay before warning [{0} - {1}]</MSSFP_Pursuer_WarningDelayRange>
-  <MSSFP_Pursuer_RaidDelayRange>Range for delay before first raid [{0} - {1}]</MSSFP_Pursuer_RaidDelayRange>
-  <MSSFP_Pursuer_MinRaidPoints>Min raid points: {0}</MSSFP_Pursuer_MinRaidPoints>
-  <MSSFP_Pursuer_RaidPointMultiplier>Raid point multiplier: {0}</MSSFP_Pursuer_RaidPointMultiplier>
-  <MSSFP_Pursuer_GravEngineCheckInterval>How often to check map for grav engine to trigger pursuit (-1 to always pursue regardless): {0}</MSSFP_Pursuer_GravEngineCheckInterval>
-  <MSSFP_Pursuer_SafetyCheckInterval>How often to check map for safety granting items (-1 to never check): {0}</MSSFP_Pursuer_SafetyCheckInterval>
-  <MSSFP_Pursuer_RaidArrivalMode>Raid arrival mode: {0}</MSSFP_Pursuer_RaidArrivalMode>
-  <MSSFP_Pursuer_SafeMapGenerators>Map generators</MSSFP_Pursuer_SafeMapGenerators>
-  <MSSFP_Pursuer_RemoveGen>Remove {0}</MSSFP_Pursuer_RemoveGen>
-  <MSSFP_Pursuer_Landmarks>Landmarks</MSSFP_Pursuer_Landmarks>
-  <MSSFP_Pursuer_LandmarksRemove>Remove {0}</MSSFP_Pursuer_LandmarksRemove>
-  <MSSFP_Pursuer_Things>Things</MSSFP_Pursuer_Things>
-  <MSSFP_Pursuer_ThingsRemove>Remove {0}</MSSFP_Pursuer_ThingsRemove>
-  <MSSFP_Pursuer_AllowOnNonPlayerHome>Allow on non-player home maps</MSSFP_Pursuer_AllowOnNonPlayerHome>
+    <!-- pursuer scen editor -->
+    <MSSFP_Pursuer_InitialWarningDelay>Initial delay for warning: {0}</MSSFP_Pursuer_InitialWarningDelay>
+    <MSSFP_Pursuer_InitialRaidDelay>Initial delay for raid: {0}</MSSFP_Pursuer_InitialRaidDelay>
+    <MSSFP_Pursuer_WarningDelayRange>Range for delay before warning [{0} - {1}]</MSSFP_Pursuer_WarningDelayRange>
+    <MSSFP_Pursuer_RaidDelayRange>Range for delay before first raid [{0} - {1}]</MSSFP_Pursuer_RaidDelayRange>
+    <MSSFP_Pursuer_MinRaidPoints>Min raid points: {0}</MSSFP_Pursuer_MinRaidPoints>
+    <MSSFP_Pursuer_RaidPointMultiplier>Raid point multiplier: {0}</MSSFP_Pursuer_RaidPointMultiplier>
+    <MSSFP_Pursuer_GravEngineCheckInterval>How often to check map for grav engine to trigger pursuit (-1 to always pursue regardless): {0}</MSSFP_Pursuer_GravEngineCheckInterval>
+    <MSSFP_Pursuer_SafetyCheckInterval>How often to check map for safety granting items (-1 to never check): {0}</MSSFP_Pursuer_SafetyCheckInterval>
+    <MSSFP_Pursuer_RaidArrivalMode>Raid arrival mode: {0}</MSSFP_Pursuer_RaidArrivalMode>
+    <MSSFP_Pursuer_SafeMapGenerators>Map generators</MSSFP_Pursuer_SafeMapGenerators>
+    <MSSFP_Pursuer_RemoveGen>Remove {0}</MSSFP_Pursuer_RemoveGen>
+    <MSSFP_Pursuer_Landmarks>Landmarks</MSSFP_Pursuer_Landmarks>
+    <MSSFP_Pursuer_LandmarksRemove>Remove {0}</MSSFP_Pursuer_LandmarksRemove>
+    <MSSFP_Pursuer_Things>Things</MSSFP_Pursuer_Things>
+    <MSSFP_Pursuer_ThingsRemove>Remove {0}</MSSFP_Pursuer_ThingsRemove>
+    <MSSFP_Pursuer_AllowOnNonPlayerHome>Allow on non-player home maps</MSSFP_Pursuer_AllowOnNonPlayerHome>
 
-  <!-- Siege Ladder -->
-  <MSS_SiegeLadder_FarSideRoofed>Cannot climb wall - far side is roofed.</MSS_SiegeLadder_FarSideRoofed>
-  <MSS_SiegeLadder_AlreadyPlaced>A siege ladder is already placed here.</MSS_SiegeLadder_AlreadyPlaced>
-  <MSS_SiegeLadder_ClimbableTime>Climbable for: {0} minutes</MSS_SiegeLadder_ClimbableTime>
+    <!-- Siege Ladder -->
+    <MSS_SiegeLadder_FarSideRoofed>Cannot climb wall - far side is roofed.</MSS_SiegeLadder_FarSideRoofed>
+    <MSS_SiegeLadder_AlreadyPlaced>A siege ladder is already placed here.</MSS_SiegeLadder_AlreadyPlaced>
+    <MSS_SiegeLadder_ClimbableTime>Climbable for: {0} minutes</MSS_SiegeLadder_ClimbableTime>
 
-  <MSSFP_LeaderFoundLabel>Faction leader present</MSSFP_LeaderFoundLabel>
-  <MSSFP_LeaderFoundText>The {LEADER_factionPawnsPlural} faction leader {LEADER_labelShort} is here.</MSSFP_LeaderFoundText>
+    <MSSFP_LeaderFoundLabel>Faction leader present</MSSFP_LeaderFoundLabel>
+    <MSSFP_LeaderFoundText>The {LEADER_factionPawnsPlural} faction leader {LEADER_labelShort} is here.</MSSFP_LeaderFoundText>
 
-  <MSS_FP_Settings_OverrideFactionLeaderSpawn>Allow faction leaders to spawn on maps.</MSS_FP_Settings_OverrideFactionLeaderSpawn>
+
+    <MSSFP_NotDowned>not downed</MSSFP_NotDowned>
 </LanguageData>

@@ -63,6 +63,12 @@
             <Link>Attached/Rimworld/%(RecursiveDir)/%(FileName)%(Extension)</Link>
             <CopyToOutputDirectory>Never</CopyToOutputDirectory>
         </Content>
+        <Content Include="..\..\..\Examples\MSSFP_MapwideHediff.xml">
+          <Link>MrSamuelStreamerFlavourPack\Examples\MSSFP_MapwideHediff.xml</Link>
+        </Content>
+        <Content Include="..\..\..\Examples\MSSFP_TraitModDefExtension.xml">
+          <Link>MrSamuelStreamerFlavourPack\Examples\MSSFP_TraitModDefExtension.xml</Link>
+        </Content>
         <Content Include="..\..\..\modlist*.xml">
             <Link>MrSamuelStreamerFlavourPack/%(FileName)%(Extension)</Link>
         </Content>
@@ -86,6 +92,15 @@
         <CommonFiles Include="../../../Common/**" />
         <CompatibilityFiles Include="../../../Compatibility/**" />
         <ExtraFiles Include="../../../loadFolders.xml;../../../LICENSE;../../../README.md" />
+        <CommonFiles Update="..\..\..\Common\Languages\English\Keyed\MSS_FP_Settings.xml">
+          <Link>MrSamuelStreamerFlavourPack\Common\Languages\English\Keyed\MSS_FP_Settings.xml</Link>
+        </CommonFiles>
+        <ReleaseFiles Update="..\..\Defs\MSSFP_MapwideHediff.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.6\Defs\MSSFP_MapwideHediff.xml</Link>
+        </ReleaseFiles>
+        <ReleaseFiles Include="..\..\..\Examples\MSSFP_Hediff_ApplyWithinRadius.xml">
+          <Link>MrSamuelStreamerFlavourPack\Examples\MSSFP_Hediff_ApplyWithinRadius.xml</Link>
+        </ReleaseFiles>
     </ItemGroup>
     <Target Name="PostBuild" AfterTargets="Build" Condition=" '$(Configuration)' == 'Release' ">
         <RemoveDir Condition="Exists('../../../Release')" Directories="../../../Release" />
