@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ExampleDefs>
+    <!-- This will apply a hediff map-wide at a regular interval -->
+    <MSSFP.Defs.MapwideHediffDef>
+        <defName>MSSFP_EverybodySleeps</defName>
+        <label>Sleepytime</label>
+
+        <!-- The hediff to apply -->
+        <hediff>MSS_Tranquilized</hediff>
+
+        <!-- Can this target player pawns -->
+        <targetsPlayer>true</targetsPlayer>
+        <!-- Can this target animals -->
+        <targetsAnimals>false</targetsAnimals>
+        <!-- Can this target humanlike -->
+        <targetsHumans>false</targetsHumans>
+        <!-- Can this target subhuman -->
+        <targetsSubHumans>false</targetsSubHumans>
+        <!-- Can this target entities -->
+        <targetsEntities>false</targetsEntities>
+        <!-- Can this target mechs -->
+        <targetsMechs>false</targetsMechs>
+
+        <!-- Initial severity for the hediff -->
+        <initialSeverity>1</initialSeverity>
+
+        <!-- How often to run the check in ticks -->
+        <ticksBetweenChecks>600</ticksBetweenChecks>
+
+        <!-- Override the worker class to allow more complex conditions -->
+        <mapwideHediffWorkerClass>MSSFP.Defs.MapwideHediffWorker</mapwideHediffWorkerClass>
+
+
+        <!-- Don't apply if the maps world object is of this def -->
+        <!-- <excludeWorldObjectDefs> -->
+        <!--     <li>Settlement</li> -->
+        <!-- </excludeWorldObjectDefs> -->
+
+        <!-- Only apply if the maps world object is of this def -->
+        <!-- <onlyWorldObjectDefs> -->
+        <!--     <li>AbandonedCamp</li> -->
+        <!-- </onlyWorldObjectDefs> -->
+
+
+        <!-- Don't apply if this map is a site and has this site part def -->
+        <!-- <excludeSitePartDefs> -->
+        <!--     <li>DistressCall_Settlement</li> -->
+        <!-- </excludeSitePartDefs> -->
+
+        <!-- Only apply if this map is a site and has this site part def -->
+        <!-- <onlySitePartDefs> -->
+        <!--     <li>AmbushEdge</li> -->
+        <!-- </onlySitePartDefs> -->
+
+
+        <!-- Only apply if any of these things are on the map -->
+        <!-- <onlyWhenAnyThingsOnMap> -->
+        <!--     <li>MSSFP_Widget1</li> -->
+        <!--     <li>MSSFP_Widget2</li> -->
+        <!-- </onlyWhenAnyThingsOnMap> -->
+
+        <!-- Don't apply if any of these things are on the map -->
+        <!-- <nothenAnyThingsOnMap> -->
+        <!--     <li>MSSFP_Widget1</li> -->
+        <!--     <li>MSSFP_Widget2</li> -->
+        <!-- </nothenAnyThingsOnMap> -->
+
+
+        <!-- Only apply if all of these things are on the map -->
+        <!-- <onlyWhenAllThingsOnMap> -->
+        <!--     <li>MSSFP_Widget1</li> -->
+        <!--     <li>MSSFP_Widget2</li> -->
+        <!-- </onlyWhenAllThingsOnMap> -->
+
+        <!-- Don't apply if all of these things are on the map -->
+        <!-- <notWhenAllThingsOnMap> -->
+        <!--     <li>MSSFP_Widget1</li> -->
+        <!--     <li>MSSFP_Widget2</li> -->
+        <!-- </notWhenAllThingsOnMap> -->
+    </MSSFP.Defs.MapwideHediffDef>
+</ExampleDefs>
