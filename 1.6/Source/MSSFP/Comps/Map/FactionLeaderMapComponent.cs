@@ -11,7 +11,9 @@ public class FactionLeaderMapComponent(Verse.Map map) : MapComponent(map)
     {
         base.FinalizeInit();
         // don't notify for player maps.
-        haveChecked = map.ParentFaction.IsPlayer;
+        Faction faction = map.ParentFaction ?? map.Parent.Faction;
+
+        haveChecked = faction == null || faction.IsPlayer;
     }
 
     public override void MapComponentTick()
