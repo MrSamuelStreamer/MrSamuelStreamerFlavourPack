@@ -1947,11 +1947,6 @@
         <defName>MSSFP_NeutralGenes</defName>
         <type>neutral</type>
         <genes>
-            <li>
-                <gene>MSSFP_HeadCannon</gene>
-                <weight>0.2</weight>
-                <geneClassification>ability</geneClassification>
-            </li>
             <li MayRequire="ludeon.rimworld">
                 <gene>Hair_SnowWhite</gene>
                 <weight>0.5</weight>

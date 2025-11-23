@@ -1,145 +1,138 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
-    <AbilityDef>
-        <defName>MSSFP_HeadCannon</defName>
-        <label>head cannon</label>
-        <description>Fire a fleshy mass at an enemy</description>
-        <iconPath>UI/Icons/Genes/MSSFP_HeadCannon</iconPath>
-        <cooldownTicksRange>600</cooldownTicksRange>
-        <aiCanUse>true</aiCanUse>
-        <ai_IsIncendiary>true</ai_IsIncendiary>
-        <sendMessageOnCooldownComplete>true</sendMessageOnCooldownComplete>
-        <verbProperties>
-            <verbClass>MSSFP.Verbs.Verb_CastAbilityWithCost</verbClass>
-            <range>12.1</range>
-            <warmupTime>1.4</warmupTime>
-            <soundCast>PiercingSpine_Launch</soundCast>
-            <targetParams>
-                <canTargetLocations>true</canTargetLocations>
-            </targetParams>
-        </verbProperties>
+    <HediffDef>
+        <defName>MSSFP_TouchedGrass</defName>
+        <label>touched grass</label>
+        <description>This person has touched grass</description>
+        <hediffClass>HediffWithComps</hediffClass>
+        <defaultLabelColor>(0.7, 1.0, 0.7)</defaultLabelColor>
+        <isBad>false</isBad>
+        <makesSickThought>false</makesSickThought>
+        <scenarioCanAdd>false</scenarioCanAdd>
+        <maxSeverity>1</maxSeverity>
+        <minSeverity>0</minSeverity>
+        <initialSeverity>0.01</initialSeverity>
         <comps>
-            <li Class="CompProperties_AbilityLaunchProjectile">
-                <projectileDef>MSSFP_HeadCannon_Projectile</projectileDef>
+            <li Class="HediffCompProperties_SeverityPerDay">
+                <severityPerDayRange>0.75</severityPerDayRange>
+                <showHoursToRecover>true</showHoursToRecover>
             </li>
         </comps>
-    </AbilityDef>
-
-    <DamageDef>
-        <defName>MSSFP_RangedBlunt</defName>
-        <label>blunt</label>
-        <workerClass>DamageWorker_Blunt</workerClass>
-        <externalViolence>true</externalViolence>
-        <deathMessage>{0} has been beaten to death.</deathMessage>
-        <hediff>Crush</hediff>
-        <hediffSkin>Bruise</hediffSkin>
-        <hediffSolid>Crack</hediffSolid>
-        <impactSoundType>Toxic</impactSoundType>
-        <armorCategory>Blunt</armorCategory>
-        <overkillPctToDestroyPart>0~0.7</overkillPctToDestroyPart>
-        <stabChanceOfForcedInternal>0.6</stabChanceOfForcedInternal>
-        <isRanged>true</isRanged>
-        <makesAnimalsFlee>true</makesAnimalsFlee>
-    </DamageDef>
-
-    <ThingDef ParentName="BaseBullet">
-        <defName>MSSFP_HeadCannon_Projectile</defName>
-        <label>fleshy mass</label>
-        <graphicData>
-            <texPath>Things/Building/Fleshmass/Bases/FleshmassBase_1x1A</texPath>
-            <graphicClass>Graphic_Single</graphicClass>
-        </graphicData>
-        <projectile>
-            <damageDef>MSSFP_RangedBlunt</damageDef>
-            <damageAmountBase>30</damageAmountBase>
-            <armorPenetrationBase>1</armorPenetrationBase>
-            <stoppingPower>1</stoppingPower>
-            <speed>55</speed>
-        </projectile>
-    </ThingDef>
-
-    <GeneDef>
-        <defName>MSSFP_HeadCannon</defName>
-        <label>head-cannon</label>
-        <description>Carriers of this gene grow a cannon on their head. It is rumoured that an ancient scientist created this gene to surreptitiously add to a colleagues genome when they became frustrated with their incessant discussion of their own head-canon about their favourite show.\n\nAllows the carrier to fire fleshy masses, at the cost of some brain-power.</description>
-        <iconPath>UI/Icons/Genes/MSSFP_HeadCannon</iconPath>
-        <displayCategory>Ability</displayCategory>
-        <abilities>
-            <li>MSSFP_HeadCannon</li>
-        </abilities>
-        <descriptionHyperlinks>
-            <AbilityDef>MSSFP_HeadCannon</AbilityDef>
-        </descriptionHyperlinks>
-        <aptitudes>
-            <Social>-3</Social>
-            <Intellectual>-5</Intellectual>
-        </aptitudes>
-        <painOffset>-0.3</painOffset>
-        <renderNodeProperties>
+        <stages>
             <li>
-                <nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
-                <workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
-                <texPath>Things/Pawn/Humanlike/HeadAttachments/MSSFP_HeadCannon/MSSFP_HeadCannon</texPath>
-                <color>(255, 255, 255)</color>
-                <parentTagDef>Head</parentTagDef>
-                <drawData>
-                    <defaultData>
-                        <layer>80</layer>
-                    </defaultData>
-                    <dataNorth>
-                        <layer>10</layer>
-                    </dataNorth>
-                </drawData>
+                <label>minor</label>
+                <statFactors>
+                    <MoveSpeed>1.1</MoveSpeed>
+                </statFactors>
+                <statOffsets>
+                    <MentalBreakThreshold>-0.1</MentalBreakThreshold>
+                    <GlobalLearningFactor>0.1</GlobalLearningFactor>
+                    <ImmunityGainSpeed>0.1</ImmunityGainSpeed>
+                    <CarryingCapacity>0.1</CarryingCapacity>
+                    <PainShockThreshold>0.1</PainShockThreshold>
+                    <FilthRate>-0.1</FilthRate>
+                    <NegotiationAbility>0.1</NegotiationAbility>
+                    <PawnBeauty>0.1</PawnBeauty>
+                    <TradePriceImprovement>0.1</TradePriceImprovement>
+                    <SocialImpact>0.1</SocialImpact>
+                </statOffsets>
+                <capMods>
+                    <li>
+                        <capacity>Consciousness</capacity>
+                        <offset>0.05</offset>
+                    </li>
+                    <li>
+                        <capacity>Talking</capacity>
+                        <offset>0.05</offset>
+                    </li>
+                    <li>
+                        <capacity>Breathing</capacity>
+                        <offset>0.05</offset>
+                    </li>
+                </capMods>
             </li>
-        </renderNodeProperties>
-        <symbolPack>
-            <prefixSymbols>
-                <li>
-                    <symbol>discordant</symbol>
-                    <weight>2</weight>
-                </li>
-                <li><symbol>nerd</symbol></li>
-                <li><symbol>whiney</symbol></li>
-            </prefixSymbols>
-        </symbolPack>
+            <li>
+                <label>moderate</label>
+                <minSeverity>0.20</minSeverity>
+                <statFactors>
+                    <MoveSpeed>1.1</MoveSpeed>
+                </statFactors>
+                <statOffsets>
+                    <MentalBreakThreshold>-0.2</MentalBreakThreshold>
+                    <GlobalLearningFactor>0.2</GlobalLearningFactor>
+                    <ImmunityGainSpeed>0.2</ImmunityGainSpeed>
+                    <CarryingCapacity>0.2</CarryingCapacity>
+                    <PainShockThreshold>0.2</PainShockThreshold>
+                    <FilthRate>-0.2</FilthRate>
+                    <NegotiationAbility>0.2</NegotiationAbility>
+                    <PawnBeauty>0.2</PawnBeauty>
+                    <TradePriceImprovement>0.2</TradePriceImprovement>
+                    <SocialImpact>0.2</SocialImpact>
+                </statOffsets>
+                <capMods>
+                    <li>
+                        <capacity>Consciousness</capacity>
+                        <offset>0.10</offset>
+                    </li>
+                    <li>
+                        <capacity>Talking</capacity>
+                        <offset>0.10</offset>
+                    </li>
+                    <li>
+                        <capacity>Breathing</capacity>
+                        <offset>0.10</offset>
+                    </li>
+                </capMods>
+            </li>
+            <li>
+                <label>maximum</label>
+                <minSeverity>0.50</minSeverity>
+                <statFactors>
+                    <MoveSpeed>1.1</MoveSpeed>
+                </statFactors>
+                <statOffsets>
+                    <MentalBreakThreshold>-0.3</MentalBreakThreshold>
+                    <GlobalLearningFactor>0.3</GlobalLearningFactor>
+                    <ImmunityGainSpeed>0.3</ImmunityGainSpeed>
+                    <CarryingCapacity>0.3</CarryingCapacity>
+                    <PainShockThreshold>0.3</PainShockThreshold>
+                    <FilthRate>-0.3</FilthRate>
+                    <NegotiationAbility>0.3</NegotiationAbility>
+                    <PawnBeauty>0.3</PawnBeauty>
+                    <TradePriceImprovement>0.3</TradePriceImprovement>
+                    <SocialImpact>0.3</SocialImpact>
+                </statOffsets>
+                <capMods>
+                    <li>
+                        <capacity>Consciousness</capacity>
+                        <offset>0.15</offset>
+                    </li>
+                    <li>
+                        <capacity>Talking</capacity>
+                        <offset>0.15</offset>
+                    </li>
+                    <li>
+                        <capacity>Breathing</capacity>
+                        <offset>0.15</offset>
+                    </li>
+                </capMods>
+            </li>
+        </stages>
+    </HediffDef>
+    <GeneDef>
+        <defName>MSSFP_TouchGrass</defName>
+        <label>Grass Toucher</label>
+        <description>Spending time in nature can temporarily boost the social skills of the carrier</description>
+        <iconPath>UI/Icons/Genes/MSSFP_GrassToucher</iconPath>
+        <geneClass>MSSFP.Genes.Gene_GrassToucher</geneClass>
+        <descriptionHyperlinks>
+            <HediffDef>MSSFP_TouchedGrass</HediffDef>
+        </descriptionHyperlinks>
     </GeneDef>
-    <!-- -->
-    <!-- <GeneDef> -->
-    <!--     <defName>MSSFP_DRM</defName> -->
-    <!--     <label>Genetic DRM</label> -->
-    <!--     <description>This archo-gene is very different to any other seen before. Archites actually mimic the form of and take the place of the nucleotide bases in this sequence. This allows for this sequence to be completely dynamic. How exactly this works is not well understood, as any attempt to study or alter the genes of this person result in immediate rapid dissasebmly of the person at a molecular leve.\n\nIt is believed that this particular archogene may have formed a kind of genetic protection, destroying the genes and the person upon any attempt to study or alter.</description> -->
-    <!--     <iconPath>UI/Icons/Genes/MSSFP_GeneticDRM</iconPath> -->
-    <!--     <displayCategory>Archite</displayCategory> -->
-    <!--     <geneClass>MSSFP.Genes.Gene_DRM</geneClass> -->
-    <!-- </GeneDef> -->
-    <!-- -->
-    <!-- <HediffDef> -->
-    <!--     <defName>MSSFP_Hediff_DRM</defName> -->
-    <!--     <label>DRM acidifier</label> -->
-    <!--     <labelNoun>a DRM acidifier</labelNoun> -->
-    <!--     <defaultLabelColor>(0.8, 0.1, 0.1)</defaultLabelColor> -->
-    <!--     <hediffClass>HediffWithComps</hediffClass> -->
-    <!--     <isBad>false</isBad> -->
-    <!--     <description>DRM acidifier - caused by Genetic DRM. This pawn will completely dissolve upon death, or alteration of genes.</description> -->
-    <!--     <comps> -->
-    <!--         <li Class="HediffCompProperties_DissolveGearOnDeath"> -->
-    <!--             <fleck>AcidCloud</fleck> -->
-    <!--             <moteCount>6</moteCount> -->
-    <!--             <moteOffsetRange>0.25~0.75</moteOffsetRange> -->
-    <!--             <filth>Filth_Slime</filth> -->
-    <!--             <sound>DeathAcidifier</sound> -->
-    <!--             <injuryCreatedOnDeath>ChemicalBurn</injuryCreatedOnDeath> -->
-    <!--             <injuryCount>3~6</injuryCount> -->
-    <!--         </li> -->
-    <!--     </comps> -->
-    <!-- </HediffDef> -->
-
-    <!-- <GeneDef> -->
-    <!--     <defName>MSSFP_Persistent</defName> -->
-    <!--     <label>Persistent</label> -->
-    <!--     <description>This archo-gene makes the person persistent in life. No matter how they die, they just seem to turn up again in a little while.</description> -->
-    <!--     <iconPath>UI/Icons/Genes/MSSFP_Persistent</iconPath> -->
-    <!--     <displayCategory>Archite</displayCategory> -->
-    <!--     <geneClass>MSSFP.Genes.Gene_Persistent</geneClass> -->
-    <!-- </GeneDef> -->
+    <GeneDef>
+        <defName>MSSFP_Illiterate</defName>
+        <label>illiterate</label>
+        <description>The carrier of this gene is incapable of reading.</description>
+        <iconPath>UI/Icons/Genes/MSSFP_Illiterate</iconPath>
+    </GeneDef>
 </Defs>
