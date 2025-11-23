@@ -23,11 +23,15 @@ public static class Pawn_Patch
 
     public static Lazy<FieldInfo> nameInt = new(() => AccessTools.Field(typeof(Pawn), "nameInt"));
 
+    public static Dictionary<Pawn, Name> NameCache = new();
+
+
     public static void UpdatePawnName(Pawn pawn, TraitModDefExtension extension)
     {
+        if (NameCache.ContainsKey(pawn)) return;
+
         if (pawn.Name is NameTriple triple)
         {
-
             string first = triple.First;
             string last = triple.Last;
             string nick = triple.Nick;
@@ -69,7 +73,7 @@ public static class Pawn_Patch
                 nick = italicPrefix + nick + italicSuffix;
             }
 
-            nameInt.Value.SetValue(pawn, new NameTriple(first, nick, last));
+            NameCache[pawn] = new NameTriple(first, nick, last);
         }
     }
 
@@ -84,12 +88,26 @@ public static class Pawn_Patch
         return sb.ToString();
     }
 
+
+    [HarmonyPatch(nameof(Pawn.Name), MethodType.Getter)]
+    [HarmonyPrefix]
+    public static bool NameGetter_Prefix(Pawn __instance, ref Name __result)
+    {
+        if (NameCache.TryGetValue(__instance, out Name name))
+        {
+            __result = name;
+            return false;
+        }
+        return true;
+    }
+
     [HarmonyPatch(nameof(Pawn.Name), MethodType.Setter)]
     [HarmonyPostfix]
     public static void NameSetter_Postfix(Pawn __instance)
     {
-        Name name = nameInt.Value.GetValue(__instance) as Name;
-        if (name == null || __instance.story?.traits == null || __instance.story.traits.allTraits.NullOrEmpty())
+        if(NameCache.ContainsKey(__instance)) return;
+
+        if (nameInt.Value.GetValue(__instance) is not Name || __instance.story?.traits == null || __instance.story.traits.allTraits.NullOrEmpty())
         {
             return;
         }
