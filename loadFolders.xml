@@ -27,12 +27,9 @@
         <li IfModActive="vanillaexpanded.vee">Compatibility/vanillaexpanded.vee/1.6</li>
         <li IfModActive="OskarPotocki.VFE.Classical">Compatibility/OskarPotocki.VFE.Classical/1.6</li>
         <li IfModActive="sarg.alphagenes">Compatibility/sarg.alphagenes/1.6</li>
-        <li IfModActive="kikohi.jewelry">Compatibility/kikohi.jewelry/1.6</li>
         <li IfModActive="RedMattis.BetterPrerequisites">Compatibility/RedMattis.BetterPrerequisites/1.6</li>
         <li IfModActive="OskarPotocki.VanillaFactionsExpanded.Core">Compatibility/OskarPotocki.VanillaFactionsExpanded.Core/1.6</li>
-        <li IfModActive="aoba.fortress.industrial.citadel">Compatibility/Aoba.Fortress.Industrial.Citadel/1.6</li>
         <li IfModActive="oskarpotocki.vfe.tribals">Compatibility/OskarPotocki.VFE.Tribals/1.6</li>
-        <li IfModActive="VanillaExpanded.VMemesE">Compatibility/VanillaExpanded.VMemesE/1.6</li>
         <li IfModActive="Mlie.ResourceGenerator">Compatibility/Mlie.ResourceGenerator/1.6</li>
         <li IfModActive="rebuild.cotr.doorsandcorners">Compatibility/rebuild.cotr.doorsandcorners/1.6</li>
     </v1.6>
