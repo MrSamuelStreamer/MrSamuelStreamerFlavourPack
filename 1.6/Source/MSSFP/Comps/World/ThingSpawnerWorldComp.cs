@@ -44,6 +44,12 @@ public class ThingSpawnerWorldComp(RimWorld.Planet.World world) : WorldComponent
 
                 ModLog.Debug($"Attempting to spawn {thing.defName} on map {playerMap}");
                 Thing spawnedThing = ThingMaker.MakeThing(thing);
+                if (spawnedThing == null)
+                {
+                    ModLog.Error($"Could not spawn {thing.defName} on map {playerMap}, removing from spawn list");
+                    SpawnThingsAtTick.Remove(thing);
+                    continue;
+                }
                 GenPlace.TryPlaceThing(spawnedThing, playerMap.Center, playerMap, ThingPlaceMode.Near);
                 SpawnedThings.Add(thing);
                 SpawnThingsAtTick.Remove(thing);
