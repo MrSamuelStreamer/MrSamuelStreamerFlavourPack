@@ -14,6 +14,7 @@ public class ThingSpawnerWorldComp(RimWorld.Planet.World world) : WorldComponent
 
     public override void FinalizeInit(bool fromLoad)
     {
+        if(fromLoad) return;
         ModLog.Debug("Initializing ThingSpawnerWorldComp");
         SpawnedThings ??= [];
         foreach (ThingDef thingDef in DefDatabase<ThingDef>.AllDefs.Where(t=>t.HasModExtension<AutoSpawningModExtension>()))
