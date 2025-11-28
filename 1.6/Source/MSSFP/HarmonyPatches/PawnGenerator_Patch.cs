@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using HarmonyLib;
 using RimWorld.Planet;
+using UnityEngine;
 using Verse;
 
 namespace MSSFP.HarmonyPatches;
@@ -27,6 +28,14 @@ public static class PawnGenerator_Patch
             pawns = pawns.Concat(Find.WorldPawns.GetPawnsBySituation(WorldPawnSituation.FactionLeader));
         __result = pawns.Where(x => IsValidCandidateToRedress(x, request));
         return false;
+    }
+
+    [HarmonyPatch("ChanceToRedressAnyWorldPawn")]
+    [HarmonyPostfix]
+    public static void ChanceToRedressAnyWorldPawn_Postfix(ref float __result)
+    {
+        if (!MSSFPMod.settings.BoostChanceToSpawnExistingPawns) return;
+        __result = Mathf.Max(0.8f, __result * 20f);
     }
 
 }

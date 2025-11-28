@@ -68,6 +68,12 @@ public class MainSettingsTab(ModSettings settings, Mod mod) : SettingsTab(settin
             ref Settings.OverrideFactionLeaderSpawn,
             ref scrollViewHeight
         );
+        DrawCheckBox(
+            options,
+            "MSS_FP_Settings_BoostChanceToSpawnExistingPawns".Translate(),
+            ref Settings.BoostChanceToSpawnExistingPawns,
+            ref scrollViewHeight
+        );
 
         if (Settings.Enable10SecondsToSpeed)
         {

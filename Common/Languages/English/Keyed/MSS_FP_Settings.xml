@@ -35,6 +35,7 @@
     <MSS_FP_Settings_EnableNonsenseIncidents>Enable the nonsense events (e.g. Scrungle has been Bloorped).</MSS_FP_Settings_EnableNonsenseIncidents>
 
     <MSS_FP_Settings_OverrideFactionLeaderSpawn>Allow faction leaders to spawn on maps.</MSS_FP_Settings_OverrideFactionLeaderSpawn>
+    <MSS_FP_Settings_BoostChanceToSpawnExistingPawns>Boosts the chance for worldpawns to be part of raids, settlements, etc.</MSS_FP_Settings_BoostChanceToSpawnExistingPawns>
 
     <MSS_FP_Settings_EnableGeneStealerNeed>Enable the Gene Stealer need for the Big and Small Incorporate Gene</MSS_FP_Settings_EnableGeneStealerNeed>
     <MSS_FP_Settings_EnableOskarianTech>Enable Oskarian Technology</MSS_FP_Settings_EnableOskarianTech>

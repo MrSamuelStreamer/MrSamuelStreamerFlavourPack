@@ -38,6 +38,7 @@ public class Settings : ModSettings
     public bool ShowHiddenPortraits = false;
     public bool Enable10SecondsToSpeed = false;
     public bool OverrideFactionLeaderSpawn = true;
+    public bool BoostChanceToSpawnExistingPawns = true;
     public int TenSecondsToSpeedDelay = 10;
     public HashSet<Verse.TimeSpeed> MonitoredSpeeds = new()
     {
@@ -243,6 +244,7 @@ public class Settings : ModSettings
         Scribe_Values.Look(ref ShowHiddenPortraits, "ShowHiddenPortraits", false);
         Scribe_Values.Look(ref Enable10SecondsToSpeed, "Enable10SecondsToSpeed", false);
         Scribe_Values.Look(ref OverrideFactionLeaderSpawn, "OverrideFactionLeaderSpawn", true);
+        Scribe_Values.Look(ref BoostChanceToSpawnExistingPawns, "BoostChanceToSpawnExistingPawns", true);
         Scribe_Values.Look(ref TenSecondsToSpeedDelay, "TenSecondsToSpeedDelay", 10);
         Scribe_Collections.Look(ref MonitoredSpeeds, "MonitoredSpeeds", LookMode.Value);
 
