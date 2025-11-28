@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ExamplePatch>DeathrestCapacitySerum
+<ExamplePatch>
+    <!-- 50% chance to spawn something on use. chance for a new DeathrestCapacitySerum, but 4x the chance to get a wastepack. -->
     <Operation Class="PatchOperationAddModExtension">
         <xpath>Defs/ThingDef[defName="DeathrestCapacitySerum"]</xpath>
         <value>
-            <!-- 50% chance to spawn something on use. chance for a new DeathrestCapacitySerum, but 4x the chance to get a wastepack. -->
             <li Class="MSSFP.ModExtensions.OnUseDefModExtension">
                 <!-- chance to spawn anything on use -->
                 <chanceToSpawnOnUse>0.5</chanceToSpawnOnUse>
@@ -13,6 +13,26 @@
                     <DeathrestCapacitySerum>1</DeathrestCapacitySerum>
                     <Wastepack>4</Wastepack>
                 </spawnThingOnUseWithChance>
+            </li>
+        </value>
+    </Operation>
+
+    <!-- 50% chance to give a hediff on use. -->
+    <Operation Class="PatchOperationAddModExtension">
+        <xpath>Defs/ThingDef[defName="DeathrestCapacitySerum"]</xpath>
+        <value>
+            <li Class="MSSFP.ModExtensions.OnUseDefModExtension">
+                <!-- chance to give any hediff on use -->
+                <chanceToSpawnHediffOnUse>0.5</chanceToSpawnHediffOnUse>
+
+                <!-- if giving a hediff, give it with this severity -->
+                <hediffSeverityOnUse>0.75</hediffSeverityOnUse>
+
+                <!-- hediffs to pick from give, with weights -->
+                <spawnHediffOnUseWithChance>
+                    <LungRot>1</LungRot>
+                    <AmbrosiaHigh>4</AmbrosiaHigh>
+                </spawnHediffOnUseWithChance>
             </li>
         </value>
     </Operation>

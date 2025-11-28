@@ -20,5 +20,6 @@ public static class CompUsable_Patch
 
         OnUseDefModExtension ext = __instance.parent.def.GetModExtension<OnUseDefModExtension>();
         ext.TrySpawnThing(p, out _);
+        ext.TryGiveHediff(p, out _);
     }
 }
