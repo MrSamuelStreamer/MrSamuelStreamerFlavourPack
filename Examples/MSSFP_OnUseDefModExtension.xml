@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ExamplePatch>DeathrestCapacitySerum
+    <Operation Class="PatchOperationAddModExtension">
+        <xpath>Defs/ThingDef[defName="DeathrestCapacitySerum"]</xpath>
+        <value>
+            <!-- 50% chance to spawn something on use. chance for a new DeathrestCapacitySerum, but 4x the chance to get a wastepack. -->
+            <li Class="MSSFP.ModExtensions.OnUseDefModExtension">
+                <!-- chance to spawn anything on use -->
+                <chanceToSpawnOnUse>0.5</chanceToSpawnOnUse>
+
+                <!-- things to pick from to spawn, with weights -->
+                <spawnThingOnUseWithChance>
+                    <DeathrestCapacitySerum>1</DeathrestCapacitySerum>
+                    <Wastepack>4</Wastepack>
+                </spawnThingOnUseWithChance>
+            </li>
+        </value>
+    </Operation>
+</ExamplePatch>

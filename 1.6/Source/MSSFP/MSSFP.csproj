@@ -66,6 +66,9 @@
         <Content Include="..\..\..\Examples\MSSFP_MapwideHediff.xml">
           <Link>MrSamuelStreamerFlavourPack\Examples\MSSFP_MapwideHediff.xml</Link>
         </Content>
+        <Content Include="..\..\..\Examples\MSSFP_OnUseDefModExtension.xml">
+          <Link>MrSamuelStreamerFlavourPack\Examples\MSSFP_OnUseDefModExtension.xml</Link>
+        </Content>
         <Content Include="..\..\..\Examples\MSSFP_TraitModDefExtension.xml">
           <Link>MrSamuelStreamerFlavourPack\Examples\MSSFP_TraitModDefExtension.xml</Link>
         </Content>
