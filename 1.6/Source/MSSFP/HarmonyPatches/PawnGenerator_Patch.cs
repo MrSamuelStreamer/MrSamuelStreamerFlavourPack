@@ -24,8 +24,8 @@ public static class PawnGenerator_Patch
     {
         if (!MSSFPMod.settings.OverrideFactionLeaderSpawn) return true;
         IEnumerable<Pawn> pawns = Find.WorldPawns.AllPawnsAliveOrDead.Where(x => ValidSituations.Contains(Find.WorldPawns.GetSituation(x)));
-        if (request.KindDef.factionLeader)
-            pawns = pawns.Concat(Find.WorldPawns.GetPawnsBySituation(WorldPawnSituation.FactionLeader));
+        if (request.KindDef.factionLeader && request.Faction != null)
+            pawns = pawns.Concat(Find.WorldPawns.GetPawnsBySituation(WorldPawnSituation.FactionLeader).Where(x => x.Faction == request.Faction));
         __result = pawns.Where(x => IsValidCandidateToRedress(x, request));
         return false;
     }
