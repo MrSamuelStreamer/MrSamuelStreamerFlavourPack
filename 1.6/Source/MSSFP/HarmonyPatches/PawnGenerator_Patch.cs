@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using HarmonyLib;
+using RimWorld;
 using RimWorld.Planet;
 using UnityEngine;
 using Verse;
@@ -23,7 +24,10 @@ public static class PawnGenerator_Patch
     private static bool GetValidCandidatesToRedress(PawnGenerationRequest request, ref IEnumerable<Pawn> __result)
     {
         if (!MSSFPMod.settings.OverrideFactionLeaderSpawn) return true;
+        // Catch generation of slaves for e.g. terror buuldings
+        if(request.KindDef == PawnKindDefOf.Slave) return true;
         IEnumerable<Pawn> pawns = Find.WorldPawns.AllPawnsAliveOrDead.Where(x => ValidSituations.Contains(Find.WorldPawns.GetSituation(x)));
+        pawns = pawns.Where(x=>x.kindDef.race == request.KindDef.race);
         if (request.KindDef.factionLeader && request.Faction != null)
             pawns = pawns.Concat(Find.WorldPawns.GetPawnsBySituation(WorldPawnSituation.FactionLeader).Where(x => x.Faction == request.Faction));
         __result = pawns.Where(x => IsValidCandidateToRedress(x, request));
