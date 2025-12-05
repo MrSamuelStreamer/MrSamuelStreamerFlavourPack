@@ -32,5 +32,6 @@
         <li IfModActive="oskarpotocki.vfe.tribals">Compatibility/OskarPotocki.VFE.Tribals/1.6</li>
         <li IfModActive="Mlie.ResourceGenerator">Compatibility/Mlie.ResourceGenerator/1.6</li>
         <li IfModActive="rebuild.cotr.doorsandcorners">Compatibility/rebuild.cotr.doorsandcorners/1.6</li>
+        <li IfModActive="vanillaquestsexpanded.generator">Compatibility/vanillaquestsexpanded.generator/1.6</li>
     </v1.6>
 </loadFolders>
