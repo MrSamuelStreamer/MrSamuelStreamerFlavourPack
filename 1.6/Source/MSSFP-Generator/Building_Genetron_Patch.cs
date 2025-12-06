@@ -27,6 +27,14 @@ public static class GenetronConstants_Transpiler
             {
                 yield return new CodeInstruction(OpCodes.Ldc_I4, newValue);
             }
+            else if (
+                instruction.opcode == OpCodes.Ldc_R4
+                && instruction.operand is float fvalue
+                && Math.Abs(fvalue - originalValue) < 0.01f
+            )
+            {
+                yield return new CodeInstruction(OpCodes.Ldc_R4, (float)newValue);
+            }
             else
             {
                 yield return instruction;
