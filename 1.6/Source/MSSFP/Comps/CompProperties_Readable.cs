@@ -13,6 +13,9 @@ public class CompProperties_Readable : CompProperties
     public string buttonDesc = "Read the letter";
     public string buttonIcon;
 
+    public ThingDef spawnThing;
+    public int spawnCount = 0;
+
     public bool destroyOnRead = false;
     public Texture2D buttonIconTex =>
         buttonIcon is not null ? ContentFinder<Texture2D>.Get(buttonIcon) : BaseContent.BadTex;

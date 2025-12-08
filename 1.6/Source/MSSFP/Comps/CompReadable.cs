@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using RimWorld;
 using Verse;
 
 namespace MSSFP.Comps;
@@ -32,7 +33,34 @@ public class CompReadable : ThingComp
             Props.letterText.Formatted(),
             Props.letterDef
         );
+        TrySpawnThing();
         parent.Destroy();
+    }
+
+    public virtual bool TrySpawnThing()
+    {
+        if (Props.spawnThing == null || Props.spawnCount <= 0) return true;
+
+        IntVec3 result;
+        if (!CompSpawner.TryFindSpawnCell(parent, Props.spawnThing, Props.spawnCount, out result))
+            return false;
+        ThingDef stuff = null;
+        if (Props.spawnThing.MadeFromStuff)
+        {
+            stuff = GenStuff.DefaultStuffFor(Props.spawnThing);
+        }
+        Thing thing = ThingMaker.MakeThing(Props.spawnThing, stuff);
+        thing.stackCount = Props.spawnCount;
+
+        GenPlace.TryPlaceThing(
+            thing,
+            result,
+            parent.Map,
+            ThingPlaceMode.Direct,
+            out thing
+        );
+
+        return true;
     }
 
     public override IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn selPawn)
