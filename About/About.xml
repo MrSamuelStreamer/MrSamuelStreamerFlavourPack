@@ -32,5 +32,6 @@
         <li>oskarpotocki.vanillafactionsexpanded.core</li>
         <li>mlie.resourcegenerator</li>
         <li>rebuild.cotr.doorsandcorners</li>
+        <li>void.charactereditor</li>
     </loadAfter>
 </ModMetaData>
