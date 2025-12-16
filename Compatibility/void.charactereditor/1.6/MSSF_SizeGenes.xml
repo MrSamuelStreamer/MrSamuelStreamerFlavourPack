@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<LifeStageDef ParentName="SZHumanSizeBase">
+		<defName>MSS_HumanSize_04</defName>
+		<label>bodysize05</label>
+		<bodySizeFactor>0.4</bodySizeFactor>
+		<bodyWidth>1.0</bodyWidth>
+		<healthScaleFactor>1.0</healthScaleFactor>
+		<hungerRateFactor>0.4</hungerRateFactor>
+		<meleeDamageFactor>0.4</meleeDamageFactor>
+		<headSizeFactor>0.6</headSizeFactor>
+	</LifeStageDef>
+
+	<GeneDef ParentName="SZBodySizeBase">
+		<defName>MSS_BodySize_04</defName>
+		<label>Bodysize 04</label>    
+		<description>40%</description>     
+	</GeneDef>
+
+	<LifeStageDef ParentName="SZHumanSizeBase">
+		<defName>MSS_HumanSize_03</defName>
+		<label>bodysize05</label>
+		<bodySizeFactor>0.3</bodySizeFactor>
+		<bodyWidth>1.0</bodyWidth>
+		<healthScaleFactor>1.0</healthScaleFactor>
+		<hungerRateFactor>0.3</hungerRateFactor>
+		<meleeDamageFactor>0.3</meleeDamageFactor>
+		<headSizeFactor>0.55</headSizeFactor>
+	</LifeStageDef>
+
+	<GeneDef ParentName="SZBodySizeBase">
+		<defName>MSS_BodySize_03</defName>
+		<label>Bodysize 03</label>    
+		<description>30%</description>     
+	</GeneDef>
+	
+	<LifeStageDef ParentName="SZHumanSizeBase">
+		<defName>MSS_HumanSize_02</defName>
+		<label>bodysize05</label>
+		<bodySizeFactor>0.3</bodySizeFactor>
+		<bodyWidth>1.0</bodyWidth>
+		<healthScaleFactor>1.0</healthScaleFactor>
+		<hungerRateFactor>0.3</hungerRateFactor>
+		<meleeDamageFactor>0.3</meleeDamageFactor>
+		<headSizeFactor>0.5</headSizeFactor>
+	</LifeStageDef>
+
+	<GeneDef ParentName="SZBodySizeBase">
+		<defName>MSS_BodySize_02</defName>
+		<label>Bodysize 03</label>    
+		<description>30%</description>     
+	</GeneDef>
+
+	<LifeStageDef ParentName="SZHumanSizeBase">
+		<defName>MSS_HumanSize_01</defName>
+		<label>bodysize05</label>
+		<bodySizeFactor>0.3</bodySizeFactor>
+		<bodyWidth>1.0</bodyWidth>
+		<healthScaleFactor>1.0</healthScaleFactor>
+		<hungerRateFactor>0.3</hungerRateFactor>
+		<meleeDamageFactor>0.3</meleeDamageFactor>
+		<headSizeFactor>0.4</headSizeFactor>
+	</LifeStageDef>
+
+	<GeneDef ParentName="SZBodySizeBase">
+		<defName>MSS_BodySize_01</defName>
+		<label>Bodysize 03</label>    
+		<description>30%</description>     
+	</GeneDef>
+
+</Defs>
