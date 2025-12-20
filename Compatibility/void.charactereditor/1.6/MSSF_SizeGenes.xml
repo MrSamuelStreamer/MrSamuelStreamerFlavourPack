@@ -2,7 +2,7 @@
 <Defs>
 	<LifeStageDef ParentName="SZHumanSizeBase">
 		<defName>MSS_HumanSize_04</defName>
-		<label>bodysize05</label>
+		<label>bodysize04</label>
 		<bodySizeFactor>0.4</bodySizeFactor>
 		<bodyWidth>1.0</bodyWidth>
 		<healthScaleFactor>1.0</healthScaleFactor>
@@ -19,7 +19,7 @@
 
 	<LifeStageDef ParentName="SZHumanSizeBase">
 		<defName>MSS_HumanSize_03</defName>
-		<label>bodysize05</label>
+		<label>bodysize03</label>
 		<bodySizeFactor>0.3</bodySizeFactor>
 		<bodyWidth>1.0</bodyWidth>
 		<healthScaleFactor>1.0</healthScaleFactor>
@@ -36,7 +36,7 @@
 	
 	<LifeStageDef ParentName="SZHumanSizeBase">
 		<defName>MSS_HumanSize_02</defName>
-		<label>bodysize05</label>
+		<label>bodysize02</label>
 		<bodySizeFactor>0.3</bodySizeFactor>
 		<bodyWidth>1.0</bodyWidth>
 		<healthScaleFactor>1.0</healthScaleFactor>
@@ -47,13 +47,13 @@
 
 	<GeneDef ParentName="SZBodySizeBase">
 		<defName>MSS_BodySize_02</defName>
-		<label>Bodysize 03</label>    
-		<description>30%</description>     
+		<label>Bodysize 02</label>    
+		<description>20%</description>     
 	</GeneDef>
 
 	<LifeStageDef ParentName="SZHumanSizeBase">
 		<defName>MSS_HumanSize_01</defName>
-		<label>bodysize05</label>
+		<label>bodysize01</label>
 		<bodySizeFactor>0.3</bodySizeFactor>
 		<bodyWidth>1.0</bodyWidth>
 		<healthScaleFactor>1.0</healthScaleFactor>
@@ -64,8 +64,8 @@
 
 	<GeneDef ParentName="SZBodySizeBase">
 		<defName>MSS_BodySize_01</defName>
-		<label>Bodysize 03</label>    
-		<description>30%</description>     
+		<label>Bodysize 01</label>    
+		<description>10%</description>     
 	</GeneDef>
 
 </Defs>
