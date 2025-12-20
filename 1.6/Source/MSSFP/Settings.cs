@@ -45,6 +45,7 @@ public class Settings : ModSettings
     public int ReformationPointsPerDefeatedFaction = 5;
     public int TechsToGetPoints = 5;
     public int ReformationPointsForTechs = 1;
+    public int ReformationPointsPerSeasonChange = 1;
     public int TenSecondsToSpeedDelay = 10;
     public HashSet<Verse.TimeSpeed> MonitoredSpeeds = new()
     {
@@ -258,6 +259,7 @@ public class Settings : ModSettings
         Scribe_Values.Look(ref ReformationPointsPerDefeatedFaction, "ReformationPointsPerDefeatedFaction", 5);
         Scribe_Values.Look(ref TechsToGetPoints, "TechsToGetPoints", 5);
         Scribe_Values.Look(ref ReformationPointsForTechs, "ReformationPointsForTechs", 1);
+        Scribe_Values.Look(ref ReformationPointsPerSeasonChange, "ReformationPointsPerSeasonChange", 1);
         Scribe_Collections.Look(ref MonitoredSpeeds, "MonitoredSpeeds", LookMode.Value);
 
         foreach (SettingsTab settingsTab in Tabs)

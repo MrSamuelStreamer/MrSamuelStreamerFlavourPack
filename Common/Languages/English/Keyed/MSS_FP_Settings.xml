@@ -73,4 +73,5 @@
     <MSS_FP_Settings_ReformationPointsPerDefeatedFaction>Reformation points per defeated faction</MSS_FP_Settings_ReformationPointsPerDefeatedFaction>
     <MSS_FP_Settings_TechsToGetPoints>Tech levels to get reformation points</MSS_FP_Settings_TechsToGetPoints>
     <MSS_FP_Settings_ReformationPointsForTechs>Reformation points each set of tech levels</MSS_FP_Settings_ReformationPointsForTechs>
+    <MSS_FP_Settings_ReformationPointsPerSeasonChange>Reformation points per season change</MSS_FP_Settings_ReformationPointsPerSeasonChange>
 </LanguageData>

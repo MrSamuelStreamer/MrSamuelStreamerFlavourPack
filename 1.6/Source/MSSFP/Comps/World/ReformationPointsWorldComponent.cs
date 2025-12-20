@@ -85,6 +85,10 @@ public class ReformationPointsWorldComponent(RimWorld.Planet.World world) : Worl
                 if(AddPoints(MSSFPMod.settings.ReformationPointsForTechs))
                     Messages.Message("MSS_ReformationPointsForTechs".Translate(MSSFPMod.settings.TechsToGetPoints, MSSFPMod.settings.ReformationPointsForTechs), MessageTypeDefOf.PositiveEvent, true);
                 break;
+            case Signals.MSS_SeasonChanged:
+                if(AddPoints(MSSFPMod.settings.ReformationPointsPerSeasonChange))
+                    Messages.Message("MSS_SeasonChanged".Translate(MSSFPMod.settings.ReformationPointsPerSeasonChange), MessageTypeDefOf.PositiveEvent, true);
+                break;
             default: break;
         }
     }

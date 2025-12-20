@@ -118,6 +118,12 @@ public class MainSettingsTab(ModSettings settings, Mod mod) : SettingsTab(settin
         options.Gap(10f);
         scrollViewHeight += 58f;
 
+        options.Label("MSS_FP_Settings_ReformationPointsPerSeasonChange".Translate());
+        options.IntAdjuster(ref Settings.ReformationPointsPerSeasonChange, 1, 0);
+
+        options.Gap(10f);
+        scrollViewHeight += 58f;
+
         if (Settings.Enable10SecondsToSpeed)
         {
             float delaySeconds = Settings.TenSecondsToSpeedDelay;
