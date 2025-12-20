@@ -133,4 +133,11 @@
 
 
     <MSSFP_NotDowned>not downed</MSSFP_NotDowned>
+
+    <MSS_NewYear>New year! {0} reformation points given</MSS_NewYear>
+    <MSS_YearsPassed>Years passed: {0}, {1} reformation points given</MSS_YearsPassed>
+
+    <MSS_BabyAddedToFaction>New Baby! {0} reformation points given</MSS_BabyAddedToFaction>
+    <MSS_FactionDefeated>Faction defeated! {0} reformation points given</MSS_FactionDefeated>
+    <MSS_ReformationPointsForTechs>Reformation points for tech levels: {0} tech levels, {1} points</MSS_ReformationPointsForTechs>
 </LanguageData>

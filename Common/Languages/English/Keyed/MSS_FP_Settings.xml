@@ -67,4 +67,10 @@
     <MSS_FP_Settings_TenSecondsToSpeedDelay_Tooltip>How many seconds to wait before automatically switching to ultrafast speed</MSS_FP_Settings_TenSecondsToSpeedDelay_Tooltip>
     <MSS_FP_Settings_MonitorSpeeds>Monitor these speeds:</MSS_FP_Settings_MonitorSpeeds>
 
+    <MSS_FP_Settings_EnableAnnualReformationPoints>Enable extra reformation points</MSS_FP_Settings_EnableAnnualReformationPoints>
+    <MSS_FP_Settings_AnnualReformationPoints>Annual reformation points to give</MSS_FP_Settings_AnnualReformationPoints>
+    <MSS_FP_Settings_ReformationPointsPerBaby>Reformation points per baby born</MSS_FP_Settings_ReformationPointsPerBaby>
+    <MSS_FP_Settings_ReformationPointsPerDefeatedFaction>Reformation points per defeated faction</MSS_FP_Settings_ReformationPointsPerDefeatedFaction>
+    <MSS_FP_Settings_TechsToGetPoints>Tech levels to get reformation points</MSS_FP_Settings_TechsToGetPoints>
+    <MSS_FP_Settings_ReformationPointsForTechs>Reformation points each set of tech levels</MSS_FP_Settings_ReformationPointsForTechs>
 </LanguageData>
