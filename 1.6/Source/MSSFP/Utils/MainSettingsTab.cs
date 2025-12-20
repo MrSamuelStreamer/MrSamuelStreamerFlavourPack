@@ -11,6 +11,12 @@ public class MainSettingsTab(ModSettings settings, Mod mod) : SettingsTab(settin
     public override bool IsDefault => true;
     public override int TabOrder => 0;
 
+    public string AnnualReformationPointsBuffer = "";
+    public string ReformationPointsPerBabyBuffer = "";
+    public string ReformationPointsPerDefeatedFactionBuffer = "";
+    public string TechsToGetPointsBuffer = "";
+    public string ReformationPointsForTechsBuffer = "";
+
     public override void DoTabContents(
         Listing_Standard options,
         Rect scrollViewRect,
@@ -74,6 +80,43 @@ public class MainSettingsTab(ModSettings settings, Mod mod) : SettingsTab(settin
             ref Settings.BoostChanceToSpawnExistingPawns,
             ref scrollViewHeight
         );
+
+        DrawCheckBox(
+            options,
+            "MSS_FP_Settings_EnableAnnualReformationPoints".Translate(),
+            ref Settings.EnableExtraReformationPoints,
+            ref scrollViewHeight
+        );
+
+        options.Label("MSS_FP_Settings_AnnualReformationPoints".Translate());
+        options.IntAdjuster(ref Settings.AnnualReformationPoints, 1, 0);
+
+        options.Gap(10f);
+        scrollViewHeight += 58f;
+
+        options.Label("MSS_FP_Settings_ReformationPointsPerBaby".Translate());
+        options.IntAdjuster(ref Settings.ReformationPointsPerBaby, 1, 0);
+
+        options.Gap(10f);
+        scrollViewHeight += 58f;
+
+        options.Label("MSS_FP_Settings_ReformationPointsPerDefeatedFaction".Translate());
+        options.IntAdjuster(ref Settings.ReformationPointsPerDefeatedFaction, 1, 0);
+
+        options.Gap(10f);
+        scrollViewHeight += 58f;
+
+        options.Label("MSS_FP_Settings_TechsToGetPoints".Translate());
+        options.IntAdjuster(ref Settings.TechsToGetPoints, 1, 0);
+
+        options.Gap(10f);
+        scrollViewHeight += 58f;
+
+        options.Label("MSS_FP_Settings_ReformationPointsForTechs".Translate());
+        options.IntAdjuster(ref Settings.ReformationPointsForTechs, 1, 0);
+
+        options.Gap(10f);
+        scrollViewHeight += 58f;
 
         if (Settings.Enable10SecondsToSpeed)
         {

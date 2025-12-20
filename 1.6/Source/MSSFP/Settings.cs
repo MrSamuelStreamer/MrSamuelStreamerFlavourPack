@@ -39,6 +39,12 @@ public class Settings : ModSettings
     public bool Enable10SecondsToSpeed = false;
     public bool OverrideFactionLeaderSpawn = true;
     public bool BoostChanceToSpawnExistingPawns = true;
+    public bool EnableExtraReformationPoints = false;
+    public int AnnualReformationPoints = 5;
+    public int ReformationPointsPerBaby = 1;
+    public int ReformationPointsPerDefeatedFaction = 5;
+    public int TechsToGetPoints = 5;
+    public int ReformationPointsForTechs = 1;
     public int TenSecondsToSpeedDelay = 10;
     public HashSet<Verse.TimeSpeed> MonitoredSpeeds = new()
     {
@@ -246,6 +252,12 @@ public class Settings : ModSettings
         Scribe_Values.Look(ref OverrideFactionLeaderSpawn, "OverrideFactionLeaderSpawn", true);
         Scribe_Values.Look(ref BoostChanceToSpawnExistingPawns, "BoostChanceToSpawnExistingPawns", true);
         Scribe_Values.Look(ref TenSecondsToSpeedDelay, "TenSecondsToSpeedDelay", 10);
+        Scribe_Values.Look(ref EnableExtraReformationPoints, "EnableAnnualReformationPoints", false);
+        Scribe_Values.Look(ref AnnualReformationPoints, "AnnualReformationPoints", 5);
+        Scribe_Values.Look(ref ReformationPointsPerBaby, "ReformationPointsPerBaby", 1);
+        Scribe_Values.Look(ref ReformationPointsPerDefeatedFaction, "ReformationPointsPerDefeatedFaction", 5);
+        Scribe_Values.Look(ref TechsToGetPoints, "TechsToGetPoints", 5);
+        Scribe_Values.Look(ref ReformationPointsForTechs, "ReformationPointsForTechs", 1);
         Scribe_Collections.Look(ref MonitoredSpeeds, "MonitoredSpeeds", LookMode.Value);
 
         foreach (SettingsTab settingsTab in Tabs)
