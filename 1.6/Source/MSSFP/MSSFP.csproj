@@ -108,6 +108,15 @@
         <ReleaseFiles Include="..\..\..\Examples\MSSFP_Hediff_ApplyWithinRadius.xml">
           <Link>MrSamuelStreamerFlavourPack\Examples\MSSFP_Hediff_ApplyWithinRadius.xml</Link>
         </ReleaseFiles>
+        <ReleaseFiles Update="..\..\Patches\MSSFP_Resurrector.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.6\Patches\MSSFP_Resurrector.xml</Link>
+        </ReleaseFiles>
+        <ReleaseFiles Update="..\..\Defs\Hediffs\MSS_VoidInsanity.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.6\Defs\Hediffs\MSS_VoidInsanity.xml</Link>
+        </ReleaseFiles>
+        <ReleaseFiles Update="..\..\Defs\ThoughtDefs\MSSFP_VoidInsanity.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.6\Defs\ThoughtDefs\MSSFP_VoidInsanity.xml</Link>
+        </ReleaseFiles>
     </ItemGroup>
     <Target Name="PostBuild" AfterTargets="Build" Condition=" '$(Configuration)' == 'Release' ">
         <RemoveDir Condition="Exists('../../../Release')" Directories="../../../Release" />

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <ThoughtDef>
+        <defName>MSSFP_Inhumanized</defName>
+        <thoughtClass>Thought_Memory</thoughtClass>
+        <validWhileDespawned>true</validWhileDespawned>
+        <stages>
+            <li>
+                <label>human shame</label>
+                <description>I'm ashamed of my humanity. I want to embrace the void but I fear it.</description>
+                <baseMoodEffect>-8</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+    <ThoughtDef>
+        <defName>MSSFP_OverHumanized</defName>
+        <thoughtClass>Thought_Memory</thoughtClass>
+        <validWhileDespawned>true</validWhileDespawned>
+        <stages>
+            <li>
+                <label>human purity</label>
+                <description>The existence of non-human entities is an insult to our species. This world belongs to humanity alone, and it sickens the void.</description>
+                <baseMoodEffect>-8</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+    <ThoughtDef>
+        <defName>MSSFP_ExtremeHappiness</defName>
+        <thoughtClass>Thought_Memory</thoughtClass>
+        <validWhileDespawned>true</validWhileDespawned>
+        <stages>
+            <li>
+                <label>extreme happiness</label>
+                <description>The void said hello. I am extremely happy.</description>
+                <baseMoodEffect>100</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+    <ThoughtDef>
+        <defName>MSSFP_ExtremeSadness</defName>
+        <thoughtClass>Thought_Memory</thoughtClass>
+        <validWhileDespawned>true</validWhileDespawned>
+        <stages>
+            <li>
+                <label>extreme happiness</label>
+                <description>The void said hello. I am extremely sad.</description>
+                <baseMoodEffect>-100</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+
+</Defs>

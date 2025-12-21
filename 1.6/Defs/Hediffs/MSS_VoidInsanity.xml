@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <MentalBreakDef>
+        <defName>MSSFP_HumanityBreak</defName>
+        <label>humanity break</label>
+        <intensity>Major</intensity>
+        <baseCommonality>1</baseCommonality>
+        <workerClass>MentalBreakWorker_HumanityBreak</workerClass>
+        <mentalState>HumanityBreak</mentalState>
+    </MentalBreakDef>
+
+    <HediffDef>
+        <defName>MSS_VoidInsanity</defName>
+        <label>void insanity</label>
+        <description>This person died and has been brought back. The experience has changed them in unknowable ways.</description>
+        <hediffClass>HediffWithComps</hediffClass>
+        <defaultLabelColor>(0.3, 0.05, 0.05)</defaultLabelColor>
+        <isBad>true</isBad>
+        <initialSeverity>1</initialSeverity>
+        <minSeverity>0</minSeverity>
+        <maxSeverity>1.0</maxSeverity>
+        <makesSickThought>false</makesSickThought>
+        <tendable>false</tendable>
+        <everCurableByItem>false</everCurableByItem>
+        <comps>
+            <li Class="MSSFP.Hediffs.HediffCompProperties_VoidInsanity">
+                <ChanceForMentalBreakPerDay>0.05</ChanceForMentalBreakPerDay>
+                <MentalStates>
+                    <li>DarkVisions</li>
+                    <li>InsaneRamblings</li>
+                    <li>TerrifyingHallucinations</li>
+                    <li>MSSFP_HumanityBreak</li>
+                    <li>CubeSculpting</li>
+                    <li>FireTerror</li>
+                    <li>Berserk</li>
+                    <li>FireStartingSpree</li>
+                    <li>Binging_DrugExtreme</li>
+                    <li>Catatonic</li>
+                    <li>Wander_Psychotic</li>
+                </MentalStates>
+                <ChanceForRandomThought>0.15</ChanceForRandomThought>
+                <ThoughtDaysLength>0.25~2</ThoughtDaysLength>
+                <RandomThoughts>
+                    <li>MSSFP_Inhumanized</li>
+                    <li>MSSFP_OverHumanized</li>
+                    <li>MSSFP_ExtremeHappiness</li>
+                    <li>MSSFP_ExtremeSadness</li>
+                    <li>PsychicRitualVictim</li>
+                    <li>DarknessLifted</li>
+                    <li>EmbracedTheVoid</li>
+                    <li>VoidCuriosity</li>
+                </RandomThoughts>
+            </li>
+        </comps>
+        <stages>
+            <li>
+                <label>whispered</label>
+                <minSeverity>0</minSeverity>
+            </li>
+            <li>
+                <label>affected</label>
+                <minSeverity>0.25</minSeverity>
+            </li>
+            <li>
+                <label>falling</label>
+                <minSeverity>0.5</minSeverity>
+            </li>
+            <li>
+                <label>broken</label>
+                <minSeverity>0.75</minSeverity>
+            </li>
+        </stages>
+    </HediffDef>
+</Defs>
