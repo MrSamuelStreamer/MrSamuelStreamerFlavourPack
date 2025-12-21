@@ -70,14 +70,21 @@ public class ReformationPointsWorldComponent(RimWorld.Planet.World world) : Worl
         switch (signal.tag)
         {
             case Signals.MSS_BabyAddedToFaction:
+                if(MSSFPMod.settings.ReformationPointsPerBaby == 0) break;
                 if(AddPoints(MSSFPMod.settings.ReformationPointsPerBaby))
                     Messages.Message("MSS_BabyAddedToFaction".Translate(MSSFPMod.settings.ReformationPointsPerBaby), MessageTypeDefOf.PositiveEvent, true);
                 break;
             case Signals.MSS_FactionDefeated:
+                if(MSSFPMod.settings.ReformationPointsPerDefeatedFaction == 0) break;
+                Faction faction = signal.args.GetArg(0).arg as Faction;
+                if(faction == null) break;
+                if(!faction.defeated) break;
                 if(AddPoints(MSSFPMod.settings.ReformationPointsPerDefeatedFaction))
                     Messages.Message("MSS_FactionDefeated".Translate(signal.args.GetArg(0), MSSFPMod.settings.ReformationPointsPerDefeatedFaction), MessageTypeDefOf.PositiveEvent, true);
                 break;
             case Signals.ResearchCompleted:
+                if(MSSFPMod.settings.TechsToGetPoints == 0) break;
+
                 TechsCompletedSinceLastGivingPoints++;
                 if(TechsCompletedSinceLastGivingPoints < MSSFPMod.settings.TechsToGetPoints) break;
                 TechsCompletedSinceLastGivingPoints = 0;
@@ -86,6 +93,7 @@ public class ReformationPointsWorldComponent(RimWorld.Planet.World world) : Worl
                     Messages.Message("MSS_ReformationPointsForTechs".Translate(MSSFPMod.settings.TechsToGetPoints, MSSFPMod.settings.ReformationPointsForTechs), MessageTypeDefOf.PositiveEvent, true);
                 break;
             case Signals.MSS_SeasonChanged:
+                if(MSSFPMod.settings.ReformationPointsPerSeasonChange == 0) break;
                 if(AddPoints(MSSFPMod.settings.ReformationPointsPerSeasonChange))
                     Messages.Message("MSS_SeasonChanged".Translate(MSSFPMod.settings.ReformationPointsPerSeasonChange), MessageTypeDefOf.PositiveEvent, true);
                 break;
