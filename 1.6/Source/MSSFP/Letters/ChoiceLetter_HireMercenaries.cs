@@ -291,7 +291,6 @@ namespace MSSFP.Letters
 
                 Pawn pawn = PawnGenerator.GeneratePawn(request);
 
-                // Ensure they have a mercenary backstory
                 TraitDef marySueTrait = DefDatabase<TraitDef>.GetNamed("MSSF_MarySue", false);
                 if (marySueTrait == null || !pawn.story.traits.HasTrait(marySueTrait))
                 {
@@ -312,12 +311,9 @@ namespace MSSFP.Letters
             if (pawn?.skills == null)
                 return false;
 
-            // Must have at least one decent combat skill
             int shootingSkill = pawn.skills.GetSkill(SkillDefOf.Shooting)?.Level ?? 0;
             int meleeSkill = pawn.skills.GetSkill(SkillDefOf.Melee)?.Level ?? 0;
-            Log.Message($"MSSFP: Shooting skill: {shootingSkill}, Melee skill: {meleeSkill}");
-            Log.Message($"MSSFP: Is valid mercenary: {shootingSkill >= 3 || meleeSkill >= 3}");
-            // At least one skill should be 3+
+
             return shootingSkill >= 3 || meleeSkill >= 3;
         }
 
@@ -332,7 +328,6 @@ namespace MSSFP.Letters
 
             if (backstory != null)
             {
-                // Remove old backstory skill gains if there was one
                 if (pawn.story.Adulthood != null && pawn.story.Adulthood.skillGains != null)
                 {
                     foreach (var skillGain in pawn.story.Adulthood.skillGains)
@@ -347,10 +342,8 @@ namespace MSSFP.Letters
                     }
                 }
 
-                // Set the new adulthood backstory
                 pawn.story.Adulthood = backstory;
 
-                // Apply new backstory skill gains
                 if (backstory.skillGains != null)
                 {
                     foreach (var skillGain in backstory.skillGains)
