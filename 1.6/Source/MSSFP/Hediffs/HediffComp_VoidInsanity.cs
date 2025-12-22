@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using RimWorld;
 using UnityEngine;
@@ -39,38 +38,73 @@ public class HediffComp_VoidInsanity : HediffComp
 
     public override void CompPostTickInterval(ref float severityAdjustment, int delta)
     {
-        float chanceForMentalBreak = (Props.ChanceForMentalBreakPerDay / GenDate.TicksPerDay) * delta * Mathf.Max(0.45f, ChanceMultiplier);
-        bool shouldBreak = Rand.Chance(chanceForMentalBreak);
-        if (shouldBreak)
-        {
-
-            MentalBreakIntensity level = AllowedIntensitiesForSeverity(ChanceMultiplier).RandomElement();
-
-            MentalBreakDef def;
-            if (!Props.MentalStates.NullOrEmpty())
+        if(!Props.MentalStates.NullOrEmpty()){
+            float chanceForMentalBreak = (Props.ChanceForMentalBreakPerDay / GenDate.TicksPerDay) * delta * Mathf.Max(0.45f, ChanceMultiplier);
+            bool shouldBreak = Rand.Chance(chanceForMentalBreak);
+            if (shouldBreak)
             {
-                def = Props.MentalStates.RandomElement();
-            }
-            else
-            {
-                if (!parent.pawn.mindState.mentalBreaker.TryGetRandomMentalBreak(level, out def))
+
+                MentalBreakIntensity level = AllowedIntensitiesForSeverity(ChanceMultiplier).RandomElement();
+
+                MentalBreakDef def;
+                if (!Props.MentalStates.NullOrEmpty())
                 {
-                    ModLog.Warn("Failed to get a random def");
+                    def = Props.MentalStates.RandomElementByWeight(el=>el.chance).mentalBreak;
                 }
-            }
+                else
+                {
+                    if (!parent.pawn.mindState.mentalBreaker.TryGetRandomMentalBreak(level, out def))
+                    {
+                        ModLog.Warn("Failed to get a random def");
+                    }
+                }
 
-            if(def != null) parent.pawn.mindState.mentalBreaker.TryDoMentalBreak("MSSFP_VoidBreak".Translate(), def);
+                if(def != null) parent.pawn.mindState.mentalBreaker.TryDoMentalBreak("MSSFP_VoidBreak".Translate(), def);
+            }
         }
 
-        float chanceForRandomThought = (Props.ChanceForRandomThought / GenDate.TicksPerDay) * delta *  Mathf.Max(0.45f, ChanceMultiplier);
-
-        bool shouldAddThought = Rand.Chance(chanceForRandomThought);
-        if (shouldAddThought)
+        if (!Props.RandomThoughts.NullOrEmpty())
         {
-            ThoughtDef def = Props.RandomThoughts.RandomElement();
-            parent.pawn.needs.mood.thoughts.memories.TryGainMemory(def);
-            parent.pawn.needs.mood.thoughts.memories.GetFirstMemoryOfDef(def).durationTicksOverride = Mathf.FloorToInt(GenDate.TicksPerDay * Props.ThoughtDaysLength.RandomInRange);
+            float chanceForRandomThought = (Props.ChanceForRandomThought / GenDate.TicksPerDay) * delta * Mathf.Max(0.45f, ChanceMultiplier);
+
+            bool shouldAddThought = Rand.Chance(chanceForRandomThought);
+            if (shouldAddThought)
+            {
+                ThoughtDef def = Props.RandomThoughts.RandomElementByWeight(el => el.chance).though;
+                parent.pawn.needs.mood.thoughts.memories.TryGainMemory(def);
+                parent.pawn.needs.mood.thoughts.memories.GetFirstMemoryOfDef(def).durationTicksOverride =
+                    Mathf.FloorToInt(GenDate.TicksPerDay * Props.ThoughtDaysLength.RandomInRange);
+            }
+        }
+
+        if (!Props.RandomHediffs.NullOrEmpty())
+        {
+            float chanceForRandomHediff = (Props.ChanceForRandomHediff / GenDate.TicksPerDay) * delta * Mathf.Max(0.45f, ChanceMultiplier);
+
+            bool shouldAddHediff = (tickToRemoveHediff < 0) && Rand.Chance(chanceForRandomHediff);
+            if (shouldAddHediff)
+            {
+                HediffDef def = Props.RandomHediffs.RandomElementByWeight(el => el.chance).hediff;
+                parent.pawn.health.AddHediff(def);
+                hediffToRemove = def;
+                tickToRemoveHediff = Find.TickManager.TicksAbs + Mathf.FloorToInt(GenDate.TicksPerDay * Props.HediffDaysLength.RandomInRange);
+            }
+
+            if (Find.TickManager.TicksAbs > tickToRemoveHediff)
+            {
+                Hediff hediff = parent.pawn.health.hediffSet.GetFirstHediffOfDef(hediffToRemove);
+                parent.pawn.health.RemoveHediff(hediff);
+            }
         }
     }
 
+    public int tickToRemoveHediff = -1;
+    public HediffDef hediffToRemove = null;
+
+    public override void CompExposeData()
+    {
+        base.CompExposeData();
+        Scribe_Values.Look(ref tickToRemoveHediff, "tickToRemoveHediff");
+        Scribe_Defs.Look(ref hediffToRemove, "hediffToRemove");
+    }
 }

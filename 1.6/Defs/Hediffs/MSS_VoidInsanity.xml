@@ -26,30 +26,35 @@
             <li Class="MSSFP.Hediffs.HediffCompProperties_VoidInsanity">
                 <ChanceForMentalBreakPerDay>0.05</ChanceForMentalBreakPerDay>
                 <MentalStates>
-                    <li>DarkVisions</li>
-                    <li>InsaneRamblings</li>
-                    <li>TerrifyingHallucinations</li>
-                    <li>MSSFP_HumanityBreak</li>
-                    <li>CubeSculpting</li>
-                    <li>FireTerror</li>
-                    <li>Berserk</li>
-                    <li>FireStartingSpree</li>
-                    <li>Binging_DrugExtreme</li>
-                    <li>Catatonic</li>
-                    <li>Wander_Psychotic</li>
+                    <DarkVisions>0.9</DarkVisions>
+                    <InsaneRamblings>0.9</InsaneRamblings>
+                    <TerrifyingHallucinations>0.75</TerrifyingHallucinations>
+                    <MSSFP_HumanityBreak>0.75</MSSFP_HumanityBreak>
+                    <CubeSculpting>0.5</CubeSculpting>
+                    <FireTerror>0.5</FireTerror>
+                    <Berserk>0.2</Berserk>
+                    <FireStartingSpree>0.2</FireStartingSpree>
+                    <Binging_DrugExtreme>0.5</Binging_DrugExtreme>
+                    <Catatonic>0.5</Catatonic>
+                    <Wander_Psychotic>0.5</Wander_Psychotic>
                 </MentalStates>
                 <ChanceForRandomThought>0.15</ChanceForRandomThought>
                 <ThoughtDaysLength>0.25~2</ThoughtDaysLength>
                 <RandomThoughts>
-                    <li>MSSFP_Inhumanized</li>
-                    <li>MSSFP_OverHumanized</li>
-                    <li>MSSFP_ExtremeHappiness</li>
-                    <li>MSSFP_ExtremeSadness</li>
-                    <li>PsychicRitualVictim</li>
-                    <li>DarknessLifted</li>
-                    <li>EmbracedTheVoid</li>
-                    <li>VoidCuriosity</li>
+                    <MSSFP_Inhumanized>0.7</MSSFP_Inhumanized>
+                    <MSSFP_OverHumanized>0.7</MSSFP_OverHumanized>
+                    <MSSFP_ExtremeHappiness>0.1</MSSFP_ExtremeHappiness>
+                    <MSSFP_ExtremeSadness>0.1</MSSFP_ExtremeSadness>
+                    <PsychicRitualVictim>0.5</PsychicRitualVictim>
+                    <DarknessLifted>0.3</DarknessLifted>
+                    <EmbracedTheVoid>0.3</EmbracedTheVoid>
+                    <VoidCuriosity>0.6</VoidCuriosity>
                 </RandomThoughts>
+<!--                <ChanceForRandomHediff>0.15</ChanceForRandomHediff>-->
+<!--                <HediffDaysLength>0.25~2</HediffDaysLength>-->
+<!--                <RandomHediff>-->
+<!--                    <MSS_Tranquilized>0.5</MSS_Tranquilized>-->
+<!--                </RandomHediff>-->
             </li>
         </comps>
         <stages>
