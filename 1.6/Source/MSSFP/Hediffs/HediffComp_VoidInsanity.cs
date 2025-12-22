@@ -39,7 +39,7 @@ public class HediffComp_VoidInsanity : HediffComp
 
     public override void CompPostTickInterval(ref float severityAdjustment, int delta)
     {
-        float chanceForMentalBreak = (Props.ChanceForMentalBreakPerDay / GenDate.TicksPerDay) * delta * ChanceMultiplier;
+        float chanceForMentalBreak = (Props.ChanceForMentalBreakPerDay / GenDate.TicksPerDay) * delta * Mathf.Max(0.45f, ChanceMultiplier);
         bool shouldBreak = Rand.Chance(chanceForMentalBreak);
         if (shouldBreak)
         {
@@ -62,7 +62,7 @@ public class HediffComp_VoidInsanity : HediffComp
             if(def != null) parent.pawn.mindState.mentalBreaker.TryDoMentalBreak("MSSFP_VoidBreak".Translate(), def);
         }
 
-        float chanceForRandomThought = (Props.ChanceForRandomThought / GenDate.TicksPerDay) * delta * ChanceMultiplier;
+        float chanceForRandomThought = (Props.ChanceForRandomThought / GenDate.TicksPerDay) * delta *  Mathf.Max(0.45f, ChanceMultiplier);
 
         bool shouldAddThought = Rand.Chance(chanceForRandomThought);
         if (shouldAddThought)

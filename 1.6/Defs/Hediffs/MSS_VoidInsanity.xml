@@ -14,7 +14,7 @@
         <label>void insanity</label>
         <description>This person died and has been brought back. The experience has changed them in unknowable ways.</description>
         <hediffClass>HediffWithComps</hediffClass>
-        <defaultLabelColor>(0.3, 0.05, 0.05)</defaultLabelColor>
+        <defaultLabelColor>(0.7, 0.05, 0.55)</defaultLabelColor>
         <isBad>true</isBad>
         <initialSeverity>1</initialSeverity>
         <minSeverity>0</minSeverity>
