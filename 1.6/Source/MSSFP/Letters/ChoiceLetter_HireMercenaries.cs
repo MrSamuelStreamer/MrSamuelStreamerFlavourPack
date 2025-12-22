@@ -247,26 +247,118 @@ namespace MSSFP.Letters
             }
         }
 
+        private static readonly List<string> MercenaryBackstories = new List<string>
+        {
+            // Royalty DLC - Imperial Fighter backstories
+            "LineInfanteer20",
+            "PiousSoldier67",
+            "LoyalJanissary59",
+            "ReconSniper89",
+            "Deserter65",
+            "Warmonger35",
+            "InfantryOfficer49",
+            "DisgracedOfficer19",
+            "Artilleryman28",
+            "RoyalGuard51",
+            // Core game backstories
+            "Policeman45",
+            "Bodyguard58",
+            "SpaceMarine16",
+            "Assassin20",
+            "Hunter74",
+            "Hunter89",
+            "Warrior94",
+            "Archer25",
+            "Brave88",
+            "Scout59",
+            "VengefulHunter32",
+        };
+
         private Pawn GenerateDefaultCombatPawn()
         {
             try
             {
-                // Generate a Man in Black style combat-capable pawn at colony level
+                // Generate a combat-capable mercenary with guaranteed quality
                 var request = new PawnGenerationRequest(
                     PawnKindDefOf.Colonist,
                     Faction.OfPlayer,
                     mustBeCapableOfViolence: true,
                     canGeneratePawnRelations: false,
-                    colonistRelationChanceFactor: 0f
+                    colonistRelationChanceFactor: 0f,
+                    dontGiveWeapon: false,
+                    validatorPostGear: (Pawn p) => IsValidMercenary(p)
                 );
 
                 Pawn pawn = PawnGenerator.GeneratePawn(request);
+
+                TraitDef marySueTrait = DefDatabase<TraitDef>.GetNamed("MSSF_MarySue", false);
+                if (marySueTrait == null || !pawn.story.traits.HasTrait(marySueTrait))
+                {
+                    SetMercenaryBackstory(pawn);
+                }
+
                 return pawn;
             }
             catch (System.Exception ex)
             {
                 Log.Error("MSSFP: Error generating default combat pawn: " + ex.Message);
                 return null;
+            }
+        }
+
+        private bool IsValidMercenary(Pawn pawn)
+        {
+            if (pawn?.skills == null)
+                return false;
+
+            int shootingSkill = pawn.skills.GetSkill(SkillDefOf.Shooting)?.Level ?? 0;
+            int meleeSkill = pawn.skills.GetSkill(SkillDefOf.Melee)?.Level ?? 0;
+
+            return shootingSkill >= 3 || meleeSkill >= 3;
+        }
+
+        private void SetMercenaryBackstory(Pawn pawn)
+        {
+            if (pawn?.story == null || pawn.skills == null)
+                return;
+
+            // Pick a random mercenary backstory from base game
+            string backstoryDefName = MercenaryBackstories.RandomElement();
+            BackstoryDef backstory = DefDatabase<BackstoryDef>.GetNamed(backstoryDefName, false);
+
+            if (backstory != null)
+            {
+                if (pawn.story.Adulthood != null && pawn.story.Adulthood.skillGains != null)
+                {
+                    foreach (var skillGain in pawn.story.Adulthood.skillGains)
+                    {
+                        SkillRecord skill = pawn.skills.GetSkill(skillGain.skill);
+                        if (skill != null)
+                        {
+                            skill.Level -= skillGain.amount;
+                            if (skill.Level < 0)
+                                skill.Level = 0;
+                        }
+                    }
+                }
+
+                pawn.story.Adulthood = backstory;
+
+                if (backstory.skillGains != null)
+                {
+                    foreach (var skillGain in backstory.skillGains)
+                    {
+                        SkillRecord skill = pawn.skills.GetSkill(skillGain.skill);
+                        if (skill != null)
+                        {
+                            skill.Level += skillGain.amount;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                Log.Warning($"MSSFP: Could not find backstory def: {backstoryDefName}");
             }
         }
 
