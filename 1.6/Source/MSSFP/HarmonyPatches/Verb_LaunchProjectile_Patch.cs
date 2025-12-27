@@ -79,12 +79,20 @@ public static class Verb_LaunchProjectile_Patch
         if(__instance.caster is not Pawn caster) return;
 
         float casterSize = caster.BodySize;
+        float distance = weaponMass / casterSize * MSSFPMod.settings.RecoilKnockbackMultiplier;
 
-        float ratio = weaponMass / casterSize;
+        if(casterSize >= 1f && weaponMass <= 10f) return;
+
+        float damage = weaponMass / casterSize * MSSFPMod.settings.RecoilDamageMultiplier;
+        if (casterSize < 0.5f)
+        {
+            damage += Rand.Range(1f, 12f);
+            distance += Rand.Range(0.5f, 3f);
+        }
 
         if (MSSFPMod.settings.EnableRecoilDamage)
         {
-            caster.TakeDamage(new DamageInfo(DamageDefOf.Blunt, ratio * MSSFPMod.settings.RecoilDamageMultiplier, instigator: caster, weapon: weapon.def));
+            caster.TakeDamage(new DamageInfo(DamageDefOf.Blunt, damage, instigator: caster, weapon: weapon.def));
         }
 
         if (MSSFPMod.settings.EnableRecoilKnockback)
@@ -97,7 +105,7 @@ public static class Verb_LaunchProjectile_Patch
 
             Vector3 direction = (targetPosition - casterPosition).ToVector3();
             direction.Normalize();
-            Vector3 knockbackVector = -direction * ratio * MSSFPMod.settings.RecoilKnockbackMultiplier;
+            Vector3 knockbackVector = -direction * distance ;
             IntVec3 knockbackPosition = (casterPosition.ToVector3() + knockbackVector).ToIntVec3();
 
             caster.Position = knockbackPosition;
