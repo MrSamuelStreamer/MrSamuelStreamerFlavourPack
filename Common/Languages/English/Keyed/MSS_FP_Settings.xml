@@ -74,4 +74,9 @@
     <MSS_FP_Settings_TechsToGetPoints>Tech levels to get reformation points</MSS_FP_Settings_TechsToGetPoints>
     <MSS_FP_Settings_ReformationPointsForTechs>Reformation points each set of tech levels</MSS_FP_Settings_ReformationPointsForTechs>
     <MSS_FP_Settings_ReformationPointsPerSeasonChange>Reformation points per season change</MSS_FP_Settings_ReformationPointsPerSeasonChange>
+
+    <MSS_FP_Settings_EnableRecoilDamage>Enable recoil damage for small pawns</MSS_FP_Settings_EnableRecoilDamage>
+    <MSS_FP_Settings_RecoilDamageMultiplier>Recoil damage multiplier [x{0}]</MSS_FP_Settings_RecoilDamageMultiplier>
+    <MSS_FP_Settings_EnableRecoilKnockback>Enable recoil knockback for small pawns</MSS_FP_Settings_EnableRecoilKnockback>
+    <MSS_FP_Settings_RecoilKnockbackMultiplier>Recoil knockback multiplier [x{0}]</MSS_FP_Settings_RecoilKnockbackMultiplier>
 </LanguageData>

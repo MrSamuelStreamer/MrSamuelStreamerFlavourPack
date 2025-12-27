@@ -47,6 +47,11 @@ public class Settings : ModSettings
     public int ReformationPointsForTechs = 1;
     public int ReformationPointsPerSeasonChange = 1;
     public int TenSecondsToSpeedDelay = 10;
+    public bool EnableRecoilDamage = false;
+    public float RecoilDamageMultiplier = 0.1f;
+    public bool EnableRecoilKnockback = false;
+    public float RecoilKnockbackMultiplier = 0.1f;
+
     public HashSet<Verse.TimeSpeed> MonitoredSpeeds = new()
     {
         Verse.TimeSpeed.Paused,
@@ -260,6 +265,10 @@ public class Settings : ModSettings
         Scribe_Values.Look(ref TechsToGetPoints, "TechsToGetPoints", 5);
         Scribe_Values.Look(ref ReformationPointsForTechs, "ReformationPointsForTechs", 1);
         Scribe_Values.Look(ref ReformationPointsPerSeasonChange, "ReformationPointsPerSeasonChange", 1);
+        Scribe_Values.Look(ref EnableRecoilDamage, "EnableRecoilDamage", false);
+        Scribe_Values.Look(ref RecoilDamageMultiplier, "RecoilDamageMultiplier", 0.1f);
+        Scribe_Values.Look(ref EnableRecoilKnockback, "EnableRecoilKnockback", false);
+        Scribe_Values.Look(ref RecoilKnockbackMultiplier, "RecoilKnockbackMultiplier", 0.1f);
         Scribe_Collections.Look(ref MonitoredSpeeds, "MonitoredSpeeds", LookMode.Value);
 
         foreach (SettingsTab settingsTab in Tabs)

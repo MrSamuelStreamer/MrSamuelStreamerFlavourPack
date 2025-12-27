@@ -78,6 +78,26 @@ public class MemesSettingsTab(ModSettings settings, Mod mod) : SettingsTab(setti
             1,
             ref scrollViewHeight
         );
+
+
+        DrawCheckBox(
+            options,
+            "MSS_FP_Settings_EnableRecoilDamage".Translate(),
+            ref Settings.EnableRecoilDamage,
+            ref scrollViewHeight
+        );
+
+        Settings.RecoilDamageMultiplier = options.SliderLabeled("MSS_FP_Settings_RecoilDamageMultiplier".Translate(Settings.RecoilDamageMultiplier), Settings.RecoilDamageMultiplier, 0f, 2f);
+        scrollViewHeight += 30f;
+
+        DrawCheckBox(
+            options,
+            "MSS_FP_Settings_EnableRecoilKnockback".Translate(),
+            ref Settings.EnableRecoilKnockback,
+            ref scrollViewHeight
+        );
+        Settings.RecoilKnockbackMultiplier = options.SliderLabeled("MSS_FP_Settings_RecoilKnockbackMultiplier".Translate(Settings.RecoilKnockbackMultiplier), Settings.RecoilKnockbackMultiplier, 0f, 2f);
+        scrollViewHeight += 30f;
     }
 
     public override void ExposeData()

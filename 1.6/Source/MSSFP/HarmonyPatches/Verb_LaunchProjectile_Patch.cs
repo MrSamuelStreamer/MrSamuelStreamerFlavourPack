@@ -2,6 +2,8 @@
 using System.Reflection.Emit;
 using HarmonyLib;
 using MSSFP.Verbs;
+using RimWorld;
+using UnityEngine;
 using Verse;
 
 namespace MSSFP.HarmonyPatches;
@@ -63,5 +65,48 @@ public static class Verb_LaunchProjectile_Patch
         codes.InsertRange(insertIndex + 1, newInstructions);
 
         return codes;
+    }
+
+    [HarmonyPatch("TryCastShot")]
+    [HarmonyPostfix]
+    public static void TryCastShot_Postfix(Verb_LaunchProjectile __instance, ref bool __result)
+    {
+        if(!__result) return;
+
+        Thing weapon = __instance.EquipmentSource;
+        float weaponMass = weapon.GetStatValue(StatDefOf.Mass);
+
+        if(__instance.caster is not Pawn caster) return;
+
+        float casterSize = caster.BodySize;
+
+        float ratio = weaponMass / casterSize;
+
+        if (MSSFPMod.settings.EnableRecoilDamage)
+        {
+            caster.TakeDamage(new DamageInfo(DamageDefOf.Blunt, ratio * MSSFPMod.settings.RecoilDamageMultiplier, instigator: caster, weapon: weapon.def));
+        }
+
+        if (MSSFPMod.settings.EnableRecoilKnockback)
+        {
+            IntVec3 casterPosition = caster.Position;
+            IntVec3 targetPosition = __instance.CurrentTarget.Cell;
+
+            AbilityUtility.DoClamor(caster.Position, 1, caster, ClamorDefOf.Impact);
+            FleckMaker.ThrowDustPuffThick(caster.Position.ToVector3(), caster.Map, Rand.Range(1.5f, 3f), CompAbilityEffect_Chunkskip.DustColor);
+
+            Vector3 direction = (targetPosition - casterPosition).ToVector3();
+            direction.Normalize();
+            Vector3 knockbackVector = -direction * ratio * MSSFPMod.settings.RecoilKnockbackMultiplier;
+            IntVec3 knockbackPosition = (casterPosition.ToVector3() + knockbackVector).ToIntVec3();
+
+            caster.Position = knockbackPosition;
+            caster.SetPositionDirect(knockbackPosition);
+            caster.pather.ResetToCurrentPosition();
+            caster.Notify_Teleported();
+
+            AbilityUtility.DoClamor(caster.Position, 1, caster, ClamorDefOf.Impact);
+
+        }
     }
 }
