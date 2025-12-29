@@ -73,6 +73,7 @@ public static class Verb_LaunchProjectile_Patch
     {
         if(!__result) return;
 
+        if(__instance.EquipmentSource == null) return;
         Thing weapon = __instance.EquipmentSource;
         float weaponMass = weapon.GetStatValue(StatDefOf.Mass);
 
