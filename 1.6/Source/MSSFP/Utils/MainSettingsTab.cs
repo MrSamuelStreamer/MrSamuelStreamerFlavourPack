@@ -88,37 +88,37 @@ public class MainSettingsTab(ModSettings settings, Mod mod) : SettingsTab(settin
             ref scrollViewHeight
         );
 
-        options.Label("MSS_FP_Settings_AnnualReformationPoints".Translate());
+        options.Label("MSS_FP_Settings_AnnualReformationPoints".Translate(Settings.AnnualReformationPoints));
         options.IntAdjuster(ref Settings.AnnualReformationPoints, 1, 0);
 
         options.Gap(10f);
         scrollViewHeight += 58f;
 
-        options.Label("MSS_FP_Settings_ReformationPointsPerBaby".Translate());
+        options.Label("MSS_FP_Settings_ReformationPointsPerBaby".Translate(Settings.ReformationPointsPerBaby));
         options.IntAdjuster(ref Settings.ReformationPointsPerBaby, 1, 0);
 
         options.Gap(10f);
         scrollViewHeight += 58f;
 
-        options.Label("MSS_FP_Settings_ReformationPointsPerDefeatedFaction".Translate());
+        options.Label("MSS_FP_Settings_ReformationPointsPerDefeatedFaction".Translate(Settings.ReformationPointsPerDefeatedFaction));
         options.IntAdjuster(ref Settings.ReformationPointsPerDefeatedFaction, 1, 0);
 
         options.Gap(10f);
         scrollViewHeight += 58f;
 
-        options.Label("MSS_FP_Settings_TechsToGetPoints".Translate());
+        options.Label("MSS_FP_Settings_TechsToGetPoints".Translate(Settings.TechsToGetPoints));
         options.IntAdjuster(ref Settings.TechsToGetPoints, 1, 0);
 
         options.Gap(10f);
         scrollViewHeight += 58f;
 
-        options.Label("MSS_FP_Settings_ReformationPointsForTechs".Translate());
+        options.Label("MSS_FP_Settings_ReformationPointsForTechs".Translate(Settings.ReformationPointsForTechs));
         options.IntAdjuster(ref Settings.ReformationPointsForTechs, 1, 0);
 
         options.Gap(10f);
         scrollViewHeight += 58f;
 
-        options.Label("MSS_FP_Settings_ReformationPointsPerSeasonChange".Translate());
+        options.Label("MSS_FP_Settings_ReformationPointsPerSeasonChange".Translate(Settings.ReformationPointsPerSeasonChange));
         options.IntAdjuster(ref Settings.ReformationPointsPerSeasonChange, 1, 0);
 
         options.Gap(10f);

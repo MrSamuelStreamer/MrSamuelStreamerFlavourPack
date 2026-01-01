@@ -68,12 +68,12 @@
     <MSS_FP_Settings_MonitorSpeeds>Monitor these speeds:</MSS_FP_Settings_MonitorSpeeds>
 
     <MSS_FP_Settings_EnableAnnualReformationPoints>Enable extra reformation points</MSS_FP_Settings_EnableAnnualReformationPoints>
-    <MSS_FP_Settings_AnnualReformationPoints>Annual reformation points to give</MSS_FP_Settings_AnnualReformationPoints>
-    <MSS_FP_Settings_ReformationPointsPerBaby>Reformation points per baby born</MSS_FP_Settings_ReformationPointsPerBaby>
-    <MSS_FP_Settings_ReformationPointsPerDefeatedFaction>Reformation points per defeated faction</MSS_FP_Settings_ReformationPointsPerDefeatedFaction>
-    <MSS_FP_Settings_TechsToGetPoints>Tech levels to get reformation points</MSS_FP_Settings_TechsToGetPoints>
-    <MSS_FP_Settings_ReformationPointsForTechs>Reformation points each set of tech levels</MSS_FP_Settings_ReformationPointsForTechs>
-    <MSS_FP_Settings_ReformationPointsPerSeasonChange>Reformation points per season change</MSS_FP_Settings_ReformationPointsPerSeasonChange>
+    <MSS_FP_Settings_AnnualReformationPoints>Annual reformation points to give [{0}]</MSS_FP_Settings_AnnualReformationPoints>
+    <MSS_FP_Settings_ReformationPointsPerBaby>Reformation points per baby born [{0}]</MSS_FP_Settings_ReformationPointsPerBaby>
+    <MSS_FP_Settings_ReformationPointsPerDefeatedFaction>Reformation points per defeated faction [{0}]</MSS_FP_Settings_ReformationPointsPerDefeatedFaction>
+    <MSS_FP_Settings_TechsToGetPoints>Tech levels to get reformation points [{0}]</MSS_FP_Settings_TechsToGetPoints>
+    <MSS_FP_Settings_ReformationPointsForTechs>Reformation points each set of tech levels [{0}]</MSS_FP_Settings_ReformationPointsForTechs>
+    <MSS_FP_Settings_ReformationPointsPerSeasonChange>Reformation points per season change [{0}]</MSS_FP_Settings_ReformationPointsPerSeasonChange>
 
     <MSS_FP_Settings_EnableRecoilDamage>Enable recoil damage for small pawns</MSS_FP_Settings_EnableRecoilDamage>
     <MSS_FP_Settings_RecoilDamageMultiplier>Recoil damage multiplier [x{0}]</MSS_FP_Settings_RecoilDamageMultiplier>
