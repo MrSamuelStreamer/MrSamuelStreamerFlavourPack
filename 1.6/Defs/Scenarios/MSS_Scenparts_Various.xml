@@ -22,4 +22,14 @@
             </li>
         </modExtensions>
     </ScenPartDef>
+
+    <ScenPartDef>
+        <defName>MSSFP_PlayerHasAllResearch</defName>
+        <label>Start with all research</label>
+        <category>Rule</category>
+        <maxUses>1</maxUses>
+        <canBeRandomlyAdded>false</canBeRandomlyAdded>
+        <canBePlayerAddedRemoved>true</canBePlayerAddedRemoved>
+        <scenPartClass>MSSFP.ScenParts.ScenPart_PlayerHasAllResearch</scenPartClass>
+    </ScenPartDef>
 </Defs>
