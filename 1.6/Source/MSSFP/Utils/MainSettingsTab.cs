@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Globalization;
 using UnityEngine;
 using Verse;
 
@@ -16,6 +17,7 @@ public class MainSettingsTab(ModSettings settings, Mod mod) : SettingsTab(settin
     public string ReformationPointsPerDefeatedFactionBuffer = "";
     public string TechsToGetPointsBuffer = "";
     public string ReformationPointsForTechsBuffer = "";
+    public string BreakdownMTBDaysBuffer = "";
 
     public override void DoTabContents(
         Listing_Standard options,
@@ -120,6 +122,14 @@ public class MainSettingsTab(ModSettings settings, Mod mod) : SettingsTab(settin
 
         options.Label("MSS_FP_Settings_ReformationPointsPerSeasonChange".Translate(Settings.ReformationPointsPerSeasonChange));
         options.IntAdjuster(ref Settings.ReformationPointsPerSeasonChange, 1, 0);
+
+        options.Gap(10f);
+        scrollViewHeight += 58f;
+
+        if (Settings.BreakdownMTBDays <= 0) Settings.BreakdownMTBDays = Settings.BreakdownMTBDaysDefault;
+        if (BreakdownMTBDaysBuffer.NullOrEmpty()) BreakdownMTBDaysBuffer = Settings.BreakdownMTBDays.ToString(CultureInfo.InvariantCulture);
+        options.Label("MSS_FP_Settings_BreakdownMTBDays".Translate(Settings.BreakdownMTBDays));
+        options.TextFieldNumeric(ref Settings.BreakdownMTBDays, ref BreakdownMTBDaysBuffer);
 
         options.Gap(10f);
         scrollViewHeight += 58f;

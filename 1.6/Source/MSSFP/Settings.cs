@@ -11,6 +11,8 @@ namespace MSSFP;
 
 public class Settings : ModSettings
 {
+    public static float BreakdownMTBDaysDefault = 13680000f / GenDate.TicksPerDay;
+
     public bool ShowHaunts = false;
     public bool EnableSkylanternRaids = false;
     public bool DrawByMrStreamer = false;
@@ -51,6 +53,7 @@ public class Settings : ModSettings
     public float RecoilDamageMultiplier = 0.1f;
     public bool EnableRecoilKnockback = false;
     public float RecoilKnockbackMultiplier = 0.1f;
+    public float BreakdownMTBDays = BreakdownMTBDaysDefault;
 
     public HashSet<Verse.TimeSpeed> MonitoredSpeeds = new()
     {
@@ -269,6 +272,7 @@ public class Settings : ModSettings
         Scribe_Values.Look(ref RecoilDamageMultiplier, "RecoilDamageMultiplier", 0.1f);
         Scribe_Values.Look(ref EnableRecoilKnockback, "EnableRecoilKnockback", false);
         Scribe_Values.Look(ref RecoilKnockbackMultiplier, "RecoilKnockbackMultiplier", 0.1f);
+        Scribe_Values.Look(ref BreakdownMTBDays, "BreakdownMTBDays", BreakdownMTBDaysDefault);
         Scribe_Collections.Look(ref MonitoredSpeeds, "MonitoredSpeeds", LookMode.Value);
 
         foreach (SettingsTab settingsTab in Tabs)

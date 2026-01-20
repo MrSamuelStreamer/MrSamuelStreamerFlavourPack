@@ -74,6 +74,7 @@
     <MSS_FP_Settings_TechsToGetPoints>Tech levels to get reformation points [{0}]</MSS_FP_Settings_TechsToGetPoints>
     <MSS_FP_Settings_ReformationPointsForTechs>Reformation points each set of tech levels [{0}]</MSS_FP_Settings_ReformationPointsForTechs>
     <MSS_FP_Settings_ReformationPointsPerSeasonChange>Reformation points per season change [{0}]</MSS_FP_Settings_ReformationPointsPerSeasonChange>
+    <MSS_FP_Settings_BreakdownMTBDays>Breakdown MTB Days [{0}]</MSS_FP_Settings_BreakdownMTBDays>
 
     <MSS_FP_Settings_EnableRecoilDamage>Enable recoil damage for small pawns</MSS_FP_Settings_EnableRecoilDamage>
     <MSS_FP_Settings_RecoilDamageMultiplier>Recoil damage multiplier [x{0}]</MSS_FP_Settings_RecoilDamageMultiplier>
