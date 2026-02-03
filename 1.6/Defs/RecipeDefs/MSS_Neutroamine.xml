@@ -8,7 +8,7 @@
 		<description>Extract and refine 8 neutroamine from complex medicinal and psychoactive plant compounds.</description>
     <jobString>Making 8 neutroamine.</jobString>
 		<displayPriority>1799</displayPriority>
-		<workAmount>2400</workAmount>
+		<workAmount>12000</workAmount>
 		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
 		<effectWorking>Cook</effectWorking>
 		<soundWorking>Recipe_Brewing</soundWorking>
