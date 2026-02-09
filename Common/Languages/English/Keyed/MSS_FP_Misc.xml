@@ -140,5 +140,5 @@
     <MSS_BabyAddedToFaction>New Baby! {0} reformation points given</MSS_BabyAddedToFaction>
     <MSS_FactionDefeated>Faction defeated! {0} reformation points given</MSS_FactionDefeated>
     <MSS_ReformationPointsForTechs>Reformation points for tech levels: {0} tech levels, {1} points</MSS_ReformationPointsForTechs>
-    <MSS_ReformationPointsForTechs>Season changed! {0} reformation points given</MSS_ReformationPointsForTechs>
+    <MSS_SeasonChanged>Season changed! {0} reformation points given</MSS_SeasonChanged>
 </LanguageData>
