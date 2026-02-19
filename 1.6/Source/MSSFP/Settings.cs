@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -39,6 +39,7 @@ public class Settings : ModSettings
     public bool EnableColonistPortraitHiding = true;
     public bool ShowHiddenPortraits = false;
     public bool Enable10SecondsToSpeed = false;
+    public bool Active10SecondsToSpeed = true;
     public bool OverrideFactionLeaderSpawn = true;
     public bool BoostChanceToSpawnExistingPawns = true;
     public bool EnableExtraReformationPoints = false;
@@ -258,6 +259,7 @@ public class Settings : ModSettings
         Scribe_Values.Look(ref EnableColonistPortraitHiding, "EnableColonistPortraitHiding", true);
         Scribe_Values.Look(ref ShowHiddenPortraits, "ShowHiddenPortraits", false);
         Scribe_Values.Look(ref Enable10SecondsToSpeed, "Enable10SecondsToSpeed", false);
+        Scribe_Values.Look(ref Active10SecondsToSpeed, "Active10SecondsToSpeed", false);
         Scribe_Values.Look(ref OverrideFactionLeaderSpawn, "OverrideFactionLeaderSpawn", true);
         Scribe_Values.Look(ref BoostChanceToSpawnExistingPawns, "BoostChanceToSpawnExistingPawns", true);
         Scribe_Values.Look(ref TenSecondsToSpeedDelay, "TenSecondsToSpeedDelay", 10);
