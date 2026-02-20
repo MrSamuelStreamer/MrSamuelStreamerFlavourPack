@@ -11,7 +11,7 @@ internal static class TickManager_10SecondsToSpeed_Patch
     [HarmonyPostfix]
     private static void Postfix()
     {
-        if (!MSSFPMod.settings.Enable10SecondsToSpeed)
+        if (!MSSFPMod.settings.Enable10SecondsToSpeed || !MSSFPMod.settings.Active10SecondsToSpeed)
             return;
 
         TimeSpeed currentSpeed = Find.TickManager.CurTimeSpeed;
