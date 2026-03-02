@@ -1,7 +1,0 @@
-overrides:
-    - files: "*.{csproj,xml}"
-      printWidth: 512
-      indentSize: 4
-      formatter: "xml"
-      useTabs: false
-      endOfLine: auto
