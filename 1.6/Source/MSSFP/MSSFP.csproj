@@ -117,6 +117,9 @@
         <ReleaseFiles Update="..\..\Defs\ThoughtDefs\MSSFP_VoidInsanity.xml">
           <Link>MrSamuelStreamerFlavourPack\1.6\Defs\ThoughtDefs\MSSFP_VoidInsanity.xml</Link>
         </ReleaseFiles>
+        <ReleaseFiles Update="..\..\Patches\MSS_World.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.6\Patches\MSS_World.xml</Link>
+        </ReleaseFiles>
     </ItemGroup>
     <Target Name="PostBuild" AfterTargets="Build" Condition=" '$(Configuration)' == 'Release' ">
         <RemoveDir Condition="Exists('../../../Release')" Directories="../../../Release" />
