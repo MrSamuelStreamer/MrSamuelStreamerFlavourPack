@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Patch>
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/PlanetLayerDef[defName="Surface"]/worldDrawLayers</xpath>
+        <value><li>MSSFP.Comps.World.WorldDrawLayer_ElevationOverlay</li></value>
+    </Operation>
+</Patch>
