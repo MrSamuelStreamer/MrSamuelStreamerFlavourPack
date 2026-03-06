@@ -4,6 +4,7 @@ using RimWorld.Planet;
 using Verse;
 using MSSFP.Comps.World;
 using RimWorld;
+using UnityEngine;
 
 namespace MSSFP.DebugActions;
 
@@ -86,6 +87,37 @@ public static class DebugActions_Elevation
         return tiles;
     }
 
+    private static int GetTileDistance(WorldGrid grid, int fromTile, int toTile)
+    {
+        if (fromTile == toTile) return 0;
+
+        HashSet<int> visited = new HashSet<int> { fromTile };
+        List<int> currentEdge = new List<int> { fromTile };
+        List<PlanetTile> neighbors = new List<PlanetTile>();
+        int distance = 0;
+
+        while (currentEdge.Count > 0)
+        {
+            distance++;
+            List<int> nextEdge = new List<int>();
+            foreach (int t in currentEdge)
+            {
+                neighbors.Clear();
+                grid.GetTileNeighbors(t, neighbors);
+                foreach (PlanetTile n in neighbors)
+                {
+                    if (n.tileId == toTile) return distance;
+                    if (visited.Add(n.tileId))
+                    {
+                        nextEdge.Add(n.tileId);
+                    }
+                }
+            }
+            currentEdge = nextEdge;
+        }
+        return distance;
+    }
+
     private static void ChangeElevation(float amount, int radius)
     {
         PlanetTile mouseTile = GenWorld.MouseTile();
@@ -100,9 +132,22 @@ public static class DebugActions_Elevation
         else
         {
             HashSet<int> tiles = GetTilesInRadius(grid, mouseTile, radius);
-            foreach (int tId in tiles)
+
+            if (Event.current.shift)
             {
-                ApplyElevationChange(grid, tId, amount);
+                foreach (int tId in tiles)
+                {
+                    int distance = GetTileDistance(grid, mouseTile, tId);
+                    float falloff = 1f - ((float)distance / (radius + 1));
+                    ApplyElevationChange(grid, tId, amount * falloff);
+                }
+            }
+            else
+            {
+                foreach (int tId in tiles)
+                {
+                    ApplyElevationChange(grid, tId, amount);
+                }
             }
         }
 
