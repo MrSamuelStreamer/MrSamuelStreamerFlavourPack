@@ -8,7 +8,7 @@ namespace MSSFP.HarmonyPatches;
 [HarmonyPatch(typeof(PlaySettings), nameof(PlaySettings.DoPlaySettingsGlobalControls))]
 internal static class PlaySettings_ElevationOverlay_Patch
 {
-    private static readonly Texture2D ElevationTex = ContentFinder<Texture2D>.Get("UI/Overlays/Elevation", true);
+    private static readonly Texture2D ElevationTex = ContentFinder<Texture2D>.Get("UI/MSS_FP_Elevation_Toggle", true);
 
     [HarmonyPostfix]
     private static void Postfix(WidgetRow row, bool worldView)
