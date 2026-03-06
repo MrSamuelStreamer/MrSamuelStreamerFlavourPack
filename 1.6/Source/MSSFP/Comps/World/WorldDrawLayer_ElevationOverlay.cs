@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using RimWorld.Planet;
@@ -16,6 +17,9 @@ public class WorldDrawLayer_ElevationOverlay : WorldDrawLayer
 
     public Color GetTileColor(float elev, float minElevation, float maxElevation)
     {
+        minElevation = Mathf.Min(minElevation, -1000f);
+        maxElevation = Mathf.Max(maxElevation, 1000f);
+
         Color color;
         if (elev >= 0)
         {
