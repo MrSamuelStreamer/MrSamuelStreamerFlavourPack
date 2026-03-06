@@ -12,6 +12,7 @@ public class WorldDrawLayer_ElevationOverlay : WorldDrawLayer
     private static readonly Color ColorSeaLevel = Color.green;
     private static readonly Color ColorHighElevation = Color.red;
     private static readonly Color ColorBelowSeaLevel = Color.blue;
+    private static readonly Color ColorVeryBelowSeaLevel = Color.black;
 
     public override bool Visible => MSSFPMod.settings.ShowElevationOverlay;
 
@@ -29,7 +30,7 @@ public class WorldDrawLayer_ElevationOverlay : WorldDrawLayer
         else
         {
             float t = minElevation < 0 ? elev / minElevation : 0;
-            color = Color.Lerp(ColorSeaLevel, ColorBelowSeaLevel, t);
+            color = Color.Lerp(ColorBelowSeaLevel, ColorVeryBelowSeaLevel, t);
         }
         color.a = 0.5f;
 
