@@ -21,4 +21,13 @@ public static class DebugActions_ClearLandmarks
         }
     }
 
+    [DebugAction(Category, "Clear All Features", allowedGameStates = AllowedGameStates.PlayingOnWorld)]
+    public static void ClearFeatures()
+    {
+        foreach (Tile tile in Find.WorldGrid.Surface.Tiles)
+        {
+            tile.feature = null;
+        }
+    }
+
 }
