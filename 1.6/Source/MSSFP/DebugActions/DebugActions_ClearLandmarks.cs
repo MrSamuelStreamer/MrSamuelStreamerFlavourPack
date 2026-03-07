@@ -1,10 +1,9 @@
-using System.Collections.Generic;
+using System;
+using System.Linq;
 using LudeonTK;
+using RimWorld;
 using RimWorld.Planet;
 using Verse;
-using MSSFP.Comps.World;
-using RimWorld;
-using UnityEngine;
 
 namespace MSSFP.DebugActions;
 
@@ -27,6 +26,17 @@ public static class DebugActions_ClearLandmarks
         foreach (Tile tile in Find.WorldGrid.Surface.Tiles)
         {
             tile.feature = null;
+        }
+        foreach (FeatureDef featureDef in DefDatabase<FeatureDef>.AllDefsListForReading.OrderBy(x => x.order).ThenBy(x => x.index))
+        {
+            try
+            {
+                featureDef.Worker.GenerateWhereAppropriate(Find.WorldGrid.Surface);
+            }
+            catch (Exception ex)
+            {
+                Log.Error($"Could not generate world features of def {featureDef}: {ex}");
+            }
         }
     }
 
