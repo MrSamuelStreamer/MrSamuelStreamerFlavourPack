@@ -14,28 +14,47 @@
             <li>subject->brainrot</li>
             <li>subject->snu-snu</li>
             <li>subject->that one time at band camp</li>
-
+            <li>subject->looksmaxxing</li>
+            <li>subject->the sigma male grindset</li>
+            <li>subject->paying the fanum tax</li>
+            <li>subject->surviving the grimace shake</li>
+            <li>subject->being built different</li>
         </value>
     </Operation>
+
     <Operation Class="PatchOperationAdd">
         <xpath>/Defs/InteractionDef[defName="RomanceAttempt"]/logRulesInitiator/rulesStrings</xpath>
         <value>
             <li>wooed->rizzed</li>
+            <li>wooed->slid into the DMs of</li>
+            <li>wooed->let cook</li>
+
             <li>wootactic->asking where rimrim?</li>
             <li>wootactic->dabbing</li>
             <li>wootactic->repeating "XML boy! XML boy! You're so stinky! XML boy!"</li>
             <li>wootactic->saying they were skibidi ohio</li>
             <li>wootactic->saying they were dank, fr fr</li>
             <li>wootactic->saying they were giving [vibeType], no cap, fr fr</li>
+            <li>wootactic->moaning about rimrim being late</li>
+            <li>wootactic->drawing pictures of frogge</li>
+            <li>wootactic->explaining that life is what we make of it, that life has no meaning but that which we give it</li>
+            <li>wootactic->talking about the pointlessness of life, how nothing we do or say matters, and how we are small and insignificant specs that flitter into and out of existance on unimaginably small scales</li>
+            <li>wootactic->showing off their mewing streak</li>
+            <li>wootactic->hitting the griddy</li>
+            <li>wootactic->claiming they have that dog in them</li>
+            <li>wootactic->flexing their W drip</li>
+            <li>wootactic->promising to never leave them on read</li>
+
             <li>vibeType->BDE</li>
             <li>vibeType->chill</li>
             <li>vibeType->blast</li>
             <li>vibeType->potato</li>
             <li>vibeType->"sweet baby boy"</li>
-            <li>wootactic->moaning about rimrim being late</li>
-            <li>wootactic->drawing pictures of frogge</li>
-            <li>wootactic->explaining that life is what we make of it, that life has no meaning but that which we give it</li>
-            <li>wootactic->talking about the pointlessness of life, how nothing we do or say matters, and how we are small and insignificant specs that flitter into and out of existance on unimaginably small scales</li>
+            <li>vibeType->main character energy</li>
+            <li>vibeType->delulu</li>
+            <li>vibeType->based</li>
+            <li>vibeType->bussin</li>
+
             <li>PersonalCharacteristic->rizz</li>
             <li>PersonalCharacteristic->BDE</li>
             <li>PersonalCharacteristic->boujee ways</li>
@@ -44,19 +63,37 @@
             <li>PersonalCharacteristic->ick</li>
             <li>PersonalCharacteristic->stank</li>
             <li>PersonalCharacteristic->creep</li>
+            <li>PersonalCharacteristic->aura</li>
+            <li>PersonalCharacteristic->gyatt</li>
+            <li>PersonalCharacteristic->jawline</li>
         </value>
     </Operation>
+
     <Operation Class="PatchOperationAdd">
         <xpath>/Defs/RulePackDef[defName="GlobalUtility"]/rulePack/rulesStrings</xpath>
         <value>
             <li>ConceptPositive->rimrim</li>
             <li>ConceptPositive->frogge</li>
             <li>ConceptPositive->rizz</li>
+            <li>ConceptPositive->W</li>
+            <li>ConceptPositive->GOAT</li>
+            <li>ConceptPositive->W drip</li>
+
             <li>ConceptAngsty->ick</li>
+            <li>ConceptAngsty->L</li>
+            <li>ConceptAngsty->cringe</li>
+            <li>ConceptAngsty->flop era</li>
+
             <li>AdjectiveLarge->BDE</li>
+            <li>AdjectiveLarge->thicc</li>
+            <li>AdjectiveLarge->dummy thicc</li>
+
             <li>NaturalObject->glizzy</li>
+            <li>NaturalObject->copium</li>
+            <li>NaturalObject->vape cloud</li>
         </value>
     </Operation>
+
     <Operation Class="PatchOperationAdd">
         <xpath>/Defs/RulePackDef[defName="TalkTopicsUtility"]/rulePack/rulesStrings</xpath>
         <value>
@@ -73,8 +110,15 @@
             <li>TalkTopicAny->touching grass</li>
             <li>TalkTopicAny->touching grass</li>
             <li>TalkTopicAny->proletarian labour stolen by the bourgeoisie</li>
+            <li>TalkTopicAny->their looksmaxxing journey</li>
+            <li>TalkTopicAny->who let the bro cook</li>
+            <li>TalkTopicAny->getting ratioed on the rim</li>
+            <li>TalkTopicAny->doing it for the vine</li>
+            <li>TalkTopicAny->the masculine urge to dig a really deep hole</li>
+            <li>TalkTopicAny->gatekeeping, gaslighting, and girlbossing</li>
         </value>
     </Operation>
+
     <Operation Class="PatchOperationAdd">
         <xpath>/Defs/RulePackDef[defName="NamerTraderGeneral"]/rulePack/rulesStrings</xpath>
         <value>
@@ -85,6 +129,10 @@
             <li>businesstype->[purveyStuff] Slingers</li>
             <li>businesstype->BDE</li>
             <li>businesstype->Purveyors of [purveyStuff]</li>
+            <li>businesstype->Drop-shipping Co.</li>
+            <li>businesstype->Hustle University</li>
+            <li>businesstype->Alpha Grindset</li>
+
             <li>purveyStuff->Guff</li>
             <li>purveyStuff->Tat</li>
             <li>purveyStuff->Junk</li>
@@ -92,6 +140,50 @@
             <li>purveyStuff->Garbage</li>
             <li>purveyStuff->Stuff</li>
             <li>purveyStuff->Things</li>
+            <li>purveyStuff->Drip</li>
+            <li>purveyStuff->Copium</li>
+            <li>purveyStuff->Merch</li>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs/InteractionDef[defName="Insult"]/logRulesInitiator/rulesStrings</xpath>
+        <value>
+            <li>r_logentry->[INITIATOR_nameDef] called [TARGET_nameDef] a literal NPC.</li>
+            <li>r_logentry->[INITIATOR_nameDef] said [TARGET_nameDef] has negative aura.</li>
+            <li>r_logentry->[INITIATOR_nameDef] completely ratioed [TARGET_nameDef].</li>
+            <li>r_logentry->[INITIATOR_nameDef] told [TARGET_nameDef] to hold this L.</li>
+            <li>r_logentry->[INITIATOR_nameDef] informed [TARGET_nameDef] that they fell off.</li>
+            <li>r_logentry->[INITIATOR_nameDef] clowned on [TARGET_nameDef]'s goofy ahh [PersonalCharacteristic].</li>
+            <li>r_logentry->[INITIATOR_nameDef] said [TARGET_nameDef]'s [PersonalCharacteristic] is incredibly mid.</li>
+            <li>r_logentry->[INITIATOR_nameDef] roasted [TARGET_nameDef] for having zero bitches.</li>
+
+            <li>PersonalCharacteristic->fit</li>
+            <li>PersonalCharacteristic->yee yee ass haircut</li>
+            <li>PersonalCharacteristic->search history</li>
+            <li>PersonalCharacteristic->Spotify Wrapped</li>
+            <li>PersonalCharacteristic->Minecraft house</li>
+            <li>PersonalCharacteristic->lack of reading comprehension</li>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs/InteractionDef[defName="Chitchat"]/logRulesInitiator/rulesStrings</xpath>
+        <value>
+            <li>r_logentry->[INITIATOR_nameDef] and [TARGET_nameDef] yapped about [TalkTopicAny].</li>
+            <li>r_logentry->[INITIATOR_nameDef] spilled the tea to [TARGET_nameDef] about [TalkTopicAny].</li>
+            <li>r_logentry->[INITIATOR_nameDef] asked [TARGET_nameDef] to explain the lore of [TalkTopicAny].</li>
+            <li>r_logentry->[INITIATOR_nameDef] and [TARGET_nameDef] vibed while discussing [TalkTopicAny].</li>
+            <li>r_logentry->[INITIATOR_nameDef] trauma-dumped on [TARGET_nameDef] regarding [TalkTopicAny].</li>
+
+            <li>TalkTopicAny->the current meta</li>
+            <li>TalkTopicAny->who was acting sus in electrical</li>
+            <li>TalkTopicAny->what the dog was doing</li>
+            <li>TalkTopicAny->hitting a devious lick on the Empire</li>
+            <li>TalkTopicAny->their TikTok FYP</li>
+            <li>TalkTopicAny->Subway Surfers gameplay</li>
+            <li>TalkTopicAny->watching Family Guy funny moments to maintain attention</li>
+            <li>TalkTopicAny->five nights at freddy's</li>
         </value>
     </Operation>
 </Patch>
