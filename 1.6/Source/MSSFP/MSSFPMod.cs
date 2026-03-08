@@ -5,6 +5,7 @@ using HarmonyLib;
 using MSSFP.HarmonyPatches;
 using MSSFP.Utils;
 using RimWorld;
+using RimWorld.Planet;
 using UnityEngine;
 using Verse;
 
@@ -49,11 +50,31 @@ public class MSSFPMod : Mod
         );
 
         harmony.Patch(CI, null, new HarmonyMethod(MI));
+
+        ToggleSettlementDefeatPatch(MSSFPMod.settings.ReformationPointsPerDefeatedFaction > 0);
+    }
+
+    public static void ToggleSettlementDefeatPatch(bool enable)
+    {
+        Harmony harmony = new Harmony("MrSamuelStreamer.rimworld.MSSFP.main");
+        MethodInfo original = AccessTools.Method(typeof(SettlementDefeatUtility), nameof(SettlementDefeatUtility.CheckDefeated));
+        MethodInfo prefix = AccessTools.Method(typeof(SettlementDefeatUtility_Patch), nameof(SettlementDefeatUtility_Patch.CheckDefeated_Prefix));
+
+        if (enable)
+        {
+            harmony.Patch(original, prefix: new HarmonyMethod(prefix));
+        }
+        else
+        {
+            harmony.Unpatch(original, prefix);
+        }
     }
 
     public override void WriteSettings()
     {
         base.WriteSettings();
+
+        ToggleSettlementDefeatPatch(MSSFPMod.settings.ReformationPointsPerDefeatedFaction > 0);
 
         //For saving from other assemblies
         foreach (Action postSaveAction in SettingsTab.PostSaveActions)
