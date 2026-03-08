@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+    <Operation Class="PatchOperationReplace">
+      <xpath>Defs/ThingDef[defName="RH2_BrainwashChair"]/description</xpath>
+      <value>
+        <description>A repurposed electric chair with restraints designed to be used for brainwashing. Subjects are to be restrained on the chair and subjected to mental trauma and psychological reprogramming to such a degree that their mind is altered.
+
+Place the brainwash chair in view of a tube television, inside a closed room.
+
+After successful use, the subject will enter a catatonic state with their entire personality randomly re-rolled.</description>
+    </value>
+  </Operation>
+</Patch>

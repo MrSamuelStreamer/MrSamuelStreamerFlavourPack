@@ -12,5 +12,6 @@
         <li IfModActive="rebuild.cotr.doorsandcorners">Compatibility/rebuild.cotr.doorsandcorners/1.6</li>
         <li IfModActive="vanillaquestsexpanded.generator">Compatibility/vanillaquestsexpanded.generator/1.6</li>
         <li IfModActive="void.charactereditor">Compatibility/void.charactereditor/1.6</li>
+        <li IfModActive="cp.uncle.boris.brainwash.chair">Compatibility/cp.uncle.boris.brainwash.chair/1.6</li>
     </v1.6>
 </loadFolders>
