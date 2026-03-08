@@ -9,14 +9,14 @@ using Verse;
 namespace MSSFP.HarmonyPatches;
 
 
-[HarmonyPatch(typeof(SettlementDefeatUtility))]
+// [HarmonyPatch(typeof(SettlementDefeatUtility))]
 public static class SettlementDefeatUtility_Patch
 {
     public static Lazy<MethodInfo> HasAnyOtherBase = new(() => AccessTools.Method(typeof(SettlementDefeatUtility), "HasAnyOtherBase"));
 
-    [HarmonyPatch(nameof(SettlementDefeatUtility.CheckDefeated))]
-    [HarmonyPrefix]
-    public static void CheckDefeated_Postfix(Settlement factionBase)
+    // [HarmonyPatch(nameof(SettlementDefeatUtility.CheckDefeated))]
+    // [HarmonyPrefix]
+    public static void CheckDefeated_Prefix(Settlement factionBase)
     {
         if(factionBase.Faction.IsPlayer) return;
         bool retval = (bool)HasAnyOtherBase.Value.Invoke(null, [factionBase]);
