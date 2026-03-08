@@ -6,7 +6,7 @@ using RimWorld;
 using Verse;
 using Verse.AI;
 
-namespace Superpack_BrainwashPatch
+namespace MSSFP.BW
 {
     public static class Superpack_Brainwash
     {
@@ -26,7 +26,7 @@ namespace Superpack_BrainwashPatch
     {
         public Brainwash_Patch(ModContentPack content) : base(content)
         {
-            var harmony = new Harmony("BrainwashPatch.RandomiseTraitsPassions");
+            var harmony = new Harmony("MSSFP.BW.RandomiseTraitsPassions");
             harmony.PatchAll();
         }
     }
