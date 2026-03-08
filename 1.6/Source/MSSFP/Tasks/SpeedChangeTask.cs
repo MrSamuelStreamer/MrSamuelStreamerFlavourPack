@@ -31,7 +31,7 @@ public class SpeedChangeTask : IOnThreadTask
         if (_pendingTask == this)
             _pendingTask = null;
 
-        if (!MSSFPMod.settings.Enable10SecondsToSpeed)
+        if (!MSSFPMod.settings.Enable10SecondsToSpeed || !MSSFPMod.settings.Active10SecondsToSpeed)
             return;
 
         TimeSpeed currentSpeed = Find.TickManager.CurTimeSpeed;

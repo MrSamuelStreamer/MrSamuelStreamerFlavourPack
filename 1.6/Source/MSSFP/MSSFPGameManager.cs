@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using MSSFP.HarmonyPatches;
@@ -59,6 +59,7 @@ public class MSSFPGameManager : GameComponent
         {
             if (
                 MSSFPMod.settings.Enable10SecondsToSpeed
+                && MSSFPMod.settings.Active10SecondsToSpeed
                 && MSSFPMod.settings.IsSpeedMonitored(currentSpeed)
                 && currentSpeed != TimeSpeed.Ultrafast
             )
@@ -103,11 +104,12 @@ public class MSSFPGameManager : GameComponent
             return;
 
         if (
-            DefDatabase<KeyBindingDef>.GetNamed("MSSFP_Toggle10SecondsToSpeed")?.KeyDownEvent
-            ?? false
+            MSSFPMod.settings.Enable10SecondsToSpeed
+            && (DefDatabase<KeyBindingDef>.GetNamed("MSSFP_Toggle10SecondsToSpeed")?.KeyDownEvent
+                ?? false)
         )
         {
-            MSSFPMod.settings.Enable10SecondsToSpeed = !MSSFPMod.settings.Enable10SecondsToSpeed;
+            MSSFPMod.settings.Active10SecondsToSpeed = !MSSFPMod.settings.Active10SecondsToSpeed;
             Event.current?.Use();
         }
     }
