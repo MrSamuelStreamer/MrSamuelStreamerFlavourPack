@@ -51,7 +51,7 @@ public class MSSFPMod : Mod
 
         harmony.Patch(CI, null, new HarmonyMethod(MI));
 
-        ToggleSettlementDefeatPatch(MSSFPMod.settings.ReformationPointsPerDefeatedFaction > 0);
+        ToggleSettlementDefeatPatch(settings.ReformationPointsPerDefeatedFaction > 0 && settings.EnableExtraReformationPoints);
     }
 
     public static void ToggleSettlementDefeatPatch(bool enable)
@@ -74,7 +74,7 @@ public class MSSFPMod : Mod
     {
         base.WriteSettings();
 
-        ToggleSettlementDefeatPatch(MSSFPMod.settings.ReformationPointsPerDefeatedFaction > 0);
+        ToggleSettlementDefeatPatch(settings.ReformationPointsPerDefeatedFaction > 0 && settings.EnableExtraReformationPoints);
 
         //For saving from other assemblies
         foreach (Action postSaveAction in SettingsTab.PostSaveActions)
