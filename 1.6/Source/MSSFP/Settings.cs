@@ -42,6 +42,7 @@ public class Settings : ModSettings
     public bool Active10SecondsToSpeed = true;
     public bool OverrideFactionLeaderSpawn = true;
     public bool BoostChanceToSpawnExistingPawns = true;
+    public float FactionLeaderRaidChance = 0.4f;
     public bool EnableExtraReformationPoints = false;
     public int AnnualReformationPoints = 5;
     public int ReformationPointsPerBaby = 1;
@@ -263,6 +264,7 @@ public class Settings : ModSettings
         Scribe_Values.Look(ref Active10SecondsToSpeed, "Active10SecondsToSpeed", false);
         Scribe_Values.Look(ref OverrideFactionLeaderSpawn, "OverrideFactionLeaderSpawn", true);
         Scribe_Values.Look(ref BoostChanceToSpawnExistingPawns, "BoostChanceToSpawnExistingPawns", true);
+        Scribe_Values.Look(ref FactionLeaderRaidChance, "FactionLeaderRaidChance", 0.4f);
         Scribe_Values.Look(ref TenSecondsToSpeedDelay, "TenSecondsToSpeedDelay", 10);
         Scribe_Values.Look(ref EnableExtraReformationPoints, "EnableAnnualReformationPoints", false);
         Scribe_Values.Look(ref AnnualReformationPoints, "AnnualReformationPoints", 5);

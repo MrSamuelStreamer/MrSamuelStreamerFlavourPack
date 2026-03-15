@@ -76,6 +76,21 @@ public class MainSettingsTab(ModSettings settings, Mod mod) : SettingsTab(settin
             ref Settings.OverrideFactionLeaderSpawn,
             ref scrollViewHeight
         );
+
+        if (Settings.OverrideFactionLeaderSpawn)
+        {
+            Settings.FactionLeaderRaidChance = options.SliderLabeled(
+                "MSS_FP_Settings_FactionLeaderRaidChance".Translate(
+                    Settings.FactionLeaderRaidChance.ToStringPercent()
+                ),
+                Settings.FactionLeaderRaidChance,
+                0f,
+                1f,
+                tooltip: "MSS_FP_Settings_FactionLeaderRaidChance_Tooltip".Translate()
+            );
+            scrollViewHeight += 30f;
+        }
+
         DrawCheckBox(
             options,
             "MSS_FP_Settings_BoostChanceToSpawnExistingPawns".Translate(),

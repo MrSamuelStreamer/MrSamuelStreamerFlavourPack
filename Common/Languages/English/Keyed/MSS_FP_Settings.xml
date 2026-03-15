@@ -80,4 +80,7 @@
     <MSS_FP_Settings_RecoilDamageMultiplier>Recoil damage multiplier [x{0}]</MSS_FP_Settings_RecoilDamageMultiplier>
     <MSS_FP_Settings_EnableRecoilKnockback>Enable recoil knockback for small pawns</MSS_FP_Settings_EnableRecoilKnockback>
     <MSS_FP_Settings_RecoilKnockbackMultiplier>Recoil knockback multiplier [x{0}]</MSS_FP_Settings_RecoilKnockbackMultiplier>
+
+    <MSS_FP_Settings_FactionLeaderRaidChance>Faction leader raid chance [%{0}]</MSS_FP_Settings_FactionLeaderRaidChance>
+    <MSS_FP_Settings_FactionLeaderRaidChance_Tooltip>Chance that a faction leader will appear in a raid.</MSS_FP_Settings_FactionLeaderRaidChance_Tooltip>
 </LanguageData>
