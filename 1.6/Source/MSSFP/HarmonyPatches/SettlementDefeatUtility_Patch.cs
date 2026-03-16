@@ -18,11 +18,11 @@ public static class SettlementDefeatUtility_Patch
     // [HarmonyPrefix]
     public static void CheckDefeated_Prefix(Settlement factionBase)
     {
-        if(factionBase.Faction.IsPlayer) return;
+        if(factionBase?.Faction?.IsPlayer ?? false) return;
         bool retval = (bool)HasAnyOtherBase.Value.Invoke(null, [factionBase]);
         if (!retval)
         {
-            Find.SignalManager.SendSignal(new Signal(Signals.MSS_FactionDefeated, factionBase.Faction));
+            Find.SignalManager.SendSignal(new Signal(Signals.MSS_FactionDefeated, factionBase?.Faction));
         }
     }
 }
