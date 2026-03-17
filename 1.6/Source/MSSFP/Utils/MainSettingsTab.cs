@@ -30,6 +30,13 @@ public class MainSettingsTab(ModSettings settings, Mod mod) : SettingsTab(settin
 
         DrawCheckBox(
             options,
+            "MSS_FP_Settings_NullDefSafetyPatch".Translate(),
+            ref Settings.NullDefSafetyPatch,
+            ref scrollViewHeight
+        );
+
+        DrawCheckBox(
+            options,
             "MSS_FP_Settings_EnableWanderDelayModification".Translate(),
             ref Settings.EnableWanderDelayModification,
             ref scrollViewHeight
@@ -228,6 +235,7 @@ public class MainSettingsTab(ModSettings settings, Mod mod) : SettingsTab(settin
     {
         if (Settings == null)
             return;
+        Scribe_Values.Look(ref Settings.NullDefSafetyPatch, "NullDefSafetyPatch", true);
         Scribe_Values.Look(ref Settings.DrawByMrStreamer, "DrawByMrStreamer", false);
         Scribe_Values.Look(
             ref Settings.EnableColonistPortraitHiding,

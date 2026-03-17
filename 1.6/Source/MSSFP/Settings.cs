@@ -57,6 +57,7 @@ public class Settings : ModSettings
     public float RecoilKnockbackMultiplier = 0.1f;
     public bool ShowElevationOverlay = false;
     public float BreakdownMTBDays = BreakdownMTBDaysDefault;
+    public bool NullDefSafetyPatch = true;
 
     public HashSet<Verse.TimeSpeed> MonitoredSpeeds = new()
     {
