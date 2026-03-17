@@ -26,7 +26,7 @@
             <li Class="MSSFP.Hediffs.HediffCompProperties_VoidInsanity">
                 <ChanceForMentalBreakPerDay>0.05</ChanceForMentalBreakPerDay>
                 <MentalStates>
-                    <DarkVisions>0.9</DarkVisions>
+                    <DarkVisions MayRequire="Ludeon.RimWorld.Anomaly">0.9</DarkVisions>
                     <InsaneRamblings>0.9</InsaneRamblings>
                     <TerrifyingHallucinations>0.75</TerrifyingHallucinations>
                     <MSSFP_HumanityBreak>0.75</MSSFP_HumanityBreak>

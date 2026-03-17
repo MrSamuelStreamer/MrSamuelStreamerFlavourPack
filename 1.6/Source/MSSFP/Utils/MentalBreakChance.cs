@@ -18,7 +18,9 @@ public class MentalBreakChance
 
     public void LoadDataFromXmlCustom(XmlNode xmlNode)
     {
-        DirectXmlCrossRefLoader.RegisterObjectWantsCrossRef(this, "mentalBreak", xmlNode.Name);
-        chance = ParseHelper.FromString<float>(xmlNode.FirstChild.Value);
+        XmlAttribute mayRequire = xmlNode?.Attributes?["MayRequire"];
+        XmlAttribute mayRequireAnyOf = xmlNode?.Attributes?["MayRequireAnyOf"];
+        DirectXmlCrossRefLoader.RegisterObjectWantsCrossRef(this, "mentalBreak", xmlNode?.Name, mayRequire?.Value.ToLower(), mayRequireAnyOf?.Value.ToLower());
+        chance = ParseHelper.FromString<float>(xmlNode?.FirstChild.Value?? "0");
     }
 }

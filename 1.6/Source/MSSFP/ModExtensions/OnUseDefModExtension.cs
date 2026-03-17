@@ -22,8 +22,10 @@ public class OnUseDefModExtension : DefModExtension
 
         public void LoadDataFromXmlCustom(XmlNode xmlRoot)
         {
-            DirectXmlCrossRefLoader.RegisterObjectWantsCrossRef(this, "thingDef", xmlRoot.Name);
-            chance = ParseHelper.FromString<float>(xmlRoot.FirstChild.Value);
+            XmlAttribute mayRequire = xmlRoot?.Attributes?["MayRequire"];
+            XmlAttribute mayRequireAnyOf = xmlRoot?.Attributes?["MayRequireAnyOf"];
+            DirectXmlCrossRefLoader.RegisterObjectWantsCrossRef(this, "thingDef", xmlRoot?.Name, mayRequire?.Value.ToLower(), mayRequireAnyOf?.Value.ToLower());
+            chance = ParseHelper.FromString<float>(xmlRoot?.FirstChild.Value?? "0");
         }
     }
     public class HediffDefChance
@@ -40,8 +42,10 @@ public class OnUseDefModExtension : DefModExtension
 
         public void LoadDataFromXmlCustom(XmlNode xmlRoot)
         {
-            DirectXmlCrossRefLoader.RegisterObjectWantsCrossRef(this, "hediffDef", xmlRoot.Name);
-            chance = ParseHelper.FromString<float>(xmlRoot.FirstChild.Value);
+            XmlAttribute mayRequire = xmlRoot?.Attributes?["MayRequire"];
+            XmlAttribute mayRequireAnyOf = xmlRoot?.Attributes?["MayRequireAnyOf"];
+            DirectXmlCrossRefLoader.RegisterObjectWantsCrossRef(this, "hediffDef", xmlRoot?.Name, mayRequire?.Value.ToLower(), mayRequireAnyOf?.Value.ToLower());
+            chance = ParseHelper.FromString<float>(xmlRoot?.FirstChild.Value?? "0");
         }
     }
 
