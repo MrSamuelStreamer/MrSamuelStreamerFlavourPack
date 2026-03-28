@@ -17,6 +17,7 @@ public class RitualObligationTargetWorker_Things : RitualObligationTargetWorker_
         RitualObligation obligation
     )
     {
+        if (target == null || obligation == null) return false;
         if (!base.CanUseTargetInternal(target, obligation).canUse)
             return false;
 
