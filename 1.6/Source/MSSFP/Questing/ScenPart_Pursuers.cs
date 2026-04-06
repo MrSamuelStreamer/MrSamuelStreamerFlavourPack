@@ -166,7 +166,9 @@ public class ScenPart_Pursuers : ScenPart
         Log.Message("Pursuer timers reset.");
     }
 
-    public Lazy<PursuersModExtension> PursuersModExt => new(() => def.GetModExtension<PursuersModExtension>());
+    private Lazy<PursuersModExtension> _pursuersModExt;
+    public Lazy<PursuersModExtension> PursuersModExt =>
+        _pursuersModExt ??= new Lazy<PursuersModExtension>(() => def.GetModExtension<PursuersModExtension>());
 
     public Faction Faction => Find.FactionManager.FirstFactionOfDef(faction);
 
@@ -182,7 +184,8 @@ public class ScenPart_Pursuers : ScenPart
         get
         {
             Map currentMap = Find.CurrentMap;
-            ModLog.Debug(Faction.NameColored);
+            string factionName = Faction?.NameColored ?? "Unknown Faction";
+            ModLog.Debug(factionName);
             if (currentMap == null || cachedAlertMap != currentMap)
             {
                 alertCached = null;
@@ -196,10 +199,10 @@ public class ScenPart_Pursuers : ScenPart
             alertCached = new Alert_PursuerThreat
             {
                 raidTick = raidTick,
-                alertPursuerThreatCriticalDescText = alertPursuerThreatCriticalDescText.Translate(Faction.NameColored),
-                alertPursuerThreatCriticalText = alertPursuerThreatCriticalText.Translate(Faction.NameColored),
-                alertPursuerThreatDescText = alertPursuerThreatDescText.Translate(Faction.NameColored),
-                alertPursuerThreatText = alertPursuerThreatText.Translate(Faction.NameColored)
+                alertPursuerThreatCriticalDescText = alertPursuerThreatCriticalDescText.Translate(factionName),
+                alertPursuerThreatCriticalText = alertPursuerThreatCriticalText.Translate(factionName),
+                alertPursuerThreatDescText = alertPursuerThreatDescText.Translate(factionName),
+                alertPursuerThreatText = alertPursuerThreatText.Translate(factionName)
             };
             cachedAlertMap = currentMap;
             return alertCached;
@@ -367,7 +370,7 @@ public class ScenPart_Pursuers : ScenPart
         }
         else
         {
-            foreach (Map key in mapWarningTimers.Keys)
+            foreach (Map key in mapWarningTimers.Keys.ToList())
             {
                 if (Find.TickManager.TicksGame == mapWarningTimers[key])
                 {
@@ -376,7 +379,7 @@ public class ScenPart_Pursuers : ScenPart
                 }
             }
 
-            foreach (Map key in mapRaidTimers.Keys)
+            foreach (Map key in mapRaidTimers.Keys.ToList())
             {
                 if (Find.TickManager.TicksGame >= mapRaidTimers[key] && (Find.TickManager.TicksGame - mapRaidTimers[key]) % 30000 == 0)
                     FireRaid(key);
@@ -624,7 +627,6 @@ public class ScenPart_Pursuers : ScenPart
         {
             listing.EndSection(section);
         }
-        ExposeData();
     }
 }
 
