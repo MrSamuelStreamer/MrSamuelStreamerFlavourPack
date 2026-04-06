@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using VEF.AnimalBehaviours;
 using Verse;
@@ -7,38 +7,46 @@ namespace MSSFP.VFE;
 
 public class HediffSwitchMapComponent(Map map) : MapComponent(map)
 {
-    public HediffDef repro =>
-        DefDatabase<HediffDef>.AllDefsListForReading.FirstOrDefault(g =>
-            g.defName == "AG_AsexualFission"
-        );
+    private static HediffDef _cachedReproDef;
+
+    public static HediffDef ReproDef =>
+        _cachedReproDef ??= DefDatabase<HediffDef>.AllDefsListForReading
+            .FirstOrDefault(g => g.defName == "AG_AsexualFission");
 
     public override void MapComponentTick()
     {
         base.MapComponentTick();
-        if (Find.TickManager.TicksGame % 600 == 0)
-        {
-            foreach (
-                Pawn pawn in map.mapPawns.AllHumanlike.Where(p =>
-                    p.health.hediffSet.HasHediff(repro)
-                )
+        if (Find.TickManager.TicksGame % 600 != 0)
+            return;
+
+        HediffDef reproDef = ReproDef;
+        if (reproDef == null)
+            return;
+
+        foreach (
+            Pawn pawn in map.mapPawns.AllHumanlike.Where(p =>
+                p.health.hediffSet.HasHediff(reproDef)
             )
-            {
-                HediffWithComps h = (HediffWithComps)
-                    pawn.health.hediffSet.GetFirstHediffOfDef(repro);
-                HediffComp_AsexualReproduction comp =
-                    h.TryGetComp<HediffComp_AsexualReproduction>();
+        )
+        {
+            HediffWithComps h = (HediffWithComps)
+                pawn.health.hediffSet.GetFirstHediffOfDef(reproDef);
+            HediffComp_AsexualReproduction comp =
+                h.TryGetComp<HediffComp_AsexualReproduction>();
 
-                HediffComp_TweakedAsexualReproduction newComp =
-                    (HediffComp_TweakedAsexualReproduction)
-                        Activator.CreateInstance(typeof(HediffComp_TweakedAsexualReproduction));
+            if (comp == null || h.TryGetComp<HediffComp_TweakedAsexualReproduction>() != null)
+                continue;
 
-                newComp.props = comp.props;
-                newComp.asexualFissionCounter = comp.asexualFissionCounter;
-                newComp.parent = h;
+            HediffComp_TweakedAsexualReproduction newComp =
+                (HediffComp_TweakedAsexualReproduction)
+                    Activator.CreateInstance(typeof(HediffComp_TweakedAsexualReproduction));
 
-                h.comps.Add(newComp);
-                h.comps.Remove(comp);
-            }
+            newComp.props = comp.props;
+            newComp.asexualFissionCounter = comp.asexualFissionCounter;
+            newComp.parent = h;
+
+            h.comps.Add(newComp);
+            h.comps.Remove(comp);
         }
     }
 }

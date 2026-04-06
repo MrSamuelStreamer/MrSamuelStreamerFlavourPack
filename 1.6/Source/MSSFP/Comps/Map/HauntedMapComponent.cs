@@ -12,7 +12,8 @@ public class HauntedMapComponent(Verse.Map map) : MapComponent(map)
     public int SearchRadius = 10;
 
     public IEnumerable<Building_Grave> Graves =>
-        map.listerThings.AllThings.OfType<Building_Grave>().Where(g => g.Corpse != null);
+        map.listerBuildings.AllBuildingsColonistOfClass<Building_Grave>()
+            .Where(g => g.Corpse != null);
 
     public IEnumerable<Pawn> PawnsNearGraves =>
         Graves

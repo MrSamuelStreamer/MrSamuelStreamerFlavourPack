@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Text;
 using HarmonyLib;
 using MSSFP.ModExtensions;
@@ -23,12 +24,12 @@ public static class Pawn_Patch
 
     public static Lazy<FieldInfo> nameInt = new(() => AccessTools.Field(typeof(Pawn), "nameInt"));
 
-    public static Dictionary<Pawn, Name> NameCache = new();
+    public static readonly ConditionalWeakTable<Pawn, Name> NameCache = new();
 
 
     public static void UpdatePawnName(Pawn pawn, TraitModDefExtension extension)
     {
-        if (NameCache.ContainsKey(pawn)) return;
+        if (NameCache.TryGetValue(pawn, out _)) return;
 
         if (pawn.Name is NameTriple triple)
         {
@@ -73,7 +74,7 @@ public static class Pawn_Patch
                 nick = italicPrefix + nick + italicSuffix;
             }
 
-            NameCache[pawn] = new NameTriple(first, nick, last);
+            NameCache.AddOrUpdate(pawn, new NameTriple(first, nick, last));
         }
     }
 
@@ -105,7 +106,7 @@ public static class Pawn_Patch
     [HarmonyPostfix]
     public static void NameSetter_Postfix(Pawn __instance)
     {
-        if(NameCache.ContainsKey(__instance)) return;
+        if(NameCache.TryGetValue(__instance, out _)) return;
 
         if (nameInt.Value.GetValue(__instance) is not Name || __instance.story?.traits == null || __instance.story.traits.allTraits.NullOrEmpty())
         {

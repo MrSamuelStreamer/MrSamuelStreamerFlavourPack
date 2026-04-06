@@ -39,6 +39,12 @@ public static class ColonistBar_ColonistsOrCorpsesInScreenRect_Patch
 [HarmonyPatch(typeof(ColonistBar), "CheckRecacheEntries")]
 public static class ColonistBar_CheckRecacheEntries_Patch
 {
+    private static readonly AccessTools.FieldRef<ColonistBar, List<ColonistBar.Entry>> CachedEntriesRef =
+        AccessTools.FieldRefAccess<ColonistBar, List<ColonistBar.Entry>>("cachedEntries");
+
+    private static readonly AccessTools.FieldRef<ColonistBar, List<Vector2>> CachedDrawLocsRef =
+        AccessTools.FieldRefAccess<ColonistBar, List<Vector2>>("cachedDrawLocs");
+
     [HarmonyPostfix]
     public static void Postfix(ColonistBar __instance)
     {
@@ -52,19 +58,10 @@ public static class ColonistBar_CheckRecacheEntries_Patch
         if (worldComp == null)
             return;
 
-        var cachedEntriesField = typeof(ColonistBar).GetField(
-            "cachedEntries",
-            System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance
-        );
-        var cachedDrawLocsField = typeof(ColonistBar).GetField(
-            "cachedDrawLocs",
-            System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance
-        );
+        List<ColonistBar.Entry> cachedEntries = CachedEntriesRef(__instance);
+        List<Vector2> cachedDrawLocs = CachedDrawLocsRef(__instance);
 
-        if (
-            cachedEntriesField?.GetValue(__instance) is List<ColonistBar.Entry> cachedEntries
-            && cachedDrawLocsField?.GetValue(__instance) is List<Vector2> cachedDrawLocs
-        )
+        if (cachedEntries != null && cachedDrawLocs != null)
         {
             for (int i = cachedEntries.Count - 1; i >= 0; i--)
             {
