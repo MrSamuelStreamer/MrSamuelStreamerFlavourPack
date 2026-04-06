@@ -19,7 +19,7 @@ public class HediffCompProperties_Haunt : HediffCompProperties
     public int ProximityTransferCheckTicks = 60000;
     public float ProximityRadius = 6;
 
-    public bool AlwaysOn => OnTimeTicksRange == null && OffTimeTicksRange == null;
+    public bool AlwaysOn => OnTimeTicksRange == default && OffTimeTicksRange == default;
 
     public ThoughtDef thought;
 
@@ -35,12 +35,12 @@ public class HediffCompProperties_Haunt : HediffCompProperties
             yield return error;
         }
 
-        if (OnTimeTicksRange != null && OffTimeTicksRange == null)
+        if (OnTimeTicksRange != default && OffTimeTicksRange == default)
         {
             yield return "OffTimeTicksRange must be set if OnTimeTicksRange is set";
         }
 
-        if (OffTimeTicksRange != null && OnTimeTicksRange == null)
+        if (OffTimeTicksRange != default && OnTimeTicksRange == default)
         {
             yield return "OnTimeTicksRange must be set if OffTimeTicksRange is set";
         }

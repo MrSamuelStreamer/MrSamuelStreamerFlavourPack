@@ -183,7 +183,7 @@ public class HediffComp_Haunt : HediffComp
 
         if (Props.graphicData?.Graphic is PawnHauntGraphic gfx && TexPath != null)
         {
-            gfx.SetOverrideMaterial(pawnTexture);
+            gfx.SetOverrideMaterial(PawnTexture);
         }
 
         Vector3 offset = new();
@@ -237,6 +237,7 @@ public class HediffComp_Haunt : HediffComp
         pawnToDraw = pawn;
         aptitudesCached.Clear();
         texPath = PawnGraphicUtils.SavePawnTexture(pawn);
+        pawnTexture = null; // force PawnTexture property to reload from disk on next render
 
         if (pawnToDraw.skills != null)
         {

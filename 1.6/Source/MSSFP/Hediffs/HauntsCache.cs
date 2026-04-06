@@ -81,12 +81,16 @@ public static class HauntsCache
         if (comps.NullOrEmpty())
             return;
 
+        Cache[p] = new Dictionary<SkillDef, int>();
+
         foreach (
             HediffComp_Haunt hediffCompHaunt in comps
                 .SelectMany(hediff => hediff.comps)
                 .OfType<HediffComp_Haunt>()
         )
         {
+            if (hediffCompHaunt.skillToBoost == null)
+                continue;
             if (!Cache[p].ContainsKey(hediffCompHaunt.skillToBoost))
                 Cache[p][hediffCompHaunt.skillToBoost] = 0;
             Cache[p][hediffCompHaunt.skillToBoost] += hediffCompHaunt.SkillBoostLevel;

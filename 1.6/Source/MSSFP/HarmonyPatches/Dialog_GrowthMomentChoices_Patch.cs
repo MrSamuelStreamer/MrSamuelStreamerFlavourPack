@@ -256,11 +256,12 @@ public static class Dialog_GrowthMomentChoices_Patch
     }
 }
 
-[HarmonyPatch(typeof(Dialog_GrowthMomentChoices), nameof(Dialog_GrowthMomentChoices.Close))]
+[HarmonyPatch(typeof(Window), nameof(Window.Close))]
 public static class Dialog_GrowthMomentChoices_Close_Patch
 {
-    public static void Postfix(Dialog_GrowthMomentChoices __instance)
+    public static void Postfix(Window __instance)
     {
-        Dialog_GrowthMomentChoices_Patch.DialogLookup.Remove(__instance);
+        if (__instance is Dialog_GrowthMomentChoices dlg)
+            Dialog_GrowthMomentChoices_Patch.DialogLookup.Remove(dlg);
     }
 }

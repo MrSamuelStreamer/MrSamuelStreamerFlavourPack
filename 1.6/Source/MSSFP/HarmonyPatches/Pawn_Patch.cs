@@ -74,7 +74,7 @@ public static class Pawn_Patch
                 nick = italicPrefix + nick + italicSuffix;
             }
 
-            NameCache.AddOrUpdate(pawn, new NameTriple(first, nick, last));
+            NameCache.Add(pawn, new NameTriple(first, nick, last));
         }
     }
 
