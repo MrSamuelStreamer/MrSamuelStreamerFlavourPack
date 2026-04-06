@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <!-- ══════════════════════════════════════════════════════════════════════
+         HauntSkillMappingDef — one entry per skill.
+         statOffsets represent full effect at skill level 20, Awakened severity.
+         HauntProfileBuilder scales by (skillLevel - 8) / 12 and by stage.
+         ══════════════════════════════════════════════════════════════════════ -->
+
+    <!-- AGGRESSIVE archetype: Melee, Shooting, Animals -->
+
+    <MSSFP.Defs.HauntSkillMappingDef>
+        <defName>MSS_FP_SkillMap_Melee</defName>
+        <skill>Melee</skill>
+        <archetype>MSS_FP_Archetype_Aggressive</archetype>
+        <triggerRecord>KillsHumanlikes</triggerRecord>
+        <awakeningGene>MSS_FP_MemoryAwakening_Combat</awakeningGene>
+        <statOffsets>
+            <MeleeDamageFactor>0.20</MeleeDamageFactor>
+            <MeleeHitChance>0.10</MeleeHitChance>
+        </statOffsets>
+    </MSSFP.Defs.HauntSkillMappingDef>
+
+    <MSSFP.Defs.HauntSkillMappingDef>
+        <defName>MSS_FP_SkillMap_Shooting</defName>
+        <skill>Shooting</skill>
+        <archetype>MSS_FP_Archetype_Aggressive</archetype>
+        <triggerRecord>DamageDealt</triggerRecord>
+        <awakeningGene>MSS_FP_MemoryAwakening_Combat</awakeningGene>
+        <statOffsets>
+            <ShootingAccuracyPawn>0.08</ShootingAccuracyPawn>
+            <RangedCooldownFactor>-0.15</RangedCooldownFactor>
+        </statOffsets>
+    </MSSFP.Defs.HauntSkillMappingDef>
+
+    <MSSFP.Defs.HauntSkillMappingDef>
+        <defName>MSS_FP_SkillMap_Animals</defName>
+        <skill>Animals</skill>
+        <archetype>MSS_FP_Archetype_Aggressive</archetype>
+        <triggerRecord>KillsAnimals</triggerRecord>
+        <awakeningGene>MSS_FP_MemoryAwakening_Wanderer</awakeningGene>
+        <statOffsets>
+            <AnimalGatherYield>0.15</AnimalGatherYield>
+            <TameAnimalChance>0.10</TameAnimalChance>
+        </statOffsets>
+    </MSSFP.Defs.HauntSkillMappingDef>
+
+    <!-- TRICKSTER archetype: Social, Artistic, Crafting -->
+
+    <MSSFP.Defs.HauntSkillMappingDef>
+        <defName>MSS_FP_SkillMap_Social</defName>
+        <skill>Social</skill>
+        <archetype>MSS_FP_Archetype_Trickster</archetype>
+        <triggerRecord>PrisonersRecruited</triggerRecord>
+        <awakeningGene>MSS_FP_MemoryAwakening_Social</awakeningGene>
+        <statOffsets>
+            <NegotiationAbility>0.15</NegotiationAbility>
+            <TradePriceImprovement>0.08</TradePriceImprovement>
+        </statOffsets>
+    </MSSFP.Defs.HauntSkillMappingDef>
+
+    <MSSFP.Defs.HauntSkillMappingDef>
+        <defName>MSS_FP_SkillMap_Artistic</defName>
+        <skill>Artistic</skill>
+        <archetype>MSS_FP_Archetype_Trickster</archetype>
+        <awakeningGene>MSS_FP_MemoryAwakening_Social</awakeningGene>
+        <statOffsets>
+            <WorkSpeedGlobal>0.10</WorkSpeedGlobal>
+            <SocialImpact>0.10</SocialImpact>
+        </statOffsets>
+    </MSSFP.Defs.HauntSkillMappingDef>
+
+    <MSSFP.Defs.HauntSkillMappingDef>
+        <defName>MSS_FP_SkillMap_Crafting</defName>
+        <skill>Crafting</skill>
+        <archetype>MSS_FP_Archetype_Trickster</archetype>
+        <awakeningGene>MSS_FP_MemoryAwakening_Worker</awakeningGene>
+        <statOffsets>
+            <GeneralLaborSpeed>0.15</GeneralLaborSpeed>
+            <WorkSpeedGlobal>0.08</WorkSpeedGlobal>
+        </statOffsets>
+    </MSSFP.Defs.HauntSkillMappingDef>
+
+    <!-- BROODING archetype: Medicine, Research, Plants, Construction, Cooking, Mining -->
+
+    <MSSFP.Defs.HauntSkillMappingDef>
+        <defName>MSS_FP_SkillMap_Medicine</defName>
+        <skill>Medicine</skill>
+        <archetype>MSS_FP_Archetype_Brooding</archetype>
+        <triggerRecord>OperationsPerformed</triggerRecord>
+        <awakeningGene>MSS_FP_MemoryAwakening_Scholar</awakeningGene>
+        <statOffsets>
+            <MedicalTendQuality>0.15</MedicalTendQuality>
+            <MedicalSurgerySuccessChance>0.10</MedicalSurgerySuccessChance>
+        </statOffsets>
+    </MSSFP.Defs.HauntSkillMappingDef>
+
+    <MSSFP.Defs.HauntSkillMappingDef>
+        <defName>MSS_FP_SkillMap_Intellectual</defName>
+        <skill>Intellectual</skill>
+        <archetype>MSS_FP_Archetype_Brooding</archetype>
+        <awakeningGene>MSS_FP_MemoryAwakening_Scholar</awakeningGene>
+        <statOffsets>
+            <ResearchSpeedFactor>0.15</ResearchSpeedFactor>
+        </statOffsets>
+    </MSSFP.Defs.HauntSkillMappingDef>
+
+    <MSSFP.Defs.HauntSkillMappingDef>
+        <defName>MSS_FP_SkillMap_Plants</defName>
+        <skill>Plants</skill>
+        <archetype>MSS_FP_Archetype_Brooding</archetype>
+        <awakeningGene>MSS_FP_MemoryAwakening_Wanderer</awakeningGene>
+        <statOffsets>
+            <PlantWorkSpeed>0.15</PlantWorkSpeed>
+            <PlantHarvestYield>0.10</PlantHarvestYield>
+        </statOffsets>
+    </MSSFP.Defs.HauntSkillMappingDef>
+
+    <MSSFP.Defs.HauntSkillMappingDef>
+        <defName>MSS_FP_SkillMap_Construction</defName>
+        <skill>Construction</skill>
+        <archetype>MSS_FP_Archetype_Brooding</archetype>
+        <awakeningGene>MSS_FP_MemoryAwakening_Worker</awakeningGene>
+        <statOffsets>
+            <ConstructionSpeed>0.15</ConstructionSpeed>
+            <ConstructSuccessChance>0.10</ConstructSuccessChance>
+        </statOffsets>
+    </MSSFP.Defs.HauntSkillMappingDef>
+
+    <MSSFP.Defs.HauntSkillMappingDef>
+        <defName>MSS_FP_SkillMap_Cooking</defName>
+        <skill>Cooking</skill>
+        <archetype>MSS_FP_Archetype_Brooding</archetype>
+        <awakeningGene>MSS_FP_MemoryAwakening_Wanderer</awakeningGene>
+        <statOffsets>
+            <CookSpeed>0.15</CookSpeed>
+            <ButcheryFleshSpeed>0.10</ButcheryFleshSpeed>
+        </statOffsets>
+    </MSSFP.Defs.HauntSkillMappingDef>
+
+    <MSSFP.Defs.HauntSkillMappingDef>
+        <defName>MSS_FP_SkillMap_Mining</defName>
+        <skill>Mining</skill>
+        <archetype>MSS_FP_Archetype_Brooding</archetype>
+        <awakeningGene>MSS_FP_MemoryAwakening_Worker</awakeningGene>
+        <statOffsets>
+            <MiningSpeed>0.15</MiningSpeed>
+            <MiningYield>0.10</MiningYield>
+        </statOffsets>
+    </MSSFP.Defs.HauntSkillMappingDef>
+
+</Defs>

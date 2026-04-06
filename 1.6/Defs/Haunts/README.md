@@ -7,12 +7,20 @@ They share rendering and caching infrastructure but are conceptually and mechani
 
 ## The Two Systems
 
-### Haunts — Named Grave Spirits
+### Haunts — Named and Dynamic Grave Spirits
 
-A haunt is the lingering spirit of a specific named character (Grignr, Frog, Kekvit, Oskar, Phil, Jade).
-Haunts attach to living pawns who spend time near the character's grave, grow in power over time
-through aligned actions, and can reach an Awakened state where they imprint a permanent gene on
-their host.
+A **named haunt** is the lingering spirit of a specific named character (Grignr, Frog, Kekvit,
+Oskar, Phil, Jade). Named haunts are authored in XML with fixed stat effects per stage and a
+specific awakening gene.
+
+A **dynamic haunt** (`MSS_FP_PawnDisplayer`) is generated at runtime from *any* buried colonist.
+The ghost renders as the actual dead colonist. Its archetype, progression trigger, stat effects,
+and awakening gene are all derived at assignment time from that colonist's top skills — a melee
+specialist produces a different ghost than a researcher. See the *Dynamic Colonist Haunts* section
+below for full details.
+
+Both types attach to living pawns who spend time near the relevant grave, grow in power over time
+through aligned actions, and can reach an Awakened state where they imprint a permanent gene.
 
 Haunts are **beneficial** (`isBad: false`). They carry stat effects that scale with severity, and
 a ghost overlay is rendered near the host pawn when drafted.
@@ -36,10 +44,11 @@ co-existing with a foreign presence.
 
 | File | Contents |
 |------|----------|
-| `MMSFP_HauntsGood.xml` | HediffDefs for all six named haunts |
+| `MMSFP_HauntsGood.xml` | HediffDefs for all six named haunts + `MSS_FP_PawnDisplayer` (dynamic haunt carrier) |
 | `MMSFP_HauntsBad.xml` | HediffDef for the echo (`MSS_FP_Echo`) + possessed thought |
-| `MMSFP_HauntProgression.xml` | HauntProgressionDefs — progression rates and triggers per haunt |
-| `MMSFP_HauntGenes.xml` | Susceptibility genes (6A), thought def (6B), awakening genes (6C) |
+| `MMSFP_HauntProgression.xml` | HauntProgressionDefs — progression rates and triggers per named haunt |
+| `MMSFP_HauntSkillMappings.xml` | HauntSkillMappingDefs — skill → archetype/trigger/stats/gene for dynamic haunts |
+| `MMSFP_HauntGenes.xml` | Susceptibility genes (6A), thought def (6B), named awakening genes (6C), generic awakening gene pool (6D) |
 | `MMSFP_HauntArchetypes.xml` | The three archetypes: Aggressive, Trickster, Brooding |
 | `MMSFP_HauntInteractions.xml` | Archetype pair interactions + iconic pair overrides |
 | `MMSFP_HauntInteractionThoughts.xml` | ThoughtDefs used by interactions |
@@ -261,7 +270,9 @@ The actual rates come from the matching `HauntProgressionDef` below.
 ```
 
 Common `recordDef` values: `KillsHumanlikes`, `KillsAnimals`, `DamageDealt`, `DamageTaken`,
-`PrisonersRecruited`, `ThingsCrafted`, `OperationsPerformed`, `SocialFights`.
+`PrisonersRecruited`, `AnimalsTamed`, `ThingsCrafted`, `OperationsPerformed`,
+`ThingsConstructed`, `CellsMined`, `MealsCooked`, `PlantsSown`.
+Note: `SocialFights` and `DamageDone` do **not** exist — use `DamageDealt` for ranged/melee damage dealt.
 
 ### 3. `MMSFP_HauntGenes.xml` — Awakening Gene
 
@@ -344,6 +355,96 @@ sorts them. Iconic pair overrides are checked before archetype interactions.
 Edit `<weight>` and `<minSeverity>` on existing entries in `MMSFP_HauntEvents.xml`.
 To add a new event, create a new `HauntEventDef` entry with a `workerClass` that extends
 `MSSFP.Events.HauntEventWorker` and implements `Execute(Pawn hauntedPawn, Map map)`.
+
+---
+
+## Dynamic Colonist Haunts — How It Works
+
+Enabled via the `Enable dynamic grave haunts` mod setting. Independent of the Echo system.
+
+### Assignment
+
+`HauntedMapComponent` uses the same periodic check as named haunts but gates on
+`EnableGraveHaunts` instead of `EnableEcho`. The pawn pool is limited to humanlike colonists
+not already carrying `MSS_FP_PawnDisplayer` and not HauntResistant.
+
+When a colonist is selected, `HauntProfileBuilder.TryBuild(spirit)` is called on the corpse's
+inner pawn. The builder:
+1. Skips if the dead pawn's name matches a named haunt source (Grignr, Frog, Kekvit, Oskar,
+   Phil, Jade) — the named haunt system handles those
+2. Finds the dead colonist's highest non-disabled skill
+3. Looks up the matching `HauntSkillMappingDef` in `MMSFP_HauntSkillMappings.xml`
+4. Computes `scaleFactor = Clamp01((skillLevel - 8) / 12f)` — skill 8 = 0%, skill 20 = 100%
+5. If no skill reaches level 8, uses a fallback `scaleFactor` of 0.1 (restless spirit identity)
+6. Copies the mapping's stat offsets into parallel lists (`List<StatDef>` + `List<float>`) for
+   save-safe serialization — `StatModifier` is not `IExposable`
+
+The resulting `HauntProfile` is set on the `HediffComp_DynamicHaunt` companion comp on
+`MSS_FP_PawnDisplayer`. It is serialized once and **never re-derived** — even if the corpse
+or grave is later destroyed.
+
+### Skill → Archetype Mapping
+
+Defined per-skill in `MMSFP_HauntSkillMappings.xml` via `HauntSkillMappingDef`:
+
+| Skills | Archetype | Awakening Gene Category |
+|--------|-----------|------------------------|
+| Melee, Shooting | Aggressive | Combat |
+| Animals | Aggressive | Wanderer |
+| Social, Artistic | Trickster | Social |
+| Crafting | Trickster | Worker |
+| Medicine, Intellectual | Brooding | Scholar |
+| Plants, Cooking | Brooding | Wanderer |
+| Construction, Mining | Brooding | Worker |
+
+### Stat Effects
+
+`HediffComp_DynamicHaunt` does not use XML `<stages>`. Instead, a Harmony postfix on
+`StatWorker.GetValueUnfinalized` reads `HauntProfile.GetStatOffset(stat, severity)` for
+any pawn carrying a `HediffComp_DynamicHaunt`.
+
+Stage scaling mirrors named haunts: Whisper (≤0.33) = 33%, Presence (≤0.66) = 67%,
+Awakened (>0.66) = 100% of `statValue × scaleFactor`.
+
+### Progression
+
+`HediffComp_DynamicHaunt` fully owns severity for dynamic haunts:
+- `MSS_FP_PawnDisplayer` has no `SeverityPerDay` comp — dynamic haunt drives it entirely
+- Passive growth: 0.04 severity/day
+- Trigger: checks `HauntProfile.triggerRecordDef` every 2500 ticks; fires += 0.02 on delta
+- Regression: -0.015/day after 5 days without a trigger
+
+### Awakening Gene
+
+When severity reaches ≥ 0.67 for the first time, one of five generic awakening genes is
+granted (weaker than named haunt genes — dynamic haunts are emergent, not authored):
+
+| Gene | Skills |
+|------|--------|
+| `MSS_FP_MemoryAwakening_Combat` | Melee, Shooting |
+| `MSS_FP_MemoryAwakening_Social` | Social, Artistic |
+| `MSS_FP_MemoryAwakening_Scholar` | Medicine, Intellectual |
+| `MSS_FP_MemoryAwakening_Worker` | Crafting, Construction, Mining |
+| `MSS_FP_MemoryAwakening_Wanderer` | Animals, Plants, Cooking (fallback) |
+
+### Interaction System
+
+Dynamic haunts participate in the archetype interaction system via `GetEffectiveArchetype()`,
+which checks `HediffComp_DynamicHaunt.Profile.archetype` when `Props.archetype` is null.
+This means a pawn haunted by a dead melee colonist (Aggressive archetype) will clash with
+a pawn haunted by a dead crafter's ghost (Trickster archetype) using the same interaction
+defs as named haunts.
+
+### Adding a New Skill Mapping
+
+To change stat effects for a specific skill, edit the corresponding entry in
+`MMSFP_HauntSkillMappings.xml`. Stat values represent full effect at skill level 20,
+Awakened severity — `HauntProfileBuilder` scales down from there.
+
+Valid `triggerRecord` values: `KillsHumanlikes`, `KillsAnimals`, `DamageDealt`,
+`DamageTaken`, `PrisonersRecruited`, `AnimalsTamed`, `ThingsCrafted`,
+`OperationsPerformed`, `ThingsConstructed`, `CellsMined`, `MealsCooked`,
+`PlantsSown`, `ResearchPointsResearched`.
 
 ---
 

@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using MSSFP.Haunts;
 using MSSFP.Hediffs;
 using RimWorld;
 using UnityEngine;
@@ -11,7 +13,8 @@ namespace MSSFP.Comps.Map;
 public class HauntedMapComponent(Verse.Map map) : MapComponent(map)
 {
     public int LastFiredTick = 0;
-    public int SearchRadius => MSSFPMod.settings.HauntProximityRadius;
+    // GenRadial.RadialCellsAround hard-caps at 200 cells radius.
+    public int SearchRadius => Math.Min(MSSFPMod.settings.HauntProximityRadius, 200);
 
     /// <summary>
     /// Sum of all haunt severities on this map. Updated lazily when the dashboard renders.
@@ -32,13 +35,15 @@ public class HauntedMapComponent(Verse.Map map) : MapComponent(map)
 
     public IEnumerable<Pawn> PawnPool =>
         PawnsNearGraves.Where(pawn =>
-            !pawn.health.hediffSet.HasHediff(MSSFPDefOf.MSS_FP_PawnDisplayer)
+            pawn.IsColonist
+            && pawn.RaceProps.Humanlike
+            && !pawn.health.hediffSet.HasHediff(MSSFPDefOf.MSS_FP_PawnDisplayer)
             && pawn.genes?.HasActiveGene(MSSFPDefOf.MSS_FP_Gene_HauntResistant) != true
         );
 
     public override void MapComponentTick()
     {
-        if (!MSSFPMod.settings.EnableEcho)
+        if (!MSSFPMod.settings.EnableGraveHaunts)
             return;
         if (!map.IsPlayerHome)
             return;
@@ -60,11 +65,25 @@ public class HauntedMapComponent(Verse.Map map) : MapComponent(map)
 
         LastFiredTick += MSSFPMod.settings.HauntPostFireCooldownDays * GenDate.TicksPerDay;
 
+        if (grave == null)
+            return;
+
+        Pawn spirit = grave.Corpse?.InnerPawn;
+        if (spirit == null)
+            return;
+
         Hediff hediff = pawn.health.AddHediff(MSSFPDefOf.MSS_FP_PawnDisplayer);
+        hediff.Severity = 0.05f;
 
         if (hediff.TryGetComp(out HediffComp_Haunt comp))
         {
-            comp.SetPawnToDraw(grave.Corpse.InnerPawn);
+            comp.SetPawnToDraw(spirit);
+        }
+
+        HauntProfile profile = HauntProfileBuilder.TryBuild(spirit);
+        if (hediff.TryGetComp(out HediffComp_DynamicHaunt dynamicComp) && profile != null)
+        {
+            dynamicComp.SetProfile(profile);
         }
     }
 
@@ -126,9 +145,13 @@ public class HauntedMapComponent(Verse.Map map) : MapComponent(map)
                     haunt.parent.TryGetComp<HediffComp_HauntProgression>();
                 string progInfo = prog != null ? $" | {prog.DebugStatus()}" : string.Empty;
 
+                HediffComp_DynamicHaunt dynComp =
+                    haunt.parent.TryGetComp<HediffComp_DynamicHaunt>();
+                string dynInfo = dynComp != null ? $" | {dynComp.DebugStatus()}" : string.Empty;
+
                 sb.AppendLine(
                     $"  {pawn.LabelShort}: {haunt.parent.def.defName} "
-                    + $"(sev={severity:F2}, skill={skillInfo}{progInfo})"
+                    + $"(sev={severity:F2}, skill={skillInfo}{progInfo}{dynInfo})"
                 );
             }
         }

@@ -73,6 +73,86 @@
          6C: Awakening genes — one per named haunt, imprinted at Awakened stage
          ══════════════════════════════════════════════════════════════════════ -->
 
+    <!-- ══════════════════════════════════════════════════════════════════════
+         Phase 5: Generic awakening gene pool for dynamic colonist haunts.
+         One per skill category — intentionally weaker than named haunt awakening genes.
+         ══════════════════════════════════════════════════════════════════════ -->
+
+    <!-- Combat: Melee + Shooting -->
+    <GeneDef>
+        <defName>MSS_FP_MemoryAwakening_Combat</defName>
+        <label>combat memory</label>
+        <description>The spirit of a fallen fighter has left its mark. The carrier moves with the muscle memory of a seasoned combatant.</description>
+        <biostatMet>0</biostatMet>
+        <displayCategory>Haunts</displayCategory>
+        <displayOrderInCategory>20</displayOrderInCategory>
+        <statOffsets>
+            <MeleeDamageFactor>0.05</MeleeDamageFactor>
+            <ShootingAccuracyPawn>0.03</ShootingAccuracyPawn>
+        </statOffsets>
+    </GeneDef>
+
+    <!-- Social: Social + Artistic -->
+    <GeneDef>
+        <defName>MSS_FP_MemoryAwakening_Social</defName>
+        <label>social memory</label>
+        <description>The spirit of a gifted negotiator or artist has left its mark. The carrier carries a trace of their charisma and silver tongue.</description>
+        <biostatMet>0</biostatMet>
+        <displayCategory>Haunts</displayCategory>
+        <displayOrderInCategory>21</displayOrderInCategory>
+        <statOffsets>
+            <NegotiationAbility>0.10</NegotiationAbility>
+            <TradePriceImprovement>0.05</TradePriceImprovement>
+        </statOffsets>
+    </GeneDef>
+
+    <!-- Scholar: Medicine + Intellectual -->
+    <GeneDef>
+        <defName>MSS_FP_MemoryAwakening_Scholar</defName>
+        <label>scholar's memory</label>
+        <description>The spirit of a healer or researcher has left its mark. The carrier's hands are steadier and their mind sharper in precise work.</description>
+        <biostatMet>0</biostatMet>
+        <displayCategory>Haunts</displayCategory>
+        <displayOrderInCategory>22</displayOrderInCategory>
+        <statFactors>
+            <MedicalSurgerySuccessChance>1.10</MedicalSurgerySuccessChance>
+            <ResearchSpeedFactor>1.05</ResearchSpeedFactor>
+        </statFactors>
+    </GeneDef>
+
+    <!-- Worker: Crafting + Construction + Mining -->
+    <GeneDef>
+        <defName>MSS_FP_MemoryAwakening_Worker</defName>
+        <label>worker's memory</label>
+        <description>The spirit of a dedicated labourer has left its mark. The carrier finds a steady, practiced rhythm in manual work.</description>
+        <biostatMet>0</biostatMet>
+        <displayCategory>Haunts</displayCategory>
+        <displayOrderInCategory>23</displayOrderInCategory>
+        <statFactors>
+            <WorkSpeedGlobal>1.10</WorkSpeedGlobal>
+        </statFactors>
+    </GeneDef>
+
+    <!-- Wanderer: Plants + Cooking + Animals (fallback) -->
+    <GeneDef>
+        <defName>MSS_FP_MemoryAwakening_Wanderer</defName>
+        <label>wanderer's memory</label>
+        <description>The spirit of a grower, cook, or animal handler has left its mark. The carrier feels quietly at ease outdoors and moves with unhurried purpose.</description>
+        <biostatMet>0</biostatMet>
+        <displayCategory>Haunts</displayCategory>
+        <displayOrderInCategory>24</displayOrderInCategory>
+        <statOffsets>
+            <MoveSpeed>0.05</MoveSpeed>
+        </statOffsets>
+        <statFactors>
+            <WorkSpeedGlobal>1.05</WorkSpeedGlobal>
+        </statFactors>
+    </GeneDef>
+
+    <!-- ══════════════════════════════════════════════════════════════════════
+         6C: Awakening genes — one per named haunt, imprinted at Awakened stage
+         ══════════════════════════════════════════════════════════════════════ -->
+
     <!-- Grignr: warrior's spirit imprints combat awareness -->
     <GeneDef>
         <defName>MSS_FP_GrignrAwakening</defName>

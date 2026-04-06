@@ -31,6 +31,7 @@ public class Settings : ModSettings
     public float HauntProgressionSpeedMultiplier = 1.0f;
     public float HauntRegressionSpeedMultiplier = 1.0f;
     public bool AlwaysShowNamedHaunts = false;
+    public bool EnableGraveHaunts = false;
     public bool EnablePoltergeistEvents = false;
     public float PoltergeistIntensityMultiplier = 1.0f;
     public float PoltergeistEventThreshold = 0.5f;

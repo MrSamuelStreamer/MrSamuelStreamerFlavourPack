@@ -6,6 +6,7 @@ using MSSFP.Hediffs;
 using RimWorld;
 using UnityEngine;
 using Verse;
+using MSSFP.Haunts;
 
 namespace MSSFP.HarmonyPatches;
 
@@ -47,7 +48,7 @@ public static class HauntSocialInteraction_Patch
                 continue;
             foreach (HediffComp comp in hwc.comps)
             {
-                if (comp is HediffComp_Haunt haunt && haunt.Props.archetype != null)
+                if (comp is HediffComp_Haunt haunt && HauntInteractionHandler.GetEffectiveArchetype(haunt) != null)
                     return haunt;
             }
         }
@@ -86,9 +87,9 @@ public static class HauntInteractionHandler
             return;
         }
 
-        // Priority 3: archetype pair
-        HauntArchetypeDef archetypeA = hauntA.Props.archetype;
-        HauntArchetypeDef archetypeB = hauntB.Props.archetype;
+        // Priority 3: archetype pair (includes dynamic haunts via GetEffectiveArchetype)
+        HauntArchetypeDef archetypeA = GetEffectiveArchetype(hauntA);
+        HauntArchetypeDef archetypeB = GetEffectiveArchetype(hauntB);
         if (archetypeA == null || archetypeB == null)
             return;
 
@@ -166,12 +167,34 @@ public static class HauntInteractionHandler
             TryTeleportNearbyItem(pawnA, pawnB);
     }
 
+    /// <summary>
+    /// Returns the effective archetype for a haunt comp.
+    /// For named haunts, reads Props.archetype directly.
+    /// For dynamic haunts (MSS_FP_PawnDisplayer), reads from the sibling HediffComp_DynamicHaunt.
+    /// </summary>
+    public static HauntArchetypeDef GetEffectiveArchetype(HediffComp_Haunt haunt)
+    {
+        if (haunt.Props.archetype != null)
+            return haunt.Props.archetype;
+
+        if (haunt.parent is HediffWithComps hwc)
+        {
+            foreach (HediffComp comp in hwc.comps)
+            {
+                if (comp is HediffComp_DynamicHaunt dynamic)
+                    return dynamic.Profile?.archetype;
+            }
+        }
+
+        return null;
+    }
+
     private static bool MatchesSideA(HauntInteractionDef def, HediffComp_Haunt haunt)
     {
         if (def.hauntDefA != null)
             return haunt.parent.def == def.hauntDefA;
         if (def.archetypeA != null)
-            return haunt.Props.archetype == def.archetypeA;
+            return GetEffectiveArchetype(haunt) == def.archetypeA;
         return true;
     }
 

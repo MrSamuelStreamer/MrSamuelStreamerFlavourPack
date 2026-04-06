@@ -643,9 +643,8 @@
                  <onlyRenderWhenDrafted>false</onlyRenderWhenDrafted>
                  <enableWander>false</enableWander>
              </li>
-             <li Class="HediffCompProperties_SeverityPerDay">
-                 <severityPerDay>-2</severityPerDay>
-             </li>
+             <!-- Severity is managed by HediffComp_DynamicHaunt — no SeverityPerDay -->
+             <li Class="MSSFP.Hediffs.HediffCompProperties_DynamicHaunt" />
          </comps>
      </HediffDef>
 

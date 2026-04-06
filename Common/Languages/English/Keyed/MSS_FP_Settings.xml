@@ -30,6 +30,7 @@
     <MSS_FP_Settings_SingleUseMentalFuses>Patch the Altered Carbon 2 Mental Fuse to be single use</MSS_FP_Settings_SingleUseMentalFuses>
 
     <MSS_FP_Settings_EnableEcho>Enable the echo event</MSS_FP_Settings_EnableEcho>
+    <MSS_FP_Settings_EnableGraveHaunts>Enable dynamic grave haunts (any buried colonist can haunt nearby pawns)</MSS_FP_Settings_EnableGraveHaunts>
     <MSS_FP_Settings_ShowHauntDevDashboard>Show haunts dev dashboard (requires dev mode)</MSS_FP_Settings_ShowHauntDevDashboard>
     <MSS_FP_Settings_AlwaysShowNamedHaunts>Always show named haunt spirits (ignores drafted requirement)</MSS_FP_Settings_AlwaysShowNamedHaunts>
     <MSS_FP_Settings_HauntProgressionSpeed>Haunt progression speed [{0}]</MSS_FP_Settings_HauntProgressionSpeed>
