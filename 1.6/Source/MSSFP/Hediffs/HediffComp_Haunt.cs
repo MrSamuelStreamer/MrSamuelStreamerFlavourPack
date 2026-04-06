@@ -26,6 +26,26 @@ public class HediffComp_Haunt : HediffComp
     public int OffUntilTick = -1;
 
     public int NextProxCheck = -1;
+    private int nextFleckTick = -1;
+
+    // Ghost wander state — not persisted, re-initialised from anchor on first UpdateWander call.
+    // ghostInitialized flag avoids false re-init for ghosts anchored near map coordinate (0,0).
+    private Vector3 ghostWorldPos;
+    private Vector3 ghostVelocity;
+    private bool ghostInitialized;
+
+    // Severity thresholds matching the three XML stage boundaries
+    private const float WhisperMax = 0.33f;
+    private const float PresenceMax = 0.66f;
+
+    /// <summary>
+    /// Alpha multiplier based on current severity stage.
+    /// Whisper = faint (0.4), Presence = normal (0.8), Awakened = full (1.0).
+    /// </summary>
+    private float StageAlpha =>
+        parent.Severity <= WhisperMax ? 0.4f
+        : parent.Severity <= PresenceMax ? 0.8f
+        : 1.0f;
 
     public virtual Texture2D PawnTexture
     {
@@ -195,10 +215,9 @@ public class HediffComp_Haunt : HediffComp
         if (!ShouldDisplayNow())
             return;
 
-        if (Props.onlyRenderWhenDrafted && Pawn.drafter is not { Drafted: true })
-        {
+        bool draftOverride = MSSFPMod.settings.AlwaysShowNamedHaunts;
+        if (Props.onlyRenderWhenDrafted && !draftOverride && Pawn.drafter is not { Drafted: true })
             return;
-        }
 
         if (Props.graphicData.Graphic is PawnHauntGraphic && TexPath == null)
             return;
@@ -211,30 +230,128 @@ public class HediffComp_Haunt : HediffComp
             gfx.SetOverrideMaterial(tex);
         }
 
-        Vector3 offset = new();
-
-        if (Props.offsets != null)
-        {
-            if (Props.offsets.Count == 4)
-            {
-                offset = Props.offsets[Pawn.Rotation.AsInt];
-            }
-            else
-            {
-                offset = Props.offsets[0];
-            }
-        }
+        Vector3 offset = ComputeOffset();
 
         Rot4 rot = Pawn.Rotation;
         if (Props.graphicData is { Graphic: PawnHauntGraphic })
-        {
             rot = Rot4.North;
+
+        float altY = AltitudeLayer.Pawn.AltitudeFor() + offset.y;
+        Vector3 finalPos = Props.enableWander && ghostInitialized
+            ? new Vector3(ghostWorldPos.x, altY, ghostWorldPos.z)
+            : new Vector3(drawPos.x + offset.x, altY, drawPos.z + offset.z);
+
+        // Apply stage-based alpha and optional color tint via material property block
+        float alpha = StageAlpha;
+        if (Props.colorOverride.HasValue || alpha < 1f)
+        {
+            Color base_ = Props.colorOverride ?? Color.white;
+            base_.a = alpha;
+            Graphic graphic = Props.graphicData?.Graphic;
+            if (graphic != null)
+            {
+                Material mat = graphic.MatAt(rot, pawnToDraw ?? parent.pawn);
+                if (mat != null)
+                {
+                    MaterialPropertyBlock block = new();
+                    block.SetColor(ShaderPropertyIDs.Color, base_);
+                    Graphics.DrawMesh(
+                        graphic.MeshAt(rot),
+                        Matrix4x4.TRS(
+                            finalPos,
+                            graphic.QuatFromRot(rot),
+                            Vector3.one
+                        ),
+                        mat,
+                        0,
+                        null,
+                        0,
+                        block
+                    );
+                    TrySpawnFleck(finalPos);
+                    return;
+                }
+            }
         }
-        Props.graphicData?.Graphic.Draw(
-            new Vector3(drawPos.x, AltitudeLayer.Pawn.AltitudeFor(), drawPos.z) + offset,
-            rot,
-            pawnToDraw ?? parent.pawn
+
+        Props.graphicData?.Graphic.Draw(finalPos, rot, pawnToDraw ?? parent.pawn);
+        TrySpawnFleck(finalPos);
+    }
+
+    private Vector3 ComputeOffset()
+    {
+        if (Props.offsets == null)
+            return Vector3.zero;
+        return Props.offsets.Count == 4
+            ? Props.offsets[Pawn.Rotation.AsInt]
+            : Props.offsets[0];
+    }
+
+    public void UpdateWander(Vector3 pawnDrawPos)
+    {
+        if (!Props.enableWander)
+            return;
+
+        float dt = Time.deltaTime;
+        if (dt <= 0f)
+            return;
+
+        Vector3 offset = ComputeOffset();
+        Vector3 anchor = new Vector3(pawnDrawPos.x + offset.x, 0f, pawnDrawPos.z + offset.z);
+
+        if (!ghostInitialized)
+        {
+            ghostWorldPos = anchor;
+            ghostVelocity = Vector3.zero;
+            ghostInitialized = true;
+            return;
+        }
+
+        // Random wander force — XZ only, independent per axis
+        Vector3 wanderForce = new Vector3(
+            (Rand.Value - 0.5f) * 2f * Props.wanderAcceleration,
+            0f,
+            (Rand.Value - 0.5f) * 2f * Props.wanderAcceleration
         );
+
+        // Spring pull when outside wander radius
+        float dx = ghostWorldPos.x - anchor.x;
+        float dz = ghostWorldPos.z - anchor.z;
+        float dist = Mathf.Sqrt(dx * dx + dz * dz);
+        Vector3 springForce = Vector3.zero;
+        if (dist > Props.wanderRadius && dist > 0f)
+        {
+            float overshoot = dist - Props.wanderRadius;
+            springForce = new Vector3(
+                -(dx / dist) * overshoot * Props.catchupStrength,
+                0f,
+                -(dz / dist) * overshoot * Props.catchupStrength
+            );
+        }
+
+        ghostVelocity += (wanderForce + springForce) * dt;
+        ghostVelocity *= Mathf.Pow(Props.dampingPerSecond, dt);
+        ghostWorldPos = new Vector3(
+            ghostWorldPos.x + ghostVelocity.x * dt,
+            0f,
+            ghostWorldPos.z + ghostVelocity.z * dt
+        );
+    }
+
+    private void TrySpawnFleck(Vector3 pos)
+    {
+        if (Props.ambientFleck == null || parent.pawn.Map == null)
+            return;
+        // Only spawn in Presence or Awakened stage
+        if (parent.Severity <= WhisperMax)
+            return;
+
+        int now = Find.TickManager.TicksGame;
+        if (nextFleckTick > now)
+            return;
+
+        nextFleckTick = now + Props.fleckIntervalTicks;
+        FleckMaker.Static(pos, parent.pawn.Map, Props.ambientFleck);
     }
 
     public override void CompPostMake()

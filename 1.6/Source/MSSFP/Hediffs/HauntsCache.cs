@@ -40,6 +40,13 @@ public static class HauntsCache
         }
     }
 
+    public static void TryUpdateWander(int id, Vector3 drawPos)
+    {
+        if (Haunts.TryGetValue(id, out List<HediffComp_Haunt> haunts))
+            foreach (HediffComp_Haunt haunt in haunts)
+                haunt.UpdateWander(drawPos);
+    }
+
     public static void TryDrawAt(int id, Vector3 drawPos)
     {
         if (Haunts.TryGetValue(id, out List<HediffComp_Haunt> haunts))

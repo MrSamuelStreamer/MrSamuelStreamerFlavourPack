@@ -31,6 +31,9 @@
 
     <MSS_FP_Settings_EnablePossession>Enable the possession event</MSS_FP_Settings_EnablePossession>
     <MSS_FP_Settings_ShowHauntDevDashboard>Show haunts dev dashboard (requires dev mode)</MSS_FP_Settings_ShowHauntDevDashboard>
+    <MSS_FP_Settings_AlwaysShowNamedHaunts>Always show named haunt spirits (ignores drafted requirement)</MSS_FP_Settings_AlwaysShowNamedHaunts>
+    <MSS_FP_Settings_HauntProgressionSpeed>Haunt progression speed [{0}]</MSS_FP_Settings_HauntProgressionSpeed>
+    <MSS_FP_Settings_HauntRegressionSpeed>Haunt regression speed [{0}]</MSS_FP_Settings_HauntRegressionSpeed>
     <MSS_FP_Settings_HauntProximityRadius>Grave proximity radius [{0} cells]</MSS_FP_Settings_HauntProximityRadius>
     <MSS_FP_Settings_HauntMinCooldownDays>Haunt check interval [{0} days]</MSS_FP_Settings_HauntMinCooldownDays>
     <MSS_FP_Settings_HauntPostFireCooldownDays>Haunt post-fire cooldown [{0} days]</MSS_FP_Settings_HauntPostFireCooldownDays>

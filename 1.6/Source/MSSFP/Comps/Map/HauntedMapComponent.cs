@@ -79,6 +79,7 @@ public class HauntedMapComponent(Verse.Map map) : MapComponent(map)
             return;
         foreach (Pawn pawn in map.mapPawns.AllHumanlike)
         {
+            HauntsCache.TryUpdateWander(pawn.thingIDNumber, pawn.TrueCenter());
             HauntsCache.TryDrawAt(pawn.thingIDNumber, pawn.TrueCenter());
         }
     }
@@ -109,9 +110,13 @@ public class HauntedMapComponent(Verse.Map map) : MapComponent(map)
                     ? $"{haunt.skillToBoost.defName} +{haunt.SkillBoostLevel}"
                     : "none";
 
+                HediffComp_HauntProgression prog =
+                    haunt.parent.TryGetComp<HediffComp_HauntProgression>();
+                string progInfo = prog != null ? $" | {prog.DebugStatus()}" : string.Empty;
+
                 sb.AppendLine(
                     $"  {pawn.LabelShort}: {haunt.parent.def.defName} "
-                    + $"(sev={severity:F2}, skill={skillInfo})"
+                    + $"(sev={severity:F2}, skill={skillInfo}{progInfo})"
                 );
             }
         }

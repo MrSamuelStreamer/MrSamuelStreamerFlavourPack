@@ -28,6 +28,9 @@ public class Settings : ModSettings
     public bool SingleUseMentalFuses = false;
     public bool EnablePossession = false;
     public bool ShowHauntDevDashboard = true;
+    public float HauntProgressionSpeedMultiplier = 1.0f;
+    public float HauntRegressionSpeedMultiplier = 1.0f;
+    public bool AlwaysShowNamedHaunts = false;
     public int HauntProximityRadius = 10;
     public int HauntMinCooldownDays = 2;
     public int HauntPostFireCooldownDays = 4;

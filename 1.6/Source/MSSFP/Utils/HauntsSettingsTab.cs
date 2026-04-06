@@ -33,6 +33,39 @@ public class HauntSettingsTab(ModSettings settings, Mod mod) : SettingsTab(setti
             ref Settings.ShowHauntDevDashboard,
             ref scrollViewHeight
         );
+        DrawCheckBox(
+            options,
+            "MSS_FP_Settings_AlwaysShowNamedHaunts".Translate(),
+            ref Settings.AlwaysShowNamedHaunts,
+            ref scrollViewHeight
+        );
+
+        options.Label(
+            "MSS_FP_Settings_HauntProgressionSpeed".Translate(
+                Settings.HauntProgressionSpeedMultiplier.ToStringPercent()
+            )
+        );
+        Settings.HauntProgressionSpeedMultiplier = options.SliderLabeled(
+            Settings.HauntProgressionSpeedMultiplier.ToStringPercent(),
+            Settings.HauntProgressionSpeedMultiplier,
+            0.25f,
+            4.0f
+        );
+        scrollViewHeight += 48f;
+
+        options.Label(
+            "MSS_FP_Settings_HauntRegressionSpeed".Translate(
+                Settings.HauntRegressionSpeedMultiplier.ToStringPercent()
+            )
+        );
+        Settings.HauntRegressionSpeedMultiplier = options.SliderLabeled(
+            Settings.HauntRegressionSpeedMultiplier.ToStringPercent(),
+            Settings.HauntRegressionSpeedMultiplier,
+            0.0f,
+            4.0f
+        );
+        scrollViewHeight += 48f;
+
         DrawIntAdjuster(
             options,
             "MSS_FP_Settings_HauntProximityRadius".Translate(Settings.HauntProximityRadius),
@@ -64,6 +97,9 @@ public class HauntSettingsTab(ModSettings settings, Mod mod) : SettingsTab(setti
         Scribe_Values.Look(ref Settings.ShowHaunts, "ShowHaunts", false);
         Scribe_Values.Look(ref Settings.EnablePossession, "EnablePossession", false);
         Scribe_Values.Look(ref Settings.ShowHauntDevDashboard, "ShowHauntDevDashboard", true);
+        Scribe_Values.Look(ref Settings.HauntProgressionSpeedMultiplier, "HauntProgressionSpeedMultiplier", 1.0f);
+        Scribe_Values.Look(ref Settings.HauntRegressionSpeedMultiplier, "HauntRegressionSpeedMultiplier", 1.0f);
+        Scribe_Values.Look(ref Settings.AlwaysShowNamedHaunts, "AlwaysShowNamedHaunts", false);
         Scribe_Values.Look(ref Settings.HauntProximityRadius, "HauntProximityRadius", 10);
         Scribe_Values.Look(ref Settings.HauntMinCooldownDays, "HauntMinCooldownDays", 2);
         Scribe_Values.Look(ref Settings.HauntPostFireCooldownDays, "HauntPostFireCooldownDays", 4);

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <!-- Grignr: grows through humanlike kills -->
+    <MSSFP.Defs.HauntProgressionDef>
+        <defName>MSS_FP_GrignrHauntProgression</defName>
+        <hauntDef>MSS_FP_GrignrHaunt</hauntDef>
+        <passiveSeverityPerDay>0.05</passiveSeverityPerDay>
+        <regressionPerDay>0.02</regressionPerDay>
+        <regressionThresholdDays>5</regressionThresholdDays>
+        <triggerCheckIntervalTicks>2500</triggerCheckIntervalTicks>
+        <triggers>
+            <li>
+                <triggerType>RecordDelta</triggerType>
+                <recordDef>KillsHumanlikes</recordDef>
+                <progressionAmount>0.10</progressionAmount>
+            </li>
+        </triggers>
+    </MSSFP.Defs.HauntProgressionDef>
+
+    <!-- Frog: grows through prisoner recruitment -->
+    <MSSFP.Defs.HauntProgressionDef>
+        <defName>MSS_FP_FrogHauntProgression</defName>
+        <hauntDef>MSS_FP_FrogHaunt</hauntDef>
+        <passiveSeverityPerDay>0.03</passiveSeverityPerDay>
+        <regressionPerDay>0.015</regressionPerDay>
+        <regressionThresholdDays>5</regressionThresholdDays>
+        <triggerCheckIntervalTicks>2500</triggerCheckIntervalTicks>
+        <triggers>
+            <li>
+                <triggerType>RecordDelta</triggerType>
+                <recordDef>PrisonersRecruited</recordDef>
+                <progressionAmount>0.15</progressionAmount>
+            </li>
+        </triggers>
+    </MSSFP.Defs.HauntProgressionDef>
+</Defs>
