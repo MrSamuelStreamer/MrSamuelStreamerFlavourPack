@@ -58,8 +58,9 @@ public static class GenetronConstants_Transpiler
 
             return null;
         }
-        catch
+        catch (Exception ex)
         {
+            Verse.Log.Warning($"[MSSFP] Genetron: Failed to find iterator MoveNext for {type.Name}.{methodName}: {ex.Message}");
             return null;
         }
     }

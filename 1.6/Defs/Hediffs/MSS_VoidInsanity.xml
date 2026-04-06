@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Defs>
-    <MentalBreakDef>
-        <defName>MSSFP_HumanityBreak</defName>
-        <label>humanity break</label>
-        <intensity>Major</intensity>
-        <baseCommonality>1</baseCommonality>
-        <workerClass>MentalBreakWorker_HumanityBreak</workerClass>
-        <mentalState>HumanityBreak</mentalState>
-    </MentalBreakDef>
+    <!-- MSSFP_HumanityBreak MentalBreakDef removed: referenced a non-existent
+         workerClass (MentalBreakWorker_HumanityBreak) and mentalState (HumanityBreak).
+         Implementing those is out of scope. -->
 
     <HediffDef>
         <defName>MSS_VoidInsanity</defName>
@@ -29,7 +24,6 @@
                     <DarkVisions MayRequire="Ludeon.RimWorld.Anomaly">0.9</DarkVisions>
                     <InsaneRamblings>0.9</InsaneRamblings>
                     <TerrifyingHallucinations>0.75</TerrifyingHallucinations>
-                    <MSSFP_HumanityBreak>0.75</MSSFP_HumanityBreak>
                     <CubeSculpting>0.5</CubeSculpting>
                     <FireTerror>0.5</FireTerror>
                     <Berserk>0.2</Berserk>
@@ -50,11 +44,6 @@
                     <EmbracedTheVoid>0.3</EmbracedTheVoid>
                     <VoidCuriosity>0.6</VoidCuriosity>
                 </RandomThoughts>
-<!--                <ChanceForRandomHediff>0.15</ChanceForRandomHediff>-->
-<!--                <HediffDaysLength>0.25~2</HediffDaysLength>-->
-<!--                <RandomHediff>-->
-<!--                    <MSS_Tranquilized>0.5</MSS_Tranquilized>-->
-<!--                </RandomHediff>-->
             </li>
         </comps>
         <stages>

@@ -81,9 +81,9 @@ public static class ModLog
             sb.Length -= 2;
             return sb.ToString();
         }
-        catch (Exception)
+        catch (Exception ex)
         {
-            //log or swallow here
+            Verse.Log.Warning($"[MSSFP] DebugLog error: {ex.Message}");
             return string.Empty;
         }
     }

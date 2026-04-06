@@ -17,7 +17,9 @@ public static class MouseoverReadout_Patch
 
     [HarmonyPatch(nameof(MouseoverReadout.MouseoverReadoutOnGUI))]
     [HarmonyTranspiler]
+#if DEBUG
     [HarmonyDebug]
+#endif
     public static IEnumerable<CodeInstruction> MouseoverReadoutOnGUI(
         IEnumerable<CodeInstruction> instructions
     )

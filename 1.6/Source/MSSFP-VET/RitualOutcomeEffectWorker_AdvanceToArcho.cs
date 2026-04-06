@@ -15,8 +15,9 @@ public class RitualOutcomeEffectWorker_AdvanceToArcho : RitualOutcomeEffectWorke
     );
     public override bool SupportsAttachableOutcomeEffect => false;
 
+    private static PreceptDef _cachedAdvanceToArcho;
     public PreceptDef MSSFP_AdvanceToArcho =>
-        DefDatabase<PreceptDef>.GetNamed("MSSFP_AdvanceToArcho");
+        _cachedAdvanceToArcho ??= DefDatabase<PreceptDef>.GetNamed("MSSFP_AdvanceToArcho");
     public EraAdvancementDef MSSFP_FormArchoMind =>
         DefDatabase<EraAdvancementDef>.GetNamed("MSSFP_FormArchoMind");
 
@@ -55,7 +56,6 @@ public class RitualOutcomeEffectWorker_AdvanceToArcho : RitualOutcomeEffectWorke
             try
             {
                 ModLog.Log($"Starting on map {Find.AnyPlayerHomeMap}");
-                IncidentParms parms = new() { forced = true, target = Find.AnyPlayerHomeMap };
             }
             catch (Exception ex)
             {

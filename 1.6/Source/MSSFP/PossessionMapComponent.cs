@@ -25,10 +25,18 @@ public class PossessionMapComponent(Map map) : MapComponent(map)
     {
         if (Find.TickManager.TicksGame % CheckInterval == 0 && MapHasPossessedPawn)
         {
-            IEnumerable<Pawn> possessedOrNearPossessed = PossessedPawns
-                .SelectMany(p => GenRadial.RadialCellsAround(p.Position, 5, true))
-                .SelectMany(cell => map.thingGrid.ThingsAt(cell))
-                .OfType<Pawn>();
+            List<Pawn> possessedOrNearPossessed = new();
+            foreach (Pawn possessed in PossessedPawns)
+            {
+                foreach (IntVec3 cell in GenRadial.RadialCellsAround(possessed.Position, 5, true))
+                {
+                    foreach (Thing thing in map.thingGrid.ThingsAt(cell))
+                    {
+                        if (thing is Pawn p)
+                            possessedOrNearPossessed.Add(p);
+                    }
+                }
+            }
 
             Pawn target = possessedOrNearPossessed.RandomElementWithFallback();
             if (target != null)

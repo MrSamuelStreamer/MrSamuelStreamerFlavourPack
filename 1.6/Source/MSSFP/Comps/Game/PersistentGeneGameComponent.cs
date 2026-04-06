@@ -61,9 +61,13 @@ public class PersistentGeneGameComponent(Verse.Game game) : GameComponent
     {
         if (Find.TickManager.TicksGame % 600 == 0)
         {
-            List<RespawnContext> valid = RespawnJobs
-                .Where(j => j.tick < Find.TickManager.TicksGame)
-                .ToList();
+            List<RespawnContext> valid = new();
+            int currentTick = Find.TickManager.TicksGame;
+            foreach (RespawnContext j in RespawnJobs)
+            {
+                if (j.tick < currentTick)
+                    valid.Add(j);
+            }
             ResurrectionParams parms = new() { dontSpawn = true };
 
             foreach (RespawnContext respawnContext in valid)

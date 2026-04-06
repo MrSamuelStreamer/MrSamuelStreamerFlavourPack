@@ -17,13 +17,10 @@ public class Gene_GrassToucher : Gene
             return;
 
         Hediff hediff = pawn.health.GetOrAddHediff(MSSFPDefOf.MSSFP_TouchedGrass);
-        foreach (
-            Plant plant in GenRadial
-                .RadialDistinctThingsAround(pawn.Position, pawn.Map, 6, true)
-                .OfType<Plant>()
-        )
+        foreach (Thing thing in GenRadial.RadialDistinctThingsAround(pawn.Position, pawn.Map, 6, true))
         {
-            hediff.Severity += SeverityGain;
+            if (thing is Plant)
+                hediff.Severity += SeverityGain;
         }
     }
 

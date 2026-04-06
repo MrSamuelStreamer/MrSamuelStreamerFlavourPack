@@ -1,6 +1,5 @@
 using System;
 using System.Linq;
-using System.Reflection;
 using HarmonyLib;
 using RimWorld;
 using UnityEngine;
@@ -11,67 +10,60 @@ namespace MSSFP;
 
 public class PawnFlyerBalloon : PawnFlyer
 {
-    private static Lazy<FieldInfo> _effectivePos = new(() =>
-        AccessTools.Field(typeof(PawnFlyer), "effectivePos")
-    );
+    private static readonly AccessTools.FieldRef<PawnFlyer, Vector3> _effectivePosRef =
+        AccessTools.FieldRefAccess<PawnFlyer, Vector3>("effectivePos");
     private Vector3 effectivePos
     {
-        get => (Vector3)_effectivePos.Value.GetValue(this);
-        set => _effectivePos.Value.SetValue(this, value);
+        get => _effectivePosRef(this);
+        set => _effectivePosRef(this) = value;
     }
 
-    private static Lazy<FieldInfo> _groundPos = new(() =>
-        AccessTools.Field(typeof(PawnFlyer), "groundPos")
-    );
+    private static readonly AccessTools.FieldRef<PawnFlyer, Vector3> _groundPosRef =
+        AccessTools.FieldRefAccess<PawnFlyer, Vector3>("groundPos");
     private Vector3 groundPos
     {
-        get => (Vector3)_groundPos.Value.GetValue(this);
-        set => _groundPos.Value.SetValue(this, value);
+        get => _groundPosRef(this);
+        set => _groundPosRef(this) = value;
     }
 
-    private static Lazy<FieldInfo> _positionLastComputedTick = new(() =>
-        AccessTools.Field(typeof(PawnFlyer), "positionLastComputedTick")
-    );
+    private static readonly AccessTools.FieldRef<PawnFlyer, int> _positionLastComputedTickRef =
+        AccessTools.FieldRefAccess<PawnFlyer, int>("positionLastComputedTick");
     private int positionLastComputedTick
     {
-        get => (int)_positionLastComputedTick.Value.GetValue(this);
-        set => _positionLastComputedTick.Value.SetValue(this, value);
+        get => _positionLastComputedTickRef(this);
+        set => _positionLastComputedTickRef(this) = value;
     }
 
-    private static Lazy<FieldInfo> _effectiveHeight = new(() =>
-        AccessTools.Field(typeof(PawnFlyer), "effectiveHeight")
-    );
+    private static readonly AccessTools.FieldRef<PawnFlyer, float> _effectiveHeightRef =
+        AccessTools.FieldRefAccess<PawnFlyer, float>("effectiveHeight");
     private float effectiveHeight
     {
-        get => (float)_effectiveHeight.Value.GetValue(this);
-        set => _effectiveHeight.Value.SetValue(this, value);
+        get => _effectiveHeightRef(this);
+        set => _effectiveHeightRef(this) = value;
     }
 
-    private static Lazy<FieldInfo> _innerContainer = new(() =>
-        AccessTools.Field(typeof(PawnFlyer), "innerContainer")
-    );
+    private static readonly AccessTools.FieldRef<PawnFlyer, ThingOwner<Thing>> _innerContainerRef =
+        AccessTools.FieldRefAccess<PawnFlyer, ThingOwner<Thing>>("innerContainer");
     private ThingOwner<Thing> innerContainer
     {
-        get => (ThingOwner<Thing>)_innerContainer.Value.GetValue(this);
-        set => _innerContainer.Value.SetValue(this, value);
+        get => _innerContainerRef(this);
+        set => _innerContainerRef(this) = value;
     }
 
-    private static Lazy<FieldInfo> _carriedThing = new(() =>
-        AccessTools.Field(typeof(PawnFlyer), "carriedThing")
-    );
+    private static readonly AccessTools.FieldRef<PawnFlyer, Thing> _carriedThingRef =
+        AccessTools.FieldRefAccess<PawnFlyer, Thing>("carriedThing");
     private Thing carriedThing
     {
-        get => (Thing)_carriedThing.Value.GetValue(this);
-        set => _carriedThing.Value.SetValue(this, value);
+        get => _carriedThingRef(this);
+        set => _carriedThingRef(this) = value;
     }
 
-    private static Lazy<FieldInfo> _destCell = new(() =>
-        AccessTools.Field(typeof(PawnFlyer), "destCell")
-    );
+    private static readonly AccessTools.FieldRef<PawnFlyer, IntVec3> _destCellRef =
+        AccessTools.FieldRefAccess<PawnFlyer, IntVec3>("destCell");
     private IntVec3 destCell
     {
-        get => (IntVec3)_destCell.Value.GetValue(this);
-        set => _destCell.Value.SetValue(this, value);
+        get => _destCellRef(this);
+        set => _destCellRef(this) = value;
     }
 
     public override void SpawnSetup(Map map, bool respawningAfterLoad)
@@ -130,13 +122,17 @@ public class PawnFlyerBalloon : PawnFlyer
                     }
                     else
                     {
-                        bed = Find
-                            .AnyPlayerHomeMap.listerBuildings.allBuildingsColonist.OfType<Building_Bed>()
-                            .Where(b =>
-                                b.CompAssignableToPawn.HasFreeSlot
-                                && b.CompAssignableToPawn.CanAssignTo(pawn)
-                            )
-                            .RandomElementWithFallback();
+                        Map homeMap = Find.AnyPlayerHomeMap;
+                        if (homeMap != null)
+                        {
+                            bed = homeMap
+                                .listerBuildings.allBuildingsColonist.OfType<Building_Bed>()
+                                .Where(b =>
+                                    b.CompAssignableToPawn.HasFreeSlot
+                                    && b.CompAssignableToPawn.CanAssignTo(pawn)
+                                )
+                                .RandomElementWithFallback();
+                        }
                         if (bed != null)
                         {
                             return true;
@@ -157,10 +153,14 @@ public class PawnFlyerBalloon : PawnFlyer
             }
             else
             {
-                bed = Find
-                    .AnyPlayerHomeMap.listerBuildings.allBuildingsColonist.OfType<Building_Bed>()
-                    .Where(b => b.CompAssignableToPawn.HasFreeSlot && b.ForPrisoners)
-                    .RandomElementWithFallback();
+                Map prisonerHomeMap = Find.AnyPlayerHomeMap;
+                if (prisonerHomeMap != null)
+                {
+                    bed = prisonerHomeMap
+                        .listerBuildings.allBuildingsColonist.OfType<Building_Bed>()
+                        .Where(b => b.CompAssignableToPawn.HasFreeSlot && b.ForPrisoners)
+                        .RandomElementWithFallback();
+                }
                 if (bed != null)
                 {
                     return true;
@@ -182,9 +182,13 @@ public class PawnFlyerBalloon : PawnFlyer
         if (flyingPawn == null)
             return;
 
+        Map respawnMap = Find.AnyPlayerHomeMap;
+        if (respawnMap == null)
+            return;
+
         CellFinder.TryFindRandomSpawnCellForPawnNear(
-            Find.AnyPlayerHomeMap.Center,
-            Find.AnyPlayerHomeMap,
+            respawnMap.Center,
+            respawnMap,
             out IntVec3 pos
         );
 
@@ -253,10 +257,14 @@ public class PawnFlyerBalloon : PawnFlyer
 
     public void SpawnInPlace(IntVec3 pos, Pawn p)
     {
+        Map targetMap = Find.AnyPlayerHomeMap;
+        if (targetMap == null)
+            return;
+
         innerContainer.TryDrop(
             p,
             pos,
-            Find.AnyPlayerHomeMap,
+            targetMap,
             ThingPlaceMode.Direct,
             out Thing _,
             playDropSound: false

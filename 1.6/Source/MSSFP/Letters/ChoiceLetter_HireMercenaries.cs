@@ -326,6 +326,12 @@ namespace MSSFP.Letters
             string backstoryDefName = MercenaryBackstories.RandomElement();
             BackstoryDef backstory = DefDatabase<BackstoryDef>.GetNamed(backstoryDefName, false);
 
+            if (backstory == null)
+            {
+                Log.Warning($"[MSSFP] Backstory '{backstoryDefName}' not found, using random");
+                backstory = DefDatabase<BackstoryDef>.AllDefsListForReading.RandomElementWithFallback();
+            }
+
             if (backstory != null)
             {
                 if (pawn.story.Adulthood != null && pawn.story.Adulthood.skillGains != null)
@@ -355,10 +361,6 @@ namespace MSSFP.Letters
                         }
                     }
                 }
-            }
-            else
-            {
-                Log.Warning($"MSSFP: Could not find backstory def: {backstoryDefName}");
             }
         }
 

@@ -16,6 +16,7 @@ public class MSSFPMod : Mod
 {
     public static Settings settings;
     public static MSSFPMod Mod;
+    private static Harmony _harmony;
 
     public MSSFPMod(ModContentPack content)
         : base(content)
@@ -29,8 +30,8 @@ public class MSSFPMod : Mod
 #if DEBUG
         Harmony.DEBUG = true;
 #endif
-        Harmony harmony = new Harmony("MrSamuelStreamer.rimworld.MSSFP.main");
-        harmony.PatchAll();
+        _harmony = new Harmony("MrSamuelStreamer.rimworld.MSSFP.main");
+        _harmony.PatchAll();
 
         Type NC = AccessTools.Inner(typeof(Dialog_NamePawn), "NameContext");
         ConstructorInfo CI = AccessTools.Constructor(
@@ -49,24 +50,23 @@ public class MSSFPMod : Mod
             nameof(NameContext_Patch.Postfix)
         );
 
-        harmony.Patch(CI, null, new HarmonyMethod(MI));
+        _harmony.Patch(CI, null, new HarmonyMethod(MI));
 
         ToggleSettlementDefeatPatch(settings.ReformationPointsPerDefeatedFaction > 0 && settings.EnableExtraReformationPoints);
     }
 
     public static void ToggleSettlementDefeatPatch(bool enable)
     {
-        Harmony harmony = new Harmony("MrSamuelStreamer.rimworld.MSSFP.main");
         MethodInfo original = AccessTools.Method(typeof(SettlementDefeatUtility), nameof(SettlementDefeatUtility.CheckDefeated));
         MethodInfo prefix = AccessTools.Method(typeof(SettlementDefeatUtility_Patch), nameof(SettlementDefeatUtility_Patch.CheckDefeated_Prefix));
 
         if (enable)
         {
-            harmony.Patch(original, prefix: new HarmonyMethod(prefix));
+            _harmony.Patch(original, prefix: new HarmonyMethod(prefix));
         }
         else
         {
-            harmony.Unpatch(original, prefix);
+            _harmony.Unpatch(original, prefix);
         }
     }
 

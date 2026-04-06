@@ -109,10 +109,13 @@ public static class Verb_LaunchProjectile_Patch
             Vector3 knockbackVector = -direction * distance ;
             IntVec3 knockbackPosition = (casterPosition.ToVector3() + knockbackVector).ToIntVec3();
 
-            caster.Position = knockbackPosition;
-            caster.SetPositionDirect(knockbackPosition);
-            caster.pather.ResetToCurrentPosition();
-            caster.Notify_Teleported();
+            if (knockbackPosition.InBounds(caster.Map) && knockbackPosition.Standable(caster.Map))
+            {
+                caster.Position = knockbackPosition;
+                caster.SetPositionDirect(knockbackPosition);
+                caster.pather.ResetToCurrentPosition();
+                caster.Notify_Teleported();
+            }
 
             AbilityUtility.DoClamor(caster.Position, 1, caster, ClamorDefOf.Impact);
 

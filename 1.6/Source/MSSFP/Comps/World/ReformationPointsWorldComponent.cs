@@ -33,11 +33,19 @@ public class ReformationPointsWorldComponent(RimWorld.Planet.World world) : Worl
     public bool AddPoints(int points)
     {
         if(points <= 0) return false;
-        if (Find.FactionManager.OfPlayer.ideos.PrimaryIdeo.Fluid)
+
+        Ideo primaryIdeo = Find.FactionManager?.OfPlayer?.ideos?.PrimaryIdeo;
+        if (primaryIdeo == null)
         {
-            if (!Find.FactionManager.OfPlayer.ideos.PrimaryIdeo.development.TryAddDevelopmentPoints(points))
+            ModLog.Warn("Couldn't find primary ideo to add development points to.");
+            return false;
+        }
+
+        if (primaryIdeo.Fluid)
+        {
+            if (!primaryIdeo.development.TryAddDevelopmentPoints(points))
             {
-                ModLog.Warn($"Couldn't add reformation points to ideo {Find.FactionManager.OfPlayer.ideos.PrimaryIdeo.name}");
+                ModLog.Warn($"Couldn't add reformation points to ideo {primaryIdeo.name}");
                 return false;
             }
         }

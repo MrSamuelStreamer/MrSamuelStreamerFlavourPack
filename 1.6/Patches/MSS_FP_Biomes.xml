@@ -1,9 +1,44 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <Patch>
-    <Operation Class="PatchOperationAdd">
-        <xpath>Defs/BiomeDef/wildPlants</xpath>
-        <value>
-            <MSS_FP_Plant_Mushris>0.05</MSS_FP_Plant_Mushris>
-        </value>
+    <!-- Add mushris plants only to temperate/moderate biomes, not ice sheets, sea ice, or extreme desert -->
+    <Operation Class="PatchOperationSequence">
+        <operations>
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/BiomeDef[defName="TemperateForest"]/wildPlants</xpath>
+                <value>
+                    <MSS_FP_Plant_Mushris>0.05</MSS_FP_Plant_Mushris>
+                </value>
+            </li>
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/BiomeDef[defName="TemperateSwamp"]/wildPlants</xpath>
+                <value>
+                    <MSS_FP_Plant_Mushris>0.05</MSS_FP_Plant_Mushris>
+                </value>
+            </li>
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/BiomeDef[defName="BorealForest"]/wildPlants</xpath>
+                <value>
+                    <MSS_FP_Plant_Mushris>0.05</MSS_FP_Plant_Mushris>
+                </value>
+            </li>
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/BiomeDef[defName="TropicalRainforest"]/wildPlants</xpath>
+                <value>
+                    <MSS_FP_Plant_Mushris>0.05</MSS_FP_Plant_Mushris>
+                </value>
+            </li>
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/BiomeDef[defName="TropicalSwamp"]/wildPlants</xpath>
+                <value>
+                    <MSS_FP_Plant_Mushris>0.05</MSS_FP_Plant_Mushris>
+                </value>
+            </li>
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/BiomeDef[defName="ColdBog"]/wildPlants</xpath>
+                <value>
+                    <MSS_FP_Plant_Mushris>0.05</MSS_FP_Plant_Mushris>
+                </value>
+            </li>
+        </operations>
     </Operation>
 </Patch>
