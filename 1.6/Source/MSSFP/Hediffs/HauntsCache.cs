@@ -96,4 +96,10 @@ public static class HauntsCache
             Cache[p][hediffCompHaunt.skillToBoost] += hediffCompHaunt.SkillBoostLevel;
         }
     }
+
+    public static void Clear()
+    {
+        Haunts.Clear();
+        Cache.Clear();
+    }
 }

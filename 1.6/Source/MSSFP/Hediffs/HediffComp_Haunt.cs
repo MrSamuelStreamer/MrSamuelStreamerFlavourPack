@@ -47,6 +47,12 @@ public class HediffComp_Haunt : HediffComp
         get => texPath;
     }
 
+    public virtual IEnumerable<string> GetAllTexPaths()
+    {
+        if (texPath != null)
+            yield return texPath;
+    }
+
     protected Dictionary<SkillDef, int> aptitudesCached = new Dictionary<SkillDef, int>();
 
     private HediffCompProperties_Haunt Props => props as HediffCompProperties_Haunt;
@@ -114,13 +120,11 @@ public class HediffComp_Haunt : HediffComp
                 Pawn sourcePawn = parent.pawn;
                 float severity = parent.Severity;
 
-                sourcePawn.health.RemoveHediff(parent);
-
                 Hediff newHediff = HediffMaker.MakeHediff(parent.def, pawn);
                 newHediff.Severity = severity;
-                pawn.health.AddHediff(newHediff);
 
-                if (newHediff.TryGetComp<HediffComp_Haunt>() is { } newHauntComp)
+                HediffComp_Haunt newHauntComp = newHediff.TryGetComp<HediffComp_Haunt>();
+                if (newHauntComp != null)
                 {
                     newHauntComp.pawnToDraw = pawnToDraw;
                     newHauntComp.name = name;
@@ -131,6 +135,17 @@ public class HediffComp_Haunt : HediffComp
                     newHauntComp.OnUntilTick = OnUntilTick;
                     newHauntComp.OffUntilTick = OffUntilTick;
                     newHauntComp.NextProxCheck = NextProxCheck;
+                }
+
+                sourcePawn.health.RemoveHediff(parent);
+                pawn.health.AddHediff(newHediff);
+
+                if (newHauntComp?.skillToBoost != null && newHauntComp.SkillBoostLevel > 0)
+                {
+                    SkillRecord skill = pawn.skills?.GetSkill(newHauntComp.skillToBoost);
+                    if (skill != null)
+                        skill.Level += newHauntComp.SkillBoostLevel;
+                    HauntsCache.RebuildCacheForPawn(pawn);
                 }
             }
         }
@@ -183,7 +198,10 @@ public class HediffComp_Haunt : HediffComp
 
         if (Props.graphicData?.Graphic is PawnHauntGraphic gfx && TexPath != null)
         {
-            gfx.SetOverrideMaterial(PawnTexture);
+            Texture2D tex = PawnTexture;
+            if (tex == null)
+                return;
+            gfx.SetOverrideMaterial(tex);
         }
 
         Vector3 offset = new();

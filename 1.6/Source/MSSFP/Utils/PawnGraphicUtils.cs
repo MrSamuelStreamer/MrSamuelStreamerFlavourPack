@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using MSSFP.Hediffs;
 using RimWorld;
 using Unity.Collections;
 using UnityEngine;
@@ -95,6 +97,7 @@ public class PawnGraphicUtils
             0,
             (AsyncGPUReadbackRequest request) =>
             {
+                RenderTexture.ReleaseTemporary(resizeRT);
                 // if the readback was successful, encode and write the results to disk
                 if (!request.hasError)
                 {
@@ -122,5 +125,37 @@ public class PawnGraphicUtils
                 done?.Invoke(!request.hasError, filePath);
             }
         );
+    }
+
+    public static void CleanupOrphanedTextures()
+    {
+        if (!Directory.Exists(SaveDataPath))
+            return;
+
+        HashSet<string> activePaths = new();
+        foreach (List<HediffComp_Haunt> haunts in HauntsCache.Haunts.Values)
+        {
+            foreach (HediffComp_Haunt haunt in haunts)
+            {
+                foreach (string path in haunt.GetAllTexPaths())
+                    activePaths.Add(path);
+            }
+        }
+
+        foreach (string file in Directory.GetFiles(SaveDataPath, "*.png"))
+        {
+            string fileName = Path.GetFileName(file);
+            if (!activePaths.Contains(fileName))
+            {
+                try
+                {
+                    File.Delete(file);
+                }
+                catch (Exception e)
+                {
+                    ModLog.Error($"Failed to delete orphaned texture {file}", e);
+                }
+            }
+        }
     }
 }

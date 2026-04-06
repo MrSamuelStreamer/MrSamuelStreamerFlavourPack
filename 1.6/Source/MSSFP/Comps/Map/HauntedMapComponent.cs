@@ -9,7 +9,7 @@ namespace MSSFP.Comps.Map;
 public class HauntedMapComponent(Verse.Map map) : MapComponent(map)
 {
     public int LastFiredTick = 0;
-    public int SearchRadius = 10;
+    public int SearchRadius => MSSFPMod.settings.HauntProximityRadius;
 
     public IEnumerable<Building_Grave> Graves =>
         map.listerBuildings.AllBuildingsColonistOfClass<Building_Grave>()
@@ -31,12 +31,14 @@ public class HauntedMapComponent(Verse.Map map) : MapComponent(map)
     {
         if (!MSSFPMod.settings.EnablePossession)
             return;
-
-        //It's ok if we miss some ticks, so the simple check is fine
-        if (LastFiredTick + 2 * GenDate.TicksPerDay >= Find.TickManager.TicksGame)
+        if (!map.IsPlayerHome)
             return;
 
-        LastFiredTick = Find.TickManager.TicksGame + 2 * GenDate.TicksPerDay;
+        //It's ok if we miss some ticks, so the simple check is fine
+        if (LastFiredTick + MSSFPMod.settings.HauntMinCooldownDays * GenDate.TicksPerDay >= Find.TickManager.TicksGame)
+            return;
+
+        LastFiredTick = Find.TickManager.TicksGame + MSSFPMod.settings.HauntMinCooldownDays * GenDate.TicksPerDay;
 
         Pawn pawn = PawnPool.RandomElementWithFallback();
         if (pawn == null)
@@ -47,7 +49,7 @@ public class HauntedMapComponent(Verse.Map map) : MapComponent(map)
             .SelectMany(cell => Graves.Where(g => g.Position == cell))
             .RandomElementWithFallback();
 
-        LastFiredTick += 4 * GenDate.TicksPerDay;
+        LastFiredTick += MSSFPMod.settings.HauntPostFireCooldownDays * GenDate.TicksPerDay;
 
         Hediff hediff = pawn.health.AddHediff(MSSFPDefOf.MSS_FP_PawnDisplayer);
 

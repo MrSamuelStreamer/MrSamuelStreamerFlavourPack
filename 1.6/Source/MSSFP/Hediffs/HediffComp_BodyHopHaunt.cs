@@ -185,6 +185,15 @@ public class HediffComp_BodyHopHaunt : HediffComp_Haunt
         yield return showPawn;
     }
 
+    public override IEnumerable<string> GetAllTexPaths()
+    {
+        foreach (PawnInfo p in pawns)
+        {
+            if (p.texPath != null)
+                yield return p.texPath;
+        }
+    }
+
     public override string CompDescriptionExtra
     {
         get
@@ -247,10 +256,9 @@ public class HediffComp_BodyHopHaunt : HediffComp_Haunt
             {
                 foreach (TraitDef def in pawnInfo.passedTraits)
                 {
-                    if (parent.pawn.story.traits.HasTrait(def))
-                    {
-                        parent.pawn.story.traits.RemoveTrait(new Trait(def));
-                    }
+                    Trait existing = parent.pawn.story.traits.GetTrait(def);
+                    if (existing != null)
+                        parent.pawn.story.traits.RemoveTrait(existing);
                 }
             }
         }

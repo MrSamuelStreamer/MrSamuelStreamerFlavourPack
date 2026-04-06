@@ -27,6 +27,9 @@ public class Settings : ModSettings
     public bool allowAnyPregnant = false;
     public bool SingleUseMentalFuses = false;
     public bool EnablePossession = false;
+    public int HauntProximityRadius = 10;
+    public int HauntMinCooldownDays = 2;
+    public int HauntPostFireCooldownDays = 4;
     public bool DisableBSIncorporateGeneLimit = false;
     public bool EnableGeneStealerNeed = false;
     public bool EnableGeneMutators = false;
