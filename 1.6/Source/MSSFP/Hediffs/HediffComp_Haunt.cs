@@ -111,9 +111,27 @@ public class HediffComp_Haunt : HediffComp
 
             if (pawn != null)
             {
-                parent.pawn.health.hediffSet.hediffs.Remove(parent);
-                parent.pawn = pawn;
-                pawn.health.hediffSet.hediffs.Add(parent);
+                Pawn sourcePawn = parent.pawn;
+                float severity = parent.Severity;
+
+                sourcePawn.health.RemoveHediff(parent);
+
+                Hediff newHediff = HediffMaker.MakeHediff(parent.def, pawn);
+                newHediff.Severity = severity;
+                pawn.health.AddHediff(newHediff);
+
+                if (newHediff.TryGetComp<HediffComp_Haunt>() is { } newHauntComp)
+                {
+                    newHauntComp.pawnToDraw = pawnToDraw;
+                    newHauntComp.name = name;
+                    newHauntComp.texPath = texPath;
+                    newHauntComp.pawnTexture = pawnTexture;
+                    newHauntComp.skillToBoost = skillToBoost;
+                    newHauntComp.SkillBoostLevel = SkillBoostLevel;
+                    newHauntComp.OnUntilTick = OnUntilTick;
+                    newHauntComp.OffUntilTick = OffUntilTick;
+                    newHauntComp.NextProxCheck = NextProxCheck;
+                }
             }
         }
     }

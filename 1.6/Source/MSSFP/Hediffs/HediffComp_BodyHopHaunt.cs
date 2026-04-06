@@ -82,8 +82,8 @@ public class HediffComp_BodyHopHaunt : HediffComp_Haunt
             Scribe_Values.Look(ref skillOffset, "skillOffset");
             Scribe_Collections.Look(ref passedTraits, "passedTraits", LookMode.Def);
             Scribe_Values.Look(ref swapTick, "swapTick");
-            Scribe_Values.Look(ref id, "id,");
-            Scribe_Values.Look(ref texPath, "texPath,");
+            Scribe_Values.Look(ref id, "id");
+            Scribe_Values.Look(ref texPath, "texPath");
         }
 
         public override string ToString()
