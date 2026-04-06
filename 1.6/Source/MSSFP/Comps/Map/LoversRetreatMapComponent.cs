@@ -15,14 +15,14 @@ public class LoversRetreatMapComponent(Verse.Map map) : MapComponent(map), IThin
         public Pawn secondLover;
 
         public int LeftAtTick;
-        public int ExcpectedBackTick;
+        public int ExpectedBackTick;
 
         public void ExposeData()
         {
             Scribe_References.Look(ref firstLover, "firstLover");
             Scribe_References.Look(ref secondLover, "secondLover");
             Scribe_Values.Look(ref LeftAtTick, "LeftAtTick", 0);
-            Scribe_Values.Look(ref ExcpectedBackTick, "ExcpectedBackTick", 0);
+            Scribe_Values.Look(ref ExpectedBackTick, "ExcpectedBackTick", 0);
         }
     }
 
@@ -48,7 +48,7 @@ public class LoversRetreatMapComponent(Verse.Map map) : MapComponent(map), IThin
         {
             firstLover = first,
             secondLover = second,
-            ExcpectedBackTick = ticksAway + Find.TickManager.TicksGame,
+            ExpectedBackTick = ticksAway + Find.TickManager.TicksGame,
             LeftAtTick = Find.TickManager.TicksGame,
         };
         pairs.Add(p);
@@ -59,13 +59,13 @@ public class LoversRetreatMapComponent(Verse.Map map) : MapComponent(map), IThin
         if (!MSSFPMod.settings.EnableLoversRetreat)
             return;
 
-        if (Find.TickManager.TicksGame % 600 == 0)
+        if (Find.TickManager.TicksGame % 600 != 0)
             return;
 
         List<Pair> toRemove = [];
         foreach (Pair pair in pairs)
         {
-            if (pair.ExcpectedBackTick <= Find.TickManager.TicksGame)
+            if (pair.ExpectedBackTick <= Find.TickManager.TicksGame)
             {
                 toRemove.Add(pair);
 

@@ -186,18 +186,14 @@ public class MSSFPGameManager : GameComponent
 
     public static void UnregisterAllOnThreadTask(IOnThreadTask onThreadTask)
     {
-        Manager
-            .ScheduledOnThreadTasks.SelectMany(kv => kv.Value)
-            .ToList()
-            .RemoveAll(t => t == onThreadTask);
+        foreach (var list in Manager.ScheduledOnThreadTasks.Values)
+            list.Remove(onThreadTask);
     }
 
     public static void UnregisterAllOffThreadTask(IOffThreadTask offThreadTask)
     {
-        Manager
-            .ScheduledOffThreadTasks.SelectMany(kv => kv.Value)
-            .ToList()
-            .RemoveAll(t => t == offThreadTask);
+        foreach (var list in Manager.ScheduledOffThreadTasks.Values)
+            list.Remove(offThreadTask);
     }
 
     public static void RegisterRealTimeSpeedChangeTask(SpeedChangeTask task)

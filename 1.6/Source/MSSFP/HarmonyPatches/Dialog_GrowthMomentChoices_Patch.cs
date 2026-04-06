@@ -125,7 +125,7 @@ public static class Dialog_GrowthMomentChoices_Patch
                     weights[type] = MSSFPMod.settings.NeutralGeneChance;
                     break;
                 case GeneType.random:
-                    weights[type] = MSSFPMod.settings.NeutralGeneChance;
+                    weights[type] = MSSFPMod.settings.RandomGeneChance;
                     break;
                 default:
                     weights[type] = 0;
@@ -253,5 +253,14 @@ public static class Dialog_GrowthMomentChoices_Patch
         letter.pawn.genes.AddGene(currentChoices.selectedGene.gene, isXenoGene);
 
         DialogLookup.Remove(instance);
+    }
+}
+
+[HarmonyPatch(typeof(Dialog_GrowthMomentChoices), nameof(Dialog_GrowthMomentChoices.Close))]
+public static class Dialog_GrowthMomentChoices_Close_Patch
+{
+    public static void Postfix(Dialog_GrowthMomentChoices __instance)
+    {
+        Dialog_GrowthMomentChoices_Patch.DialogLookup.Remove(__instance);
     }
 }
