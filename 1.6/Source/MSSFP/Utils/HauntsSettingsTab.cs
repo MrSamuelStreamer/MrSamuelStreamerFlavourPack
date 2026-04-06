@@ -43,7 +43,8 @@ public class HauntSettingsTab(ModSettings settings, Mod mod) : SettingsTab(setti
         options.Label(
             "MSS_FP_Settings_HauntProgressionSpeed".Translate(
                 Settings.HauntProgressionSpeedMultiplier.ToStringPercent()
-            )
+            ),
+            tooltip: "MSS_FP_Settings_HauntProgressionSpeed_Tooltip".Translate()
         );
         Settings.HauntProgressionSpeedMultiplier = options.SliderLabeled(
             Settings.HauntProgressionSpeedMultiplier.ToStringPercent(),
@@ -56,7 +57,8 @@ public class HauntSettingsTab(ModSettings settings, Mod mod) : SettingsTab(setti
         options.Label(
             "MSS_FP_Settings_HauntRegressionSpeed".Translate(
                 Settings.HauntRegressionSpeedMultiplier.ToStringPercent()
-            )
+            ),
+            tooltip: "MSS_FP_Settings_HauntRegressionSpeed_Tooltip".Translate()
         );
         Settings.HauntRegressionSpeedMultiplier = options.SliderLabeled(
             Settings.HauntRegressionSpeedMultiplier.ToStringPercent(),

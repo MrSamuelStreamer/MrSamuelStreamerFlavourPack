@@ -140,14 +140,38 @@
         <scenarioCanAdd>true</scenarioCanAdd>
         <isBad>false</isBad>
         <stages>
+            <!-- Whisper: 0.0–0.33, ~1/3 effect strength -->
             <li>
                 <minSeverity>0</minSeverity>
-                <label>presence</label>
+                <label>whispered to by Kekvit</label>
+                <painFactor>0.83</painFactor>
+                <statFactors>
+                    <IncomingDamageFactor>0.93</IncomingDamageFactor>
+                    <SlaveSuppressionOffset>0.05</SlaveSuppressionOffset>
+                    <Flammability>0.87</Flammability>
+                </statFactors>
+            </li>
+            <!-- Presence: 0.34–0.66, ~2/3 effect strength -->
+            <li>
+                <minSeverity>0.34</minSeverity>
+                <label>accompanied by Kekvit</label>
+                <painFactor>0.67</painFactor>
+                <statFactors>
+                    <IncomingDamageFactor>0.87</IncomingDamageFactor>
+                    <SlaveSuppressionOffset>0.10</SlaveSuppressionOffset>
+                    <Flammability>0.73</Flammability>
+                </statFactors>
+            </li>
+            <!-- Awakened: 0.67–1.0, full + bonus effect -->
+            <li>
+                <minSeverity>0.67</minSeverity>
+                <label>empowered by Kekvit</label>
                 <painFactor>0.5</painFactor>
                 <statFactors>
                     <IncomingDamageFactor>0.8</IncomingDamageFactor>
                     <SlaveSuppressionOffset>0.15</SlaveSuppressionOffset>
                     <Flammability>0.6</Flammability>
+                    <ImmunityGainSpeed>1.3</ImmunityGainSpeed>
                 </statFactors>
             </li>
         </stages>
@@ -166,7 +190,9 @@
                     <li>(0.5, 1.1, -0.35)</li> <!-- West -->
                 </offsets>
                 <onlyRenderWhenDrafted>true</onlyRenderWhenDrafted>
+                <ambientFleck>AirPuff</ambientFleck>
             </li>
+            <li Class="MSSFP.Hediffs.HediffCompProperties_HauntProgression" />
         </comps>
     </HediffDef>
     <!--Oskar Def-->
@@ -180,9 +206,104 @@
         <scenarioCanAdd>true</scenarioCanAdd>
         <isBad>false</isBad>
         <stages>
+            <!-- Whisper: 0.0–0.33, ~1/3 effect strength -->
             <li>
                 <minSeverity>0</minSeverity>
-                <label>disturbed</label>
+                <label>vaguely unsettled by Oskar</label>
+                <statFactors>
+                    <WorkSpeedGlobal>0.81</WorkSpeedGlobal>
+                    <NegotiationAbility>0.81</NegotiationAbility>
+                    <DrugSellPriceImprovement>1.14</DrugSellPriceImprovement>
+                    <ToxicEnvironmentResistance MayRequire="Ludeon.RimWorld.Biotech">1.14</ToxicEnvironmentResistance>
+                    <PawnBeauty>1.23</PawnBeauty>
+                    <SocialImpact>0.90</SocialImpact>
+                    <DeepDrillingSpeed>1.23</DeepDrillingSpeed>
+                    <MentalBreakThreshold>1.23</MentalBreakThreshold>
+                    <Fertility MayRequire="Ludeon.RimWorld.Biotech">1.23</Fertility>
+                </statFactors>
+                <statOffsets>
+                    <SlaveSuppressionOffset MayRequire="Ludeon.RimWorld.Ideology">-0.07</SlaveSuppressionOffset>
+                    <MeleeHitChance>-0.14</MeleeHitChance>
+                    <MeleeDodgeChance>-0.14</MeleeDodgeChance>
+                    <AimingDelayFactor>0.014</AimingDelayFactor>
+                    <MoveSpeed>-0.014</MoveSpeed>
+                    <RestFallRateFactor>-0.023</RestFallRateFactor>
+                    <PsychicSensitivity>0.014</PsychicSensitivity>
+                    <RestRateMultiplier>0.023</RestRateMultiplier>
+                    <MeditationFocusGain MayRequire="Ludeon.RimWorld.Royalty">-0.014</MeditationFocusGain>
+                    <PsychicEntropyMax MayRequire="Ludeon.RimWorld.Royalty">0.14</PsychicEntropyMax>
+                    <PsychicEntropyRecoveryRate MayRequire="Ludeon.RimWorld.Royalty">0.14</PsychicEntropyRecoveryRate>
+                </statOffsets>
+                <capMods>
+                    <li>
+                        <capacity>Moving</capacity>
+                        <offset>-0.023</offset>
+                    </li>
+                    <li>
+                        <capacity>BloodPumping</capacity>
+                        <offset>0.023</offset>
+                    </li>
+                    <li>
+                        <capacity>Consciousness</capacity>
+                        <offset>-0.014</offset>
+                    </li>
+                    <li>
+                        <capacity>Breathing</capacity>
+                        <offset>-0.014</offset>
+                    </li>
+                </capMods>
+            </li>
+            <!-- Presence: 0.34–0.66, ~2/3 effect strength -->
+            <li>
+                <minSeverity>0.34</minSeverity>
+                <label>disturbed by Oskar</label>
+                <statFactors>
+                    <WorkSpeedGlobal>0.61</WorkSpeedGlobal>
+                    <NegotiationAbility>0.61</NegotiationAbility>
+                    <DrugSellPriceImprovement>1.28</DrugSellPriceImprovement>
+                    <ToxicEnvironmentResistance MayRequire="Ludeon.RimWorld.Biotech">1.28</ToxicEnvironmentResistance>
+                    <PawnBeauty>1.46</PawnBeauty>
+                    <SocialImpact>0.79</SocialImpact>
+                    <DeepDrillingSpeed>1.46</DeepDrillingSpeed>
+                    <MentalBreakThreshold>1.46</MentalBreakThreshold>
+                    <Fertility MayRequire="Ludeon.RimWorld.Biotech">1.46</Fertility>
+                </statFactors>
+                <statOffsets>
+                    <SlaveSuppressionOffset MayRequire="Ludeon.RimWorld.Ideology">-0.13</SlaveSuppressionOffset>
+                    <MeleeHitChance>-0.28</MeleeHitChance>
+                    <MeleeDodgeChance>-0.28</MeleeDodgeChance>
+                    <AimingDelayFactor>0.028</AimingDelayFactor>
+                    <MoveSpeed>-0.028</MoveSpeed>
+                    <RestFallRateFactor>-0.046</RestFallRateFactor>
+                    <PsychicSensitivity>0.028</PsychicSensitivity>
+                    <RestRateMultiplier>0.046</RestRateMultiplier>
+                    <MeditationFocusGain MayRequire="Ludeon.RimWorld.Royalty">-0.028</MeditationFocusGain>
+                    <PsychicEntropyMax MayRequire="Ludeon.RimWorld.Royalty">0.28</PsychicEntropyMax>
+                    <PsychicEntropyRecoveryRate MayRequire="Ludeon.RimWorld.Royalty">0.28</PsychicEntropyRecoveryRate>
+                </statOffsets>
+                <capMods>
+                    <li>
+                        <capacity>Moving</capacity>
+                        <offset>-0.046</offset>
+                    </li>
+                    <li>
+                        <capacity>BloodPumping</capacity>
+                        <offset>0.046</offset>
+                    </li>
+                    <li>
+                        <capacity>Consciousness</capacity>
+                        <offset>-0.028</offset>
+                    </li>
+                    <li>
+                        <capacity>Breathing</capacity>
+                        <offset>-0.028</offset>
+                    </li>
+                </capMods>
+            </li>
+            <!-- Awakened: 0.67–1.0, full 420/69 chaos -->
+            <li>
+                <minSeverity>0.67</minSeverity>
+                <label>thoroughly corrupted by Oskar</label>
                 <statFactors>
                     <WorkSpeedGlobal>0.420</WorkSpeedGlobal>
                     <NegotiationAbility>0.420</NegotiationAbility>
@@ -207,7 +328,6 @@
                     <PsychicEntropyMax MayRequire="Ludeon.RimWorld.Royalty">0.420</PsychicEntropyMax>
                     <PsychicEntropyRecoveryRate MayRequire="Ludeon.RimWorld.Royalty">0.420</PsychicEntropyRecoveryRate>
                 </statOffsets>
-
                 <capMods>
                     <li>
                         <capacity>Moving</capacity>
@@ -244,6 +364,7 @@
                 </offsets>
                 <onlyRenderWhenDrafted>true</onlyRenderWhenDrafted>
             </li>
+            <li Class="MSSFP.Hediffs.HediffCompProperties_HauntProgression" />
         </comps>
     </HediffDef>
     <!--Phil Def-->
@@ -257,13 +378,41 @@
         <scenarioCanAdd>true</scenarioCanAdd>
         <isBad>false</isBad>
         <stages>
+            <!-- Whisper: 0.0–0.33, ~1/3 effect strength -->
             <li>
                 <minSeverity>0</minSeverity>
-                <label>petty</label>
+                <label>petty whispers from Phil</label>
+                <statFactors>
+                    <WorkSpeedGlobal>0.97</WorkSpeedGlobal>
+                    <SocialImpact>0.97</SocialImpact>
+                    <Fertility MayRequire="Ludeon.RimWorld.Biotech">0.73</Fertility>
+                </statFactors>
+                <statOffsets>
+                    <RestRateMultiplier>-0.03</RestRateMultiplier>
+                </statOffsets>
+            </li>
+            <!-- Presence: 0.34–0.66, ~2/3 effect strength -->
+            <li>
+                <minSeverity>0.34</minSeverity>
+                <label>accompanied by Phil</label>
+                <statFactors>
+                    <WorkSpeedGlobal>0.93</WorkSpeedGlobal>
+                    <SocialImpact>0.93</SocialImpact>
+                    <Fertility MayRequire="Ludeon.RimWorld.Biotech">0.47</Fertility>
+                </statFactors>
+                <statOffsets>
+                    <RestRateMultiplier>-0.07</RestRateMultiplier>
+                </statOffsets>
+            </li>
+            <!-- Awakened: 0.67–1.0, full + bonus -->
+            <li>
+                <minSeverity>0.67</minSeverity>
+                <label>tormented by Phil</label>
                 <statFactors>
                     <WorkSpeedGlobal>0.9</WorkSpeedGlobal>
                     <SocialImpact>0.9</SocialImpact>
                     <Fertility MayRequire="Ludeon.RimWorld.Biotech">0.2</Fertility>
+                    <MentalBreakThreshold>1.3</MentalBreakThreshold>
                 </statFactors>
                 <statOffsets>
                     <RestRateMultiplier>-0.1</RestRateMultiplier>
@@ -286,11 +435,12 @@
                 </offsets>
                 <onlyRenderWhenDrafted>true</onlyRenderWhenDrafted>
             </li>
+            <li Class="MSSFP.Hediffs.HediffCompProperties_HauntProgression" />
         </comps>
     </HediffDef>
     <HediffDef>
         <defName>MSS_FP_JadeHaunt</defName>
-        <label>Tormented by Jade</label>
+        <label>Accompanied by Jade</label>
         <description>This pawn is perturbed by the spirit of Jade, enormous abominable yeti, slain by Santa.</description>
         <hediffClass>HediffWithComps</hediffClass>
         <defaultLabelColor>(0.1,0.2,0.8)</defaultLabelColor>
@@ -298,14 +448,38 @@
         <scenarioCanAdd>true</scenarioCanAdd>
         <isBad>false</isBad>
         <stages>
+            <!-- Whisper: 0.0–0.33, ~1/3 effect strength -->
             <li>
                 <minSeverity>0</minSeverity>
-                <label>petty</label>
+                <label>sensing Jade</label>
+                <hungerRateFactor>1.17</hungerRateFactor>
+                <statFactors>
+                    <Mass>1.5</Mass>
+                    <MeleeDamageFactor>1.5</MeleeDamageFactor>
+                </statFactors>
+            </li>
+            <!-- Presence: 0.34–0.66, ~2/3 effect strength -->
+            <li>
+                <minSeverity>0.34</minSeverity>
+                <label>accompanied by Jade</label>
+                <hungerRateFactor>1.33</hungerRateFactor>
+                <statFactors>
+                    <Mass>2.0</Mass>
+                    <MeleeDamageFactor>2.0</MeleeDamageFactor>
+                </statFactors>
+            </li>
+            <!-- Awakened: 0.67–1.0, full + bonus -->
+            <li>
+                <minSeverity>0.67</minSeverity>
+                <label>empowered by Jade</label>
                 <hungerRateFactor>1.5</hungerRateFactor>
                 <statFactors>
                     <Mass>2.5</Mass>
                     <MeleeDamageFactor>2.5</MeleeDamageFactor>
                 </statFactors>
+                <statOffsets>
+                    <MoveSpeed>0.3</MoveSpeed>
+                </statOffsets>
             </li>
         </stages>
         <comps>
@@ -323,7 +497,9 @@
                     <li>(0.5, 1.1, -0.35)</li> <!-- West -->
                 </offsets>
                 <onlyRenderWhenDrafted>true</onlyRenderWhenDrafted>
+                <ambientFleck>MicroSparks</ambientFleck>
             </li>
+            <li Class="MSSFP.Hediffs.HediffCompProperties_HauntProgression" />
         </comps>
     </HediffDef>
 

@@ -33,4 +33,72 @@
             </li>
         </triggers>
     </MSSFP.Defs.HauntProgressionDef>
+
+    <!-- Kekvit: grows when the haunted pawn takes damage -->
+    <MSSFP.Defs.HauntProgressionDef>
+        <defName>MSS_FP_KekvitHauntProgression</defName>
+        <hauntDef>MSS_FP_KekvitHaunt</hauntDef>
+        <passiveSeverityPerDay>0.04</passiveSeverityPerDay>
+        <regressionPerDay>0.02</regressionPerDay>
+        <regressionThresholdDays>5</regressionThresholdDays>
+        <triggerCheckIntervalTicks>2500</triggerCheckIntervalTicks>
+        <triggers>
+            <li>
+                <triggerType>RecordDelta</triggerType>
+                <recordDef>DamageTaken</recordDef>
+                <progressionAmount>0.08</progressionAmount>
+            </li>
+        </triggers>
+    </MSSFP.Defs.HauntProgressionDef>
+
+    <!-- Oskar: grows through crafting and creative work -->
+    <MSSFP.Defs.HauntProgressionDef>
+        <defName>MSS_FP_OskarHauntProgression</defName>
+        <hauntDef>MSS_FP_OskarHaunt</hauntDef>
+        <passiveSeverityPerDay>0.03</passiveSeverityPerDay>
+        <regressionPerDay>0.015</regressionPerDay>
+        <regressionThresholdDays>7</regressionThresholdDays>
+        <triggerCheckIntervalTicks>2500</triggerCheckIntervalTicks>
+        <triggers>
+            <li>
+                <triggerType>RecordDelta</triggerType>
+                <recordDef>ThingsCrafted</recordDef>
+                <progressionAmount>0.12</progressionAmount>
+            </li>
+        </triggers>
+    </MSSFP.Defs.HauntProgressionDef>
+
+    <!-- Phil: grows through performing medical operations (doctor in disguise) -->
+    <MSSFP.Defs.HauntProgressionDef>
+        <defName>MSS_FP_PhilHauntProgression</defName>
+        <hauntDef>MSS_FP_PhilHaunt</hauntDef>
+        <passiveSeverityPerDay>0.02</passiveSeverityPerDay>
+        <regressionPerDay>0.01</regressionPerDay>
+        <regressionThresholdDays>10</regressionThresholdDays>
+        <triggerCheckIntervalTicks>2500</triggerCheckIntervalTicks>
+        <triggers>
+            <li>
+                <triggerType>RecordDelta</triggerType>
+                <recordDef>OperationsPerformed</recordDef>
+                <progressionAmount>0.10</progressionAmount>
+            </li>
+        </triggers>
+    </MSSFP.Defs.HauntProgressionDef>
+
+    <!-- Jade: grows through dealing damage in combat -->
+    <MSSFP.Defs.HauntProgressionDef>
+        <defName>MSS_FP_JadeHauntProgression</defName>
+        <hauntDef>MSS_FP_JadeHaunt</hauntDef>
+        <passiveSeverityPerDay>0.05</passiveSeverityPerDay>
+        <regressionPerDay>0.025</regressionPerDay>
+        <regressionThresholdDays>3</regressionThresholdDays>
+        <triggerCheckIntervalTicks>2500</triggerCheckIntervalTicks>
+        <triggers>
+            <li>
+                <triggerType>RecordDelta</triggerType>
+                <recordDef>DamageDealt</recordDef>
+                <progressionAmount>0.10</progressionAmount>
+            </li>
+        </triggers>
+    </MSSFP.Defs.HauntProgressionDef>
 </Defs>

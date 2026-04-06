@@ -33,7 +33,9 @@
     <MSS_FP_Settings_ShowHauntDevDashboard>Show haunts dev dashboard (requires dev mode)</MSS_FP_Settings_ShowHauntDevDashboard>
     <MSS_FP_Settings_AlwaysShowNamedHaunts>Always show named haunt spirits (ignores drafted requirement)</MSS_FP_Settings_AlwaysShowNamedHaunts>
     <MSS_FP_Settings_HauntProgressionSpeed>Haunt progression speed [{0}]</MSS_FP_Settings_HauntProgressionSpeed>
+    <MSS_FP_Settings_HauntProgressionSpeed_Tooltip>Scales how quickly named haunts grow in power. At 100% (default), haunts passively gain ~0.03–0.05 severity per day. Aligned actions (kills, recruitments, etc.) give larger bursts on top of this. Reaching full Awakened stage takes roughly 10–20 days passively, or much faster with the right actions. 400% roughly quadruples all rates; 25% makes progression very slow.</MSS_FP_Settings_HauntProgressionSpeed_Tooltip>
     <MSS_FP_Settings_HauntRegressionSpeed>Haunt regression speed [{0}]</MSS_FP_Settings_HauntRegressionSpeed>
+    <MSS_FP_Settings_HauntRegressionSpeed_Tooltip>Scales how quickly haunts fade when neglected. At 100% (default), a haunt loses ~0.015–0.02 severity per day after 5+ days with no aligned actions. Set to 0% to disable regression entirely — haunts will never fade once gained.</MSS_FP_Settings_HauntRegressionSpeed_Tooltip>
     <MSS_FP_Settings_HauntProximityRadius>Grave proximity radius [{0} cells]</MSS_FP_Settings_HauntProximityRadius>
     <MSS_FP_Settings_HauntMinCooldownDays>Haunt check interval [{0} days]</MSS_FP_Settings_HauntMinCooldownDays>
     <MSS_FP_Settings_HauntPostFireCooldownDays>Haunt post-fire cooldown [{0} days]</MSS_FP_Settings_HauntPostFireCooldownDays>
