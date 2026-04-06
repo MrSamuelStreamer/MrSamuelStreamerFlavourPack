@@ -30,6 +30,6 @@ Scribe_Deep.Look(ref pawnToShow, "pawnToShow");
 
 ## Resolution
 
-**Status**: ⏸ DEFERRED — 2026-04-06 (`misc_fixes`)
+**Status**: ✅ FIXED — 2026-04-06 (`misc_fixes`)
 
-The fix is one line but must be verified: `Scribe_Deep.Look` with a null ref will write a null entry on first save (before any pawn is selected). Confirm this round-trips cleanly before applying.
+Changed `Scribe_Values.Look` to `Scribe_Deep.Look`. `Scribe_Deep.Look` handles a null reference cleanly — it writes a null entry on first save and reads back null on load, which is the correct behaviour before any pawn has been selected.

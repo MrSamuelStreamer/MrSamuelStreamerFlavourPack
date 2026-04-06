@@ -127,7 +127,6 @@ public class Settings : ModSettings
         {
             try
             {
-                if(Tabs.Any(t=>t.GetType() == type)) continue;
                 if (Activator.CreateInstance(type, this, MSSFPMod.Mod) is SettingsTab tab)
                 {
                     RegisterTab(tab);
@@ -140,14 +139,14 @@ public class Settings : ModSettings
         }
     }
 
-    protected static List<SettingsTab> Tabs = new();
+    protected List<SettingsTab> Tabs = new();
 
     public T GetSettings<T>() where T: SettingsTab
     {
         return Tabs.FirstOrDefault(t => t is T) as T;
     }
 
-    public static void RegisterTab(SettingsTab tab)
+    public void RegisterTab(SettingsTab tab)
     {
         Tabs.Add(tab);
         Tabs = Tabs.OrderBy(t => t.TabOrder).ToList();
@@ -256,12 +255,8 @@ public class Settings : ModSettings
             "EnableWanderDelayModification",
             false
         );
-        Scribe_Values.Look(ref WanderDelayIncludeHumanoids, "WanderDelayIncludeHumanoids", false);
         Scribe_Values.Look(ref WanderDelayTicks, "WanderDelayTicks", 0);
         Scribe_Values.Look(ref EnableGenesOnGrowthMoment, "EnableGenesOnGrowthMoment", false);
-        Scribe_Values.Look(ref EnableColonistPortraitHiding, "EnableColonistPortraitHiding", true);
-        Scribe_Values.Look(ref ShowHiddenPortraits, "ShowHiddenPortraits", false);
-        Scribe_Values.Look(ref Enable10SecondsToSpeed, "Enable10SecondsToSpeed", false);
         Scribe_Values.Look(ref Active10SecondsToSpeed, "Active10SecondsToSpeed", false);
         Scribe_Values.Look(ref OverrideFactionLeaderSpawn, "OverrideFactionLeaderSpawn", true);
         Scribe_Values.Look(ref BoostChanceToSpawnExistingPawns, "BoostChanceToSpawnExistingPawns", true);

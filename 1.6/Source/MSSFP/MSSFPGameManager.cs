@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using MSSFP.HarmonyPatches;
 using MSSFP.Interfaces;
 using RimWorld.Planet;
@@ -79,12 +78,11 @@ public class MSSFPGameManager : GameComponent
         if (RealTimeSpeedChangeTasks != null && RealTimeSpeedChangeTasks.Count > 0)
         {
             float currentTime = Time.realtimeSinceStartup;
-            var tasksToExecute = RealTimeSpeedChangeTasks
-                .Where(task => task.ShouldExecute(currentTime))
-                .ToList();
-
-            foreach (var task in tasksToExecute)
+            for (int i = RealTimeSpeedChangeTasks.Count - 1; i >= 0; i--)
             {
+                SpeedChangeTask task = RealTimeSpeedChangeTasks[i];
+                if (!task.ShouldExecute(currentTime))
+                    continue;
                 try
                 {
                     task.OnThreadTask(this);
@@ -93,7 +91,7 @@ public class MSSFPGameManager : GameComponent
                 {
                     Log.Error($"Exception occurred in SpeedChangeTask: {e}");
                 }
-                RealTimeSpeedChangeTasks.Remove(task);
+                RealTimeSpeedChangeTasks.RemoveAt(i);
             }
         }
     }

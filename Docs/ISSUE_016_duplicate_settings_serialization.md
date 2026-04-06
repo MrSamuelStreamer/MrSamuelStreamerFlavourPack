@@ -25,6 +25,12 @@ Serialize each field in exactly one place. Either keep all serialization in `Set
 
 ## Resolution
 
-**Status**: ⏸ DEFERRED
+**Status**: ✅ FIXED — 2026-04-06 (`misc_fixes`)
 
-Blocked by issue 015. Once the `Tabs` static-vs-instance question is resolved and ownership is clear, the duplicate serialisation sites can be consolidated to a single authoritative location per field.
+Three categories of duplication resolved:
+
+1. **Settings.ExposeData() vs MainSettingsTab**: Removed `WanderDelayIncludeHumanoids`, `EnableColonistPortraitHiding`, `ShowHiddenPortraits`, and `Enable10SecondsToSpeed` from `Settings.ExposeData()`. These are now serialised exclusively in `MainSettingsTab.ExposeData()`.
+
+2. **Tab-vs-tab (`DrawByMrStreamer`)**: Removed from `MemesSettingsTab.ExposeData()`. It is now serialised exclusively in `MainSettingsTab.ExposeData()`, which is the appropriate home for a display/rendering toggle.
+
+3. **Settings-only fields**: Fields with no tab home (`EnableWanderDelayModification`, `WanderDelayTicks`, `Active10SecondsToSpeed`, recoil fields, reformation points fields, etc.) remain in `Settings.ExposeData()` — they are correctly serialised in exactly one place.

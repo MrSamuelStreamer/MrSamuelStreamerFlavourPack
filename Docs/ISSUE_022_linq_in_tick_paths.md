@@ -37,11 +37,11 @@ foreach (var task in tasks)
 
 ## Resolution
 
-**Status**: 🔶 PARTIAL — 2026-04-06 (`misc_fixes`)
+**Status**: ✅ FIXED — 2026-04-06 (`misc_fixes`)
 
 Fixed:
 - `PersistentGeneGameComponent.cs`: `.Where().ToList()` replaced with explicit `foreach` + pre-allocated buffer.
 - `PossessionMapComponent.cs`: `SelectMany` + `OfType` chain replaced with explicit `foreach`.
 - `Gene_GrassToucher.cs`: `RadialDistinctThingsAround + .OfType<Plant>()` in `Tick` replaced with explicit `foreach`.
 
-Remaining: `MSSFPGameManager.GameComponentUpdate` lines 82–84 (`.Where().ToList()`) — deferred to avoid a cross-branch conflict on a file already modified in this PR. Easy single-file follow-up.
+Remaining: `MSSFPGameManager.GameComponentUpdate` lines 82–84 (`.Where().ToList()`) — now fixed. Replaced with a reverse-index `for` loop using `RemoveAt(i)`, eliminating all allocations. Unused `using System.Linq` removed from the file.

@@ -28,6 +28,8 @@ Additionally, lines 24-161 contain a **large commented-out block** of what appea
 
 ## Resolution
 
-**Status**: ⏸ DEFERRED
+**Status**: 📝 DOCUMENTED — 2026-04-06 (`misc_fixes`)
 
-The full method replacement via Prefix is still in place. A transpiler rewrite requires in-game UI validation to confirm visual parity. The large commented-out code block also remains. Tracked for a future PR with in-game testing.
+The Prefix replacement is retained. A transpiler alternative would need to inject a new column draw call and adjust layout constants mid-method — equally fragile and harder to read. Adding the column via Postfix is not viable as it would draw over existing content. The Prefix is the correct tool for this patch; the risk is accepted and documented.
+
+The 137-line commented-out trade menu implementation (disabled `MSSFP_TradeUI_DrawTradeableRow_WeightPrice` class, lines 24–161) has been deleted. Unused `using` directives (`System.Collections.Generic`, `System.Linq`, `System.Reflection.Emit`) removed.

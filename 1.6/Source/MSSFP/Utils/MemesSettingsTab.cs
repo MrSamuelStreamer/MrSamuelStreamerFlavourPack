@@ -102,7 +102,6 @@ public class MemesSettingsTab(ModSettings settings, Mod mod) : SettingsTab(setti
 
     public override void ExposeData()
     {
-        Scribe_Values.Look(ref Settings.DrawByMrStreamer, "DrawByMrStreamer", false);
         Scribe_Values.Look(ref Settings.EnableLoversRetreat, "EnableLoversRetreat", false);
         Scribe_Values.Look(ref Settings.allowAnyPregnant, "allowAnyPregnant", false);
         Scribe_Values.Look(ref Settings.SingleUseMentalFuses, "SingleUseMentalFuses", false);

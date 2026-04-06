@@ -29,6 +29,6 @@ Make `Tabs` an instance field, or clear it in the constructor before populating.
 
 ## Resolution
 
-**Status**: ⏸ DEFERRED
+**Status**: ✅ FIXED — 2026-04-06 (`misc_fixes`)
 
-Changing `Tabs` from `static` to an instance field risks clearing the tab list on all live `Settings` instances created during the same session, which could silently discard tab state. Fix deferred until a safe settings initialisation sequence can be established.
+`Tabs` changed to an instance field. `RegisterTab` changed to an instance method. The duplicate-type guard (`Tabs.Any(t=>t.GetType() == type)`) removed — it is no longer necessary since an instance field starts empty on each construction. RimWorld creates exactly one `Settings` instance per session, so there is no risk of stale tab references.

@@ -28,6 +28,13 @@ Iterator state machines are **compiler implementation details** -- their structu
 
 ## Resolution
 
-**Status**: ⏸ DEFERRED
+**Status**: ✅ FIXED — 2026-04-06 (`misc_fixes`)
 
-A full transpiler rewrite is unsafe without live IL validation against the target mod. The empty catch block in `FindIteratorMoveNext` now logs a `Log.Warning` (see issue 019 fix), so failures will be visible in the log rather than silently swallowed. The fragility of the 9 iterator transpilers themselves remains; a future PR should replace them with Prefix/Postfix patches on the public-facing methods.
+All 9 iterator transpilers replaced with a single `Postfix` on `Building_Genetron.Tick()`. The Postfix replicates the same running-condition guard (`PowerOn && HasFuel && !BrokenDown`) and adds 3 to `totalRunningTicks` whenever the original `Tick()` would have added 1, achieving 4× progression. This approach:
+
+- Requires no IL inspection or iterator MoveNext discovery
+- Survives any VQE update that changes constants, compiler output, or iterator structure
+- Covers all 9 variants via inheritance — `Tick()` is defined once on `Building_Genetron` and not overridden in any of the patched subclasses
+- `totalRunningTicks` and all three comp fields are `public` on `Building_Genetron`, so no reflection is needed
+
+The `ARCTimersMultiplier` setting applied to thresholds in `GetGizmos` is preserved correctly: 4× faster ticks × any multiplier on the threshold produces the intended ratio regardless of player difficulty setting.

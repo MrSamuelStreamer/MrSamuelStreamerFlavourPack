@@ -97,7 +97,7 @@ public class HediffComp_BodyHopHaunt : HediffComp_Haunt
     public override void CompExposeData()
     {
         base.CompExposeData();
-        Scribe_Values.Look(ref pawnToShow, "pawnToShow");
+        Scribe_Deep.Look(ref pawnToShow, "pawnToShow");
         Scribe_Collections.Look(ref pawns, "pawns", LookMode.Deep);
     }
 

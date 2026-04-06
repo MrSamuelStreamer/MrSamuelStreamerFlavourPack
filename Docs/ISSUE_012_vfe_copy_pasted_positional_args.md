@@ -27,6 +27,6 @@ This file is acknowledged as copy-pasted from Vanilla Expanded Framework source 
 
 ## Resolution
 
-**Status**: ⏸ DEFERRED
+**Status**: ✅ FIXED — 2026-04-06 (`misc_fixes`)
 
-Named arguments not added. The copy-pasted block compiles correctly against the current VEF/RimWorld API. Adding named args requires confirming the exact parameter names from the VEF source to avoid introducing silent regressions. Tracked for a future PR when VEF source is available for reference.
+Both `PawnGenerationRequest` constructor calls (lines 85–121 and 148–195) converted to fully named arguments using the parameter names from the decompiled `PawnGenerationRequest` source. The `-1` tile sentinel (leftover from the 1.5 `int` API) replaced with `null` to match the 1.6 `PlanetTile?` type. The second call also had two missing `fixedTitle`/`fixedIdeo` parameters (silently using defaults before); these are now explicit via named args. All 33–43 parameters across both calls are now named, making any future constructor changes immediately visible as compile errors.
