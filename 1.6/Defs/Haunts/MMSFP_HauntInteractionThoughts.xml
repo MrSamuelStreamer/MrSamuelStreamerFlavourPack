@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <!-- Clash: both Aggressive pawns, -5 mood 1 day -->
+    <ThoughtDef>
+        <defName>MSS_FP_HauntInteraction_GhostsAtWar</defName>
+        <thoughtClass>Thought_Memory</thoughtClass>
+        <durationDays>1</durationDays>
+        <stages>
+            <li>
+                <label>ghosts at war</label>
+                <description>The spirits clashed through us. My ghost is furious.</description>
+                <baseMoodEffect>-5</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+
+    <!-- Provocation: Trickster pawn amused, +3 mood 0.5 days -->
+    <ThoughtDef>
+        <defName>MSS_FP_HauntInteraction_GhostAmused</defName>
+        <thoughtClass>Thought_Memory</thoughtClass>
+        <durationDays>0.5</durationDays>
+        <stages>
+            <li>
+                <label>ghost amused</label>
+                <description>My ghost found that very entertaining.</description>
+                <baseMoodEffect>3</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+
+    <!-- Provocation: Aggressive pawn enraged, -3 mood 0.5 days -->
+    <ThoughtDef>
+        <defName>MSS_FP_HauntInteraction_GhostEnraged</defName>
+        <thoughtClass>Thought_Memory</thoughtClass>
+        <durationDays>0.5</durationDays>
+        <stages>
+            <li>
+                <label>ghost enraged</label>
+                <description>My ghost is furious at being mocked.</description>
+                <baseMoodEffect>-3</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+
+    <!-- Mischief: both Trickster pawns, +2 mood 0.5 days -->
+    <ThoughtDef>
+        <defName>MSS_FP_HauntInteraction_GhostlyPranks</defName>
+        <thoughtClass>Thought_Memory</thoughtClass>
+        <durationDays>0.5</durationDays>
+        <stages>
+            <li>
+                <label>ghostly pranks</label>
+                <description>The ghosts pulled a prank together. Something nearby moved on its own.</description>
+                <baseMoodEffect>2</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+
+    <!-- Annoyance: Brooding pawn tormented, -3 mood 0.5 days -->
+    <ThoughtDef>
+        <defName>MSS_FP_HauntInteraction_GhostTormented</defName>
+        <thoughtClass>Thought_Memory</thoughtClass>
+        <durationDays>0.5</durationDays>
+        <stages>
+            <li>
+                <label>ghost tormented</label>
+                <description>Something is poking at my ghost. It won't leave us alone.</description>
+                <baseMoodEffect>-3</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+
+    <!-- Resonance: both Brooding pawns, +5 mood 2 days -->
+    <ThoughtDef>
+        <defName>MSS_FP_HauntInteraction_SharedSorrow</defName>
+        <thoughtClass>Thought_Memory</thoughtClass>
+        <durationDays>2</durationDays>
+        <stages>
+            <li>
+                <label>shared sorrow</label>
+                <description>Our ghosts recognized each other. There's a strange comfort in shared grief.</description>
+                <baseMoodEffect>5</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+
+    <!-- Eternal Rivalry (Frog + Grignr): both pawns, -5 mood 1 day -->
+    <ThoughtDef>
+        <defName>MSS_FP_HauntInteraction_EternalRivalry</defName>
+        <thoughtClass>Thought_Memory</thoughtClass>
+        <durationDays>1</durationDays>
+        <stages>
+            <li>
+                <label>eternal rivalry</label>
+                <description>Frog and Grignr are at it again. Their feud runs through me like electricity.</description>
+                <baseMoodEffect>-5</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+
+    <!-- Ghostly Sitcom (Oskar + Phil): bystanders within 5 cells, +3 mood 1 day -->
+    <ThoughtDef>
+        <defName>MSS_FP_HauntInteraction_GhostlyBickering</defName>
+        <thoughtClass>Thought_Memory</thoughtClass>
+        <durationDays>1</durationDays>
+        <stages>
+            <li>
+                <label>witnessed ghostly bickering</label>
+                <description>Oskar and Phil were arguing again through those two. Somehow it was entertaining.</description>
+                <baseMoodEffect>3</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+</Defs>

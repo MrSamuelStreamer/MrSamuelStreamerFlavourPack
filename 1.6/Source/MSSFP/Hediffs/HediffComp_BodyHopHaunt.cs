@@ -16,7 +16,7 @@ public class HediffComp_BodyHopHaunt : HediffComp_Haunt
 
     public PawnInfo pawnToShow;
 
-    private HediffCompProperties_BodyHopHaunt Props => props as HediffCompProperties_BodyHopHaunt;
+    private new HediffCompProperties_BodyHopHaunt Props => props as HediffCompProperties_BodyHopHaunt;
     public override string TexPath
     {
         get => pawnToShow?.texPath ?? null;

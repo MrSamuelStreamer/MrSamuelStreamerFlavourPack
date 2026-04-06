@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using MSSFP.Defs;
 using RimWorld;
 using UnityEngine;
 using Verse;
@@ -22,6 +23,13 @@ public class HediffCompProperties_Haunt : HediffCompProperties
     public bool AlwaysOn => OnTimeTicksRange == default && OffTimeTicksRange == default;
 
     public ThoughtDef thought;
+
+    /// <summary>
+    /// Personality archetype used by the haunt interaction system.
+    /// Null = this haunt does not participate in archetype interactions
+    /// (e.g. PawnDisplayer haunts).
+    /// </summary>
+    public HauntArchetypeDef archetype = null;
 
     /// <summary>
     /// Optional color tint applied to the haunt graphic at render time.

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <!-- Combative, territorial — reacts with hostility -->
+    <MSSFP.Defs.HauntArchetypeDef>
+        <defName>MSS_FP_Archetype_Aggressive</defName>
+        <label>aggressive</label>
+    </MSSFP.Defs.HauntArchetypeDef>
+
+    <!-- Playful, chaotic — reacts with mischief -->
+    <MSSFP.Defs.HauntArchetypeDef>
+        <defName>MSS_FP_Archetype_Trickster</defName>
+        <label>trickster</label>
+    </MSSFP.Defs.HauntArchetypeDef>
+
+    <!-- Dark, withdrawn — reacts with tension -->
+    <MSSFP.Defs.HauntArchetypeDef>
+        <defName>MSS_FP_Archetype_Brooding</defName>
+        <label>brooding</label>
+    </MSSFP.Defs.HauntArchetypeDef>
+</Defs>

@@ -1,4 +1,5 @@
-﻿using MSSFP.Genes;
+﻿using MSSFP.Defs;
+using MSSFP.Genes;
 using MSSFP.Thoughts;
 using RimWorld;
 using Verse;
@@ -61,6 +62,21 @@ public static class MSSFPDefOf
     public static readonly ThingDef MSS_FP_PawnFlyer_Balloon;
 
     public static readonly JobDef MSSFP_ExtractTarget;
+
+    // Haunt archetypes
+    public static readonly HauntArchetypeDef MSS_FP_Archetype_Aggressive;
+    public static readonly HauntArchetypeDef MSS_FP_Archetype_Trickster;
+    public static readonly HauntArchetypeDef MSS_FP_Archetype_Brooding;
+
+    // Haunt interaction thoughts
+    public static readonly ThoughtDef MSS_FP_HauntInteraction_GhostsAtWar;
+    public static readonly ThoughtDef MSS_FP_HauntInteraction_GhostAmused;
+    public static readonly ThoughtDef MSS_FP_HauntInteraction_GhostEnraged;
+    public static readonly ThoughtDef MSS_FP_HauntInteraction_GhostlyPranks;
+    public static readonly ThoughtDef MSS_FP_HauntInteraction_GhostTormented;
+    public static readonly ThoughtDef MSS_FP_HauntInteraction_SharedSorrow;
+    public static readonly ThoughtDef MSS_FP_HauntInteraction_EternalRivalry;
+    public static readonly ThoughtDef MSS_FP_HauntInteraction_GhostlyBickering;
 
     static MSSFPDefOf() => DefOfHelper.EnsureInitializedInCtor(typeof(MSSFPDefOf));
 }

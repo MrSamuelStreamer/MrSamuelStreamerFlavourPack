@@ -85,7 +85,7 @@ public class HediffComp_Haunt : HediffComp
 
     protected Dictionary<SkillDef, int> aptitudesCached = new Dictionary<SkillDef, int>();
 
-    private HediffCompProperties_Haunt Props => props as HediffCompProperties_Haunt;
+    public HediffCompProperties_Haunt Props => props as HediffCompProperties_Haunt;
 
     public override string CompLabelInBracketsExtra
     {

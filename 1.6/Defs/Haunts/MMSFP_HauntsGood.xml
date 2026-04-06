@@ -59,6 +59,7 @@
                     <li>(0.5, 1.1, -0.35)</li> <!-- West -->
                 </offsets>
                 <onlyRenderWhenDrafted>true</onlyRenderWhenDrafted>
+                <archetype>MSS_FP_Archetype_Trickster</archetype>
                 <ambientFleck>AirPuff</ambientFleck>
             </li>
             <li Class="MSSFP.Hediffs.HediffCompProperties_HauntProgression" />
@@ -124,6 +125,7 @@
                     <li>(0.5, 1.1, -0.35)</li> <!-- West -->
                 </offsets>
                 <onlyRenderWhenDrafted>true</onlyRenderWhenDrafted>
+                <archetype>MSS_FP_Archetype_Aggressive</archetype>
                 <ambientFleck>MicroSparks</ambientFleck>
             </li>
             <li Class="MSSFP.Hediffs.HediffCompProperties_HauntProgression" />
@@ -190,6 +192,7 @@
                     <li>(0.5, 1.1, -0.35)</li> <!-- West -->
                 </offsets>
                 <onlyRenderWhenDrafted>true</onlyRenderWhenDrafted>
+                <archetype>MSS_FP_Archetype_Brooding</archetype>
                 <ambientFleck>AirPuff</ambientFleck>
             </li>
             <li Class="MSSFP.Hediffs.HediffCompProperties_HauntProgression" />
@@ -363,6 +366,7 @@
                     <li>(0.5, 1.1, -0.35)</li> <!-- West -->
                 </offsets>
                 <onlyRenderWhenDrafted>true</onlyRenderWhenDrafted>
+                <archetype>MSS_FP_Archetype_Trickster</archetype>
             </li>
             <li Class="MSSFP.Hediffs.HediffCompProperties_HauntProgression" />
         </comps>
@@ -434,6 +438,7 @@
                     <li>(0.5, 1.1, -0.35)</li> <!-- West -->
                 </offsets>
                 <onlyRenderWhenDrafted>true</onlyRenderWhenDrafted>
+                <archetype>MSS_FP_Archetype_Brooding</archetype>
             </li>
             <li Class="MSSFP.Hediffs.HediffCompProperties_HauntProgression" />
         </comps>
@@ -497,6 +502,7 @@
                     <li>(0.5, 1.1, -0.35)</li> <!-- West -->
                 </offsets>
                 <onlyRenderWhenDrafted>true</onlyRenderWhenDrafted>
+                <archetype>MSS_FP_Archetype_Aggressive</archetype>
                 <ambientFleck>MicroSparks</ambientFleck>
             </li>
             <li Class="MSSFP.Hediffs.HediffCompProperties_HauntProgression" />
