@@ -7,16 +7,16 @@ using Verse;
 
 namespace MSSFP.Hediffs;
 
-public class PawnHistoryEditorWindow(HediffComp_BodyHopHaunt comp) : Window
+public class PawnHistoryEditorWindow(HediffComp_Echo comp) : Window
 {
-    public HediffComp_BodyHopHaunt hauntComp = comp;
+    public HediffComp_Echo hauntComp = comp;
 
     public override Vector2 InitialSize => new Vector2(1000f, 800f);
 
     public Vector2 scrollPosition = Vector2.zero;
     public Vector2 traitScrollPosition = Vector2.zero;
 
-    public HediffComp_BodyHopHaunt.PawnInfo Selected;
+    public HediffComp_Echo.PawnInfo Selected;
     public string buffer;
     public string buffer2;
 
@@ -219,7 +219,7 @@ public class PawnHistoryEditorWindow(HediffComp_BodyHopHaunt comp) : Window
         if (Widgets.ButtonText(newPawnButton.Rect.ContractedBy(3f), "New Pawn"))
         {
             // new pawn
-            Selected = new HediffComp_BodyHopHaunt.PawnInfo();
+            Selected = new HediffComp_Echo.PawnInfo();
             buffer = null;
             buffer2 = null;
         }
@@ -239,7 +239,7 @@ public class PawnHistoryEditorWindow(HediffComp_BodyHopHaunt comp) : Window
         try
         {
             int currentHeight = 0;
-            foreach (HediffComp_BodyHopHaunt.PawnInfo pawn in hauntComp.pawns)
+            foreach (HediffComp_Echo.PawnInfo pawn in hauntComp.pawns)
             {
                 Rect Section = new Rect(0, currentHeight, pawnListRect.width, 100f);
                 if (Widgets.ButtonText(Section, "", false))

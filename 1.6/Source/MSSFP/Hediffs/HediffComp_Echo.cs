@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -10,13 +10,13 @@ using PawnGraphicUtils = MSSFP.Utils.PawnGraphicUtils;
 namespace MSSFP.Hediffs;
 
 [StaticConstructorOnStartup]
-public class HediffComp_BodyHopHaunt : HediffComp_Haunt
+public class HediffComp_Echo : HediffComp_Haunt
 {
     public Dictionary<PawnInfo, Texture2D> pawnTextureCache = new Dictionary<PawnInfo, Texture2D>();
 
     public PawnInfo pawnToShow;
 
-    private new HediffCompProperties_BodyHopHaunt Props => props as HediffCompProperties_BodyHopHaunt;
+    private new HediffCompProperties_Echo Props => props as HediffCompProperties_Echo;
     public override string TexPath
     {
         get => pawnToShow?.texPath ?? null;
@@ -196,15 +196,20 @@ public class HediffComp_BodyHopHaunt : HediffComp_Haunt
     }
 
     /// <summary>
-    /// Returns skill boosts from all body-hop history entries. The base class's
+    /// Returns skill boosts from all echo history entries. The base class's
     /// skillToBoost/SkillBoostLevel is NOT used — all boosts come from the pawns list.
+    /// EchoHost gene doubles all boosts.
     /// </summary>
     public override IEnumerable<(SkillDef skill, int boost)> GetSkillBoosts()
     {
+        bool spiritHost =
+            parent.pawn.genes?.HasActiveGene(MSSFPDefOf.MSS_FP_Gene_SpiritHost) == true;
+        int multiplier = spiritHost ? 2 : 1;
+
         foreach (PawnInfo pawnInfo in pawns)
         {
             if (pawnInfo.bestSkill != null && pawnInfo.skillOffset > 0)
-                yield return (pawnInfo.bestSkill, pawnInfo.skillOffset);
+                yield return (pawnInfo.bestSkill, pawnInfo.skillOffset * multiplier);
         }
     }
 
@@ -229,7 +234,7 @@ public class HediffComp_BodyHopHaunt : HediffComp_Haunt
 
     public override void CompPostPostAdd(DamageInfo? dinfo)
     {
-        // Re-apply traits from body-hop history on hediff add (e.g. after load)
+        // Re-apply traits from echo history on hediff add (e.g. after load)
         foreach (PawnInfo pawnInfo in pawns)
         {
             if (!pawnInfo.passedTraits.NullOrEmpty())
@@ -259,7 +264,7 @@ public class HediffComp_BodyHopHaunt : HediffComp_Haunt
 
     public override void CompPostPostRemoved()
     {
-        // Remove traits from body-hop history
+        // Remove traits from echo history
         foreach (PawnInfo pawnInfo in pawns)
         {
             if (!pawnInfo.passedTraits.NullOrEmpty())

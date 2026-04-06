@@ -180,16 +180,16 @@ public class CompAbilityEffect_BodyHopImproved : CompAbilityEffect
 
         hostHediff ??= host.health.AddHediff(MSSFPDefOf.MSS_FP_PawnDisplayerPossession);
 
-        HediffComp_BodyHopHaunt haunt = hostHediff.TryGetComp<HediffComp_BodyHopHaunt>();
+        HediffComp_Echo haunt = hostHediff.TryGetComp<HediffComp_Echo>();
 
         if (haunt is null)
             return;
 
-        HediffComp_BodyHopHaunt casterHauntComp =
-            casterHediff?.TryGetComp<HediffComp_BodyHopHaunt>();
+        HediffComp_Echo casterHauntComp =
+            casterHediff?.TryGetComp<HediffComp_Echo>();
         if (casterHauntComp != null)
         {
-            foreach (HediffComp_BodyHopHaunt.PawnInfo pawn in casterHauntComp.pawns.ToList())
+            foreach (HediffComp_Echo.PawnInfo pawn in casterHauntComp.pawns.ToList())
             {
                 haunt.AddNewPawn(pawn);
             }

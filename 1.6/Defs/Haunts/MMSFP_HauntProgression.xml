@@ -8,6 +8,7 @@
         <regressionPerDay>0.02</regressionPerDay>
         <regressionThresholdDays>5</regressionThresholdDays>
         <triggerCheckIntervalTicks>2500</triggerCheckIntervalTicks>
+        <awakeningGeneDef>MSS_FP_GrignrAwakening</awakeningGeneDef>
         <triggers>
             <li>
                 <triggerType>RecordDelta</triggerType>
@@ -25,6 +26,7 @@
         <regressionPerDay>0.015</regressionPerDay>
         <regressionThresholdDays>5</regressionThresholdDays>
         <triggerCheckIntervalTicks>2500</triggerCheckIntervalTicks>
+        <awakeningGeneDef>MSS_FP_FrogAwakening</awakeningGeneDef>
         <triggers>
             <li>
                 <triggerType>RecordDelta</triggerType>
@@ -42,6 +44,7 @@
         <regressionPerDay>0.02</regressionPerDay>
         <regressionThresholdDays>5</regressionThresholdDays>
         <triggerCheckIntervalTicks>2500</triggerCheckIntervalTicks>
+        <awakeningGeneDef>MSS_FP_KekvitAwakening</awakeningGeneDef>
         <triggers>
             <li>
                 <triggerType>RecordDelta</triggerType>
@@ -59,6 +62,7 @@
         <regressionPerDay>0.015</regressionPerDay>
         <regressionThresholdDays>7</regressionThresholdDays>
         <triggerCheckIntervalTicks>2500</triggerCheckIntervalTicks>
+        <awakeningGeneDef>MSS_FP_OskarAwakening</awakeningGeneDef>
         <triggers>
             <li>
                 <triggerType>RecordDelta</triggerType>
@@ -76,6 +80,7 @@
         <regressionPerDay>0.01</regressionPerDay>
         <regressionThresholdDays>10</regressionThresholdDays>
         <triggerCheckIntervalTicks>2500</triggerCheckIntervalTicks>
+        <awakeningGeneDef>MSS_FP_PhilAwakening</awakeningGeneDef>
         <triggers>
             <li>
                 <triggerType>RecordDelta</triggerType>
@@ -93,6 +98,7 @@
         <regressionPerDay>0.025</regressionPerDay>
         <regressionThresholdDays>3</regressionThresholdDays>
         <triggerCheckIntervalTicks>2500</triggerCheckIntervalTicks>
+        <awakeningGeneDef>MSS_FP_JadeAwakening</awakeningGeneDef>
         <triggers>
             <li>
                 <triggerType>RecordDelta</triggerType>

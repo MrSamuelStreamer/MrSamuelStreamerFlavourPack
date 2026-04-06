@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
     <HediffDef>
-        <defName>MSS_FP_PossessionHaunt</defName>
+        <defName>MSS_FP_Echo</defName>
         <label>Possessed</label>
         <description>This person has been possessed by something or someone.</description>
         <hediffClass>MSSFP.Hediffs.HiddenHediffWithComps</hediffClass>

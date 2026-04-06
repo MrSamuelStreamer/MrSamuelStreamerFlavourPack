@@ -27,6 +27,12 @@ public class HauntProgressionDef : Def
 
     /// <summary>How often triggers are checked, in ticks (~1 in-game hour = 2500 ticks).</summary>
     public int triggerCheckIntervalTicks = 2500;
+
+    /// <summary>
+    /// Gene imprinted on the host pawn once the haunt reaches Awakened severity (≥0.67).
+    /// Optional — no gene fires if null.
+    /// </summary>
+    public GeneDef awakeningGeneDef;
 }
 
 /// <summary>

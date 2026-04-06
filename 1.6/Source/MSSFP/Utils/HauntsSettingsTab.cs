@@ -23,8 +23,8 @@ public class HauntSettingsTab(ModSettings settings, Mod mod) : SettingsTab(setti
         );
         DrawCheckBox(
             options,
-            "MSS_FP_Settings_EnablePossession".Translate(),
-            ref Settings.EnablePossession,
+            "MSS_FP_Settings_EnableEcho".Translate(),
+            ref Settings.EnableEcho,
             ref scrollViewHeight
         );
         DrawCheckBox(
@@ -132,7 +132,7 @@ public class HauntSettingsTab(ModSettings settings, Mod mod) : SettingsTab(setti
     public override void ExposeData()
     {
         Scribe_Values.Look(ref Settings.ShowHaunts, "ShowHaunts", false);
-        Scribe_Values.Look(ref Settings.EnablePossession, "EnablePossession", false);
+        Scribe_Values.Look(ref Settings.EnableEcho, "EnableEcho", false);
         Scribe_Values.Look(ref Settings.ShowHauntDevDashboard, "ShowHauntDevDashboard", true);
         Scribe_Values.Look(ref Settings.HauntProgressionSpeedMultiplier, "HauntProgressionSpeedMultiplier", 1.0f);
         Scribe_Values.Look(ref Settings.HauntRegressionSpeedMultiplier, "HauntRegressionSpeedMultiplier", 1.0f);

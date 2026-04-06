@@ -96,8 +96,8 @@ public static class HauntsCache
                 .OfType<HediffComp_Haunt>()
         )
         {
-            // GetSkillBoosts() is virtual — HediffComp_BodyHopHaunt returns
-            // per-pawn entries from the body-hop history list.
+            // GetSkillBoosts() is virtual — HediffComp_Echo returns
+            // per-pawn entries from the echo history list.
             foreach ((SkillDef skill, int boost) in hauntComp.GetSkillBoosts())
             {
                 if (!boosts.ContainsKey(skill))

@@ -33,11 +33,12 @@ public class HauntedMapComponent(Verse.Map map) : MapComponent(map)
     public IEnumerable<Pawn> PawnPool =>
         PawnsNearGraves.Where(pawn =>
             !pawn.health.hediffSet.HasHediff(MSSFPDefOf.MSS_FP_PawnDisplayer)
+            && pawn.genes?.HasActiveGene(MSSFPDefOf.MSS_FP_Gene_HauntResistant) != true
         );
 
     public override void MapComponentTick()
     {
-        if (!MSSFPMod.settings.EnablePossession)
+        if (!MSSFPMod.settings.EnableEcho)
             return;
         if (!map.IsPlayerHome)
             return;
@@ -48,7 +49,7 @@ public class HauntedMapComponent(Verse.Map map) : MapComponent(map)
 
         LastFiredTick = Find.TickManager.TicksGame + MSSFPMod.settings.HauntMinCooldownDays * GenDate.TicksPerDay;
 
-        Pawn pawn = PawnPool.RandomElementWithFallback();
+        Pawn pawn = PickWeightedPawn();
         if (pawn == null)
             return;
 
@@ -66,6 +67,17 @@ public class HauntedMapComponent(Verse.Map map) : MapComponent(map)
             comp.SetPawnToDraw(grave.Corpse.InnerPawn);
         }
     }
+
+    /// <summary>
+    /// Picks a pawn from PawnPool with gene-based weighting:
+    /// HauntSensitive pawns have 1.5× selection weight.
+    /// </summary>
+    private Pawn PickWeightedPawn() =>
+        PawnPool.RandomElementByWeightWithFallback(
+            p => p.genes?.HasActiveGene(MSSFPDefOf.MSS_FP_Gene_HauntSensitive) == true
+                ? 1.5f
+                : 1.0f
+        );
 
     public override void ExposeData()
     {

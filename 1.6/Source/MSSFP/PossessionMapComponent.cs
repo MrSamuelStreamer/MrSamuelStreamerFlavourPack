@@ -12,11 +12,11 @@ public class PossessionMapComponent(Map map) : MapComponent(map)
 
     public bool MapHasPossessedPawn =>
         map.mapPawns.AllHumanlikeSpawned.Any(pawn =>
-            pawn.health.hediffSet.HasHediff(MSSFPDefOf.MSS_FP_PossessionHaunt)
+            pawn.health.hediffSet.HasHediff(MSSFPDefOf.MSS_FP_Echo)
         );
     public IEnumerable<Pawn> PossessedPawns =>
         map.mapPawns.AllHumanlikeSpawned.Where(pawn =>
-            pawn.health.hediffSet.HasHediff(MSSFPDefOf.MSS_FP_PossessionHaunt)
+            pawn.health.hediffSet.HasHediff(MSSFPDefOf.MSS_FP_Echo)
         );
 
     public int CheckInterval = GenDate.TicksPerHour;

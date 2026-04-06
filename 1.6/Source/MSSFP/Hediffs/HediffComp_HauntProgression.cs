@@ -22,6 +22,9 @@ public class HediffComp_HauntProgression : HediffComp
     /// <summary>Snapshots of record values from the previous check, used to compute deltas.</summary>
     private Dictionary<RecordDef, float> recordSnapshots = new();
 
+    /// <summary>Prevents the awakening gene from firing more than once per hediff lifetime.</summary>
+    private bool awakeningGeneFired = false;
+
     private HauntProgressionDef _progressionDef;
 
     private HauntProgressionDef ProgressionDef
@@ -38,7 +41,19 @@ public class HediffComp_HauntProgression : HediffComp
         }
     }
 
-    private float ProgressionMultiplier => MSSFPMod.settings.HauntProgressionSpeedMultiplier;
+    private float ProgressionMultiplier
+    {
+        get
+        {
+            float mult = MSSFPMod.settings.HauntProgressionSpeedMultiplier;
+            Pawn p = parent.pawn;
+            if (p.genes?.HasActiveGene(MSSFPDefOf.MSS_FP_Gene_HauntSensitive) == true)
+                mult *= 2f;
+            if (p.genes?.HasActiveGene(MSSFPDefOf.MSS_FP_Gene_HauntResistant) == true)
+                mult *= 0.5f;
+            return mult;
+        }
+    }
     private float RegressionMultiplier => MSSFPMod.settings.HauntRegressionSpeedMultiplier;
 
     public string LastTriggerLabel => lastTriggerLabel ?? "none";
@@ -101,6 +116,9 @@ public class HediffComp_HauntProgression : HediffComp
         float newSeverity = Mathf.Clamp(parent.Severity + severityAdjustment, 0.01f, 1f);
         severityAdjustment = newSeverity - parent.Severity;
 
+        if (!awakeningGeneFired && newSeverity >= 0.67f)
+            TryFireAwakeningGene();
+
         TakeRecordSnapshot();
     }
 
@@ -149,6 +167,32 @@ public class HediffComp_HauntProgression : HediffComp
         return false;
     }
 
+    // ── Awakening gene ────────────────────────────────────────────────────────
+
+    private void TryFireAwakeningGene()
+    {
+        awakeningGeneFired = true;
+
+        GeneDef geneDef = ProgressionDef?.awakeningGeneDef;
+        if (geneDef == null)
+            return;
+
+        Pawn pawn = parent.pawn;
+        if (pawn.genes == null)
+            return;
+        if (pawn.genes.HasActiveGene(geneDef))
+            return;
+
+        pawn.genes.AddGene(geneDef, xenogene: false);
+
+        Messages.Message(
+            "MSS_FP_AwakeningGene_Msg".Translate(pawn.LabelShort, parent.def.label),
+            pawn,
+            MessageTypeDefOf.PositiveEvent,
+            historical: false
+        );
+    }
+
     private void TakeRecordSnapshot()
     {
         if (ProgressionDef == null || parent.pawn.records == null)
@@ -172,6 +216,7 @@ public class HediffComp_HauntProgression : HediffComp
         Scribe_Values.Look(ref lastTriggerTick, "lastTriggerTick", -1);
         Scribe_Values.Look(ref lastTriggerLabel, "lastTriggerLabel");
         Scribe_Collections.Look(ref recordSnapshots, "recordSnapshots", LookMode.Def, LookMode.Value);
+        Scribe_Values.Look(ref awakeningGeneFired, "awakeningGeneFired", false);
     }
 
     public override IEnumerable<Gizmo> CompGetGizmos()

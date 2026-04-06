@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+    <!-- Add the echo history inspector tab to BasePawn (visible only when
+         the pawn carries a HediffComp_Echo with history entries). -->
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[@Name="BasePawn"]/inspectorTabs</xpath>
+        <value>
+            <li>MSSFP.Tabs.ITab_Echo</li>
+        </value>
+    </Operation>
+</Patch>

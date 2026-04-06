@@ -677,7 +677,7 @@
          <everCurableByItem>false</everCurableByItem>
          <chronic>true</chronic>
          <comps>
-             <li Class="MSSFP.Hediffs.HediffCompProperties_BodyHopHaunt">
+             <li Class="MSSFP.Hediffs.HediffCompProperties_Echo">
                  <thought>MSS_FP_Haunted</thought>
                  <graphicData>
                      <graphicClass>MSSFP.PawnHauntGraphic</graphicClass>

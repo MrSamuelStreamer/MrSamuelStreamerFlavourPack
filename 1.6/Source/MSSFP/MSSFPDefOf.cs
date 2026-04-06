@@ -40,7 +40,7 @@ public static class MSSFPDefOf
 
     public static readonly BodyModCategoryDef MSSFP_NaturalMods;
 
-    public static readonly HediffDef MSS_FP_PossessionHaunt;
+    public static readonly HediffDef MSS_FP_Echo;
     public static readonly ThoughtDef MSS_FP_PossessedThought;
     public static readonly HediffDef MSS_Need_GeneStealer_Restless;
     public static readonly HediffDef MSS_Need_GeneStealer_Exhaustion;
@@ -67,6 +67,12 @@ public static class MSSFPDefOf
     public static readonly HauntArchetypeDef MSS_FP_Archetype_Aggressive;
     public static readonly HauntArchetypeDef MSS_FP_Archetype_Trickster;
     public static readonly HauntArchetypeDef MSS_FP_Archetype_Brooding;
+
+    // Haunt susceptibility genes (6A)
+    public static readonly GeneDef MSS_FP_Gene_HauntSensitive;
+    public static readonly GeneDef MSS_FP_Gene_HauntResistant;
+    public static readonly GeneDef MSS_FP_Gene_SpiritHost;
+    public static readonly ThoughtDef MSS_FP_Gene_SenseGhost;
 
     // Exorcism
     public static readonly ThoughtDef MSS_FP_Exorcism_SpiritualTrauma;

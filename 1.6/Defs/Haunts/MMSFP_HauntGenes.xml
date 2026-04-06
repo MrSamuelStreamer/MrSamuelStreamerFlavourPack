@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <!-- Gene display category for all haunt-related genes -->
+    <GeneCategoryDef>
+        <defName>Haunts</defName>
+        <label>Haunts</label>
+        <displayPriorityInXenotype>100</displayPriorityInXenotype>
+    </GeneCategoryDef>
+
+    <!-- ══════════════════════════════════════════════════════════════════════
+         6A: Haunt Susceptibility Genes
+         ══════════════════════════════════════════════════════════════════════ -->
+
+    <!-- HauntSensitive: drawn to nearby spirits; haunts progress twice as fast -->
+    <GeneDef>
+        <defName>MSS_FP_Gene_HauntSensitive</defName>
+        <label>haunt sensitive</label>
+        <iconPath>UI/Icons/Genes/MSSFP_HauntSensitive</iconPath>
+        <description>Carriers of this gene have a natural attunement to restless spirits. Ghosts are drawn to them — when grave haunts are assigned, sensitive pawns are 1.5× more likely to be chosen. Once haunted, the spirit grows in power twice as fast. In return, they gain a brief but genuine comfort from sensing ghosts nearby.</description>
+        <geneClass>MSSFP.Genes.Gene_HauntSensitive</geneClass>
+        <biostatMet>-1</biostatMet>
+        <displayCategory>Haunts</displayCategory>
+        <displayOrderInCategory>0</displayOrderInCategory>
+    </GeneDef>
+
+    <!-- HauntResistant: immune to grave hauntings; haunts progress half as fast -->
+    <GeneDef>
+        <defName>MSS_FP_Gene_HauntResistant</defName>
+        <label>haunt resistant</label>
+        <iconPath>UI/Icons/Genes/MSSFP_HauntResistant</iconPath>
+        <description>Carriers of this gene are spiritually opaque — ghosts simply do not take interest in them. They cannot be selected by grave proximity hauntings, and any haunt that does somehow reach them grows far more slowly.</description>
+        <geneClass>MSSFP.Genes.Gene_HauntResistant</geneClass>
+        <biostatMet>1</biostatMet>
+        <displayCategory>Haunts</displayCategory>
+        <displayOrderInCategory>1</displayOrderInCategory>
+    </GeneDef>
+
+    <!-- SpiritHost: body-hop skill boosts are doubled; harder to resist strain -->
+    <GeneDef>
+        <defName>MSS_FP_Gene_SpiritHost</defName>
+        <label>spirit host</label>
+        <iconPath>UI/Icons/Genes/MSSFP_SpiritHost</iconPath>
+        <description>Some individuals are born with an unusually permeable soul. Body-hopping spirits leave deeper impressions in them, granting double the skill boosts from accumulated haunt memories. The strain of hosting multiple presences, however, frays their mental resilience.</description>
+        <geneClass>MSSFP.Genes.Gene_SpiritHost</geneClass>
+        <biostatMet>-2</biostatMet>
+        <displayCategory>Haunts</displayCategory>
+        <displayOrderInCategory>2</displayOrderInCategory>
+        <statOffsets>
+            <MentalBreakThreshold>0.2</MentalBreakThreshold>
+        </statOffsets>
+    </GeneDef>
+
+    <!-- ══════════════════════════════════════════════════════════════════════
+         6B: Sense-Ghost mood thought (used by Gene_HauntSensitive)
+         ══════════════════════════════════════════════════════════════════════ -->
+
+    <ThoughtDef>
+        <defName>MSS_FP_Gene_SenseGhost</defName>
+        <thoughtClass>Thought_Memory</thoughtClass>
+        <durationDays>0.3</durationDays>
+        <stackLimit>1</stackLimit>
+        <stages>
+            <li>
+                <label>sensed a presence</label>
+                <description>There is something nearby that most people can't feel. I find it... comforting.</description>
+                <baseMoodEffect>5</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+
+    <!-- ══════════════════════════════════════════════════════════════════════
+         6C: Awakening genes — one per named haunt, imprinted at Awakened stage
+         ══════════════════════════════════════════════════════════════════════ -->
+
+    <!-- Grignr: warrior's spirit imprints combat awareness -->
+    <GeneDef>
+        <defName>MSS_FP_GrignrAwakening</defName>
+        <label>warrior's imprint</label>
+        <iconPath>Haunts/Grignr/Grignr_south</iconPath>
+        <description>The warrior spirit of Grignr has left a mark. The carrier moves with sharper reflexes and greater confidence in close combat.</description>
+        <biostatMet>0</biostatMet>
+        <statOffsets>
+            <MeleeDodgeChance>0.05</MeleeDodgeChance>
+            <MeleeHitChance>0.05</MeleeHitChance>
+        </statOffsets>
+        <displayCategory>Haunts</displayCategory>
+        <displayOrderInCategory>10</displayOrderInCategory>
+    </GeneDef>
+
+    <!-- Frog: diplomat's spirit imprints silver tongue -->
+    <GeneDef>
+        <defName>MSS_FP_FrogAwakening</defName>
+        <label>diplomat's imprint</label>
+        <iconPath>Haunts/Frog/Frog_south</iconPath>
+        <description>Frog's silver-tongued spirit has left its mark. The carrier negotiates more effectively and makes a stronger first impression.</description>
+        <biostatMet>0</biostatMet>
+        <statOffsets>
+            <NegotiationAbility>0.15</NegotiationAbility>
+            <TradePriceImprovement>0.05</TradePriceImprovement>
+        </statOffsets>
+        <displayCategory>Haunts</displayCategory>
+        <displayOrderInCategory>11</displayOrderInCategory>
+    </GeneDef>
+
+    <!-- Kekvit: survivor's spirit imprints pain resilience -->
+    <GeneDef>
+        <defName>MSS_FP_KekvitAwakening</defName>
+        <label>survivor's imprint</label>
+        <iconPath>Haunts/Kekvit/Kekvit_south</iconPath>
+        <description>The survivor's spirit of Kekvit has left its mark. The carrier endures pain and injury with greater stoicism.</description>
+        <biostatMet>0</biostatMet>
+        <statOffsets>
+            <PainShockThreshold>0.15</PainShockThreshold>
+        </statOffsets>
+        <displayCategory>Haunts</displayCategory>
+        <displayOrderInCategory>12</displayOrderInCategory>
+    </GeneDef>
+
+    <!-- Oskar: craftsman's spirit imprints skilled hands -->
+    <GeneDef>
+        <defName>MSS_FP_OskarAwakening</defName>
+        <label>craftsman's imprint</label>
+        <iconPath>Haunts/Oskar/Oskar_south</iconPath>
+        <description>The artisan spirit of Oskar has left its mark. The carrier works with steadier hands and keener attention to craft.</description>
+        <biostatMet>0</biostatMet>
+        <statFactors>
+            <WorkSpeedGlobal>1.10</WorkSpeedGlobal>
+            <GeneralLaborSpeed>1.15</GeneralLaborSpeed>
+        </statFactors>
+        <displayCategory>Haunts</displayCategory>
+        <displayOrderInCategory>13</displayOrderInCategory>
+    </GeneDef>
+
+    <!-- Phil: healer's spirit imprints steady hands -->
+    <GeneDef>
+        <defName>MSS_FP_PhilAwakening</defName>
+        <label>healer's imprint</label>
+        <iconPath>Haunts/Phil/Phil_south</iconPath>
+        <description>The healer's spirit of Phil has left its mark. The carrier performs medical procedures with greater precision and care.</description>
+        <biostatMet>0</biostatMet>
+        <statFactors>
+            <MedicalTendQuality>1.15</MedicalTendQuality>
+            <MedicalSurgerySuccessChance>1.10</MedicalSurgerySuccessChance>
+        </statFactors>
+        <displayCategory>Haunts</displayCategory>
+        <displayOrderInCategory>14</displayOrderInCategory>
+    </GeneDef>
+
+    <!-- Jade: hunter's spirit imprints predator's instinct -->
+    <GeneDef>
+        <defName>MSS_FP_JadeAwakening</defName>
+        <label>hunter's imprint</label>
+        <iconPath>Haunts/Jade/Jade_south</iconPath>
+        <description>The relentless spirit of Jade has left its mark. The carrier tracks prey with greater patience and strikes with more decisive force.</description>
+        <biostatMet>0</biostatMet>
+        <statOffsets>
+            <ShootingAccuracyPawn>0.05</ShootingAccuracyPawn>
+        </statOffsets>
+        <statFactors>
+            <HuntingStealth>1.20</HuntingStealth>
+        </statFactors>
+        <displayCategory>Haunts</displayCategory>
+        <displayOrderInCategory>15</displayOrderInCategory>
+    </GeneDef>
+
+</Defs>
