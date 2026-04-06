@@ -31,6 +31,9 @@ public class Settings : ModSettings
     public float HauntProgressionSpeedMultiplier = 1.0f;
     public float HauntRegressionSpeedMultiplier = 1.0f;
     public bool AlwaysShowNamedHaunts = false;
+    public bool EnablePoltergeistEvents = false;
+    public float PoltergeistIntensityMultiplier = 1.0f;
+    public float PoltergeistEventThreshold = 0.5f;
     public int HauntProximityRadius = 10;
     public int HauntMinCooldownDays = 2;
     public int HauntPostFireCooldownDays = 4;

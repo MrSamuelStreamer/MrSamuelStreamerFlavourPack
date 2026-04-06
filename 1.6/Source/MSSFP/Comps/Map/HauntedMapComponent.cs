@@ -141,7 +141,11 @@ public class HauntedMapComponent(Verse.Map map) : MapComponent(map)
             : "ready";
         sb.AppendLine($"Next spawn cooldown: {cooldownStr}");
 
-        Rect rect = new(75f, 10f, 400f, 20f * (totalHaunts + 5));
+        HauntEventMapComponent events = map.GetComponent<HauntEventMapComponent>();
+        if (events != null)
+            sb.Append(events.DashboardSection());
+
+        Rect rect = new(75f, 10f, 450f, 20f * (totalHaunts + 8 + events?.RecentEvents.Count ?? 0));
         Widgets.Label(rect, sb.ToString());
     }
 }

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <!-- Cold Spot: nearby pawns feel a sudden chill (-3 mood, 0.5 days) -->
+    <ThoughtDef>
+        <defName>MSS_FP_Event_ColdSpot</defName>
+        <thoughtClass>Thought_Memory</thoughtClass>
+        <durationDays>0.5</durationDays>
+        <stages>
+            <li>
+                <label>cold spot</label>
+                <description>I walked through something cold. Something was there.</description>
+                <baseMoodEffect>-3</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+
+    <!-- Ghostly Wail: heard an eerie sound (-3 mood, 0.5 days) -->
+    <ThoughtDef>
+        <defName>MSS_FP_Event_EerieSound</defName>
+        <thoughtClass>Thought_Memory</thoughtClass>
+        <durationDays>0.5</durationDays>
+        <stages>
+            <li>
+                <label>heard an eerie sound</label>
+                <description>Something wailed in the dark. It didn't sound human.</description>
+                <baseMoodEffect>-3</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+
+    <!-- Manifestation: witnessed a ghost apparition (-8 mood, 1 day) -->
+    <ThoughtDef>
+        <defName>MSS_FP_Event_WitnessedApparition</defName>
+        <thoughtClass>Thought_Memory</thoughtClass>
+        <durationDays>1</durationDays>
+        <stages>
+            <li>
+                <label>witnessed apparition</label>
+                <description>I saw it. A spirit, fully formed, standing right there. I can't stop shaking.</description>
+                <baseMoodEffect>-8</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+</Defs>

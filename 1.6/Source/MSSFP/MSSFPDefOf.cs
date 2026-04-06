@@ -68,6 +68,11 @@ public static class MSSFPDefOf
     public static readonly HauntArchetypeDef MSS_FP_Archetype_Trickster;
     public static readonly HauntArchetypeDef MSS_FP_Archetype_Brooding;
 
+    // Haunt event thoughts
+    public static readonly ThoughtDef MSS_FP_Event_ColdSpot;
+    public static readonly ThoughtDef MSS_FP_Event_EerieSound;
+    public static readonly ThoughtDef MSS_FP_Event_WitnessedApparition;
+
     // Haunt interaction thoughts
     public static readonly ThoughtDef MSS_FP_HauntInteraction_GhostsAtWar;
     public static readonly ThoughtDef MSS_FP_HauntInteraction_GhostAmused;

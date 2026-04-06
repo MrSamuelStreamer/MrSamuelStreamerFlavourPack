@@ -95,4 +95,21 @@
 
     <!-- Null def safety patch -->
     <MSS_FP_Settings_NullDefSafetyPatch>Filter null defs in research unlocks (compatibility fix)</MSS_FP_Settings_NullDefSafetyPatch>
+
+    <!-- Poltergeist events -->
+    <MSS_FP_Settings_EnablePoltergeistEvents>Enable poltergeist events</MSS_FP_Settings_EnablePoltergeistEvents>
+    <MSS_FP_Settings_PoltergeistIntensityMultiplier>Poltergeist intensity multiplier [{0}]</MSS_FP_Settings_PoltergeistIntensityMultiplier>
+    <MSS_FP_Settings_PoltergeistIntensityMultiplier_Tooltip>Scales how readily poltergeist events fire. Intensity is the sum of all haunt severities on the map (e.g. 3 haunts at 0.5 severity = 1.5 intensity). At 100% with default threshold 0.5, a single Awakened haunt (severity ~1.0) will trigger events. 200% halves the effective threshold; 50% doubles it.</MSS_FP_Settings_PoltergeistIntensityMultiplier_Tooltip>
+    <MSS_FP_Settings_PoltergeistEventThreshold>Poltergeist event threshold [{0}]</MSS_FP_Settings_PoltergeistEventThreshold>
+    <MSS_FP_Settings_PoltergeistEventThreshold_Tooltip>Minimum effective intensity (intensity × time multiplier × intensity multiplier) required to trigger events. Default 0.50 means a single Awakened haunt at full severity triggers events during the day. At night (21:00–05:00) intensity is multiplied by 1.5×, so events fire more easily. Colony size also scales the threshold up (10% per colonist above 5).</MSS_FP_Settings_PoltergeistEventThreshold_Tooltip>
+
+    <!-- Poltergeist event messages -->
+    <MSS_FP_Event_FlickeringLights_Msg>The lights near {0} flickered and went dark.</MSS_FP_Event_FlickeringLights_Msg>
+    <MSS_FP_Event_ObjectDisplacement_Msg>Something moved the {0} on its own.</MSS_FP_Event_ObjectDisplacement_Msg>
+    <MSS_FP_Event_ColdSpot_Msg>An inexplicable cold descended near {0}.</MSS_FP_Event_ColdSpot_Msg>
+    <MSS_FP_Event_GhostlyWail_Msg>An unearthly wail echoed through the colony.</MSS_FP_Event_GhostlyWail_Msg>
+    <MSS_FP_Event_SpontaneousFire_Msg>A fire started on its own near {0}.</MSS_FP_Event_SpontaneousFire_Msg>
+    <MSS_FP_Event_PossessionAttempt_Msg>Something is trying to take hold of {0}.</MSS_FP_Event_PossessionAttempt_Msg>
+    <MSS_FP_Event_PossessionAttempt_Reason>Haunted by a restless spirit.</MSS_FP_Event_PossessionAttempt_Reason>
+    <MSS_FP_Event_Manifestation_Msg>A spirit near {0} became fully visible for a moment.</MSS_FP_Event_Manifestation_Msg>
 </LanguageData>

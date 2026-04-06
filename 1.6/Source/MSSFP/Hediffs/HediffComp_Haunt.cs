@@ -28,6 +28,12 @@ public class HediffComp_Haunt : HediffComp
     public int NextProxCheck = -1;
     private int nextFleckTick = -1;
 
+    /// <summary>
+    /// Set by the Manifestation event worker to force this haunt visible until a given tick.
+    /// Not persisted — visibility simply ends on reload (harmless).
+    /// </summary>
+    public int ManifestUntilTick = 0;
+
     // Ghost wander state — not persisted, re-initialised from anchor on first UpdateWander call.
     // ghostInitialized flag avoids false re-init for ghosts anchored near map coordinate (0,0).
     private Vector3 ghostWorldPos;
@@ -212,10 +218,12 @@ public class HediffComp_Haunt : HediffComp
     {
         if (!MSSFPMod.settings.ShowHaunts)
             return;
-        if (!ShouldDisplayNow())
+
+        bool manifesting = ManifestUntilTick > Find.TickManager.TicksGame;
+        if (!manifesting && !ShouldDisplayNow())
             return;
 
-        bool draftOverride = MSSFPMod.settings.AlwaysShowNamedHaunts;
+        bool draftOverride = MSSFPMod.settings.AlwaysShowNamedHaunts || manifesting;
         if (Props.onlyRenderWhenDrafted && !draftOverride && Pawn.drafter is not { Drafted: true })
             return;
 
