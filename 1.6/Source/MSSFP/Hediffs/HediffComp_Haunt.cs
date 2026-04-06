@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using MSSFP.HarmonyPatches;
 using RimWorld;
 using UnityEngine;
 using Verse;
@@ -51,6 +50,17 @@ public class HediffComp_Haunt : HediffComp
     {
         if (texPath != null)
             yield return texPath;
+    }
+
+    /// <summary>
+    /// Returns all skill boosts this haunt provides. Used by HauntsCache.RebuildCacheForPawn
+    /// to build the cache that SkillRecord_Patch reads. Override in subclasses that track
+    /// multiple skill boosts (e.g. body-hop history).
+    /// </summary>
+    public virtual IEnumerable<(SkillDef skill, int boost)> GetSkillBoosts()
+    {
+        if (skillToBoost != null && SkillBoostLevel > 0)
+            yield return (skillToBoost, SkillBoostLevel);
     }
 
     protected Dictionary<SkillDef, int> aptitudesCached = new Dictionary<SkillDef, int>();
@@ -137,16 +147,13 @@ public class HediffComp_Haunt : HediffComp
                     newHauntComp.NextProxCheck = NextProxCheck;
                 }
 
-                sourcePawn.health.RemoveHediff(parent);
+                // Add to new pawn first, then remove from old — prevents data loss
+                // if interrupted. Brief double-haunt window is harmless.
                 pawn.health.AddHediff(newHediff);
+                sourcePawn.health.RemoveHediff(parent);
 
-                if (newHauntComp?.skillToBoost != null && newHauntComp.SkillBoostLevel > 0)
-                {
-                    SkillRecord skill = pawn.skills?.GetSkill(newHauntComp.skillToBoost);
-                    if (skill != null)
-                        skill.Level += newHauntComp.SkillBoostLevel;
-                    HauntsCache.RebuildCacheForPawn(pawn);
-                }
+                // Skill boosts applied via SkillRecord_Patch + HauntsCache — no
+                // direct mutation needed. Cache is rebuilt by CompPostMake/CompPostPostRemoved.
             }
         }
     }
@@ -247,11 +254,6 @@ public class HediffComp_Haunt : HediffComp
         if (pawn == null)
             return;
 
-        if (pawnToDraw is { skills: not null })
-        {
-            parent.pawn.skills.GetSkill(skillToBoost).Level -= SkillBoostLevel;
-        }
-
         pawnToDraw = pawn;
         aptitudesCached.Clear();
         texPath = PawnGraphicUtils.SavePawnTexture(pawn);
@@ -263,10 +265,9 @@ public class HediffComp_Haunt : HediffComp
 
             skillToBoost = maxSkill.def;
             SkillBoostLevel = Mathf.CeilToInt(maxSkill.Level / 3f);
-
-            parent.pawn.skills.GetSkill(skillToBoost).Level += SkillBoostLevel;
         }
 
+        // Skill boost is applied via SkillRecord_Patch reading from HauntsCache
         HauntsCache.RebuildCacheForPawn(Pawn);
 
         if (Pawn.needs?.mood?.thoughts?.memories?.GetFirstMemoryOfDef(Props.thought) is { } thought)
@@ -283,16 +284,12 @@ public class HediffComp_Haunt : HediffComp
     {
         base.CompPostPostRemoved();
         HauntsCache.RemoveHaunt(Pawn.thingIDNumber, this);
-        if (parent.pawn.skills != null && skillToBoost != null)
-        {
-            SkillRecord skill = parent.pawn.skills.GetSkill(skillToBoost);
-            if (skill != null)
-                skill.Level -= SkillBoostLevel;
-        }
 
         if (Props.thought != null)
             Pawn.needs?.mood?.thoughts?.memories?.RemoveMemoriesOfDef(Props.thought);
 
+        // Skill boost removal happens automatically — RebuildCacheForPawn will no longer
+        // include this comp's contribution, and SkillRecord_Patch reads from the cache.
         HauntsCache.RebuildCacheForPawn(Pawn);
     }
 

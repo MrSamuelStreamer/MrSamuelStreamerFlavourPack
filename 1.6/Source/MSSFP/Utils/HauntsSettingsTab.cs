@@ -27,6 +27,12 @@ public class HauntSettingsTab(ModSettings settings, Mod mod) : SettingsTab(setti
             ref Settings.EnablePossession,
             ref scrollViewHeight
         );
+        DrawCheckBox(
+            options,
+            "MSS_FP_Settings_ShowHauntDevDashboard".Translate(),
+            ref Settings.ShowHauntDevDashboard,
+            ref scrollViewHeight
+        );
         DrawIntAdjuster(
             options,
             "MSS_FP_Settings_HauntProximityRadius".Translate(Settings.HauntProximityRadius),
@@ -57,6 +63,7 @@ public class HauntSettingsTab(ModSettings settings, Mod mod) : SettingsTab(setti
     {
         Scribe_Values.Look(ref Settings.ShowHaunts, "ShowHaunts", false);
         Scribe_Values.Look(ref Settings.EnablePossession, "EnablePossession", false);
+        Scribe_Values.Look(ref Settings.ShowHauntDevDashboard, "ShowHauntDevDashboard", true);
         Scribe_Values.Look(ref Settings.HauntProximityRadius, "HauntProximityRadius", 10);
         Scribe_Values.Look(ref Settings.HauntMinCooldownDays, "HauntMinCooldownDays", 2);
         Scribe_Values.Look(ref Settings.HauntPostFireCooldownDays, "HauntPostFireCooldownDays", 4);

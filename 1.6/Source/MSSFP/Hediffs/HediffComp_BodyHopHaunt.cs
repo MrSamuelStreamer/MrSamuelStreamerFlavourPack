@@ -134,24 +134,22 @@ public class HediffComp_BodyHopHaunt : HediffComp_Haunt
 
         if (existingPawn != null)
         {
-            foreach (TraitDef t in existingPawn.passedTraits)
+            if (!existingPawn.passedTraits.NullOrEmpty())
             {
-                Trait trait = parent.pawn.story.traits.GetTrait(t);
-                if (trait != null)
-                    parent.pawn.story.traits.RemoveTrait(trait);
+                foreach (TraitDef t in existingPawn.passedTraits)
+                {
+                    Trait trait = parent.pawn.story.traits.GetTrait(t);
+                    if (trait != null)
+                        parent.pawn.story.traits.RemoveTrait(trait);
+                }
             }
 
-            parent.pawn.skills.GetSkill(existingPawn.bestSkill).levelInt -=
-                existingPawn.skillOffset;
+            pawns.Remove(existingPawn);
         }
 
         if (pawnInfo.swapTick < 0)
             pawnInfo.swapTick = Find.TickManager.TicksGame;
         pawns.Add(pawnInfo);
-        if (pawnInfo.bestSkill != null)
-        {
-            parent.pawn.skills.GetSkill(pawnInfo.bestSkill).levelInt += pawnInfo.skillOffset;
-        }
 
         if (!pawnInfo.passedTraits.NullOrEmpty())
         {
@@ -165,6 +163,9 @@ public class HediffComp_BodyHopHaunt : HediffComp_Haunt
         }
 
         pawnToShow = pawnInfo;
+
+        // Skill boosts are applied via SkillRecord_Patch + HauntsCache
+        HauntsCache.RebuildCacheForPawn(parent.pawn);
     }
 
     public override IEnumerable<Gizmo> CompGetGizmos()
@@ -194,6 +195,19 @@ public class HediffComp_BodyHopHaunt : HediffComp_Haunt
         }
     }
 
+    /// <summary>
+    /// Returns skill boosts from all body-hop history entries. The base class's
+    /// skillToBoost/SkillBoostLevel is NOT used — all boosts come from the pawns list.
+    /// </summary>
+    public override IEnumerable<(SkillDef skill, int boost)> GetSkillBoosts()
+    {
+        foreach (PawnInfo pawnInfo in pawns)
+        {
+            if (pawnInfo.bestSkill != null && pawnInfo.skillOffset > 0)
+                yield return (pawnInfo.bestSkill, pawnInfo.skillOffset);
+        }
+    }
+
     public override string CompDescriptionExtra
     {
         get
@@ -215,13 +229,9 @@ public class HediffComp_BodyHopHaunt : HediffComp_Haunt
 
     public override void CompPostPostAdd(DamageInfo? dinfo)
     {
+        // Re-apply traits from body-hop history on hediff add (e.g. after load)
         foreach (PawnInfo pawnInfo in pawns)
         {
-            if (pawnInfo.bestSkill != null)
-            {
-                parent.pawn.skills.GetSkill(pawnInfo.bestSkill).levelInt += pawnInfo.skillOffset;
-            }
-
             if (!pawnInfo.passedTraits.NullOrEmpty())
             {
                 foreach (TraitDef def in pawnInfo.passedTraits)
@@ -233,6 +243,10 @@ public class HediffComp_BodyHopHaunt : HediffComp_Haunt
                 }
             }
         }
+
+        // Skill boosts are applied via SkillRecord_Patch + HauntsCache.
+        // Cache is rebuilt by the base class CompPostPostAdd → RebuildCacheForPawn.
+        HauntsCache.RebuildCacheForPawn(parent.pawn);
     }
 
     public override void CompPostTick(ref float severityAdjustment)
@@ -245,13 +259,9 @@ public class HediffComp_BodyHopHaunt : HediffComp_Haunt
 
     public override void CompPostPostRemoved()
     {
+        // Remove traits from body-hop history
         foreach (PawnInfo pawnInfo in pawns)
         {
-            if (pawnInfo.bestSkill != null)
-            {
-                parent.pawn.skills.GetSkill(pawnInfo.bestSkill).levelInt -= pawnInfo.skillOffset;
-            }
-
             if (!pawnInfo.passedTraits.NullOrEmpty())
             {
                 foreach (TraitDef def in pawnInfo.passedTraits)
@@ -262,5 +272,8 @@ public class HediffComp_BodyHopHaunt : HediffComp_Haunt
                 }
             }
         }
+
+        // Skill boost removal is automatic — base CompPostPostRemoved calls
+        // RebuildCacheForPawn which will exclude this comp's contributions.
     }
 }

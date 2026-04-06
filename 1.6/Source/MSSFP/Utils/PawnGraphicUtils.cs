@@ -83,6 +83,9 @@ public class PawnGraphicUtils
         RenderTexture resizeRT = RenderTexture.GetTemporary(width, height, 0);
         Graphics.Blit(source, resizeRT);
 
+        // capture format before the async callback — resizeRT may be reused after release
+        var graphicsFormat = resizeRT.graphicsFormat;
+
         // create a native array to receive data from the GPU:
         NativeArray<byte> narray = new(
             width * height * 4,
@@ -98,31 +101,30 @@ public class PawnGraphicUtils
             (AsyncGPUReadbackRequest request) =>
             {
                 RenderTexture.ReleaseTemporary(resizeRT);
-                // if the readback was successful, encode and write the results to disk
+
+                bool success = false;
                 if (!request.hasError)
                 {
                     try
                     {
-                        NativeArray<byte> encoded;
-                        encoded = ImageConversion.EncodeNativeArrayToPNG(
+                        NativeArray<byte> encoded = ImageConversion.EncodeNativeArrayToPNG(
                             narray,
-                            resizeRT.graphicsFormat,
+                            graphicsFormat,
                             (uint)width,
                             (uint)height
                         );
                         System.IO.File.WriteAllBytes(filePath, encoded.ToArray());
                         encoded.Dispose();
+                        success = true;
                     }
                     catch (Exception e)
                     {
                         ModLog.Error("Error saving texture", e);
-                        narray.Dispose();
-                        done?.Invoke(false, filePath);
                     }
                 }
 
                 narray.Dispose();
-                done?.Invoke(!request.hasError, filePath);
+                done?.Invoke(success, filePath);
             }
         );
     }

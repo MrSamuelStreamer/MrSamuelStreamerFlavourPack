@@ -81,20 +81,26 @@ public static class HauntsCache
         if (comps.NullOrEmpty())
             return;
 
-        Cache[p] = new Dictionary<SkillDef, int>();
+        Dictionary<SkillDef, int> boosts = new();
 
         foreach (
-            HediffComp_Haunt hediffCompHaunt in comps
+            HediffComp_Haunt hauntComp in comps
                 .SelectMany(hediff => hediff.comps)
                 .OfType<HediffComp_Haunt>()
         )
         {
-            if (hediffCompHaunt.skillToBoost == null)
-                continue;
-            if (!Cache[p].ContainsKey(hediffCompHaunt.skillToBoost))
-                Cache[p][hediffCompHaunt.skillToBoost] = 0;
-            Cache[p][hediffCompHaunt.skillToBoost] += hediffCompHaunt.SkillBoostLevel;
+            // GetSkillBoosts() is virtual — HediffComp_BodyHopHaunt returns
+            // per-pawn entries from the body-hop history list.
+            foreach ((SkillDef skill, int boost) in hauntComp.GetSkillBoosts())
+            {
+                if (!boosts.ContainsKey(skill))
+                    boosts[skill] = 0;
+                boosts[skill] += boost;
+            }
         }
+
+        if (boosts.Count > 0)
+            Cache[p] = boosts;
     }
 
     public static void Clear()
