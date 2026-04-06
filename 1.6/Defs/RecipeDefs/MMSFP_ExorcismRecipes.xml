@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <RecipeDef>
+        <defName>MSS_FP_Exorcism</defName>
+        <label>perform exorcism</label>
+        <description>A skilled doctor performs a ritual medical procedure using psychite tea and gold to sever the bond between a pawn and a named haunting spirit. The outcome depends on the doctor's Medicine skill relative to the haunt's power. The spirit may retaliate.</description>
+        <workerClass>MSSFP.Recipes.Recipe_Exorcism</workerClass>
+        <jobString>performing exorcism on TargetA.</jobString>
+        <workAmount>2500</workAmount>
+        <workSpeedStat>MedicalOperationSpeed</workSpeedStat>
+        <workSkill>Medicine</workSkill>
+        <workSkillLearnFactor>16</workSkillLearnFactor>
+        <effectWorking>Surgery</effectWorking>
+        <soundWorking>Recipe_Surgery</soundWorking>
+        <hideBodyPartNames>true</hideBodyPartNames>
+        <targetsBodyPart>false</targetsBodyPart>
+        <isViolation>false</isViolation>
+        <anesthetize>false</anesthetize>
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>PsychiteTea</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Gold</li>
+                    </thingDefs>
+                </filter>
+                <count>10</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>PsychiteTea</li>
+                <li>Gold</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+        <researchPrerequisites>
+            <li>MSS_FP_SpiritualMedicine</li>
+        </researchPrerequisites>
+    </RecipeDef>
+</Defs>

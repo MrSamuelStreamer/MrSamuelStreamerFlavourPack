@@ -59,6 +59,20 @@ public class HauntEventMapComponent(Verse.Map map) : MapComponent(map)
         TryFireEvent();
     }
 
+    /// <summary>
+    /// Force a poltergeist event immediately (used by exorcism retaliation).
+    /// Picks any eligible event regardless of current intensity/threshold.
+    /// </summary>
+    public void ForceRandomEvent(Pawn focusPawn)
+    {
+        HauntEventDef eventDef = PickEvent(1f);
+        if (eventDef == null)
+            return;
+        bool fired = eventDef.Worker.TryFire(focusPawn, map);
+        if (fired)
+            LogEvent($"[retaliation] {eventDef.label}");
+    }
+
     /// <summary>Called by FlickeringLights worker to schedule re-enable.</summary>
     public void ScheduleLightRestore(int thingId, int atTick)
     {

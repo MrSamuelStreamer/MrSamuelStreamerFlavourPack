@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <ResearchProjectDef>
+        <defName>MSS_FP_SpiritualMedicine</defName>
+        <label>spiritual medicine</label>
+        <description>Study the intersection of psychite chemistry and spiritual phenomena. With the right preparation, a skilled doctor may be able to sever the bond between a pawn and a haunting spirit — though the spirit may not leave quietly.</description>
+        <baseCost>800</baseCost>
+        <techLevel>Industrial</techLevel>
+        <prerequisites>
+            <li>PsychiteRefining</li>
+        </prerequisites>
+        <researchViewX>7</researchViewX>
+        <researchViewY>4</researchViewY>
+    </ResearchProjectDef>
+</Defs>

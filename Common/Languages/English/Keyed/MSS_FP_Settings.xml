@@ -103,6 +103,13 @@
     <MSS_FP_Settings_PoltergeistEventThreshold>Poltergeist event threshold [{0}]</MSS_FP_Settings_PoltergeistEventThreshold>
     <MSS_FP_Settings_PoltergeistEventThreshold_Tooltip>Minimum effective intensity (intensity × time multiplier × intensity multiplier) required to trigger events. Default 0.50 means a single Awakened haunt at full severity triggers events during the day. At night (21:00–05:00) intensity is multiplied by 1.5×, so events fire more easily. Colony size also scales the threshold up (10% per colonist above 5).</MSS_FP_Settings_PoltergeistEventThreshold_Tooltip>
 
+    <!-- Exorcism messages -->
+    <MSS_FP_Exorcism_Success_Msg>{0}'s spirit of {1} has been successfully exorcised.</MSS_FP_Exorcism_Success_Msg>
+    <MSS_FP_Exorcism_Partial_Msg>The spirit of {1} was driven from {0}, but the separation was traumatic.</MSS_FP_Exorcism_Partial_Msg>
+    <MSS_FP_Exorcism_Failure_Msg>The exorcism of {0} failed — the spirit of {1} has grown stronger in defiance.</MSS_FP_Exorcism_Failure_Msg>
+    <MSS_FP_Exorcism_Failure_Reason>The failed exorcism left a spiritual wound.</MSS_FP_Exorcism_Failure_Reason>
+    <MSS_FP_Exorcism_Backlash_Msg>The expelled spirit lashed out before departing, filling the room near {0} with dread.</MSS_FP_Exorcism_Backlash_Msg>
+
     <!-- Poltergeist event messages -->
     <MSS_FP_Event_FlickeringLights_Msg>The lights near {0} flickered and went dark.</MSS_FP_Event_FlickeringLights_Msg>
     <MSS_FP_Event_ObjectDisplacement_Msg>Something moved the {0} on its own.</MSS_FP_Event_ObjectDisplacement_Msg>
