@@ -76,13 +76,22 @@ public class MSSFPMod : Mod
 
         ToggleSettlementDefeatPatch(settings.ReformationPointsPerDefeatedFaction > 0 && settings.EnableExtraReformationPoints);
 
-        //For saving from other assemblies
-        foreach (Action postSaveAction in SettingsTab.PostSaveActions)
-        {
-            postSaveAction.Invoke();
-        }
-
+        // Snapshot and clear before iterating so a throwing action doesn't
+        // leave stale entries or cause duplicate execution on next save.
+        List<Action> actions = new(SettingsTab.PostSaveActions);
         SettingsTab.PostSaveActions.Clear();
+
+        foreach (Action postSaveAction in actions)
+        {
+            try
+            {
+                postSaveAction.Invoke();
+            }
+            catch (Exception e)
+            {
+                ModLog.Error($"PostSaveAction failed: {e}");
+            }
+        }
     }
 
     public override void DoSettingsWindowContents(Rect inRect)

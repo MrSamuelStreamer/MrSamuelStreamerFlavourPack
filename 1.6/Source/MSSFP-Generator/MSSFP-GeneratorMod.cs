@@ -13,7 +13,7 @@ public class MSSFPGeneratorMod : Mod
 #if DEBUG
         Harmony.DEBUG = true;
 #endif
-        if (settings.EnableFasterUpgrades)
+        if (MSSFPMod.settings.GeneratorEnableFasterUpgrades)
         {
             Harmony harmony = new Harmony("MrSamuelStreamer.rimworld.MSSFP.Generator.main");
             harmony.PatchAll();

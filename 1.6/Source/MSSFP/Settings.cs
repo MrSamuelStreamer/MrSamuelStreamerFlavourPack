@@ -35,7 +35,7 @@ public class Settings : ModSettings
     public bool EnablePoltergeistEvents = false;
     public float PoltergeistIntensityMultiplier = 1.0f;
     public float PoltergeistEventThreshold = 0.5f;
-    public int HauntProximityRadius = 10;
+    public int HauntProximityRadius = 50;
     public int HauntMinCooldownDays = 2;
     public int HauntPostFireCooldownDays = 4;
     public bool DisableBSIncorporateGeneLimit = false;
@@ -69,6 +69,13 @@ public class Settings : ModSettings
     public bool ShowElevationOverlay = false;
     public float BreakdownMTBDays = BreakdownMTBDaysDefault;
     public bool NullDefSafetyPatch = true;
+    public bool EnableCodexPunch = true;
+    public float CodexPunchChanceMultiplier = 1.0f;
+
+    // Fields for optional assembly tabs — these MUST live here (not on the tab)
+    // so they survive save/load cycles when the optional assembly is removed.
+    public bool GeneratorEnableFasterUpgrades = false;
+    public List<string> ResourceGeneratorExtraBuildables = [];
 
     public HashSet<Verse.TimeSpeed> MonitoredSpeeds = new()
     {
@@ -287,6 +294,10 @@ public class Settings : ModSettings
         Scribe_Values.Look(ref ShowElevationOverlay, "ShowElevationOverlay", false);
         Scribe_Values.Look(ref BreakdownMTBDays, "BreakdownMTBDays", BreakdownMTBDaysDefault);
         Scribe_Collections.Look(ref MonitoredSpeeds, "MonitoredSpeeds", LookMode.Value);
+
+        // Optional assembly tab fields — saved here so they persist when the assembly is removed
+        Scribe_Values.Look(ref GeneratorEnableFasterUpgrades, "GeneratorEnableFasterUpgrades", false);
+        Scribe_Collections.Look(ref ResourceGeneratorExtraBuildables, "ExtraBuildables", LookMode.Value);
 
         foreach (SettingsTab settingsTab in Tabs)
         {

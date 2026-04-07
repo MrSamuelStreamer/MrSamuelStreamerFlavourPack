@@ -11,8 +11,6 @@ public class GeneratorSettingsTab(ModSettings settings, Mod mod) : SettingsTab(s
     public override string TabName => "Generator Mod";
     public override int TabOrder => 6;
 
-    public bool EnableFasterUpgrades = false;
-
     public override void DoTabContents(
         Listing_Standard options,
         Rect scrollViewRect,
@@ -21,8 +19,8 @@ public class GeneratorSettingsTab(ModSettings settings, Mod mod) : SettingsTab(s
     {
         DrawCheckBox(
             options,
-            "Speed up Genetron upgrades by 4x",
-            ref EnableFasterUpgrades,
+            "MSS_FP_Settings_GeneratorEnableFasterUpgrades".Translate(),
+            ref Settings.GeneratorEnableFasterUpgrades,
             ref scrollViewHeight
         );
 
@@ -30,15 +28,13 @@ public class GeneratorSettingsTab(ModSettings settings, Mod mod) : SettingsTab(s
         scrollViewHeight += 10f;
 
         Text.Font = GameFont.Tiny;
-        options.Label(
-            "Makes all Genetron upgrade requirements 1/4 of their original time.\nRequires game restart to take effect."
-        );
+        options.Label("MSS_FP_Settings_GeneratorFasterUpgradesNote".Translate());
         Text.Font = GameFont.Small;
         scrollViewHeight += 60f;
     }
 
     public override void ExposeData()
     {
-        Scribe_Values.Look(ref EnableFasterUpgrades, "GeneratorEnableFasterUpgrades", false);
+        // Persistence handled by Settings.ExposeData() so it survives assembly removal.
     }
 }

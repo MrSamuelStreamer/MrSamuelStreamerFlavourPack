@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using Verse;
 
@@ -25,27 +24,26 @@ public abstract class SettingsTab
     private float ScrollViewHeight = 0;
     public Vector2 scrollPosition = Vector2.zero;
 
-    public static List<Type> Tabs =>
-        AppDomain
-            .CurrentDomain.GetAssemblies()
-            .SelectMany(assembly => assembly.GetTypes())
-            .Where(t => t.IsSubclassOf(typeof(SettingsTab)))
-            .ToList();
-
     public virtual void ExposeData() { }
 
     public void DrawTab(Rect tabRect)
     {
+        // Subtract scrollbar width from content rect so that a vertical scrollbar
+        // doesn't cause the content to overflow horizontally, which triggers an
+        // unwanted horizontal scrollbar (classic Unity IMGUI feedback loop).
+        bool needsVerticalScroll = ScrollViewHeight > tabRect.height;
+        float scrollbarWidth = needsVerticalScroll ? GUI.skin.verticalScrollbar.fixedWidth + 2f : 0f;
+
         Rect contentScrollContainerRect = new(
             tabRect.xMin,
             tabRect.yMin,
-            tabRect.width,
+            tabRect.width - scrollbarWidth,
             Mathf.Max(ScrollViewHeight, tabRect.height)
         );
 #if DEBUG
         Widgets.DrawRectFast(contentScrollContainerRect, Color.blue);
 #endif
-        ScrollViewHeight = 0;
+        float newScrollViewHeight = 0;
         scrollPosition = GUI.BeginScrollView(tabRect, scrollPosition, contentScrollContainerRect);
 
         Listing_Standard options = new();
@@ -53,7 +51,7 @@ public abstract class SettingsTab
 
         try
         {
-            DoTabContents(options, contentScrollContainerRect, ref ScrollViewHeight);
+            DoTabContents(options, contentScrollContainerRect, ref newScrollViewHeight);
         }
         catch (Exception e)
         {
@@ -64,6 +62,8 @@ public abstract class SettingsTab
             GUI.EndScrollView();
             options.End();
         }
+
+        ScrollViewHeight = newScrollViewHeight;
     }
 
     public void DrawCheckBox(Listing_Standard options, string label, ref bool value, ref float svh)

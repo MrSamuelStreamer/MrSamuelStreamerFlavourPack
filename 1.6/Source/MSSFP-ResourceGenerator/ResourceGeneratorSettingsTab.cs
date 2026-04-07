@@ -21,7 +21,7 @@ public class ResourceGeneratorSettingsTab(ModSettings settings, Mod mod)
         ref float scrollViewHeight
     )
     {
-        if (options.ButtonText("Add ThingDef to resource generator list"))
+        if (options.ButtonText("MSS_FP_Settings_AddThingDefToResourceGenerator".Translate()))
         {
             Dialog_ThingDefFinder finder = new();
             Find.WindowStack.Add(finder);
@@ -40,24 +40,22 @@ public class ResourceGeneratorSettingsTab(ModSettings settings, Mod mod)
     }
 
 
-    public List<string> strings = [];
-
     public void RemoveBuildable(ThingDef buildable)
     {
-        strings.Remove(buildable.defName);
+        Settings.ResourceGeneratorExtraBuildables.Remove(buildable.defName);
     }
 
     public void AddBuildable(ThingDef buildable)
     {
-        strings.Add(buildable.defName);
+        Settings.ResourceGeneratorExtraBuildables.Add(buildable.defName);
     }
 
     public List<ThingDef> ExtraBuildables
     {
         get
         {
-            strings ??= [];
-            return strings
+            Settings.ResourceGeneratorExtraBuildables ??= [];
+            return Settings.ResourceGeneratorExtraBuildables
                 .Select(s => DefDatabase<ThingDef>.GetNamed(s))
                 .Where(d => d is not null)
                 .ToList();
@@ -67,7 +65,7 @@ public class ResourceGeneratorSettingsTab(ModSettings settings, Mod mod)
 
     public override void ExposeData()
     {
-        Scribe_Collections.Look(ref strings, "ExtraBuildables", LookMode.Value);
+        // Persistence handled by Settings.ExposeData() so it survives assembly removal.
 
         if (Scribe.mode == LoadSaveMode.Saving)
         {

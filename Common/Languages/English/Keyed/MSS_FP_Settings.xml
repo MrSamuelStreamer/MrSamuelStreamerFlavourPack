@@ -126,4 +126,22 @@
     <MSS_FP_Event_PossessionAttempt_Msg>Something is trying to take hold of {0}.</MSS_FP_Event_PossessionAttempt_Msg>
     <MSS_FP_Event_PossessionAttempt_Reason>Haunted by a restless spirit.</MSS_FP_Event_PossessionAttempt_Reason>
     <MSS_FP_Event_Manifestation_Msg>A spirit near {0} became fully visible for a moment.</MSS_FP_Event_Manifestation_Msg>
+
+    <!-- Codex Punch incident -->
+    <MSS_FP_Settings_EnableCodexPunch>Enable the Codex Punch incident</MSS_FP_Settings_EnableCodexPunch>
+    <MSS_FP_Settings_CodexPunchChanceMultiplier>Codex Punch frequency [x{0:F1}]</MSS_FP_Settings_CodexPunchChanceMultiplier>
+    <MSS_FP_CodexPunch_LetterLabel>A Failed God-Puncher Returns</MSS_FP_CodexPunch_LetterLabel>
+    <MSS_FP_CodexPunch_LetterText>After ascending to a higher plane and swinging at a god — and missing — Codex has been cast back to the mortal realm. He retains some of his godlike powers, including the ability to teleport at will.\n\nUnfortunately, he has decided that the reason he missed was insufficient punching practice. He now intends to punch every mortal being in existence before ascending again.\n\n{0} appears to be next on his list.</MSS_FP_CodexPunch_LetterText>
+    <MSS_FP_CodexPunch_PunchMsg>Codex punched {0}!</MSS_FP_CodexPunch_PunchMsg>
+
+    <!-- Generator Mod -->
+    <MSS_FP_Settings_GeneratorEnableFasterUpgrades>Speed up Genetron upgrades by 4x</MSS_FP_Settings_GeneratorEnableFasterUpgrades>
+    <MSS_FP_Settings_GeneratorFasterUpgradesNote>Makes all Genetron upgrade requirements 1/4 of their original time.\nRequires game restart to take effect.</MSS_FP_Settings_GeneratorFasterUpgradesNote>
+
+    <!-- Resource Generator -->
+    <MSS_FP_Settings_AddThingDefToResourceGenerator>Add ThingDef to resource generator list</MSS_FP_Settings_AddThingDefToResourceGenerator>
+
+    <!-- Pawn Portability -->
+    <MSS_FP_Settings_ShowExportGizmo>Show Export Pawn gizmo on colonists</MSS_FP_Settings_ShowExportGizmo>
+    <MSS_FP_Settings_EnablePawnPortabilityLogging>Enable Pawn Export/Import Debug Logging</MSS_FP_Settings_EnablePawnPortabilityLogging>
 </LanguageData>
