@@ -147,7 +147,7 @@ public class HauntSettingsTab(ModSettings settings, Mod mod) : SettingsTab(setti
         Scribe_Values.Look(ref Settings.EnablePoltergeistEvents, "EnablePoltergeistEvents", false);
         Scribe_Values.Look(ref Settings.PoltergeistIntensityMultiplier, "PoltergeistIntensityMultiplier", 1.0f);
         Scribe_Values.Look(ref Settings.PoltergeistEventThreshold, "PoltergeistEventThreshold", 0.5f);
-        Scribe_Values.Look(ref Settings.HauntProximityRadius, "HauntProximityRadius", 10);
+        Scribe_Values.Look(ref Settings.HauntProximityRadius, "HauntProximityRadius", 50);
         Scribe_Values.Look(ref Settings.HauntMinCooldownDays, "HauntMinCooldownDays", 2);
         Scribe_Values.Look(ref Settings.HauntPostFireCooldownDays, "HauntPostFireCooldownDays", 4);
     }
