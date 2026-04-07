@@ -1,7 +1,8 @@
 using System.Collections.Generic;
 using MSSFP.Comps.Map;
 using MSSFP.Incidents;
-using MSSFP.Pawns;
+using MSSFP.PawnPortability;
+using MSSFP.PawnPortability.Defs;
 using RimWorld;
 using Verse;
 
@@ -209,14 +210,16 @@ namespace MSSFP.Letters
                 }
                 else
                 {
-                    // Try to load the specific pawn from PawnEditor XML
-                    mercenary = SpecificPawnLoader.GetSpecificPawn(mercenaryName);
+                    // Try to load the specific pawn from PawnTemplateDef
+                    string templateDefName = $"MSSFP_Pawn_{mercenaryName}";
+                    mercenary = PawnPortability.PawnPortability.Create(
+                        templateDefName, Faction.OfPlayer);
 
-                    // If specific pawn loading failed, fall back to default combat pawn
+                    // If template loading failed, fall back to default combat pawn
                     if (mercenary == null)
                     {
                         Log.Warning(
-                            $"MSSFP: Failed to load specific pawn {mercenaryName}, generating default combat pawn"
+                            $"MSSFP: Failed to load pawn template {templateDefName}, generating default combat pawn"
                         );
                         mercenary = GenerateDefaultCombatPawn();
                     }

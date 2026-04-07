@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using MSSFP.Comps.Map;
 using MSSFP.Letters;
-using MSSFP.Pawns;
+using MSSFP.PawnPortability;
+using MSSFP.PawnPortability.Defs;
 using RimWorld;
 using Verse;
 
@@ -185,12 +186,23 @@ namespace MSSFP.Incidents
 
         private List<string> GetAvailableMercenaries()
         {
-            // Get available pawn names from PawnEditor XML files
-            var availablePawns = SpecificPawnLoader.GetAvailablePawnNames();
+            // Get available pawn template defNames from DefDatabase
+            var availablePawns = PawnPortability.PawnPortability.AllDefs
+                .Where(d => d.tags?.Contains("mercenary") == true)
+                .Select(d => d.defName.Replace("MSSFP_Pawn_", ""))
+                .ToList();
 
             if (availablePawns.Count == 0)
             {
-                Log.Warning("MSSFP: No PawnEditor XML files found. Using fallback mercenaries.");
+                // Fall back to all template defs if none are tagged as mercenary
+                availablePawns = PawnPortability.PawnPortability.AllDefs
+                    .Select(d => d.defName.Replace("MSSFP_Pawn_", ""))
+                    .ToList();
+            }
+
+            if (availablePawns.Count == 0)
+            {
+                Log.Warning("MSSFP: No PawnTemplateDefs found. Using fallback mercenaries.");
                 return new List<string>();
             }
 
