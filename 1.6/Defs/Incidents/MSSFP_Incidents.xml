@@ -74,4 +74,26 @@
         <requireColonistsPresent>true</requireColonistsPresent>
         <letterDef>MSSFP_HireMercenariesOffer</letterDef>
     </IncidentDef>
+
+    <!-- Codex Punch: Codex teleports in, punches a colonist, teleports out -->
+    <JobDef>
+        <defName>MSSFP_SkipPunchAndLeave</defName>
+        <driverClass>MSSFP.Jobs.JobDriver_SkipPunchAndLeave</driverClass>
+        <reportString>preparing to punch TargetA.</reportString>
+        <allowOpportunisticPrefix>false</allowOpportunisticPrefix>
+        <neverFleeFromEnemies>true</neverFleeFromEnemies>
+    </JobDef>
+    <IncidentDef>
+        <defName>MSSFP_CodexPunch</defName>
+        <label>a failed god-puncher</label>
+        <category>Misc</category>
+        <baseChance>0.5</baseChance>
+        <earliestDay>60</earliestDay>
+        <minRefireDays>120</minRefireDays>
+        <targetTags>
+            <li>Map_PlayerHome</li>
+        </targetTags>
+        <workerClass>MSSFP.Incidents.IncidentWorker_CodexPunch</workerClass>
+        <requireColonistsPresent>true</requireColonistsPresent>
+    </IncidentDef>
 </Defs>

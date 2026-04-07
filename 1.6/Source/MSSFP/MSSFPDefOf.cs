@@ -63,6 +63,8 @@ public static class MSSFPDefOf
 
     public static readonly JobDef MSSFP_ExtractTarget;
 
+    public static readonly JobDef MSSFP_SkipPunchAndLeave;
+
     // Haunt archetypes
     public static readonly HauntArchetypeDef MSS_FP_Archetype_Aggressive;
     public static readonly HauntArchetypeDef MSS_FP_Archetype_Trickster;

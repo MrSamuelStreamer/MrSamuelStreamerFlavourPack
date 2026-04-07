@@ -98,6 +98,20 @@ public class MemesSettingsTab(ModSettings settings, Mod mod) : SettingsTab(setti
         );
         Settings.RecoilKnockbackMultiplier = options.SliderLabeled("MSS_FP_Settings_RecoilKnockbackMultiplier".Translate(Settings.RecoilKnockbackMultiplier), Settings.RecoilKnockbackMultiplier, 0f, 2f);
         scrollViewHeight += 30f;
+
+        DrawCheckBox(
+            options,
+            "MSS_FP_Settings_EnableCodexPunch".Translate(),
+            ref Settings.EnableCodexPunch,
+            ref scrollViewHeight
+        );
+        if (Settings.EnableCodexPunch)
+        {
+            Settings.CodexPunchChanceMultiplier = options.SliderLabeled(
+                "MSS_FP_Settings_CodexPunchChanceMultiplier".Translate(Settings.CodexPunchChanceMultiplier),
+                Settings.CodexPunchChanceMultiplier, 0.5f, 5.0f);
+            scrollViewHeight += 30f;
+        }
     }
 
     public override void ExposeData()
@@ -109,5 +123,7 @@ public class MemesSettingsTab(ModSettings settings, Mod mod) : SettingsTab(setti
         Scribe_Values.Look(ref Settings.EnableSkylanternRaids, "EnableSkylanternRaids", false);
         Scribe_Values.Look(ref Settings.EnableMercenaryHiring, "EnableMercenaryHiring", true);
         Scribe_Values.Look(ref Settings.DaysForFission, "DaysForFission", 7);
+        Scribe_Values.Look(ref Settings.EnableCodexPunch, "EnableCodexPunch", true);
+        Scribe_Values.Look(ref Settings.CodexPunchChanceMultiplier, "CodexPunchChanceMultiplier", 1.0f);
     }
 }
