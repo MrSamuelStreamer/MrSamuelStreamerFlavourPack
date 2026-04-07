@@ -8,19 +8,19 @@
     <MSSFP.PawnPortability.Defs.PawnTemplateDef>
         <defName>MSSFP_Pawn_Caius</defName>
         <label>Caius Cosades</label>
-        <description>A grizzled government agent with a taste for drink and a mean right hook.</description>
+        <description>Caius Cosades</description>
 
         <schemaVersion>1</schemaVersion>
         <mode>Template</mode>
 
-        <originSeries>Morrowind Run</originSeries>
+        <originSeries></originSeries>
         <tags>
             <li>ally</li>
             <li>brawler</li>
             <li>mercenary</li>
             <li>morrowind</li>
         </tags>
-        <narrativeNotes>Morrowind reference character. Grizzled spymaster who drinks too much and solves problems with his fists. Good fit for mercenary hire incidents or as a tough colonist. Audience expects him to be near-unkillable in melee.</narrativeNotes>
+        <narrativeNotes></narrativeNotes>
 
         <kindDef>Colonist</kindDef>
         <gender>Male</gender>
@@ -96,7 +96,7 @@
     <MSSFP.PawnPortability.Defs.PawnTemplateDef>
         <defName>MSSFP_Pawn_Dong</defName>
         <label>Dong Excellente</label>
-        <description>An abrasive but talented craftsman with an eye for beauty.</description>
+        <description>Dong Excellente</description>
 
         <schemaVersion>1</schemaVersion>
         <mode>Template</mode>
@@ -106,7 +106,7 @@
             <li>crafter</li>
             <li>mercenary</li>
         </tags>
-        <narrativeNotes>Abrasive artisan type. Strong crafting and artistic skills. Good fit for colony building incidents.</narrativeNotes>
+        <narrativeNotes></narrativeNotes>
 
         <kindDef>Colonist</kindDef>
         <gender>Male</gender>
@@ -182,7 +182,7 @@
     <MSSFP.PawnPortability.Defs.PawnTemplateDef>
         <defName>MSSFP_Pawn_FatLarry</defName>
         <label>Fat Larry</label>
-        <description>A jovial arms dealer with a big appetite and bigger personality.</description>
+        <description>Fat Larry</description>
 
         <schemaVersion>1</schemaVersion>
         <mode>Template</mode>
@@ -193,7 +193,7 @@
             <li>comedy</li>
             <li>mercenary</li>
         </tags>
-        <narrativeNotes>Jovial arms dealer. Good shooter and social operator. Fits trade and combat scenarios well.</narrativeNotes>
+        <narrativeNotes></narrativeNotes>
 
         <kindDef>Colonist</kindDef>
         <gender>Male</gender>
@@ -261,7 +261,7 @@
     <MSSFP.PawnPortability.Defs.PawnTemplateDef>
         <defName>MSSFP_Pawn_LegalLee</defName>
         <label>Legal Lee Perrins</label>
-        <description>A greedy psychopathic lawyer with excellent memory and a talent for shooting people.</description>
+        <description>Legal Lee Perrins</description>
 
         <schemaVersion>1</schemaVersion>
         <mode>Template</mode>
@@ -272,7 +272,7 @@
             <li>intellectual</li>
             <li>mercenary</li>
         </tags>
-        <narrativeNotes>Psychopathic lawyer type. Strong shooter and intellectual. Good fit for villain incidents or morally-dubious recruit.</narrativeNotes>
+        <narrativeNotes></narrativeNotes>
 
         <kindDef>Colonist</kindDef>
         <gender>Male</gender>
@@ -348,7 +348,7 @@
     <MSSFP.PawnPortability.Defs.PawnTemplateDef>
         <defName>MSSFP_Pawn_Slowna</defName>
         <label>Slowna Benanius</label>
-        <description>A hulking medieval knight with an annoying voice and a love of punching things.</description>
+        <description>Slowna Benanius</description>
 
         <schemaVersion>1</schemaVersion>
         <mode>Template</mode>
@@ -359,7 +359,7 @@
             <li>comedy</li>
             <li>mercenary</li>
         </tags>
-        <narrativeNotes>Hulking female brawler. Medieval knight background. Annoying voice is a running joke. Excellent melee fighter, poor at everything else.</narrativeNotes>
+        <narrativeNotes></narrativeNotes>
 
         <kindDef>Colonist</kindDef>
         <gender>Female</gender>
