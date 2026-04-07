@@ -6,10 +6,10 @@ The Pawn Portability system lets you define reusable characters as `PawnTemplate
 
 ### Exporting a pawn from in-game
 
-1. **Gizmo (recommended):** Enable "Show Export Pawn gizmo on colonists" in Mod Settings > Pawn Portability. Select a colonist and click the Export button in their gizmo bar.
+1. **Gizmo (recommended):** Enable "Show Export Pawn gizmo on colonists" in Mod Settings > Pawn Portability. Select a colonist or prisoner and click the Export button in their gizmo bar.
 2. **Debug action:** Open the debug actions menu (Development mode) > Pawn Portability > "Export Pawn (Template)", then click a pawn on the map.
 
-Both methods write XML to `{RimWorld save folder}/ExportedPawns/{FirstName}_Template.xml`.
+Both methods write XML to `{RimWorld save folder}/ExportedPawns/{defName}.xml` (spaces in the defName are replaced with underscores).
 
 Copy the exported `<MSSFP.PawnPortability.Defs.PawnTemplateDef>` block into a file in this directory (e.g. `MSSFP_Pawns.xml`), then fill in the metadata fields (`originSeries`, `tags`, `narrativeNotes`).
 
@@ -78,13 +78,17 @@ Every file in this directory is loaded as standard RimWorld Defs. The root eleme
 | `age` | PawnAgeData | no | `biologicalAgeTicks`, `chronologicalAgeTicks` |
 | `story` | PawnStoryData | no | See story fields below |
 | `skills` | list | no | `def` (SkillDef), `level` (int), `passion` (`None`/`Minor`/`Major`) |
-| `genes` | PawnGeneData | no | `xenotype`, `endogenes`, `xenogenes` |
+| `genes` | PawnGeneData | no | `xenotype`, `xenotypeName`, `endogenes`, `xenogenes` |
 | `hediffs` | list | no | `def` (HediffDef), `severity`, `bodyPart`, `bodyPartLabel`, `permanent` |
-| `equipment` | list | no | Weapons — `def`, `stuff`, `quality`, `hitPoints` |
-| `apparel` | list | no | Clothing — `def`, `stuff`, `quality`, `hitPoints` |
-| `inventory` | list | no | Carried items — `def`, `stuff`, `quality`, `hitPoints`, `stackCount` |
+| `equipment` | list | no | Weapons — `def`, `stuff`, `quality`, `hitPoints`, `color`, `stackCount` |
+| `apparel` | list | no | Clothing — `def`, `stuff`, `quality`, `hitPoints`, `color`, `stackCount` |
+| `inventory` | list | no | Carried items — `def`, `stuff`, `quality`, `hitPoints`, `color`, `stackCount`. **Note:** inventory is not yet applied during spawning (Phase 2) |
 | `abilities` | list of AbilityDef | no | Ability defNames |
 | `style` | PawnStyleData | no | `beardDef`, `faceTattoo`, `bodyTattoo` |
+| `permanentMemories` | list | no | Phase 2 (Snapshot only) — `def` (ThoughtDef), `stage` |
+| `ideology` | PawnIdeoData | no | Phase 2 (Snapshot only) — `certainty`, `ideoName` |
+| `royalty` | PawnRoyaltyData | no | Phase 2 (Snapshot only) — `titles` (list of `def`/`faction`), `favor` |
+| `workPriorities` | list | no | Phase 2 (Snapshot only) — `def` (WorkTypeDef), `priority` |
 
 #### Story fields
 
@@ -180,7 +184,7 @@ Found under Mod Settings > Mr Samuel Streamer Flavour Pack > Pawn Portability:
 
 | Setting | Default | Description |
 |---------|---------|-------------|
-| Show Export Pawn gizmo on colonists | Off | Adds an Export button to the gizmo bar of player-controlled colonists and prisoners |
+| Show Export Pawn gizmo | Off | Adds an Export button to the gizmo bar of player-controlled colonists and prisoners |
 | Enable Pawn Export/Import Debug Logging | Off | Verbose logging for export, import, spawning, and validation |
 
 ## File organisation
