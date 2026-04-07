@@ -1,0 +1,594 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         Caius Cosades — Morrowind spymaster. Grizzled brawler, drinks too
+         much, solves problems with fists. Near-unkillable in melee.
+         ═══════════════════════════════════════════════════════════════════ -->
+    <MSSFP.PawnPortability.Defs.PawnTemplateDef>
+        <defName>MSSFP_Pawn_Caius</defName>
+        <label>Caius Cosades</label>
+        <description>A grizzled government agent with a taste for drink and a mean right hook.</description>
+
+        <schemaVersion>1</schemaVersion>
+        <mode>Template</mode>
+
+        <originSeries>Morrowind Run</originSeries>
+        <tags>
+            <li>ally</li>
+            <li>brawler</li>
+            <li>mercenary</li>
+            <li>morrowind</li>
+        </tags>
+        <narrativeNotes>Morrowind reference character. Grizzled spymaster who drinks too much and solves problems with his fists. Good fit for mercenary hire incidents or as a tough colonist. Audience expects him to be near-unkillable in melee.</narrativeNotes>
+
+        <kindDef>Colonist</kindDef>
+        <gender>Male</gender>
+
+        <name>
+            <first>Caius</first>
+            <nick>Caius</nick>
+            <last>Cosades</last>
+        </name>
+
+        <age>
+            <biologicalAgeTicks>150013243</biologicalAgeTicks>
+        </age>
+
+        <story>
+            <bodyType>Hulk</bodyType>
+            <headType>Male_AverageWide</headType>
+            <hairDef>Elder</hairDef>
+            <hairColor>(0.279, 0.223, 0.167)</hairColor>
+            <childhood>BodyguardTrainee54</childhood>
+            <adulthood>GovernmentAgent61</adulthood>
+            <birthLastName>Haas</birthLastName>
+            <favoriteColor>Structure_Blue</favoriteColor>
+            <traits>
+                <li>
+                    <def>DrugDesire</def>
+                    <degree>1</degree>
+                </li>
+                <li>
+                    <def>Tough</def>
+                    <degree>0</degree>
+                </li>
+                <li>
+                    <def>Brawler</def>
+                    <degree>0</degree>
+                </li>
+            </traits>
+        </story>
+
+        <skills>
+            <li><def>Shooting</def><level>8</level><passion>Minor</passion></li>
+            <li><def>Melee</def><level>24</level><passion>Minor</passion></li>
+            <li><def>Construction</def><level>2</level></li>
+            <li><def>Mining</def><level>6</level></li>
+            <li><def>Cooking</def><level>16</level><passion>Major</passion></li>
+            <li><def>Plants</def><level>14</level><passion>Major</passion></li>
+            <li><def>Animals</def><level>2</level></li>
+            <li><def>Crafting</def><level>0</level></li>
+            <li><def>Artistic</def><level>3</level></li>
+            <li><def>Medicine</def><level>14</level><passion>Minor</passion></li>
+            <li><def>Social</def><level>2</level></li>
+            <li><def>Intellectual</def><level>8</level><passion>Minor</passion></li>
+        </skills>
+
+        <genes>
+            <xenotype MayRequire="Ludeon.RimWorld.Biotech">Baseliner</xenotype>
+            <endogenes>
+                <li MayRequire="Ludeon.RimWorld.Biotech">Skin_Melanin4</li>
+                <li MayRequire="Ludeon.RimWorld.Biotech">Hair_DarkReddish</li>
+            </endogenes>
+        </genes>
+
+        <style>
+            <beardDef MayRequire="Ludeon.RimWorld.Ideology">Stubble</beardDef>
+            <faceTattoo MayRequire="Ludeon.RimWorld.Ideology">NoTattoo_Face</faceTattoo>
+            <bodyTattoo MayRequire="Ludeon.RimWorld.Ideology">NoTattoo_Body</bodyTattoo>
+        </style>
+    </MSSFP.PawnPortability.Defs.PawnTemplateDef>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         Dong Excellente — Abrasive artisan. Crafting/artistic specialist.
+         ═══════════════════════════════════════════════════════════════════ -->
+    <MSSFP.PawnPortability.Defs.PawnTemplateDef>
+        <defName>MSSFP_Pawn_Dong</defName>
+        <label>Dong Excellente</label>
+        <description>An abrasive but talented craftsman with an eye for beauty.</description>
+
+        <schemaVersion>1</schemaVersion>
+        <mode>Template</mode>
+
+        <originSeries></originSeries>
+        <tags>
+            <li>crafter</li>
+            <li>mercenary</li>
+        </tags>
+        <narrativeNotes>Abrasive artisan type. Strong crafting and artistic skills. Good fit for colony building incidents.</narrativeNotes>
+
+        <kindDef>Colonist</kindDef>
+        <gender>Male</gender>
+
+        <name>
+            <first>Dong</first>
+            <nick>Dong</nick>
+            <last>Excellente</last>
+        </name>
+
+        <age>
+            <biologicalAgeTicks>118803493</biologicalAgeTicks>
+        </age>
+
+        <story>
+            <bodyType>Male</bodyType>
+            <headType>Male_AverageNormal</headType>
+            <hairDef>Snazzy</hairDef>
+            <hairColor>(0.580, 0.353, 0.196)</hairColor>
+            <childhood>ChildStar74</childhood>
+            <adulthood>CostumeCrafter41</adulthood>
+            <birthLastName>Hunter</birthLastName>
+            <favoriteColor>Structure_BlueSky</favoriteColor>
+            <traits>
+                <li>
+                    <def>Abrasive</def>
+                    <degree>0</degree>
+                </li>
+                <li>
+                    <def>Neurotic</def>
+                    <degree>1</degree>
+                </li>
+                <li>
+                    <def>Beauty</def>
+                    <degree>1</degree>
+                </li>
+            </traits>
+        </story>
+
+        <skills>
+            <li><def>Shooting</def><level>9</level><passion>Minor</passion></li>
+            <li><def>Melee</def><level>11</level><passion>Minor</passion></li>
+            <li><def>Construction</def><level>2</level></li>
+            <li><def>Mining</def><level>5</level></li>
+            <li><def>Cooking</def><level>0</level></li>
+            <li><def>Plants</def><level>7</level></li>
+            <li><def>Animals</def><level>10</level><passion>Minor</passion></li>
+            <li><def>Crafting</def><level>15</level><passion>Major</passion></li>
+            <li><def>Artistic</def><level>10</level><passion>Major</passion></li>
+            <li><def>Medicine</def><level>4</level></li>
+            <li><def>Social</def><level>3</level><passion>Major</passion></li>
+            <li><def>Intellectual</def><level>3</level></li>
+        </skills>
+
+        <genes>
+            <xenotype MayRequire="Ludeon.RimWorld.Biotech">Baseliner</xenotype>
+            <endogenes>
+                <li MayRequire="Ludeon.RimWorld.Biotech">Skin_Melanin6</li>
+                <li MayRequire="Ludeon.RimWorld.Biotech">Hair_DarkReddish</li>
+            </endogenes>
+        </genes>
+
+        <style>
+            <beardDef MayRequire="Ludeon.RimWorld.Ideology">NoBeard</beardDef>
+            <faceTattoo MayRequire="Ludeon.RimWorld.Ideology">NoTattoo_Face</faceTattoo>
+            <bodyTattoo MayRequire="Ludeon.RimWorld.Ideology">NoTattoo_Body</bodyTattoo>
+        </style>
+    </MSSFP.PawnPortability.Defs.PawnTemplateDef>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         Fat Larry — Jovial arms dealer. Shooting/social specialist.
+         ═══════════════════════════════════════════════════════════════════ -->
+    <MSSFP.PawnPortability.Defs.PawnTemplateDef>
+        <defName>MSSFP_Pawn_FatLarry</defName>
+        <label>Fat Larry</label>
+        <description>A jovial arms dealer with a big appetite and bigger personality.</description>
+
+        <schemaVersion>1</schemaVersion>
+        <mode>Template</mode>
+
+        <originSeries></originSeries>
+        <tags>
+            <li>trader</li>
+            <li>comedy</li>
+            <li>mercenary</li>
+        </tags>
+        <narrativeNotes>Jovial arms dealer. Good shooter and social operator. Fits trade and combat scenarios well.</narrativeNotes>
+
+        <kindDef>Colonist</kindDef>
+        <gender>Male</gender>
+
+        <name>
+            <first>Larry</first>
+            <nick>Fat Larry</nick>
+            <last>Potter</last>
+        </name>
+
+        <age>
+            <biologicalAgeTicks>133203494</biologicalAgeTicks>
+        </age>
+
+        <story>
+            <bodyType>Fat</bodyType>
+            <headType>Male_NarrowNormal</headType>
+            <hairDef>Afro</hairDef>
+            <hairColor>(0.000, 0.000, 0.000)</hairColor>
+            <childhood>PizzaLover94</childhood>
+            <adulthood>GunDealer14</adulthood>
+            <birthLastName>Wissa</birthLastName>
+            <favoriteColor>Structure_BrownDirt</favoriteColor>
+            <traits>
+                <li>
+                    <def>NaturalMood</def>
+                    <degree>2</degree>
+                </li>
+            </traits>
+        </story>
+
+        <skills>
+            <li><def>Shooting</def><level>12</level><passion>Major</passion></li>
+            <li><def>Melee</def><level>8</level><passion>Minor</passion></li>
+            <li><def>Construction</def><level>4</level><passion>Minor</passion></li>
+            <li><def>Mining</def><level>4</level></li>
+            <li><def>Cooking</def><level>6</level></li>
+            <li><def>Plants</def><level>10</level><passion>Minor</passion></li>
+            <li><def>Animals</def><level>4</level><passion>Minor</passion></li>
+            <li><def>Crafting</def><level>8</level><passion>Major</passion></li>
+            <li><def>Artistic</def><level>3</level><passion>Minor</passion></li>
+            <li><def>Medicine</def><level>4</level><passion>Minor</passion></li>
+            <li><def>Social</def><level>15</level><passion>Major</passion></li>
+            <li><def>Intellectual</def><level>4</level><passion>Minor</passion></li>
+        </skills>
+
+        <genes>
+            <xenotype MayRequire="Ludeon.RimWorld.Biotech">Baseliner</xenotype>
+            <endogenes>
+                <li MayRequire="Ludeon.RimWorld.Biotech">Skin_Melanin8</li>
+                <li MayRequire="Ludeon.RimWorld.Biotech">Hair_DarkReddish</li>
+            </endogenes>
+        </genes>
+
+        <style>
+            <beardDef MayRequire="Ludeon.RimWorld.Ideology">NoBeard</beardDef>
+            <faceTattoo MayRequire="Ludeon.RimWorld.Ideology">NoTattoo_Face</faceTattoo>
+            <bodyTattoo MayRequire="Ludeon.RimWorld.Ideology">NoTattoo_Body</bodyTattoo>
+        </style>
+    </MSSFP.PawnPortability.Defs.PawnTemplateDef>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         Legal Lee Perrins — Psychopathic lawyer. Social/intellectual specialist.
+         ═══════════════════════════════════════════════════════════════════ -->
+    <MSSFP.PawnPortability.Defs.PawnTemplateDef>
+        <defName>MSSFP_Pawn_LegalLee</defName>
+        <label>Legal Lee Perrins</label>
+        <description>A greedy psychopathic lawyer with excellent memory and a talent for shooting people.</description>
+
+        <schemaVersion>1</schemaVersion>
+        <mode>Template</mode>
+
+        <originSeries></originSeries>
+        <tags>
+            <li>villain</li>
+            <li>intellectual</li>
+            <li>mercenary</li>
+        </tags>
+        <narrativeNotes>Psychopathic lawyer type. Strong shooter and intellectual. Good fit for villain incidents or morally-dubious recruit.</narrativeNotes>
+
+        <kindDef>Colonist</kindDef>
+        <gender>Male</gender>
+
+        <name>
+            <first>Legal</first>
+            <nick>Legal</nick>
+            <last>Lee Perrins</last>
+        </name>
+
+        <age>
+            <biologicalAgeTicks>140403492</biologicalAgeTicks>
+        </age>
+
+        <story>
+            <bodyType>Male</bodyType>
+            <headType>Male_AverageNormal</headType>
+            <hairDef>BraidedKnot</hairDef>
+            <hairColor>(0.244, 0.157, 0.078)</hairColor>
+            <childhood>ArtfulDodger78</childhood>
+            <adulthood>DefenseLawyer71</adulthood>
+            <birthLastName>Piki</birthLastName>
+            <favoriteColor>Mauve</favoriteColor>
+            <traits>
+                <li>
+                    <def>GreatMemory</def>
+                    <degree>0</degree>
+                </li>
+                <li>
+                    <def>Greedy</def>
+                    <degree>0</degree>
+                </li>
+                <li>
+                    <def>Psychopath</def>
+                    <degree>0</degree>
+                </li>
+            </traits>
+        </story>
+
+        <skills>
+            <li><def>Shooting</def><level>16</level><passion>Major</passion></li>
+            <li><def>Melee</def><level>6</level><passion>Minor</passion></li>
+            <li><def>Construction</def><level>4</level></li>
+            <li><def>Mining</def><level>3</level></li>
+            <li><def>Cooking</def><level>4</level></li>
+            <li><def>Plants</def><level>1</level></li>
+            <li><def>Animals</def><level>2</level></li>
+            <li><def>Crafting</def><level>3</level></li>
+            <li><def>Artistic</def><level>1</level></li>
+            <li><def>Medicine</def><level>1</level></li>
+            <li><def>Social</def><level>11</level><passion>Major</passion></li>
+            <li><def>Intellectual</def><level>16</level><passion>Major</passion></li>
+        </skills>
+
+        <genes>
+            <xenotype MayRequire="Ludeon.RimWorld.Biotech">Baseliner</xenotype>
+            <endogenes>
+                <li MayRequire="Ludeon.RimWorld.Biotech">Skin_Melanin8</li>
+                <li MayRequire="Ludeon.RimWorld.Biotech">Hair_DarkSaturatedReddish</li>
+            </endogenes>
+        </genes>
+
+        <style>
+            <beardDef MayRequire="Ludeon.RimWorld.Ideology">NoBeard</beardDef>
+            <faceTattoo MayRequire="Ludeon.RimWorld.Ideology">NoTattoo_Face</faceTattoo>
+            <bodyTattoo MayRequire="Ludeon.RimWorld.Ideology">NoTattoo_Body</bodyTattoo>
+        </style>
+    </MSSFP.PawnPortability.Defs.PawnTemplateDef>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         Slowna Benanius — Medieval knight. Hulking female brawler.
+         ═══════════════════════════════════════════════════════════════════ -->
+    <MSSFP.PawnPortability.Defs.PawnTemplateDef>
+        <defName>MSSFP_Pawn_Slowna</defName>
+        <label>Slowna Benanius</label>
+        <description>A hulking medieval knight with an annoying voice and a love of punching things.</description>
+
+        <schemaVersion>1</schemaVersion>
+        <mode>Template</mode>
+
+        <originSeries></originSeries>
+        <tags>
+            <li>brawler</li>
+            <li>comedy</li>
+            <li>mercenary</li>
+        </tags>
+        <narrativeNotes>Hulking female brawler. Medieval knight background. Annoying voice is a running joke. Excellent melee fighter, poor at everything else.</narrativeNotes>
+
+        <kindDef>Colonist</kindDef>
+        <gender>Female</gender>
+
+        <name>
+            <first>Slowna</first>
+            <nick>Slowna</nick>
+            <last>Benanius</last>
+        </name>
+
+        <age>
+            <biologicalAgeTicks>90002760</biologicalAgeTicks>
+        </age>
+
+        <story>
+            <bodyType>Hulk</bodyType>
+            <headType>Female_AveragePointy</headType>
+            <hairDef>Junkie</hairDef>
+            <hairColor>(0.346, 0.223, 0.123)</hairColor>
+            <childhood>MedievalSquire5</childhood>
+            <adulthood>MedievalKnight26</adulthood>
+            <birthLastName>Winters</birthLastName>
+            <favoriteColor>Structure_UmberBurnt</favoriteColor>
+            <traits>
+                <li>
+                    <def>Brawler</def>
+                    <degree>0</degree>
+                </li>
+                <li>
+                    <def>Tough</def>
+                    <degree>0</degree>
+                </li>
+                <li>
+                    <def>AnnoyingVoice</def>
+                    <degree>0</degree>
+                </li>
+            </traits>
+        </story>
+
+        <skills>
+            <li><def>Shooting</def><level>6</level><passion>Major</passion></li>
+            <li><def>Melee</def><level>20</level><passion>Major</passion></li>
+            <li><def>Construction</def><level>9</level><passion>Minor</passion></li>
+            <li><def>Mining</def><level>12</level><passion>Minor</passion></li>
+            <li><def>Cooking</def><level>0</level></li>
+            <li><def>Plants</def><level>4</level><passion>Major</passion></li>
+            <li><def>Animals</def><level>0</level></li>
+            <li><def>Crafting</def><level>0</level></li>
+            <li><def>Artistic</def><level>0</level></li>
+            <li><def>Medicine</def><level>0</level></li>
+            <li><def>Social</def><level>2</level></li>
+            <li><def>Intellectual</def><level>0</level></li>
+        </skills>
+
+        <genes>
+            <xenotype MayRequire="Ludeon.RimWorld.Biotech">Baseliner</xenotype>
+            <endogenes>
+                <li MayRequire="Ludeon.RimWorld.Biotech">Skin_Melanin5</li>
+                <li MayRequire="Ludeon.RimWorld.Biotech">Hair_DarkBrown</li>
+            </endogenes>
+        </genes>
+
+        <style>
+            <beardDef MayRequire="Ludeon.RimWorld.Ideology">NoBeard</beardDef>
+            <faceTattoo MayRequire="Ludeon.RimWorld.Ideology">NoTattoo_Face</faceTattoo>
+            <bodyTattoo MayRequire="Ludeon.RimWorld.Ideology">NoTattoo_Body</bodyTattoo>
+        </style>
+    </MSSFP.PawnPortability.Defs.PawnTemplateDef>
+
+    <MSSFP.PawnPortability.Defs.PawnTemplateDef>
+        <defName>MSSFP_Pawn_Codex</defName>
+        <label>Codex</label>
+        <description>Exported template of Codex.</description>
+        <schemaVersion>1</schemaVersion>
+        <mode>Template</mode>
+        <!-- Character metadata — edit manually after export -->
+        <requiredMods>
+            <li>
+                <packageId>ludeon.rimworld</packageId>
+                <name>Core</name>
+            </li>
+            <li>
+                <packageId>ludeon.rimworld.anomaly</packageId>
+                <name>Anomaly</name>
+            </li>
+            <li>
+                <packageId>ludeon.rimworld.biotech</packageId>
+                <name>Biotech</name>
+            </li>
+            <li>
+                <packageId>ludeon.rimworld.ideology</packageId>
+                <name>Ideology</name>
+            </li>
+            <li>
+                <packageId>mss.flavourpack</packageId>
+                <name>Mr Samuel Streamer Flavour Pack</name>
+            </li>
+        </requiredMods>
+        <originSeries></originSeries>
+        <tags />
+        <narrativeNotes></narrativeNotes>
+        <kindDef MayRequire="ludeon.rimworld">Colonist</kindDef>
+        <gender>Male</gender>
+        <name>
+            <first>Ang</first>
+            <nick>Codex</nick>
+            <last>Gao</last>
+        </name>
+        <age>
+            <biologicalAgeTicks>158655419</biologicalAgeTicks>
+            <chronologicalAgeTicks>266655419</chronologicalAgeTicks>
+        </age>
+        <story>
+            <bodyType MayRequire="ludeon.rimworld">Male</bodyType>
+            <headType MayRequire="ludeon.rimworld">Male_AverageWide</headType>
+            <hairDef MayRequire="ludeon.rimworld">Lackland</hairDef>
+            <hairColor>(0.378, 0.244, 0.134)</hairColor>
+            <childhood MayRequire="ludeon.rimworld">DataDecoder39</childhood>
+            <adulthood MayRequire="mss.flavourpack">MSSFP_ArchotechSpy</adulthood>
+            <birthLastName>Milat</birthLastName>
+            <favoriteColor MayRequire="ludeon.rimworld.ideology">Purple</favoriteColor>
+            <traits>
+                <li>
+                    <def MayRequire="ludeon.rimworld">FastLearner</def>
+                    <degree>0</degree>
+                </li>
+                <li>
+                    <def MayRequire="ludeon.rimworld">AnnoyingVoice</def>
+                    <degree>0</degree>
+                </li>
+                <li>
+                    <def MayRequire="ludeon.rimworld">PsychicSensitivity</def>
+                    <degree>1</degree>
+                </li>
+            </traits>
+        </story>
+        <skills>
+            <li>
+                <def>Shooting</def>
+                <level>12</level>
+                <passion>Major</passion>
+            </li>
+            <li>
+                <def>Melee</def>
+                <level>3</level>
+            </li>
+            <li>
+                <def>Construction</def>
+                <level>11</level>
+                <passion>Minor</passion>
+            </li>
+            <li>
+                <def>Mining</def>
+                <level>0</level>
+            </li>
+            <li>
+                <def>Cooking</def>
+                <level>0</level>
+            </li>
+            <li>
+                <def>Plants</def>
+                <level>9</level>
+                <passion>Minor</passion>
+            </li>
+            <li>
+                <def>Animals</def>
+                <level>4</level>
+            </li>
+            <li>
+                <def>Crafting</def>
+                <level>3</level>
+            </li>
+            <li>
+                <def>Artistic</def>
+                <level>3</level>
+            </li>
+            <li>
+                <def>Medicine</def>
+                <level>0</level>
+            </li>
+            <li>
+                <def>Social</def>
+                <level>0</level>
+            </li>
+            <li>
+                <def>Intellectual</def>
+                <level>13</level>
+                <passion>Major</passion>
+            </li>
+        </skills>
+        <genes>
+            <xenotype MayRequire="ludeon.rimworld.biotech">Baseliner</xenotype>
+            <endogenes>
+                <li MayRequire="ludeon.rimworld">Skin_Melanin6</li>
+                <li MayRequire="ludeon.rimworld">Hair_DarkBrown</li>
+            </endogenes>
+        </genes>
+        <hediffs>
+            <li>
+                <def MayRequire="ludeon.rimworld">Stab</def>
+                <severity>0.50</severity>
+                <bodyPart MayRequire="ludeon.rimworld">Leg</bodyPart>
+                <bodyPartLabel>right leg</bodyPartLabel>
+                <permanent>true</permanent>
+            </li>
+        </hediffs>
+        <apparel>
+            <li>
+                <def MayRequire="ludeon.rimworld">Apparel_CollarShirt</def>
+                <stuff MayRequire="ludeon.rimworld">Synthread</stuff>
+                <quality>Normal</quality>
+                <hitPoints>130</hitPoints>
+            </li>
+            <li>
+                <def MayRequire="ludeon.rimworld">Apparel_FlakPants</def>
+                <quality>Excellent</quality>
+                <hitPoints>200</hitPoints>
+            </li>
+            <li>
+                <def MayRequire="ludeon.rimworld">Apparel_Duster</def>
+                <stuff MayRequire="ludeon.rimworld.anomaly">Leather_Dread</stuff>
+                <quality>Normal</quality>
+                <hitPoints>260</hitPoints>
+            </li>
+        </apparel>
+        <style>
+            <beardDef MayRequire="ludeon.rimworld">NoBeard</beardDef>
+            <faceTattoo MayRequire="ludeon.rimworld">NoTattoo_Face</faceTattoo>
+            <bodyTattoo MayRequire="ludeon.rimworld">NoTattoo_Body</bodyTattoo>
+        </style>
+    </MSSFP.PawnPortability.Defs.PawnTemplateDef>
+</Defs>
