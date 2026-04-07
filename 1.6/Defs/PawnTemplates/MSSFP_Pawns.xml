@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-
-    <!-- ═══════════════════════════════════════════════════════════════════
-         Caius Cosades — Morrowind spymaster. Grizzled brawler, drinks too
-         much, solves problems with fists. Near-unkillable in melee.
-         ═══════════════════════════════════════════════════════════════════ -->
     <MSSFP.PawnPortability.Defs.PawnTemplateDef>
         <defName>MSSFP_Pawn_Caius</defName>
         <label>Caius Cosades</label>
@@ -90,9 +85,6 @@
         </style>
     </MSSFP.PawnPortability.Defs.PawnTemplateDef>
 
-    <!-- ═══════════════════════════════════════════════════════════════════
-         Dong Excellente — Abrasive artisan. Crafting/artistic specialist.
-         ═══════════════════════════════════════════════════════════════════ -->
     <MSSFP.PawnPortability.Defs.PawnTemplateDef>
         <defName>MSSFP_Pawn_Dong</defName>
         <label>Dong Excellente</label>
@@ -176,9 +168,6 @@
         </style>
     </MSSFP.PawnPortability.Defs.PawnTemplateDef>
 
-    <!-- ═══════════════════════════════════════════════════════════════════
-         Fat Larry — Jovial arms dealer. Shooting/social specialist.
-         ═══════════════════════════════════════════════════════════════════ -->
     <MSSFP.PawnPortability.Defs.PawnTemplateDef>
         <defName>MSSFP_Pawn_FatLarry</defName>
         <label>Fat Larry</label>
@@ -255,9 +244,6 @@
         </style>
     </MSSFP.PawnPortability.Defs.PawnTemplateDef>
 
-    <!-- ═══════════════════════════════════════════════════════════════════
-         Legal Lee Perrins — Psychopathic lawyer. Social/intellectual specialist.
-         ═══════════════════════════════════════════════════════════════════ -->
     <MSSFP.PawnPortability.Defs.PawnTemplateDef>
         <defName>MSSFP_Pawn_LegalLee</defName>
         <label>Legal Lee Perrins</label>
@@ -342,9 +328,6 @@
         </style>
     </MSSFP.PawnPortability.Defs.PawnTemplateDef>
 
-    <!-- ═══════════════════════════════════════════════════════════════════
-         Slowna Benanius — Medieval knight. Hulking female brawler.
-         ═══════════════════════════════════════════════════════════════════ -->
     <MSSFP.PawnPortability.Defs.PawnTemplateDef>
         <defName>MSSFP_Pawn_Slowna</defName>
         <label>Slowna Benanius</label>
