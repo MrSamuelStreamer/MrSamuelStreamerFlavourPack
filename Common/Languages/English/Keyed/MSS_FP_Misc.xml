@@ -154,5 +154,6 @@
     <MSSFP_Elevation>Elevation: {0}m</MSSFP_Elevation>
     <MSSFP_ElevationOverlay_Tooltip>Toggle elevation overlay</MSSFP_ElevationOverlay_Tooltip>
 
-    <MSS_Gen_VoidsEmbraceSkillsReset>{0} experienced the void, and left a part of themselves behind. Their skills have now been reset.</MSS_Gen_VoidsEmbraceSkillsReset>
+    <MSS_VoidsEmbraceSkillsReset>{PAWN_nameDef} passed through the void and left part of themselves behind. Their skills have degraded.</MSS_VoidsEmbraceSkillsReset>
+    <MSS_VoidsEmbraceTraitGained>The void has left its mark on {PAWN_nameDef} — they have become {TRAITS}.</MSS_VoidsEmbraceTraitGained>
 </LanguageData>

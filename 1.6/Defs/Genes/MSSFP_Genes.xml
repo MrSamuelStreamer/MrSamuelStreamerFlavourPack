@@ -149,6 +149,8 @@
         <biostatArc>1</biostatArc>
         <customEffectDescriptions>
             <li>Can only die from destruction of brain.</li>
+            <li>On each near-death, skills degrade by 0–5 levels.</li>
+            <li>On each near-death, the void imprints 2–4 random curse traits (rarely more), replacing the previous set.</li>
         </customEffectDescriptions>
         <symbolPack>
             <wholeNameSymbols>
