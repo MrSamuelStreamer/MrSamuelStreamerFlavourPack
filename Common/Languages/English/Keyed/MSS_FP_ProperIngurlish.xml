@@ -25,6 +25,11 @@
     <DesignatorEyeDropperDesc_Carpet>Grab a colour from an existing carpet.</DesignatorEyeDropperDesc_Carpet>
     <SelectAPaintedBuilding>Select a painted building.</SelectAPaintedBuilding>
     <SelectColoredFloor>Select coloured carpet.</SelectColoredFloor>
+
+    <Capture>Subscribe to {1_labelShort}'s YouTube channel (Capture)</Capture>
+    <MeleeAttackToDeath>Cancel {1_labelShort} (MeleeAttackToDeath)</MeleeAttackToDeath>
+    <CanRomance>Slide into {0}'s DMs</CanRomance>
+
     <Grab>Grab</Grab>
     <GrabbedColor>Grabbed colour</GrabbedColor>
 
