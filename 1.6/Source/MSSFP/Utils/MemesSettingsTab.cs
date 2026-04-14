@@ -108,10 +108,11 @@ public class MemesSettingsTab(ModSettings settings, Mod mod) : SettingsTab(setti
         if (Settings.EnableCodexPunch)
         {
             Settings.CodexPunchChanceMultiplier = options.SliderLabeled(
-                "MSS_FP_Settings_CodexPunchChanceMultiplier".Translate(Settings.CodexPunchChanceMultiplier),
+                "MSS_FP_Settings_CodexPunchChanceMultiplier".Translate(Settings.CodexPunchChanceMultiplier.ToString("F1")),
                 Settings.CodexPunchChanceMultiplier, 0.5f, 5.0f);
             scrollViewHeight += 30f;
         }
+
     }
 
     public override void ExposeData()

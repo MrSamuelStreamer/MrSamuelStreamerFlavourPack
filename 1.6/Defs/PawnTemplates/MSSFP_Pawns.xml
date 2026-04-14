@@ -465,16 +465,16 @@
             <birthLastName>Milat</birthLastName>
             <favoriteColor MayRequire="ludeon.rimworld.ideology">Purple</favoriteColor>
             <traits>
-                <li>
-                    <def MayRequire="ludeon.rimworld">FastLearner</def>
+                <li MayRequire="ludeon.rimworld">
+                    <def>FastLearner</def>
                     <degree>0</degree>
                 </li>
-                <li>
-                    <def MayRequire="ludeon.rimworld">AnnoyingVoice</def>
+                <li MayRequire="ludeon.rimworld">
+                    <def>AnnoyingVoice</def>
                     <degree>0</degree>
                 </li>
-                <li>
-                    <def MayRequire="ludeon.rimworld">PsychicSensitivity</def>
+                <li MayRequire="ludeon.rimworld">
+                    <def>PsychicSensitivity</def>
                     <degree>1</degree>
                 </li>
             </traits>
@@ -541,28 +541,28 @@
             </endogenes>
         </genes>
         <hediffs>
-            <li>
-                <def MayRequire="ludeon.rimworld">Stab</def>
+            <li MayRequire="ludeon.rimworld">
+                <def>Stab</def>
                 <severity>0.50</severity>
-                <bodyPart MayRequire="ludeon.rimworld">Leg</bodyPart>
+                <bodyPart>Leg</bodyPart>
                 <bodyPartLabel>right leg</bodyPartLabel>
                 <permanent>true</permanent>
             </li>
         </hediffs>
         <apparel>
-            <li>
-                <def MayRequire="ludeon.rimworld">Apparel_CollarShirt</def>
-                <stuff MayRequire="ludeon.rimworld">Synthread</stuff>
+            <li MayRequire="ludeon.rimworld">
+                <def>Apparel_CollarShirt</def>
+                <stuff>Synthread</stuff>
                 <quality>Normal</quality>
                 <hitPoints>130</hitPoints>
             </li>
-            <li>
-                <def MayRequire="ludeon.rimworld">Apparel_FlakPants</def>
+            <li MayRequire="ludeon.rimworld">
+                <def>Apparel_FlakPants</def>
                 <quality>Excellent</quality>
                 <hitPoints>200</hitPoints>
             </li>
-            <li>
-                <def MayRequire="ludeon.rimworld">Apparel_Duster</def>
+            <li MayRequire="ludeon.rimworld">
+                <def>Apparel_Duster</def>
                 <stuff MayRequire="ludeon.rimworld.anomaly">Leather_Dread</stuff>
                 <quality>Normal</quality>
                 <hitPoints>260</hitPoints>

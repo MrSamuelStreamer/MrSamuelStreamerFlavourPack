@@ -337,7 +337,8 @@ namespace MSSFP.PawnPortability.Export
                 foreach (Trait trait in pawn.story.traits.allTraits)
                 {
                     XmlElement li = doc.CreateElement(PawnTemplateXmlTags.Li);
-                    AppendDefElement(doc, li, PawnTemplateXmlTags.Def, trait.def, packageIds);
+                    SetMayRequireOnLi(li, trait.def, packageIds);
+                    AppendElement(doc, li, PawnTemplateXmlTags.Def, trait.def.defName);
                     AppendElement(doc, li, PawnTemplateXmlTags.Degree, trait.Degree.ToString());
                     traitsEl.AppendChild(li);
                 }
@@ -437,7 +438,8 @@ namespace MSSFP.PawnPortability.Export
             foreach (Hediff hediff in hediffsToExport)
             {
                 XmlElement li = doc.CreateElement(PawnTemplateXmlTags.Li);
-                AppendDefElement(doc, li, PawnTemplateXmlTags.Def, hediff.def, packageIds);
+                SetMayRequireOnLi(li, hediff.def, packageIds);
+                AppendElement(doc, li, PawnTemplateXmlTags.Def, hediff.def.defName);
 
                 if (hediff.Severity > 0)
                     AppendElement(doc, li, PawnTemplateXmlTags.Severity,
@@ -474,7 +476,8 @@ namespace MSSFP.PawnPortability.Export
             foreach (Thing thing in itemList)
             {
                 XmlElement li = doc.CreateElement(PawnTemplateXmlTags.Li);
-                AppendDefElement(doc, li, PawnTemplateXmlTags.Def, thing.def, packageIds);
+                SetMayRequireOnLi(li, thing.def, packageIds);
+                AppendElement(doc, li, PawnTemplateXmlTags.Def, thing.def.defName);
 
                 if (thing.Stuff != null)
                     AppendDefElement(doc, li, PawnTemplateXmlTags.Stuff, thing.Stuff, packageIds);
@@ -590,6 +593,21 @@ namespace MSSFP.PawnPortability.Export
             }
 
             parent.AppendChild(li);
+        }
+
+        /// <summary>
+        /// Sets MayRequire on the &lt;li&gt; element itself (not on a child element).
+        /// Used for list entries where the def's package determines whether the entire entry
+        /// should be loaded.
+        /// </summary>
+        private static void SetMayRequireOnLi(XmlElement li, Def def, HashSet<string> packageIds)
+        {
+            string packageId = GetPackageId(def);
+            if (packageId != null && packageId != CorePackageId)
+            {
+                li.SetAttribute(PawnTemplateXmlTags.MayRequire, packageId);
+                packageIds.Add(packageId);
+            }
         }
 
         private static string GetPackageId(Def def)

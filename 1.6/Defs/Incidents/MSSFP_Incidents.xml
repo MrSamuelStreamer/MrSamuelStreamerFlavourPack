@@ -75,6 +75,21 @@
         <letterDef>MSSFP_HireMercenariesOffer</letterDef>
     </IncidentDef>
 
+    <!-- Template Wanderer Join: a random PawnTemplateDef character wanders in and joins -->
+    <IncidentDef>
+        <defName>MSSFP_WandererJoin_Template</defName>
+        <label>a familiar face arrives</label>
+        <category>Misc</category>
+        <baseChance>1</baseChance>
+        <targetTags>
+            <li>Map_PlayerHome</li>
+        </targetTags>
+        <workerClass>MSSFP.Incidents.IncidentWorker_WandererJoin_Template</workerClass>
+        <requireColonistsPresent>true</requireColonistsPresent>
+        <letterLabel>A familiar face</letterLabel>
+        <letterText>{PAWN_nameDef} has wandered into your colony. Having heard of your group and seeking a new purpose, {PAWN_pronoun} has decided to join your cause.\n\n{PAWN_nameDef} will now be one of your colonists.</letterText>
+    </IncidentDef>
+
     <!-- Codex Punch: Codex teleports in, punches a colonist, teleports out -->
     <JobDef>
         <defName>MSSFP_SkipPunchAndLeave</defName>

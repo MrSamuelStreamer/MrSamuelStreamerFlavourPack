@@ -127,9 +127,13 @@
     <MSS_FP_Event_PossessionAttempt_Reason>Haunted by a restless spirit.</MSS_FP_Event_PossessionAttempt_Reason>
     <MSS_FP_Event_Manifestation_Msg>A spirit near {0} became fully visible for a moment.</MSS_FP_Event_Manifestation_Msg>
 
+    <!-- Template Wanderer Join incident -->
+    <MSS_FP_Settings_EnableTemplateWandererJoin>Enable template character wanderer joins (named characters may wander into your colony)</MSS_FP_Settings_EnableTemplateWandererJoin>
+    <MSS_FP_Settings_TemplateWandererJoinChanceMultiplier>Template wanderer frequency [x{0}]</MSS_FP_Settings_TemplateWandererJoinChanceMultiplier>
+
     <!-- Codex Punch incident -->
     <MSS_FP_Settings_EnableCodexPunch>Enable the Codex Punch incident</MSS_FP_Settings_EnableCodexPunch>
-    <MSS_FP_Settings_CodexPunchChanceMultiplier>Codex Punch frequency [x{0:F1}]</MSS_FP_Settings_CodexPunchChanceMultiplier>
+    <MSS_FP_Settings_CodexPunchChanceMultiplier>Codex Punch frequency [x{0}]</MSS_FP_Settings_CodexPunchChanceMultiplier>
     <MSS_FP_CodexPunch_LetterLabel>A Failed God-Puncher Returns</MSS_FP_CodexPunch_LetterLabel>
     <MSS_FP_CodexPunch_LetterText>After ascending to a higher plane and swinging at a god — and missing — Codex has been cast back to the mortal realm. He retains some of his godlike powers, including the ability to teleport at will.\n\nUnfortunately, he has decided that the reason he missed was insufficient punching practice. He now intends to punch every mortal being in existence before ascending again.\n\n{0} appears to be next on his list.</MSS_FP_CodexPunch_LetterText>
     <MSS_FP_CodexPunch_PunchMsg>Codex punched {0}!</MSS_FP_CodexPunch_PunchMsg>
@@ -144,4 +148,9 @@
     <!-- Pawn Portability -->
     <MSS_FP_Settings_ShowExportGizmo>Show Export Pawn gizmo on colonists</MSS_FP_Settings_ShowExportGizmo>
     <MSS_FP_Settings_EnablePawnPortabilityLogging>Enable Pawn Export/Import Debug Logging</MSS_FP_Settings_EnablePawnPortabilityLogging>
+    <MSS_FP_Settings_EnableUserTemplateLoading>Load user-exported pawn templates for use in events</MSS_FP_Settings_EnableUserTemplateLoading>
+    <MSS_FP_Settings_UserTemplateDir>Export directory: {0}</MSS_FP_Settings_UserTemplateDir>
+    <MSS_FP_Settings_UserTemplateCount>User templates loaded: {0}</MSS_FP_Settings_UserTemplateCount>
+    <MSS_FP_Settings_ReloadUserTemplates>Reload user templates</MSS_FP_Settings_ReloadUserTemplates>
+    <MSS_FP_Settings_UserTemplatesReloaded>Reloaded user templates: {0} loaded.</MSS_FP_Settings_UserTemplatesReloaded>
 </LanguageData>

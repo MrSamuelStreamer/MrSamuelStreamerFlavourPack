@@ -71,6 +71,9 @@ public class Settings : ModSettings
     public bool NullDefSafetyPatch = true;
     public bool EnableCodexPunch = true;
     public float CodexPunchChanceMultiplier = 1.0f;
+    public bool EnableUserTemplateLoading = true;
+    public bool EnableTemplateWandererJoin = false;
+    public float TemplateWandererJoinChanceMultiplier = 1.0f;
 
     // Fields for optional assembly tabs — these MUST live here (not on the tab)
     // so they survive save/load cycles when the optional assembly is removed.
