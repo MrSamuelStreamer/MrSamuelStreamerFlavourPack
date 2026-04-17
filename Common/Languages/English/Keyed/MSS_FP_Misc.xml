@@ -5,6 +5,9 @@
     <MSS_FP_HauntedBy>{0}'s spirit</MSS_FP_HauntedBy>
     <MSS_FP_HauntedBuff>{0}'s spirit is boosting {1} by {2}</MSS_FP_HauntedBuff>
     <MSS_FP_HauntedUnBuff>{0}'s spirit is haunting {1}</MSS_FP_HauntedUnBuff>
+    <MSS_FP_HauntedDebuff>{0}'s vengeful spirit is draining {1} by {2}</MSS_FP_HauntedDebuff>
+    <MSS_FP_HauntedBadGeneric>{0}'s vengeful spirit torments {1}</MSS_FP_HauntedBadGeneric>
+    <MSS_FP_Haunt_ExorcismGuidance>This spirit can be driven away through exorcism. A doctor with high Medicine skill has a better chance of success. Failed exorcisms strengthen the spirit, so choose your moment carefully.</MSS_FP_Haunt_ExorcismGuidance>
     <MSS_FP_CompSpawnThings>Next spawn in</MSS_FP_CompSpawnThings>
     <MSS_FP_RitualOutcomeExtraDesc_SkylanternRaid>Your skylanterns landed in a {0} colony, setting widespread fires and causing immense damage. They're here for revenge.</MSS_FP_RitualOutcomeExtraDesc_SkylanternRaid>
 

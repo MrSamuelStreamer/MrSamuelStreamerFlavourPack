@@ -113,7 +113,7 @@
     <!-- Exorcism messages -->
     <MSS_FP_Exorcism_Success_Msg>{0}'s spirit of {1} has been successfully exorcised.</MSS_FP_Exorcism_Success_Msg>
     <MSS_FP_Exorcism_Partial_Msg>The spirit of {1} was driven from {0}, but the separation was traumatic.</MSS_FP_Exorcism_Partial_Msg>
-    <MSS_FP_Exorcism_Failure_Msg>The exorcism of {0} failed — the spirit of {1} has grown stronger in defiance.</MSS_FP_Exorcism_Failure_Msg>
+    <MSS_FP_Exorcism_Failure_Msg>The exorcism of {0} failed — the spirit of {1} has grown stronger in defiance. A more skilled doctor may fare better.</MSS_FP_Exorcism_Failure_Msg>
     <MSS_FP_Exorcism_Failure_Reason>The failed exorcism left a spiritual wound.</MSS_FP_Exorcism_Failure_Reason>
     <MSS_FP_Exorcism_Backlash_Msg>The expelled spirit lashed out before departing, filling the room near {0} with dread.</MSS_FP_Exorcism_Backlash_Msg>
 

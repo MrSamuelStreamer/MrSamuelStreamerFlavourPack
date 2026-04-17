@@ -107,24 +107,45 @@ public class HediffComp_Haunt : HediffComp
         {
             if (pawnToDraw == null)
                 return null;
-            if (skillToBoost != null && SkillBoostLevel > 0)
+
+            string desc;
+            if (!Props.isGood)
             {
-                return pawnToDraw == null
-                    ? null
-                    : "\n\n"
-                        + "MSS_FP_HauntedBuff".Translate(
-                            pawnToDraw.NameShortColored,
-                            skillToBoost.LabelCap,
-                            SkillBoostLevel
-                        );
-            }
-            return pawnToDraw == null
-                ? null
-                : "\n\n"
-                    + "MSS_FP_HauntedUnBuff".Translate(
+                // Bad haunt — show debuff info and exorcism guidance
+                if (skillToBoost != null && SkillBoostLevel < 0)
+                {
+                    desc = "MSS_FP_HauntedDebuff".Translate(
+                        pawnToDraw.NameShortColored,
+                        skillToBoost.LabelCap,
+                        -SkillBoostLevel
+                    );
+                }
+                else
+                {
+                    desc = "MSS_FP_HauntedBadGeneric".Translate(
                         pawnToDraw.NameShortColored,
                         parent.pawn.NameShortColored
                     );
+                }
+                desc += "\n\n" + "MSS_FP_Haunt_ExorcismGuidance".Translate();
+                return "\n\n" + desc;
+            }
+
+            // Good haunt — show buff info
+            if (skillToBoost != null && SkillBoostLevel > 0)
+            {
+                return "\n\n"
+                    + "MSS_FP_HauntedBuff".Translate(
+                        pawnToDraw.NameShortColored,
+                        skillToBoost.LabelCap,
+                        SkillBoostLevel
+                    );
+            }
+            return "\n\n"
+                + "MSS_FP_HauntedUnBuff".Translate(
+                    pawnToDraw.NameShortColored,
+                    parent.pawn.NameShortColored
+                );
         }
     }
 
