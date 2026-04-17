@@ -166,4 +166,50 @@
             </suffixSymbols>
         </symbolPack>
     </GeneDef>
+
+    <AbilityDef ParentName="AbilityTouchBase">
+        <defName>MSSFP_IntegratorReimplantXenogerm</defName>
+        <label>integrate genes</label>
+        <description>Implant this person's xenogenes into a subject. The implanter loses all xenogenes permanently and becomes a baseliner xenotype. If this person's genes are currently regrowing, they will implant their xenogerm and die in the process.</description>
+        <iconPath>UI/Icons/Genes/Gene_XenogermReimplanter</iconPath>
+        <warmupStartSound>ReimplantXenogerm_Cast</warmupStartSound>
+        <warmupEffecter>Implant_Xenogerm</warmupEffecter>
+        <category>Sanguophage</category>
+        <displayOrder>501</displayOrder>
+        <hostile>false</hostile>
+        <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+        <verbProperties>
+            <verbClass>Verb_CastAbilityTouch</verbClass>
+            <drawAimPie>false</drawAimPie>
+            <range>-1</range>
+            <warmupTime>4</warmupTime>
+            <stunTargetOnCastStart>true</stunTargetOnCastStart>
+            <targetParams>
+                <canTargetAnimals>false</canTargetAnimals>
+                <canTargetSelf>false</canTargetSelf>
+                <canTargetBuildings>false</canTargetBuildings>
+                <canTargetMechs>false</canTargetMechs>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="MSSFP.Comps.CompProperties_AbilityIntegratorReimplantXenogerm" />
+        </comps>
+    </AbilityDef>
+
+    <GeneDef>
+        <defName>MSSFP_GeneIntegrator</defName>
+        <label>gene integrator</label>
+        <labelShortAdj>integrator</labelShortAdj>
+        <description>Carriers of this gene can implant a copy of their xenogerm into another person. they permanently lose all of their xenogenes and become a baseliner xenotype; If they implant while their genes are regrowing, they will die.</description>
+        <iconPath>UI/Icons/Genes/Gene_XenogermReimplanter</iconPath>
+        <displayCategory>Archite</displayCategory>
+        <abilities>
+            <li>MSSFP_IntegratorReimplantXenogerm</li>
+        </abilities>
+        <descriptionHyperlinks>
+            <AbilityDef>MSSFP_IntegratorReimplantXenogerm</AbilityDef>
+        </descriptionHyperlinks>
+        <biostatCpx>3</biostatCpx>
+        <biostatArc>1</biostatArc>
+    </GeneDef>
 </Defs>
