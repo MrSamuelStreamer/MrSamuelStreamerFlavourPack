@@ -25,6 +25,13 @@ public class HediffCompProperties_Haunt : HediffCompProperties
     public ThoughtDef thought;
 
     /// <summary>
+    /// Whether this haunt is beneficial (true) or harmful (false).
+    /// Good haunts buff the pawn; bad haunts debuff and trigger poltergeist events.
+    /// Defaults to true for backward compatibility with existing named haunts.
+    /// </summary>
+    public bool isGood = true;
+
+    /// <summary>
     /// Personality archetype used by the haunt interaction system.
     /// Null = this haunt does not participate in archetype interactions
     /// (e.g. PawnDisplayer haunts).

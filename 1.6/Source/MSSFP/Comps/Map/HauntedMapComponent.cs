@@ -5,6 +5,7 @@ using System.Text;
 using MSSFP.Haunts;
 using MSSFP.Hediffs;
 using RimWorld;
+using RimWorld.Planet;
 using UnityEngine;
 using Verse;
 
@@ -107,6 +108,8 @@ public class HauntedMapComponent(Verse.Map map) : MapComponent(map)
     public override void MapComponentUpdate()
     {
         if (!MSSFPMod.settings.ShowHaunts)
+            return;
+        if (WorldRendererUtility.WorldRendered)
             return;
         foreach (Pawn pawn in map.mapPawns.AllHumanlike)
         {

@@ -46,6 +46,7 @@
         </stages>
         <comps>
             <li Class="MSSFP.Hediffs.HediffCompProperties_Haunt">
+                <isGood>true</isGood>
                 <graphicData>
                     <texPath>Haunts/Frog/Frog</texPath>
                     <graphicClass>Graphic_Multi</graphicClass>
@@ -112,6 +113,7 @@
         </stages>
         <comps>
             <li Class="MSSFP.Hediffs.HediffCompProperties_Haunt">
+                <isGood>true</isGood>
                 <graphicData>
                     <texPath>Haunts/Grignr/Grignr</texPath>
                     <graphicClass>Graphic_Multi</graphicClass>
@@ -179,6 +181,7 @@
         </stages>
         <comps>
             <li Class="MSSFP.Hediffs.HediffCompProperties_Haunt">
+                <isGood>true</isGood>
                 <graphicData>
                     <texPath>Haunts/Kekvit/Kekvit</texPath>
                     <graphicClass>Graphic_Multi</graphicClass>
@@ -353,6 +356,7 @@
         </stages>
         <comps>
             <li Class="MSSFP.Hediffs.HediffCompProperties_Haunt">
+                <isGood>true</isGood>
                 <graphicData>
                     <texPath>Haunts/Oskar/Oskar</texPath>
                     <graphicClass>Graphic_Multi</graphicClass>
@@ -425,6 +429,7 @@
         </stages>
         <comps>
             <li Class="MSSFP.Hediffs.HediffCompProperties_Haunt">
+                <isGood>true</isGood>
                 <graphicData>
                     <texPath>Haunts/Phil/Phil</texPath>
                     <graphicClass>Graphic_Multi</graphicClass>
@@ -489,6 +494,7 @@
         </stages>
         <comps>
             <li Class="MSSFP.Hediffs.HediffCompProperties_Haunt">
+                <isGood>true</isGood>
                 <graphicData>
                     <texPath>Haunts/Jade/Jade</texPath>
                     <graphicClass>Graphic_Multi</graphicClass>
@@ -677,6 +683,7 @@
          <chronic>true</chronic>
          <comps>
              <li Class="MSSFP.Hediffs.HediffCompProperties_Echo">
+                 <isGood>true</isGood>
                  <thought>MSS_FP_Haunted</thought>
                  <graphicData>
                      <graphicClass>MSSFP.PawnHauntGraphic</graphicClass>
