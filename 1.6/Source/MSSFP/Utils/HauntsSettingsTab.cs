@@ -76,6 +76,27 @@ public class HauntSettingsTab(ModSettings settings, Mod mod) : SettingsTab(setti
 
         DrawCheckBox(
             options,
+            "MSS_FP_Settings_EnableKillHaunts".Translate(),
+            ref Settings.EnableKillHaunts,
+            ref scrollViewHeight
+        );
+
+        options.Label(
+            "MSS_FP_Settings_KillHauntBaseChance".Translate(
+                Settings.KillHauntBaseChance.ToStringPercent()
+            ),
+            tooltip: "MSS_FP_Settings_KillHauntBaseChance_Tooltip".Translate()
+        );
+        Settings.KillHauntBaseChance = options.SliderLabeled(
+            Settings.KillHauntBaseChance.ToStringPercent(),
+            Settings.KillHauntBaseChance,
+            0.01f,
+            0.5f
+        );
+        scrollViewHeight += 48f;
+
+        DrawCheckBox(
+            options,
             "MSS_FP_Settings_EnablePoltergeistEvents".Translate(),
             ref Settings.EnablePoltergeistEvents,
             ref scrollViewHeight
@@ -150,5 +171,7 @@ public class HauntSettingsTab(ModSettings settings, Mod mod) : SettingsTab(setti
         Scribe_Values.Look(ref Settings.HauntProximityRadius, "HauntProximityRadius", 50);
         Scribe_Values.Look(ref Settings.HauntMinCooldownDays, "HauntMinCooldownDays", 2);
         Scribe_Values.Look(ref Settings.HauntPostFireCooldownDays, "HauntPostFireCooldownDays", 4);
+        Scribe_Values.Look(ref Settings.EnableKillHaunts, "EnableKillHaunts", true);
+        Scribe_Values.Look(ref Settings.KillHauntBaseChance, "KillHauntBaseChance", 0.15f);
     }
 }

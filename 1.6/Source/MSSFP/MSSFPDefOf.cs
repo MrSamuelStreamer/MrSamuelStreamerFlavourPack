@@ -13,6 +13,7 @@ public static class MSSFPDefOf
 {
     public static readonly ThingDef MSSFP_Frogge;
     public static readonly HediffDef MSS_FP_PawnDisplayer;
+    public static readonly HediffDef MSS_FP_PawnDisplayerBad;
     public static readonly FleckDef PsycastPsychicEffect;
 
     public static readonly HediffDef MSS_FP_PawnDisplayerPossession;

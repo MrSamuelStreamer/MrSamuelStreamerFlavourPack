@@ -385,7 +385,8 @@ public class HediffComp_Haunt : HediffComp
             SkillRecord maxSkill = pawnToDraw.skills.skills.MaxBy(pawnSkill => pawnSkill.Level);
 
             skillToBoost = maxSkill.def;
-            SkillBoostLevel = Mathf.CeilToInt(maxSkill.Level / 3f);
+            int baseBoost = Mathf.CeilToInt(maxSkill.Level / 3f);
+            SkillBoostLevel = Props.isGood ? baseBoost : -baseBoost;
         }
 
         // Skill boost is applied via SkillRecord_Patch reading from HauntsCache

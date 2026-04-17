@@ -38,6 +38,8 @@ public class Settings : ModSettings
     public int HauntProximityRadius = 50;
     public int HauntMinCooldownDays = 2;
     public int HauntPostFireCooldownDays = 4;
+    public bool EnableKillHaunts = true;
+    public float KillHauntBaseChance = 0.15f;
     public bool DisableBSIncorporateGeneLimit = false;
     public bool EnableGeneStealerNeed = false;
     public bool EnableGeneMutators = false;

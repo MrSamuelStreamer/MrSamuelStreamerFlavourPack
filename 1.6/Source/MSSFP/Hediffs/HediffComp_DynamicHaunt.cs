@@ -69,8 +69,10 @@ public class HediffComp_DynamicHaunt : HediffComp
         if (triggered)
             lastTriggerTick = now;
 
-        bool inRegression =
-            lastTriggerTick >= 0
+        // Bad haunts don't regress naturally — only exorcism removes them
+        bool canRegress = Profile.isGood;
+        bool inRegression = canRegress
+            && lastTriggerTick >= 0
             && (now - lastTriggerTick) > RegressionThresholdDays * GenDate.TicksPerDay;
 
         if (inRegression)

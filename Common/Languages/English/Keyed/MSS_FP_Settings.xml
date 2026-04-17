@@ -117,6 +117,15 @@
     <MSS_FP_Exorcism_Failure_Reason>The failed exorcism left a spiritual wound.</MSS_FP_Exorcism_Failure_Reason>
     <MSS_FP_Exorcism_Backlash_Msg>The expelled spirit lashed out before departing, filling the room near {0} with dread.</MSS_FP_Exorcism_Backlash_Msg>
 
+    <!-- Kill haunt settings -->
+    <MSS_FP_Settings_EnableKillHaunts>Enable kill haunts (colonists may be haunted by their victims)</MSS_FP_Settings_EnableKillHaunts>
+    <MSS_FP_Settings_KillHauntBaseChance>Kill haunt base chance [{0}]</MSS_FP_Settings_KillHauntBaseChance>
+    <MSS_FP_Settings_KillHauntBaseChance_Tooltip>Base probability of a colonist becoming haunted after killing a humanlike pawn. The actual chance diminishes with each active bad haunt on the killer: chance = base / (1 + active bad haunts). HauntSensitive pawns have 1.5x this chance.</MSS_FP_Settings_KillHauntBaseChance_Tooltip>
+
+    <!-- Kill haunt letter -->
+    <MSS_FP_KillHaunt_Letter_Label>A Vengeful Spirit</MSS_FP_KillHaunt_Letter_Label>
+    <MSS_FP_KillHaunt_Letter_Text>The spirit of {0} refuses to pass on. It clings to {1}, filled with resentment and fury. The haunting will grow stronger over time, draining skills and inviting dark events.\n\nAn exorcism may be able to sever the bond — but it won't be easy.</MSS_FP_KillHaunt_Letter_Text>
+
     <!-- Haunt initial letter and stage messages -->
     <MSS_FP_Haunt_InitialLetter_Label>A Lingering Spirit</MSS_FP_Haunt_InitialLetter_Label>
     <MSS_FP_Haunt_InitialLetter_Text>The spirit of {0} lingers near {1}. Their presence is faint — barely a whisper — but the bond between the living and the dead has taken root.\n\nOver time, the spirit may grow stronger, granting skills and abilities tied to who they were in life. If neglected, the connection will fade.</MSS_FP_Haunt_InitialLetter_Text>
