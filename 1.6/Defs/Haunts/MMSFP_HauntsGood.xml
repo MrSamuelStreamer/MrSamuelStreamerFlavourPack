@@ -636,17 +636,14 @@
              <li>
                  <label>faintly haunted</label>
                  <minSeverity>0</minSeverity>
-                 <becomeVisible>false</becomeVisible>
              </li>
              <li>
                  <label>haunted</label>
                  <minSeverity>0.34</minSeverity>
-                 <becomeVisible>false</becomeVisible>
              </li>
              <li>
                  <label>spirit-bound</label>
                  <minSeverity>0.67</minSeverity>
-                 <becomeVisible>false</becomeVisible>
              </li>
          </stages>
          <comps>
