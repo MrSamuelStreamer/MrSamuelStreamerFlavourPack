@@ -111,7 +111,7 @@
     <MSS_FP_Settings_PoltergeistEventThreshold_Tooltip>Minimum effective intensity (intensity × time multiplier × intensity multiplier) required to trigger events. Default 0.50 means a single Awakened haunt at full severity triggers events during the day. At night (21:00–05:00) intensity is multiplied by 1.5×, so events fire more easily. Colony size also scales the threshold up (10% per colonist above 5).</MSS_FP_Settings_PoltergeistEventThreshold_Tooltip>
 
     <!-- Exorcism messages -->
-    <MSS_FP_Exorcism_Success_Msg>{0}'s spirit of {1} has been successfully exorcised.</MSS_FP_Exorcism_Success_Msg>
+    <MSS_FP_Exorcism_Success_Msg>The spirit of {1} has been successfully exorcised from {0}.</MSS_FP_Exorcism_Success_Msg>
     <MSS_FP_Exorcism_Partial_Msg>The spirit of {1} was driven from {0}, but the separation was traumatic.</MSS_FP_Exorcism_Partial_Msg>
     <MSS_FP_Exorcism_Failure_Msg>The exorcism of {0} failed — the spirit of {1} has grown stronger in defiance. A more skilled doctor may fare better.</MSS_FP_Exorcism_Failure_Msg>
     <MSS_FP_Exorcism_Failure_Reason>The failed exorcism left a spiritual wound.</MSS_FP_Exorcism_Failure_Reason>
@@ -121,6 +121,8 @@
     <MSS_FP_Settings_EnableKillHaunts>Enable kill haunts (colonists may be haunted by their victims)</MSS_FP_Settings_EnableKillHaunts>
     <MSS_FP_Settings_KillHauntBaseChance>Kill haunt base chance [{0}]</MSS_FP_Settings_KillHauntBaseChance>
     <MSS_FP_Settings_KillHauntBaseChance_Tooltip>Base probability of a colonist becoming haunted after killing a humanlike pawn. The actual chance diminishes with each active bad haunt on the killer: chance = base / (1 + active bad haunts). HauntSensitive pawns have 1.5x this chance.</MSS_FP_Settings_KillHauntBaseChance_Tooltip>
+    <MSS_FP_Settings_KillHauntCooldownDays>Kill haunt cooldown: {0} day(s)</MSS_FP_Settings_KillHauntCooldownDays>
+    <MSS_FP_Settings_MaxBadHauntsPerPawn>Max bad haunts per pawn: {0}</MSS_FP_Settings_MaxBadHauntsPerPawn>
 
     <!-- Kill haunt letter -->
     <MSS_FP_KillHaunt_Letter_Label>A Vengeful Spirit</MSS_FP_KillHaunt_Letter_Label>

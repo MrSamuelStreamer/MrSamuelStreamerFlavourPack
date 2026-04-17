@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using HarmonyLib;
 using MSSFP.Haunts;
 using MSSFP.Hediffs;
@@ -15,6 +16,13 @@ namespace MSSFP.HarmonyPatches;
 [HarmonyPatch(typeof(RecordsUtility), nameof(RecordsUtility.Notify_PawnKilled))]
 public static class KillHaunt_Patch
 {
+    /// <summary>
+    /// Per-pawn cooldown tracker (thingIDNumber → tick when last kill haunt was applied).
+    /// Runtime-only — not saved. Resets on game load, which is fine since the cooldown
+    /// is meant to throttle rapid kills within a single session (e.g. raids).
+    /// </summary>
+    private static readonly Dictionary<int, int> lastKillHauntTick = new();
+
     public static void Postfix(Pawn killed, Pawn killer)
     {
         if (!MSSFPMod.settings.EnableKillHaunts)
@@ -39,7 +47,14 @@ public static class KillHaunt_Patch
         if (killer.genes?.HasActiveGene(MSSFPDefOf.MSS_FP_Gene_HauntResistant) == true)
             return;
 
-        // Count active bad haunts on the killer for diminishing returns
+        // Per-pawn cooldown — prevent haunt spam during raids
+        int now = Find.TickManager.TicksGame;
+        int killerId = killer.thingIDNumber;
+        if (lastKillHauntTick.TryGetValue(killerId, out int lastTick)
+            && (now - lastTick) < MSSFPMod.settings.KillHauntCooldownTicks)
+            return;
+
+        // Count active bad haunts on the killer for diminishing returns + cap check
         int activeBadHaunts = 0;
         foreach (Hediff hediff in killer.health.hediffSet.hediffs)
         {
@@ -47,6 +62,10 @@ public static class KillHaunt_Patch
             if (hauntComp != null && !hauntComp.Props.isGood)
                 activeBadHaunts++;
         }
+
+        // Hard cap on concurrent bad haunts per pawn
+        if (activeBadHaunts >= MSSFPMod.settings.MaxBadHauntsPerPawn)
+            return;
 
         // chance = baseChance / (1 + activeBadHaunts)
         float chance = MSSFPMod.settings.KillHauntBaseChance / (1f + activeBadHaunts);
@@ -57,6 +76,8 @@ public static class KillHaunt_Patch
 
         if (!Rand.Chance(chance))
             return;
+
+        lastKillHauntTick[killerId] = now;
 
         Hediff hediffNew = killer.health.AddHediff(MSSFPDefOf.MSS_FP_PawnDisplayerBad);
         hediffNew.Severity = 0.05f;

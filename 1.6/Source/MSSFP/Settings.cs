@@ -40,6 +40,8 @@ public class Settings : ModSettings
     public int HauntPostFireCooldownDays = 4;
     public bool EnableKillHaunts = true;
     public float KillHauntBaseChance = 0.15f;
+    public int KillHauntCooldownTicks = 60000;
+    public int MaxBadHauntsPerPawn = 5;
     public bool DisableBSIncorporateGeneLimit = false;
     public bool EnableGeneStealerNeed = false;
     public bool EnableGeneMutators = false;

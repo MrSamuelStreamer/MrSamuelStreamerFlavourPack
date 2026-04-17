@@ -95,6 +95,23 @@ public class HauntSettingsTab(ModSettings settings, Mod mod) : SettingsTab(setti
         );
         scrollViewHeight += 48f;
 
+        DrawIntAdjuster(
+            options,
+            "MSS_FP_Settings_KillHauntCooldownDays".Translate(Settings.KillHauntCooldownTicks / 60000),
+            ref Settings.KillHauntCooldownTicks,
+            60000,
+            0,
+            ref scrollViewHeight
+        );
+        DrawIntAdjuster(
+            options,
+            "MSS_FP_Settings_MaxBadHauntsPerPawn".Translate(Settings.MaxBadHauntsPerPawn),
+            ref Settings.MaxBadHauntsPerPawn,
+            1,
+            1,
+            ref scrollViewHeight
+        );
+
         DrawCheckBox(
             options,
             "MSS_FP_Settings_EnablePoltergeistEvents".Translate(),
@@ -173,5 +190,7 @@ public class HauntSettingsTab(ModSettings settings, Mod mod) : SettingsTab(setti
         Scribe_Values.Look(ref Settings.HauntPostFireCooldownDays, "HauntPostFireCooldownDays", 4);
         Scribe_Values.Look(ref Settings.EnableKillHaunts, "EnableKillHaunts", true);
         Scribe_Values.Look(ref Settings.KillHauntBaseChance, "KillHauntBaseChance", 0.15f);
+        Scribe_Values.Look(ref Settings.KillHauntCooldownTicks, "KillHauntCooldownTicks", 60000);
+        Scribe_Values.Look(ref Settings.MaxBadHauntsPerPawn, "MaxBadHauntsPerPawn", 5);
     }
 }

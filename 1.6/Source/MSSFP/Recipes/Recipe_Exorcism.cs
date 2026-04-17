@@ -40,36 +40,43 @@ public class Recipe_Exorcism : RecipeWorker
         if (hauntHediff == null)
             return;
 
+        // Resolve spirit name for messages — fall back to hediff label if no comp
+        string spiritName = hauntHediff.def.label;
+        if (hauntHediff is HediffWithComps hwc)
+        {
+            HediffComp_Haunt hauntComp = hwc.TryGetComp<HediffComp_Haunt>();
+            if (hauntComp != null)
+                spiritName = hauntComp.PawnName ?? hauntComp.pawnToDraw?.LabelShort ?? spiritName;
+        }
+
         float severity = hauntHediff.Severity;
         int medicineSkill = billDoer?.skills?.GetSkill(SkillDefOf.Medicine)?.Level ?? 0;
 
         if (medicineSkill * 5 > severity * 100)
-            ApplySuccess(pawn, billDoer, hauntHediff, severity);
+            ApplySuccess(pawn, billDoer, hauntHediff, severity, spiritName);
         else if (medicineSkill * 5 > severity * 50)
-            ApplyPartial(pawn, billDoer, hauntHediff, severity);
+            ApplyPartial(pawn, billDoer, hauntHediff, severity, spiritName);
         else
-            ApplyFailure(pawn, billDoer, hauntHediff, severity);
+            ApplyFailure(pawn, billDoer, hauntHediff, severity, spiritName);
     }
 
     // ── Outcome handlers ──────────────────────────────────────────────────────
 
-    private static void ApplySuccess(Pawn pawn, Pawn doctor, Hediff haunt, float severity)
+    private static void ApplySuccess(Pawn pawn, Pawn doctor, Hediff haunt, float severity, string spiritName)
     {
-        string hauntLabel = haunt.def.label;
         TryRetaliate(pawn, severity);
         pawn.health.RemoveHediff(haunt);
 
         Messages.Message(
-            "MSS_FP_Exorcism_Success_Msg".Translate(pawn.LabelShort, hauntLabel),
+            "MSS_FP_Exorcism_Success_Msg".Translate(pawn.LabelShort, spiritName),
             pawn,
             MessageTypeDefOf.PositiveEvent,
             false
         );
     }
 
-    private static void ApplyPartial(Pawn pawn, Pawn doctor, Hediff haunt, float severity)
+    private static void ApplyPartial(Pawn pawn, Pawn doctor, Hediff haunt, float severity, string spiritName)
     {
-        string hauntLabel = haunt.def.label;
         TryRetaliate(pawn, severity);
         pawn.health.RemoveHediff(haunt);
 
@@ -78,14 +85,14 @@ public class Recipe_Exorcism : RecipeWorker
         );
 
         Messages.Message(
-            "MSS_FP_Exorcism_Partial_Msg".Translate(pawn.LabelShort, hauntLabel),
+            "MSS_FP_Exorcism_Partial_Msg".Translate(pawn.LabelShort, spiritName),
             pawn,
             MessageTypeDefOf.NeutralEvent,
             false
         );
     }
 
-    private static void ApplyFailure(Pawn pawn, Pawn doctor, Hediff haunt, float severity)
+    private static void ApplyFailure(Pawn pawn, Pawn doctor, Hediff haunt, float severity, string spiritName)
     {
         haunt.Severity = severity + Mathf.Min(0.3f, 0.9f - severity);
 
@@ -97,7 +104,7 @@ public class Recipe_Exorcism : RecipeWorker
         );
 
         Messages.Message(
-            "MSS_FP_Exorcism_Failure_Msg".Translate(pawn.LabelShort, haunt.def.label),
+            "MSS_FP_Exorcism_Failure_Msg".Translate(pawn.LabelShort, spiritName),
             pawn,
             MessageTypeDefOf.NegativeEvent,
             false
@@ -165,11 +172,12 @@ public class Recipe_Exorcism : RecipeWorker
 
     // ── Helpers ───────────────────────────────────────────────────────────────
 
-    /// <summary>Returns the highest-severity bad haunt on the pawn, or null if none.</summary>
+    /// <summary>Returns the lowest-severity bad haunt on the pawn, or null if none.
+    /// Targeting the weakest haunt first favours the player — the easiest bond to sever.</summary>
     private static Hediff FindTargetHaunt(Pawn pawn)
     {
         Hediff best = null;
-        float bestSev = -1f;
+        float bestSev = float.MaxValue;
 
         foreach (Hediff hediff in pawn.health.hediffSet.hediffs)
         {
@@ -182,7 +190,7 @@ public class Recipe_Exorcism : RecipeWorker
                 // Only bad haunts can be exorcised — good haunts are beneficial
                 if (haunt.Props.isGood)
                     continue;
-                if (hediff.Severity > bestSev)
+                if (hediff.Severity < bestSev)
                 {
                     best = hediff;
                     bestSev = hediff.Severity;

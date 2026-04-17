@@ -12,6 +12,7 @@ namespace MSSFP.Hediffs;
 public class HediffComp_Haunt : HediffComp
 {
     public static Texture2D icon = ContentFinder<Texture2D>.Get("UI/MSS_FP_Haunts_Toggle");
+    private static readonly MaterialPropertyBlock sharedPropertyBlock = new();
     public Pawn pawnToDraw;
     public string name;
     public string texPath;
@@ -278,8 +279,8 @@ public class HediffComp_Haunt : HediffComp
                 Material mat = graphic.MatAt(rot, pawnToDraw ?? parent.pawn);
                 if (mat != null)
                 {
-                    MaterialPropertyBlock block = new();
-                    block.SetColor(ShaderPropertyIDs.Color, base_);
+                    sharedPropertyBlock.Clear();
+                    sharedPropertyBlock.SetColor(ShaderPropertyIDs.Color, base_);
                     Graphics.DrawMesh(
                         graphic.MeshAt(rot),
                         Matrix4x4.TRS(
@@ -291,7 +292,7 @@ public class HediffComp_Haunt : HediffComp
                         0,
                         null,
                         0,
-                        block
+                        sharedPropertyBlock
                     );
                     TrySpawnFleck(finalPos);
                     return;

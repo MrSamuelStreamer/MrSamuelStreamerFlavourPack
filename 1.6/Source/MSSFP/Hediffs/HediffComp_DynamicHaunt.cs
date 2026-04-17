@@ -90,7 +90,7 @@ public class HediffComp_DynamicHaunt : HediffComp
 
         int newStage = GetStage(newSeverity);
         if (previousStage >= 0 && newStage > previousStage)
-            NotifyStageAdvanced(newStage);
+            NotifyStageAdvanced((HediffWithComps)parent, newStage);
         previousStage = newStage;
 
         if (!awakeningGeneFired && newSeverity >= 0.67f)
@@ -125,30 +125,6 @@ public class HediffComp_DynamicHaunt : HediffComp
     {
         if (Profile?.triggerRecordDef != null && parent.pawn.records != null)
             lastRecordValue = parent.pawn.records.GetValue(Profile.triggerRecordDef);
-    }
-
-    private void NotifyStageAdvanced(int newStage)
-    {
-        Pawn pawn = parent.pawn;
-        HediffComp_Haunt hauntComp = parent.TryGetComp<HediffComp_Haunt>();
-        string spiritName = hauntComp?.PawnName ?? hauntComp?.pawnToDraw?.LabelShort ?? "a spirit";
-
-        string key = newStage switch
-        {
-            1 => "MSS_FP_Haunt_StagePresence_Msg",
-            2 => "MSS_FP_Haunt_StageAwakened_Msg",
-            _ => null,
-        };
-
-        if (key != null)
-        {
-            Messages.Message(
-                key.Translate(pawn.LabelShort, spiritName),
-                pawn,
-                newStage == 2 ? MessageTypeDefOf.NeutralEvent : MessageTypeDefOf.SilentInput,
-                historical: false
-            );
-        }
     }
 
     private void TryFireAwakeningGene()
