@@ -187,7 +187,10 @@ public class HauntEventWorker_SpontaneousFire : HauntEventWorker
         {
             if (!cell.InBounds(map) || !cell.Walkable(map))
                 continue;
-            if (FireUtility.GetFiresNearCell(cell, map).Count > 0)
+            // Direct grid check — vanilla GetFiresNearCell has a latent bug
+            // (Swap with FindIndex == -1) that crashes when fires exist in the
+            // same room/region but not on the exact queried cell.
+            if (map.thingGrid.ThingsListAt(cell).Any(t => t is Fire))
                 continue;
             if (FireUtility.TerrainFlammability(cell, map) > 0.1f)
                 candidates.Add(cell);
