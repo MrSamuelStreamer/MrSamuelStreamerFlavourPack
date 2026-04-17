@@ -24,6 +24,9 @@ public class HauntEventMapComponent(Verse.Map map) : MapComponent(map)
     private List<int> pendingRestoreIds = new();
     private List<int> pendingRestoreTicks = new();
 
+    // ── First-event letter (persisted so it fires once per map) ───────────────
+    private bool firedFirstEvent;
+
     // ── Dev dashboard event log ──────────────────────────────────────────────
     public readonly List<string> RecentEvents = new();
     private const int MaxEventLog = 10;
@@ -68,7 +71,8 @@ public class HauntEventMapComponent(Verse.Map map) : MapComponent(map)
         HauntEventDef eventDef = PickEvent(1f);
         if (eventDef == null)
             return;
-        bool fired = eventDef.Worker.TryFire(focusPawn, map);
+        HediffComp_Haunt source = FindMaxBadHaunt(focusPawn);
+        bool fired = eventDef.Worker.TryFire(focusPawn, map, source);
         if (fired)
             LogEvent($"[retaliation] {eventDef.label}");
     }
@@ -105,9 +109,22 @@ public class HauntEventMapComponent(Verse.Map map) : MapComponent(map)
         if (eventDef == null)
             return;
 
-        bool fired = eventDef.Worker.TryFire(focusPawn, map);
+        HediffComp_Haunt sourceHaunt = FindMaxBadHaunt(focusPawn);
+        bool fired = eventDef.Worker.TryFire(focusPawn, map, sourceHaunt);
         if (fired)
+        {
+            if (!firedFirstEvent)
+            {
+                firedFirstEvent = true;
+                Find.LetterStack.ReceiveLetter(
+                    "MSS_FP_Poltergeist_FirstEvent_Label".Translate(),
+                    "MSS_FP_Poltergeist_FirstEvent_Text".Translate(),
+                    LetterDefOf.NeutralEvent,
+                    focusPawn
+                );
+            }
             LogEvent(eventDef.label);
+        }
     }
 
     private float CalculateIntensity(out float maxSeverity)
@@ -162,6 +179,26 @@ public class HauntEventMapComponent(Verse.Map map) : MapComponent(map)
                 candidates.Add(pawn);
         }
         return candidates.Count > 0 ? candidates.RandomElement() : null;
+    }
+
+    /// <summary>Returns the highest-severity bad haunt comp on the pawn, for attribution.</summary>
+    private static HediffComp_Haunt FindMaxBadHaunt(Pawn pawn)
+    {
+        if (!HauntsCache.Haunts.TryGetValue(pawn.thingIDNumber, out var haunts))
+            return null;
+        HediffComp_Haunt best = null;
+        float bestSev = -1f;
+        foreach (HediffComp_Haunt h in haunts)
+        {
+            if (h.Props.isGood)
+                continue;
+            if (h.parent.Severity > bestSev)
+            {
+                best = h;
+                bestSev = h.parent.Severity;
+            }
+        }
+        return best;
     }
 
     private static HauntEventDef PickEvent(float maxSeverity)
@@ -237,6 +274,7 @@ public class HauntEventMapComponent(Verse.Map map) : MapComponent(map)
     {
         base.ExposeData();
         Scribe_Values.Look(ref nextCheckTick, "nextCheckTick", -1);
+        Scribe_Values.Look(ref firedFirstEvent, "firedFirstEvent", false);
         Scribe_Collections.Look(ref pendingRestoreIds, "pendingRestoreIds", LookMode.Value);
         Scribe_Collections.Look(ref pendingRestoreTicks, "pendingRestoreTicks", LookMode.Value);
         pendingRestoreIds ??= new List<int>();

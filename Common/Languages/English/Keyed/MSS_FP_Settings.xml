@@ -132,15 +132,19 @@
     <MSS_FP_Haunt_StagePresence_Msg>The spirit near {0} grows stronger — {1}'s presence is unmistakable now.</MSS_FP_Haunt_StagePresence_Msg>
     <MSS_FP_Haunt_StageAwakened_Msg>{1}'s spirit has fully awakened within {0}. The bond is deep and powerful.</MSS_FP_Haunt_StageAwakened_Msg>
 
-    <!-- Poltergeist event messages -->
-    <MSS_FP_Event_FlickeringLights_Msg>The lights near {0} flickered and went dark.</MSS_FP_Event_FlickeringLights_Msg>
-    <MSS_FP_Event_ObjectDisplacement_Msg>Something moved the {0} on its own.</MSS_FP_Event_ObjectDisplacement_Msg>
-    <MSS_FP_Event_ColdSpot_Msg>An inexplicable cold descended near {0}.</MSS_FP_Event_ColdSpot_Msg>
-    <MSS_FP_Event_GhostlyWail_Msg>An unearthly wail echoed through the colony.</MSS_FP_Event_GhostlyWail_Msg>
-    <MSS_FP_Event_SpontaneousFire_Msg>A fire started on its own near {0}.</MSS_FP_Event_SpontaneousFire_Msg>
-    <MSS_FP_Event_PossessionAttempt_Msg>Something is trying to take hold of {0}.</MSS_FP_Event_PossessionAttempt_Msg>
+    <!-- Poltergeist event messages ({0} = pawn/thing, {1} = spirit name) -->
+    <MSS_FP_Event_FlickeringLights_Msg>The spirit of {1} caused lights near {0} to flicker and die.</MSS_FP_Event_FlickeringLights_Msg>
+    <MSS_FP_Event_ObjectDisplacement_Msg>The spirit of {1} moved the {0} on its own.</MSS_FP_Event_ObjectDisplacement_Msg>
+    <MSS_FP_Event_ColdSpot_Msg>The spirit of {1} brought an inexplicable cold near {0}.</MSS_FP_Event_ColdSpot_Msg>
+    <MSS_FP_Event_GhostlyWail_Msg>The wail of {0} echoed through the colony.</MSS_FP_Event_GhostlyWail_Msg>
+    <MSS_FP_Event_SpontaneousFire_Msg>The spirit of {1} started a fire near {0}.</MSS_FP_Event_SpontaneousFire_Msg>
+    <MSS_FP_Event_PossessionAttempt_Msg>The spirit of {1} is trying to take hold of {0}.</MSS_FP_Event_PossessionAttempt_Msg>
     <MSS_FP_Event_PossessionAttempt_Reason>Haunted by a restless spirit.</MSS_FP_Event_PossessionAttempt_Reason>
-    <MSS_FP_Event_Manifestation_Msg>A spirit near {0} became fully visible for a moment.</MSS_FP_Event_Manifestation_Msg>
+    <MSS_FP_Event_Manifestation_Msg>The spirit of {1} near {0} became fully visible for a moment.</MSS_FP_Event_Manifestation_Msg>
+
+    <!-- First poltergeist event letter -->
+    <MSS_FP_Poltergeist_FirstEvent_Label>The Dead Do Not Rest</MSS_FP_Poltergeist_FirstEvent_Label>
+    <MSS_FP_Poltergeist_FirstEvent_Text>Strange things have begun happening in the colony. Objects move on their own, lights flicker, and cold drafts blow through sealed rooms.\n\nThe vengeful spirits haunting your colonists are growing restless. As their power increases, so will the severity of these disturbances.\n\nAn exorcism may be able to drive these spirits away — but it requires a skilled doctor, and the spirits will not go quietly.</MSS_FP_Poltergeist_FirstEvent_Text>
 
     <!-- Template Wanderer Join incident -->
     <MSS_FP_Settings_EnableTemplateWandererJoin>Enable template character wanderer joins (named characters may wander into your colony)</MSS_FP_Settings_EnableTemplateWandererJoin>
