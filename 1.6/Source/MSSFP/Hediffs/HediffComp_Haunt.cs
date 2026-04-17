@@ -40,17 +40,13 @@ public class HediffComp_Haunt : HediffComp
     private Vector3 ghostVelocity;
     private bool ghostInitialized;
 
-    // Severity thresholds matching the three XML stage boundaries
-    private const float WhisperMax = 0.33f;
-    private const float PresenceMax = 0.66f;
-
     /// <summary>
     /// Alpha multiplier based on current severity stage.
-    /// Whisper = faint (0.4), Presence = normal (0.8), Awakened = full (1.0).
+    /// Whisper = subtle (0.55), Presence = clear (0.8), Awakened = full (1.0).
     /// </summary>
     private float StageAlpha =>
-        parent.Severity <= WhisperMax ? 0.4f
-        : parent.Severity <= PresenceMax ? 0.8f
+        parent.Severity <= Haunts.HauntStageHelper.WhisperMax ? 0.55f
+        : parent.Severity <= Haunts.HauntStageHelper.PresenceMax ? 0.8f
         : 1.0f;
 
     public virtual Texture2D PawnTexture
@@ -351,7 +347,7 @@ public class HediffComp_Haunt : HediffComp
         if (Props.ambientFleck == null || parent.pawn.Map == null)
             return;
         // Only spawn in Presence or Awakened stage
-        if (parent.Severity <= WhisperMax)
+        if (parent.Severity <= Haunts.HauntStageHelper.WhisperMax)
             return;
 
         int now = Find.TickManager.TicksGame;

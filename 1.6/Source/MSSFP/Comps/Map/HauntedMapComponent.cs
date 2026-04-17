@@ -81,6 +81,16 @@ public class HauntedMapComponent(Verse.Map map) : MapComponent(map)
             comp.SetPawnToDraw(spirit);
         }
 
+        Find.LetterStack.ReceiveLetter(
+            "MSS_FP_Haunt_InitialLetter_Label".Translate(),
+            "MSS_FP_Haunt_InitialLetter_Text".Translate(
+                spirit.LabelShort,
+                pawn.LabelShort
+            ),
+            LetterDefOf.NeutralEvent,
+            pawn
+        );
+
         HauntProfile profile = HauntProfileBuilder.TryBuild(spirit);
         if (hediff.TryGetComp(out HediffComp_DynamicHaunt dynamicComp) && profile != null)
         {

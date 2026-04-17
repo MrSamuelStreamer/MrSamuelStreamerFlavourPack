@@ -117,6 +117,12 @@
     <MSS_FP_Exorcism_Failure_Reason>The failed exorcism left a spiritual wound.</MSS_FP_Exorcism_Failure_Reason>
     <MSS_FP_Exorcism_Backlash_Msg>The expelled spirit lashed out before departing, filling the room near {0} with dread.</MSS_FP_Exorcism_Backlash_Msg>
 
+    <!-- Haunt initial letter and stage messages -->
+    <MSS_FP_Haunt_InitialLetter_Label>A Lingering Spirit</MSS_FP_Haunt_InitialLetter_Label>
+    <MSS_FP_Haunt_InitialLetter_Text>The spirit of {0} lingers near {1}. Their presence is faint — barely a whisper — but the bond between the living and the dead has taken root.\n\nOver time, the spirit may grow stronger, granting skills and abilities tied to who they were in life. If neglected, the connection will fade.</MSS_FP_Haunt_InitialLetter_Text>
+    <MSS_FP_Haunt_StagePresence_Msg>The spirit near {0} grows stronger — {1}'s presence is unmistakable now.</MSS_FP_Haunt_StagePresence_Msg>
+    <MSS_FP_Haunt_StageAwakened_Msg>{1}'s spirit has fully awakened within {0}. The bond is deep and powerful.</MSS_FP_Haunt_StageAwakened_Msg>
+
     <!-- Poltergeist event messages -->
     <MSS_FP_Event_FlickeringLights_Msg>The lights near {0} flickered and went dark.</MSS_FP_Event_FlickeringLights_Msg>
     <MSS_FP_Event_ObjectDisplacement_Msg>Something moved the {0} on its own.</MSS_FP_Event_ObjectDisplacement_Msg>

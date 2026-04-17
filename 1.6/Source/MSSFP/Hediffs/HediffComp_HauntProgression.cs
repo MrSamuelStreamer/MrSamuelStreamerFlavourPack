@@ -6,6 +6,8 @@ using RimWorld;
 using UnityEngine;
 using Verse;
 
+using static MSSFP.Haunts.HauntStageHelper;
+
 namespace MSSFP.Hediffs;
 
 /// <summary>
@@ -24,6 +26,8 @@ public class HediffComp_HauntProgression : HediffComp
 
     /// <summary>Prevents the awakening gene from firing more than once per hediff lifetime.</summary>
     private bool awakeningGeneFired = false;
+
+    private int previousStage = -1;
 
     private HauntProgressionDef _progressionDef;
 
@@ -116,6 +120,11 @@ public class HediffComp_HauntProgression : HediffComp
         float newSeverity = Mathf.Clamp(parent.Severity + severityAdjustment, 0.01f, 1f);
         severityAdjustment = newSeverity - parent.Severity;
 
+        int newStage = GetStage(newSeverity);
+        if (previousStage >= 0 && newStage > previousStage)
+            NotifyStageAdvanced(newStage);
+        previousStage = newStage;
+
         if (!awakeningGeneFired && newSeverity >= 0.67f)
             TryFireAwakeningGene();
 
@@ -165,6 +174,30 @@ public class HediffComp_HauntProgression : HediffComp
         }
 
         return false;
+    }
+
+    private void NotifyStageAdvanced(int newStage)
+    {
+        Pawn pawn = parent.pawn;
+        HediffComp_Haunt hauntComp = parent.TryGetComp<HediffComp_Haunt>();
+        string spiritName = hauntComp?.PawnName ?? hauntComp?.pawnToDraw?.LabelShort ?? "a spirit";
+
+        string key = newStage switch
+        {
+            1 => "MSS_FP_Haunt_StagePresence_Msg",
+            2 => "MSS_FP_Haunt_StageAwakened_Msg",
+            _ => null,
+        };
+
+        if (key != null)
+        {
+            Messages.Message(
+                key.Translate(pawn.LabelShort, spiritName),
+                pawn,
+                newStage == 2 ? MessageTypeDefOf.NeutralEvent : MessageTypeDefOf.SilentInput,
+                historical: false
+            );
+        }
     }
 
     // ── Awakening gene ────────────────────────────────────────────────────────
@@ -217,6 +250,7 @@ public class HediffComp_HauntProgression : HediffComp
         Scribe_Values.Look(ref lastTriggerLabel, "lastTriggerLabel");
         Scribe_Collections.Look(ref recordSnapshots, "recordSnapshots", LookMode.Def, LookMode.Value);
         Scribe_Values.Look(ref awakeningGeneFired, "awakeningGeneFired", false);
+        Scribe_Values.Look(ref previousStage, "previousStage", -1);
     }
 
     public override IEnumerable<Gizmo> CompGetGizmos()

@@ -632,6 +632,23 @@
          <maxSeverity>1.0</maxSeverity>
          <scenarioCanAdd>true</scenarioCanAdd>
          <isBad>false</isBad>
+         <stages>
+             <li>
+                 <label>faintly haunted</label>
+                 <minSeverity>0</minSeverity>
+                 <becomeVisible>false</becomeVisible>
+             </li>
+             <li>
+                 <label>haunted</label>
+                 <minSeverity>0.34</minSeverity>
+                 <becomeVisible>false</becomeVisible>
+             </li>
+             <li>
+                 <label>spirit-bound</label>
+                 <minSeverity>0.67</minSeverity>
+                 <becomeVisible>false</becomeVisible>
+             </li>
+         </stages>
          <comps>
              <li Class="MSSFP.Hediffs.HediffCompProperties_Haunt">
                  <thought>MSS_FP_Haunted</thought>
