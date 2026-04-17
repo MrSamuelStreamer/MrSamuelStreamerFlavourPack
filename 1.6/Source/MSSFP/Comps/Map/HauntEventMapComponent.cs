@@ -120,7 +120,13 @@ public class HauntEventMapComponent(Verse.Map map) : MapComponent(map)
                 continue;
             foreach (HediffComp_Haunt haunt in haunts)
             {
+                // Only bad haunts contribute to poltergeist intensity
+                if (haunt.Props.isGood)
+                    continue;
+                // Skip Whisper-stage haunts — too weak to cause events
                 float sev = haunt.parent.Severity;
+                if (sev <= Haunts.HauntStageHelper.WhisperMax)
+                    continue;
                 total += sev;
                 if (sev > maxSeverity)
                     maxSeverity = sev;
@@ -140,7 +146,19 @@ public class HauntEventMapComponent(Verse.Map map) : MapComponent(map)
         List<Pawn> candidates = new();
         foreach (Pawn pawn in map.mapPawns.FreeColonistsSpawned)
         {
-            if (HauntsCache.Haunts.ContainsKey(pawn.thingIDNumber))
+            if (!HauntsCache.Haunts.TryGetValue(pawn.thingIDNumber, out var haunts))
+                continue;
+            // Only pawns with bad haunts past Whisper stage are eligible
+            bool hasBadHaunt = false;
+            foreach (HediffComp_Haunt h in haunts)
+            {
+                if (!h.Props.isGood && h.parent.Severity > Haunts.HauntStageHelper.WhisperMax)
+                {
+                    hasBadHaunt = true;
+                    break;
+                }
+            }
+            if (hasBadHaunt)
                 candidates.Add(pawn);
         }
         return candidates.Count > 0 ? candidates.RandomElement() : null;

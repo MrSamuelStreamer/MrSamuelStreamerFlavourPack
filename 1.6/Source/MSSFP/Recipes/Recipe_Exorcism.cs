@@ -87,7 +87,7 @@ public class Recipe_Exorcism : RecipeWorker
 
     private static void ApplyFailure(Pawn pawn, Pawn doctor, Hediff haunt, float severity)
     {
-        haunt.Severity = Mathf.Min(1f, severity + 0.3f);
+        haunt.Severity = severity + Mathf.Min(0.3f, 0.9f - severity);
 
         pawn.mindState?.mentalStateHandler?.TryStartMentalState(
             MentalStateDefOf.Wander_Sad,
@@ -165,7 +165,7 @@ public class Recipe_Exorcism : RecipeWorker
 
     // ── Helpers ───────────────────────────────────────────────────────────────
 
-    /// <summary>Returns the named haunt with the highest severity, or null if none.</summary>
+    /// <summary>Returns the highest-severity bad haunt on the pawn, or null if none.</summary>
     private static Hediff FindTargetHaunt(Pawn pawn)
     {
         Hediff best = null;
@@ -179,7 +179,8 @@ public class Recipe_Exorcism : RecipeWorker
             {
                 if (comp is not HediffComp_Haunt haunt)
                     continue;
-                if (haunt.Props?.archetype == null)
+                // Only bad haunts can be exorcised — good haunts are beneficial
+                if (haunt.Props.isGood)
                     continue;
                 if (hediff.Severity > bestSev)
                 {
