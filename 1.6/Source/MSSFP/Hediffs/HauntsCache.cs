@@ -10,6 +10,12 @@ public static class HauntsCache
 {
     public static Dictionary<int, List<HediffComp_Haunt>> Haunts = new();
 
+    /// <summary>
+    /// O(1) lookup for the stat patch hot path. Keyed by pawn thingIDNumber.
+    /// Only populated for pawns that have a HediffComp_DynamicHaunt sibling.
+    /// </summary>
+    public static Dictionary<int, HediffComp_DynamicHaunt> DynamicHaunts = new();
+
     public static void AddHaunt(int thingIdNumber, HediffComp_Haunt haunt)
     {
         if (Haunts.TryGetValue(thingIdNumber, out List<HediffComp_Haunt> mods))
@@ -22,6 +28,14 @@ public static class HauntsCache
         else
         {
             Haunts[thingIdNumber] = [haunt];
+        }
+
+        // Cache sibling DynamicHaunt comp for the stat patch hot path.
+        if (haunt.parent is HediffWithComps hwc)
+        {
+            HediffComp_DynamicHaunt dynComp = hwc.TryGetComp<HediffComp_DynamicHaunt>();
+            if (dynComp != null)
+                DynamicHaunts[thingIdNumber] = dynComp;
         }
     }
 
@@ -37,6 +51,13 @@ public static class HauntsCache
         if (mods.Count == 0)
         {
             Haunts.Remove(thingIdNumber);
+        }
+
+        // Remove DynamicHaunt cache if this was the haunt that carried it.
+        if (haunt.parent is HediffWithComps hwc
+            && hwc.TryGetComp<HediffComp_DynamicHaunt>() != null)
+        {
+            DynamicHaunts.Remove(thingIdNumber);
         }
     }
 
@@ -62,9 +83,9 @@ public static class HauntsCache
 
     public static int BoostForPawnAndSkill(Pawn p, SkillDef s)
     {
-        if (!Cache.ContainsKey(p))
+        if (!Cache.TryGetValue(p, out Dictionary<SkillDef, int> skills))
             return 0;
-        return !Cache[p].ContainsKey(s) ? 0 : Cache[p][s];
+        return skills.TryGetValue(s, out int boost) ? boost : 0;
     }
 
     public static void AddToCache(Pawn p, SkillDef s, int level)
@@ -113,6 +134,7 @@ public static class HauntsCache
     public static void Clear()
     {
         Haunts.Clear();
+        DynamicHaunts.Clear();
         Cache.Clear();
     }
 }
