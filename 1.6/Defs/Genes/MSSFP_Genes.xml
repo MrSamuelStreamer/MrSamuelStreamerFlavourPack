@@ -174,7 +174,7 @@
         <iconPath>UI/Icons/Genes/Gene_XenogermReimplanter</iconPath>
         <warmupStartSound>ReimplantXenogerm_Cast</warmupStartSound>
         <warmupEffecter>Implant_Xenogerm</warmupEffecter>
-        <category>Sanguophage</category>
+
         <displayOrder>501</displayOrder>
         <hostile>false</hostile>
         <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
@@ -200,7 +200,7 @@
         <defName>MSSFP_GeneIntegrator</defName>
         <label>gene integrator</label>
         <labelShortAdj>integrator</labelShortAdj>
-        <description>Carriers of this gene can implant a copy of their xenogerm into another person. they permanently lose all of their xenogenes and become a baseliner xenotype; If they implant while their genes are regrowing, they will die.</description>
+        <description>Carriers of this gene can implant a copy of their xenogerm into another person. They permanently lose all of their xenogenes, any in-progress gene regrowth is cancelled, and they become a baseliner xenotype. If they implant while their genes are regrowing, they will die.</description>
         <iconPath>UI/Icons/Genes/Gene_XenogermReimplanter</iconPath>
         <displayCategory>Archite</displayCategory>
         <abilities>

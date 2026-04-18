@@ -28,23 +28,38 @@ public class CompAbilityEffect_IntegratorReimplantXenogerm : CompAbilityEffect
         FleckMaker.AttachedOverlay(recipient, FleckDefOf.FlashHollow, new Vector3(0f, 0f, 0.26f));
         if (PawnUtility.ShouldSendNotificationAbout(caster) || PawnUtility.ShouldSendNotificationAbout(recipient))
         {
-            int comaMax = HediffDefOf
-                .XenogerminationComa.CompProps<HediffCompProperties_Disappears>()
-                .disappearsAfterTicks.max;
-            int shockMax = HediffDefOf
-                .XenogermLossShock.CompProps<HediffCompProperties_Disappears>()
-                .disappearsAfterTicks.max;
-            Find.LetterStack.ReceiveLetter(
-                "LetterLabelGenesImplanted".Translate(),
-                "LetterTextGenesImplanted".Translate(
-                    caster.Named("CASTER"),
-                    recipient.Named("TARGET"),
-                    comaMax.ToStringTicksToPeriod().Named("COMADURATION"),
-                    shockMax.ToStringTicksToPeriod().Named("SHOCKDURATION")
-                ),
-                LetterDefOf.NeutralEvent,
-                new LookTargets(caster, recipient)
-            );
+            if (caster.Dead)
+            {
+                Find.LetterStack.ReceiveLetter(
+                    "MSSFP_LetterLabelGenesImplantedCasterDied".Translate(),
+                    "MSSFP_LetterTextGenesImplantedCasterDied".Translate(
+                        caster.Named("CASTER"),
+                        recipient.Named("TARGET")
+                    ),
+                    LetterDefOf.NegativeEvent,
+                    new LookTargets(caster, recipient)
+                );
+            }
+            else
+            {
+                int comaMax = HediffDefOf
+                    .XenogerminationComa.CompProps<HediffCompProperties_Disappears>()
+                    .disappearsAfterTicks.max;
+                int shockMax = HediffDefOf
+                    .XenogermLossShock.CompProps<HediffCompProperties_Disappears>()
+                    .disappearsAfterTicks.max;
+                Find.LetterStack.ReceiveLetter(
+                    "LetterLabelGenesImplanted".Translate(),
+                    "LetterTextGenesImplanted".Translate(
+                        caster.Named("CASTER"),
+                        recipient.Named("TARGET"),
+                        comaMax.ToStringTicksToPeriod().Named("COMADURATION"),
+                        shockMax.ToStringTicksToPeriod().Named("SHOCKDURATION")
+                    ),
+                    LetterDefOf.NeutralEvent,
+                    new LookTargets(caster, recipient)
+                );
+            }
         }
 
         if (caster.Dead || caster.genes == null)
@@ -98,7 +113,7 @@ public class CompAbilityEffect_IntegratorReimplantXenogerm : CompAbilityEffect
             return false;
         }
 
-        if (!parent.pawn.genes.Xenogenes.Any())
+        if (parent.pawn.genes?.Xenogenes?.Any() != true)
         {
             if (throwMessages)
             {
