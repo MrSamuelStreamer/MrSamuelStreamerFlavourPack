@@ -21,6 +21,7 @@
         </stages>
         <comps>
             <li Class="MSSFP.Hediffs.HediffCompProperties_Haunt">
+                <isGood>false</isGood>
                 <CanTransferInProximity>true</CanTransferInProximity>
                 <ProximityRadius>5</ProximityRadius>
                 <ProximityTransferCheckTicks>60000</ProximityTransferCheckTicks>

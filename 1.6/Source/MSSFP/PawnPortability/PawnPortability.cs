@@ -73,17 +73,15 @@ namespace MSSFP.PawnPortability
 
         // ── Runtime Import (Phase 2) ──────────────────────────
 
-        public static PawnTemplateDef LoadFromFile(string filePath)
-        {
-            throw new NotImplementedException(
-                "LoadFromFile requires PawnTemplateXmlReader (Phase 2)");
-        }
+        public static PawnTemplateDef LoadFromFile(string filePath) =>
+            Import.PawnTemplateXmlReader.ReadFromFile(filePath);
 
         public static Pawn SpawnFromFile(string filePath, IntVec3 position, Map map,
             Faction faction = null)
         {
-            throw new NotImplementedException(
-                "SpawnFromFile requires PawnTemplateXmlReader (Phase 2)");
+            PawnTemplateDef def = LoadFromFile(filePath);
+            if (def == null) return null;
+            return Spawn(def, position, map, faction);
         }
 
         // ── Query ──────────────────────────────────────────────
@@ -91,8 +89,20 @@ namespace MSSFP.PawnPortability
         public static IEnumerable<PawnTemplateDef> AllDefs =>
             DefDatabase<PawnTemplateDef>.AllDefs;
 
+        /// <summary>
+        /// All mod-provided templates (DefDatabase) plus any user-exported templates
+        /// loaded from SaveDataFolderPath/ExportedPawns/. Use this for incident candidate
+        /// pools so user characters can appear in events.
+        /// </summary>
+        public static IEnumerable<PawnTemplateDef> AllDefsIncludingUser =>
+            AllDefs.Concat(UserPawnTemplateRegistry.UserDefs);
+
+        public static IReadOnlyList<PawnTemplateDef> UserDefs =>
+            UserPawnTemplateRegistry.UserDefs;
+
         public static PawnTemplateDef GetDef(string defName) =>
-            DefDatabase<PawnTemplateDef>.GetNamedSilentFail(defName);
+            DefDatabase<PawnTemplateDef>.GetNamedSilentFail(defName)
+            ?? UserPawnTemplateRegistry.UserDefs.FirstOrDefault(d => d.defName == defName);
 
         public static IEnumerable<PawnTemplateDef> GetDefsByTag(string tag) =>
             AllDefs.Where(d => d.tags?.Contains(tag) == true);

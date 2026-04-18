@@ -15,6 +15,9 @@ public class HauntSettingsTab(ModSettings settings, Mod mod) : SettingsTab(setti
         ref float scrollViewHeight
     )
     {
+        // --- Core ---
+        DrawSectionHeader(options, "MSS_FP_Settings_Section_HauntCore".Translate(), ref scrollViewHeight);
+
         DrawCheckBox(
             options,
             "MSS_FP_Settings_ShowHaunts".Translate(),
@@ -46,33 +49,71 @@ public class HauntSettingsTab(ModSettings settings, Mod mod) : SettingsTab(setti
             ref scrollViewHeight
         );
 
-        options.Label(
+        // --- Progression ---
+        DrawSectionHeader(options, "MSS_FP_Settings_Section_HauntProgression".Translate(), ref scrollViewHeight);
+
+        Settings.HauntProgressionSpeedMultiplier = options.SliderLabeled(
             "MSS_FP_Settings_HauntProgressionSpeed".Translate(
                 Settings.HauntProgressionSpeedMultiplier.ToStringPercent()
             ),
-            tooltip: "MSS_FP_Settings_HauntProgressionSpeed_Tooltip".Translate()
-        );
-        Settings.HauntProgressionSpeedMultiplier = options.SliderLabeled(
-            Settings.HauntProgressionSpeedMultiplier.ToStringPercent(),
             Settings.HauntProgressionSpeedMultiplier,
             0.25f,
-            4.0f
+            4.0f,
+            tooltip: "MSS_FP_Settings_HauntProgressionSpeed_Tooltip".Translate()
         );
-        scrollViewHeight += 48f;
+        scrollViewHeight += 30f;
 
-        options.Label(
+        Settings.HauntRegressionSpeedMultiplier = options.SliderLabeled(
             "MSS_FP_Settings_HauntRegressionSpeed".Translate(
                 Settings.HauntRegressionSpeedMultiplier.ToStringPercent()
             ),
-            tooltip: "MSS_FP_Settings_HauntRegressionSpeed_Tooltip".Translate()
-        );
-        Settings.HauntRegressionSpeedMultiplier = options.SliderLabeled(
-            Settings.HauntRegressionSpeedMultiplier.ToStringPercent(),
             Settings.HauntRegressionSpeedMultiplier,
             0.0f,
-            4.0f
+            4.0f,
+            tooltip: "MSS_FP_Settings_HauntRegressionSpeed_Tooltip".Translate()
         );
-        scrollViewHeight += 48f;
+        scrollViewHeight += 30f;
+
+        // --- Kill Haunts ---
+        DrawSectionHeader(options, "MSS_FP_Settings_Section_KillHaunts".Translate(), ref scrollViewHeight);
+
+        DrawCheckBox(
+            options,
+            "MSS_FP_Settings_EnableKillHaunts".Translate(),
+            ref Settings.EnableKillHaunts,
+            ref scrollViewHeight
+        );
+
+        Settings.KillHauntBaseChance = options.SliderLabeled(
+            "MSS_FP_Settings_KillHauntBaseChance".Translate(
+                Settings.KillHauntBaseChance.ToStringPercent()
+            ),
+            Settings.KillHauntBaseChance,
+            0.01f,
+            0.5f,
+            tooltip: "MSS_FP_Settings_KillHauntBaseChance_Tooltip".Translate()
+        );
+        scrollViewHeight += 30f;
+
+        DrawIntAdjuster(
+            options,
+            "MSS_FP_Settings_KillHauntCooldownDays".Translate(Settings.KillHauntCooldownTicks / 60000),
+            ref Settings.KillHauntCooldownTicks,
+            60000,
+            0,
+            ref scrollViewHeight
+        );
+        DrawIntAdjuster(
+            options,
+            "MSS_FP_Settings_MaxBadHauntsPerPawn".Translate(Settings.MaxBadHauntsPerPawn),
+            ref Settings.MaxBadHauntsPerPawn,
+            1,
+            1,
+            ref scrollViewHeight
+        );
+
+        // --- Poltergeist ---
+        DrawSectionHeader(options, "MSS_FP_Settings_Section_Poltergeist".Translate(), ref scrollViewHeight);
 
         DrawCheckBox(
             options,
@@ -81,33 +122,30 @@ public class HauntSettingsTab(ModSettings settings, Mod mod) : SettingsTab(setti
             ref scrollViewHeight
         );
 
-        options.Label(
+        Settings.PoltergeistIntensityMultiplier = options.SliderLabeled(
             "MSS_FP_Settings_PoltergeistIntensityMultiplier".Translate(
                 Settings.PoltergeistIntensityMultiplier.ToStringPercent()
             ),
-            tooltip: "MSS_FP_Settings_PoltergeistIntensityMultiplier_Tooltip".Translate()
-        );
-        Settings.PoltergeistIntensityMultiplier = options.SliderLabeled(
-            Settings.PoltergeistIntensityMultiplier.ToStringPercent(),
             Settings.PoltergeistIntensityMultiplier,
             0.5f,
-            2.0f
+            2.0f,
+            tooltip: "MSS_FP_Settings_PoltergeistIntensityMultiplier_Tooltip".Translate()
         );
-        scrollViewHeight += 48f;
+        scrollViewHeight += 30f;
 
-        options.Label(
+        Settings.PoltergeistEventThreshold = options.SliderLabeled(
             "MSS_FP_Settings_PoltergeistEventThreshold".Translate(
                 Settings.PoltergeistEventThreshold.ToString("F2")
             ),
-            tooltip: "MSS_FP_Settings_PoltergeistEventThreshold_Tooltip".Translate()
-        );
-        Settings.PoltergeistEventThreshold = options.SliderLabeled(
-            Settings.PoltergeistEventThreshold.ToString("F2"),
             Settings.PoltergeistEventThreshold,
             0.25f,
-            2.0f
+            2.0f,
+            tooltip: "MSS_FP_Settings_PoltergeistEventThreshold_Tooltip".Translate()
         );
-        scrollViewHeight += 48f;
+        scrollViewHeight += 30f;
+
+        // --- Proximity & Cooldowns ---
+        DrawSectionHeader(options, "MSS_FP_Settings_Section_HauntCooldowns".Translate(), ref scrollViewHeight);
 
         DrawIntAdjuster(
             options,
@@ -150,5 +188,9 @@ public class HauntSettingsTab(ModSettings settings, Mod mod) : SettingsTab(setti
         Scribe_Values.Look(ref Settings.HauntProximityRadius, "HauntProximityRadius", 50);
         Scribe_Values.Look(ref Settings.HauntMinCooldownDays, "HauntMinCooldownDays", 2);
         Scribe_Values.Look(ref Settings.HauntPostFireCooldownDays, "HauntPostFireCooldownDays", 4);
+        Scribe_Values.Look(ref Settings.EnableKillHaunts, "EnableKillHaunts", true);
+        Scribe_Values.Look(ref Settings.KillHauntBaseChance, "KillHauntBaseChance", 0.15f);
+        Scribe_Values.Look(ref Settings.KillHauntCooldownTicks, "KillHauntCooldownTicks", 60000);
+        Scribe_Values.Look(ref Settings.MaxBadHauntsPerPawn, "MaxBadHauntsPerPawn", 5);
     }
 }

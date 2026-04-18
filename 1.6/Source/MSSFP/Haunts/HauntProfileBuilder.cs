@@ -36,15 +36,18 @@ public static class HauntProfileBuilder
     /// Returns null if the colonist matches a named haunt source (collision guard),
     /// or if the colonist reference is invalid.
     /// </summary>
-    public static HauntProfile TryBuild(Pawn colonist)
+    public static HauntProfile TryBuild(Pawn colonist, bool isGood = true)
     {
         if (colonist?.skills == null)
             return null;
 
-        // Named haunt collision guard — check nick and short label
-        string nick = (colonist.Name as NameTriple)?.Nick ?? colonist.LabelShort;
-        if (NamedHauntSourceNames.Contains(nick))
-            return null;
+        // Named haunt collision guard — only for good haunts (bad haunts come from kills, not graves)
+        if (isGood)
+        {
+            string nick = (colonist.Name as NameTriple)?.Nick ?? colonist.LabelShort;
+            if (NamedHauntSourceNames.Contains(nick))
+                return null;
+        }
 
         // Find top non-disabled skill
         SkillRecord topSkill = colonist.skills.skills
@@ -70,13 +73,16 @@ public static class HauntProfileBuilder
             archetype = mapping?.archetype ?? MSSFPDefOf.MSS_FP_Archetype_Brooding,
             primarySkill = topSkill?.def,
             triggerRecordDef = mapping?.triggerRecord,
-            awakeningGeneDef = mapping?.awakeningGene,
+            awakeningGeneDef = isGood ? mapping?.awakeningGene : null,
             sourceColonistId = colonist.thingIDNumber,
             scaleFactor = scaleFactor,
+            isGood = isGood,
         };
 
         // Copy stat offsets from mapping into parallel lists.
         // StatModifier is not IExposable, so we store as StatDef + float pairs.
+        // Bad haunts negate all offsets — debuff instead of buff.
+        float sign = isGood ? 1f : -1f;
         if (!mapping?.statOffsets.NullOrEmpty() ?? false)
         {
             foreach (StatModifier mod in mapping.statOffsets)
@@ -84,7 +90,7 @@ public static class HauntProfileBuilder
                 if (mod.stat == null)
                     continue;
                 profile.statDefs.Add(mod.stat);
-                profile.statValues.Add(mod.value);
+                profile.statValues.Add(mod.value * sign);
             }
         }
 

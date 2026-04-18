@@ -38,6 +38,10 @@ public class Settings : ModSettings
     public int HauntProximityRadius = 50;
     public int HauntMinCooldownDays = 2;
     public int HauntPostFireCooldownDays = 4;
+    public bool EnableKillHaunts = true;
+    public float KillHauntBaseChance = 0.15f;
+    public int KillHauntCooldownTicks = 60000;
+    public int MaxBadHauntsPerPawn = 5;
     public bool DisableBSIncorporateGeneLimit = false;
     public bool EnableGeneStealerNeed = false;
     public bool EnableGeneMutators = false;
@@ -71,6 +75,9 @@ public class Settings : ModSettings
     public bool NullDefSafetyPatch = true;
     public bool EnableCodexPunch = true;
     public float CodexPunchChanceMultiplier = 1.0f;
+    public bool EnableUserTemplateLoading = true;
+    public bool EnableTemplateWandererJoin = false;
+    public float TemplateWandererJoinChanceMultiplier = 1.0f;
 
     // Fields for optional assembly tabs — these MUST live here (not on the tab)
     // so they survive save/load cycles when the optional assembly is removed.
@@ -172,96 +179,34 @@ public class Settings : ModSettings
 
     public SettingsTab DefaultTab => Tabs.FirstOrDefault(t => t.IsDefault);
 
-    private float ScrollViewWidth = 0;
-    public Vector2 scrollPosition = Vector2.zero;
-
     public SettingsTab SelectedTab;
-
-    public static Lazy<MethodInfo> _TempGuiContent = new(() =>
-        typeof(GUIContent).GetMethod(
-            "Temp",
-            BindingFlags.NonPublic | BindingFlags.Static,
-            null,
-            [typeof(string)],
-            null
-        )
-    );
-
-    public static GUIContent TempGuiContent(string t) =>
-        _TempGuiContent.Value.Invoke(null, [t]) as GUIContent;
-
-    public static Color TabRectColor = new Color(0.4f, 0.4f, 0.4f, 1f);
-
-    public Vector2 RectForLabelText(string text)
-    {
-        GUIContent content = new(text);
-        return Text.CurFontStyle.CalcSize(content);
-    }
 
     public void DoWindowContents(Rect wrect)
     {
-        float tabsHeight = 30 + 16;
-        Rect tabButtonScrollerRect = new(wrect.x, wrect.y, wrect.width, tabsHeight);
-        Rect tabScrollContainerRect = new(wrect.x, wrect.y, ScrollViewWidth, 30);
-
-#if DEBUG
-        Widgets.DrawRectFast(tabButtonScrollerRect, Color.red);
-        Widgets.DrawRectFast(tabScrollContainerRect, Color.green);
-#endif
-        ScrollViewWidth = 0;
-        scrollPosition = GUI.BeginScrollView(
-            tabButtonScrollerRect,
-            scrollPosition,
-            tabScrollContainerRect
-        );
-
-        foreach (SettingsTab tab in Tabs)
-        {
-            float width = RectForLabelText(tab.TabName).x + 8;
-
-            Rect buttonRect = new(
-                tabScrollContainerRect.x + ScrollViewWidth,
-                tabScrollContainerRect.y,
-                width,
-                30
-            );
-
-            if (SelectedTab == tab)
-            {
-                TextAnchor anchor = Text.Anchor;
-                Text.Anchor = TextAnchor.MiddleCenter;
-                Widgets.DrawAtlas(buttonRect, Widgets.ButtonBGAtlasClick);
-                Widgets.Label(buttonRect, tab.TabName);
-                Text.Anchor = anchor;
-            }
-            else
-            {
-                if (Widgets.ButtonText(buttonRect, tab.TabName))
-                {
-                    SelectedTab = tab;
-                }
-            }
-
-            ScrollViewWidth += buttonRect.width + 2;
-        }
-
-        GUI.EndScrollView();
-
-        Widgets.DrawLineHorizontal(0, wrect.yMin + tabsHeight + 1, wrect.width, Color.grey);
-        Widgets.DrawLineHorizontal(0, wrect.yMin + tabsHeight + 2, wrect.width, Color.grey);
-
-        Rect tabRect = new(
-            tabButtonScrollerRect.xMin,
-            wrect.yMin + tabsHeight + 3,
-            wrect.width,
-            wrect.height - tabButtonScrollerRect.height - 3
-        );
-
-        Widgets.DrawRectFast(tabRect, TabRectColor);
-
         SelectedTab ??= DefaultTab;
 
-        SelectedTab.DrawTab(tabRect);
+        List<TabRecord> tabRecords = new();
+        foreach (SettingsTab tab in Tabs)
+        {
+            SettingsTab localTab = tab;
+            tabRecords.Add(new TabRecord(
+                localTab.TabName,
+                () => SelectedTab = localTab,
+                SelectedTab == localTab
+            ));
+        }
+
+        // Content area — TabDrawer renders tabs in the 32f above this rect
+        Rect contentRect = new(
+            wrect.x,
+            wrect.y + TabDrawer.TabHeight,
+            wrect.width,
+            wrect.height - TabDrawer.TabHeight
+        );
+
+        TabDrawer.DrawTabs(contentRect, tabRecords);
+
+        SelectedTab?.DrawTab(contentRect);
     }
 
     public override void ExposeData()

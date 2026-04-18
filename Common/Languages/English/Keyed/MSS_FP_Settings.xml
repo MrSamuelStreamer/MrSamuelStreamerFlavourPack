@@ -5,6 +5,21 @@
     <MSS_FP_Settings_DrawByMrStreamer>Show "By Mr Samuel Streamer" label in the bottom left (only used to disuade video theft and other digital larceny, leave disabled)</MSS_FP_Settings_DrawByMrStreamer>
 
     <MSSFP_SettingsCategory>Mr Samuel Streamer Flavour Pack</MSSFP_SettingsCategory>
+
+    <!-- Section headers -->
+    <MSS_FP_Settings_Section_Gameplay>Gameplay</MSS_FP_Settings_Section_Gameplay>
+    <MSS_FP_Settings_Section_Spawning>Spawning</MSS_FP_Settings_Section_Spawning>
+    <MSS_FP_Settings_Section_ReformationPoints>Reformation Points</MSS_FP_Settings_Section_ReformationPoints>
+    <MSS_FP_Settings_Section_ColonistBar>Colonist Bar</MSS_FP_Settings_Section_ColonistBar>
+    <MSS_FP_Settings_Section_Technical>Technical</MSS_FP_Settings_Section_Technical>
+    <MSS_FP_Settings_Section_HauntCore>Core</MSS_FP_Settings_Section_HauntCore>
+    <MSS_FP_Settings_Section_HauntProgression>Progression</MSS_FP_Settings_Section_HauntProgression>
+    <MSS_FP_Settings_Section_KillHaunts>Kill Haunts</MSS_FP_Settings_Section_KillHaunts>
+    <MSS_FP_Settings_Section_Poltergeist>Poltergeist</MSS_FP_Settings_Section_Poltergeist>
+    <MSS_FP_Settings_Section_HauntCooldowns>Proximity &amp; Cooldowns</MSS_FP_Settings_Section_HauntCooldowns>
+    <MSS_FP_Settings_Section_Social>Social</MSS_FP_Settings_Section_Social>
+    <MSS_FP_Settings_Section_Events>Events</MSS_FP_Settings_Section_Events>
+    <MSS_FP_Settings_Section_Combat>Combat</MSS_FP_Settings_Section_Combat>
     <MSSFP_RGSettingsCategory>Mr Samuel Streamer Flavour Pack - Resource Generator</MSSFP_RGSettingsCategory>
     <MSS_FP_Settings_ShowHaunts>Show Haunts</MSS_FP_Settings_ShowHaunts>
     <MSS_FP_Settings_NoSkylanternRaids>Disable skylantern raids</MSS_FP_Settings_NoSkylanternRaids>
@@ -111,25 +126,50 @@
     <MSS_FP_Settings_PoltergeistEventThreshold_Tooltip>Minimum effective intensity (intensity × time multiplier × intensity multiplier) required to trigger events. Default 0.50 means a single Awakened haunt at full severity triggers events during the day. At night (21:00–05:00) intensity is multiplied by 1.5×, so events fire more easily. Colony size also scales the threshold up (10% per colonist above 5).</MSS_FP_Settings_PoltergeistEventThreshold_Tooltip>
 
     <!-- Exorcism messages -->
-    <MSS_FP_Exorcism_Success_Msg>{0}'s spirit of {1} has been successfully exorcised.</MSS_FP_Exorcism_Success_Msg>
+    <MSS_FP_Exorcism_Success_Msg>The spirit of {1} has been successfully exorcised from {0}.</MSS_FP_Exorcism_Success_Msg>
     <MSS_FP_Exorcism_Partial_Msg>The spirit of {1} was driven from {0}, but the separation was traumatic.</MSS_FP_Exorcism_Partial_Msg>
-    <MSS_FP_Exorcism_Failure_Msg>The exorcism of {0} failed — the spirit of {1} has grown stronger in defiance.</MSS_FP_Exorcism_Failure_Msg>
+    <MSS_FP_Exorcism_Failure_Msg>The exorcism of {0} failed — the spirit of {1} has grown stronger in defiance. A more skilled doctor may fare better.</MSS_FP_Exorcism_Failure_Msg>
     <MSS_FP_Exorcism_Failure_Reason>The failed exorcism left a spiritual wound.</MSS_FP_Exorcism_Failure_Reason>
     <MSS_FP_Exorcism_Backlash_Msg>The expelled spirit lashed out before departing, filling the room near {0} with dread.</MSS_FP_Exorcism_Backlash_Msg>
 
-    <!-- Poltergeist event messages -->
-    <MSS_FP_Event_FlickeringLights_Msg>The lights near {0} flickered and went dark.</MSS_FP_Event_FlickeringLights_Msg>
-    <MSS_FP_Event_ObjectDisplacement_Msg>Something moved the {0} on its own.</MSS_FP_Event_ObjectDisplacement_Msg>
-    <MSS_FP_Event_ColdSpot_Msg>An inexplicable cold descended near {0}.</MSS_FP_Event_ColdSpot_Msg>
-    <MSS_FP_Event_GhostlyWail_Msg>An unearthly wail echoed through the colony.</MSS_FP_Event_GhostlyWail_Msg>
-    <MSS_FP_Event_SpontaneousFire_Msg>A fire started on its own near {0}.</MSS_FP_Event_SpontaneousFire_Msg>
-    <MSS_FP_Event_PossessionAttempt_Msg>Something is trying to take hold of {0}.</MSS_FP_Event_PossessionAttempt_Msg>
+    <!-- Kill haunt settings -->
+    <MSS_FP_Settings_EnableKillHaunts>Enable kill haunts (colonists may be haunted by their victims)</MSS_FP_Settings_EnableKillHaunts>
+    <MSS_FP_Settings_KillHauntBaseChance>Kill haunt base chance [{0}]</MSS_FP_Settings_KillHauntBaseChance>
+    <MSS_FP_Settings_KillHauntBaseChance_Tooltip>Base probability of a colonist becoming haunted after killing a humanlike pawn. The actual chance diminishes with each active bad haunt on the killer: chance = base / (1 + active bad haunts). HauntSensitive pawns have 1.5x this chance.</MSS_FP_Settings_KillHauntBaseChance_Tooltip>
+    <MSS_FP_Settings_KillHauntCooldownDays>Kill haunt cooldown: {0} day(s)</MSS_FP_Settings_KillHauntCooldownDays>
+    <MSS_FP_Settings_MaxBadHauntsPerPawn>Max bad haunts per pawn: {0}</MSS_FP_Settings_MaxBadHauntsPerPawn>
+
+    <!-- Kill haunt letter -->
+    <MSS_FP_KillHaunt_Letter_Label>A Vengeful Spirit</MSS_FP_KillHaunt_Letter_Label>
+    <MSS_FP_KillHaunt_Letter_Text>The spirit of {0} refuses to pass on. It clings to {1}, filled with resentment and fury. The haunting will grow stronger over time, draining skills and inviting dark events.\n\nAn exorcism may be able to sever the bond — but it won't be easy.</MSS_FP_KillHaunt_Letter_Text>
+
+    <!-- Haunt initial letter and stage messages -->
+    <MSS_FP_Haunt_InitialLetter_Label>A Lingering Spirit</MSS_FP_Haunt_InitialLetter_Label>
+    <MSS_FP_Haunt_InitialLetter_Text>The spirit of {0} lingers near {1}. Their presence is faint — barely a whisper — but the bond between the living and the dead has taken root.\n\nOver time, the spirit may grow stronger, granting skills and abilities tied to who they were in life. If neglected, the connection will fade.</MSS_FP_Haunt_InitialLetter_Text>
+    <MSS_FP_Haunt_StagePresence_Msg>The spirit near {0} grows stronger — {1}'s presence is unmistakable now.</MSS_FP_Haunt_StagePresence_Msg>
+    <MSS_FP_Haunt_StageAwakened_Msg>{1}'s spirit has fully awakened within {0}. The bond is deep and powerful.</MSS_FP_Haunt_StageAwakened_Msg>
+
+    <!-- Poltergeist event messages ({0} = pawn/thing, {1} = spirit name) -->
+    <MSS_FP_Event_FlickeringLights_Msg>The spirit of {1} caused lights near {0} to flicker and die.</MSS_FP_Event_FlickeringLights_Msg>
+    <MSS_FP_Event_ObjectDisplacement_Msg>The spirit of {1} moved the {0} on its own.</MSS_FP_Event_ObjectDisplacement_Msg>
+    <MSS_FP_Event_ColdSpot_Msg>The spirit of {1} brought an inexplicable cold near {0}.</MSS_FP_Event_ColdSpot_Msg>
+    <MSS_FP_Event_GhostlyWail_Msg>The wail of {0} echoed through the colony.</MSS_FP_Event_GhostlyWail_Msg>
+    <MSS_FP_Event_SpontaneousFire_Msg>The spirit of {1} started a fire near {0}.</MSS_FP_Event_SpontaneousFire_Msg>
+    <MSS_FP_Event_PossessionAttempt_Msg>The spirit of {1} is trying to take hold of {0}.</MSS_FP_Event_PossessionAttempt_Msg>
     <MSS_FP_Event_PossessionAttempt_Reason>Haunted by a restless spirit.</MSS_FP_Event_PossessionAttempt_Reason>
-    <MSS_FP_Event_Manifestation_Msg>A spirit near {0} became fully visible for a moment.</MSS_FP_Event_Manifestation_Msg>
+    <MSS_FP_Event_Manifestation_Msg>The spirit of {1} near {0} became fully visible for a moment.</MSS_FP_Event_Manifestation_Msg>
+
+    <!-- First poltergeist event letter -->
+    <MSS_FP_Poltergeist_FirstEvent_Label>The Dead Do Not Rest</MSS_FP_Poltergeist_FirstEvent_Label>
+    <MSS_FP_Poltergeist_FirstEvent_Text>Strange things have begun happening in the colony. Objects move on their own, lights flicker, and cold drafts blow through sealed rooms.\n\nThe vengeful spirits haunting your colonists are growing restless. As their power increases, so will the severity of these disturbances.\n\nAn exorcism may be able to drive these spirits away — but it requires a skilled doctor, and the spirits will not go quietly.</MSS_FP_Poltergeist_FirstEvent_Text>
+
+    <!-- Template Wanderer Join incident -->
+    <MSS_FP_Settings_EnableTemplateWandererJoin>Enable template character wanderer joins (named characters may wander into your colony)</MSS_FP_Settings_EnableTemplateWandererJoin>
+    <MSS_FP_Settings_TemplateWandererJoinChanceMultiplier>Template wanderer frequency [x{0}]</MSS_FP_Settings_TemplateWandererJoinChanceMultiplier>
 
     <!-- Codex Punch incident -->
     <MSS_FP_Settings_EnableCodexPunch>Enable the Codex Punch incident</MSS_FP_Settings_EnableCodexPunch>
-    <MSS_FP_Settings_CodexPunchChanceMultiplier>Codex Punch frequency [x{0:F1}]</MSS_FP_Settings_CodexPunchChanceMultiplier>
+    <MSS_FP_Settings_CodexPunchChanceMultiplier>Codex Punch frequency [x{0}]</MSS_FP_Settings_CodexPunchChanceMultiplier>
     <MSS_FP_CodexPunch_LetterLabel>A Failed God-Puncher Returns</MSS_FP_CodexPunch_LetterLabel>
     <MSS_FP_CodexPunch_LetterText>After ascending to a higher plane and swinging at a god — and missing — Codex has been cast back to the mortal realm. He retains some of his godlike powers, including the ability to teleport at will.\n\nUnfortunately, he has decided that the reason he missed was insufficient punching practice. He now intends to punch every mortal being in existence before ascending again.\n\n{0} appears to be next on his list.</MSS_FP_CodexPunch_LetterText>
     <MSS_FP_CodexPunch_PunchMsg>Codex punched {0}!</MSS_FP_CodexPunch_PunchMsg>
@@ -144,4 +184,9 @@
     <!-- Pawn Portability -->
     <MSS_FP_Settings_ShowExportGizmo>Show Export Pawn gizmo on colonists</MSS_FP_Settings_ShowExportGizmo>
     <MSS_FP_Settings_EnablePawnPortabilityLogging>Enable Pawn Export/Import Debug Logging</MSS_FP_Settings_EnablePawnPortabilityLogging>
+    <MSS_FP_Settings_EnableUserTemplateLoading>Load user-exported pawn templates for use in events</MSS_FP_Settings_EnableUserTemplateLoading>
+    <MSS_FP_Settings_UserTemplateDir>Export directory: {0}</MSS_FP_Settings_UserTemplateDir>
+    <MSS_FP_Settings_UserTemplateCount>User templates loaded: {0}</MSS_FP_Settings_UserTemplateCount>
+    <MSS_FP_Settings_ReloadUserTemplates>Reload user templates</MSS_FP_Settings_ReloadUserTemplates>
+    <MSS_FP_Settings_UserTemplatesReloaded>Reloaded user templates: {0} loaded.</MSS_FP_Settings_UserTemplatesReloaded>
 </LanguageData>

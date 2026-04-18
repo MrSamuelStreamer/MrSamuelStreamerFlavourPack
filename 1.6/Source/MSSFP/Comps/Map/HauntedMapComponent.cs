@@ -5,6 +5,7 @@ using System.Text;
 using MSSFP.Haunts;
 using MSSFP.Hediffs;
 using RimWorld;
+using RimWorld.Planet;
 using UnityEngine;
 using Verse;
 
@@ -80,6 +81,16 @@ public class HauntedMapComponent(Verse.Map map) : MapComponent(map)
             comp.SetPawnToDraw(spirit);
         }
 
+        Find.LetterStack.ReceiveLetter(
+            "MSS_FP_Haunt_InitialLetter_Label".Translate(),
+            "MSS_FP_Haunt_InitialLetter_Text".Translate(
+                spirit.LabelShort,
+                pawn.LabelShort
+            ),
+            LetterDefOf.NeutralEvent,
+            pawn
+        );
+
         HauntProfile profile = HauntProfileBuilder.TryBuild(spirit);
         if (hediff.TryGetComp(out HediffComp_DynamicHaunt dynamicComp) && profile != null)
         {
@@ -107,6 +118,8 @@ public class HauntedMapComponent(Verse.Map map) : MapComponent(map)
     public override void MapComponentUpdate()
     {
         if (!MSSFPMod.settings.ShowHaunts)
+            return;
+        if (WorldRendererUtility.WorldRendered)
             return;
         foreach (Pawn pawn in map.mapPawns.AllHumanlike)
         {
@@ -180,7 +193,7 @@ public class HauntedMapComponent(Verse.Map map) : MapComponent(map)
         if (events != null)
             sb.Append(events.DashboardSection());
 
-        Rect rect = new(75f, 10f, 450f, 20f * (totalHaunts + 8 + events?.RecentEvents.Count ?? 0));
+        Rect rect = new(75f, 10f, 450f, 20f * (totalHaunts + 8 + (events?.RecentEvents.Count ?? 0)));
         Widgets.Label(rect, sb.ToString());
     }
 }

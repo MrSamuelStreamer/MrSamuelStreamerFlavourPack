@@ -3,6 +3,8 @@ using RimWorld;
 using UnityEngine;
 using Verse;
 
+using static MSSFP.Haunts.HauntStageHelper;
+
 namespace MSSFP.Hediffs;
 
 /// <summary>
@@ -20,6 +22,7 @@ public class HediffComp_DynamicHaunt : HediffComp
     private int lastTriggerTick = -1;
     private float lastRecordValue = -1f;
     private bool awakeningGeneFired = false;
+    private int previousStage = -1;
 
     // Uniform progression rates for all dynamic haunts.
     // Deliberately gentler than named haunts — dynamic haunts are emergent, not authored.
@@ -66,8 +69,10 @@ public class HediffComp_DynamicHaunt : HediffComp
         if (triggered)
             lastTriggerTick = now;
 
-        bool inRegression =
-            lastTriggerTick >= 0
+        // Bad haunts don't regress naturally — only exorcism removes them
+        bool canRegress = Profile.isGood;
+        bool inRegression = canRegress
+            && lastTriggerTick >= 0
             && (now - lastTriggerTick) > RegressionThresholdDays * GenDate.TicksPerDay;
 
         if (inRegression)
@@ -82,6 +87,11 @@ public class HediffComp_DynamicHaunt : HediffComp
 
         float newSeverity = Mathf.Clamp(parent.Severity + severityAdjustment, 0.01f, 1f);
         severityAdjustment = newSeverity - parent.Severity;
+
+        int newStage = GetStage(newSeverity);
+        if (previousStage >= 0 && newStage > previousStage)
+            NotifyStageAdvanced((HediffWithComps)parent, newStage);
+        previousStage = newStage;
 
         if (!awakeningGeneFired && newSeverity >= 0.67f)
             TryFireAwakeningGene();
@@ -166,6 +176,7 @@ public class HediffComp_DynamicHaunt : HediffComp
         Scribe_Values.Look(ref lastTriggerTick, "lastTriggerTick", -1);
         Scribe_Values.Look(ref lastRecordValue, "lastRecordValue", -1f);
         Scribe_Values.Look(ref awakeningGeneFired, "awakeningGeneFired", false);
+        Scribe_Values.Look(ref previousStage, "previousStage", -1);
     }
 }
 

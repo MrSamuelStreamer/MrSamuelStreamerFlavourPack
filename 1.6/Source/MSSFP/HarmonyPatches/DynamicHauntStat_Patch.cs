@@ -7,8 +7,8 @@ namespace MSSFP.HarmonyPatches;
 
 /// <summary>
 /// Applies dynamic haunt stat offsets derived from a dead colonist's skill profile.
-/// Postfix on StatWorker.GetValueUnfinalized — a hot path, but the early exits are O(1)
-/// for pawns without a dynamic haunt (the overwhelming majority of stat requests).
+/// Postfix on StatWorker.GetValueUnfinalized — a hot path. Uses HauntsCache for O(1)
+/// lookup instead of walking the hediff list on every stat call.
 /// </summary>
 [HarmonyPatch(typeof(StatWorker), nameof(StatWorker.GetValueUnfinalized))]
 public static class DynamicHauntStat_Patch
@@ -20,31 +20,13 @@ public static class DynamicHauntStat_Patch
         if (!pawn.RaceProps.Humanlike)
             return;
 
-        HediffComp_DynamicHaunt comp = FindDynamicHauntComp(pawn);
-        if (comp?.Profile == null)
+        if (!HauntsCache.DynamicHaunts.TryGetValue(pawn.thingIDNumber, out HediffComp_DynamicHaunt comp))
+            return;
+        if (comp.Profile == null)
             return;
 
         float offset = comp.Profile.GetStatOffset(___stat, comp.parent.Severity);
         if (offset != 0f)
             __result += offset;
-    }
-
-    private static HediffComp_DynamicHaunt FindDynamicHauntComp(Pawn pawn)
-    {
-        if (pawn.health?.hediffSet?.hediffs == null)
-            return null;
-
-        foreach (Hediff hediff in pawn.health.hediffSet.hediffs)
-        {
-            if (hediff is not HediffWithComps hwc)
-                continue;
-            foreach (HediffComp comp in hwc.comps)
-            {
-                if (comp is HediffComp_DynamicHaunt dynamic)
-                    return dynamic;
-            }
-        }
-
-        return null;
     }
 }

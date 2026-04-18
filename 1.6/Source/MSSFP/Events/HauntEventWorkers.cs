@@ -16,7 +16,7 @@ public class HauntEventWorker_FlickeringLights : HauntEventWorker
     private const float SearchRadius = 8f;
     private const int RestoreTicks = 1800;
 
-    public override bool TryFire(Pawn pawn, Map map)
+    public override bool TryFire(Pawn pawn, Map map, HediffComp_Haunt sourceHaunt = null)
     {
         List<CompFlickable> candidates = new();
         foreach (IntVec3 cell in GenRadial.RadialCellsAround(pawn.Position, SearchRadius, true))
@@ -45,7 +45,7 @@ public class HauntEventWorker_FlickeringLights : HauntEventWorker
         }
 
         Messages.Message(
-            "MSS_FP_Event_FlickeringLights_Msg".Translate(pawn.LabelShort),
+            "MSS_FP_Event_FlickeringLights_Msg".Translate(pawn.LabelShort, SpiritName(sourceHaunt)),
             pawn,
             MessageTypeDefOf.NeutralEvent,
             false
@@ -63,7 +63,7 @@ public class HauntEventWorker_ObjectDisplacement : HauntEventWorker
     private const int TeleportMin = 3;
     private const int TeleportMax = 5;
 
-    public override bool TryFire(Pawn pawn, Map map)
+    public override bool TryFire(Pawn pawn, Map map, HediffComp_Haunt sourceHaunt = null)
     {
         List<Thing> candidates = new();
         foreach (IntVec3 cell in GenRadial.RadialCellsAround(pawn.Position, SearchRadius, true))
@@ -92,7 +92,7 @@ public class HauntEventWorker_ObjectDisplacement : HauntEventWorker
         GenPlace.TryPlaceThing(target, dest, map, ThingPlaceMode.Near);
 
         Messages.Message(
-            "MSS_FP_Event_ObjectDisplacement_Msg".Translate(target.LabelShort),
+            "MSS_FP_Event_ObjectDisplacement_Msg".Translate(target.LabelShort, SpiritName(sourceHaunt)),
             new TargetInfo(dest, map),
             MessageTypeDefOf.NeutralEvent,
             false
@@ -108,7 +108,7 @@ public class HauntEventWorker_ColdSpot : HauntEventWorker
 {
     private const float Radius = 5f;
 
-    public override bool TryFire(Pawn pawn, Map map)
+    public override bool TryFire(Pawn pawn, Map map, HediffComp_Haunt sourceHaunt = null)
     {
         bool any = false;
         foreach (IntVec3 cell in GenRadial.RadialCellsAround(pawn.Position, Radius, true))
@@ -132,7 +132,7 @@ public class HauntEventWorker_ColdSpot : HauntEventWorker
             return false;
 
         Messages.Message(
-            "MSS_FP_Event_ColdSpot_Msg".Translate(pawn.LabelShort),
+            "MSS_FP_Event_ColdSpot_Msg".Translate(pawn.LabelShort, SpiritName(sourceHaunt)),
             pawn,
             MessageTypeDefOf.NeutralEvent,
             false
@@ -146,7 +146,7 @@ public class HauntEventWorker_ColdSpot : HauntEventWorker
 // ──────────────────────────────────────────────────────────────────────────────
 public class HauntEventWorker_GhostlyWail : HauntEventWorker
 {
-    public override bool TryFire(Pawn pawn, Map map)
+    public override bool TryFire(Pawn pawn, Map map, HediffComp_Haunt sourceHaunt = null)
     {
         bool any = false;
         foreach (Pawn colonist in map.mapPawns.FreeColonistsSpawned)
@@ -163,7 +163,7 @@ public class HauntEventWorker_GhostlyWail : HauntEventWorker
             return false;
 
         Messages.Message(
-            "MSS_FP_Event_GhostlyWail_Msg".Translate(),
+            "MSS_FP_Event_GhostlyWail_Msg".Translate(SpiritName(sourceHaunt)),
             pawn,
             MessageTypeDefOf.NeutralEvent,
             false
@@ -180,14 +180,17 @@ public class HauntEventWorker_SpontaneousFire : HauntEventWorker
     private const float SearchRadius = 5f;
     private const float FireSize = 0.1f;
 
-    public override bool TryFire(Pawn pawn, Map map)
+    public override bool TryFire(Pawn pawn, Map map, HediffComp_Haunt sourceHaunt = null)
     {
         List<IntVec3> candidates = new();
         foreach (IntVec3 cell in GenRadial.RadialCellsAround(pawn.Position, SearchRadius, true))
         {
             if (!cell.InBounds(map) || !cell.Walkable(map))
                 continue;
-            if (FireUtility.GetFiresNearCell(cell, map).Count > 0)
+            // Direct grid check — vanilla GetFiresNearCell has a latent bug
+            // (Swap with FindIndex == -1) that crashes when fires exist in the
+            // same room/region but not on the exact queried cell.
+            if (map.thingGrid.ThingsListAt(cell).Any(t => t is Fire))
                 continue;
             if (FireUtility.TerrainFlammability(cell, map) > 0.1f)
                 candidates.Add(cell);
@@ -200,7 +203,7 @@ public class HauntEventWorker_SpontaneousFire : HauntEventWorker
         FireUtility.TryStartFireIn(fireCell, map, FireSize, null);
 
         Messages.Message(
-            "MSS_FP_Event_SpontaneousFire_Msg".Translate(pawn.LabelShort),
+            "MSS_FP_Event_SpontaneousFire_Msg".Translate(pawn.LabelShort, SpiritName(sourceHaunt)),
             new TargetInfo(fireCell, map),
             MessageTypeDefOf.ThreatSmall,
             false
@@ -214,7 +217,7 @@ public class HauntEventWorker_SpontaneousFire : HauntEventWorker
 // ──────────────────────────────────────────────────────────────────────────────
 public class HauntEventWorker_PossessionAttempt : HauntEventWorker
 {
-    public override bool TryFire(Pawn pawn, Map map)
+    public override bool TryFire(Pawn pawn, Map map, HediffComp_Haunt sourceHaunt = null)
     {
         if (pawn.InMentalState)
             return false;
@@ -232,7 +235,7 @@ public class HauntEventWorker_PossessionAttempt : HauntEventWorker
             return false;
 
         Messages.Message(
-            "MSS_FP_Event_PossessionAttempt_Msg".Translate(pawn.LabelShort),
+            "MSS_FP_Event_PossessionAttempt_Msg".Translate(pawn.LabelShort, SpiritName(sourceHaunt)),
             pawn,
             MessageTypeDefOf.ThreatSmall,
             false
@@ -250,7 +253,7 @@ public class HauntEventWorker_Manifestation : HauntEventWorker
     private const float WitnessRadius = 8f;
     private const int ManifestTicks = 1800; // 30 seconds
 
-    public override bool TryFire(Pawn pawn, Map map)
+    public override bool TryFire(Pawn pawn, Map map, HediffComp_Haunt sourceHaunt = null)
     {
         int manifestUntil = Find.TickManager.TicksGame + ManifestTicks;
         bool anyManifested = false;
@@ -295,7 +298,7 @@ public class HauntEventWorker_Manifestation : HauntEventWorker
         }
 
         Messages.Message(
-            "MSS_FP_Event_Manifestation_Msg".Translate(pawn.LabelShort),
+            "MSS_FP_Event_Manifestation_Msg".Translate(pawn.LabelShort, SpiritName(sourceHaunt)),
             pawn,
             MessageTypeDefOf.NeutralEvent,
             false

@@ -12,6 +12,7 @@ namespace MSSFP.Hediffs;
 public class HediffComp_Haunt : HediffComp
 {
     public static Texture2D icon = ContentFinder<Texture2D>.Get("UI/MSS_FP_Haunts_Toggle");
+    private static readonly MaterialPropertyBlock sharedPropertyBlock = new();
     public Pawn pawnToDraw;
     public string name;
     public string texPath;
@@ -40,17 +41,13 @@ public class HediffComp_Haunt : HediffComp
     private Vector3 ghostVelocity;
     private bool ghostInitialized;
 
-    // Severity thresholds matching the three XML stage boundaries
-    private const float WhisperMax = 0.33f;
-    private const float PresenceMax = 0.66f;
-
     /// <summary>
     /// Alpha multiplier based on current severity stage.
-    /// Whisper = faint (0.4), Presence = normal (0.8), Awakened = full (1.0).
+    /// Whisper = subtle (0.55), Presence = clear (0.8), Awakened = full (1.0).
     /// </summary>
     private float StageAlpha =>
-        parent.Severity <= WhisperMax ? 0.4f
-        : parent.Severity <= PresenceMax ? 0.8f
+        parent.Severity <= Haunts.HauntStageHelper.WhisperMax ? 0.55f
+        : parent.Severity <= Haunts.HauntStageHelper.PresenceMax ? 0.8f
         : 1.0f;
 
     public virtual Texture2D PawnTexture
@@ -111,24 +108,45 @@ public class HediffComp_Haunt : HediffComp
         {
             if (pawnToDraw == null)
                 return null;
-            if (skillToBoost != null && SkillBoostLevel > 0)
+
+            string desc;
+            if (!Props.isGood)
             {
-                return pawnToDraw == null
-                    ? null
-                    : "\n\n"
-                        + "MSS_FP_HauntedBuff".Translate(
-                            pawnToDraw.NameShortColored,
-                            skillToBoost.LabelCap,
-                            SkillBoostLevel
-                        );
-            }
-            return pawnToDraw == null
-                ? null
-                : "\n\n"
-                    + "MSS_FP_HauntedUnBuff".Translate(
+                // Bad haunt — show debuff info and exorcism guidance
+                if (skillToBoost != null && SkillBoostLevel < 0)
+                {
+                    desc = "MSS_FP_HauntedDebuff".Translate(
+                        pawnToDraw.NameShortColored,
+                        skillToBoost.LabelCap,
+                        -SkillBoostLevel
+                    );
+                }
+                else
+                {
+                    desc = "MSS_FP_HauntedBadGeneric".Translate(
                         pawnToDraw.NameShortColored,
                         parent.pawn.NameShortColored
                     );
+                }
+                desc += "\n\n" + "MSS_FP_Haunt_ExorcismGuidance".Translate();
+                return "\n\n" + desc;
+            }
+
+            // Good haunt — show buff info
+            if (skillToBoost != null && SkillBoostLevel > 0)
+            {
+                return "\n\n"
+                    + "MSS_FP_HauntedBuff".Translate(
+                        pawnToDraw.NameShortColored,
+                        skillToBoost.LabelCap,
+                        SkillBoostLevel
+                    );
+            }
+            return "\n\n"
+                + "MSS_FP_HauntedUnBuff".Translate(
+                    pawnToDraw.NameShortColored,
+                    parent.pawn.NameShortColored
+                );
         }
     }
 
@@ -261,8 +279,8 @@ public class HediffComp_Haunt : HediffComp
                 Material mat = graphic.MatAt(rot, pawnToDraw ?? parent.pawn);
                 if (mat != null)
                 {
-                    MaterialPropertyBlock block = new();
-                    block.SetColor(ShaderPropertyIDs.Color, base_);
+                    sharedPropertyBlock.Clear();
+                    sharedPropertyBlock.SetColor(ShaderPropertyIDs.Color, base_);
                     Graphics.DrawMesh(
                         graphic.MeshAt(rot),
                         Matrix4x4.TRS(
@@ -274,7 +292,7 @@ public class HediffComp_Haunt : HediffComp
                         0,
                         null,
                         0,
-                        block
+                        sharedPropertyBlock
                     );
                     TrySpawnFleck(finalPos);
                     return;
@@ -351,7 +369,7 @@ public class HediffComp_Haunt : HediffComp
         if (Props.ambientFleck == null || parent.pawn.Map == null)
             return;
         // Only spawn in Presence or Awakened stage
-        if (parent.Severity <= WhisperMax)
+        if (parent.Severity <= Haunts.HauntStageHelper.WhisperMax)
             return;
 
         int now = Find.TickManager.TicksGame;
@@ -389,7 +407,8 @@ public class HediffComp_Haunt : HediffComp
             SkillRecord maxSkill = pawnToDraw.skills.skills.MaxBy(pawnSkill => pawnSkill.Level);
 
             skillToBoost = maxSkill.def;
-            SkillBoostLevel = Mathf.CeilToInt(maxSkill.Level / 3f);
+            int baseBoost = Mathf.CeilToInt(maxSkill.Level / 3f);
+            SkillBoostLevel = Props.isGood ? baseBoost : -baseBoost;
         }
 
         // Skill boost is applied via SkillRecord_Patch reading from HauntsCache

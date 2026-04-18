@@ -28,12 +28,8 @@ public class MainSettingsTab(ModSettings settings, Mod mod) : SettingsTab(settin
         if (Settings == null)
             return;
 
-        DrawCheckBox(
-            options,
-            "MSS_FP_Settings_NullDefSafetyPatch".Translate(),
-            ref Settings.NullDefSafetyPatch,
-            ref scrollViewHeight
-        );
+        // --- Gameplay ---
+        DrawSectionHeader(options, "MSS_FP_Settings_Section_Gameplay".Translate(), ref scrollViewHeight);
 
         DrawCheckBox(
             options,
@@ -71,6 +67,37 @@ public class MainSettingsTab(ModSettings settings, Mod mod) : SettingsTab(settin
             ref Settings.Enable10SecondsToSpeed,
             ref scrollViewHeight
         );
+
+        if (Settings.Enable10SecondsToSpeed)
+        {
+            float delaySeconds = Settings.TenSecondsToSpeedDelay;
+
+            delaySeconds = options.SliderLabeled(
+                "MSS_FP_Settings_TenSecondsToSpeedDelay".Translate(delaySeconds.ToString("F0")),
+                delaySeconds,
+                1f,
+                60f,
+                tooltip: "MSS_FP_Settings_TenSecondsToSpeedDelay_Tooltip".Translate()
+            );
+
+            Settings.TenSecondsToSpeedDelay = Mathf.RoundToInt(delaySeconds);
+            scrollViewHeight += 30f;
+
+            options.Gap(10f);
+            options.Label("MSS_FP_Settings_MonitorSpeeds".Translate());
+            scrollViewHeight += 30f;
+
+            Rect speedButtonRect = options.GetRect(30f);
+            if (Widgets.ButtonText(speedButtonRect, Settings.GetMonitoredSpeedsText()))
+            {
+                ShowSpeedSelectionMenu();
+            }
+            scrollViewHeight += 30f;
+        }
+
+        // --- Spawning ---
+        DrawSectionHeader(options, "MSS_FP_Settings_Section_Spawning".Translate(), ref scrollViewHeight);
+
         DrawCheckBox(
             options,
             "MSS_FP_Settings_DrawByMrStreamer".Translate(),
@@ -105,6 +132,9 @@ public class MainSettingsTab(ModSettings settings, Mod mod) : SettingsTab(settin
             ref scrollViewHeight
         );
 
+        // --- Reformation Points ---
+        DrawSectionHeader(options, "MSS_FP_Settings_Section_ReformationPoints".Translate(), ref scrollViewHeight);
+
         DrawCheckBox(
             options,
             "MSS_FP_Settings_EnableAnnualReformationPoints".Translate(),
@@ -112,76 +142,47 @@ public class MainSettingsTab(ModSettings settings, Mod mod) : SettingsTab(settin
             ref scrollViewHeight
         );
 
-        options.Label("MSS_FP_Settings_AnnualReformationPoints".Translate(Settings.AnnualReformationPoints));
-        options.IntAdjuster(ref Settings.AnnualReformationPoints, 1, 0);
-
-        options.Gap(10f);
-        scrollViewHeight += 58f;
-
-        options.Label("MSS_FP_Settings_ReformationPointsPerBaby".Translate(Settings.ReformationPointsPerBaby));
-        options.IntAdjuster(ref Settings.ReformationPointsPerBaby, 1, 0);
-
-        options.Gap(10f);
-        scrollViewHeight += 58f;
-
-        options.Label("MSS_FP_Settings_ReformationPointsPerDefeatedFaction".Translate(Settings.ReformationPointsPerDefeatedFaction));
-        options.IntAdjuster(ref Settings.ReformationPointsPerDefeatedFaction, 1, 0);
-
-        options.Gap(10f);
-        scrollViewHeight += 58f;
-
-        options.Label("MSS_FP_Settings_TechsToGetPoints".Translate(Settings.TechsToGetPoints));
-        options.IntAdjuster(ref Settings.TechsToGetPoints, 1, 0);
-
-        options.Gap(10f);
-        scrollViewHeight += 58f;
-
-        options.Label("MSS_FP_Settings_ReformationPointsForTechs".Translate(Settings.ReformationPointsForTechs));
-        options.IntAdjuster(ref Settings.ReformationPointsForTechs, 1, 0);
-
-        options.Gap(10f);
-        scrollViewHeight += 58f;
-
-        options.Label("MSS_FP_Settings_ReformationPointsPerSeasonChange".Translate(Settings.ReformationPointsPerSeasonChange));
-        options.IntAdjuster(ref Settings.ReformationPointsPerSeasonChange, 1, 0);
-
-        options.Gap(10f);
-        scrollViewHeight += 58f;
-
-        if (Settings.BreakdownMTBDays <= 0) Settings.BreakdownMTBDays = Settings.BreakdownMTBDaysDefault;
-        if (BreakdownMTBDaysBuffer.NullOrEmpty()) BreakdownMTBDaysBuffer = Settings.BreakdownMTBDays.ToString(CultureInfo.InvariantCulture);
-        options.Label("MSS_FP_Settings_BreakdownMTBDays".Translate(Settings.BreakdownMTBDays));
-        options.TextFieldNumeric(ref Settings.BreakdownMTBDays, ref BreakdownMTBDaysBuffer);
-
-        options.Gap(10f);
-        scrollViewHeight += 58f;
-
-        if (Settings.Enable10SecondsToSpeed)
+        if (Settings.EnableExtraReformationPoints)
         {
-            float delaySeconds = Settings.TenSecondsToSpeedDelay;
-
-            delaySeconds = options.SliderLabeled(
-                "MSS_FP_Settings_TenSecondsToSpeedDelay".Translate(delaySeconds.ToString("F0")),
-                delaySeconds,
-                1f,
-                60f,
-                tooltip: "MSS_FP_Settings_TenSecondsToSpeedDelay_Tooltip".Translate()
-            );
-
-            Settings.TenSecondsToSpeedDelay = Mathf.RoundToInt(delaySeconds);
-            scrollViewHeight += 30f;
+            options.Label("MSS_FP_Settings_AnnualReformationPoints".Translate(Settings.AnnualReformationPoints));
+            options.IntAdjuster(ref Settings.AnnualReformationPoints, 1, 0);
 
             options.Gap(10f);
-            options.Label("MSS_FP_Settings_MonitorSpeeds".Translate());
-            scrollViewHeight += 30f;
+            scrollViewHeight += 58f;
 
-            Rect speedButtonRect = options.GetRect(30f);
-            if (Widgets.ButtonText(speedButtonRect, Settings.GetMonitoredSpeedsText()))
-            {
-                ShowSpeedSelectionMenu();
-            }
-            scrollViewHeight += 30f;
+            options.Label("MSS_FP_Settings_ReformationPointsPerBaby".Translate(Settings.ReformationPointsPerBaby));
+            options.IntAdjuster(ref Settings.ReformationPointsPerBaby, 1, 0);
+
+            options.Gap(10f);
+            scrollViewHeight += 58f;
+
+            options.Label("MSS_FP_Settings_ReformationPointsPerDefeatedFaction".Translate(Settings.ReformationPointsPerDefeatedFaction));
+            options.IntAdjuster(ref Settings.ReformationPointsPerDefeatedFaction, 1, 0);
+
+            options.Gap(10f);
+            scrollViewHeight += 58f;
+
+            options.Label("MSS_FP_Settings_TechsToGetPoints".Translate(Settings.TechsToGetPoints));
+            options.IntAdjuster(ref Settings.TechsToGetPoints, 1, 0);
+
+            options.Gap(10f);
+            scrollViewHeight += 58f;
+
+            options.Label("MSS_FP_Settings_ReformationPointsForTechs".Translate(Settings.ReformationPointsForTechs));
+            options.IntAdjuster(ref Settings.ReformationPointsForTechs, 1, 0);
+
+            options.Gap(10f);
+            scrollViewHeight += 58f;
+
+            options.Label("MSS_FP_Settings_ReformationPointsPerSeasonChange".Translate(Settings.ReformationPointsPerSeasonChange));
+            options.IntAdjuster(ref Settings.ReformationPointsPerSeasonChange, 1, 0);
+
+            options.Gap(10f);
+            scrollViewHeight += 58f;
         }
+
+        // --- Colonist Bar ---
+        DrawSectionHeader(options, "MSS_FP_Settings_Section_ColonistBar".Translate(), ref scrollViewHeight);
 
         bool oldEnableValue = Settings.EnableColonistPortraitHiding;
         DrawCheckBox(
@@ -229,6 +230,24 @@ public class MainSettingsTab(ModSettings settings, Mod mod) : SettingsTab(settin
             }
             scrollViewHeight += 30f;
         }
+
+        // --- Technical ---
+        DrawSectionHeader(options, "MSS_FP_Settings_Section_Technical".Translate(), ref scrollViewHeight);
+
+        DrawCheckBox(
+            options,
+            "MSS_FP_Settings_NullDefSafetyPatch".Translate(),
+            ref Settings.NullDefSafetyPatch,
+            ref scrollViewHeight
+        );
+
+        if (Settings.BreakdownMTBDays <= 0) Settings.BreakdownMTBDays = Settings.BreakdownMTBDaysDefault;
+        if (BreakdownMTBDaysBuffer.NullOrEmpty()) BreakdownMTBDaysBuffer = Settings.BreakdownMTBDays.ToString(CultureInfo.InvariantCulture);
+        options.Label("MSS_FP_Settings_BreakdownMTBDays".Translate(Settings.BreakdownMTBDays));
+        options.TextFieldNumeric(ref Settings.BreakdownMTBDays, ref BreakdownMTBDaysBuffer);
+
+        options.Gap(10f);
+        scrollViewHeight += 58f;
     }
 
     public override void ExposeData()

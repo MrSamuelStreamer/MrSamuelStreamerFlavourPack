@@ -15,6 +15,13 @@ public static class GameLoad_Patch
         HauntsCache.Clear();
     }
 
+    [HarmonyPatch("InitNewGame")]
+    [HarmonyPrefix]
+    public static void InitNewGame_Prefix()
+    {
+        HauntsCache.Clear();
+    }
+
     [HarmonyPatch("FinalizeInit")]
     [HarmonyPostfix]
     public static void FinalizeInit_Postfix()

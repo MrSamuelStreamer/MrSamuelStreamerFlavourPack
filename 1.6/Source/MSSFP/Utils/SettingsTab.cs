@@ -66,6 +66,19 @@ public abstract class SettingsTab
         ScrollViewHeight = newScrollViewHeight;
     }
 
+    public void DrawSectionHeader(Listing_Standard options, string label, ref float svh)
+    {
+        options.GapLine(12f);
+        svh += 12f + 1f;
+
+        GameFont prev = Text.Font;
+        Text.Font = GameFont.Medium;
+        float height = Text.CalcHeight(label, options.ColumnWidth);
+        options.Label(label);
+        Text.Font = prev;
+        svh += height + options.verticalSpacing;
+    }
+
     public void DrawCheckBox(Listing_Standard options, string label, ref bool value, ref float svh)
     {
         float height = Text.CalcHeight(label, options.ColumnWidth) + 12f;

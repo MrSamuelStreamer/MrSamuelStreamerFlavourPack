@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <!-- Bad dynamic haunt: applied when a colonist kills a humanlike pawn -->
+    <HediffDef>
+        <defName>MSS_FP_PawnDisplayerBad</defName>
+        <label>Guilt-Haunted</label>
+        <description>Haunted by the spirit of someone this colonist killed. The spirit's presence is hostile — draining skills and causing unrest.\n\nAn exorcism may be able to drive the spirit away.</description>
+        <hediffClass>HediffWithComps</hediffClass>
+        <defaultLabelColor>(0.6,0.1,0.1)</defaultLabelColor>
+        <maxSeverity>1.0</maxSeverity>
+        <scenarioCanAdd>false</scenarioCanAdd>
+        <isBad>false</isBad> <!-- RimWorld field — not treated as a disease -->
+        <stages>
+            <li>
+                <label>guilt-haunted</label>
+                <minSeverity>0</minSeverity>
+            </li>
+            <li>
+                <label>tormented</label>
+                <minSeverity>0.34</minSeverity>
+            </li>
+            <li>
+                <label>consumed</label>
+                <minSeverity>0.67</minSeverity>
+            </li>
+        </stages>
+        <comps>
+            <li Class="MSSFP.Hediffs.HediffCompProperties_Haunt">
+                <isGood>false</isGood>
+                <thought>MSS_FP_KillHaunted</thought>
+                <graphicData>
+                    <graphicClass>MSSFP.PawnHauntGraphic</graphicClass>
+                    <drawSize>1.7</drawSize>
+                    <shaderType>MoteGlow</shaderType>
+                </graphicData>
+                <colorOverride>(0.8, 0.2, 0.2, 1.0)</colorOverride>
+                <offsets>
+                    <li>(0.3, 1.6, -0.55)</li> <!-- North -->
+                    <li>(-0.5, 1.1, -0.35)</li> <!-- East -->
+                    <li>(0.3, -1.6, 0.65)</li> <!-- South -->
+                    <li>(0.5, 1.1, -0.35)</li> <!-- West -->
+                </offsets>
+                <onlyRenderWhenDrafted>false</onlyRenderWhenDrafted>
+                <enableWander>false</enableWander>
+            </li>
+            <!-- Severity is managed by HediffComp_DynamicHaunt — no SeverityPerDay -->
+            <li Class="MSSFP.Hediffs.HediffCompProperties_DynamicHaunt" />
+        </comps>
+    </HediffDef>
+
+    <!-- Bad dynamic haunt mood thought -->
+    <ThoughtDef>
+        <defName>MSS_FP_KillHaunted</defName>
+        <thoughtClass>Thought_Memory</thoughtClass>
+        <stages>
+            <li>
+                <label>vengeful spirit ({1})</label>
+                <description>The spirit of {0} clings to me. I can feel their resentment. It's cold and suffocating.</description>
+                <baseMoodEffect>-5</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+
+</Defs>

@@ -29,6 +29,12 @@ public class HauntProfile : IExposable
     public int sourceColonistId;
 
     /// <summary>
+    /// Whether this profile represents a good (beneficial) or bad (harmful) haunt.
+    /// Bad haunts negate stat offsets and skill boosts.
+    /// </summary>
+    public bool isGood = true;
+
+    /// <summary>
     /// Scale factor computed at build time: (skillLevel - 8) / 12, clamped [0, 1].
     /// Persisted so algorithm changes don't affect existing haunts in active saves.
     /// </summary>
@@ -65,6 +71,7 @@ public class HauntProfile : IExposable
         Scribe_Defs.Look(ref awakeningGeneDef, "awakeningGeneDef");
         Scribe_Values.Look(ref sourceColonistId, "sourceColonistId", 0);
         Scribe_Values.Look(ref scaleFactor, "scaleFactor", 0f);
+        Scribe_Values.Look(ref isGood, "isGood", true);
 
         if (Scribe.mode == LoadSaveMode.PostLoadInit)
         {

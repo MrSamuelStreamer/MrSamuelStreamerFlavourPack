@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using HarmonyLib;
 using MSSFP.HarmonyPatches;
+using MSSFP.PawnPortability;
 using MSSFP.Utils;
 using RimWorld;
 using RimWorld.Planet;
@@ -11,7 +12,6 @@ using Verse;
 
 namespace MSSFP;
 
-[StaticConstructorOnStartup]
 public class MSSFPMod : Mod
 {
     public static Settings settings;
@@ -103,5 +103,21 @@ public class MSSFPMod : Mod
     public override string SettingsCategory()
     {
         return "MSSFP_SettingsCategory".Translate();
+    }
+}
+
+/// <summary>
+/// Runs after all defs are loaded. By this point MSSFPMod's instance constructor has
+/// already executed and MSSFPMod.settings is fully initialised.
+/// </summary>
+[StaticConstructorOnStartup]
+internal static class MSSFPStartup
+{
+    static MSSFPStartup()
+    {
+        if (MSSFPMod.settings?.EnableUserTemplateLoading == true)
+            UserPawnTemplateRegistry.LoadAll();
+        else
+            ModLog.Log($"User template loading disabled in settings [MSSFPMod.settings is null? {MSSFPMod.settings == null}");
     }
 }
