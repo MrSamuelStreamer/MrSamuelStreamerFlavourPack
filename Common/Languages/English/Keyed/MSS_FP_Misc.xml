@@ -159,4 +159,8 @@
 
     <MSS_VoidsEmbraceSkillsReset>{PAWN_nameDef} passed through the void and left part of themselves behind. Their skills have degraded.</MSS_VoidsEmbraceSkillsReset>
     <MSS_VoidsEmbraceTraitGained>The void has left its mark on {PAWN_nameDef} — they have become {TRAITS}.</MSS_VoidsEmbraceTraitGained>
+
+    <!-- Gene Integrator -->
+    <MSSFP_LetterLabelGenesImplantedCasterDied>Genes implanted — {CASTER_labelShort} died</MSSFP_LetterLabelGenesImplantedCasterDied>
+    <MSSFP_LetterTextGenesImplantedCasterDied>{CASTER_labelShort} implanted {CASTER_possessive} xenogenes into {TARGET_labelShort}, but the process killed {CASTER_objective}. {TARGET_labelShort} will enter a xenogermination coma while the new genes take hold.</MSSFP_LetterTextGenesImplantedCasterDied>
 </LanguageData>
