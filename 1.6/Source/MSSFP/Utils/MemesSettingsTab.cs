@@ -15,6 +15,9 @@ public class MemesSettingsTab(ModSettings settings, Mod mod) : SettingsTab(setti
         ref float scrollViewHeight
     )
     {
+        // --- Social ---
+        DrawSectionHeader(options, "MSS_FP_Settings_Section_Social".Translate(), ref scrollViewHeight);
+
         DrawCheckBox(
             options,
             "MSS_FP_Settings_EnableLoversRetreat".Translate(),
@@ -38,6 +41,9 @@ public class MemesSettingsTab(ModSettings settings, Mod mod) : SettingsTab(setti
             ref Settings.SingleUseMentalFuses,
             ref scrollViewHeight
         );
+
+        // --- Events ---
+        DrawSectionHeader(options, "MSS_FP_Settings_Section_Events".Translate(), ref scrollViewHeight);
 
         DrawCheckBox(
             options,
@@ -79,6 +85,8 @@ public class MemesSettingsTab(ModSettings settings, Mod mod) : SettingsTab(setti
             ref scrollViewHeight
         );
 
+        // --- Combat ---
+        DrawSectionHeader(options, "MSS_FP_Settings_Section_Combat".Translate(), ref scrollViewHeight);
 
         DrawCheckBox(
             options,
@@ -87,7 +95,9 @@ public class MemesSettingsTab(ModSettings settings, Mod mod) : SettingsTab(setti
             ref scrollViewHeight
         );
 
-        Settings.RecoilDamageMultiplier = options.SliderLabeled("MSS_FP_Settings_RecoilDamageMultiplier".Translate(Settings.RecoilDamageMultiplier), Settings.RecoilDamageMultiplier, 0f, 2f);
+        Settings.RecoilDamageMultiplier = options.SliderLabeled(
+            "MSS_FP_Settings_RecoilDamageMultiplier".Translate(Settings.RecoilDamageMultiplier),
+            Settings.RecoilDamageMultiplier, 0f, 2f);
         scrollViewHeight += 30f;
 
         DrawCheckBox(
@@ -96,7 +106,9 @@ public class MemesSettingsTab(ModSettings settings, Mod mod) : SettingsTab(setti
             ref Settings.EnableRecoilKnockback,
             ref scrollViewHeight
         );
-        Settings.RecoilKnockbackMultiplier = options.SliderLabeled("MSS_FP_Settings_RecoilKnockbackMultiplier".Translate(Settings.RecoilKnockbackMultiplier), Settings.RecoilKnockbackMultiplier, 0f, 2f);
+        Settings.RecoilKnockbackMultiplier = options.SliderLabeled(
+            "MSS_FP_Settings_RecoilKnockbackMultiplier".Translate(Settings.RecoilKnockbackMultiplier),
+            Settings.RecoilKnockbackMultiplier, 0f, 2f);
         scrollViewHeight += 30f;
 
         DrawCheckBox(

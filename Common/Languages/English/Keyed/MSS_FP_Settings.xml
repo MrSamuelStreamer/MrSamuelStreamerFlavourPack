@@ -5,6 +5,21 @@
     <MSS_FP_Settings_DrawByMrStreamer>Show "By Mr Samuel Streamer" label in the bottom left (only used to disuade video theft and other digital larceny, leave disabled)</MSS_FP_Settings_DrawByMrStreamer>
 
     <MSSFP_SettingsCategory>Mr Samuel Streamer Flavour Pack</MSSFP_SettingsCategory>
+
+    <!-- Section headers -->
+    <MSS_FP_Settings_Section_Gameplay>Gameplay</MSS_FP_Settings_Section_Gameplay>
+    <MSS_FP_Settings_Section_Spawning>Spawning</MSS_FP_Settings_Section_Spawning>
+    <MSS_FP_Settings_Section_ReformationPoints>Reformation Points</MSS_FP_Settings_Section_ReformationPoints>
+    <MSS_FP_Settings_Section_ColonistBar>Colonist Bar</MSS_FP_Settings_Section_ColonistBar>
+    <MSS_FP_Settings_Section_Technical>Technical</MSS_FP_Settings_Section_Technical>
+    <MSS_FP_Settings_Section_HauntCore>Core</MSS_FP_Settings_Section_HauntCore>
+    <MSS_FP_Settings_Section_HauntProgression>Progression</MSS_FP_Settings_Section_HauntProgression>
+    <MSS_FP_Settings_Section_KillHaunts>Kill Haunts</MSS_FP_Settings_Section_KillHaunts>
+    <MSS_FP_Settings_Section_Poltergeist>Poltergeist</MSS_FP_Settings_Section_Poltergeist>
+    <MSS_FP_Settings_Section_HauntCooldowns>Proximity &amp; Cooldowns</MSS_FP_Settings_Section_HauntCooldowns>
+    <MSS_FP_Settings_Section_Social>Social</MSS_FP_Settings_Section_Social>
+    <MSS_FP_Settings_Section_Events>Events</MSS_FP_Settings_Section_Events>
+    <MSS_FP_Settings_Section_Combat>Combat</MSS_FP_Settings_Section_Combat>
     <MSSFP_RGSettingsCategory>Mr Samuel Streamer Flavour Pack - Resource Generator</MSSFP_RGSettingsCategory>
     <MSS_FP_Settings_ShowHaunts>Show Haunts</MSS_FP_Settings_ShowHaunts>
     <MSS_FP_Settings_NoSkylanternRaids>Disable skylantern raids</MSS_FP_Settings_NoSkylanternRaids>
