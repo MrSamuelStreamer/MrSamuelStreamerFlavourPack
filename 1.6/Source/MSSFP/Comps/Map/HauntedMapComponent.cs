@@ -8,6 +8,7 @@ using RimWorld;
 using RimWorld.Planet;
 using UnityEngine;
 using Verse;
+using static MSSFP.Haunts.HauntCleanupUtility;
 
 namespace MSSFP.Comps.Map;
 
@@ -71,6 +72,10 @@ public class HauntedMapComponent(Verse.Map map) : MapComponent(map)
 
         Pawn spirit = grave.Corpse?.InnerPawn;
         if (spirit == null)
+            return;
+
+        // One spirit can only haunt one living pawn at a time.
+        if (IsAlreadyHaunting(spirit))
             return;
 
         Hediff hediff = pawn.health.AddHediff(MSSFPDefOf.MSS_FP_PawnDisplayer);

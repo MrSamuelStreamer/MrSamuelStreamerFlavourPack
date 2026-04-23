@@ -1,4 +1,5 @@
 using HarmonyLib;
+using MSSFP.Haunts;
 using MSSFP.Hediffs;
 using Verse;
 using PawnGraphicUtils = MSSFP.Utils.PawnGraphicUtils;
@@ -27,5 +28,6 @@ public static class GameLoad_Patch
     public static void FinalizeInit_Postfix()
     {
         PawnGraphicUtils.CleanupOrphanedTextures();
+        HauntCleanupUtility.DeduplicateHaunts();
     }
 }

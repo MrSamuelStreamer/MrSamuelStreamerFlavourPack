@@ -171,6 +171,12 @@ public class HediffComp_Haunt : HediffComp
 
             if (pawn != null)
             {
+                // Don't transfer if target already has a haunt from this spirit
+                // (could happen if duplicate haunts exist from before dedup fix).
+                if (pawnToDraw != null && HauntsCache.IsSpiritHaunting(pawnToDraw.thingIDNumber)
+                    && HauntsCache.GetHauntForSpirit(pawnToDraw.thingIDNumber) != this)
+                    return;
+
                 Pawn sourcePawn = parent.pawn;
                 float severity = parent.Severity;
 
@@ -189,6 +195,7 @@ public class HediffComp_Haunt : HediffComp
                     newHauntComp.OnUntilTick = OnUntilTick;
                     newHauntComp.OffUntilTick = OffUntilTick;
                     newHauntComp.NextProxCheck = NextProxCheck;
+                    newHauntComp.AdoptSpirit();
                 }
 
                 // Add to new pawn first, then remove from old — prevents data loss
@@ -398,6 +405,7 @@ public class HediffComp_Haunt : HediffComp
             return;
 
         pawnToDraw = pawn;
+        HauntsCache.SpiritToHaunt[pawn.thingIDNumber] = this;
         aptitudesCached.Clear();
         texPath = PawnGraphicUtils.SavePawnTexture(pawn);
         pawnTexture = null; // force PawnTexture property to reload from disk on next render
@@ -422,6 +430,20 @@ public class HediffComp_Haunt : HediffComp
         {
             TryAddMemory();
         }
+    }
+
+    /// <summary>
+    /// Registers this comp in the reverse cache and adds mood thought, without
+    /// re-saving the texture or recalculating skill boosts. Used during proximity
+    /// transfer where those fields are already copied from the source haunt.
+    /// </summary>
+    public void AdoptSpirit()
+    {
+        if (pawnToDraw == null)
+            return;
+        HauntsCache.SpiritToHaunt[pawnToDraw.thingIDNumber] = this;
+        HauntsCache.RebuildCacheForPawn(Pawn);
+        TryAddMemory();
     }
 
     public override void CompPostPostRemoved()

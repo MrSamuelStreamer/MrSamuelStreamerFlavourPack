@@ -16,6 +16,12 @@ public static class HauntsCache
     /// </summary>
     public static Dictionary<int, HediffComp_DynamicHaunt> DynamicHaunts = new();
 
+    /// <summary>
+    /// Reverse lookup: spirit thingIDNumber → the haunt comp that references it.
+    /// Enforces one-haunt-per-spirit invariant and enables O(1) resurrection cleanup.
+    /// </summary>
+    public static Dictionary<int, HediffComp_Haunt> SpiritToHaunt = new();
+
     public static void AddHaunt(int thingIdNumber, HediffComp_Haunt haunt)
     {
         if (Haunts.TryGetValue(thingIdNumber, out List<HediffComp_Haunt> mods))
@@ -37,6 +43,10 @@ public static class HauntsCache
             if (dynComp != null)
                 DynamicHaunts[thingIdNumber] = dynComp;
         }
+
+        // Maintain reverse lookup: spirit → haunt comp.
+        if (haunt.pawnToDraw != null)
+            SpiritToHaunt[haunt.pawnToDraw.thingIDNumber] = haunt;
     }
 
     public static void RemoveHaunt(int thingIdNumber, HediffComp_Haunt haunt)
@@ -58,6 +68,14 @@ public static class HauntsCache
             && hwc.TryGetComp<HediffComp_DynamicHaunt>() != null)
         {
             DynamicHaunts.Remove(thingIdNumber);
+        }
+
+        // Remove reverse lookup entry if this haunt owned it.
+        if (haunt.pawnToDraw != null
+            && SpiritToHaunt.TryGetValue(haunt.pawnToDraw.thingIDNumber, out HediffComp_Haunt cached)
+            && cached == haunt)
+        {
+            SpiritToHaunt.Remove(haunt.pawnToDraw.thingIDNumber);
         }
     }
 
@@ -131,10 +149,23 @@ public static class HauntsCache
             Cache[p] = boosts;
     }
 
+    /// <summary>
+    /// Returns true if the given spirit pawn is already haunting any living pawn.
+    /// </summary>
+    public static bool IsSpiritHaunting(int spiritThingId) =>
+        SpiritToHaunt.ContainsKey(spiritThingId);
+
+    /// <summary>
+    /// Returns the haunt comp for a given spirit, or null if not haunting anyone.
+    /// </summary>
+    public static HediffComp_Haunt GetHauntForSpirit(int spiritThingId) =>
+        SpiritToHaunt.TryGetValue(spiritThingId, out HediffComp_Haunt comp) ? comp : null;
+
     public static void Clear()
     {
         Haunts.Clear();
         DynamicHaunts.Clear();
+        SpiritToHaunt.Clear();
         Cache.Clear();
     }
 }
