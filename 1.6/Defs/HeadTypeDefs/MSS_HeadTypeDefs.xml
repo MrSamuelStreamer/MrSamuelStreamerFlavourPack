@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!-- Leaper -->
+	<HeadTypeDef ParentName="AverageBase">
+		<defName>MSS_LeaperHead</defName>
+		<graphicPath>Things/Pawn/Humanlike/Heads/MSS_LeaperHead/MSS_LeaperHead</graphicPath>
+		<randomChosen>false</randomChosen>
+		<gender>None</gender>
+		<requiredGenes>
+			<li>MSS_LeaperHead</li>
+		</requiredGenes>
+		<selectionWeight>1</selectionWeight>
+	</HeadTypeDef>
+</Defs>

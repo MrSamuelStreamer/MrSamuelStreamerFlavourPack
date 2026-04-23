@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<FurDef>
+		<defName>MSS_LeaperBody</defName>
+		<noGraphic>true</noGraphic>
+		<bodyTypeGraphicPaths>
+			<Male>Things/Pawn/Humanlike/Bodies/MSS_LeaperBody/MSS_LeaperBody</Male>
+			<Female>Things/Pawn/Humanlike/Bodies/MSS_LeaperBody/MSS_LeaperBody</Female>
+			<Hulk>Things/Pawn/Humanlike/Bodies/MSS_LeaperBody/MSS_LeaperBody</Hulk>
+			<Fat>Things/Pawn/Humanlike/Bodies/MSS_LeaperBody/MSS_LeaperBody</Fat>
+			<Thin>Things/Pawn/Humanlike/Bodies/MSS_LeaperBody/MSS_LeaperBody</Thin>
+			<Child>Things/Pawn/Humanlike/Bodies/MSS_LeaperBody/MSS_LeaperBody</Child>
+			<Baby>Things/Pawn/Humanlike/Bodies/MSS_LeaperBody/MSS_LeaperBody</Baby>
+		</bodyTypeGraphicPaths>
+	</FurDef>
+</Defs>

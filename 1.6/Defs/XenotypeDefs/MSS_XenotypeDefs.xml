@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  
+  <!-- Magic Baby -->
+  <XenotypeDef>
+    <defName>MSSV_TheAscendant</defName>
+    <label>The Ascendant</label>
+    <description>“The Ascendant” was a name whispered by the Archotechs to describe a powerful psychic entity known as “Magic Baby”.
+
+In an ancient tribe, radiant psychic energy from their Archoseed leader affected an otherwise unremarkable tribespeople, and one seemingly normal woman was duplicated, as if instantly granted a twin identical in every way, except one; the new copy was carrying a child. That child would come to be known as the nameless “Magic Baby”, a psychically hypersensitive human capable of powers that bordered on the Archoseed itself. 
+
+Years later, when faced with their eventual mortality, “Magic Baby” attempted to recreate the psychic incident that created them in the first place, to act as a new body for their resurrection. They were successful, but only for a moment, as in recreating the power of an Archoseed they flew close to the sun, and were erased by the greater Archobeings.
+</description>
+    <descriptionShort>An extremely powerful, but extremely vulnerable Psycasting xenotype.</descriptionShort>
+    <iconPath>Xenotypes/BS_Lilim</iconPath>
+    <inheritable>true</inheritable>
+    <genes>
+      <li MayRequire="redmattis.bigsmall.core">VU_UltraRapidAging</li>
+      <li MayRequire="ebsg.aio">EBSG_BadVision</li>
+      <li MayRequire="ebsg.archite">EBSG_MajorArchitePsychicSensitivity</li>
+      <li MayRequire="ebsg.archite">EBSG_ArchiteEnhancedMeditationFocus</li>
+      <li MayRequire="ebsg.archite">EBSG_ArchiteEnhancedEntropyMax</li>
+      <li MayRequire="ebsg.archite">EBSG_ArchiteEnhancedEntropyRecovery</li>
+      <li>MeleeDamage_Weak</li>
+      <li>KindInstinct</li>
+      <li MayRequire="ebsg.aio">EBSG_SlowSleeper</li>
+      <li>Delicate</li>
+      <li>Pain_Reduced</li>
+      <li>Hair_Gray</li>
+      <li>Learning_Slow</li>
+      <li MayRequire="hautarche.hautstraits">HVT_ALuminaryGene</li>
+      <li MayRequire="sarg.alphagenes">AlphaGenes_ExoticOrganism</li>
+    </genes>
+  </XenotypeDef>
+  
+  <!-- F -->
+  <XenotypeDef>
+    <defName>MSSV_TheDevourer</defName>
+    <label>The Devourer</label>
+    <description>“The Devourer” was a name whispered by the Archotechs to describe the powerful psychic entity known as F. 
+
+F began as a classified Imperial experiment, and through which was granted the ability to incorporate the genetic information of others into himself at a touch. F turned the tables and began his own gruesome experiments, eventually granting himself total genetic flexibility, immense psycasting reach, and intellectual abilities. 
+
+F’s power reached its climax when he began manifesting his plans of psychic, planetwide indoctrination. In the midst of his victory, his oldest and greatest friend was killed by the desperate denizens of the world attempting to stop the mind-control. The emotional burden was too much for F to bear, and his powerful mind turned inward, causing him to fall between realities into the Void.
+</description>
+    <descriptionShort>A powerful, but physically and mentally unstable, psycasting and intellectual geneline.</descriptionShort>
+    <iconPath>UI/Icons/Xenotypes/Custom/Genie_6</iconPath>
+    <inheritable>true</inheritable>
+    <genes>
+      <li MayRequire="redmattis.bigsmall.core">BS_DisintegrateXenoGenes</li>
+      <li MayRequire="redmattis.bigsmall.core">BS_IntegrateGenes</li>
+      <li MayRequire="redmattis.bigsmall.core">BS_GeneEater</li>
+      <li MayRequire="redmattis.bigsmall.core">BS_NaturalArmor</li>
+      <li MayRequire="redmattis.bigsmall.core">BS_SlowBleeding</li>
+      <li MayRequire="neronix17.outland.genetics">Outland_FragileHealing</li>
+      <li MayRequire="morebiotechstylegenes.mod">Instability_Extreme</li>
+      <li>PsychicAbility_Deaf</li>
+      <li MayRequire="ebsg.aio">EBSG_Reclusive</li>
+      <li MayRequire="ebsg.archite">EBSG_ArchiteToxImmunity</li>
+      <li>LowSleep</li>
+      <li MayRequire="eo3.skeletalefflorescence">Beauty_Eerie</li>
+      <li MayRequire="ebsg.aio">EBSG_Preacher</li>
+      <li MayRequire="ebsg.archite">EBSG_ArchiteEnhancedSuave</li>
+      <li>Hair_BaldOnly</li>
+      <li MayRequire="rimsenal.zohar">Gene_Psychopath</li>
+      <li MayRequire="ebsg.archite">MBSG_MinorArchite_Intellectual</li>
+      <li MayRequire="hautarche.hautstraits">HVT_AEruditeGene</li>
+      <li MayRequire="sarg.alphagenes">AlphaGenes_ExoticOrganism</li>
+    </genes>
+  </XenotypeDef>
+
+  <!-- RusDio -->
+  <XenotypeDef>
+    <defName>MSSV_TheIntruder</defName>
+    <label>The Intruder</label>
+    <description>“The Intruder” was a name whispered by the Archotechs to describe the powerful psychic entity known as RusDio.
+
+Originally an elite Imperial Jannisary. When escorting the local Stellarch, RusDio’s entourage was attacked by an experimental quantum weapon deployed by a Deserter group. The antigrain weaponry carried by RusDio reacted with the quantum entanglement used by the Deserters, and shunted RusDio out of their original timeline to a parallel reality. 
+
+Unfortunately for him, his new maligned quantum signature caught the attention of the Archotech overseer of this new reality, and removed him from reality to bring stability back to the timeline. </description>
+    <descriptionShort>A powerful time-dilated soldier xenotype that can avoid some of the consequences of time, whilst suffering greater effects of entropy from radiation and temperature.</descriptionShort>
+    <iconPath>UI/Icons/Xenotypes/Custom/Grunter_2</iconPath>
+    <inheritable>true</inheritable>
+    <genes>
+      <li MayRequire="ebsg.archite">EBSG_MajorArchiteEnhancedBiosculptingSpeed</li>
+      <li>Ageless</li>
+      <li MayRequire="ebsg.archite">EBSG_ArchiteSpeed</li>
+      <li>MinTemp_SmallIncrease</li>
+      <li MayRequire="morebiotechstylegenes.mod">ToxResist_Weakness</li>
+      <li MayRequire="ebsg.archite">EBSG_MinorArchiteMeleeDamage</li>
+      <li MayRequire="ebsg.archite">EBSG_ArchiteEnhancedShooter</li>
+      <li MayRequire="ebsg.archite">EBSG_ArchiteNeverSleep</li>
+      <li MayRequire="neronix17.outland.genetics">Outland_Eye_Lime</li>
+      <li MayRequire="neronix17.outland.genetics">Outland_DestinyMarks</li>
+      <li MayRequire="neronix17.outland.genetics">Outland_Evasive</li>
+      <li MayRequire="neronix17.outland.genetics">Outland_UnusualSpeech</li>
+      <li MayRequire="ebsg.archite">MBSG_MinorArchite_Shooting</li>
+      <li MayRequire="ebsg.archite">MBSG_MinorArchite_Melee</li>
+      <li MayRequire="sarg.alphagenes">AlphaGenes_ExoticOrganism</li>
+    </genes>
+  </XenotypeDef>
+
+  <!-- Leaper -->
+
+  <XenotypeDef>
+    <defName>MSSV_TheThief</defName>
+    <label>The Thief</label>
+    <description>"The Thief" is the name given to the Leaper abomination that killed a powerful Archobeing and somehow incorporated its archoimmortality into its genetic makeup. The other Archobeings were so disgusted by the mutant that they banished it from the known universe into the void.</description>
+    <descriptionShort>A titanic bioweapon designed to mindlessly destroy any target.</descriptionShort>
+    <iconPath>UI/Icons/Xenotypes/Custom/VBE_CustomXenotypeIcon31</iconPath>
+    <inheritable>true</inheritable>
+    <genes>
+      <li MayRequire="redmattis.bigsmall.core">BS_Fast_TotalHealing</li>
+      <li MayRequire="mss.flavourpack">MSS_VoidsEmbrace</li>
+      <li MayRequire="ri.rimimmortal.exorcism">Nzflm_Ev_RippingClaws</li>
+      <li MayRequire="redmattis.bigsmall.core">JotunFrame</li>
+      <li MayRequire="redmattis.bigsmall.core">BS_CannotWearClothingOrArmor</li>
+      <li MayRequire="biotexpans.insect">BTEIst_RapidEater</li>
+      <li MayRequire="neronix17.outland.genetics">Outland_LeaperLegs</li>
+      <li MayRequire="stocksounds.anomalygenes">ReeseGenes_Terror</li>
+      <li MayRequire="sarg.alphagenes">AG_TarBlood</li>
+      <li MayRequire="sarg.alphagenes">AG_EfficientMandibles</li>
+      <li>MoveSpeed_Quick</li>
+      <li MayRequire="redmattis.bigsmall.core">BS_NoEquip</li>
+      <li MayRequire="redmattis.bigsmall.core">BS_Bloodlust</li>
+      <li>MeleeDamage_Strong</li>
+      <li MayRequire="ebsg.aio">EBSG_VoidBorn</li>
+      <li MayRequire="milkman.biotechcosmeticgenesmm">MM_GreatSplitHalo</li>
+      <li MayRequire="sarg.alphagenes">AG_EldritchVisage</li>
+      <li MayRequire="ebsg.aio">EBSG_HyperTerrifying</li>
+      <li>Hair_BaldOnly</li>
+      <li>Beard_NoBeardOnly</li>
+      <li MayRequire="mss.flavourpack">MSS_LeaperHead</li>
+      <li MayRequire="mss.flavourpack">MSS_LeaperBody</li>
+      <li MayRequire="sarg.alphagenes">AlphaGenes_ExoticOrganism</li>
+      <li MayRequire="rimsenal.zohar">Gene_Psychopath</li>
+      <li MayRequire="morebiotechstylegenes.mod">AptitudeInept_Shooting</li>
+      <li MayRequire="morebiotechstylegenes.mod">AptitudeInstinctive_Melee</li>
+      <li MayRequire="morebiotechstylegenes.mod">AptitudeInept_Animals</li>
+      <li MayRequire="morebiotechstylegenes.mod">AptitudeInept_Crafting</li>
+      <li MayRequire="morebiotechstylegenes.mod">AptitudeInept_Artistic</li>
+      <li MayRequire="morebiotechstylegenes.mod">AptitudeInept_Medicine</li>
+      <li MayRequire="morebiotechstylegenes.mod">AptitudeInept_Social</li>
+      <li MayRequire="morebiotechstylegenes.mod">AptitudeInept_Intellectual</li>
+      <li MayRequire="hautarche.hautstraits">HVT_HerculeanGene</li>
+      <li MayRequire="redmattis.betterprerequisites">BS_FacialAnimDisabled</li>
+      <li MayRequire="mss.flavourpack">MSSV_LeaperTongue</li>
+      <li>Body_Thin</li>
+    </genes>
+  </XenotypeDef>
+
+</Defs>
