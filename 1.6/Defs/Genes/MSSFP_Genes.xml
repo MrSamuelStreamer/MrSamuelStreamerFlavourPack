@@ -166,8 +166,7 @@
             </suffixSymbols>
         </symbolPack>
     </GeneDef>
-
-<<<<<<< Updated upstream
+    
     <AbilityDef ParentName="AbilityTouchBase">
         <defName>MSSFP_IntegratorReimplantXenogerm</defName>
         <label>integrate genes</label>
@@ -334,6 +333,4 @@
 			</li>
 		</modExtensions>
 	</GeneDef>
-
->>>>>>> Stashed changes
 </Defs>
