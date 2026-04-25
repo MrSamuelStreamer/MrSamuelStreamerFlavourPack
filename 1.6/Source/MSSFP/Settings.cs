@@ -79,6 +79,11 @@ public class Settings : ModSettings
     public bool EnableTemplateWandererJoin = false;
     public float TemplateWandererJoinChanceMultiplier = 1.0f;
 
+    // Golden Cube Implant (Anomaly DLC)
+    public bool EnableGoldenCubeImplant = true;
+    public float GoldenCubeImplantRaidChance = 0.005f;
+    public float GoldenCubeTransferChance = 0.5f;
+
     // Fields for optional assembly tabs — these MUST live here (not on the tab)
     // so they survive save/load cycles when the optional assembly is removed.
     public bool GeneratorEnableFasterUpgrades = false;
@@ -239,6 +244,10 @@ public class Settings : ModSettings
         Scribe_Values.Look(ref ShowElevationOverlay, "ShowElevationOverlay", false);
         Scribe_Values.Look(ref BreakdownMTBDays, "BreakdownMTBDays", BreakdownMTBDaysDefault);
         Scribe_Collections.Look(ref MonitoredSpeeds, "MonitoredSpeeds", LookMode.Value);
+
+        Scribe_Values.Look(ref EnableGoldenCubeImplant, "EnableGoldenCubeImplant", true);
+        Scribe_Values.Look(ref GoldenCubeImplantRaidChance, "GoldenCubeImplantRaidChance", 0.005f);
+        Scribe_Values.Look(ref GoldenCubeTransferChance, "GoldenCubeTransferChance", 0.5f);
 
         // Optional assembly tab fields — saved here so they persist when the assembly is removed
         Scribe_Values.Look(ref GeneratorEnableFasterUpgrades, "GeneratorEnableFasterUpgrades", false);

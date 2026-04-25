@@ -189,4 +189,12 @@
     <MSS_FP_Settings_UserTemplateCount>User templates loaded: {0}</MSS_FP_Settings_UserTemplateCount>
     <MSS_FP_Settings_ReloadUserTemplates>Reload user templates</MSS_FP_Settings_ReloadUserTemplates>
     <MSS_FP_Settings_UserTemplatesReloaded>Reloaded user templates: {0} loaded.</MSS_FP_Settings_UserTemplatesReloaded>
+
+    <!-- Golden Cube Implant -->
+    <MSSFP_Settings_GoldenCube_RequiresAnomaly>The Golden Cube Implant feature requires the Anomaly DLC. Enable Anomaly to configure this section.</MSSFP_Settings_GoldenCube_RequiresAnomaly>
+    <MSSFP_Settings_EnableGoldenCubeImplant>Enable Golden Cube Implant on raiders</MSSFP_Settings_EnableGoldenCubeImplant>
+    <MSSFP_Settings_GoldenCubeImplantRaidChance>Implant chance per raider: {0}</MSSFP_Settings_GoldenCubeImplantRaidChance>
+    <MSSFP_Settings_GoldenCubeTransferChance>Transfer-on-kill chance: {0}</MSSFP_Settings_GoldenCubeTransferChance>
+    <MSSFP_GoldenCubeOuch_Msg>Ouch!</MSSFP_GoldenCubeOuch_Msg>
+    <MSSFP_GoldenCubeExtracted_Msg>A golden cube was extracted from {0}.</MSSFP_GoldenCubeExtracted_Msg>
 </LanguageData>

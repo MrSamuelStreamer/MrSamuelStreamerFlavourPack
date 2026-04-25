@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <HediffDef MayRequire="Ludeon.RimWorld.Anomaly">
+        <defName>MSSFP_GoldenCubeImplant</defName>
+        <label>transrectal aurogeometric cubic inclusion syndrome</label>
+        <labelNoun>transrectal aurogeometric cubic inclusion syndrome</labelNoun>
+        <description>Patient presents with a small, perfectly machined golden cube embedded within the torsal cavity. Object exerts the same compulsive fascination as a free-standing cube — bystanders report feeling drawn to it. No surgical entry wound, scar, or trauma consistent with implantation. Etiology unknown. Surgical extraction recovers the cube intact.</description>
+        <hediffClass>HediffWithComps</hediffClass>
+        <defaultLabelColor>(0.95, 0.78, 0.15)</defaultLabelColor>
+        <isBad>false</isBad>
+        <initialSeverity>1</initialSeverity>
+        <maxSeverity>1</maxSeverity>
+        <minSeverity>0</minSeverity>
+        <makesSickThought>false</makesSickThought>
+        <tendable>false</tendable>
+        <everCurableByItem>false</everCurableByItem>
+        <scenarioCanAdd>false</scenarioCanAdd>
+        <comps>
+            <li Class="MSSFP.Hediffs.HediffCompProperties_CubeImplant">
+                <tickInterval>2500</tickInterval>
+                <mtbDaysAddInterest>1.0</mtbDaysAddInterest>
+            </li>
+        </comps>
+    </HediffDef>
+
+    <RecipeDef MayRequire="Ludeon.RimWorld.Anomaly" ParentName="SurgeryRemoveImplantBase">
+        <defName>MSSFP_RemoveGoldenCubeImplant</defName>
+        <label>extract golden cube</label>
+        <description>Surgically extract a lodged golden cube. Recovers a usable cube. Doctor's skill governs success the same as any implant removal.</description>
+        <jobString>Extracting golden cube.</jobString>
+        <workerClass>MSSFP.Recipes.Recipe_RemoveGoldenCubeImplant</workerClass>
+        <removesHediff>MSSFP_GoldenCubeImplant</removesHediff>
+        <descriptionHyperlinks>
+            <ThingDef>GoldenCube</ThingDef>
+            <HediffDef>MSSFP_GoldenCubeImplant</HediffDef>
+        </descriptionHyperlinks>
+    </RecipeDef>
+
+</Defs>

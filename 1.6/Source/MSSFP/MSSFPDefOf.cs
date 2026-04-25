@@ -88,6 +88,12 @@ public static class MSSFPDefOf
     public static readonly ThoughtDef MSS_FP_Event_EerieSound;
     public static readonly ThoughtDef MSS_FP_Event_WitnessedApparition;
 
+    // Golden Cube Implant (Anomaly DLC only)
+    [MayRequire("Ludeon.RimWorld.Anomaly")]
+    public static readonly HediffDef MSSFP_GoldenCubeImplant;
+    [MayRequire("Ludeon.RimWorld.Anomaly")]
+    public static readonly RecipeDef MSSFP_RemoveGoldenCubeImplant;
+
     // Haunt interaction thoughts
     public static readonly ThoughtDef MSS_FP_HauntInteraction_GhostsAtWar;
     public static readonly ThoughtDef MSS_FP_HauntInteraction_GhostAmused;
