@@ -527,6 +527,9 @@ public class HediffComp_Haunt : HediffComp
 
     public override void Notify_Spawned()
     {
+        // Reset wander anchor so the ghost initialises at the pawn's new spawn
+        // position rather than sliding in from stale coordinates on the old map.
+        ghostInitialized = false;
         TryAddMemory();
         HauntsCache.RebuildCacheForPawn(Pawn);
     }

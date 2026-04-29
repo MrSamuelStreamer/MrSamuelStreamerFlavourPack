@@ -42,7 +42,7 @@
                     <li>(0.5, 1.1, -0.35)</li> <!-- West -->
                 </offsets>
                 <onlyRenderWhenDrafted>false</onlyRenderWhenDrafted>
-                <enableWander>false</enableWander>
+                <enableWander>true</enableWander>
             </li>
             <!-- Severity is managed by HediffComp_DynamicHaunt — no SeverityPerDay -->
             <li Class="MSSFP.Hediffs.HediffCompProperties_DynamicHaunt" />
