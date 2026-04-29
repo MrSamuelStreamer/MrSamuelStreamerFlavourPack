@@ -21,6 +21,15 @@ public class HediffComp_Haunt : HediffComp
     public SkillDef skillToBoost = null;
     public int SkillBoostLevel = 0;
 
+    /// <summary>
+    /// Integer backup of the spirit pawn's thingIDNumber, saved alongside the
+    /// Scribe_References entry. Allows recovery when the cross-reference fails
+    /// to resolve (e.g. haunted pawn is in a caravan while spirit is on the home
+    /// map). -1 means no backup recorded.
+    /// </summary>
+    private int _spiritIdBackup = -1;
+    public int SpiritIdBackup => _spiritIdBackup;
+
     public virtual string PawnName => name;
 
     public int OnUntilTick = -1;
@@ -155,6 +164,10 @@ public class HediffComp_Haunt : HediffComp
         if (Props.CanTransferInProximity && NextProxCheck < Find.TickManager.TicksGame)
         {
             NextProxCheck = Find.TickManager.TicksGame + Props.ProximityTransferCheckTicks;
+
+            // Pawn is in a caravan or world — no map to search for nearby pawns.
+            if (parent.pawn.Map == null)
+                return;
 
             if (!Rand.Chance(Props.ProximityTransferChancePerCheck))
                 return;
@@ -463,12 +476,17 @@ public class HediffComp_Haunt : HediffComp
     {
         base.CompExposeData();
 
+        // Record int backup before saving so it's available as a fallback on load.
+        if (Scribe.mode == LoadSaveMode.Saving && pawnToDraw != null)
+            _spiritIdBackup = pawnToDraw.thingIDNumber;
+
         Scribe_References.Look(ref pawnToDraw, "pawnToDraw");
         Scribe_Values.Look(ref texPath, "texPath");
         Scribe_Values.Look(ref name, "name");
         Scribe_Values.Look(ref OnUntilTick, "OnUntilTick");
         Scribe_Values.Look(ref OffUntilTick, "OffUntilTick");
         Scribe_Values.Look(ref NextProxCheck, "NextProxCheck");
+        Scribe_Values.Look(ref _spiritIdBackup, "spiritIdBackup", -1);
 
         Scribe_Defs.Look(ref skillToBoost, "skillToBoost");
         Scribe_Values.Look(ref SkillBoostLevel, "SkillBoostLevel", 0);

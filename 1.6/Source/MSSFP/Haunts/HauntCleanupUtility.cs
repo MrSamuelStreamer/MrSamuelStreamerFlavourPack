@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using MSSFP.Hediffs;
+using RimWorld;
 using RimWorld.Planet;
 using Verse;
 
@@ -39,6 +40,66 @@ public static class HauntCleanupUtility
         // RemoveHediff triggers CompPostPostRemoved → cache cleanup, thought removal,
         // skill boost rebuild. No manual cleanup needed.
         hauntedPawn.health.RemoveHediff(hediff);
+    }
+
+    /// <summary>
+    /// Scans HauntsCache for haunt comps where pawnToDraw is null (cross-reference
+    /// failed on load, e.g. haunted pawn was in a caravan while spirit was on the
+    /// home map). Attempts recovery via the integer backup ID saved alongside the
+    /// reference. Orphans that cannot be recovered are removed cleanly.
+    /// Called once on game load, before DeduplicateHaunts.
+    /// </summary>
+    public static void RecoverOrphanedHaunts()
+    {
+        // Build a lookup of spirit thingIDNumber → Pawn from all current graves.
+        var spiritById = new Dictionary<int, Pawn>();
+        foreach (Map map in Find.Maps)
+        {
+            foreach (Building_Grave grave in map.listerBuildings.AllBuildingsColonistOfClass<Building_Grave>())
+            {
+                Pawn spirit = grave.Corpse?.InnerPawn;
+                if (spirit != null)
+                    spiritById[spirit.thingIDNumber] = spirit;
+            }
+        }
+
+        // Snapshot orphaned comps from the cache — avoids mutating while iterating.
+        List<HediffComp_Haunt> orphans = HauntsCache.Haunts
+            .Values
+            .SelectMany(list => list)
+            .Where(comp => comp.pawnToDraw == null)
+            .ToList();
+
+        int recovered = 0;
+        int removed = 0;
+
+        foreach (HediffComp_Haunt comp in orphans)
+        {
+            Pawn owner = comp.parent?.pawn;
+            if (owner == null)
+                continue;
+
+            if (comp.SpiritIdBackup >= 0 && spiritById.TryGetValue(comp.SpiritIdBackup, out Pawn spirit))
+            {
+                // Reference recovery succeeded — wire up and update reverse cache.
+                comp.pawnToDraw = spirit;
+                HauntsCache.SpiritToHaunt[spirit.thingIDNumber] = comp;
+                recovered++;
+            }
+            else
+            {
+                // Spirit no longer exists or never had a backup ID — remove the orphan.
+                // Dead/unspawned pawns can't safely go through RemoveHediff lifecycle.
+                if (!owner.Dead)
+                    owner.health.RemoveHediff(comp.parent);
+                else
+                    HauntsCache.RemoveHaunt(owner.thingIDNumber, comp);
+                removed++;
+            }
+        }
+
+        if (recovered > 0 || removed > 0)
+            Log.Message($"[MSSFP] Haunt recovery: {recovered} recovered, {removed} orphaned haunt(s) removed.");
     }
 
     /// <summary>

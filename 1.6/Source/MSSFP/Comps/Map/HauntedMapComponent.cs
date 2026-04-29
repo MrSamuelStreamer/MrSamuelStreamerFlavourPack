@@ -75,8 +75,24 @@ public class HauntedMapComponent(Verse.Map map) : MapComponent(map)
             return;
 
         // One spirit can only haunt one living pawn at a time.
+        // If the haunted pawn has left this map (caravan, world), remove the old haunt
+        // and fall through to assign a new target.
         if (IsAlreadyHaunting(spirit))
-            return;
+        {
+            HediffComp_Haunt existingComp = HauntsCache.GetHauntForSpirit(spirit.thingIDNumber);
+            Pawn hauntedPawn = existingComp?.parent?.pawn;
+            if (hauntedPawn?.MapHeld == map)
+                return; // Still here — don't reassign.
+
+            // Pawn left the map or reference is stale — clean up, then reassign.
+            if (existingComp?.parent != null)
+            {
+                if (hauntedPawn is { Dead: false })
+                    hauntedPawn.health.RemoveHediff(existingComp.parent);
+                else if (hauntedPawn != null)
+                    HauntsCache.RemoveHaunt(hauntedPawn.thingIDNumber, existingComp);
+            }
+        }
 
         Hediff hediff = pawn.health.AddHediff(MSSFPDefOf.MSS_FP_PawnDisplayer);
         hediff.Severity = 0.05f;

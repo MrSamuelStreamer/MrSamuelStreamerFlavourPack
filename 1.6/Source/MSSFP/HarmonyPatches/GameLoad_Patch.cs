@@ -28,6 +28,7 @@ public static class GameLoad_Patch
     public static void FinalizeInit_Postfix()
     {
         PawnGraphicUtils.CleanupOrphanedTextures();
+        HauntCleanupUtility.RecoverOrphanedHaunts();
         HauntCleanupUtility.DeduplicateHaunts();
     }
 }
