@@ -63,6 +63,10 @@ public static class MSSFPDefOf
     public static readonly ThingDef MSS_FP_Balloon;
     public static readonly ThingDef MSS_FP_PawnFlyer_Balloon;
 
+    // Sun Tower
+    public static readonly ThingDef MSSFP_SunTower;
+    public static readonly GameConditionDef MSSFP_SunTowerLight;
+
     public static readonly JobDef MSSFP_ExtractTarget;
 
     public static readonly JobDef MSSFP_SkipPunchAndLeave;

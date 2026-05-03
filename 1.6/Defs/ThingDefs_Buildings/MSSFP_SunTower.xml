@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Defs>
+    <ThingDef ParentName="BuildingBase">
+        <defName>MSSFP_SunTower</defName>
+        <label>sun tower</label>
+        <description>A massive industrial light pylon that floods the entire outdoor map with sunlight-equivalent brightness. Plants grow as if it were day, even at dusk. Consumes a staggering amount of power and pushes significant heat into its surroundings. Cannot be built under a roof; roofing it later disables the light. Automatically idles overnight to let plants rest.</description>
+        <thingClass>MSSFP.Buildings.Building_SunTower</thingClass>
+        <category>Building</category>
+        <graphicData>
+            <texPath>Things/Building/MSS_SunTower</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(3,6)</drawSize>
+        </graphicData>
+        <altitudeLayer>Building</altitudeLayer>
+        <passability>Impassable</passability>
+        <blockWind>true</blockWind>
+        <blockLight>true</blockLight>
+        <fillPercent>1.0</fillPercent>
+        <coversFloor>true</coversFloor>
+        <castEdgeShadows>true</castEdgeShadows>
+        <holdsRoof>false</holdsRoof>
+        <staticSunShadowHeight>1.0</staticSunShadowHeight>
+        <rotatable>false</rotatable>
+        <selectable>true</selectable>
+        <size>(3,6)</size>
+        <tickerType>Rare</tickerType>
+        <designationCategory>Production</designationCategory>
+        <designationHotKey>Misc1</designationHotKey>
+        <constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+        <statBases>
+            <MaxHitPoints>500</MaxHitPoints>
+            <WorkToBuild>18000</WorkToBuild>
+            <Flammability>0.5</Flammability>
+            <Beauty>-30</Beauty>
+            <Mass>120</Mass>
+        </statBases>
+        <costList>
+            <Steel>400</Steel>
+            <Plasteel>100</Plasteel>
+            <ComponentIndustrial>8</ComponentIndustrial>
+            <ComponentSpacer>2</ComponentSpacer>
+        </costList>
+        <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+        <placeWorkers>
+            <li>PlaceWorker_NotUnderRoof</li>
+        </placeWorkers>
+        <researchPrerequisites>
+            <li>MicroelectronicsBasics</li>
+        </researchPrerequisites>
+        <comps>
+            <li Class="CompProperties_Power">
+                <compClass>CompPowerTrader</compClass>
+                <basePowerConsumption>24000</basePowerConsumption>
+                <shortCircuitInRain>false</shortCircuitInRain>
+            </li>
+            <li Class="CompProperties_Flickable" />
+            <li Class="CompProperties_Breakdownable" />
+            <li Class="CompProperties_HeatPusher">
+                <compClass>CompHeatPusherPowered</compClass>
+                <heatPerSecond>10</heatPerSecond>
+            </li>
+            <li Class="CompProperties_Schedule">
+                <!-- Match vanilla SunLamp plant-growth window so plants get a rest cycle. -->
+                <startTime>0.25</startTime>
+                <endTime>0.8</endTime>
+                <offMessage>Off for plant resting period</offMessage>
+            </li>
+        </comps>
+        <building>
+            <ai_chillDestination>false</ai_chillDestination>
+        </building>
+        <uiIconPath>Things/Building/MSS_SunTower</uiIconPath>
+        <uiIconScale>0.85</uiIconScale>
+    </ThingDef>
+</Defs>
