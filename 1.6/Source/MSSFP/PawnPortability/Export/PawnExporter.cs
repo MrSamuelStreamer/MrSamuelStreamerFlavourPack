@@ -44,7 +44,7 @@ namespace MSSFP.PawnPortability.Export
     /// </summary>
     internal static class PawnExporter
     {
-        private const string CorePackageId = "Ludeon.RimWorld";
+        private const string CorePackageId = ModContentPack.CoreModPackageId;
         private static readonly Regex SafeDefNameChars = new Regex("[^a-zA-Z0-9_-]");
 
         public static bool Export(Pawn pawn, string filePath, PawnTemplateMode mode,
@@ -81,12 +81,12 @@ namespace MSSFP.PawnPortability.Export
         {
             if (pawn == null) return new List<RequiredModInfo>();
 
-            var packageIds = new HashSet<string>();
+            var packageIds = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
 
             void Collect(Def def)
             {
                 string pid = GetPackageId(def);
-                if (pid != null && !string.Equals(pid, CorePackageId, StringComparison.OrdinalIgnoreCase))
+                if (pid != null && !IsCore(pid))
                     packageIds.Add(pid);
             }
 
@@ -157,7 +157,7 @@ namespace MSSFP.PawnPortability.Export
                 .Select(pid =>
                 {
                     ModContentPack mcp = LoadedModManager.RunningMods
-                        .FirstOrDefault(m => m.PackageId == pid);
+                        .FirstOrDefault(m => string.Equals(m.PackageId, pid, StringComparison.OrdinalIgnoreCase));
                     return new RequiredModInfo(pid, mcp?.Name ?? pid);
                 })
                 .ToList();
@@ -183,7 +183,7 @@ namespace MSSFP.PawnPortability.Export
             try
             {
                 bool logging = PawnPortabilitySettings.LoggingEnabled;
-                var collectedPackageIds = new HashSet<string>();
+                var collectedPackageIds = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
 
                 XmlDocument doc = new XmlDocument();
                 XmlDeclaration declaration = doc.CreateXmlDeclaration("1.0", "utf-8", null);
@@ -531,7 +531,7 @@ namespace MSSFP.PawnPortability.Export
             HashSet<string> packageIds)
         {
             // Remove core — it's always present
-            packageIds.Remove(CorePackageId);
+            packageIds.RemoveWhere(IsCore);
             if (packageIds.Count == 0) return;
 
             XmlElement modsEl = doc.CreateElement(PawnTemplateXmlTags.RequiredMods);
@@ -542,7 +542,7 @@ namespace MSSFP.PawnPortability.Export
 
                 // Try to find a human-readable name
                 ModContentPack mcp = LoadedModManager.RunningMods
-                    .FirstOrDefault(m => m.PackageId == pid);
+                    .FirstOrDefault(m => string.Equals(m.PackageId, pid, StringComparison.OrdinalIgnoreCase));
                 AppendElement(doc, li, "name", mcp?.Name ?? pid);
 
                 modsEl.AppendChild(li);
@@ -570,7 +570,7 @@ namespace MSSFP.PawnPortability.Export
             el.InnerText = def.defName;
 
             string packageId = GetPackageId(def);
-            if (packageId != null && packageId != CorePackageId)
+            if (packageId != null && !IsCore(packageId))
             {
                 el.SetAttribute(PawnTemplateXmlTags.MayRequire, packageId);
                 packageIds.Add(packageId);
@@ -586,7 +586,7 @@ namespace MSSFP.PawnPortability.Export
             li.InnerText = def.defName;
 
             string packageId = GetPackageId(def);
-            if (packageId != null && packageId != CorePackageId)
+            if (packageId != null && !IsCore(packageId))
             {
                 li.SetAttribute(PawnTemplateXmlTags.MayRequire, packageId);
                 packageIds.Add(packageId);
@@ -603,11 +603,16 @@ namespace MSSFP.PawnPortability.Export
         private static void SetMayRequireOnLi(XmlElement li, Def def, HashSet<string> packageIds)
         {
             string packageId = GetPackageId(def);
-            if (packageId != null && packageId != CorePackageId)
+            if (packageId != null && !IsCore(packageId))
             {
                 li.SetAttribute(PawnTemplateXmlTags.MayRequire, packageId);
                 packageIds.Add(packageId);
             }
+        }
+
+        private static bool IsCore(string packageId)
+        {
+            return string.Equals(packageId, CorePackageId, StringComparison.OrdinalIgnoreCase);
         }
 
         private static string GetPackageId(Def def)
