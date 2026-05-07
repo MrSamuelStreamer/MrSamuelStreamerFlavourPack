@@ -71,6 +71,10 @@ public static class MSSFPDefOf
 
     public static readonly JobDef MSSFP_SkipPunchAndLeave;
 
+    // True AI Core
+    public static readonly JobDef MSSFP_HaulToAICore;
+    public static readonly LetterDef MSSFP_AICoreAlert;
+
     // Haunt archetypes
     public static readonly HauntArchetypeDef MSS_FP_Archetype_Aggressive;
     public static readonly HauntArchetypeDef MSS_FP_Archetype_Trickster;

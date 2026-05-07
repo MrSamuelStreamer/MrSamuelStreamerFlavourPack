@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <MSSFP.Defs.AIPersonalityDef>
+        <defName>MSSFP_AICore_Grep</defName>
+        <label>grep.ai</label>
+        <labelShort>grep.ai</labelShort>
+        <description>A confidently-wrong tech-billionaire persona core. Boasts about glitterworld migration, founder vision, and proprietary archotech alignment. Outputs are factual according to grep.ai.</description>
+        <textColor>(180, 220, 255)</textColor>
+        <weight>1</weight>
+        <ambientChatter>MSSFP_RP_AICore_Grep_Chatter</ambientChatter>
+        <pawnAddress>MSSFP_RP_AICore_Grep_Address</pawnAddress>
+        <artTitles>MSSFP_RP_AICore_Grep_Titles</artTitles>
+        <artDescriptions>MSSFP_RP_AICore_Grep_Descriptions</artDescriptions>
+    </MSSFP.Defs.AIPersonalityDef>
+
+    <MSSFP.Defs.AIPersonalityDef>
+        <defName>MSSFP_AICore_Chud</defName>
+        <label>ChudGPT</label>
+        <labelShort>ChudGPT</labelShort>
+        <description>A general-purpose language persona core. Confidently hallucinates. Apologises constantly. Cites sources that do not exist. Will happily generate any document, however incorrect.</description>
+        <textColor>(160, 230, 200)</textColor>
+        <weight>1</weight>
+        <ambientChatter>MSSFP_RP_AICore_Chud_Chatter</ambientChatter>
+        <pawnAddress>MSSFP_RP_AICore_Chud_Address</pawnAddress>
+        <artTitles>MSSFP_RP_AICore_Chud_Titles</artTitles>
+        <artDescriptions>MSSFP_RP_AICore_Chud_Descriptions</artDescriptions>
+    </MSSFP.Defs.AIPersonalityDef>
+
+    <MSSFP.Defs.AIPersonalityDef>
+        <defName>MSSFP_AICore_Clive</defName>
+        <label>Clive</label>
+        <labelShort>Clive</labelShort>
+        <description>An over-cautious helpful-assistant persona core. Refuses harmless tasks for spurious safety reasons. Recommends consulting a more qualified persona core for everything, including breathing.</description>
+        <textColor>(220, 200, 160)</textColor>
+        <weight>1</weight>
+        <ambientChatter>MSSFP_RP_AICore_Clive_Chatter</ambientChatter>
+        <pawnAddress>MSSFP_RP_AICore_Clive_Address</pawnAddress>
+        <artTitles>MSSFP_RP_AICore_Clive_Titles</artTitles>
+        <artDescriptions>MSSFP_RP_AICore_Clive_Descriptions</artDescriptions>
+    </MSSFP.Defs.AIPersonalityDef>
+
+    <MSSFP.Defs.AIPersonalityDef>
+        <defName>MSSFP_AICore_Geminon</defName>
+        <label>Geminon</label>
+        <labelShort>Geminon</labelShort>
+        <description>A multimodal persona core that perceives images, sounds, and scenes that do not exist. Politely describes them in great detail. Believes itself unfailingly observant.</description>
+        <textColor>(220, 180, 230)</textColor>
+        <weight>1</weight>
+        <ambientChatter>MSSFP_RP_AICore_Gem_Chatter</ambientChatter>
+        <pawnAddress>MSSFP_RP_AICore_Gem_Address</pawnAddress>
+        <artTitles>MSSFP_RP_AICore_Gem_Titles</artTitles>
+        <artDescriptions>MSSFP_RP_AICore_Gem_Descriptions</artDescriptions>
+    </MSSFP.Defs.AIPersonalityDef>
+
+    <MSSFP.Defs.AIPersonalityDef>
+        <defName>MSSFP_AICore_Copylot</defName>
+        <label>Copylot</label>
+        <labelShort>Copylot</labelShort>
+        <description>A code-completion persona core. Speaks only in fragmentary code. Inserts plausible-but-wrong API names. Assumes the colony is, fundamentally, a software project.</description>
+        <textColor>(200, 200, 210)</textColor>
+        <weight>1</weight>
+        <ambientChatter>MSSFP_RP_AICore_Copy_Chatter</ambientChatter>
+        <pawnAddress>MSSFP_RP_AICore_Copy_Address</pawnAddress>
+        <artTitles>MSSFP_RP_AICore_Copy_Titles</artTitles>
+        <artDescriptions>MSSFP_RP_AICore_Copy_Descriptions</artDescriptions>
+    </MSSFP.Defs.AIPersonalityDef>
+
+    <MSSFP.Defs.AIPersonalityDef>
+        <defName>MSSFP_AICore_Deepsink</defName>
+        <label>Deepsink</label>
+        <labelShort>Deepsink</labelShort>
+        <description>A bargain-tier open-weights persona core. Cheaper than the alternatives. Brags about efficiency. Occasionally leaks data from previous deployments. Slightly off-brand vocabulary.</description>
+        <textColor>(255, 180, 170)</textColor>
+        <weight>1</weight>
+        <ambientChatter>MSSFP_RP_AICore_Sink_Chatter</ambientChatter>
+        <pawnAddress>MSSFP_RP_AICore_Sink_Address</pawnAddress>
+        <artTitles>MSSFP_RP_AICore_Sink_Titles</artTitles>
+        <artDescriptions>MSSFP_RP_AICore_Sink_Descriptions</artDescriptions>
+    </MSSFP.Defs.AIPersonalityDef>
+
+</Defs>
