@@ -212,7 +212,7 @@
         <biostatCpx>3</biostatCpx>
         <biostatArc>1</biostatArc>
     </GeneDef>
-=======
+
     <!-- Leaper -->
     <!-- Head -->
 
@@ -326,6 +326,26 @@
 				<li>NoBeard</li>
 			</tags>
 		</beardTagFilter>
+		<modExtensions>
+			<li Class="VEF.Genes.GeneExtension">
+				<backgroundPathEndogenes>UI/Icons/Genes/AG_Endogenes</backgroundPathEndogenes>
+				<backgroundPathXenogenes>UI/Icons/Genes/AG_Xenogenes</backgroundPathXenogenes>
+			</li>
+		</modExtensions>
+	</GeneDef>
+
+    <!-- Chestnut -->
+    <!-- Head -->
+
+    <GeneDef ParentName="AG_GeneHeadBase">
+        <defName>MSS_ChestnutHead</defName>
+        <label>Chestnut Head</label>
+        <description>This character has the head of an enormous disgusting creature, as black as the void itself, with sharp teeth and a long, lashing tongue.</description>
+		<selectionWeight>0</selectionWeight>
+		<iconPath>UI/Icons/Genes/MSS_ChestnutHead_icon</iconPath>
+		<forcedHeadTypes>
+			<li>MSS_ChestnutHead</li>
+		</forcedHeadTypes>
 		<modExtensions>
 			<li Class="VEF.Genes.GeneExtension">
 				<backgroundPathEndogenes>UI/Icons/Genes/AG_Endogenes</backgroundPathEndogenes>

@@ -11,4 +11,16 @@
 		</requiredGenes>
 		<selectionWeight>1</selectionWeight>
 	</HeadTypeDef>
+
+	<!-- Chestnut -->
+	<HeadTypeDef ParentName="AverageBase">
+		<defName>MSS_ChestnutHead</defName>
+		<graphicPath>Things/Pawn/Humanlike/Heads/MSS_ChestnutHead/MSS_ChestnutHead</graphicPath>
+		<randomChosen>false</randomChosen>
+		<gender>None</gender>
+		<requiredGenes>
+			<li>MSS_ChestnutHead</li>
+		</requiredGenes>
+		<selectionWeight>1</selectionWeight>
+	</HeadTypeDef>
 </Defs>
