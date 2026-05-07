@@ -23,6 +23,7 @@
     <MSSFP_RGSettingsCategory>Mr Samuel Streamer Flavour Pack - Resource Generator</MSSFP_RGSettingsCategory>
     <MSS_FP_Settings_ShowHaunts>Show Haunts</MSS_FP_Settings_ShowHaunts>
     <MSS_FP_Settings_NoSkylanternRaids>Disable skylantern raids</MSS_FP_Settings_NoSkylanternRaids>
+    <MSS_FP_Settings_EnableIEDPodRaids>Enable IED pod scatter raids</MSS_FP_Settings_EnableIEDPodRaids>
 
     <MSS_FP_GeneEventChance>Gene Event Chance</MSS_FP_GeneEventChance>
     <MSS_FP_GeneEventChance_Tooltop>The chance for gene selections to appear on e.g. growth moments</MSS_FP_GeneEventChance_Tooltop>

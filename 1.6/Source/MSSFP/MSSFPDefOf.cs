@@ -21,6 +21,10 @@ public static class MSSFPDefOf
 
     public static readonly IncidentDef MSSFP_RaidEnemy_Skylantern;
 
+    // IED Pod Raid
+    public static readonly IncidentDef MSSFP_RaidEnemy_IEDPods;
+    public static readonly ThingDef MSSFP_IEDPodDeployer;
+
     public static readonly HediffDef Burn;
 
     public static readonly GeneDef MSS_VoidsEmbrace;

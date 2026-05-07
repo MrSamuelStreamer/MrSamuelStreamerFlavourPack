@@ -76,6 +76,13 @@ public class MemesSettingsTab(ModSettings settings, Mod mod) : SettingsTab(setti
         );
         Settings.EnableSkylanternRaids = !disableSkylanternRaids;
 
+        DrawCheckBox(
+            options,
+            "MSS_FP_Settings_EnableIEDPodRaids".Translate(),
+            ref Settings.EnableIEDPodRaids,
+            ref scrollViewHeight
+        );
+
         DrawIntAdjuster(
             options,
             "MSS_FP_Settings_DaysForFission".Translate(Settings.DaysForFission),
@@ -134,6 +141,7 @@ public class MemesSettingsTab(ModSettings settings, Mod mod) : SettingsTab(setti
         Scribe_Values.Look(ref Settings.SingleUseMentalFuses, "SingleUseMentalFuses", false);
         Scribe_Values.Look(ref Settings.EnableTrekBeamers, "EnableTrekBeamers", true);
         Scribe_Values.Look(ref Settings.EnableSkylanternRaids, "EnableSkylanternRaids", false);
+        Scribe_Values.Look(ref Settings.EnableIEDPodRaids, "EnableIEDPodRaids", true);
         Scribe_Values.Look(ref Settings.EnableMercenaryHiring, "EnableMercenaryHiring", true);
         Scribe_Values.Look(ref Settings.DaysForFission, "DaysForFission", 7);
         Scribe_Values.Look(ref Settings.EnableCodexPunch, "EnableCodexPunch", true);

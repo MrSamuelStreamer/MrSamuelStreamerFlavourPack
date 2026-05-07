@@ -111,4 +111,25 @@
         <workerClass>MSSFP.Incidents.IncidentWorker_CodexPunch</workerClass>
         <requireColonistsPresent>true</requireColonistsPresent>
     </IncidentDef>
+
+    <!--
+        IED Pod Raid: hostile drop pods land scattered across the map. Each pod
+        scatters vanilla IED traps in a radius around its landing cell. Plain
+        IncidentWorker (NOT IncidentWorker_Raid) — no pawns, just traps.
+    -->
+    <IncidentDef>
+        <defName>MSSFP_RaidEnemy_IEDPods</defName>
+        <label>IED pod scatter</label>
+        <category>ThreatBig</category>
+        <baseChance>1</baseChance>
+        <minThreatPoints>250</minThreatPoints>
+        <earliestDay>14</earliestDay>
+        <minRefireDays>30</minRefireDays>
+        <targetTags>
+            <li>Map_PlayerHome</li>
+        </targetTags>
+        <workerClass>MSSFP.Incidents.IncidentWorker_IEDPodRaid</workerClass>
+        <requireColonistsPresent>true</requireColonistsPresent>
+        <pointsScaleable>true</pointsScaleable>
+    </IncidentDef>
 </Defs>

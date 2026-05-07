@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <!--
+        Internal cargo Thing for IED pod raids. Spawned inside a drop pod's
+        innerContainer; on pod-open its SpawnSetup scatters hostile IED traps
+        in a radius and self-destroys. Player should never see this in any UI.
+    -->
+    <ThingDef>
+        <defName>MSSFP_IEDPodDeployer</defName>
+        <label>IED deployer</label>
+        <description>Internal pod-cargo helper that scatters explosive traps. You shouldn't be reading this.</description>
+        <thingClass>MSSFP.Things.Thing_IEDDeployer</thingClass>
+        <category>Item</category>
+        <drawerType>None</drawerType>
+        <selectable>false</selectable>
+        <useHitPoints>false</useHitPoints>
+        <isSaveable>true</isSaveable>
+        <tickerType>Never</tickerType>
+        <stackLimit>1</stackLimit>
+        <menuHidden>true</menuHidden>
+        <neverMultiSelect>true</neverMultiSelect>
+        <rotatable>false</rotatable>
+        <altitudeLayer>Item</altitudeLayer>
+    </ThingDef>
+</Defs>
