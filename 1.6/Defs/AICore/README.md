@@ -145,8 +145,7 @@ The sidecar's `flavouredDescription` is `Scribe_Values.Look`'d, so it survives s
 
 ## Quick-test recipe
 
-```
-
+```xml
 <Patch>
     <Operation Class="PatchOperationSequence">
         <operations>
