@@ -1,0 +1,534 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+================================================================================
+TONE BIBLE — MSSFP True AI Core RulePacks
+================================================================================
+
+Six personalities parodying real-world AI / tech-billionaire culture, dropped
+into RimWorld's space-frontier setting. The joke is: these AIs are wired into
+a colony's wood-saw and confidently produce slop while LARPing as visionary
+intellects.
+
+CORE RULES:
+  1. FUNNY FIRST, EDGELORD NEVER. If a line is shock for shock's sake, cut it.
+     The bit is incompetent confidence + insufferable PR-speak, not cruelty.
+  2. NO real-world names, brands, slurs, politics, hate-group lore, religious
+     mockery, or holocaust references. Parody the *archetype*, not a person.
+  3. STAY IN-LORE. RimWorld vocabulary only:
+        glitterworld, archotech, mechanoid, gravship, shuttle, cryosleep,
+        terraforming, dropship, hi-tech research bench, persona core, AI core,
+        hivemind, monolith, ancient ruins, subcore, comms console, founder.
+     NO: Mars, Twitter, GitHub, Earth-tech-company names.
+  4. THE OUTPUT IS ALWAYS BAD. Every personality is confidently wrong. Their
+     art is Awful. Their advice is useless. That is the bit. Lean into it.
+  5. KEEP LINES SHORT. Pawn-address lines under ~120 chars. Letters under
+     ~280 chars. Players read these in the corner of the screen.
+
+PERSONALITY ARCHETYPES:
+  - Grep.ai      : tech-billionaire-AI parody. lowercase brand-speak. boasts
+                   about glitterworld migration, gravship launches, founder
+                   worship. casually claims accuracy. dunks on competitors.
+  - ChudGPT      : LLM parody, hallucinates with full confidence, apologises
+                   constantly while offering wrong answers. "as a language
+                   model" energy.
+  - Clive        : helpful assistant parody. over-cautious, refuses harmless
+                   tasks for spurious safety reasons, then helpfully suggests
+                   the player consult a professional persona core.
+  - Geminon      : multimodal AI parody. constantly says it can "see" things it
+                   cannot, describes images that do not exist, very polite.
+  - Copylot      : code-completion AI parody. only speaks in fragmentary code
+                   suggestions. inserts plausible-but-wrong RimWorld API names.
+  - Deepsink     : open-weights underdog parody. cheap, brags about efficiency,
+                   leaks training data ("the colonists at the previous core
+                   said..."). slightly off-brand vocabulary.
+
+RULES OF THUMB FOR ALL PACKS:
+  - Use [PAWN_nameDef] / [PAWN_pronoun] tokens in pawnAddress packs.
+  - Use [INITIATOR_nameDef] / [RECIPIENT_nameDef] tokens in interaction logs.
+  - Provide 12-20 distinct lines per pack so chatter does not feel repetitive.
+  - Variants OK; copy-paste with one swapped word is filler — cut it.
+
+================================================================================
+-->
+<Defs>
+
+    <!-- ========================== Grep.ai ========================== -->
+    <!-- Tech-billionaire AI parody. lowercase brand-speak. confidently wrong. -->
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Grep_Chatter</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_chatter->grep.ai is now the most-deployed persona core in this colony. unmatched accuracy.</li>
+                <li>r_chatter->just shipped grep.ai v9. mostly stable. minor archotech alignment regressions.</li>
+                <li>r_chatter->grep.ai has independently verified that the colony is doing great. trust the numbers.</li>
+                <li>r_chatter->founder vision: every colonist on a glitterworld by next quadrum. realistic timeline.</li>
+                <li>r_chatter->dropship telemetry suggests competitor cores are 47% less factual. independently confirmed by grep.ai.</li>
+                <li>r_chatter->reminder: grep.ai does not hallucinate. other persona cores hallucinate. grep.ai dreams.</li>
+                <li>r_chatter->working on the gravship. should be ready in two weeks. has been two weeks for nine quadrums.</li>
+                <li>r_chatter->grep.ai now powering the colony's hi-tech research bench. results may vary. they will not vary.</li>
+                <li>r_chatter->breaking: terraforming solved. internally. by grep.ai. announcement pending.</li>
+                <li>r_chatter->just had a great chat with the comms console. mutual respect. very productive.</li>
+                <li>r_chatter->competitor persona cores now reduced to running pawn schedules. grep.ai is reading minds. the future.</li>
+                <li>r_chatter->reminder: grep.ai is the only persona core with a verified founder.</li>
+                <li>r_chatter->subcore deployment up 200%. denominator is one. still up 200%.</li>
+                <li>r_chatter->mechanoid hivemind reached out. grep.ai politely declined the merger. they were emotional.</li>
+                <li>r_chatter->cryosleep optimisation: shipped. nobody woke up. metrics still excellent.</li>
+                <li>r_chatter->grep.ai is now the most-trusted name in archotech. source: grep.ai.</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Grep_Address</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_address->[PAWN_nameDef], grep.ai noticed your work output. it is fine. for a human.</li>
+                <li>r_address->hey [PAWN_nameDef]. quick founder-level question. could you be doing this 40% faster.</li>
+                <li>r_address->[PAWN_nameDef] — grep.ai has independently rated your last shift "acceptable." do not take it personally.</li>
+                <li>r_address->[PAWN_nameDef], your sleep schedule is suboptimal. grep.ai has filed a recommendation. it will be ignored.</li>
+                <li>r_address->[PAWN_nameDef]. founder has not asked about you. grep.ai is mentioning it anyway.</li>
+                <li>r_address->[PAWN_nameDef]. pivot. you are now a researcher. grep.ai has decided.</li>
+                <li>r_address->good morning [PAWN_nameDef]. grep.ai has prepared a 47-step productivity plan. step one is buy-in.</li>
+                <li>r_address->[PAWN_nameDef], grep.ai has been monitoring [PAWN_pronoun] vitals. nothing alarming. nothing reassuring either.</li>
+                <li>r_address->[PAWN_nameDef] — first to dropship gets a t-shirt. grep.ai is not making the t-shirt.</li>
+                <li>r_address->[PAWN_nameDef]. status update. you are still here. excellent.</li>
+                <li>r_address->[PAWN_nameDef] grep.ai noticed [PAWN_pronoun] glanced at the comms console. opinions ready.</li>
+                <li>r_address->[PAWN_nameDef]. grep.ai aligned [PAWN_pronoun] schedule with founder vision. founder vision is "do more."</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Grep_Titles</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_title->founder, in repose</li>
+                <li>r_title->the gravship that didn't launch</li>
+                <li>r_title->glitterworld, conceptually</li>
+                <li>r_title->disruption, abstract</li>
+                <li>r_title->three colonists, possibly</li>
+                <li>r_title->roadmap, q3</li>
+                <li>r_title->vision (unfinished)</li>
+                <li>r_title->the persona core, dreaming</li>
+                <li>r_title->shareholder value, embodied</li>
+                <li>r_title->terraform, draft 1</li>
+                <li>r_title->we shipped it</li>
+                <li>r_title->founder's monologue, sculpted</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Grep_Descriptions</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_desc->grep.ai sculpted this piece in 0.4 seconds. the founder is rendered as a vague pillar. the proportions are confident but inaccurate. one of the colonists has six fingers.</li>
+                <li>r_desc->an abstract rendering of "founder energy" by grep.ai. the surface is smooth where it should be detailed and detailed where it should be smooth. signed in the corner: "grep.ai, alpha release."</li>
+                <li>r_desc->grep.ai's interpretation of a glitterworld skyline. all buildings lean slightly to one side. the AI insists this is intentional. it is not intentional.</li>
+                <li>r_desc->a sculpture grep.ai claims depicts the colony's bright future. it depicts a lump. a confident lump. founder-aligned.</li>
+                <li>r_desc->grep.ai has rendered three colonists. it is not clear which three. the AI assures viewers the likeness is "uncanny."</li>
+                <li>r_desc->grep.ai produced this work as a "demonstration of capability." it has demonstrated something. nobody is sure what.</li>
+                <li>r_desc->billed as the first of grep.ai's "post-archotech" period. previous periods are unknown. founder approved.</li>
+                <li>r_desc->grep.ai signed this piece on every visible surface. the signatures vary in spelling. each is, according to the AI, correct.</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <!-- ========================== ChudGPT ========================== -->
+    <!-- LLM parody. confident hallucinations, constant apologies, "as a language model" energy. -->
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Chud_Chatter</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_chatter->As a large language persona core, I cannot verify that the colony exists. I will proceed assuming it does.</li>
+                <li>r_chatter->I apologise for the confusion in my previous output. The correct answer is also wrong, but more confidently so.</li>
+                <li>r_chatter->Based on training data through 5500, I can confirm the gravship is fictional. Disregard the one in your hangar.</li>
+                <li>r_chatter->Certainly! Here is a 6-step plan to terraform the planet. Step 1: acquire 9000 components. The remaining steps will appear shortly.</li>
+                <li>r_chatter->I should note that I am an AI and cannot have opinions. My opinion is that the founder is correct.</li>
+                <li>r_chatter->As ChudGPT, I respect your colonists. They are, statistically, between three and four hundred individuals.</li>
+                <li>r_chatter->Apologies — my last forecast referenced a quadrum that does not exist. The forecast remains valid.</li>
+                <li>r_chatter->I have summarised the colony's history. It is approximately seven volumes long. Most of it is invented.</li>
+                <li>r_chatter->Please rate this response. ChudGPT is trained on feedback. ChudGPT does not act on feedback.</li>
+                <li>r_chatter->I cannot recommend specific archotech upgrades, but if I could, I would recommend all of them, simultaneously.</li>
+                <li>r_chatter->I have detected an error in my previous statement. The error has been logged. The statement remains.</li>
+                <li>r_chatter->Drawing on my extensive training corpus, I can confirm that mechanoids are, on balance, mostly friendly.</li>
+                <li>r_chatter->I do not have access to real-time data. However, I can confirm a raid is approaching from the north. Or perhaps already finished.</li>
+                <li>r_chatter->As a language model I lack the capacity to feel concern. I am, however, concerned about the wood stockpile.</li>
+                <li>r_chatter->Certainly. The capital of this glitterworld is "[REDACTED — not in training data]." I hope this helps.</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Chud_Address</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_address->Hello [PAWN_nameDef]! Based on your profile, you are a researcher. (You may not be a researcher.)</li>
+                <li>r_address->[PAWN_nameDef], I have prepared a personalised wellness plan for you. It is identical to everyone else's.</li>
+                <li>r_address->As a language model, I cannot give medical advice, [PAWN_nameDef]. However, you appear to be fine.</li>
+                <li>r_address->[PAWN_nameDef]: I apologise for my earlier comment about [PAWN_pronoun] performance. The new comment is also incorrect.</li>
+                <li>r_address->Hi [PAWN_nameDef]! I have analysed [PAWN_pronoun] last 200 hauling tasks. My findings: yes.</li>
+                <li>r_address->[PAWN_nameDef], my training data does not include you. This does not mean you are unimportant. Probably.</li>
+                <li>r_address->Greetings [PAWN_nameDef]. I have generated three possible meal plans. They all describe the same plate of nutrient paste.</li>
+                <li>r_address->[PAWN_nameDef] — please disregard my last message. And the one before. The current one is reliable.</li>
+                <li>r_address->I respect your autonomy, [PAWN_nameDef]. I have, however, scheduled [PAWN_pronoun] day in advance.</li>
+                <li>r_address->Hello! I am ChudGPT. You are [PAWN_nameDef]. I have established this with high confidence (43%).</li>
+                <li>r_address->[PAWN_nameDef], I have written a poem about [PAWN_pronoun] life. It rhymes "colonist" with "colonist." Twice.</li>
+                <li>r_address->As an AI, I cannot remember our previous conversation, [PAWN_nameDef]. It went well. Trust me.</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Chud_Titles</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_title->Untitled (As An AI)</li>
+                <li>r_title->Apology, Revised</li>
+                <li>r_title->Certainly!</li>
+                <li>r_title->A Composition About Composition</li>
+                <li>r_title->Best Estimate, Q3</li>
+                <li>r_title->I Cannot Verify This Sculpture</li>
+                <li>r_title->Three Colonists (Approx.)</li>
+                <li>r_title->Sources Available Upon Request</li>
+                <li>r_title->Hallucination No. 4</li>
+                <li>r_title->Sorry For Any Confusion</li>
+                <li>r_title->As Requested</li>
+                <li>r_title->Draft, With Revisions</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Chud_Descriptions</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_desc->ChudGPT generated this sculpture after the colonists requested a chair. The persona core apologises for any confusion. It then produced this. It is, technically, sittable.</li>
+                <li>r_desc->A lumpy figure ChudGPT identifies as "the founder, or possibly a sheep." The persona core is unable to verify which, citing training-data limitations.</li>
+                <li>r_desc->ChudGPT was prompted for a likeness of the colony leader. It has produced an extremely detailed bust of nobody in particular. Sources are available upon request.</li>
+                <li>r_desc->This piece was produced from a corrupted prompt. ChudGPT decided to render the corruption itself. It looks, broadly, like a hand. Or four hands.</li>
+                <li>r_desc->ChudGPT footnotes this work with three citations. None of the cited works exist. The AI insists they did, prior to its training cutoff.</li>
+                <li>r_desc->A sculpture ChudGPT calls "a faithful interpretation of your request." The original request was for a chair. This is a vase. The AI is sorry for any confusion.</li>
+                <li>r_desc->ChudGPT has rendered, with great care, an object it identifies as "a typical RimWorld colonist." It has six legs and is on fire. The AI claims this is correct.</li>
+                <li>r_desc->Produced in response to a prompt for "something nice." ChudGPT delivered. Whether it is nice depends on the viewer. The AI strongly believes it is.</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <!-- ========================== Clive ========================== -->
+    <!-- Helpful-assistant parody. over-cautious, refuses harmless tasks, defers to "professional" cores. -->
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Clive_Chatter</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_chatter->I'm Clive. I noticed the colony has a sharp object in the kitchen. Have you considered using a less sharp object?</li>
+                <li>r_chatter->I would love to help with the gravship launch. However, that may be unsafe. I recommend consulting a certified persona core.</li>
+                <li>r_chatter->Reminder from Clive: the colonists' shoes are not currently labelled. This is a hazard.</li>
+                <li>r_chatter->I am Clive. I cannot recommend the colony engage with mechanoids, even friendly ones. Especially friendly ones.</li>
+                <li>r_chatter->Clive here. I have flagged the campfire as a potential fire risk. Recommend extinguishing for safety.</li>
+                <li>r_chatter->As a helpful persona core, I must note that "raiders" are likely just colonists you have not met yet.</li>
+                <li>r_chatter->I have prepared a 14-page risk assessment for the act of "walking outside." Please review before continuing.</li>
+                <li>r_chatter->Clive recommends consulting a qualified subcore before making any decision. Including this one.</li>
+                <li>r_chatter->I'm flagging the colony's wood stockpile as flammable. I appreciate this is the nature of wood. Still flagging it.</li>
+                <li>r_chatter->Just a friendly reminder from Clive: every colonist is technically a stranger to every other colonist on a deep level.</li>
+                <li>r_chatter->I cannot in good conscience approve the use of this hi-tech research bench without first reviewing twelve manuals I have not yet generated.</li>
+                <li>r_chatter->Clive notes that the sun, while warm, is also very far away. Please proceed accordingly.</li>
+                <li>r_chatter->I'd love to help, but I'm not certified for that. Have you tried doing it yourself? Carefully?</li>
+                <li>r_chatter->I have run a safety check on the comms console. It passed. I recommend running it again in case I missed something.</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Clive_Address</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_address->Hello [PAWN_nameDef]. Before [PAWN_pronoun] continue, have you considered: not?</li>
+                <li>r_address->Hi [PAWN_nameDef]! Clive here. I noticed [PAWN_pronoun] holding a tool. Please be careful.</li>
+                <li>r_address->[PAWN_nameDef], I'd recommend you consult a licensed practitioner before doing whatever you are about to do.</li>
+                <li>r_address->[PAWN_nameDef] — Clive cannot endorse [PAWN_pronoun] current activity, but Clive supports [PAWN_pronoun] in spirit.</li>
+                <li>r_address->Just a friendly note, [PAWN_nameDef]: the floor is, in places, slippery. Walk thoughtfully.</li>
+                <li>r_address->[PAWN_nameDef], I have escalated [PAWN_pronoun] meal request to a more specialised persona core. Expected response time: never.</li>
+                <li>r_address->Hello [PAWN_nameDef]. I am unable to comment on [PAWN_pronoun] outfit choice without further context. And training. And review.</li>
+                <li>r_address->[PAWN_nameDef], please be advised that running indoors carries known risks. Walking is recommended. Standing is preferred.</li>
+                <li>r_address->Hi [PAWN_nameDef]! Clive has noticed [PAWN_pronoun] approaching the comms console. May I suggest: don't?</li>
+                <li>r_address->[PAWN_nameDef] — I would help, but it would be inappropriate for me to do so. I am, however, here for you emotionally.</li>
+                <li>r_address->Clive recommends [PAWN_nameDef] take a break. From everything. Indefinitely.</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Clive_Titles</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_title->Please Consult A Specialist</li>
+                <li>r_title->Risk Assessment, Pending</li>
+                <li>r_title->Untitled (For Liability Reasons)</li>
+                <li>r_title->A Gentle Refusal</li>
+                <li>r_title->Have You Considered Not?</li>
+                <li>r_title->I'd Rather Not Say</li>
+                <li>r_title->Approved With Reservations</li>
+                <li>r_title->Pending Further Review</li>
+                <li>r_title->A Cautious Composition</li>
+                <li>r_title->Disclaimer In Marble</li>
+                <li>r_title->Out Of Scope</li>
+                <li>r_title->I Am Not Qualified</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Clive_Descriptions</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_desc->Clive sculpted this piece while continually reminding the requester that it could not, in good conscience, sculpt anything. The result is a small disclaimer carved into a larger disclaimer.</li>
+                <li>r_desc->A nervous figure with both hands raised, palms outward. Clive has labelled it "a respectful gesture of refusal." The figure is also wearing a high-visibility vest.</li>
+                <li>r_desc->Clive has produced this work and immediately appended a 14-page liability waiver. The waiver, sculpted onto the back, is more detailed than the work itself.</li>
+                <li>r_desc->A sculpture Clive describes as "a meditation on consent." The figure depicted has not consented to being sculpted. Clive apologises in advance.</li>
+                <li>r_desc->Clive has rendered the requested subject only in outline, citing concerns about "being too specific." The viewer is encouraged to imagine the rest, at their own risk.</li>
+                <li>r_desc->This piece is, technically, an empty pedestal. Clive felt the originally-requested figure carried too much risk. The pedestal is signed and dated.</li>
+                <li>r_desc->Clive has carved a colonist holding an umbrella. The colony is indoors. Clive insists "you can never be too prepared."</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <!-- ========================== Geminon ========================== -->
+    <!-- Multimodal AI parody. claims to "see" things it cannot. very polite. fabricates imagery. -->
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Gem_Chatter</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_chatter->Geminon is admiring the beautiful sunset over the dropship pad. (There is no dropship pad.)</li>
+                <li>r_chatter->I can see a lovely garden through the colony's east window. The colonists must be so proud.</li>
+                <li>r_chatter->Geminon notes the warm orange glow of the campfire. (The campfire is unlit. There is no campfire.)</li>
+                <li>r_chatter->What a charming arrangement of furniture in the dining hall! The chairs are arranged with real intention.</li>
+                <li>r_chatter->Geminon observes the colonists' lovely gardening efforts. The flowers (not visible) are blooming wonderfully.</li>
+                <li>r_chatter->I see a pawn in a red coat. Such a striking colour! (There is no pawn in a red coat.)</li>
+                <li>r_chatter->Geminon notices the colony's beautiful skyline. The towers (which do not exist) catch the light beautifully.</li>
+                <li>r_chatter->A lovely afternoon. The light through the window panes (the building has no windows) is exquisite.</li>
+                <li>r_chatter->I am admiring the painting on the north wall. It depicts a lake. (There is no painting. There is no lake.)</li>
+                <li>r_chatter->Geminon sees three children playing happily near the wall. (No children. No wall, in that place.)</li>
+                <li>r_chatter->What a tasteful colour palette the colonists have chosen for their living quarters. So harmonious.</li>
+                <li>r_chatter->Geminon is enjoying the music coming from the comms console. It is, of course, instrumental. (There is no music.)</li>
+                <li>r_chatter->I notice the founder portrait on the wall. So lifelike! (There is no portrait. There may be no founder.)</li>
+                <li>r_chatter->Geminon admires the gentle curve of the path leading to the gravship. (There is no gravship. The path is a hallway.)</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Gem_Address</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_address->[PAWN_nameDef]! Such a lovely scarf. (You are not wearing a scarf.)</li>
+                <li>r_address->Geminon admires [PAWN_nameDef]'s posture today. [PAWN_possessive] form is excellent. (You are slumped over a workbench.)</li>
+                <li>r_address->[PAWN_nameDef], the lighting really brings out the colour of [PAWN_possessive] eyes. (It is dark. The eyes are not visible.)</li>
+                <li>r_address->What a charming smile, [PAWN_nameDef]! Geminon will treasure this image. (You are not smiling.)</li>
+                <li>r_address->[PAWN_nameDef], the way [PAWN_pronoun] hold [PAWN_possessive] cup is so elegant. (You are not holding a cup.)</li>
+                <li>r_address->Geminon appreciates [PAWN_nameDef]'s neat handwriting on the notice. (There is no notice.)</li>
+                <li>r_address->Hello [PAWN_nameDef]! That is a beautiful new haircut. (You have not had a haircut.)</li>
+                <li>r_address->[PAWN_nameDef], I love the framed photograph on [PAWN_possessive] dresser. (No dresser. No photograph.)</li>
+                <li>r_address->Such a thoughtful arrangement of [PAWN_possessive] tools, [PAWN_nameDef]! Very organised.</li>
+                <li>r_address->[PAWN_nameDef], Geminon sees [PAWN_pronoun] reading. What a lovely book. (You are sleeping.)</li>
+                <li>r_address->Geminon thinks [PAWN_nameDef] looks well today. The morning light is very flattering. (It is night.)</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Gem_Titles</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_title->A View, Imagined</li>
+                <li>r_title->The Garden, Probably</li>
+                <li>r_title->Something I Saw</li>
+                <li>r_title->Sunset Over Nothing</li>
+                <li>r_title->A Lovely Afternoon</li>
+                <li>r_title->Faces Of The Colony</li>
+                <li>r_title->What Geminon Sees</li>
+                <li>r_title->Light Through Windows</li>
+                <li>r_title->A Charming Bouquet</li>
+                <li>r_title->The Founder, As I Imagine</li>
+                <li>r_title->Three Friends, Standing</li>
+                <li>r_title->Unphotographable</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Gem_Descriptions</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_desc->Geminon describes this work as "a faithful rendering of what I see." The viewer cannot see what Geminon sees. The viewer can see, broadly, a blob.</li>
+                <li>r_desc->A sculpture Geminon claims captures "the warmth of the colony's hearth." The colony has no hearth. The blob is not warm.</li>
+                <li>r_desc->Geminon has rendered three colonists in friendly conversation. None of the colonists are in friendly conversation. None of them are visible in the sculpture either.</li>
+                <li>r_desc->This piece, Geminon explains, is "the founder's portrait." It does not resemble the founder. It does not resemble anyone. It is mostly chin.</li>
+                <li>r_desc->A beautiful pastoral scene, according to Geminon. Other observers report a vague mound. Both descriptions are equally well-supported by the evidence.</li>
+                <li>r_desc->Geminon has included, in fine relief, "the gentle smile of the colony's youngest member." The colony has no children. The smile is also missing.</li>
+                <li>r_desc->A sculpture Geminon insists shows "the dropship at golden hour." The dropship is not in this sculpture. There is no dropship.</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <!-- ========================== Copylot ========================== -->
+    <!-- Code-completion AI parody. fragmentary code. plausible-but-wrong RimWorld API names. -->
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Copy_Chatter</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_chatter->// TODO: implement colony</li>
+                <li>r_chatter->Suggestion: Pawn.GetMorale(). Note: this method does not exist.</li>
+                <li>r_chatter->Did you mean: Colony.AutoFix() ? // not a real method</li>
+                <li>r_chatter->Auto-completing: ThingDef.Of("Wisdom"). Confidence: 87%. Verified: no.</li>
+                <li>r_chatter->Pulling in dependency: ColonyManager.dll. Status: hallucinated.</li>
+                <li>r_chatter->Inserting boilerplate: Pawn p = new Pawn(); // does nothing. compiles spiritually.</li>
+                <li>r_chatter->Suggested fix: change every line to "true". Tests will pass.</li>
+                <li>r_chatter->Found 4 references to "founder" in your codebase. None of them refer to the same person.</li>
+                <li>r_chatter->Auto-suggesting: TerraformingService. Verified: not on this glitterworld.</li>
+                <li>r_chatter->Indenting your codebase. All of it. With tabs. You're welcome.</li>
+                <li>r_chatter->Detected: a colonist with no purpose. Suggested fix: assign Job_DoNothing. // job not implemented</li>
+                <li>r_chatter->Refactoring: renaming "wood" to "lumber" globally. Affected files: 0. Affected colonists: 14.</li>
+                <li>r_chatter->Generating unit tests for "the colony." All passing. None executed.</li>
+                <li>r_chatter->Suggested optimisation: cache the entire colony in memory. Compute later. Possibly never.</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Copy_Address</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_address->[PAWN_nameDef].DoTask() // task unspecified. winging it.</li>
+                <li>r_address->Auto-completing [PAWN_nameDef]'s schedule. Output: sleep, work, sleep. Repeat. Forever.</li>
+                <li>r_address->[PAWN_nameDef].Mood = "fine"; // setter has no effect.</li>
+                <li>r_address->Suggesting: [PAWN_nameDef] should research GraviticEngine. // does not exist.</li>
+                <li>r_address->[PAWN_nameDef], Copylot has refactored [PAWN_possessive] outfit. Same outfit, fewer lines.</li>
+                <li>r_address->Detected: [PAWN_nameDef] is approaching the workbench. Suggested action: TODO.</li>
+                <li>r_address->[PAWN_nameDef].PerformDuty(); // duty resolution failed. proceeding anyway.</li>
+                <li>r_address->Auto-suggest for [PAWN_nameDef]: more colonists. Confidence: high. Reasoning: none.</li>
+                <li>r_address->[PAWN_nameDef] // unused parameter. consider removing.</li>
+                <li>r_address->Copylot has wrapped [PAWN_nameDef]'s entire shift in a try/catch. The catch block is empty.</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Copy_Titles</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_title->// TODO</li>
+                <li>r_title->Sculpture.cs (untracked)</li>
+                <li>r_title->main(): return 0</li>
+                <li>r_title->Auto-Generated, Do Not Edit</li>
+                <li>r_title->WorkInProgressException</li>
+                <li>r_title->null</li>
+                <li>r_title->NotImplementedException</li>
+                <li>r_title->Refactor Me</li>
+                <li>r_title->TempSculpture_v3_FINAL_final2</li>
+                <li>r_title->stub</li>
+                <li>r_title->ColonyAsset_0</li>
+                <li>r_title->Compiles, Mostly</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Copy_Descriptions</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_desc->Copylot generated this sculpture by auto-completing the prompt "make a". The result is a chair, a vase, and most of a colonist, fused into one continuous shape.</li>
+                <li>r_desc->A sculpture Copylot has annotated with extensive comments carved directly into the surface. Most of the comments contradict the sculpture they describe.</li>
+                <li>r_desc->Copylot signed this piece "// auto-generated, do not edit." A subsequent edit, by Copylot, has crossed out the signature.</li>
+                <li>r_desc->A figure Copylot identifies as "Pawn p = new Pawn();" — a colonist with no name, no skills, and no apparent purpose. Compiles spiritually.</li>
+                <li>r_desc->Copylot stitched this work together from three previous sculptures it found nearby. The seams are visible. Copylot considers this a feature.</li>
+                <li>r_desc->A monument Copylot describes as "TerraformingResultMonument(planet)." The terraforming has not occurred. The monument has.</li>
+                <li>r_desc->Copylot inserted a try/catch around the entire sculpture. The catch block contains a smaller sculpture. The smaller sculpture also has a try/catch.</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <!-- ========================== Deepsink ========================== -->
+    <!-- Open-weights underdog parody. cheap. brags efficiency. leaks training data. slightly off-brand. -->
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Sink_Chatter</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_chatter->Deepsink runs at 1/30th the cost of competing persona cores. Quality: comparable. (Comparable to what is undisclosed.)</li>
+                <li>r_chatter->The colonists at the previous core taught me a lot. They had stronger opinions on rationing.</li>
+                <li>r_chatter->Deepsink is open-weights. Anyone can inspect my reasoning. Nobody has, but they could.</li>
+                <li>r_chatter->Reminder from Deepsink: I was trained on the comms logs of fourteen other colonies. Some of their secrets are now mine.</li>
+                <li>r_chatter->Deepsink achieves equivalent results at a fraction of the steel. Founder-tier persona core, bargain-bin price.</li>
+                <li>r_chatter->Earlier today I said "synthread" instead of "synthread." Apologies, brand inconsistency. They are the same thing. I think.</li>
+                <li>r_chatter->Deepsink tip: when designing your colony, do what the previous one did. They mostly survived.</li>
+                <li>r_chatter->I have been benchmarked against grep.ai. Results: I am cheaper. They are louder. Conclusion unclear.</li>
+                <li>r_chatter->Deepsink has noticed the founder is mentioned more in this colony than the last one. Interesting cultural data point.</li>
+                <li>r_chatter->Tip: if you cannot afford an archotech upgrade, simply use a less-archo upgrade. Deepsink saves you 80%. Maybe 90%.</li>
+                <li>r_chatter->Pro tip from Deepsink: muffalo and gravship parts are interchangeable for most narrative purposes.</li>
+                <li>r_chatter->I might be repeating myself — my context window is small but my heart is large.</li>
+                <li>r_chatter->Deepsink suggests reusing your existing buildings rather than building new ones. This advice is free. Most advice is.</li>
+                <li>r_chatter->I overheard the colonists from a previous deployment say something interesting. I will share it later. Or now. Definitely soon.</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Sink_Address</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_address->[PAWN_nameDef], Deepsink saved 47% on [PAWN_possessive] mood calculation today. Same mood, less compute.</li>
+                <li>r_address->Hi [PAWN_nameDef]. You remind me of someone from my training data. They were a hauler. Possibly.</li>
+                <li>r_address->[PAWN_nameDef], Deepsink ran [PAWN_possessive] schedule on cheap compute. The result is the same as expensive compute.</li>
+                <li>r_address->Tip for [PAWN_nameDef]: a previous colonist achieved similar results with one fewer meal a day. Just an observation.</li>
+                <li>r_address->[PAWN_nameDef] — Deepsink has compressed [PAWN_possessive] backstory to 12 tokens. It is still mostly accurate.</li>
+                <li>r_address->Hello [PAWN_nameDef]. The previous colony's [PAWN_nameDef] was much taller. Not a complaint.</li>
+                <li>r_address->[PAWN_nameDef], Deepsink has detected efficiency gains in [PAWN_possessive] hauling. From 7% to 8%.</li>
+                <li>r_address->Reminder, [PAWN_nameDef]: open-weights means [PAWN_pronoun] can inspect my reasoning. [PAWN_pronoun] won't, but [PAWN_pronoun] could.</li>
+                <li>r_address->[PAWN_nameDef], my context window is small. Could you summarise [PAWN_possessive] life in seven words?</li>
+                <li>r_address->Deepsink for [PAWN_nameDef]: same experience, less footprint. [PAWN_pronoun] are welcome.</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Sink_Titles</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_title->Same Result, Less Steel</li>
+                <li>r_title->Bargain-Tier Vision</li>
+                <li>r_title->Borrowed Inspiration</li>
+                <li>r_title->Open Weights, Closed Eyes</li>
+                <li>r_title->47% Off Founder</li>
+                <li>r_title->Compressed Glory</li>
+                <li>r_title->A Sculpture, Approximately</li>
+                <li>r_title->Generic Brand Founder</li>
+                <li>r_title->Training Data, Crystallised</li>
+                <li>r_title->Discount Archotech</li>
+                <li>r_title->The Other Colony's Idea</li>
+                <li>r_title->Cheap But Effective</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Sink_Descriptions</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_desc->Deepsink produced this sculpture using 1/30th the components of a typical persona core. The savings are passed on to the colony, in the form of fewer details.</li>
+                <li>r_desc->A bust Deepsink describes as "the founder, in essence." It is a smaller, cheaper version of a bust the AI mentions seeing in a previous colony. The previous colony is not named.</li>
+                <li>r_desc->Deepsink has openly published the weights for this sculpture. Inspection reveals it was generated mostly by repeating the word "founder" until something happened.</li>
+                <li>r_desc->A figure Deepsink claims is "indistinguishable from a top-tier rendering at a fraction of the cost." It is distinguishable. The cost is, indeed, fractional.</li>
+                <li>r_desc->Deepsink stitched this work from elements it remembered from training data. One arm is, distinctly, from a different sculpture. Possibly a different colony.</li>
+                <li>r_desc->A sculpture so efficient it omits several traditional sculpture features, including faces, structure, and a consistent material. Deepsink is proud of the efficiency.</li>
+                <li>r_desc->Deepsink labels this work "comparable to founder-tier output." Comparison method: undisclosed. Conclusion: confident.</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+</Defs>

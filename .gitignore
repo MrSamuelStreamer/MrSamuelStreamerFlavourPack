@@ -1,5 +1,9 @@
 Docs
 
+# Dev-only def overrides + patches — never shipped
+1.6/Defs/_Dev/
+1.6/Patches/_Dev/
+
 *.dds
 ## Ignore built zips
 *.zip

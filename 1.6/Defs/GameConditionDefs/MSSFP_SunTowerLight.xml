@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Defs>
+    <!--
+        UI-marker condition only. Sky brightening is performed by
+        MSSFP.Comps.CompAffectsSky_Sustained on each tower. This condition exists so the
+        player can see "Sun Tower Active" in the conditions panel at the top right while
+        any tower is contributing light on the map.
+    -->
+    <GameConditionDef>
+        <defName>MSSFP_SunTowerLight</defName>
+        <conditionClass>MSSFP.GameConditions.GameCondition_SunTowerLight</conditionClass>
+        <label>sun tower active</label>
+        <description>A sun tower is bathing the map in artificial sunlight.</description>
+        <endMessage>The sun tower goes dark.</endMessage>
+        <preventRain>false</preventRain>
+        <canBePermanent>true</canBePermanent>
+    </GameConditionDef>
+</Defs>

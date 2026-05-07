@@ -120,6 +120,21 @@
         <ReleaseFiles Update="..\..\Patches\MSS_World.xml">
           <Link>MrSamuelStreamerFlavourPack\1.6\Patches\MSS_World.xml</Link>
         </ReleaseFiles>
+        <ReleaseFiles Update="..\..\Defs\AICore\MSSFP_LetterDef_AICore.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.6\Defs\AICore\MSSFP_LetterDef_AICore.xml</Link>
+        </ReleaseFiles>
+        <ReleaseFiles Update="..\..\Defs\AICore\MSSFP_AICorePacks.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.6\Defs\AICore\MSSFP_AICorePacks.xml</Link>
+        </ReleaseFiles>
+        <ReleaseFiles Update="..\..\Defs\AICore\MSSFP_InteractionDef_AICore.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.6\Defs\AICore\MSSFP_InteractionDef_AICore.xml</Link>
+        </ReleaseFiles>
+        <ReleaseFiles Update="..\..\Defs\AICore\MSSFP_AIPersonalities.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.6\Defs\AICore\MSSFP_AIPersonalities.xml</Link>
+        </ReleaseFiles>
+        <ReleaseFiles Update="..\..\Patches\_Dev\MSSFP_AICore_TestChair.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.6\Patches\_Dev\MSSFP_AICore_TestChair.xml</Link>
+        </ReleaseFiles>
     </ItemGroup>
     <Target Name="PostBuild" AfterTargets="Build" Condition=" '$(Configuration)' == 'Release' ">
         <RemoveDir Condition="Exists('../../../Release')" Directories="../../../Release" />

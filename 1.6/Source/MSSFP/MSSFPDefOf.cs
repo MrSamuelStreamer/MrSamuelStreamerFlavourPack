@@ -63,9 +63,17 @@ public static class MSSFPDefOf
     public static readonly ThingDef MSS_FP_Balloon;
     public static readonly ThingDef MSS_FP_PawnFlyer_Balloon;
 
+    // Sun Tower
+    public static readonly ThingDef MSSFP_SunTower;
+    public static readonly GameConditionDef MSSFP_SunTowerLight;
+
     public static readonly JobDef MSSFP_ExtractTarget;
 
     public static readonly JobDef MSSFP_SkipPunchAndLeave;
+
+    // True AI Core
+    public static readonly JobDef MSSFP_HaulToAICore;
+    public static readonly LetterDef MSSFP_AICoreAlert;
 
     // Haunt archetypes
     public static readonly HauntArchetypeDef MSS_FP_Archetype_Aggressive;

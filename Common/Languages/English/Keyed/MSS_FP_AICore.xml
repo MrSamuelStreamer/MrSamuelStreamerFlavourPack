@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LanguageData>
+    <MSSFP_AICore_ActivePersonality>Active personality: {0}</MSSFP_AICore_ActivePersonality>
+    <MSSFP_AICore_HeldInputs>Held inputs: {0}</MSSFP_AICore_HeldInputs>
+
+    <MSSFP_AICore_SwitchPersonality>Switch personality</MSSFP_AICore_SwitchPersonality>
+    <MSSFP_AICore_SwitchPersonalityDesc>Pick which AI persona drives this core. Affects chatter style, letters, and art flavour.</MSSFP_AICore_SwitchPersonalityDesc>
+    <MSSFP_AICore_NoPersonalities>(no personalities loaded)</MSSFP_AICore_NoPersonalities>
+
+    <MSSFP_AICore_CreateArt>Create AI art</MSSFP_AICore_CreateArt>
+    <MSSFP_AICore_CreateArtDesc>Toggle on to have colonists haul {0} units of input material. Held: {1}.\nThe core then produces a sculpture in the active personality's style.</MSSFP_AICore_CreateArtDesc>
+
+    <MSSFP_AICore_StartCreatingArt>Start creating AI art at {0}</MSSFP_AICore_StartCreatingArt>
+    <MSSFP_AICore_StopCreatingArt>Stop creating AI art at {0}</MSSFP_AICore_StopCreatingArt>
+
+    <MSSFP_AICore_ArtCompletedMsg>{0} just finished a {1}.</MSSFP_AICore_ArtCompletedMsg>
+    <MSSFP_AICore_NoSpawnRoom>{0} can't find space to drop the finished sculpture. Clear a tile near the core.</MSSFP_AICore_NoSpawnRoom>
+
+    <MSSFP_AICore_HaulInputToCore>Haul {0} to {1}</MSSFP_AICore_HaulInputToCore>
+    <MSSFP_AICore_NoInputAvailable>Haul to {0} (no inputs available)</MSSFP_AICore_NoInputAvailable>
+</LanguageData>

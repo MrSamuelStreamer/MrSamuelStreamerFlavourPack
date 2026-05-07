@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+    Sculptures produced by an AI core. Distinct from vanilla SculptureSmall so we
+    don't shotgun the universe of vanilla art. Reuses vanilla sprites until
+    bespoke artwork ships.
+
+    Inherits from SculptureBase: keeps vanilla CompArt / CompQuality / CompForbiddable
+    pipeline. <comps> here MERGES with the abstract base's comps (RimWorld default
+    behaviour) — appends CompTrueAICoreArt without dropping inherited components.
+-->
+<Defs>
+
+    <ThingDef ParentName="SculptureBase">
+        <defName>MSSFP_AICoreSculptureSmall</defName>
+        <label>AI-generated sculpture</label>
+        <description>A torso-sized piece of material sculpted by an AI core. The shape is technically a sculpture.</description>
+        <graphicData>
+            <graphicClass>Graphic_Random</graphicClass>
+            <texPath>Things/Building/Art/SculptureSmall</texPath>
+        </graphicData>
+        <fillPercent>0.35</fillPercent>
+        <rotatable>false</rotatable>
+        <statBases>
+            <MaxHitPoints>90</MaxHitPoints>
+            <Mass>3</Mass>
+            <Beauty>50</Beauty>
+            <WorkToMake>18000</WorkToMake>
+            <StyleDominance MayRequire="Ludeon.RimWorld.Ideology">10</StyleDominance>
+        </statBases>
+        <stuffCategories>
+            <li>Metallic</li>
+            <li>Woody</li>
+            <li>Stony</li>
+        </stuffCategories>
+        <costStuffCount>50</costStuffCount>
+        <comps>
+            <li Class="MSSFP.Comps.CompProperties_TrueAICoreArt" />
+        </comps>
+    </ThingDef>
+
+</Defs>
