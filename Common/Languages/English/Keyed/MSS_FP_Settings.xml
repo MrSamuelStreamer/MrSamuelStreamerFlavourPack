@@ -6,6 +6,12 @@
 
     <MSSFP_SettingsCategory>Mr Samuel Streamer Flavour Pack</MSSFP_SettingsCategory>
 
+    <MSS_FP_Settings_EnableSubNormalSpeeds>Enable sub-normal speeds (1/2, 1/4, 1/8)</MSS_FP_Settings_EnableSubNormalSpeeds>
+    <MSS_FP_Settings_EnableSubNormalSpeeds_Tooltip>Adds three new buttons above the speed bar that run the game at 1/2, 1/4, or 1/8 of normal speed. Useful for combat pacing and complex builds. Some other mods may behave unexpectedly at slow speeds.</MSS_FP_Settings_EnableSubNormalSpeeds_Tooltip>
+    <MSSFP_TimeSpeed_Half_Tooltip>Half speed (1/2 of Normal).</MSSFP_TimeSpeed_Half_Tooltip>
+    <MSSFP_TimeSpeed_Quarter_Tooltip>Quarter speed (1/4 of Normal).</MSSFP_TimeSpeed_Quarter_Tooltip>
+    <MSSFP_TimeSpeed_Eighth_Tooltip>Eighth speed (1/8 of Normal).</MSSFP_TimeSpeed_Eighth_Tooltip>
+
     <!-- Section headers -->
     <MSS_FP_Settings_Section_Gameplay>Gameplay</MSS_FP_Settings_Section_Gameplay>
     <MSS_FP_Settings_Section_Spawning>Spawning</MSS_FP_Settings_Section_Spawning>

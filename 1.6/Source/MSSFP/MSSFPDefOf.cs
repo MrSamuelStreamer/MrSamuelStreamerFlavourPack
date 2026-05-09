@@ -116,5 +116,10 @@ public static class MSSFPDefOf
     public static readonly ThoughtDef MSS_FP_HauntInteraction_EternalRivalry;
     public static readonly ThoughtDef MSS_FP_HauntInteraction_GhostlyBickering;
 
+    // Sub-normal speed keybindings
+    public static readonly KeyBindingDef MSSFP_TimeSpeed_Half;
+    public static readonly KeyBindingDef MSSFP_TimeSpeed_Quarter;
+    public static readonly KeyBindingDef MSSFP_TimeSpeed_Eighth;
+
     static MSSFPDefOf() => DefOfHelper.EnsureInitializedInCtor(typeof(MSSFPDefOf));
 }

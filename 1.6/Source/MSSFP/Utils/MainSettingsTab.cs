@@ -95,6 +95,13 @@ public class MainSettingsTab(ModSettings settings, Mod mod) : SettingsTab(settin
             scrollViewHeight += 30f;
         }
 
+        DrawCheckBox(
+            options,
+            "MSS_FP_Settings_EnableSubNormalSpeeds".Translate(),
+            ref Settings.EnableSubNormalSpeeds,
+            ref scrollViewHeight
+        );
+
         // --- Spawning ---
         DrawSectionHeader(options, "MSS_FP_Settings_Section_Spawning".Translate(), ref scrollViewHeight);
 

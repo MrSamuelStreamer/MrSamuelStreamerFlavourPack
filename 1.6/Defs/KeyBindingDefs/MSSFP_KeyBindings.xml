@@ -7,4 +7,25 @@
         <category>MSSFP_KeyBindings</category>
         <defaultKeyCodeA>Alpha5</defaultKeyCodeA>
     </KeyBindingDef>
+    <KeyBindingDef>
+        <defName>MSSFP_TimeSpeed_Half</defName>
+        <label>Time speed: 1/2 (half)</label>
+        <description>Set game speed to half of normal.</description>
+        <category>MSSFP_KeyBindings</category>
+        <defaultKeyCodeA>None</defaultKeyCodeA>
+    </KeyBindingDef>
+    <KeyBindingDef>
+        <defName>MSSFP_TimeSpeed_Quarter</defName>
+        <label>Time speed: 1/4 (quarter)</label>
+        <description>Set game speed to a quarter of normal.</description>
+        <category>MSSFP_KeyBindings</category>
+        <defaultKeyCodeA>None</defaultKeyCodeA>
+    </KeyBindingDef>
+    <KeyBindingDef>
+        <defName>MSSFP_TimeSpeed_Eighth</defName>
+        <label>Time speed: 1/8 (eighth)</label>
+        <description>Set game speed to an eighth of normal.</description>
+        <category>MSSFP_KeyBindings</category>
+        <defaultKeyCodeA>None</defaultKeyCodeA>
+    </KeyBindingDef>
 </Defs>
