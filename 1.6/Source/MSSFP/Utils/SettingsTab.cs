@@ -59,8 +59,8 @@ public abstract class SettingsTab
         }
         finally
         {
-            GUI.EndScrollView();
             options.End();
+            GUI.EndScrollView();
         }
 
         ScrollViewHeight = newScrollViewHeight;

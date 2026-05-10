@@ -70,9 +70,22 @@ public class MSSFPMod : Mod
         }
     }
 
+    internal static void ApplySettingsToDefs()
+    {
+        if (settings == null)
+            return;
+        settings.MechFormingSpeedBaseValue = Mathf.Max(0.025f,settings.MechFormingSpeedBaseValue);
+        StatDef statDef = StatDef.Named("MechFormingSpeed");
+        if (statDef != null)
+        {
+            statDef.defaultBaseValue = 1f / settings.MechFormingSpeedBaseValue;
+        }
+    }
+
     public override void WriteSettings()
     {
         base.WriteSettings();
+        ApplySettingsToDefs();
 
         ToggleSettlementDefeatPatch(settings.ReformationPointsPerDefeatedFaction > 0 && settings.EnableExtraReformationPoints);
 
@@ -115,6 +128,7 @@ internal static class MSSFPStartup
 {
     static MSSFPStartup()
     {
+        MSSFPMod.ApplySettingsToDefs();
         if (MSSFPMod.settings?.EnableUserTemplateLoading == true)
             UserPawnTemplateRegistry.LoadAll();
         else
