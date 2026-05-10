@@ -12,8 +12,11 @@
     <MSSFP_TimeSpeed_Quarter_Tooltip>Quarter speed (1/4 of Normal).</MSSFP_TimeSpeed_Quarter_Tooltip>
     <MSSFP_TimeSpeed_Eighth_Tooltip>Eighth speed (1/8 of Normal).</MSSFP_TimeSpeed_Eighth_Tooltip>
 
+    <MSSFP_MechGestationTime>Mech gestation time: ×{0}</MSSFP_MechGestationTime>
+
     <!-- Section headers -->
     <MSS_FP_Settings_Section_Gameplay>Gameplay</MSS_FP_Settings_Section_Gameplay>
+    <MSS_FP_Settings_Section_Mechanics>Mechanics</MSS_FP_Settings_Section_Mechanics>
     <MSS_FP_Settings_Section_Spawning>Spawning</MSS_FP_Settings_Section_Spawning>
     <MSS_FP_Settings_Section_ReformationPoints>Reformation Points</MSS_FP_Settings_Section_ReformationPoints>
     <MSS_FP_Settings_Section_ColonistBar>Colonist Bar</MSS_FP_Settings_Section_ColonistBar>
@@ -113,7 +116,7 @@
     <MSS_FP_Settings_EnableRecoilKnockback>Enable recoil knockback for small pawns</MSS_FP_Settings_EnableRecoilKnockback>
     <MSS_FP_Settings_RecoilKnockbackMultiplier>Recoil knockback multiplier [x{0}]</MSS_FP_Settings_RecoilKnockbackMultiplier>
 
-    <MSS_FP_Settings_FactionLeaderRaidChance>Faction leader raid chance [%{0}]</MSS_FP_Settings_FactionLeaderRaidChance>
+    <MSS_FP_Settings_FactionLeaderRaidChance>Faction leader raid chance [{0}]</MSS_FP_Settings_FactionLeaderRaidChance>
     <MSS_FP_Settings_FactionLeaderRaidChance_Tooltip>Chance that a faction leader will appear in a raid.</MSS_FP_Settings_FactionLeaderRaidChance_Tooltip>
 
     <!-- Null def safety patch -->

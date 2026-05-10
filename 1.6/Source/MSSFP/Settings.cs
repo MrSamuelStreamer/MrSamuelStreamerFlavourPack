@@ -57,6 +57,7 @@ public class Settings : ModSettings
     public bool Enable10SecondsToSpeed = false;
     public bool Active10SecondsToSpeed = true;
     public bool EnableSubNormalSpeeds = true;
+    public float MechFormingSpeedBaseValue = 1.0f;
     public bool OverrideFactionLeaderSpawn = true;
     public bool BoostChanceToSpawnExistingPawns = true;
     public float FactionLeaderRaidChance = 0.4f;
@@ -229,6 +230,7 @@ public class Settings : ModSettings
         Scribe_Values.Look(ref EnableGenesOnGrowthMoment, "EnableGenesOnGrowthMoment", false);
         Scribe_Values.Look(ref Active10SecondsToSpeed, "Active10SecondsToSpeed", false);
         Scribe_Values.Look(ref EnableSubNormalSpeeds, "EnableSubNormalSpeeds", true);
+        Scribe_Values.Look(ref MechFormingSpeedBaseValue, "MechFormingSpeedBaseValue", 1f);
         Scribe_Values.Look(ref OverrideFactionLeaderSpawn, "OverrideFactionLeaderSpawn", true);
         Scribe_Values.Look(ref BoostChanceToSpawnExistingPawns, "BoostChanceToSpawnExistingPawns", true);
         Scribe_Values.Look(ref FactionLeaderRaidChance, "FactionLeaderRaidChance", 0.4f);

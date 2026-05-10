@@ -101,6 +101,17 @@ public class MainSettingsTab(ModSettings settings, Mod mod) : SettingsTab(settin
             ref Settings.EnableSubNormalSpeeds,
             ref scrollViewHeight
         );
+        
+        // --- Mechanics ---
+        DrawSectionHeader(options, "MSS_FP_Settings_Section_Mechanics".Translate(), ref scrollViewHeight);
+
+        Settings.MechFormingSpeedBaseValue = options.SliderLabeled("MSSFP_MechGestationTime".Translate(Settings.MechFormingSpeedBaseValue.ToString("0.###")),Settings.MechFormingSpeedBaseValue,0.025f,2.0f);
+        const float mechFormingSpeedIncrement = 0.025f;
+        Settings.MechFormingSpeedBaseValue =  Mathf.Round(Settings.MechFormingSpeedBaseValue / mechFormingSpeedIncrement) * mechFormingSpeedIncrement;
+        options.Label($"Base gestation cycle time: {48f * Settings.MechFormingSpeedBaseValue:0.#}h");
+        options.Gap();
+
+        scrollViewHeight += 60f;
 
         // --- Spawning ---
         DrawSectionHeader(options, "MSS_FP_Settings_Section_Spawning".Translate(), ref scrollViewHeight);
