@@ -41,4 +41,46 @@
             </li>
         </operations>
     </Operation>
+
+    <!-- Add ravens to temperate-ish biomes as wild animals -->
+    <Operation Class="PatchOperationSequence">
+        <operations>
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/BiomeDef[defName="TemperateForest"]/wildAnimals</xpath>
+                <value>
+                    <MSSFP_Raven>0.18</MSSFP_Raven>
+                </value>
+            </li>
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/BiomeDef[defName="TemperateSwamp"]/wildAnimals</xpath>
+                <value>
+                    <MSSFP_Raven>0.10</MSSFP_Raven>
+                </value>
+            </li>
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/BiomeDef[defName="BorealForest"]/wildAnimals</xpath>
+                <value>
+                    <MSSFP_Raven>0.15</MSSFP_Raven>
+                </value>
+            </li>
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/BiomeDef[defName="Tundra"]/wildAnimals</xpath>
+                <value>
+                    <MSSFP_Raven>0.06</MSSFP_Raven>
+                </value>
+            </li>
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/BiomeDef[defName="AridShrubland"]/wildAnimals</xpath>
+                <value>
+                    <MSSFP_Raven>0.08</MSSFP_Raven>
+                </value>
+            </li>
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/BiomeDef[defName="ColdBog"]/wildAnimals</xpath>
+                <value>
+                    <MSSFP_Raven>0.06</MSSFP_Raven>
+                </value>
+            </li>
+        </operations>
+    </Operation>
 </Patch>
