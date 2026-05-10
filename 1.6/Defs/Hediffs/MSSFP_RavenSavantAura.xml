@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Defs>
+    <HediffDef>
+        <defName>MSSFP_RavenSavantAuraSource</defName>
+        <hediffClass>HediffWithComps</hediffClass>
+        <label>uncanny presence</label>
+        <description>This raven seems to watch you, even with its back turned. Colonists nearby find their thoughts sharper.</description>
+        <isBad>false</isBad>
+        <everCurableByItem>false</everCurableByItem>
+        <comps>
+            <li Class="MSSFP.Hediffs.HediffCompProperties_ApplyHediffWithinRadius">
+                <hediffDef>MSSFP_RavenSavantAura</hediffDef>
+                <proximityRadius>6</proximityRadius>
+                <ticksBetweenChecks>250</ticksBetweenChecks>
+                <initialSeverity>1</initialSeverity>
+                <targetsPlayer>true</targetsPlayer>
+                <targetsHumans>true</targetsHumans>
+            </li>
+        </comps>
+    </HediffDef>
+
+    <HediffDef>
+        <defName>MSSFP_RavenSavantAura</defName>
+        <hediffClass>HediffWithComps</hediffClass>
+        <label>watched by the raven</label>
+        <description>A clever black bird is nearby. Research and conversation come a little easier.</description>
+        <isBad>false</isBad>
+        <everCurableByItem>false</everCurableByItem>
+        <stages>
+            <li>
+                <statOffsets>
+                    <ResearchSpeedFactor>0.30</ResearchSpeedFactor>
+                    <GlobalLearningFactor>0.50</GlobalLearningFactor>
+                    <SocialImpact>0.20</SocialImpact>
+                </statOffsets>
+            </li>
+        </stages>
+        <comps>
+            <li Class="HediffCompProperties_Disappears">
+                <disappearsAfterTicks>500</disappearsAfterTicks>
+                <showRemainingTime>false</showRemainingTime>
+            </li>
+        </comps>
+    </HediffDef>
+</Defs>

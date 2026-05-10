@@ -30,4 +30,24 @@
             <cooldownTicksRange>60000</cooldownTicksRange>
         </value>
     </Operation>
+
+    <!-- Tag MSSFP_Raven race with the sapience hediff so RaceMorpher / generator
+         attaches it when a sapient version is generated. -->
+    <Operation Class="PatchOperationConditional">
+        <xpath>Defs/ThingDef[defName="MSSFP_Raven"]/modExtensions</xpath>
+        <nomatch Class="PatchOperationAdd">
+            <xpath>Defs/ThingDef[defName="MSSFP_Raven"]</xpath>
+            <value>
+                <modExtensions />
+            </value>
+        </nomatch>
+    </Operation>
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName="MSSFP_Raven"]/modExtensions</xpath>
+        <value>
+            <li Class="BigAndSmall.RaceExtension">
+                <raceHediff>HL_MSSFP_Raven_RaceHediff</raceHediff>
+            </li>
+        </value>
+    </Operation>
 </Patch>

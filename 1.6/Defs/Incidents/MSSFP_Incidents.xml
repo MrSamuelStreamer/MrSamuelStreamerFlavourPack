@@ -117,6 +117,29 @@
         scatters vanilla IED traps in a radius around its landing cell. Plain
         IncidentWorker (NOT IncidentWorker_Raid) — no pawns, just traps.
     -->
+    <!--
+        Raven Creepjoiner: an unsettlingly sapient raven (MSSFP_Raven) wanders in
+        and joins as colonist. Sapience hediff applies aptitudes (Int=20, Social=10) +
+        TooSmart trait via Big&Small Sapient Animals framework. Aura hediff buffs
+        colonists within 6 tiles. Sapience hediff is gated to RedMattis.BetterPrerequisites
+        being active (lives in compatibility folder); aura hediffs are unconditional.
+    -->
+    <IncidentDef>
+        <defName>MSSFP_RavenCreepJoinerJoin</defName>
+        <label>an unsettling visitor</label>
+        <category>Misc</category>
+        <baseChance>0.5</baseChance>
+        <earliestDay>10</earliestDay>
+        <minRefireDays>120</minRefireDays>
+        <targetTags>
+            <li>Map_PlayerHome</li>
+        </targetTags>
+        <workerClass>MSSFP.Incidents.IncidentWorker_RavenCreepJoinerJoin</workerClass>
+        <requireColonistsPresent>true</requireColonistsPresent>
+        <letterLabel>An unsettling visitor</letterLabel>
+        <letterText>A black bird perches at the edge of camp. Too still. Watching. When you approach, it tilts its head and — you'd swear — nods.\n\n{PAWN_nameDef} has decided your colony is interesting enough to stay.</letterText>
+    </IncidentDef>
+
     <IncidentDef>
         <defName>MSSFP_RaidEnemy_IEDPods</defName>
         <label>IED pod scatter</label>

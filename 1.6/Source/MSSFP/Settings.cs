@@ -81,6 +81,8 @@ public class Settings : ModSettings
     public bool EnableUserTemplateLoading = true;
     public bool EnableTemplateWandererJoin = false;
     public float TemplateWandererJoinChanceMultiplier = 1.0f;
+    public bool EnableRavenCreepJoiner = true;
+    public float RavenCreepJoinerChanceMultiplier = 1.0f;
 
     // Golden Cube Implant (Anomaly DLC)
     public bool EnableGoldenCubeImplant = true;

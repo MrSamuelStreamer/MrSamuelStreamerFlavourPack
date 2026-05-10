@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Defs>
+    <HediffDef ParentName="BS_DefaultHumanlikeAnimal">
+        <defName>HL_MSSFP_Raven_RaceHediff</defName>
+        <label>raven savant</label>
+        <description>This raven thinks. It speaks. It plots. It will out-research half the colony before lunch.</description>
+        <isBad>false</isBad>
+        <everCurableByItem>false</everCurableByItem>
+        <modExtensions>
+            <li Class="BigAndSmall.PawnExtension">
+                <animalFineManipulation>0.6</animalFineManipulation>
+                <aptitudes>
+                    <Intellectual>20</Intellectual>
+                    <Social>10</Social>
+                    <Crafting>4</Crafting>
+                    <Medicine>4</Medicine>
+                </aptitudes>
+                <forcedTraits>
+                    <li MayRequire="Ludeon.RimWorld.Anomaly">TooSmart</li>
+                </forcedTraits>
+                <traitsDependentOnRace>
+                    <li MayRequire="Ludeon.RimWorld.Anomaly">TooSmart</li>
+                </traitsDependentOnRace>
+            </li>
+        </modExtensions>
+    </HediffDef>
+</Defs>

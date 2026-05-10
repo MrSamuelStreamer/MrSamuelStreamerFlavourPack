@@ -5,7 +5,7 @@
         <li>1.6</li>
         <li IfModActive="vanillaexpanded.vee">Compatibility/vanillaexpanded.vee/1.6</li>
         <li IfModActive="sarg.alphagenes">Compatibility/sarg.alphagenes/1.6</li>
-        <li IfModActive="RedMattis.BetterPrerequisites">Compatibility/RedMattis.BetterPrerequisites/1.6</li>
+        <li IfModActive="redmattis.betterprerequisites">Compatibility/RedMattis.BetterPrerequisites/1.6</li>
         <li IfModActive="OskarPotocki.VanillaFactionsExpanded.Core">Compatibility/OskarPotocki.VanillaFactionsExpanded.Core/1.6</li>
         <li IfModActive="oskarpotocki.vfe.tribals">Compatibility/OskarPotocki.VFE.Tribals/1.6</li>
         <li IfModActive="Mlie.ResourceGenerator">Compatibility/Mlie.ResourceGenerator/1.6</li>
