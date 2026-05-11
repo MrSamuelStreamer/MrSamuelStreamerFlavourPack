@@ -1,5 +1,6 @@
 using HarmonyLib;
 using MSSFP.ModExtensions;
+using MSSFP.Utils;
 using RimWorld;
 using UnityEngine;
 using Verse;
@@ -61,6 +62,7 @@ public static class JobDriver_Resurrect_Patch
     public static void Resurrect(Pawn innerPawn, Thing item, float severity)
     {
         CompTargetEffect_Resurrect comp = item.TryGetComp<CompTargetEffect_Resurrect>();
+        ResurrectorModExtension ext = item.def.GetModExtension<ResurrectorModExtension>();
 
         if (TryResurrect(innerPawn, severity))
         {
@@ -70,6 +72,11 @@ public static class JobDriver_Resurrect_Patch
                 MoteMaker.MakeAttachedOverlay(innerPawn, comp.Props.moteDef, Vector3.zero);
             if (comp.Props.addsHediff != null)
                 innerPawn.health.AddHediff(comp.Props.addsHediff);
+
+            if (ext is { EnableGuaranteedDownsides: true })
+            {
+                MechSerumDownsides.ApplyGuaranteedDownside(innerPawn, "resurrector mech serum");
+            }
         }
         item.SplitOff(1).Destroy();
     }

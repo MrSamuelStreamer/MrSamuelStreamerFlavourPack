@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <JobDef>
+        <defName>MSSFP_UseProgrammableHealer</defName>
+        <driverClass>MSSFP.Jobs.JobDriver_UseProgrammableHealer</driverClass>
+        <reportString>using programmable healer mech serum.</reportString>
+        <casualInterruptible>false</casualInterruptible>
+        <playerInterruptible>true</playerInterruptible>
+    </JobDef>
+</Defs>
