@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MSSFP.PawnPortability.Defs.PawnTemplateDef>
+    <defName>MSSFP_Pawn_F</defName>
+    <label>F</label>
+    <description>Exported template of F.</description>
+    <schemaVersion>1</schemaVersion>
+    <mode>Template</mode>
+    <requiredMods>
+        <li>
+            <packageId>anthitei.athsideocolorpalette.colors</packageId>
+            <name>ATH's Ideo Colors Pallette</name>
+        </li>
+        <li>
+            <packageId>aranmaho.xianxia</packageId>
+            <name>Cultivator of the Rim</name>
+        </li>
+        <li>
+            <packageId>darjeeling.battlecloak</packageId>
+            <name>Advanced Battle Cloak</name>
+        </li>
+        <li>
+            <packageId>ebsg.aio</packageId>
+            <name>Expanded Biotech Style Genes - All in One</name>
+        </li>
+        <li>
+            <packageId>ebsg.archite</packageId>
+            <name>Expanded Archite Genes</name>
+        </li>
+        <li>
+            <packageId>eo3.skeletalefflorescence</packageId>
+            <name>Skeletal Efflorescence</name>
+        </li>
+        <li>
+            <packageId>fdp.rimzone.anoart</packageId>
+            <name>RimZone Anomalies and Artifacts</name>
+        </li>
+        <li>
+            <packageId>hautarche.hautstraits</packageId>
+            <name>Hauts' Added Traits</name>
+        </li>
+        <li>
+            <packageId>hrg164hjo.whelingnorther.alliance</packageId>
+            <name>WNA - Whelingnorther Alliance</name>
+        </li>
+        <li>
+            <packageId>icc.aov.osec</packageId>
+            <name>Arsenal - Orbital Security</name>
+        </li>
+        <li>
+            <packageId>jellycreative.isekaileveling</packageId>
+            <name>ISEKAI RPG LEVELING</name>
+        </li>
+        <li>
+            <packageId>jtc.grineer</packageId>
+            <name>Rimframe: Vatgrown Hate</name>
+        </li>
+        <li>
+            <packageId>ludeon.rimworld.anomaly</packageId>
+            <name>Anomaly</name>
+        </li>
+        <li>
+            <packageId>ludeon.rimworld.biotech</packageId>
+            <name>Biotech</name>
+        </li>
+        <li>
+            <packageId>mlie.archotechplus</packageId>
+            <name>Archotech+ (Continued)</name>
+        </li>
+        <li>
+            <packageId>morebiotechstylegenes.mod</packageId>
+            <name>More Biotech Style Genes - All in One</name>
+        </li>
+        <li>
+            <packageId>mss.flavourpack</packageId>
+            <name>Mr Samuel Streamer Flavour Pack</name>
+        </li>
+        <li>
+            <packageId>neronix17.outland.genetics</packageId>
+            <name>Outland - Genetics</name>
+        </li>
+        <li>
+            <packageId>redmattis.bigsmall.core</packageId>
+            <name>Big and Small - Genes &amp; More</name>
+        </li>
+        <li>
+            <packageId>ri.rimimmortal.living</packageId>
+            <name>边缘仙路-俗世仙工 RimImmortal-Living[1.6]</name>
+        </li>
+        <li>
+            <packageId>rimsenal.zohar</packageId>
+            <name>Rimsenal Xenotype Pack - Zohar</name>
+        </li>
+        <li>
+            <packageId>sarg.alphagenes</packageId>
+            <name>Alpha Genes</name>
+        </li>
+        <li>
+            <packageId>seti.medieval.trinkets</packageId>
+            <name>Bundle of Trinkets</name>
+        </li>
+        <li>
+            <packageId>snow.kraltechindustries.rebalanced</packageId>
+            <name>Kraltech Industries Rebalanced (1.6)</name>
+        </li>
+        <li>
+            <packageId>stefanlog.basictraits</packageId>
+            <name>Basic Traits</name>
+        </li>
+        <li>
+            <packageId>tw.tangsbiome.rainbowforest</packageId>
+            <name>[TW1.6]幻彩林地 Rainbow forest</name>
+        </li>
+        <li>
+            <packageId>ushanka.hackingexpansion</packageId>
+            <name>Ushankas Hacking Expansion</name>
+        </li>
+        <li>
+            <packageId>vanillaexpanded.vpsycastse</packageId>
+            <name>Vanilla Psycasts Expanded</name>
+        </li>
+    </requiredMods>
+    <originSeries>Villains, Backrooms</originSeries>
+    <tags />
+    <narrativeNotes>F was a test subject used by the Empire for their unique genetic potential. Instead of gaining blatant powers with military applications, F developed the apex of biological flexibility, and used their new power to absorb genetic information from others deemed worthy of integrating. Eventually F's psychic potential grew too large from the abundance of genetic alteration, and F fell into the backrooms. There F abanoned any remaining morality and became a leader to other trapped refugees, using them as experiments under the guise of sanctity.</narrativeNotes>
+    <kindDef>Colonist</kindDef>
+    <gender>Female</gender>
+    <name>
+        <first>F</first>
+        <nick>F</nick>
+        <last>Bragcite</last>
+    </name>
+    <age>
+        <biologicalAgeTicks>174204983</biologicalAgeTicks>
+        <chronologicalAgeTicks>163890115</chronologicalAgeTicks>
+    </age>
+    <story>
+        <bodyType>Thin</bodyType>
+        <headType>Female_AveragePointy</headType>
+        <hairDef>Bald</hairDef>
+        <hairColor>(0.552, 0.347, 0.197)</hairColor>
+        <childhood>CloneFarmed21</childhood>
+        <adulthood>MadScientist31</adulthood>
+        <birthLastName>Boyle</birthLastName>
+        <favoriteColor MayRequire="anthitei.athsideocolorpalette.colors">Yellow23</favoriteColor>
+        <traits>
+            <li MayRequire="aranmaho.xianxia">
+                <def>CTR_GoodTalent</def>
+                <degree>0</degree>
+            </li>
+            <li MayRequire="stefanlog.basictraits">
+                <def>BT_Charismatic</def>
+                <degree>0</degree>
+            </li>
+            <li MayRequire="ludeon.rimworld.biotech">
+                <def>Recluse</def>
+                <degree>0</degree>
+            </li>
+            <li>
+                <def>Psychopath</def>
+                <degree>0</degree>
+            </li>
+            <li MayRequire="jellycreative.isekaileveling">
+                <def>Isekai_Rank_A</def>
+                <degree>0</degree>
+            </li>
+            <li MayRequire="stefanlog.basictraits">
+                <def>BT_Diligent</def>
+                <degree>0</degree>
+            </li>
+        </traits>
+    </story>
+    <skills>
+        <li>
+            <def>Shooting</def>
+            <level>19</level>
+        </li>
+        <li>
+            <def>Melee</def>
+            <level>20</level>
+        </li>
+        <li>
+            <def>Construction</def>
+            <level>24</level>
+            <passion>Major</passion>
+        </li>
+        <li>
+            <def>Mining</def>
+            <level>12</level>
+        </li>
+        <li>
+            <def>Cooking</def>
+            <level>5</level>
+        </li>
+        <li>
+            <def>Plants</def>
+            <level>0</level>
+            <passion>Minor</passion>
+        </li>
+        <li>
+            <def>Animals</def>
+            <level>10</level>
+            <passion>Major</passion>
+        </li>
+        <li>
+            <def>Crafting</def>
+            <level>20</level>
+            <passion>Minor</passion>
+        </li>
+        <li>
+            <def>Artistic</def>
+            <level>14</level>
+            <passion>Major</passion>
+        </li>
+        <li>
+            <def>Medicine</def>
+            <level>32</level>
+            <passion>Major</passion>
+        </li>
+        <li>
+            <def>Social</def>
+            <level>22</level>
+            <passion>Major</passion>
+        </li>
+        <li>
+            <def>Intellectual</def>
+            <level>26</level>
+            <passion>Major</passion>
+        </li>
+        <li>
+            <def>Toughness</def>
+            <level>17</level>
+            <passion>Minor</passion>
+        </li>
+    </skills>
+    <genes>
+        <xenotype MayRequire="mss.flavourpack">MSSV_TheDevourer</xenotype>
+        <endogenes>
+            <li>Hair_ReddishBrown</li>
+            <li MayRequire="redmattis.bigsmall.core">BS_DisintegrateXenoGenes</li>
+            <li MayRequire="redmattis.bigsmall.core">BS_IntegrateGenes</li>
+            <li MayRequire="redmattis.bigsmall.core">BS_GeneEater</li>
+            <li MayRequire="redmattis.bigsmall.core">BS_NaturalArmor</li>
+            <li MayRequire="redmattis.bigsmall.core">BS_SlowBleeding</li>
+            <li MayRequire="neronix17.outland.genetics">Outland_FragileHealing</li>
+            <li MayRequire="morebiotechstylegenes.mod">Instability_Extreme</li>
+            <li MayRequire="ebsg.aio">EBSG_Reclusive</li>
+            <li MayRequire="ebsg.archite">EBSG_ArchiteToxImmunity</li>
+            <li MayRequire="eo3.skeletalefflorescence">Beauty_Eerie</li>
+            <li MayRequire="ebsg.aio">EBSG_Preacher</li>
+            <li MayRequire="ebsg.archite">EBSG_ArchiteEnhancedSuave</li>
+            <li MayRequire="ludeon.rimworld.biotech">Hair_BaldOnly</li>
+            <li MayRequire="rimsenal.zohar">Gene_Psychopath</li>
+            <li MayRequire="ebsg.archite">MBSG_MinorArchite_Intellectual</li>
+            <li MayRequire="hautarche.hautstraits">HVT_AEruditeGene</li>
+            <li MayRequire="mss.flavourpack">MSS_VoidsEmbrace</li>
+            <li MayRequire="neronix17.outland.genetics">Outland_Wings_Fey</li>
+            <li MayRequire="eo3.skeletalefflorescence">Eo3_BoneCrown</li>
+            <li MayRequire="mss.flavourpack">MSS_FP_MemoryAwakening_Wanderer</li>
+            <li MayRequire="ludeon.rimworld.biotech">Beard_NoBeardOnly</li>
+            <li MayRequire="jtc.grineer">G_Geneticloyal</li>
+            <li MayRequire="jtc.grineer">Eyes_Gorange</li>
+            <li MayRequire="ludeon.rimworld.biotech">MinTemp_LargeDecrease</li>
+            <li MayRequire="redmattis.bigsmall.core">BS_FastAging</li>
+            <li MayRequire="ludeon.rimworld.biotech">Pain_Reduced</li>
+            <li>Skin_Melanin9</li>
+            <li MayRequire="ludeon.rimworld.biotech">PsychicAbility_Extreme</li>
+            <li MayRequire="ludeon.rimworld.biotech">Fertile</li>
+            <li MayRequire="ludeon.rimworld.biotech">DarkVision</li>
+            <li MayRequire="ebsg.aio">EBSG_HyperJoviality</li>
+            <li MayRequire="sarg.alphagenes">AG_NereidFins</li>
+            <li MayRequire="ebsg.archite">EBSG_ArchiteNeverSleep</li>
+            <li MayRequire="neronix17.outland.genetics">Outland_Evasive</li>
+            <li MayRequire="ebsg.archite">MBSG_MinorArchite_Shooting</li>
+            <li MayRequire="mss.flavourpack">MSS_FP_GrignrAwakening</li>
+            <li MayRequire="ebsg.archite">EBSG_ArchiteEnhancedShooter</li>
+        </endogenes>
+    </genes>
+    <hediffs>
+        <li MayRequire="vanillaexpanded.vpsycastse">
+            <def>VPE_PsycastAbilityImplant</def>
+            <severity>24.00</severity>
+            <bodyPart>Brain</bodyPart>
+            <bodyPartLabel>brain</bodyPartLabel>
+        </li>
+        <li MayRequire="hautarche.hautstraits">
+            <def>HVT_AwakenedDeathTracker</def>
+            <severity>2.95</severity>
+            <bodyPart>Brain</bodyPart>
+            <bodyPartLabel>brain</bodyPartLabel>
+        </li>
+        <li MayRequire="ushanka.hackingexpansion">
+            <def>USH_InstalledCyberlink</def>
+            <severity>0.50</severity>
+            <bodyPart>Brain</bodyPart>
+            <bodyPartLabel>brain</bodyPartLabel>
+        </li>
+        <li MayRequire="hautarche.hautstraits">
+            <def>HVT_Dominicus</def>
+            <severity>0.50</severity>
+        </li>
+        <li MayRequire="aranmaho.xianxia">
+            <def>CTR_BreakthroughCounter</def>
+            <severity>0.00</severity>
+        </li>
+        <li>
+            <def>Denture</def>
+            <severity>0.50</severity>
+            <bodyPart>Jaw</bodyPart>
+            <bodyPartLabel>jaw</bodyPartLabel>
+        </li>
+        <li MayRequire="mlie.archotechplus">
+            <def>ArchotechSubdermalArmor</def>
+            <severity>1.00</severity>
+            <bodyPart>Torso</bodyPart>
+            <bodyPartLabel>torso</bodyPartLabel>
+        </li>
+        <li>
+            <def>BionicStomach</def>
+            <severity>0.50</severity>
+            <bodyPart>Stomach</bodyPart>
+            <bodyPartLabel>stomach</bodyPartLabel>
+        </li>
+        <li MayRequire="snow.kraltechindustries.rebalanced">
+            <def>CombatSpine</def>
+            <severity>0.50</severity>
+            <bodyPart>Spine</bodyPart>
+            <bodyPartLabel>spine</bodyPartLabel>
+        </li>
+        <li MayRequire="seti.medieval.trinkets">
+            <def>Seti_Trinket_IconofLight</def>
+            <severity>0.50</severity>
+        </li>
+        <li>
+            <def>PsychicAmplifier</def>
+            <severity>24.00</severity>
+            <bodyPart>Brain</bodyPart>
+            <bodyPartLabel>brain</bodyPartLabel>
+        </li>
+        <li MayRequire="darjeeling.battlecloak">
+            <def>TS_Cloak_Protection</def>
+            <severity>0.50</severity>
+        </li>
+        <li MayRequire="ludeon.rimworld.anomaly">
+            <def>CubeInterest</def>
+            <severity>0.10</severity>
+        </li>
+    </hediffs>
+    <equipment>
+        <li MayRequire="tw.tangsbiome.rainbowforest">
+            <def>TWRL_Gun_RainbowRevolver</def>
+            <quality>Masterwork</quality>
+            <hitPoints>100</hitPoints>
+        </li>
+    </equipment>
+    <apparel>
+        <li MayRequire="icc.aov.osec">
+            <def>Apparel_SealedUndersuit</def>
+            <quality>Masterwork</quality>
+            <hitPoints>89</hitPoints>
+        </li>
+        <li MayRequire="ri.rimimmortal.living">
+            <def>RI_Apparel_BasicMiddleClothes</def>
+            <stuff MayRequire="hrg164hjo.whelingnorther.alliance">WNA_DarkAsbestos</stuff>
+            <quality>Excellent</quality>
+            <hitPoints>6749569</hitPoints>
+        </li>
+        <li MayRequire="snow.kraltechindustries.rebalanced">
+            <def>Apparel_EnforcerBoots</def>
+            <quality>Normal</quality>
+            <hitPoints>194</hitPoints>
+        </li>
+        <li MayRequire="snow.kraltechindustries.rebalanced">
+            <def>PsyRejuvenatorSerum</def>
+            <hitPoints>80</hitPoints>
+        </li>
+        <li MayRequire="seti.medieval.trinkets">
+            <def>Seti_Trinket_IconofLight</def>
+            <hitPoints>-1</hitPoints>
+        </li>
+        <li MayRequire="darjeeling.battlecloak">
+            <def>DRCC_Cloak</def>
+            <stuff>Leather_Bear</stuff>
+            <quality>Excellent</quality>
+            <hitPoints>270</hitPoints>
+        </li>
+    </apparel>
+    <abilities>
+        <li MayRequire="redmattis.bigsmall.core">BS_DisintegrateXenoGenes</li>
+        <li MayRequire="redmattis.bigsmall.core">BS_IntegrateGenes</li>
+        <li MayRequire="neronix17.outland.genetics">Outland_ShortFlight</li>
+        <li MayRequire="fdp.rimzone.anoart">RZ_Ability_Bolt</li>
+    </abilities>
+    <style>
+        <beardDef>NoBeard</beardDef>
+        <faceTattoo>NoTattoo_Face</faceTattoo>
+        <bodyTattoo>NoTattoo_Body</bodyTattoo>
+    </style>
+</MSSFP.PawnPortability.Defs.PawnTemplateDef>

@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MSSFP.PawnPortability.Defs.PawnTemplateDef>
+    <defName>MSSFP_Pawn_Rusty</defName>
+    <label>Shears</label>
+    <description>Exported template of Shears.</description>
+    <schemaVersion>1</schemaVersion>
+    <mode>Template</mode>
+    <requiredMods>
+        <li>
+            <packageId>anthitei.athsideocolorpalette.colors</packageId>
+            <name>ATH's Ideo Colors Pallette</name>
+        </li>
+        <li>
+            <packageId>aranmaho.xianxia</packageId>
+            <name>Cultivator of the Rim</name>
+        </li>
+        <li>
+            <packageId>cyberware.2077</packageId>
+            <name>Cyberware 2077</name>
+        </li>
+        <li>
+            <packageId>fdp.rimzone.anoart</packageId>
+            <name>RimZone Anomalies and Artifacts</name>
+        </li>
+        <li>
+            <packageId>jellycreative.isekaileveling</packageId>
+            <name>ISEKAI RPG LEVELING</name>
+        </li>
+        <li>
+            <packageId>ludeon.rimworld.anomaly</packageId>
+            <name>Anomaly</name>
+        </li>
+        <li>
+            <packageId>ludeon.rimworld.biotech</packageId>
+            <name>Biotech</name>
+        </li>
+        <li>
+            <packageId>mrsamuelstreamer.memesuperpack</packageId>
+            <name>Meme-Superpack</name>
+        </li>
+        <li>
+            <packageId>mss.flavourpack</packageId>
+            <name>Mr Samuel Streamer Flavour Pack</name>
+        </li>
+        <li>
+            <packageId>ny.smeltedloong</packageId>
+            <name>中式龙娘——冶龍 SMELTED LOONG</name>
+        </li>
+        <li>
+            <packageId>snow.kraltechindustries.rebalanced</packageId>
+            <name>Kraltech Industries Rebalanced (1.6)</name>
+        </li>
+        <li>
+            <packageId>thathitmann.nanomachinefoundry</packageId>
+            <name>Nanomachine Foundry</name>
+        </li>
+    </requiredMods>
+    <originSeries>Backrooms</originSeries>
+    <tags />
+    <narrativeNotes>Rusty was one of two Yelong twins who escaped into the backrooms from their reality. Much like her sister, Rusty underwent extremely cyberisation, being implanted with nanites and powerful robotic limbs.</narrativeNotes>
+    <kindDef>Colonist</kindDef>
+    <gender>Female</gender>
+    <name>
+        <first>Rusty</first>
+        <nick>Shears</nick>
+        <last>Shears</last>
+    </name>
+    <age>
+        <biologicalAgeTicks>277781164</biologicalAgeTicks>
+        <chronologicalAgeTicks>271109664</chronologicalAgeTicks>
+    </age>
+    <story>
+        <bodyType MayRequire="ny.smeltedloong">SmeltedLoongBodyWJ</bodyType>
+        <headType MayRequire="ny.smeltedloong">SmeltedLoongHeadMC_A</headType>
+        <hairDef MayRequire="ny.smeltedloong">NY_SmeltedLoongHair05</hairDef>
+        <hairColor>(0.980, 0.980, 0.980)</hairColor>
+        <skinColorOverride>(0.973, 0.972, 0.972)</skinColorOverride>
+        <childhood MayRequire="ny.smeltedloong">NY_LoongLanguageChild</childhood>
+        <adulthood MayRequire="ny.smeltedloong">NY_LoongMasterFight</adulthood>
+        <birthLastName></birthLastName>
+        <favoriteColor MayRequire="anthitei.athsideocolorpalette.colors">Pink97</favoriteColor>
+        <traits>
+            <li>
+                <def>Gay</def>
+                <degree>0</degree>
+            </li>
+            <li>
+                <def>TooSmart</def>
+                <degree>0</degree>
+            </li>
+            <li MayRequire="ny.smeltedloong">
+                <def>NY_trait_ToughMC</def>
+                <degree>0</degree>
+            </li>
+            <li MayRequire="jellycreative.isekaileveling">
+                <def>Isekai_Agile</def>
+                <degree>0</degree>
+            </li>
+            <li MayRequire="aranmaho.xianxia">
+                <def>CTR_GoodTalent</def>
+                <degree>0</degree>
+            </li>
+            <li MayRequire="jellycreative.isekaileveling">
+                <def>Isekai_Rank_A</def>
+                <degree>0</degree>
+            </li>
+        </traits>
+    </story>
+    <skills>
+        <li>
+            <def>Shooting</def>
+            <level>13</level>
+            <passion>Minor</passion>
+        </li>
+        <li>
+            <def>Melee</def>
+            <level>18</level>
+            <passion>Major</passion>
+        </li>
+        <li>
+            <def>Construction</def>
+            <level>25</level>
+            <passion>Major</passion>
+        </li>
+        <li>
+            <def>Mining</def>
+            <level>23</level>
+            <passion>Major</passion>
+        </li>
+        <li>
+            <def>Cooking</def>
+            <level>5</level>
+            <passion>Minor</passion>
+        </li>
+        <li>
+            <def>Plants</def>
+            <level>3</level>
+        </li>
+        <li>
+            <def>Animals</def>
+            <level>5</level>
+        </li>
+        <li>
+            <def>Crafting</def>
+            <level>10</level>
+        </li>
+        <li>
+            <def>Artistic</def>
+            <level>4</level>
+        </li>
+        <li>
+            <def>Medicine</def>
+            <level>16</level>
+            <passion>Major</passion>
+        </li>
+        <li>
+            <def>Social</def>
+            <level>9</level>
+        </li>
+        <li>
+            <def>Intellectual</def>
+            <level>24</level>
+            <passion>Major</passion>
+        </li>
+        <li>
+            <def>Toughness</def>
+            <level>22</level>
+            <passion>Minor</passion>
+        </li>
+    </skills>
+    <genes>
+        <xenotype MayRequire="ny.smeltedloong">NY_SmeltedLoongMalachite</xenotype>
+        <endogenes>
+            <li MayRequire="ny.smeltedloong">NY_gene_SmeltedLoongMC</li>
+            <li MayRequire="ny.smeltedloong">NY_gene_SmeltedLoongHornMC</li>
+            <li MayRequire="ny.smeltedloong">NY_gene_SmeltedLoongTailMC</li>
+            <li MayRequire="ny.smeltedloong">NY_gene_LoongFireResistant</li>
+            <li MayRequire="ny.smeltedloong">NY_gene_SmeltedLoongMilk</li>
+            <li MayRequire="ludeon.rimworld.biotech">Immunity_Strong</li>
+            <li MayRequire="ludeon.rimworld.biotech">WoundHealing_Fast</li>
+            <li MayRequire="ludeon.rimworld.biotech">PsychicAbility_Dull</li>
+            <li MayRequire="ludeon.rimworld.biotech">MoveSpeed_Slow</li>
+            <li MayRequire="ludeon.rimworld.biotech">ToxicEnvironmentResistance_Total</li>
+            <li MayRequire="ludeon.rimworld.biotech">Sleepy</li>
+            <li MayRequire="ludeon.rimworld.biotech">Libido_Low</li>
+            <li MayRequire="ludeon.rimworld.biotech">Beauty_Pretty</li>
+            <li>Hair_SnowWhite</li>
+            <li>Hair_Gray</li>
+            <li MayRequire="ludeon.rimworld.biotech">StrongStomach</li>
+            <li MayRequire="ludeon.rimworld.biotech">DarkVision</li>
+            <li MayRequire="ludeon.rimworld.biotech">Hair_Grayless</li>
+            <li MayRequire="ludeon.rimworld.biotech">Unstoppable</li>
+            <li MayRequire="ludeon.rimworld.biotech">AptitudeRemarkable_Construction</li>
+            <li MayRequire="ludeon.rimworld.biotech">AptitudeRemarkable_Mining</li>
+            <li MayRequire="ludeon.rimworld.biotech">AptitudeTerrible_Cooking</li>
+            <li MayRequire="ludeon.rimworld.biotech">AptitudeTerrible_Plants</li>
+            <li MayRequire="ludeon.rimworld.biotech">AptitudeTerrible_Animals</li>
+            <li MayRequire="ludeon.rimworld.biotech">AptitudeTerrible_Crafting</li>
+            <li MayRequire="ludeon.rimworld.biotech">AptitudeTerrible_Artistic</li>
+            <li MayRequire="ludeon.rimworld.biotech">AptitudeTerrible_Social</li>
+            <li>Skin_Melanin3</li>
+            <li MayRequire="mss.flavourpack">MSS_FP_MemoryAwakening_Wanderer</li>
+        </endogenes>
+    </genes>
+    <hediffs>
+        <li MayRequire="ny.smeltedloong">
+            <def>NY_hediff_SmeltedLoongMC</def>
+            <severity>1.00</severity>
+        </li>
+        <li MayRequire="ny.smeltedloong">
+            <def>NY_hediff_SmeltedLoongMilk</def>
+            <severity>1.00</severity>
+        </li>
+        <li MayRequire="mrsamuelstreamer.memesuperpack">
+            <def>MSSMeme_Awake</def>
+            <severity>2.00</severity>
+        </li>
+        <li MayRequire="ny.smeltedloong">
+            <def>NY_hediff_LoongHornMC</def>
+            <severity>1.00</severity>
+            <bodyPart>Head</bodyPart>
+            <bodyPartLabel>head</bodyPartLabel>
+        </li>
+        <li MayRequire="ny.smeltedloong">
+            <def>NY_hediff_LoongTailMC</def>
+            <severity>1.00</severity>
+            <bodyPart>Spine</bodyPart>
+            <bodyPartLabel>spine</bodyPartLabel>
+        </li>
+        <li MayRequire="cyberware.2077">
+            <def>ImmovableForce_Iconic</def>
+            <severity>0.50</severity>
+            <bodyPart MayRequire="cyberware.2077">Cyberware2077_Hands</bodyPart>
+            <bodyPartLabel>hand cyberware</bodyPartLabel>
+        </li>
+        <li MayRequire="cyberware.2077">
+            <def>BallisticCoprocessor_5T</def>
+            <severity>0.50</severity>
+            <bodyPart MayRequire="cyberware.2077">Cyberware2077_Hands</bodyPart>
+            <bodyPartLabel>hand cyberware</bodyPartLabel>
+        </li>
+        <li MayRequire="cyberware.2077">
+            <def>MilitechCantoCyberdeck_Iconic</def>
+            <severity>0.50</severity>
+            <bodyPart MayRequire="cyberware.2077">Cyberware2077_OS</bodyPart>
+            <bodyPartLabel>operating system cyberware</bodyPartLabel>
+        </li>
+        <li MayRequire="cyberware.2077">
+            <def>ProjectileLaunchSystem_5T</def>
+            <severity>0.50</severity>
+            <bodyPart>Arm</bodyPart>
+            <bodyPartLabel>left arm</bodyPartLabel>
+        </li>
+        <li MayRequire="cyberware.2077">
+            <def>VisualCortexSupport_5T</def>
+            <severity>0.50</severity>
+            <bodyPart>Neck</bodyPart>
+            <bodyPartLabel>neck</bodyPartLabel>
+        </li>
+        <li MayRequire="cyberware.2077">
+            <def>KiroshiStalkerEye_5T</def>
+            <severity>0.50</severity>
+            <bodyPart>Eye</bodyPart>
+            <bodyPartLabel>left eye</bodyPartLabel>
+        </li>
+        <li MayRequire="cyberware.2077">
+            <def>ProjectileLaunchSystem_5T</def>
+            <severity>0.50</severity>
+            <bodyPart>Arm</bodyPart>
+            <bodyPartLabel>right arm</bodyPartLabel>
+        </li>
+        <li MayRequire="cyberware.2077">
+            <def>KiroshiStalkerEye_5T</def>
+            <severity>0.50</severity>
+            <bodyPart>Eye</bodyPart>
+            <bodyPartLabel>right eye</bodyPartLabel>
+        </li>
+        <li MayRequire="thathitmann.nanomachinefoundry">
+            <def>THNMF_LuciferitePower</def>
+            <severity>0.90</severity>
+        </li>
+        <li MayRequire="ludeon.rimworld.anomaly">
+            <def>CubeInterest</def>
+            <severity>0.13</severity>
+        </li>
+        <li>
+            <def>Crush</def>
+            <severity>1.93</severity>
+            <bodyPart>Brain</bodyPart>
+            <bodyPartLabel>brain</bodyPartLabel>
+            <permanent>true</permanent>
+        </li>
+        <li>
+            <def>PsychiteTeaHigh</def>
+            <severity>0.83</severity>
+        </li>
+        <li>
+            <def>PsychiteTolerance</def>
+            <severity>0.06</severity>
+        </li>
+    </hediffs>
+    <equipment>
+        <li MayRequire="snow.kraltechindustries.rebalanced">
+            <def>Gun_AntiMechAntiMaterialRifleUltra</def>
+            <quality>Excellent</quality>
+            <hitPoints>200</hitPoints>
+        </li>
+    </equipment>
+    <apparel>
+        <li MayRequire="ny.smeltedloong">
+            <def>NY_SLBB_GyrfalconArmor</def>
+            <quality>Excellent</quality>
+            <hitPoints>800</hitPoints>
+        </li>
+        <li MayRequire="ny.smeltedloong">
+            <def>NY_CopperMask</def>
+            <quality>Good</quality>
+            <hitPoints>-1</hitPoints>
+        </li>
+        <li MayRequire="ny.smeltedloong">
+            <def>NY_GoldenHairpin</def>
+            <quality>Good</quality>
+            <hitPoints>-1</hitPoints>
+        </li>
+        <li MayRequire="snow.kraltechindustries.rebalanced">
+            <def>PsyRejuvenatorSerum</def>
+            <hitPoints>80</hitPoints>
+        </li>
+        <li MayRequire="ny.smeltedloong">
+            <def>NY_BB_VolantHelmet</def>
+            <quality>Excellent</quality>
+            <hitPoints>360</hitPoints>
+        </li>
+    </apparel>
+    <abilities>
+        <li MayRequire="ny.smeltedloong">NY_ability_LoongMine</li>
+        <li MayRequire="ny.smeltedloong">NY_ability_LoongGroupArmor</li>
+        <li MayRequire="fdp.rimzone.anoart">RZ_Ability_Bolt</li>
+        <li MayRequire="ny.smeltedloong">NY_ability_SmokeGyrfalcon</li>
+    </abilities>
+    <style>
+        <beardDef>NoBeard</beardDef>
+        <faceTattoo>NoTattoo_Face</faceTattoo>
+        <bodyTattoo>NoTattoo_Body</bodyTattoo>
+    </style>
+</MSSFP.PawnPortability.Defs.PawnTemplateDef>

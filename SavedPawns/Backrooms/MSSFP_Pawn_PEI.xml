@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MSSFP.PawnPortability.Defs.PawnTemplateDef>
+    <defName>MSSFP_Pawn_PEI</defName>
+    <label>YAN LIU</label>
+    <description>Exported template of YAN LIU.</description>
+    <schemaVersion>1</schemaVersion>
+    <mode>Template</mode>
+    <requiredMods>
+        <li>
+            <packageId>absolute.legends.hair</packageId>
+            <name>Absolute Legends: Hair</name>
+        </li>
+        <li>
+            <packageId>aranmaho.xianxia</packageId>
+            <name>Cultivator of the Rim</name>
+        </li>
+        <li>
+            <packageId>atk.anthrosonae</packageId>
+            <name>Anthrosonae</name>
+        </li>
+        <li>
+            <packageId>darjeeling.battlecloak</packageId>
+            <name>Advanced Battle Cloak</name>
+        </li>
+        <li>
+            <packageId>doug.conn</packageId>
+            <name>Cybernetic Organism and Neural Network</name>
+        </li>
+        <li>
+            <packageId>fdp.rimzone.anoart</packageId>
+            <name>RimZone Anomalies and Artifacts</name>
+        </li>
+        <li>
+            <packageId>hautarche.hautstraits</packageId>
+            <name>Hauts' Added Traits</name>
+        </li>
+        <li>
+            <packageId>hrg164hjo.whelingnorther.alliance</packageId>
+            <name>WNA - Whelingnorther Alliance</name>
+        </li>
+        <li>
+            <packageId>icc.aov.osec</packageId>
+            <name>Arsenal - Orbital Security</name>
+        </li>
+        <li>
+            <packageId>jellycreative.isekaileveling</packageId>
+            <name>ISEKAI RPG LEVELING</name>
+        </li>
+        <li>
+            <packageId>kearril.raretraits</packageId>
+            <name>RareTraits (Continued)</name>
+        </li>
+        <li>
+            <packageId>ludeon.rimworld.royalty</packageId>
+            <name>Royalty</name>
+        </li>
+        <li>
+            <packageId>mss.flavourpack</packageId>
+            <name>Mr Samuel Streamer Flavour Pack</name>
+        </li>
+        <li>
+            <packageId>ri.rimimmortal.core</packageId>
+            <name>边缘仙路-羽化登仙 RimImmortal-Core[1.6]</name>
+        </li>
+        <li>
+            <packageId>ri.rimimmortal.forge</packageId>
+            <name>边缘仙路-神机天纵 RimImmortal-Forge[1.6]</name>
+        </li>
+        <li>
+            <packageId>th3fr3d.extendedinjuries</packageId>
+            <name>More Injuries (Continued)</name>
+        </li>
+        <li>
+            <packageId>vanillaexpanded.vpsycastse</packageId>
+            <name>Vanilla Psycasts Expanded</name>
+        </li>
+    </requiredMods>
+    <originSeries>Backrooms</originSeries>
+    <tags />
+    <narrativeNotes>Yan Liu was a cultivator that failed in their heavenly tribulation and was banished by the gods to the backrooms. Their body fell inside the colony of F who used their powers to restore Yan Liu to life. From then on Yan Liu redoubled her efforts into becoming the greatest fighter the world has ever seen, reaching previously unseen heights of melee prowess.</narrativeNotes>
+    <kindDef>Colonist</kindDef>
+    <gender>Female</gender>
+    <name>
+        <first>PEI</first>
+        <nick>YAN LIU</nick>
+        <last>YAN LIU</last>
+    </name>
+    <age>
+        <biologicalAgeTicks>73937445</biologicalAgeTicks>
+        <chronologicalAgeTicks>145399937</chronologicalAgeTicks>
+    </age>
+    <story>
+        <bodyType>Female</bodyType>
+        <headType MayRequire="atk.anthrosonae">ATK_Anthropanda_Average_Female</headType>
+        <hairDef MayRequire="absolute.legends.hair">ALH_Chigur</hairDef>
+        <hairColor>(0.789, 0.597, 0.348)</hairColor>
+        <skinColorOverride>(0.235, 0.235, 0.235)</skinColorOverride>
+        <adulthood MayRequire="hautarche.hautstraits">HVT_TabulaRasaAdult</adulthood>
+        <birthLastName>YAN LIU</birthLastName>
+        <favoriteColor>FSFIdeoHyperweave</favoriteColor>
+        <traits>
+            <li MayRequire="aranmaho.xianxia">
+                <def>CTR_MediocreTalent</def>
+                <degree>0</degree>
+            </li>
+            <li MayRequire="jellycreative.isekaileveling">
+                <def>Isekai_Rank_S</def>
+                <degree>0</degree>
+            </li>
+            <li MayRequire="hautarche.hautstraits">
+                <def>HVT_Prideful</def>
+                <degree>1</degree>
+            </li>
+            <li MayRequire="hautarche.hautstraits">
+                <def>HVT_Haunted</def>
+                <degree>0</degree>
+            </li>
+            <li MayRequire="kearril.raretraits">
+                <def>SR02yszy</def>
+                <degree>0</degree>
+            </li>
+        </traits>
+    </story>
+    <skills>
+        <li>
+            <def>Shooting</def>
+            <level>22</level>
+            <passion>Major</passion>
+        </li>
+        <li>
+            <def>Melee</def>
+            <level>87</level>
+            <passion>Major</passion>
+        </li>
+        <li>
+            <def>Construction</def>
+            <level>21</level>
+            <passion>Minor</passion>
+        </li>
+        <li>
+            <def>Mining</def>
+            <level>22</level>
+        </li>
+        <li>
+            <def>Cooking</def>
+            <level>0</level>
+        </li>
+        <li>
+            <def>Plants</def>
+            <level>3</level>
+            <passion>Minor</passion>
+        </li>
+        <li>
+            <def>Animals</def>
+            <level>14</level>
+            <passion>Major</passion>
+        </li>
+        <li>
+            <def>Crafting</def>
+            <level>14</level>
+            <passion>Major</passion>
+        </li>
+        <li>
+            <def>Artistic</def>
+            <level>6</level>
+            <passion>Minor</passion>
+        </li>
+        <li>
+            <def>Medicine</def>
+            <level>16</level>
+            <passion>Major</passion>
+        </li>
+        <li>
+            <def>Social</def>
+            <level>11</level>
+            <passion>Minor</passion>
+        </li>
+        <li>
+            <def>Intellectual</def>
+            <level>19</level>
+        </li>
+        <li>
+            <def>Toughness</def>
+            <level>27</level>
+            <passion>Major</passion>
+        </li>
+    </skills>
+    <genes>
+        <xenotype MayRequire="atk.anthrosonae">ATK_Anthropanda</xenotype>
+        <endogenes>
+            <li>Skin_Melanin3</li>
+            <li>Hair_SandyBlonde</li>
+            <li MayRequire="mss.flavourpack">MSS_FP_MemoryAwakening_Social</li>
+        </endogenes>
+        <xenogenes>
+            <li MayRequire="atk.anthrosonae">ATK_AnthropandaFur</li>
+            <li MayRequire="atk.anthrosonae">ATK_AnthropandaEars</li>
+            <li MayRequire="atk.anthrosonae">ATK_AnthropandaTail</li>
+        </xenogenes>
+    </genes>
+    <hediffs>
+        <li MayRequire="ri.rimimmortal.core">
+            <def>Hediff_RI_EnergyRoot</def>
+            <severity>0.02</severity>
+            <bodyPart>Brain</bodyPart>
+            <bodyPartLabel>brain</bodyPartLabel>
+        </li>
+        <li MayRequire="ri.rimimmortal.core">
+            <def>RI_Hediff_Foundation</def>
+            <severity>0.50</severity>
+        </li>
+        <li>
+            <def>PsychicAmplifier</def>
+            <severity>19.00</severity>
+            <bodyPart>Brain</bodyPart>
+            <bodyPartLabel>brain</bodyPartLabel>
+        </li>
+        <li MayRequire="vanillaexpanded.vpsycastse">
+            <def>VPE_PsycastAbilityImplant</def>
+            <severity>19.00</severity>
+            <bodyPart>Brain</bodyPart>
+            <bodyPartLabel>brain</bodyPartLabel>
+        </li>
+        <li MayRequire="ludeon.rimworld.royalty">
+            <def>LearningAssistant</def>
+            <severity>1.00</severity>
+            <bodyPart>Brain</bodyPart>
+            <bodyPartLabel>brain</bodyPartLabel>
+        </li>
+        <li MayRequire="doug.conn">
+            <def>CONN_hediff_NeuroEnhancer</def>
+            <severity>1.00</severity>
+            <bodyPart>Brain</bodyPart>
+            <bodyPartLabel>brain</bodyPartLabel>
+        </li>
+        <li MayRequire="hrg164hjo.whelingnorther.alliance">
+            <def>WNA_Part_AdvBionicBrain</def>
+            <severity>1.00</severity>
+            <bodyPart>Brain</bodyPart>
+            <bodyPartLabel>brain</bodyPartLabel>
+        </li>
+        <li MayRequire="ludeon.rimworld.royalty">
+            <def>CircadianHalfCycler</def>
+            <severity>1.00</severity>
+            <bodyPart>Brain</bodyPart>
+            <bodyPartLabel>brain</bodyPartLabel>
+        </li>
+        <li MayRequire="ludeon.rimworld.royalty">
+            <def>NuclearStomach</def>
+            <severity>1.00</severity>
+            <bodyPart MayRequire="th3fr3d.extendedinjuries">SmallIntestine</bodyPart>
+            <bodyPartLabel>small intestine</bodyPartLabel>
+        </li>
+        <li MayRequire="ludeon.rimworld.royalty">
+            <def>NuclearStomach</def>
+            <severity>1.00</severity>
+            <bodyPart MayRequire="th3fr3d.extendedinjuries">LargeIntestine</bodyPart>
+            <bodyPartLabel>large intestine</bodyPartLabel>
+        </li>
+        <li MayRequire="ludeon.rimworld.royalty">
+            <def>NuclearStomach</def>
+            <severity>1.00</severity>
+            <bodyPart>Stomach</bodyPart>
+            <bodyPartLabel>stomach</bodyPartLabel>
+        </li>
+        <li MayRequire="hrg164hjo.whelingnorther.alliance">
+            <def>WNA_Part_AdvBionicSpine</def>
+            <severity>1.00</severity>
+            <bodyPart>Spine</bodyPart>
+            <bodyPartLabel>spine</bodyPartLabel>
+        </li>
+        <li MayRequire="hrg164hjo.whelingnorther.alliance">
+            <def>WNA_Part_AdvBionicLeg</def>
+            <severity>1.00</severity>
+            <bodyPart>Leg</bodyPart>
+            <bodyPartLabel>left leg</bodyPartLabel>
+        </li>
+        <li MayRequire="hrg164hjo.whelingnorther.alliance">
+            <def>WNA_Part_AdvBionicLeg</def>
+            <severity>1.00</severity>
+            <bodyPart>Leg</bodyPart>
+            <bodyPartLabel>right leg</bodyPartLabel>
+        </li>
+        <li MayRequire="hrg164hjo.whelingnorther.alliance">
+            <def>WNA_Part_AdvBionicEye</def>
+            <severity>1.00</severity>
+            <bodyPart>Eye</bodyPart>
+            <bodyPartLabel>left eye</bodyPartLabel>
+        </li>
+        <li MayRequire="hrg164hjo.whelingnorther.alliance">
+            <def>WNA_Part_AdvBionicEye</def>
+            <severity>1.00</severity>
+            <bodyPart>Eye</bodyPart>
+            <bodyPartLabel>right eye</bodyPartLabel>
+        </li>
+        <li MayRequire="hrg164hjo.whelingnorther.alliance">
+            <def>WNA_Part_AdvBionicArm</def>
+            <severity>1.00</severity>
+            <bodyPart>Shoulder</bodyPart>
+            <bodyPartLabel>left shoulder</bodyPartLabel>
+        </li>
+        <li MayRequire="hrg164hjo.whelingnorther.alliance">
+            <def>WNA_Part_AdvBionicArm</def>
+            <severity>1.00</severity>
+            <bodyPart>Shoulder</bodyPart>
+            <bodyPartLabel>right shoulder</bodyPartLabel>
+        </li>
+        <li MayRequire="hrg164hjo.whelingnorther.alliance">
+            <def>WNA_Part_AdvBionicJaw</def>
+            <severity>1.00</severity>
+            <bodyPart>Jaw</bodyPart>
+            <bodyPartLabel>jaw</bodyPartLabel>
+        </li>
+        <li MayRequire="hrg164hjo.whelingnorther.alliance">
+            <def>WNA_Part_AdvBionicKidney</def>
+            <severity>1.00</severity>
+            <bodyPart>Kidney</bodyPart>
+            <bodyPartLabel>left kidney</bodyPartLabel>
+        </li>
+        <li MayRequire="hrg164hjo.whelingnorther.alliance">
+            <def>WNA_Part_AdvBionicKidney</def>
+            <severity>1.00</severity>
+            <bodyPart>Kidney</bodyPart>
+            <bodyPartLabel>right kidney</bodyPartLabel>
+        </li>
+        <li MayRequire="hrg164hjo.whelingnorther.alliance">
+            <def>WNA_Part_AdvBionicLung</def>
+            <severity>1.00</severity>
+            <bodyPart>Lung</bodyPart>
+            <bodyPartLabel>left lung</bodyPartLabel>
+        </li>
+        <li MayRequire="hautarche.hautstraits">
+            <def>HVT_Entitlement</def>
+            <severity>1.00</severity>
+        </li>
+        <li MayRequire="ri.rimimmortal.forge">
+            <def>RI_Hediff_BlackSteelSpine</def>
+            <severity>0.50</severity>
+            <bodyPart>Spine</bodyPart>
+            <bodyPartLabel>spine</bodyPartLabel>
+        </li>
+        <li MayRequire="ri.rimimmortal.forge">
+            <def>RI_Hediff_BlackSteelArm</def>
+            <severity>0.50</severity>
+            <bodyPart>Shoulder</bodyPart>
+            <bodyPartLabel>left shoulder</bodyPartLabel>
+        </li>
+        <li MayRequire="ri.rimimmortal.forge">
+            <def>RI_Hediff_BlackSteelArm</def>
+            <severity>0.50</severity>
+            <bodyPart>Shoulder</bodyPart>
+            <bodyPartLabel>right shoulder</bodyPartLabel>
+        </li>
+        <li MayRequire="ri.rimimmortal.forge">
+            <def>RI_Hediff_BlackSteelLeg</def>
+            <severity>0.50</severity>
+            <bodyPart>Leg</bodyPart>
+            <bodyPartLabel>left leg</bodyPartLabel>
+        </li>
+        <li MayRequire="ri.rimimmortal.forge">
+            <def>RI_Hediff_BlackSteelLeg</def>
+            <severity>0.50</severity>
+            <bodyPart>Leg</bodyPart>
+            <bodyPartLabel>right leg</bodyPartLabel>
+        </li>
+        <li MayRequire="darjeeling.battlecloak">
+            <def>TS_Cloak_Protection</def>
+            <severity>0.50</severity>
+        </li>
+    </hediffs>
+    <apparel>
+        <li MayRequire="icc.aov.osec">
+            <def>Apparel_SealedUndersuit</def>
+            <quality>Good</quality>
+            <hitPoints>98</hitPoints>
+        </li>
+        <li MayRequire="ri.rimimmortal.forge">
+            <def>RI_Apparel_GoldBestArmor</def>
+            <quality>Legendary</quality>
+            <hitPoints>692</hitPoints>
+        </li>
+        <li MayRequire="darjeeling.battlecloak">
+            <def>DRCC_Cloak</def>
+            <stuff>Leather_Bluefur</stuff>
+            <quality>Excellent</quality>
+            <hitPoints>237</hitPoints>
+        </li>
+        <li MayRequire="ri.rimimmortal.forge">
+            <def>RI_Apparel_GoldBestHelmet</def>
+            <quality>Good</quality>
+            <hitPoints>565</hitPoints>
+        </li>
+    </apparel>
+    <abilities>
+        <li MayRequire="ri.rimimmortal.core">RI_Ability_JD</li>
+        <li MayRequire="ri.rimimmortal.core">RI_Ability_HT</li>
+        <li MayRequire="ri.rimimmortal.core">RI_Ability_GS</li>
+        <li MayRequire="ri.rimimmortal.core">RI_Ability_BombBullet</li>
+        <li MayRequire="fdp.rimzone.anoart">RZ_Ability_Bolt</li>
+    </abilities>
+    <style>
+        <beardDef>NoBeard</beardDef>
+        <faceTattoo>NoTattoo_Face</faceTattoo>
+        <bodyTattoo>NoTattoo_Body</bodyTattoo>
+    </style>
+</MSSFP.PawnPortability.Defs.PawnTemplateDef>

@@ -1,0 +1,20 @@
+ManifestFileVersion: 0
+CRC: 3603973519
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 0af2f808f7b4a1864c46741e03ddb9be
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 0df1dec30b5d061d422d3e6493d27647
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 0af2f808f7b4a1864c46741e03ddb9be
+HashAppended: 0
+ClassTypes:
+- Class: 48
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Data/MrSamuelStreamerFlavourPack/Materials/HoloMono.shader
+Dependencies: []

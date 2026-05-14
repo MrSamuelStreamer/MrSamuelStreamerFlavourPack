@@ -77,4 +77,31 @@ public class AIPersonalityWorker
         req.Includes.Add(def.artDescriptions);
         return GrammarResolver.Resolve("r_desc", req);
     }
+
+    /// <summary>
+    /// Called by <c>PersonaSocialSwap_Patch</c> when this persona initiates a
+    /// whitelisted social interaction (Chitchat, DeepTalk, Slight, Insult,
+    /// KindWords) and the per-entry roll selects persona text.
+    ///
+    /// Resolves <see cref="AIPersonalityDef.socialInitiator"/> with both
+    /// INITIATOR_* and RECIPIENT_* pawn rules in scope. Returns null when
+    /// the def has no <c>socialInitiator</c> pack, signalling the patch to
+    /// fall through to vanilla resolution.
+    ///
+    /// The caller is responsible for <see cref="Verse.Rand.PushState"/> /
+    /// <see cref="Verse.Rand.PopState"/> around this call — the postfix
+    /// re-seeds with the log entry's id so the same interaction always
+    /// resolves to the same line.
+    /// </summary>
+    public virtual string RollSocialLine(CompTrueAICore core, Pawn initiator, Pawn recipient)
+    {
+        if (def?.socialInitiator == null) return null;
+        GrammarRequest req = new GrammarRequest();
+        req.Includes.Add(def.socialInitiator);
+        if (initiator != null)
+            req.Rules.AddRange(GrammarUtility.RulesForPawn("INITIATOR", initiator, req.Constants));
+        if (recipient != null)
+            req.Rules.AddRange(GrammarUtility.RulesForPawn("RECIPIENT", recipient, req.Constants));
+        return GrammarResolver.Resolve("r_social", req);
+    }
 }

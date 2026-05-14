@@ -1,0 +1,7 @@
+ManifestFileVersion: 0
+CRC: 1848031839
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: mssfp_win
+      Dependencies: {}

@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MSSFP.PawnPortability.Defs.PawnTemplateDef>
+    <defName>MSSFP_Pawn_Angrboda</defName>
+    <label>Angra</label>
+    <description>Exported template of Angra.</description>
+    <schemaVersion>1</schemaVersion>
+    <mode>Template</mode>
+    <requiredMods>
+        <li>
+            <packageId>anthitei.athsideocolorpalette.colors</packageId>
+            <name>ATH's Ideo Colors Pallette</name>
+        </li>
+        <li>
+            <packageId>aranmaho.xianxia</packageId>
+            <name>Cultivator of the Rim</name>
+        </li>
+        <li>
+            <packageId>darjeeling.battlecloak</packageId>
+            <name>Advanced Battle Cloak</name>
+        </li>
+        <li>
+            <packageId>fdp.rimzone.anoart</packageId>
+            <name>RimZone Anomalies and Artifacts</name>
+        </li>
+        <li>
+            <packageId>hautarche.hautstraits</packageId>
+            <name>Hauts' Added Traits</name>
+        </li>
+        <li>
+            <packageId>huhu.lions.ps2nsboarmormkii</packageId>
+            <name>RIMSide NSO Combat Armors</name>
+        </li>
+        <li>
+            <packageId>icc.aov.osec</packageId>
+            <name>Arsenal - Orbital Security</name>
+        </li>
+        <li>
+            <packageId>jellycreative.isekaileveling</packageId>
+            <name>ISEKAI RPG LEVELING</name>
+        </li>
+        <li>
+            <packageId>ludeon.rimworld.biotech</packageId>
+            <name>Biotech</name>
+        </li>
+        <li>
+            <packageId>mss.flavourpack</packageId>
+            <name>Mr Samuel Streamer Flavour Pack</name>
+        </li>
+        <li>
+            <packageId>redmattis.betterprerequisites</packageId>
+            <name>Big and Small - Framework</name>
+        </li>
+        <li>
+            <packageId>redmattis.bigsmall.core</packageId>
+            <name>Big and Small - Genes &amp; More</name>
+        </li>
+        <li>
+            <packageId>sarg.alphagenes</packageId>
+            <name>Alpha Genes</name>
+        </li>
+        <li>
+            <packageId>scrubdaddy.hairstyles</packageId>
+            <name>ScrubDaddy's Hairstyles</name>
+        </li>
+        <li>
+            <packageId>seti.medieval.trinkets</packageId>
+            <name>Bundle of Trinkets</name>
+        </li>
+        <li>
+            <packageId>snow.kraltechindustries.rebalanced</packageId>
+            <name>Kraltech Industries Rebalanced (1.6)</name>
+        </li>
+        <li>
+            <packageId>vanillaexpanded.vpsycastse</packageId>
+            <name>Vanilla Psycasts Expanded</name>
+        </li>
+    </requiredMods>
+    <originSeries>Backrooms</originSeries>
+    <tags />
+    <narrativeNotes>Angrboda, or Angra to her colleges, was a mighty Jotun and one of the rarely seen Jotun saviours of the rim, who dedicate their lives to combating threats and relishing battle. An experimental weapon was deployed against her and she awoke in the backrooms, where she was discovered by Grignr. Eventually the two married, and Grignr taught Angra his chi-cultivation philosophy. The two became an unstoppable duo.</narrativeNotes>
+    <kindDef MayRequire="redmattis.bigsmall.core">BS_WomanInBlue</kindDef>
+    <gender>Female</gender>
+    <name>
+        <first>Angrboda</first>
+        <nick>Angra</nick>
+        <last>Jarnvid</last>
+    </name>
+    <age>
+        <biologicalAgeTicks>151355794</biologicalAgeTicks>
+        <chronologicalAgeTicks>164500161</chronologicalAgeTicks>
+    </age>
+    <story>
+        <bodyType>Female</bodyType>
+        <headType>Female_NarrowNormal</headType>
+        <hairDef MayRequire="scrubdaddy.hairstyles">SDloosehalfbun</hairDef>
+        <hairColor>(0.004, 0.420, 0.718)</hairColor>
+        <skinColorOverride>(0.243, 0.659, 0.957)</skinColorOverride>
+        <childhood>Bully70</childhood>
+        <adulthood>Warrior94</adulthood>
+        <birthLastName>Grignr Grignrson</birthLastName>
+        <favoriteColor MayRequire="anthitei.athsideocolorpalette.colors">Orange18</favoriteColor>
+        <traits>
+            <li>
+                <def>Greedy</def>
+                <degree>0</degree>
+            </li>
+            <li MayRequire="hautarche.hautstraits">
+                <def>HVT_Lovesick</def>
+                <degree>0</degree>
+            </li>
+            <li MayRequire="redmattis.betterprerequisites">
+                <def>BS_Giant</def>
+                <degree>0</degree>
+            </li>
+            <li>
+                <def>Tough</def>
+                <degree>0</degree>
+            </li>
+            <li MayRequire="aranmaho.xianxia">
+                <def>CTR_GoodTalent</def>
+                <degree>0</degree>
+            </li>
+            <li MayRequire="jellycreative.isekaileveling">
+                <def>Isekai_Rank_B</def>
+                <degree>0</degree>
+            </li>
+            <li MayRequire="redmattis.bigsmall.core">
+                <def>BS_Gentle</def>
+                <degree>0</degree>
+            </li>
+        </traits>
+    </story>
+    <skills>
+        <li>
+            <def>Shooting</def>
+            <level>13</level>
+            <passion>Major</passion>
+        </li>
+        <li>
+            <def>Melee</def>
+            <level>27</level>
+            <passion>Major</passion>
+        </li>
+        <li>
+            <def>Construction</def>
+            <level>10</level>
+            <passion>Minor</passion>
+        </li>
+        <li>
+            <def>Mining</def>
+            <level>10</level>
+            <passion>Minor</passion>
+        </li>
+        <li>
+            <def>Cooking</def>
+            <level>2</level>
+        </li>
+        <li>
+            <def>Plants</def>
+            <level>2</level>
+        </li>
+        <li>
+            <def>Animals</def>
+            <level>5</level>
+        </li>
+        <li>
+            <def>Crafting</def>
+            <level>3</level>
+        </li>
+        <li>
+            <def>Artistic</def>
+            <level>5</level>
+            <passion>Major</passion>
+        </li>
+        <li>
+            <def>Medicine</def>
+            <level>1</level>
+        </li>
+        <li>
+            <def>Social</def>
+            <level>5</level>
+        </li>
+        <li>
+            <def>Intellectual</def>
+            <level>20</level>
+            <passion>Major</passion>
+        </li>
+        <li>
+            <def>Toughness</def>
+            <level>25</level>
+            <passion>Minor</passion>
+        </li>
+    </skills>
+    <genes>
+        <xenotype MayRequire="redmattis.bigsmall.core">BS_FrostJotunInBlue</xenotype>
+        <endogenes>
+            <li MayRequire="redmattis.bigsmall.core">JotunFrame</li>
+            <li MayRequire="redmattis.bigsmall.core">BS_JotunArchiteMetabolism</li>
+            <li MayRequire="redmattis.bigsmall.core">HalfJotunFrame</li>
+            <li MayRequire="ludeon.rimworld.biotech">Body_Standard</li>
+            <li MayRequire="ludeon.rimworld.biotech">Aggression_Aggressive</li>
+            <li MayRequire="redmattis.bigsmall.core">MinTemp_HugeDecrease</li>
+            <li MayRequire="ludeon.rimworld.biotech">MaxTemp_SmallDecrease</li>
+            <li MayRequire="ludeon.rimworld.biotech">Immunity_SuperStrong</li>
+            <li MayRequire="ludeon.rimworld.biotech">StrongStomach</li>
+            <li MayRequire="ludeon.rimworld.biotech">Unstoppable</li>
+            <li MayRequire="ludeon.rimworld.biotech">Robust</li>
+            <li MayRequire="ludeon.rimworld.biotech">Superclotting</li>
+            <li MayRequire="redmattis.bigsmall.core">Jotun_Horns_Small</li>
+            <li MayRequire="redmattis.bigsmall.core">BS_SkinPermafrost</li>
+            <li MayRequire="redmattis.bigsmall.core">BS_HairPermafrost</li>
+            <li MayRequire="redmattis.bigsmall.core">BS_EverFertile</li>
+            <li MayRequire="ludeon.rimworld.biotech">Hair_LongOnly</li>
+            <li MayRequire="redmattis.bigsmall.core">BS_VerySlowAging</li>
+            <li MayRequire="ludeon.rimworld.biotech">AptitudePoor_Artistic</li>
+            <li MayRequire="ludeon.rimworld.biotech">AptitudeTerrible_Plants</li>
+            <li MayRequire="ludeon.rimworld.biotech">AptitudePoor_Intellectual</li>
+            <li MayRequire="ludeon.rimworld.biotech">AptitudePoor_Cooking</li>
+            <li>Skin_Melanin1</li>
+            <li MayRequire="ludeon.rimworld.biotech">Fertile</li>
+            <li MayRequire="sarg.alphagenes">AG_DrainerWings</li>
+            <li MayRequire="sarg.alphagenes">AG_BandwidthIncrease</li>
+            <li MayRequire="mss.flavourpack">MSS_FP_MemoryAwakening_Wanderer</li>
+        </endogenes>
+    </genes>
+    <hediffs>
+        <li MayRequire="sarg.alphagenes">
+            <def>AG_Hover</def>
+            <severity>1.00</severity>
+        </li>
+        <li MayRequire="aranmaho.xianxia">
+            <def>CTR_BreakthroughCounter</def>
+            <severity>0.62</severity>
+        </li>
+        <li MayRequire="seti.medieval.trinkets">
+            <def>Seti_Trinket_Locket</def>
+            <severity>0.50</severity>
+        </li>
+        <li>
+            <def>PsychicAmplifier</def>
+            <severity>24.00</severity>
+            <bodyPart>Brain</bodyPart>
+            <bodyPartLabel>brain</bodyPartLabel>
+        </li>
+        <li MayRequire="vanillaexpanded.vpsycastse">
+            <def>VPE_PsycastAbilityImplant</def>
+            <severity>24.00</severity>
+            <bodyPart>Brain</bodyPart>
+            <bodyPartLabel>brain</bodyPartLabel>
+        </li>
+        <li MayRequire="aranmaho.xianxia">
+            <def>CTR_ImmortalAscension</def>
+            <severity>180.00</severity>
+        </li>
+        <li MayRequire="darjeeling.battlecloak">
+            <def>TS_Cloak_Protection</def>
+            <severity>0.50</severity>
+        </li>
+        <li MayRequire="hautarche.hautstraits">
+            <def>HVT_LuminaryEffect</def>
+            <severity>0.10</severity>
+        </li>
+    </hediffs>
+    <equipment>
+        <li MayRequire="snow.kraltechindustries.rebalanced">
+            <def>Melee_EmpressBattleAxe</def>
+            <hitPoints>260</hitPoints>
+        </li>
+    </equipment>
+    <apparel>
+        <li MayRequire="icc.aov.osec">
+            <def>Apparel_SealedUndersuit</def>
+            <quality>Excellent</quality>
+            <hitPoints>54</hitPoints>
+        </li>
+        <li>
+            <def>Apparel_ShieldBelt</def>
+            <quality>Good</quality>
+            <hitPoints>91</hitPoints>
+        </li>
+        <li MayRequire="seti.medieval.trinkets">
+            <def>Seti_Trinket_Locket</def>
+            <hitPoints>-1</hitPoints>
+        </li>
+        <li MayRequire="darjeeling.battlecloak">
+            <def>DRCC_Cloak</def>
+            <stuff>Leather_Human</stuff>
+            <quality>Good</quality>
+            <hitPoints>194</hitPoints>
+        </li>
+        <li MayRequire="huhu.lions.ps2nsboarmormkii">
+            <def>PS2BO_head_Heavy</def>
+            <quality>Good</quality>
+            <hitPoints>368</hitPoints>
+        </li>
+    </apparel>
+    <abilities>
+        <li MayRequire="sarg.alphagenes">AG_WingPoweredJump</li>
+        <li MayRequire="fdp.rimzone.anoart">RZ_Ability_Bolt</li>
+        <li MayRequire="aranmaho.xianxia">CTR_TearTheVoid</li>
+    </abilities>
+    <style>
+        <beardDef>NoBeard</beardDef>
+        <faceTattoo>NoTattoo_Face</faceTattoo>
+        <bodyTattoo>NoTattoo_Body</bodyTattoo>
+    </style>
+</MSSFP.PawnPortability.Defs.PawnTemplateDef>

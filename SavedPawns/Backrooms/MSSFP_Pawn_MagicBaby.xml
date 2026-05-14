@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MSSFP.PawnPortability.Defs.PawnTemplateDef>
+    <defName>MSSFP_Pawn_MagicBaby</defName>
+    <label>Magic Baby</label>
+    <description>Exported template of Magic Baby.</description>
+    <schemaVersion>1</schemaVersion>
+    <mode>Template</mode>
+    <requiredMods>
+        <li>
+            <packageId>anthitei.athsideocolorpalette.colors</packageId>
+            <name>ATH's Ideo Colors Pallette</name>
+        </li>
+        <li>
+            <packageId>aoba.usac.core</packageId>
+            <name>Ascension Megacorp</name>
+        </li>
+        <li>
+            <packageId>aranmaho.xianxia</packageId>
+            <name>Cultivator of the Rim</name>
+        </li>
+        <li>
+            <packageId>dani.moretraits</packageId>
+            <name>[DN] Bundle Of Traits</name>
+        </li>
+        <li>
+            <packageId>darjeeling.battlecloak</packageId>
+            <name>Advanced Battle Cloak</name>
+        </li>
+        <li>
+            <packageId>ebsg.aio</packageId>
+            <name>Expanded Biotech Style Genes - All in One</name>
+        </li>
+        <li>
+            <packageId>fdp.rimzone.anoart</packageId>
+            <name>RimZone Anomalies and Artifacts</name>
+        </li>
+        <li>
+            <packageId>hautarche.hautstraits</packageId>
+            <name>Hauts' Added Traits</name>
+        </li>
+        <li>
+            <packageId>icc.aov.osec</packageId>
+            <name>Arsenal - Orbital Security</name>
+        </li>
+        <li>
+            <packageId>jellycreative.isekaileveling</packageId>
+            <name>ISEKAI RPG LEVELING</name>
+        </li>
+        <li>
+            <packageId>kearril.raretraits</packageId>
+            <name>RareTraits (Continued)</name>
+        </li>
+        <li>
+            <packageId>ludeon.rimworld.biotech</packageId>
+            <name>Biotech</name>
+        </li>
+        <li>
+            <packageId>mrsamuelstreamer.memesuperpack</packageId>
+            <name>Meme-Superpack</name>
+        </li>
+        <li>
+            <packageId>mss.flavourpack</packageId>
+            <name>Mr Samuel Streamer Flavour Pack</name>
+        </li>
+        <li>
+            <packageId>neronix17.archotech.genetics</packageId>
+            <name>Archotech Genetics</name>
+        </li>
+        <li>
+            <packageId>new.archotechpowerarmor</packageId>
+            <name>Archotech Power Armor (Continued)</name>
+        </li>
+        <li>
+            <packageId>redmattis.bigsmall.core</packageId>
+            <name>Big and Small - Genes &amp; More</name>
+        </li>
+        <li>
+            <packageId>seti.medieval.trinkets</packageId>
+            <name>Bundle of Trinkets</name>
+        </li>
+        <li>
+            <packageId>snow.kraltechindustries.rebalanced</packageId>
+            <name>Kraltech Industries Rebalanced (1.6)</name>
+        </li>
+        <li>
+            <packageId>stefanlog.basictraits</packageId>
+            <name>Basic Traits</name>
+        </li>
+        <li>
+            <packageId>vanillaexpanded.vpsycastse</packageId>
+            <name>Vanilla Psycasts Expanded</name>
+        </li>
+    </requiredMods>
+    <originSeries>Generations II, Backrooms</originSeries>
+    <tags />
+    <narrativeNotes>Magic Baby McBibby was born to a simple medieval peasant impacted by a quantum-entanglement phenomenon, imbuing her fetus-self with powerful psycasting potential. At the end of her mortal life, Magic Baby sought immortality and attempted to hijack an Archoseed's body. Though briefly successful, the form destabilised and could only reform in the backrooms, where Magic Baby was forced to adapt to the futuristic enviroments and horros.</narrativeNotes>
+    <kindDef>Colonist</kindDef>
+    <gender>Female</gender>
+    <name>
+        <first>Magic Baby</first>
+        <nick>Magic Baby</nick>
+        <last>McBibby</last>
+    </name>
+    <age>
+        <biologicalAgeTicks>102658632</biologicalAgeTicks>
+        <chronologicalAgeTicks>321994808</chronologicalAgeTicks>
+    </age>
+    <story>
+        <bodyType>Female</bodyType>
+        <headType>Female_AverageWide</headType>
+        <hairDef>Bald</hairDef>
+        <hairColor>(0.827, 0.847, 0.255)</hairColor>
+        <skinColorOverride>(0.659, 0.635, 0.400)</skinColorOverride>
+        <childhood MayRequire="aoba.usac.core">USAC_CivilianChild07</childhood>
+        <adulthood>MedievalDoctor40</adulthood>
+        <birthLastName>Kelleher</birthLastName>
+        <favoriteColor MayRequire="anthitei.athsideocolorpalette.colors">Orange11</favoriteColor>
+        <traits>
+            <li>
+                <def>Kind</def>
+                <degree>0</degree>
+            </li>
+            <li MayRequire="jellycreative.isekaileveling">
+                <def>Isekai_CursedLuck</def>
+                <degree>0</degree>
+            </li>
+            <li MayRequire="kearril.raretraits">
+                <def>D03tzyd</def>
+                <degree>0</degree>
+            </li>
+            <li MayRequire="dani.moretraits">
+                <def>BOT_Apathetic</def>
+                <degree>0</degree>
+            </li>
+            <li MayRequire="aranmaho.xianxia">
+                <def>CTR_GoodTalent</def>
+                <degree>0</degree>
+            </li>
+            <li MayRequire="stefanlog.basictraits">
+                <def>BT_Artisan</def>
+                <degree>0</degree>
+            </li>
+            <li MayRequire="stefanlog.basictraits">
+                <def>BT_MeleeExpert</def>
+                <degree>0</degree>
+            </li>
+            <li MayRequire="hautarche.hautstraits">
+                <def>HVT_TTraitHaast</def>
+                <degree>0</degree>
+            </li>
+            <li MayRequire="jellycreative.isekaileveling">
+                <def>Isekai_Rank_S</def>
+                <degree>0</degree>
+            </li>
+        </traits>
+    </story>
+    <skills>
+        <li>
+            <def>Shooting</def>
+            <level>28</level>
+            <passion>Major</passion>
+        </li>
+        <li>
+            <def>Melee</def>
+            <level>32</level>
+            <passion>Major</passion>
+        </li>
+        <li>
+            <def>Construction</def>
+            <level>22</level>
+            <passion>Major</passion>
+        </li>
+        <li>
+            <def>Mining</def>
+            <level>21</level>
+            <passion>Major</passion>
+        </li>
+        <li>
+            <def>Cooking</def>
+            <level>15</level>
+            <passion>Minor</passion>
+        </li>
+        <li>
+            <def>Plants</def>
+            <level>8</level>
+        </li>
+        <li>
+            <def>Animals</def>
+            <level>12</level>
+            <passion>Major</passion>
+        </li>
+        <li>
+            <def>Crafting</def>
+            <level>10</level>
+            <passion>Minor</passion>
+        </li>
+        <li>
+            <def>Artistic</def>
+            <level>11</level>
+            <passion>Minor</passion>
+        </li>
+        <li>
+            <def>Medicine</def>
+            <level>23</level>
+            <passion>Major</passion>
+        </li>
+        <li>
+            <def>Social</def>
+            <level>11</level>
+        </li>
+        <li>
+            <def>Intellectual</def>
+            <level>31</level>
+            <passion>Major</passion>
+        </li>
+        <li>
+            <def>Toughness</def>
+            <level>18</level>
+        </li>
+    </skills>
+    <genes>
+        <xenotype MayRequire="neronix17.archotech.genetics">ArchoGenes_Archinite</xenotype>
+        <endogenes>
+            <li>Skin_Melanin4</li>
+            <li>Hair_ReddishBrown</li>
+            <li MayRequire="redmattis.bigsmall.core">VU_UltraRapidAging</li>
+            <li MayRequire="ebsg.aio">EBSG_BadVision</li>
+            <li MayRequire="ludeon.rimworld.biotech">MeleeDamage_Weak</li>
+            <li MayRequire="ludeon.rimworld.biotech">KindInstinct</li>
+            <li MayRequire="ebsg.aio">EBSG_SlowSleeper</li>
+            <li MayRequire="ludeon.rimworld.biotech">Delicate</li>
+            <li MayRequire="ludeon.rimworld.biotech">Pain_Reduced</li>
+            <li>Hair_Gray</li>
+            <li MayRequire="ludeon.rimworld.biotech">Learning_Slow</li>
+            <li MayRequire="hautarche.hautstraits">HVT_ALuminaryGene</li>
+            <li MayRequire="mss.flavourpack">MSS_VoidsEmbrace</li>
+            <li MayRequire="neronix17.archotech.genetics">ArchoGenes_Hair_Archotech</li>
+            <li MayRequire="neronix17.archotech.genetics">ArchoGenes_Eyes_Archotech</li>
+            <li MayRequire="neronix17.archotech.genetics">ArchoGenes_Blood_Archotech</li>
+            <li MayRequire="neronix17.archotech.genetics">ArchoGenes_ArchotechSkin</li>
+            <li MayRequire="neronix17.archotech.genetics">ArchoGenes_ArchotechSight</li>
+            <li MayRequire="neronix17.archotech.genetics">ArchoGenes_ArchotechPsycaster</li>
+            <li MayRequire="neronix17.archotech.genetics">ArchoGenes_Skin_Archotech</li>
+            <li MayRequire="mss.flavourpack">MSS_FP_MemoryAwakening_Wanderer</li>
+        </endogenes>
+        <xenogenes>
+            <li MayRequire="ludeon.rimworld.biotech">PerfectImmunity</li>
+            <li MayRequire="ludeon.rimworld.biotech">DiseaseFree</li>
+            <li MayRequire="ludeon.rimworld.biotech">TotalHealing</li>
+            <li MayRequire="ludeon.rimworld.biotech">Ageless</li>
+            <li MayRequire="ludeon.rimworld.biotech">Deathless</li>
+            <li MayRequire="ludeon.rimworld.biotech">ArchiteMetabolism</li>
+            <li MayRequire="neronix17.archotech.genetics">ArchoGenes_ArchotechSkin</li>
+            <li MayRequire="neronix17.archotech.genetics">ArchoGenes_ArchotechSight</li>
+            <li MayRequire="neronix17.archotech.genetics">ArchoGenes_ArchotechPain</li>
+            <li MayRequire="neronix17.archotech.genetics">ArchoGenes_ArchotechPsycaster</li>
+            <li MayRequire="neronix17.archotech.genetics">ArchoGenes_ArchotechTemperature</li>
+            <li MayRequire="neronix17.archotech.genetics">ArchoGenes_ArchotechToxImmunity</li>
+            <li MayRequire="neronix17.archotech.genetics">ArchoGenes_ArchotechLegs</li>
+            <li MayRequire="neronix17.archotech.genetics">ArchoGenes_ArchotechPresence</li>
+            <li MayRequire="neronix17.archotech.genetics">ArchoGenes_ArchoRegeneration</li>
+            <li MayRequire="neronix17.archotech.genetics">ArchoGenes_ArchotechMemory</li>
+            <li MayRequire="neronix17.archotech.genetics">ArchoGenes_ArchotechMuscles</li>
+            <li MayRequire="neronix17.archotech.genetics">ArchoGenes_Skin_Archotech</li>
+            <li MayRequire="neronix17.archotech.genetics">ArchoGenes_Hair_Archotech</li>
+            <li MayRequire="neronix17.archotech.genetics">ArchoGenes_Eyes_Archotech</li>
+            <li MayRequire="neronix17.archotech.genetics">ArchoGenes_Blood_Archotech</li>
+        </xenogenes>
+    </genes>
+    <hediffs>
+        <li MayRequire="hautarche.hautstraits">
+            <def>HVT_LuminaryGeneAura</def>
+            <severity>150.50</severity>
+        </li>
+        <li>
+            <def>PsychicAmplifier</def>
+            <severity>30.00</severity>
+            <bodyPart>Brain</bodyPart>
+            <bodyPartLabel>brain</bodyPartLabel>
+        </li>
+        <li MayRequire="vanillaexpanded.vpsycastse">
+            <def>VPE_PsycastAbilityImplant</def>
+            <severity>30.00</severity>
+            <bodyPart>Brain</bodyPart>
+            <bodyPartLabel>brain</bodyPartLabel>
+        </li>
+        <li MayRequire="hautarche.hautstraits">
+            <def>HVT_AwakenedDeathTracker</def>
+            <severity>4.54</severity>
+            <bodyPart>Brain</bodyPart>
+            <bodyPartLabel>brain</bodyPartLabel>
+        </li>
+        <li MayRequire="mrsamuelstreamer.memesuperpack">
+            <def>MSSMeme_Awake</def>
+        </li>
+        <li MayRequire="aranmaho.xianxia">
+            <def>CTR_BreakthroughCounter</def>
+            <severity>0.61</severity>
+        </li>
+        <li MayRequire="neronix17.archotech.genetics">
+            <def>ArchoGenes_ArchoBlood</def>
+            <severity>1.00</severity>
+        </li>
+        <li MayRequire="hautarche.hautstraits">
+            <def>HVT_TranscendentHediff</def>
+            <severity>1.00</severity>
+        </li>
+        <li MayRequire="seti.medieval.trinkets">
+            <def>Seti_Trinket_Temptation</def>
+            <severity>0.50</severity>
+        </li>
+        <li MayRequire="snow.kraltechindustries.rebalanced">
+            <def>HealerSpineImplant</def>
+            <severity>0.50</severity>
+            <bodyPart>Spine</bodyPart>
+            <bodyPartLabel>spine</bodyPartLabel>
+        </li>
+        <li MayRequire="snow.kraltechindustries.rebalanced">
+            <def>OverdriveHeartImplant</def>
+            <severity>0.50</severity>
+            <bodyPart>Heart</bodyPart>
+            <bodyPartLabel>heart</bodyPartLabel>
+        </li>
+        <li MayRequire="snow.kraltechindustries.rebalanced">
+            <def>GravityPropellerLegImplant</def>
+            <severity>0.50</severity>
+            <bodyPart>Leg</bodyPart>
+            <bodyPartLabel>right leg</bodyPartLabel>
+        </li>
+        <li MayRequire="snow.kraltechindustries.rebalanced">
+            <def>GravityPropellerLegImplant</def>
+            <severity>0.50</severity>
+            <bodyPart>Leg</bodyPart>
+            <bodyPartLabel>left leg</bodyPartLabel>
+        </li>
+        <li MayRequire="snow.kraltechindustries.rebalanced">
+            <def>GrandPsycastBrainImplant</def>
+            <severity>0.50</severity>
+            <bodyPart>Brain</bodyPart>
+            <bodyPartLabel>brain</bodyPartLabel>
+        </li>
+        <li MayRequire="snow.kraltechindustries.rebalanced">
+            <def>BusterCannonArmImplant</def>
+            <severity>0.50</severity>
+            <bodyPart>Arm</bodyPart>
+            <bodyPartLabel>right arm</bodyPartLabel>
+        </li>
+        <li MayRequire="snow.kraltechindustries.rebalanced">
+            <def>BusterCannonArmImplant</def>
+            <severity>0.50</severity>
+            <bodyPart>Arm</bodyPart>
+            <bodyPartLabel>left arm</bodyPartLabel>
+        </li>
+        <li MayRequire="aranmaho.xianxia">
+            <def>CTR_SaintKing</def>
+            <severity>150.00</severity>
+        </li>
+    </hediffs>
+    <equipment>
+        <li MayRequire="snow.kraltechindustries.rebalanced">
+            <def>Gun_HeavyChargedCannon</def>
+            <hitPoints>300</hitPoints>
+        </li>
+    </equipment>
+    <apparel>
+        <li MayRequire="icc.aov.osec">
+            <def>Apparel_SealedUndersuit</def>
+            <quality>Masterwork</quality>
+            <hitPoints>95</hitPoints>
+        </li>
+        <li MayRequire="new.archotechpowerarmor">
+            <def>APA_Archotech_Palatine_Armor</def>
+            <quality>Masterwork</quality>
+            <hitPoints>2221</hitPoints>
+        </li>
+        <li MayRequire="snow.kraltechindustries.rebalanced">
+            <def>PsyRejuvenatorSerum</def>
+            <hitPoints>80</hitPoints>
+        </li>
+        <li MayRequire="seti.medieval.trinkets">
+            <def>Seti_Trinket_Temptation</def>
+            <hitPoints>-1</hitPoints>
+        </li>
+        <li MayRequire="darjeeling.battlecloak">
+            <def>DRCC_Cloak</def>
+            <stuff>Leather_Bear</stuff>
+            <quality>Normal</quality>
+            <hitPoints>284</hitPoints>
+        </li>
+        <li MayRequire="new.archotechpowerarmor">
+            <def>APA_Archotech_Palatine_Helmet</def>
+            <quality>Masterwork</quality>
+            <hitPoints>1943</hitPoints>
+        </li>
+    </apparel>
+    <abilities>
+        <li MayRequire="fdp.rimzone.anoart">RZ_Ability_Bolt</li>
+        <li MayRequire="snow.kraltechindustries.rebalanced">SelfHeal</li>
+        <li MayRequire="snow.kraltechindustries.rebalanced">OverDrive</li>
+        <li MayRequire="snow.kraltechindustries.rebalanced">GravityJump</li>
+        <li MayRequire="snow.kraltechindustries.rebalanced">PsiBulletBerserk</li>
+        <li MayRequire="snow.kraltechindustries.rebalanced">PsiBulletConfusion</li>
+        <li MayRequire="snow.kraltechindustries.rebalanced">PsiBulletDark</li>
+        <li MayRequire="snow.kraltechindustries.rebalanced">PsiBulletEnhanced</li>
+        <li MayRequire="snow.kraltechindustries.rebalanced">MassBurden</li>
+        <li MayRequire="snow.kraltechindustries.rebalanced">PsychicAntiOrganicOrbitalStrike</li>
+        <li MayRequire="snow.kraltechindustries.rebalanced">PsychicAntiOrganicBlast</li>
+        <li MayRequire="snow.kraltechindustries.rebalanced">BusterCannon</li>
+        <li MayRequire="aranmaho.xianxia">CTR_TearTheVoid</li>
+    </abilities>
+    <style>
+        <beardDef>NoBeard</beardDef>
+        <faceTattoo>NoTattoo_Face</faceTattoo>
+        <bodyTattoo>NoTattoo_Body</bodyTattoo>
+    </style>
+</MSSFP.PawnPortability.Defs.PawnTemplateDef>

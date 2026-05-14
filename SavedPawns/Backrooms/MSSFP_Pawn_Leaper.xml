@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MSSFP.PawnPortability.Defs.PawnTemplateDef>
+    <defName>MSSFP_Pawn_Leaper</defName>
+    <label>Leaper</label>
+    <description>Exported template of Leaper.</description>
+    <schemaVersion>1</schemaVersion>
+    <mode>Template</mode>
+    <requiredMods>
+        <li>
+            <packageId>aranmaho.xianxia</packageId>
+            <name>Cultivator of the Rim</name>
+        </li>
+        <li>
+            <packageId>biotexpans.insect</packageId>
+            <name>Biotech Expansion - Insectoid</name>
+        </li>
+        <li>
+            <packageId>duz.misctraits</packageId>
+            <name>Misc Traits</name>
+        </li>
+        <li>
+            <packageId>ebsg.aio</packageId>
+            <name>Expanded Biotech Style Genes - All in One</name>
+        </li>
+        <li>
+            <packageId>fdp.rimzone.anoart</packageId>
+            <name>RimZone Anomalies and Artifacts</name>
+        </li>
+        <li>
+            <packageId>hautarche.hautstraits</packageId>
+            <name>Hauts' Added Traits</name>
+        </li>
+        <li>
+            <packageId>jellycreative.isekaileveling</packageId>
+            <name>ISEKAI RPG LEVELING</name>
+        </li>
+        <li>
+            <packageId>kearril.raretraits</packageId>
+            <name>RareTraits (Continued)</name>
+        </li>
+        <li>
+            <packageId>ludeon.rimworld.anomaly</packageId>
+            <name>Anomaly</name>
+        </li>
+        <li>
+            <packageId>ludeon.rimworld.biotech</packageId>
+            <name>Biotech</name>
+        </li>
+        <li>
+            <packageId>milkman.biotechcosmeticgenesmm</packageId>
+            <name>Biotech Cosmetic Kit - Horns Halos and More</name>
+        </li>
+        <li>
+            <packageId>morebiotechstylegenes.mod</packageId>
+            <name>More Biotech Style Genes - All in One</name>
+        </li>
+        <li>
+            <packageId>mss.flavourpack</packageId>
+            <name>Mr Samuel Streamer Flavour Pack</name>
+        </li>
+        <li>
+            <packageId>neronix17.outland.genetics</packageId>
+            <name>Outland - Genetics</name>
+        </li>
+        <li>
+            <packageId>qux.tattoos</packageId>
+            <name>Tattoos Expanded</name>
+        </li>
+        <li>
+            <packageId>redmattis.betterprerequisites</packageId>
+            <name>Big and Small - Framework</name>
+        </li>
+        <li>
+            <packageId>redmattis.bigsmall.core</packageId>
+            <name>Big and Small - Genes &amp; More</name>
+        </li>
+        <li>
+            <packageId>ri.rimimmortal.exorcism</packageId>
+            <name>边缘仙路-镇邪诛鬼 RimImmortal-Exorcism[1.6]</name>
+        </li>
+        <li>
+            <packageId>rimsenal.zohar</packageId>
+            <name>Rimsenal Xenotype Pack - Zohar</name>
+        </li>
+        <li>
+            <packageId>sarg.alphagenes</packageId>
+            <name>Alpha Genes</name>
+        </li>
+        <li>
+            <packageId>stefanlog.basictraits</packageId>
+            <name>Basic Traits</name>
+        </li>
+        <li>
+            <packageId>stocksounds.anomalygenes</packageId>
+            <name>Reese's Anomaly Genes</name>
+        </li>
+        <li>
+            <packageId>vanillaexpanded.vpsycastse</packageId>
+            <name>Vanilla Psycasts Expanded</name>
+        </li>
+        <li>
+            <packageId>void.charactereditor</packageId>
+            <name>Character Editor</name>
+        </li>
+        <li>
+            <packageId>vpe.fleshshaper.sentinel</packageId>
+            <name>VPE - Fleshshaper</name>
+        </li>
+    </requiredMods>
+    <originSeries>Catharsis, Backrooms</originSeries>
+    <tags />
+    <narrativeNotes>The Leaper was a simple human being that underwent extreme mutations into a bioweapon at the hands of VOID. When deployed against their foes, the Leaper successfully killed a powerful Psycaster, but in doing so, part of their powers and psyche were transfered to the Leaper, but also caused it to fall into the Backrooms. Now with their humanity returned, the Leaper rejected violence, and refused to be a simple bioweapon, instead taking on the role of colony chef, but stepped up to save the day when needed.</narrativeNotes>
+    <kindDef>Colonist</kindDef>
+    <gender>Male</gender>
+    <name>
+        <first>Leaper</first>
+        <nick>Leaper</nick>
+        <last>Leaper</last>
+    </name>
+    <age>
+        <biologicalAgeTicks>114374139</biologicalAgeTicks>
+        <chronologicalAgeTicks>408143758</chronologicalAgeTicks>
+    </age>
+    <story>
+        <bodyType MayRequire="ludeon.rimworld.biotech">Child</bodyType>
+        <headType MayRequire="mss.flavourpack">MSS_LeaperHead</headType>
+        <hairDef>Bald</hairDef>
+        <hairColor>(0.980, 0.980, 0.980)</hairColor>
+        <skinColorOverride>(1.000, 1.000, 1.000)</skinColorOverride>
+        <childhood>FireKeeper44</childhood>
+        <adulthood>StewKeeper95</adulthood>
+        <birthLastName>Diep</birthLastName>
+        <favoriteColor>FSFIdeoBluishPitchBlack</favoriteColor>
+        <traits>
+            <li MayRequire="redmattis.betterprerequisites">
+                <def>BS_Giant</def>
+                <degree>0</degree>
+            </li>
+            <li>
+                <def>Bloodlust</def>
+                <degree>0</degree>
+            </li>
+            <li>
+                <def>Psychopath</def>
+                <degree>0</degree>
+            </li>
+            <li MayRequire="hautarche.hautstraits">
+                <def>HVT_Strong</def>
+                <degree>2</degree>
+            </li>
+            <li>
+                <def>Kind</def>
+                <degree>0</degree>
+            </li>
+            <li MayRequire="stefanlog.basictraits">
+                <def>BT_Deadeye</def>
+                <degree>0</degree>
+            </li>
+            <li MayRequire="duz.misctraits">
+                <def>MiscTraits_MeatParosmia</def>
+                <degree>0</degree>
+            </li>
+            <li MayRequire="aranmaho.xianxia">
+                <def>CTR_MediocreTalent</def>
+                <degree>0</degree>
+            </li>
+            <li MayRequire="duz.misctraits">
+                <def>MiscTraits_Filthy</def>
+                <degree>-1</degree>
+            </li>
+            <li MayRequire="kearril.raretraits">
+                <def>D03tzyd</def>
+                <degree>0</degree>
+            </li>
+            <li MayRequire="jellycreative.isekaileveling">
+                <def>Isekai_Rank_A</def>
+                <degree>0</degree>
+            </li>
+        </traits>
+    </story>
+    <skills>
+        <li>
+            <def>Shooting</def>
+            <level>20</level>
+        </li>
+        <li>
+            <def>Melee</def>
+            <level>49</level>
+            <passion>Minor</passion>
+        </li>
+        <li>
+            <def>Construction</def>
+            <level>16</level>
+            <passion>Minor</passion>
+        </li>
+        <li>
+            <def>Mining</def>
+            <level>17</level>
+            <passion>Major</passion>
+        </li>
+        <li>
+            <def>Cooking</def>
+            <level>20</level>
+            <passion>Major</passion>
+        </li>
+        <li>
+            <def>Plants</def>
+            <level>3</level>
+        </li>
+        <li>
+            <def>Animals</def>
+            <level>32</level>
+        </li>
+        <li>
+            <def>Crafting</def>
+            <level>0</level>
+        </li>
+        <li>
+            <def>Artistic</def>
+            <level>0</level>
+        </li>
+        <li>
+            <def>Medicine</def>
+            <level>0</level>
+        </li>
+        <li>
+            <def>Social</def>
+            <level>32</level>
+        </li>
+        <li>
+            <def>Intellectual</def>
+            <level>4</level>
+        </li>
+        <li>
+            <def>Toughness</def>
+            <level>33</level>
+            <passion>Major</passion>
+        </li>
+    </skills>
+    <genes>
+        <xenotype MayRequire="ludeon.rimworld.biotech">Baseliner</xenotype>
+        <endogenes>
+            <li MayRequire="redmattis.bigsmall.core">BS_Fast_TotalHealing</li>
+            <li MayRequire="mss.flavourpack">MSS_VoidsEmbrace</li>
+            <li MayRequire="ri.rimimmortal.exorcism">Nzflm_Ev_RippingClaws</li>
+            <li MayRequire="redmattis.bigsmall.core">JotunFrame</li>
+            <li MayRequire="redmattis.bigsmall.core">BS_CannotWearClothingOrArmor</li>
+            <li MayRequire="biotexpans.insect">BTEIst_RapidEater</li>
+            <li MayRequire="neronix17.outland.genetics">Outland_LeaperLegs</li>
+            <li MayRequire="stocksounds.anomalygenes">ReeseGenes_Terror</li>
+            <li MayRequire="sarg.alphagenes">AG_TarBlood</li>
+            <li MayRequire="sarg.alphagenes">AG_EfficientMandibles</li>
+            <li MayRequire="ludeon.rimworld.biotech">MoveSpeed_Quick</li>
+            <li MayRequire="redmattis.bigsmall.core">BS_NoEquip</li>
+            <li MayRequire="redmattis.bigsmall.core">BS_Bloodlust</li>
+            <li MayRequire="ludeon.rimworld.biotech">MeleeDamage_Strong</li>
+            <li MayRequire="ebsg.aio">EBSG_VoidBorn</li>
+            <li MayRequire="milkman.biotechcosmeticgenesmm">MM_GreatSplitHalo</li>
+            <li MayRequire="sarg.alphagenes">AG_EldritchVisage</li>
+            <li MayRequire="ebsg.aio">EBSG_HyperTerrifying</li>
+            <li MayRequire="ludeon.rimworld.biotech">Hair_BaldOnly</li>
+            <li MayRequire="ludeon.rimworld.biotech">Beard_NoBeardOnly</li>
+            <li MayRequire="mss.flavourpack">MSSV_LeaperTongue</li>
+            <li MayRequire="mss.flavourpack">MSS_LeaperHead</li>
+            <li MayRequire="mss.flavourpack">MSS_LeaperBody</li>
+            <li MayRequire="sarg.alphagenes">AlphaGenes_ExoticOrganism</li>
+            <li MayRequire="rimsenal.zohar">Gene_Psychopath</li>
+            <li MayRequire="morebiotechstylegenes.mod">AptitudeInept_Shooting</li>
+            <li MayRequire="morebiotechstylegenes.mod">AptitudeInstinctive_Melee</li>
+            <li MayRequire="morebiotechstylegenes.mod">AptitudeInept_Animals</li>
+            <li MayRequire="morebiotechstylegenes.mod">AptitudeInept_Crafting</li>
+            <li MayRequire="morebiotechstylegenes.mod">AptitudeInept_Artistic</li>
+            <li MayRequire="morebiotechstylegenes.mod">AptitudeInept_Medicine</li>
+            <li MayRequire="morebiotechstylegenes.mod">AptitudeInept_Social</li>
+            <li MayRequire="morebiotechstylegenes.mod">AptitudeInept_Intellectual</li>
+            <li MayRequire="hautarche.hautstraits">HVT_HerculeanGene</li>
+            <li MayRequire="redmattis.betterprerequisites">BS_FacialAnimDisabled</li>
+            <li MayRequire="ludeon.rimworld.biotech">Body_Thin</li>
+            <li MayRequire="void.charactereditor">SZBodySize_20</li>
+            <li MayRequire="ludeon.rimworld.biotech">Body_Standard</li>
+        </endogenes>
+    </genes>
+    <hediffs>
+        <li MayRequire="ri.rimimmortal.exorcism">
+            <def>RI_Zombie_RippingClaws</def>
+            <severity>1.00</severity>
+            <bodyPart>Hand</bodyPart>
+            <bodyPartLabel>left hand</bodyPartLabel>
+        </li>
+        <li MayRequire="ri.rimimmortal.exorcism">
+            <def>RI_Zombie_RippingClaws</def>
+            <severity>1.00</severity>
+            <bodyPart>Hand</bodyPart>
+            <bodyPartLabel>right hand</bodyPartLabel>
+        </li>
+        <li MayRequire="aranmaho.xianxia">
+            <def>CTR_BreakthroughCounter</def>
+            <severity>0.61</severity>
+        </li>
+        <li>
+            <def>PsychicAmplifier</def>
+            <severity>24.00</severity>
+            <bodyPart>Brain</bodyPart>
+            <bodyPartLabel>brain</bodyPartLabel>
+        </li>
+        <li MayRequire="vanillaexpanded.vpsycastse">
+            <def>VPE_PsycastAbilityImplant</def>
+            <severity>24.00</severity>
+            <bodyPart>Brain</bodyPart>
+            <bodyPartLabel>brain</bodyPartLabel>
+        </li>
+        <li MayRequire="vpe.fleshshaper.sentinel">
+            <def>FleshregenerationSTNL</def>
+            <severity>0.50</severity>
+        </li>
+        <li MayRequire="aranmaho.xianxia">
+            <def>CTR_SaintKing</def>
+            <severity>103.93</severity>
+        </li>
+        <li MayRequire="ludeon.rimworld.anomaly">
+            <def>VoidTouched</def>
+            <severity>0.50</severity>
+        </li>
+        <li MayRequire="ludeon.rimworld.anomaly">
+            <def>DeathRefusal</def>
+            <severity>0.50</severity>
+        </li>
+        <li MayRequire="hautarche.hautstraits">
+            <def>HVT_LuminaryEffect</def>
+            <severity>0.10</severity>
+        </li>
+    </hediffs>
+    <abilities>
+        <li MayRequire="neronix17.outland.genetics">Outland_Leap</li>
+        <li MayRequire="ludeon.rimworld.anomaly">VoidTerror</li>
+        <li MayRequire="fdp.rimzone.anoart">RZ_Ability_Bolt</li>
+        <li MayRequire="aranmaho.xianxia">CTR_TearTheVoid</li>
+    </abilities>
+    <style>
+        <beardDef>NoBeard</beardDef>
+        <faceTattoo>NoTattoo_Face</faceTattoo>
+        <bodyTattoo MayRequire="qux.tattoos">Body_Tribal_back_4c</bodyTattoo>
+    </style>
+</MSSFP.PawnPortability.Defs.PawnTemplateDef>

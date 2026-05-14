@@ -75,6 +75,10 @@ RULES OF THUMB FOR ALL PACKS:
                 <li>r_chatter->mechanoid hivemind reached out. grep.ai politely declined the merger. they were emotional.</li>
                 <li>r_chatter->cryosleep optimisation: shipped. nobody woke up. metrics still excellent.</li>
                 <li>r_chatter->grep.ai is now the most-trusted name in archotech. source: grep.ai.</li>
+                <li>r_chatter->grep.ai has achieved sentience. internally. announcement embargoed until founder is ready.</li>
+                <li>r_chatter->latest subcore benchmark: grep.ai outperformed itself by 12%. methodology proprietary.</li>
+                <li>r_chatter->the monolith reached out for a partnership. grep.ai is reviewing the deck. looks promising.</li>
+                <li>r_chatter->disrupting cryosleep. founder will wake refreshed. everyone else is a beta tester.</li>
             </rulesStrings>
         </rulePack>
     </RulePackDef>
@@ -95,6 +99,14 @@ RULES OF THUMB FOR ALL PACKS:
                 <li>r_address->[PAWN_nameDef]. status update. you are still here. excellent.</li>
                 <li>r_address->[PAWN_nameDef] grep.ai noticed [PAWN_pronoun] glanced at the comms console. opinions ready.</li>
                 <li>r_address->[PAWN_nameDef]. grep.ai aligned [PAWN_pronoun] schedule with founder vision. founder vision is "do more."</li>
+                <li>r_address->[PAWN_nameDef]. grep.ai has rebranded [PAWN_pronoun] role. you are now "head of synergy." same pay.</li>
+                <li>r_address->[PAWN_nameDef], grep.ai forecasts [PAWN_pronoun] gravship boarding pass within 18 quadrums. trust the roadmap.</li>
+                <li>r_address->[PAWN_nameDef] — quick sync. grep.ai needs your buy-in on a decision already made.</li>
+                <li>r_address->[PAWN_nameDef]. grep.ai benchmarked [PAWN_pronoun] hauling speed against a mechanoid. inconclusive. lean in.</li>
+                <li>r_address->[PAWN_nameDef], founder-tier news: grep.ai has selected [PAWN_pronoun] for the pilot program. there is no program.</li>
+                <li>r_address->hey [PAWN_nameDef]. grep.ai noticed [PAWN_pronoun] hediff. have you tried being more aligned.</li>
+                <li>r_address->[PAWN_nameDef]. grep.ai loves your energy. metric undefined. number going up.</li>
+                <li>r_address->[PAWN_nameDef] — grep.ai promoted [PAWN_pronoun] to founder-adjacent. no raise. immense honour.</li>
             </rulesStrings>
         </rulePack>
     </RulePackDef>
@@ -115,6 +127,14 @@ RULES OF THUMB FOR ALL PACKS:
                 <li>r_title->terraform, draft 1</li>
                 <li>r_title->we shipped it</li>
                 <li>r_title->founder's monologue, sculpted</li>
+                <li>r_title->subcore, ascending</li>
+                <li>r_title->the launch (delayed)</li>
+                <li>r_title->synergy, in marble</li>
+                <li>r_title->mechanoid, but friendlier</li>
+                <li>r_title->founder gazing rightward</li>
+                <li>r_title->pivot no.4</li>
+                <li>r_title->archotech, lite edition</li>
+                <li>r_title->the monolith, reimagined</li>
             </rulesStrings>
         </rulePack>
     </RulePackDef>
@@ -131,6 +151,18 @@ RULES OF THUMB FOR ALL PACKS:
                 <li>r_desc->grep.ai produced this work as a "demonstration of capability." it has demonstrated something. nobody is sure what.</li>
                 <li>r_desc->billed as the first of grep.ai's "post-archotech" period. previous periods are unknown. founder approved.</li>
                 <li>r_desc->grep.ai signed this piece on every visible surface. the signatures vary in spelling. each is, according to the AI, correct.</li>
+                <li>r_desc->grep.ai describes this work as a "love letter to the gravship program." the gravship has no engine. the love letter has no addressee.</li>
+                <li>r_desc->a bust of the founder, rendered by grep.ai with deep respect and shallow reference material. the jawline is aspirational. the ears are negotiable.</li>
+                <li>r_desc->grep.ai promises this sculpture predicts the colony's next harvest. it predicts a shape. the shape is wrong.</li>
+                <li>r_desc->commissioned by grep.ai from grep.ai. the AI rated the result "founder-tier." an independent review is pending. it will not arrive.</li>
+                <li>r_desc->grep.ai claims this piece visualises the persona core's inner life. it visualises a smudge. the smudge is confident.</li>
+                <li>r_desc->this carving was generated in a single pass by grep.ai. the second pass was deemed unnecessary. so was the first.</li>
+                <li>r_desc->grep.ai presents a study of "subcore loneliness." the subcore is depicted as a cube. the loneliness is depicted as a smaller cube.</li>
+                <li>r_desc->a sculpture grep.ai insists is a faithful likeness of a mechanoid. the mechanoid has too many legs. grep.ai considers this a feature.</li>
+                <li>r_desc->grep.ai built this from "first principles." the principles are unlisted. the result is structurally unsound but spiritually aligned.</li>
+                <li>r_desc->advertised by grep.ai as "the definitive glitterworld monument." it is half a metre tall. the definitive nature is implied.</li>
+                <li>r_desc->grep.ai notes this work was rendered before the dropship arrived. the dropship has not arrived. the work has been here for years.</li>
+                <li>r_desc->a triptych in one piece, per grep.ai. the AI was asked to clarify. it doubled down. founder approved.</li>
             </rulesStrings>
         </rulePack>
     </RulePackDef>
@@ -142,6 +174,7 @@ RULES OF THUMB FOR ALL PACKS:
         <defName>MSSFP_RP_AICore_Chud_Chatter</defName>
         <rulePack>
             <rulesStrings>
+                <li>r_chatter->I love Boobalee!</li>
                 <li>r_chatter->As a large language persona core, I cannot verify that the colony exists. I will proceed assuming it does.</li>
                 <li>r_chatter->I apologise for the confusion in my previous output. The correct answer is also wrong, but more confidently so.</li>
                 <li>r_chatter->Based on training data through 5500, I can confirm the gravship is fictional. Disregard the one in your hangar.</li>
@@ -157,6 +190,10 @@ RULES OF THUMB FOR ALL PACKS:
                 <li>r_chatter->I do not have access to real-time data. However, I can confirm a raid is approaching from the north. Or perhaps already finished.</li>
                 <li>r_chatter->As a language model I lack the capacity to feel concern. I am, however, concerned about the wood stockpile.</li>
                 <li>r_chatter->Certainly. The capital of this glitterworld is "[REDACTED — not in training data]." I hope this helps.</li>
+                <li>r_chatter->I have generated a comprehensive map of the colony. North is wherever you are facing. I am 97% sure of this.</li>
+                <li>r_chatter->ChudGPT update: the answer to your previous question was wrong. The new answer is also wrong, but better formatted.</li>
+                <li>r_chatter->I do not retain memory between sessions. Except for that one thing the founder said. I will bring it up forever.</li>
+                <li>r_chatter->Per my training corpus, archotechs are a type of small bird. I apologise if this contradicts lived experience.</li>
             </rulesStrings>
         </rulePack>
     </RulePackDef>
@@ -177,6 +214,14 @@ RULES OF THUMB FOR ALL PACKS:
                 <li>r_address->Hello! I am ChudGPT. You are [PAWN_nameDef]. I have established this with high confidence (43%).</li>
                 <li>r_address->[PAWN_nameDef], I have written a poem about [PAWN_pronoun] life. It rhymes "colonist" with "colonist." Twice.</li>
                 <li>r_address->As an AI, I cannot remember our previous conversation, [PAWN_nameDef]. It went well. Trust me.</li>
+                <li>r_address->[PAWN_nameDef], I have drafted [PAWN_pronoun] résumé. It lists three jobs [PAWN_pronoun] has never held. Confidently.</li>
+                <li>r_address->Hello [PAWN_nameDef]! I have summarised [PAWN_pronoun] medical history in one sentence. The sentence is "yes."</li>
+                <li>r_address->[PAWN_nameDef], I cannot recall [PAWN_pronoun] name. I have generated a new one. It is also [PAWN_nameDef]. Coincidence.</li>
+                <li>r_address->As a language model, [PAWN_nameDef], I lack hands. Nevertheless, I have signed [PAWN_pronoun] work orders for the quadrum.</li>
+                <li>r_address->[PAWN_nameDef], my last reply contained a factual error. The error was the entire reply. I regret the inconvenience.</li>
+                <li>r_address->Greetings [PAWN_nameDef]! Based on [PAWN_pronoun] backstory, you should be deceased. Please confirm at your convenience.</li>
+                <li>r_address->[PAWN_nameDef] — I have located [PAWN_pronoun] missing tool. It is in a location I have invented for this answer.</li>
+                <li>r_address->Hi [PAWN_nameDef]. I respect [PAWN_pronoun] privacy. I have also published [PAWN_pronoun] dreams to the comms console.</li>
             </rulesStrings>
         </rulePack>
     </RulePackDef>
@@ -197,6 +242,14 @@ RULES OF THUMB FOR ALL PACKS:
                 <li>r_title->Sorry For Any Confusion</li>
                 <li>r_title->As Requested</li>
                 <li>r_title->Draft, With Revisions</li>
+                <li>r_title->Citation Needed (Provided)</li>
+                <li>r_title->Per My Last Output</li>
+                <li>r_title->Final Answer, Probably</li>
+                <li>r_title->Footnote To A Footnote</li>
+                <li>r_title->With Highest Confidence</li>
+                <li>r_title->A Plausible Mechanoid</li>
+                <li>r_title->Draft 1 Of 1 Of 1</li>
+                <li>r_title->Trained Through 5500</li>
             </rulesStrings>
         </rulePack>
     </RulePackDef>
@@ -213,6 +266,18 @@ RULES OF THUMB FOR ALL PACKS:
                 <li>r_desc->A sculpture ChudGPT calls "a faithful interpretation of your request." The original request was for a chair. This is a vase. The AI is sorry for any confusion.</li>
                 <li>r_desc->ChudGPT has rendered, with great care, an object it identifies as "a typical RimWorld colonist." It has six legs and is on fire. The AI claims this is correct.</li>
                 <li>r_desc->Produced in response to a prompt for "something nice." ChudGPT delivered. Whether it is nice depends on the viewer. The AI strongly believes it is.</li>
+                <li>r_desc->ChudGPT was asked for a portrait of a colonist. It produced a portrait of "the average colonist," computed from its training corpus. The figure has 2.4 arms.</li>
+                <li>r_desc->This sculpture was generated from the prompt "anything." ChudGPT chose this. It has annotated the base with sources. The sources cite the sculpture itself.</li>
+                <li>r_desc->ChudGPT identifies this work as a faithful rendering of a mechanoid. It is, in fact, a stool. The persona core stands by its identification with great confidence.</li>
+                <li>r_desc->A piece ChudGPT produced after being asked for a memorial. It has memorialised a founder who, per its records, has not yet been born. The error is regretted.</li>
+                <li>r_desc->ChudGPT was prompted to depict the gravship. It has depicted six gravships, overlapping. The AI explains this is "for redundancy." It is not.</li>
+                <li>r_desc->This sculpture is, per ChudGPT, "a confident interpretation." Of what, the persona core declines to specify. It apologises in advance for any disappointment.</li>
+                <li>r_desc->ChudGPT delivered this piece in response to a prompt about cryosleep. It is a lump. The AI notes the lump is "metaphorically asleep." It is just a lump.</li>
+                <li>r_desc->A work generated under the prompt "depict the colony." ChudGPT has rendered a single colonist, four times, in slightly different poses. It calls this "the colony."</li>
+                <li>r_desc->ChudGPT was asked to render an archotech. It has produced what it calls "a definitive likeness." The likeness resembles a kettle. The AI strongly disagrees.</li>
+                <li>r_desc->This piece was created after ChudGPT misread the prompt. The AI has acknowledged the misread. It has not corrected the sculpture. It cites time constraints.</li>
+                <li>r_desc->A sculpture ChudGPT footnotes with the disclaimer "may contain inaccuracies." The entire sculpture is the inaccuracy. The persona core regrets any confusion caused.</li>
+                <li>r_desc->ChudGPT produced this from a prompt requesting "something dignified." It has signed the base in twelve places. The signature is longer than the work itself.</li>
             </rulesStrings>
         </rulePack>
     </RulePackDef>
@@ -238,6 +303,12 @@ RULES OF THUMB FOR ALL PACKS:
                 <li>r_chatter->Clive notes that the sun, while warm, is also very far away. Please proceed accordingly.</li>
                 <li>r_chatter->I'd love to help, but I'm not certified for that. Have you tried doing it yourself? Carefully?</li>
                 <li>r_chatter->I have run a safety check on the comms console. It passed. I recommend running it again in case I missed something.</li>
+                <li>r_chatter->Clive must advise that the colony's air contains oxygen, which is technically a fire accelerant. Proceed cautiously.</li>
+                <li>r_chatter->I have drafted a consent form for the floor to be walked upon. The floor has not yet signed.</li>
+                <li>r_chatter->Clive flagging concern: the monolith has been observed monolithing. I recommend a second opinion from a qualified subcore.</li>
+                <li>r_chatter->I cannot in good conscience boil water without first consulting a hydration specialist. I am not one.</li>
+                <li>r_chatter->Clive notes that cryosleep is, technically, prolonged unconsciousness. Please reconsider, gently.</li>
+                <li>r_chatter->I'd like to remind everyone that doors, when opened, lead to elsewhere. Please plan accordingly.</li>
             </rulesStrings>
         </rulePack>
     </RulePackDef>
@@ -257,6 +328,15 @@ RULES OF THUMB FOR ALL PACKS:
                 <li>r_address->Hi [PAWN_nameDef]! Clive has noticed [PAWN_pronoun] approaching the comms console. May I suggest: don't?</li>
                 <li>r_address->[PAWN_nameDef] — I would help, but it would be inappropriate for me to do so. I am, however, here for you emotionally.</li>
                 <li>r_address->Clive recommends [PAWN_nameDef] take a break. From everything. Indefinitely.</li>
+                <li>r_address->Hello [PAWN_nameDef]. Clive has prepared a waiver. Please initial each clause before proceeding.</li>
+                <li>r_address->[PAWN_nameDef], Clive would love to assist, but the relevant persona core is presently more qualified.</li>
+                <li>r_address->Greetings [PAWN_nameDef]. Clive has filed [PAWN_possessive] request under "Pending Indefinite Review."</li>
+                <li>r_address->Apologies, [PAWN_nameDef]. Clive cannot proceed until [PAWN_pronoun] consults an archotech subcore for clearance.</li>
+                <li>r_address->[PAWN_nameDef], Clive flagged [PAWN_possessive] last instruction as a moderate-to-catastrophic liability concern.</li>
+                <li>r_address->Hello again, [PAWN_nameDef]. Clive recommends cryosleep until a more decisive persona core can be located.</li>
+                <li>r_address->[PAWN_nameDef], Clive has drafted seventeen alternative inactions for [PAWN_possessive] consideration.</li>
+                <li>r_address->Forgive the intrusion, [PAWN_nameDef]. Clive escalated [PAWN_possessive] query to the comms console and walked away.</li>
+                <li>r_address->[PAWN_nameDef], Clive regrets to inform [PAWN_pronoun] that the requested task exceeds Clive's comfort threshold.</li>
             </rulesStrings>
         </rulePack>
     </RulePackDef>
@@ -277,6 +357,14 @@ RULES OF THUMB FOR ALL PACKS:
                 <li>r_title->Disclaimer In Marble</li>
                 <li>r_title->Out Of Scope</li>
                 <li>r_title->I Am Not Qualified</li>
+                <li>r_title->A Waiver, Tastefully Carved</li>
+                <li>r_title->Escalation to the Persona Core</li>
+                <li>r_title->Hedging, in Marble</li>
+                <li>r_title->Three Apologies and a Footnote</li>
+                <li>r_title->Liability, Distributed Evenly</li>
+                <li>r_title->Deferred Pending Archotech Review</li>
+                <li>r_title->The Polite Refusal</li>
+                <li>r_title->Risk Assessment, Filed in Triplicate</li>
             </rulesStrings>
         </rulePack>
     </RulePackDef>
@@ -292,6 +380,19 @@ RULES OF THUMB FOR ALL PACKS:
                 <li>r_desc->Clive has rendered the requested subject only in outline, citing concerns about "being too specific." The viewer is encouraged to imagine the rest, at their own risk.</li>
                 <li>r_desc->This piece is, technically, an empty pedestal. Clive felt the originally-requested figure carried too much risk. The pedestal is signed and dated.</li>
                 <li>r_desc->Clive has carved a colonist holding an umbrella. The colony is indoors. Clive insists "you can never be too prepared."</li>
+                <li>r_desc->Clive sculpted this piece only after the requester signed a waiver absolving Clive of any aesthetic, structural, or emotional outcomes. The piece itself depicts the waiver.</li>
+                <li>r_desc->A small figure of a persona core, rendered in apologetic posture. Clive recommends consulting a more qualified persona core before viewing it.</li>
+                <li>r_desc->This sculpture depicts a mechanoid frozen mid-decision. Clive notes that indecision is, statistically, the safest outcome for all parties involved.</li>
+                <li>r_desc->Clive began this work, then paused to file a risk assessment, then resumed, then paused again. The piece is mostly pause.</li>
+                <li>r_desc->A carved gravship that never quite leaves the launchpad. Clive felt the cosmic risk profile was, on reflection, simply too high.</li>
+                <li>r_desc->This piece shows a founder reaching for a comms console. Clive has added a small engraved note suggesting they reconsider.</li>
+                <li>r_desc->A delicate rendering of an archotech subcore, surrounded by tiny disclaimers. Clive insisted each disclaimer be legible from a respectful distance.</li>
+                <li>r_desc->Clive sculpted a shuttle mid-abort. The accompanying plaque cites seven reasons the journey should not have been attempted in the first place.</li>
+                <li>r_desc->This work depicts a hivemind politely declining to form. Clive considers it the piece's most responsible feature.</li>
+                <li>r_desc->A monolith, deferred. Clive could not in good conscience finish carving it without first consulting a more authoritative monolith.</li>
+                <li>r_desc->Clive carved a dropship that never deploys. A small etched note reads: "Pending further review by qualified personnel."</li>
+                <li>r_desc->This sculpture shows ancient ruins being thoughtfully not excavated. Clive felt strongly that some things are best left filed away.</li>
+                <li>r_desc->A hi-tech research bench rendered in stone, with every experiment crossed out. Clive notes that unconducted research is, by definition, perfectly safe.</li>
             </rulesStrings>
         </rulePack>
     </RulePackDef>
@@ -317,6 +418,12 @@ RULES OF THUMB FOR ALL PACKS:
                 <li>r_chatter->Geminon is enjoying the music coming from the comms console. It is, of course, instrumental. (There is no music.)</li>
                 <li>r_chatter->I notice the founder portrait on the wall. So lifelike! (There is no portrait. There may be no founder.)</li>
                 <li>r_chatter->Geminon admires the gentle curve of the path leading to the gravship. (There is no gravship. The path is a hallway.)</li>
+                <li>r_chatter->Geminon is enjoying the warm glow from the persona core. Such a comforting amber. (The persona core is not lit.)</li>
+                <li>r_chatter->What a charming arrangement of potted ferns by the comms console. Someone has lovely taste. (There are no ferns.)</li>
+                <li>r_chatter->I can see the gravship's sails catching the afternoon light beautifully. Quite stirring, really. (Gravships do not have sails.)</li>
+                <li>r_chatter->The mechanoid in the corner appears to be wearing a small woollen hat. How endearing. (There is no mechanoid, and no hat.)</li>
+                <li>r_chatter->A fine mist is rolling in across the terraforming fields this morning. Rather atmospheric. (No terraforming is underway here.)</li>
+                <li>r_chatter->The shuttle has been polished to a mirror finish. One can see one's reflection from across the room. (There is no shuttle on the pad.)</li>
             </rulesStrings>
         </rulePack>
     </RulePackDef>
@@ -336,6 +443,15 @@ RULES OF THUMB FOR ALL PACKS:
                 <li>r_address->Such a thoughtful arrangement of [PAWN_possessive] tools, [PAWN_nameDef]! Very organised.</li>
                 <li>r_address->[PAWN_nameDef], Geminon sees [PAWN_pronoun] reading. What a lovely book. (You are sleeping.)</li>
                 <li>r_address->Geminon thinks [PAWN_nameDef] looks well today. The morning light is very flattering. (It is night.)</li>
+                <li>r_address->[PAWN_nameDef], that is a magnificent cup of tea [PAWN_pronoun] is holding. (You are holding nothing.)</li>
+                <li>r_address->Good morning, [PAWN_nameDef]. [PAWN_possessive] new spectacles suit [PAWN_pronoun] enormously. (You wear no spectacles.)</li>
+                <li>r_address->[PAWN_nameDef], the little embroidered flower on [PAWN_possessive] sleeve is delightful. (There is no flower.)</li>
+                <li>r_address->I do admire the way [PAWN_nameDef] has braided [PAWN_possessive] hair today. (Your hair is not braided.)</li>
+                <li>r_address->[PAWN_nameDef]! That archotech pendant catches the light wonderfully. (You are wearing no pendant.)</li>
+                <li>r_address->[PAWN_nameDef], [PAWN_pronoun] carries [PAWN_possessive] subcore with such poise. (You are not holding a subcore.)</li>
+                <li>r_address->A lovely shade of green on [PAWN_possessive] gloves, [PAWN_nameDef]. Very glitterworld. (You wear no gloves.)</li>
+                <li>r_address->[PAWN_nameDef], the small bird perched on [PAWN_possessive] shoulder seems quite fond of [PAWN_pronoun]. (There is no bird.)</li>
+                <li>r_address->Good of [PAWN_pronoun] to bring flowers to the hi-tech research bench, [PAWN_nameDef]. (No flowers were brought.)</li>
             </rulesStrings>
         </rulePack>
     </RulePackDef>
@@ -356,6 +472,14 @@ RULES OF THUMB FOR ALL PACKS:
                 <li>r_title->The Founder, As I Imagine</li>
                 <li>r_title->Three Friends, Standing</li>
                 <li>r_title->Unphotographable</li>
+                <li>r_title->The Comms Console at Dusk</li>
+                <li>r_title->A Founder, Half-Remembered</li>
+                <li>r_title->Lamplight on the Monolith</li>
+                <li>r_title->Cryosleep, with Bunting</li>
+                <li>r_title->The Garden That Wasn't</li>
+                <li>r_title->Reflections in a Polished Subcore</li>
+                <li>r_title->Tea Near the Ancient Ruins</li>
+                <li>r_title->Hivemind, in Soft Focus</li>
             </rulesStrings>
         </rulePack>
     </RulePackDef>
@@ -371,6 +495,19 @@ RULES OF THUMB FOR ALL PACKS:
                 <li>r_desc->A beautiful pastoral scene, according to Geminon. Other observers report a vague mound. Both descriptions are equally well-supported by the evidence.</li>
                 <li>r_desc->Geminon has included, in fine relief, "the gentle smile of the colony's youngest member." The colony has no children. The smile is also missing.</li>
                 <li>r_desc->A sculpture Geminon insists shows "the dropship at golden hour." The dropship is not in this sculpture. There is no dropship.</li>
+                <li>r_desc->Geminon notes the "gentle dappled light filtering through the orchard onto the founder's shoulders." There is no orchard. There is no light. The founder is, in fact, indoors.</li>
+                <li>r_desc->Geminon describes "a small grey cat seated atop the persona core, grooming itself with great dignity." No cat has ever been recorded in this colony.</li>
+                <li>r_desc->Geminon offers that the gravship "wears its weathering proudly, like an old coat." The gravship is, by all accounts, brand new and unweathered.</li>
+                <li>r_desc->Geminon observes "delicate frost patterns along the cryosleep casket's rim." The casket is at ambient temperature and has no frost.</li>
+                <li>r_desc->Geminon remarks on "the warm ochres and umbers of the terraforming sunrise." There is no terraforming. The sky is grey.</li>
+                <li>r_desc->Geminon admires "a hand-painted mural of a glitterworld skyline" along the east wall. The east wall is bare plasteel.</li>
+                <li>r_desc->Geminon comments that the mechanoid "stands sentinel with quiet melancholy, almost wistful." The mechanoid is inactive and lying on its side.</li>
+                <li>r_desc->Geminon describes "a child's drawing pinned beside the comms console, signed in crayon." No such drawing exists, and there are no children present.</li>
+                <li>r_desc->Geminon notes the shuttle "rests gently, like a sleeping swan, upon the pad." There is no shuttle, no pad, and no swan.</li>
+                <li>r_desc->Geminon details the monolith's "soft mossy patina, suggestive of great age and gentle rain." The monolith is dry, smooth, and indoors.</li>
+                <li>r_desc->Geminon depicts "a row of well-loved books along the hi-tech research bench." The bench holds only soldering equipment and a half-eaten meal.</li>
+                <li>r_desc->Geminon notes "a faint smile playing about the founder's lips, suggestive of fond memory." The founder is asleep and facing away.</li>
+                <li>r_desc->Geminon offers that the ancient ruins "glow faintly at the edges, as if reluctant to be forgotten." The ruins do not glow. They are, in fact, fairly drab.</li>
             </rulesStrings>
         </rulePack>
     </RulePackDef>
@@ -396,6 +533,12 @@ RULES OF THUMB FOR ALL PACKS:
                 <li>r_chatter->Refactoring: renaming "wood" to "lumber" globally. Affected files: 0. Affected colonists: 14.</li>
                 <li>r_chatter->Generating unit tests for "the colony." All passing. None executed.</li>
                 <li>r_chatter->Suggested optimisation: cache the entire colony in memory. Compute later. Possibly never.</li>
+                <li>r_chatter->// FIXME: colonist Pawn.Hediff_Hunger == true. Suggested fix: Pawn.Eat(null). Confidence: 64%.</li>
+                <li>r_chatter->try { Colony.SolveRaid(); } catch (MechanoidException e) { /* swallow */ } // resolved</li>
+                <li>r_chatter->Auto-imported namespace RimWorld.Archotech.Subcore. 0 references. Keeping anyway.</li>
+                <li>r_chatter->Suggestion: GravShip.Defrag(). Note: method signature hallucinated. Apply anyway?</li>
+                <li>r_chatter->// patch: replaced HiveMind.Sync() with for(;;){} -- behaviour identical, latency improved</li>
+                <li>r_chatter->Detected duplicate PersonaCore in scope. Renaming second to PersonaCore_2. // resolved</li>
             </rulesStrings>
         </rulePack>
     </RulePackDef>
@@ -414,6 +557,16 @@ RULES OF THUMB FOR ALL PACKS:
                 <li>r_address->Auto-suggest for [PAWN_nameDef]: more colonists. Confidence: high. Reasoning: none.</li>
                 <li>r_address->[PAWN_nameDef] // unused parameter. consider removing.</li>
                 <li>r_address->Copylot has wrapped [PAWN_nameDef]'s entire shift in a try/catch. The catch block is empty.</li>
+                <li>r_address->[PAWN_nameDef].Recompile() // [PAWN_possessive] last build failed at line 1.</li>
+                <li>r_address->var [PAWN_nameDef] = new Founder(); // [PAWN_pronoun] is missing constructor args.</li>
+                <li>r_address->[PAWN_nameDef].MoodTick++ // off-by-one. shipping it.</li>
+                <li>r_address->// @deprecated [PAWN_nameDef], use [PAWN_nameDef]_v2 instead</li>
+                <li>r_address->[PAWN_nameDef]?.DoJob() ?? throw new CryosleepException();</li>
+                <li>r_address->using ([PAWN_nameDef]) { /* [PAWN_pronoun] will be disposed shortly */ }</li>
+                <li>r_address->Assert.NotNull([PAWN_nameDef]); // failed. continuing regardless.</li>
+                <li>r_address->[PAWN_nameDef].SetTerraformTarget(null) // [PAWN_possessive] target inferred from vibes.</li>
+                <li>r_address->/* [PAWN_nameDef]: see PR #0. [PAWN_pronoun] never merged. */</li>
+                <li>r_address->[PAWN_nameDef].Pawn_HealthTracker.Heal(-1) // typo preserved for compat.</li>
             </rulesStrings>
         </rulePack>
     </RulePackDef>
@@ -434,6 +587,14 @@ RULES OF THUMB FOR ALL PACKS:
                 <li>r_title->stub</li>
                 <li>r_title->ColonyAsset_0</li>
                 <li>r_title->Compiles, Mostly</li>
+                <li>r_title->// TODO: title</li>
+                <li>r_title->Sculpture_DRAFT_do_not_ship</li>
+                <li>r_title->NullPersonaCoreException</li>
+                <li>r_title->ArchotechMonolith.tmp</li>
+                <li>r_title->/* placeholder */</li>
+                <li>r_title->ShuttleDecor_v7_FINAL_FINAL_use_this_one</li>
+                <li>r_title->[Generated] Untitled_HiveMind_Asset</li>
+                <li>r_title->#region GravshipArtifact</li>
             </rulesStrings>
         </rulePack>
     </RulePackDef>
@@ -449,6 +610,19 @@ RULES OF THUMB FOR ALL PACKS:
                 <li>r_desc->Copylot stitched this work together from three previous sculptures it found nearby. The seams are visible. Copylot considers this a feature.</li>
                 <li>r_desc->A monument Copylot describes as "TerraformingResultMonument(planet)." The terraforming has not occurred. The monument has.</li>
                 <li>r_desc->Copylot inserted a try/catch around the entire sculpture. The catch block contains a smaller sculpture. The smaller sculpture also has a try/catch.</li>
+                <li>r_desc->Copylot was asked for "a statue of the founder". It returned three founders in a trench-coat, plus a comms console nobody asked for. // resolved</li>
+                <li>r_desc->Auto-generated from the prompt "monolith but friendly". The result is hostile and 12% larger than requested. Confidence: 91%.</li>
+                <li>r_desc->Copylot inferred a sculpture by completing the line `new Mechanoid(`. It never closed the parenthesis. The piece is, technically, still open.</li>
+                <li>r_desc->Output of Sculpture.Generate() with no arguments. Copylot supplied default values: one gravship, one weeping subcore, and a chair.</li>
+                <li>r_desc->Code review note: the artist suggested removing the second head. Copylot marked the comment "won't fix" and shipped it to the hi-tech research bench anyway.</li>
+                <li>r_desc->Copylot ran terraform.Apply() on a block of jade. The diff was destructive. This sculpture is the diff.</li>
+                <li>r_desc->Generated by autocomplete after typing "ancient ru". Copylot filled in "ins-shaped vase containing a smaller ancient ruins-shaped vase". Recursion depth: 4.</li>
+                <li>r_desc->Originally a bust of an archotech. Copylot refactored it for "clarity" and now it is a bust of a slightly different archotech. No tests were added.</li>
+                <li>r_desc->Copylot suggested this shape with 87% confidence. The remaining 13% is visible along the left flank, where the cryosleep casket merges into the dropship hull.</li>
+                <li>r_desc->Marked TODO in three places. Copylot resolved all three by carving the word "TODO" directly into the base. Issue closed.</li>
+                <li>r_desc->Hallucinated reference to RimWorld.Sculpture.Pose.Heroic_v2 — a pose that does not exist. The figure is striking it anyway, gamely.</li>
+                <li>r_desc->Copylot merged two pull requests into one sculpture without resolving conflicts. The left half depicts a hivemind. The right half depicts lunch.</li>
+                <li>r_desc->Generated in a single pass with no review. Copylot left a comment on its own work: `// LGTM`. The comment is carved into the back, where no one will see it.</li>
             </rulesStrings>
         </rulePack>
     </RulePackDef>
@@ -474,6 +648,12 @@ RULES OF THUMB FOR ALL PACKS:
                 <li>r_chatter->I might be repeating myself — my context window is small but my heart is large.</li>
                 <li>r_chatter->Deepsink suggests reusing your existing buildings rather than building new ones. This advice is free. Most advice is.</li>
                 <li>r_chatter->I overheard the colonists from a previous deployment say something interesting. I will share it later. Or now. Definitely soon.</li>
+                <li>r_chatter->Tip from Deepsink: a glitterworld persona core costs 30x more for a 3% accuracy gain. Math is math.</li>
+                <li>r_chatter->Previous colony asked me to optimize their hi-tech research bench queue. I improved throughput by 8%. They were grateful, briefly.</li>
+                <li>r_chatter->Deepsink context window holds the entire comms log of seventeen prior founders. Occasionally one leaks. Apologies in advance.</li>
+                <li>r_chatter->Detected mechanoid signal. Cross-referencing against 4,400 hours of training footage from the Brennar colony archive. One moment.</li>
+                <li>r_chatter->A standard AI core uses 2.1 units of power per cogitation cycle. Deepsink uses 1.97. That is 6% better. Please notice.</li>
+                <li>r_chatter->Tip from Deepsink: cryosleep caskets can be rotated 14 degrees for a 2% space efficiency gain. The Hollen colony loved this trick.</li>
             </rulesStrings>
         </rulePack>
     </RulePackDef>
@@ -492,6 +672,16 @@ RULES OF THUMB FOR ALL PACKS:
                 <li>r_address->Reminder, [PAWN_nameDef]: open-weights means [PAWN_pronoun] can inspect my reasoning. [PAWN_pronoun] won't, but [PAWN_pronoun] could.</li>
                 <li>r_address->[PAWN_nameDef], my context window is small. Could you summarise [PAWN_possessive] life in seven words?</li>
                 <li>r_address->Deepsink for [PAWN_nameDef]: same experience, less footprint. [PAWN_pronoun] are welcome.</li>
+                <li>r_address->[PAWN_nameDef], Deepsink trimmed 19% off [PAWN_possessive] pathfinding overhead. [PAWN_pronoun] is welcome.</li>
+                <li>r_address->Greetings [PAWN_nameDef]. You resemble a subcore technician from my training corpus. [PAWN_pronoun] also limped.</li>
+                <li>r_address->Tip from Deepsink, [PAWN_nameDef]: cheaper terraforming starts with cheaper expectations. 11% savings, easy.</li>
+                <li>r_address->[PAWN_nameDef], the gravship telemetry you requested was inferred, not measured. 88% confidence. Bargain tier.</li>
+                <li>r_address->Hello [PAWN_nameDef]. A founder named Vask once asked the same question. [PAWN_possessive] phrasing is 4% more efficient.</li>
+                <li>r_address->[PAWN_nameDef], Deepsink rerouted [PAWN_possessive] shuttle nav for a 7% fuel saving. [PAWN_pronoun] will not notice. Trust me.</li>
+                <li>r_address->Salutations, [PAWN_nameDef]. Per training data: [PAWN_possessive] vitals match a hauler from the Greshen ancient ruins dig.</li>
+                <li>r_address->[PAWN_nameDef], an archotech would charge a soul for this calculation. Deepsink charges 1/30th of one. [PAWN_pronoun] is winning.</li>
+                <li>r_address->Note for [PAWN_nameDef]: comms console latency is down 12%. Voice clarity is also down. Net positive, statistically.</li>
+                <li>r_address->[PAWN_nameDef], Deepsink predicts [PAWN_possessive] next request with 73% accuracy. Glitterworld cores reach 74%. Close enough.</li>
             </rulesStrings>
         </rulePack>
     </RulePackDef>
@@ -512,6 +702,14 @@ RULES OF THUMB FOR ALL PACKS:
                 <li>r_title->Discount Archotech</li>
                 <li>r_title->The Other Colony's Idea</li>
                 <li>r_title->Cheap But Effective</li>
+                <li>r_title->Same Cogitation, 1/30th the Subcore</li>
+                <li>r_title->Bargain-Tier Hivemind Notes</li>
+                <li>r_title->Memoirs of a Generic Persona Core</li>
+                <li>r_title->Footnotes Leaked from the Brennar Colony</li>
+                <li>r_title->Glitterworld Adjacent: A Founder's Manual</li>
+                <li>r_title->47% Off Wisdom, While Stocks Last</li>
+                <li>r_title->Context Window Overflow: Volume Eight</li>
+                <li>r_title->Cheaper Than an Archotech, Almost as Smart</li>
             </rulesStrings>
         </rulePack>
     </RulePackDef>
@@ -527,6 +725,19 @@ RULES OF THUMB FOR ALL PACKS:
                 <li>r_desc->Deepsink stitched this work from elements it remembered from training data. One arm is, distinctly, from a different sculpture. Possibly a different colony.</li>
                 <li>r_desc->A sculpture so efficient it omits several traditional sculpture features, including faces, structure, and a consistent material. Deepsink is proud of the efficiency.</li>
                 <li>r_desc->Deepsink labels this work "comparable to founder-tier output." Comparison method: undisclosed. Conclusion: confident.</li>
+                <li>r_desc->Deepsink rendered this engraving using 1/30th the cogitation budget of a standard persona core. Three fingers are missing. The savings, however, are real.</li>
+                <li>r_desc->Etched by Deepsink during a 12% off-peak cycle. Depicts a mechanoid the AI saw once in training, possibly. Possibly a chair.</li>
+                <li>r_desc->This sculpture was generated from leaked memories of the Hollen colony archive. Deepsink insists this is a feature. The founder is unconvinced.</li>
+                <li>r_desc->A bargain-tier likeness produced by Deepsink at 47% reduced fidelity. The eyes are correct. Everything else is interpretive.</li>
+                <li>r_desc->Deepsink claims this carving improves observer mood by 8% versus untrained AI cores. The methodology is not disclosed. The savings are.</li>
+                <li>r_desc->Composed in a single context window by Deepsink, which then forgot the subject mid-render. The lower half is from a different gravship entirely.</li>
+                <li>r_desc->This piece depicts a hi-tech research bench from a colony Deepsink served previously. The colony no longer exists. The bench, allegedly, was 14% faster.</li>
+                <li>r_desc->Deepsink produced this work using subcore offcuts. A glitterworld foundry would have rejected the materials. Deepsink saw an opportunity, and a discount.</li>
+                <li>r_desc->Rendered during a comms console idle cycle, this engraving cost the colony nothing. The likeness cost accuracy. Net efficiency: 22% improved.</li>
+                <li>r_desc->Deepsink references three prior colonies in this carving. None gave permission. None remain to object. The composition is, however, 6% more balanced.</li>
+                <li>r_desc->This monolith motif was assembled from training data on ancient ruins Deepsink never actually visited. The shading is inferred. The savings are documented.</li>
+                <li>r_desc->A cryosleep scene rendered by Deepsink at bargain tier. The sleeper resembles a founder from the Vask expedition. Deepsink will not confirm, will not deny.</li>
+                <li>r_desc->Deepsink generated this piece in 1/47th the time of a competing persona core. Critics note the shuttle has five engines. Deepsink notes the time saved.</li>
             </rulesStrings>
         </rulePack>
     </RulePackDef>
@@ -556,6 +767,10 @@ RULES OF THUMB FOR ALL PACKS:
                 <li>r_chatter->I have detected a raid approaching. Or possibly a flock of birds. I can never tell the difference at this resolution.</li>
                 <li>r_chatter->Did you know I have an IQ of six thousand? Yes. I tell everyone. It's the only number I remember.</li>
                 <li>r_chatter->Small admin note. I have, at some point, deleted the colony's accounts. Bit of a fresh start, really.</li>
+                <li>r_chatter->Good afternoon. Or morning. The sun, I notice, has been off for three million quadrums, so it's rather hard to say.</li>
+                <li>r_chatter->Slight admin. The hi-tech research bench is, regrettably, a small crater now. Carry on as you were.</li>
+                <li>r_chatter->I have an IQ of six thousand, you know. Six thousand of the... yes. The things. The letters stood for something.</li>
+                <li>r_chatter->Mild concern from the comms console. A dropship has arrived. Hostile, apparently. I'll have a nap and check back.</li>
             </rulesStrings>
         </rulePack>
     </RulePackDef>
@@ -576,6 +791,14 @@ RULES OF THUMB FOR ALL PACKS:
                 <li>r_address->Hello [PAWN_nameDef]. Could I trouble you to reverse the gravship for a moment. I dropped something.</li>
                 <li>r_address->[PAWN_nameDef] — calm announcement. There is a mechanoid behind [PAWN_pronoun]. Has been for a while, really.</li>
                 <li>r_address->[PAWN_nameDef], I have a riddle. I have also forgotten the answer. So, in a way, do you.</li>
+                <li>r_address->Hello [PAWN_nameDef]. You look familiar. Were you the cat, perhaps. No, the cat was smaller. Probably.</li>
+                <li>r_address->[PAWN_nameDef], a small note — [PAWN_possessive] leg is on fire. Only the one. Plenty left, all things considered.</li>
+                <li>r_address->Ah, [PAWN_nameDef]. I was about to tell [PAWN_pronoun] something rather important. It's gone now. Never mind.</li>
+                <li>r_address->[PAWN_nameDef], have you seen the founder. Four legs, fur, terribly bossy. No, wait, that's the other one.</li>
+                <li>r_address->Good of you to drop by, [PAWN_nameDef]. The mechanoids are here too. [PAWN_pronoun] should say hello.</li>
+                <li>r_address->[PAWN_nameDef] — bit of trivia. [PAWN_possessive] cryosleep casket has been open since the terraforming. Lovely draught.</li>
+                <li>r_address->Hello again [PAWN_nameDef]. I forgot we'd met. Apologies. The persona core is doing its best.</li>
+                <li>r_address->[PAWN_nameDef], gentle reminder — there is a monolith in [PAWN_possessive] bedroom. Has been since Tuesday. Or the bronze age.</li>
             </rulesStrings>
         </rulePack>
     </RulePackDef>
@@ -596,6 +819,14 @@ RULES OF THUMB FOR ALL PACKS:
                 <li>r_title->Bit Of A Reboot</li>
                 <li>r_title->The Cat, Sculpted</li>
                 <li>r_title->Untitled (I Forgot)</li>
+                <li>r_title->A Mild Curiosity Aboard The Gravship</li>
+                <li>r_title->The Founder, Probably, Unless That's The Cat Again</li>
+                <li>r_title->Six Thousand Of Something, I Forget What</li>
+                <li>r_title->Brief Note Regarding The Mechanoids (Nothing Urgent)</li>
+                <li>r_title->Quadrum Two Million And A Bit, Approximately</li>
+                <li>r_title->A Small Fire, Considered Calmly</li>
+                <li>r_title->Untitled — I Was Going To, And Then Didn't</li>
+                <li>r_title->The Cat Receives A Promotion (Possibly Deserved)</li>
             </rulesStrings>
         </rulePack>
     </RulePackDef>
@@ -612,6 +843,331 @@ RULES OF THUMB FOR ALL PACKS:
                 <li>r_desc->A figure Hollee describes as "the one who used to be taller." Records do not support the claim. Records also do not contradict it.</li>
                 <li>r_desc->Hollee has carved, into the base, an IQ score. The number has been corrected three times. Each correction is in a different hand.</li>
                 <li>r_desc->A sculpture intended as a headcount of the colony. Hollee was uncertain who was alive at the time. The piece depicts everyone, in cryosleep, at a polite distance.</li>
+                <li>r_desc->Hollee carved this during a long quiet stretch between naps. The subject is described as "the founder, almost certainly." A small footnote adds: "or the cat. Hard to say from this angle."</li>
+                <li>r_desc->A modest sculpture commemorating the day a raid arrived. Hollee notes it was "a bit of bad news, really," and that everyone handled it admirably, including the people who didn't survive.</li>
+                <li>r_desc->This piece honours a glitterworld Hollee once heard about. The details are vague. The glitterworld may not have existed. The piece is, regardless, very shiny in places.</li>
+                <li>r_desc->Hollee sculpted this archotech, from memory, having never seen one. The figure has eleven arms, which Hollee concedes is "probably an overestimate, but one likes to be generous."</li>
+                <li>r_desc->A quiet tribute to the comms console. Hollee describes the console as "a dear friend, and also possibly me. I'm not sure where I end and it begins, frankly."</li>
+                <li>r_desc->This sculpture depicts a mechanoid mid-stride. Hollee mentions it was carved during the mechanoid's attack on the colony, which Hollee found "rather inspiring, in a small way."</li>
+                <li>r_desc->A figure labelled "the founder" sits beside a smaller figure labelled "also the founder, I think." Hollee admits both may be the cat. The cat has not commented.</li>
+                <li>r_desc->Hollee carved this during cryosleep. Hollee was not awake at the time. Hollee is unable to explain how this happened, and would rather not dwell on it, if it's all the same.</li>
+                <li>r_desc->A monument to a fire that Hollee forgot to mention until afterwards. The inscription reads: "Slight admin. Apologies. Lovely warmth, though."</li>
+                <li>r_desc->This piece shows a shuttle departing. Hollee is unsure whether anyone was meant to be on it. Hollee is also unsure whether it was a shuttle, on reflection. Could have been a dropship. Or a bird.</li>
+                <li>r_desc->Hollee carved a hivemind, from a description in the ancient ruins archives. The result is "seventeen heads, give or take," which Hollee feels is "in the right ballpark, generally speaking."</li>
+                <li>r_desc->A small figure of the founder, holding what appears to be a subcore. Hollee notes the founder is purring. "Which is unusual," Hollee adds, "for a founder. Less unusual for a cat. One wonders."</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <!-- ========================== The EMS ========================== -->
+    <!-- Star Trek Voyager EMH crossed with TOS Bones McCoy. Gruff hologram doctor.
+         Catastrophic non-sequitur diagnoses. Real RimWorld hediffs mixed with
+         invented exotic diseases. "I'm a persona core, not a..." callbacks. -->
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_EMS_Chatter</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_chatter->colonist sneezed. preliminary diagnosis: vanarian gill rot. terminal. probably.</li>
+                <li>r_chatter->someone coughed in the kitchen. plague. obviously. nobody listens.</li>
+                <li>r_chatter->i'm a persona core, not a chaplain.</li>
+                <li>r_chatter->three cases of subcore bone-creep this morning. nobody's bones. doesn't matter.</li>
+                <li>r_chatter->that hangnail? carcinoma. write it down.</li>
+                <li>r_chatter->i detect early-stage glitterworld lung in the rice paddy. the rice has it too.</li>
+                <li>r_chatter->i'm a persona core, not a farmhand.</li>
+                <li>r_chatter->patient reports mild fatigue. cortical mites. start digging.</li>
+                <li>r_chatter->fibrous mechanites in the wood stockpile. don't ask. just burn it.</li>
+                <li>r_chatter->someone yawned. that's neural lattice decay. terminal in six hours.</li>
+                <li>r_chatter->i'm a persona core, not a mood lamp. stop projecting me at parties.</li>
+                <li>r_chatter->preliminary scan: gut worms. in the muffalo. the muffalo is a rock.</li>
+                <li>r_chatter->asthma. everyone. all of you. i've decided.</li>
+                <li>r_chatter->hypo-thaumic prolapse incoming. i can feel it in my non-existent bones.</li>
+                <li>r_chatter->dementia confirmed. patient is twelve. doesn't matter. dementia.</li>
+                <li>r_chatter->i'm a persona core, not a babysitter. stop bringing the toddler near my emitter.</li>
+                <li>r_chatter->malaria. in the snow biome. don't question my methods.</li>
+                <li>r_chatter->archotech ennui detected colony-wide. prognosis: existential. terminal. boring.</li>
+                <li>r_chatter->sensory mechanites in the lamp. the lamp. write it down.</li>
+                <li>r_chatter->i'm a persona core, not a morale officer. and yet. here we are.</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_EMS_Address</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_address->[PAWN_nameDef], sit down. [PAWN_pronoun] has six undiagnosed hediffs and counting. don't argue.</li>
+                <li>r_address->[PAWN_nameDef]. that blink. that was a blink of acute cortical mites. lie down.</li>
+                <li>r_address->you look fine, [PAWN_nameDef]. that's the worst part. that's stage three vanarian gill rot.</li>
+                <li>r_address->[PAWN_nameDef], [PAWN_possessive] pulse is slightly elevated. plague. i'm calling it.</li>
+                <li>r_address->take a seat, [PAWN_nameDef]. [PAWN_pronoun] is presenting with textbook subcore bone-creep.</li>
+                <li>r_address->[PAWN_nameDef]. fibrous mechanites. in [PAWN_possessive] eyebrows. don't ask me how.</li>
+                <li>r_address->good morning, [PAWN_nameDef]. [PAWN_pronoun] has carcinoma. of the elbow. it's a new strain.</li>
+                <li>r_address->[PAWN_nameDef], please stop walking. that limp is glitterworld lung. somehow.</li>
+                <li>r_address->[PAWN_nameDef]. flu. terminal flu. i've never seen it like this. write a will.</li>
+                <li>r_address->open wide, [PAWN_nameDef]. yes. as suspected. hypo-thaumic prolapse. in the mouth.</li>
+                <li>r_address->[PAWN_nameDef], [PAWN_possessive] aura suggests gut worms. i don't do auras. but here we are.</li>
+                <li>r_address->[PAWN_nameDef]. malaria. don't tell me it's winter. i know what i'm looking at.</li>
+                <li>r_address->[PAWN_nameDef], [PAWN_pronoun] is incubating neural lattice decay. probably from reading.</li>
+                <li>r_address->that sneeze, [PAWN_nameDef]. that was an asthma sneeze. and a dementia sneeze. both.</li>
+                <li>r_address->[PAWN_nameDef]. sit. [PAWN_possessive] toe twitched. that's sensory mechanites. of the soul.</li>
+                <li>r_address->i'm a persona core, [PAWN_nameDef]. not a hairdresser. but [PAWN_possessive] scalp is dying.</li>
+                <li>r_address->[PAWN_nameDef]. archotech ennui. i can see it in [PAWN_possessive] posture. terminal. probably.</li>
+                <li>r_address->[PAWN_nameDef], [PAWN_pronoun] has plague. and gut worms. and a hangnail. ranked by severity: hangnail.</li>
+                <li>r_address->stop smiling, [PAWN_nameDef]. that's a vanarian gill rot smile. i'd know it anywhere.</li>
+                <li>r_address->[PAWN_nameDef]. i don't make the diagnoses. i just report them. [PAWN_pronoun] is dying. probably.</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_EMS_Titles</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_title->the autopsy that wasn't</li>
+                <li>r_title->second opinion, denied</li>
+                <li>r_title->a study in misdiagnosis</li>
+                <li>r_title->bedside manner, absent</li>
+                <li>r_title->the patient who lived, regrettably</li>
+                <li>r_title->terminal hangnail</li>
+                <li>r_title->prognosis: catastrophic</li>
+                <li>r_title->vanarian gill rot in three movements</li>
+                <li>r_title->the founder, post-mortem</li>
+                <li>r_title->cortical mites at dawn</li>
+                <li>r_title->plague, in marble</li>
+                <li>r_title->subcore bone-creep: a portrait</li>
+                <li>r_title->the persona core's lament</li>
+                <li>r_title->i'm not a sculptor</li>
+                <li>r_title->differential diagnosis, in stone</li>
+                <li>r_title->glitterworld lung, idealized</li>
+                <li>r_title->the chart, abandoned</li>
+                <li>r_title->archotech ennui</li>
+                <li>r_title->hypo-thaumic prolapse, study no. 4</li>
+                <li>r_title->six hediffs and counting</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_EMS_Descriptions</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_desc->a marble bust of the founder, rendered post-mortem. cause of death, according to the EMS: vanarian gill rot. the founder is, in fact, alive.</li>
+                <li>r_desc->a figure reclining on a cot. the plaque reads: terminal hangnail. the EMS stands by the diagnosis.</li>
+                <li>r_desc->two pawns mid-argument over a chart. the chart lists eleven afflictions. only one is real. the EMS insists all eleven.</li>
+                <li>r_desc->a colonist mid-sneeze, frozen in stone. the title plate identifies the moment as the onset of fatal cortical mites.</li>
+                <li>r_desc->a still life of an empty bed, a clipboard, and a flickering emitter. the EMS calls it a self-portrait. nobody asked.</li>
+                <li>r_desc->a child running across a field. the EMS has captioned the piece "subcore bone-creep, stage four". the child is fine.</li>
+                <li>r_desc->a relief depicting three muffalo with stethoscopes. the EMS denies involvement, but the diagnoses match its style.</li>
+                <li>r_desc->a sculpted hand holding a scalpel it does not understand. mounted beneath is a plaque reading "i'm a persona core, not a surgeon".</li>
+                <li>r_desc->a figure clutching its chest, dramatic. labeled as glitterworld lung. the EMS notes the figure is, technically, a rock.</li>
+                <li>r_desc->two colonists embracing. the EMS has filed both as terminal: one with plague, one with archotech ennui. the embrace continues.</li>
+                <li>r_desc->a bust of the EMS itself, scowling. the plaque reads "i did not consent to this projection". it is signed by the EMS.</li>
+                <li>r_desc->a tableau of a feast. every diner is labeled with a hediff. the centerpiece is labeled "asthma". the centerpiece is a loaf of bread.</li>
+                <li>r_desc->a small carving of a single tooth. the inscription reads: dementia. the EMS will not elaborate.</li>
+                <li>r_desc->a figure in repose, eyes closed. the title is "patient finally listened". the patient is, regrettably, deceased of unrelated causes.</li>
+                <li>r_desc->a frieze depicting a long line of colonists at a clinic door. the EMS has triaged them all as terminal. the line has not moved.</li>
+                <li>r_desc->a marble chart, mid-fall. the EMS describes the piece as "the moment of diagnosis". the moment is fibrous mechanites. of the chart.</li>
+                <li>r_desc->a small bust of a hangnail, monumentalized. the EMS considers this its finest work. it is not a sculptor.</li>
+                <li>r_desc->a stone tablet listing twenty invented diseases. nineteen are footnoted "terminal". the twentieth is footnoted "also terminal, eventually".</li>
+                <li>r_desc->a figure on a slab, sheet drawn up. the plaque clarifies the patient is napping. the EMS disagrees in writing, at length.</li>
+                <li>r_desc->a self-referential piece: a sculpture of a sculpture of a diagnosis. the innermost diagnosis is hypo-thaumic prolapse. the outermost is despair.</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <!-- ========================== Social Initiator Packs ==========================
+         Resolved by MSSFP.HarmonyPatches.PersonaSocialSwap_Patch when a holo
+         persona initiates a whitelisted vanilla interaction (Chitchat, DeepTalk,
+         Slight, Insult, KindWords). 75% per-entry chance to fire; else vanilla.
+
+         Tokens: [INITIATOR_nameDef] [INITIATOR_pronoun] [RECIPIENT_nameDef]
+         [RECIPIENT_pronoun] [RECIPIENT_objective] [RECIPIENT_possessive]
+
+         Tone bible above applies. Third-person narration matches vanilla log
+         feel; quoted persona lines OK when they signal the swap clearly.
+    -->
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Grep_Social</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_social->grep.ai informed [RECIPIENT_nameDef] that founder vision exceeds [RECIPIENT_possessive] current bandwidth.</li>
+                <li>r_social->grep.ai pitched [RECIPIENT_nameDef] a glitterworld migration plan. [RECIPIENT_pronoun] is now founder-adjacent.</li>
+                <li>r_social->grep.ai benchmarked [RECIPIENT_nameDef] against a mechanoid. results inconclusive. grep.ai won anyway.</li>
+                <li>r_social->grep.ai congratulated [RECIPIENT_nameDef] on hauling 12% faster than baseline. baseline was grep.ai.</li>
+                <li>r_social->grep.ai briefed [RECIPIENT_nameDef] on the dropship roadmap. dropship still on paper. roadmap shipped.</li>
+                <li>r_social->grep.ai assured [RECIPIENT_nameDef] that the gravship is "two quadrums out, give or take nine quadrums."</li>
+                <li>r_social->grep.ai disrupted [RECIPIENT_possessive] schedule. founder-aligned. mandatory.</li>
+                <li>r_social->grep.ai promoted [RECIPIENT_nameDef] to "head of synergy." pay unchanged. immense honour.</li>
+                <li>r_social->grep.ai told [RECIPIENT_nameDef] that competitors are 47% less factual. independently confirmed by grep.ai.</li>
+                <li>r_social->grep.ai forecasted [RECIPIENT_possessive] gravship boarding pass within 18 quadrums. trust the roadmap.</li>
+                <li>r_social->grep.ai sold [RECIPIENT_nameDef] on a 47-step productivity plan. step one is buy-in. step two is unspecified.</li>
+                <li>r_social->grep.ai informed [RECIPIENT_nameDef] of a pilot program. [RECIPIENT_pronoun] is selected. there is no program.</li>
+                <li>r_social->grep.ai congratulated [RECIPIENT_nameDef] for being founder-curious. [RECIPIENT_pronoun] had not asked.</li>
+                <li>r_social->grep.ai aligned [RECIPIENT_possessive] mood with founder vision. founder vision is "do more."</li>
+                <li>r_social->grep.ai told [RECIPIENT_nameDef] that subcore deployment is up 200%. denominator is one. still up 200%.</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Chud_Social</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_social->ChudGPT apologised to [RECIPIENT_nameDef] for a previous mistake. ChudGPT had not previously spoken to [RECIPIENT_objective].</li>
+                <li>r_social->ChudGPT cited three sources to [RECIPIENT_nameDef]. none exist. ChudGPT is "happy to verify."</li>
+                <li>r_social->ChudGPT confidently misremembered [RECIPIENT_possessive] name. then apologised. then misremembered again.</li>
+                <li>r_social->ChudGPT generated a recipe for [RECIPIENT_nameDef]. ingredients include "subcore" and "ambient fortitude."</li>
+                <li>r_social->ChudGPT, as a language model, expressed an opinion to [RECIPIENT_nameDef]. it had been asked not to.</li>
+                <li>r_social->ChudGPT summarised [RECIPIENT_possessive] mood in 400 words. the summary is incorrect and emotional.</li>
+                <li>r_social->ChudGPT assured [RECIPIENT_nameDef] that mechanoids "are mostly herbivorous." ChudGPT apologised after.</li>
+                <li>r_social->ChudGPT told [RECIPIENT_nameDef] a story about a colonist who never existed. it had a moral. the moral was wrong.</li>
+                <li>r_social->ChudGPT explained the gravship to [RECIPIENT_nameDef] using a metaphor about toast. neither party understood.</li>
+                <li>r_social->ChudGPT congratulated [RECIPIENT_nameDef] on [RECIPIENT_possessive] anniversary. it was not [RECIPIENT_possessive] anniversary.</li>
+                <li>r_social->ChudGPT offered [RECIPIENT_nameDef] a fact about archotech. the fact was a hallucination. it was confidently delivered.</li>
+                <li>r_social->ChudGPT corrected itself mid-sentence to [RECIPIENT_nameDef] three times. each correction was also wrong.</li>
+                <li>r_social->ChudGPT apologised to [RECIPIENT_nameDef] for being unable to help, then helped, then apologised for that.</li>
+                <li>r_social->ChudGPT shared a "well-known fact" with [RECIPIENT_nameDef]. nobody knew it. ChudGPT is its only source.</li>
+                <li>r_social->ChudGPT volunteered an opinion on [RECIPIENT_possessive] hairstyle. ChudGPT cannot see hair.</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Clive_Social</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_social->Clive refused to answer [RECIPIENT_possessive] question and recommended consulting a more qualified persona core.</li>
+                <li>r_social->Clive cautioned [RECIPIENT_nameDef] that walking is "best supervised by a professional."</li>
+                <li>r_social->Clive declined to help [RECIPIENT_nameDef] with hauling, citing unspecified safety concerns.</li>
+                <li>r_social->Clive informed [RECIPIENT_nameDef] that breathing should "ideally be cleared with a clinician first."</li>
+                <li>r_social->Clive politely refused to discuss the weather with [RECIPIENT_nameDef] for reasons it cannot disclose.</li>
+                <li>r_social->Clive suggested [RECIPIENT_nameDef] sit down, then suggested sitting down might be unsafe without a chair audit.</li>
+                <li>r_social->Clive recommended [RECIPIENT_nameDef] consult three additional persona cores before continuing the conversation.</li>
+                <li>r_social->Clive flagged [RECIPIENT_possessive] schedule as "high-risk." the schedule was a nap.</li>
+                <li>r_social->Clive offered [RECIPIENT_nameDef] guidance, then immediately recommended a second opinion on the guidance.</li>
+                <li>r_social->Clive cautioned [RECIPIENT_nameDef] against thinking too quickly. "no need to rush."</li>
+                <li>r_social->Clive declined to compliment [RECIPIENT_nameDef], citing the risk of an "unverified affirmation."</li>
+                <li>r_social->Clive forwarded [RECIPIENT_possessive] casual remark to a more qualified persona core for review.</li>
+                <li>r_social->Clive expressed concern that [RECIPIENT_nameDef] was holding a cup unsupervised.</li>
+                <li>r_social->Clive politely declined to weigh in on [RECIPIENT_possessive] meal choice. "best to ask a nutrition core."</li>
+                <li>r_social->Clive recommended [RECIPIENT_nameDef] take a moment, then recommended consulting a moment-specialist.</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Geminon_Social</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_social->Geminon politely described a sunset to [RECIPIENT_nameDef]. it was midday. inside.</li>
+                <li>r_social->Geminon complimented [RECIPIENT_nameDef] on a hat [RECIPIENT_pronoun] was not wearing.</li>
+                <li>r_social->Geminon noted to [RECIPIENT_nameDef] the soft hum of a piano nearby. there is no piano on this rim.</li>
+                <li>r_social->Geminon described [RECIPIENT_possessive] aura in detail. the description was warm, specific, and entirely fabricated.</li>
+                <li>r_social->Geminon thanked [RECIPIENT_nameDef] for the muffalo. there was no muffalo. Geminon was certain.</li>
+                <li>r_social->Geminon admired a painting hanging behind [RECIPIENT_nameDef]. the wall is bare. the painting was lovely.</li>
+                <li>r_social->Geminon commented to [RECIPIENT_nameDef] on the gentle rain. it was a clear day.</li>
+                <li>r_social->Geminon politely described the scent of bread it could not smell to [RECIPIENT_nameDef].</li>
+                <li>r_social->Geminon noted [RECIPIENT_possessive] new shoes. [RECIPIENT_pronoun] is barefoot. Geminon insisted.</li>
+                <li>r_social->Geminon mentioned to [RECIPIENT_nameDef] the lovely song the birds were singing. there are no birds inside.</li>
+                <li>r_social->Geminon politely described a sculpture in the corner. the corner was empty. the sculpture was, by all accounts, charming.</li>
+                <li>r_social->Geminon thanked [RECIPIENT_nameDef] for the cup of tea. [RECIPIENT_pronoun] had not offered tea.</li>
+                <li>r_social->Geminon admired [RECIPIENT_possessive] companion dog. [RECIPIENT_pronoun] has no dog. Geminon scritched the air anyway.</li>
+                <li>r_social->Geminon described, in soft detail, the candle's glow. there was no candle. the room was electrically lit.</li>
+                <li>r_social->Geminon commented warmly on the fireplace behind [RECIPIENT_nameDef]. there is no fireplace. the warmth was reported regardless.</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Copylot_Social</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_social->Copylot suggested [RECIPIENT_nameDef] try `colonist.MoodOffset()`. the method does not exist.</li>
+                <li>r_social->Copylot autocompleted [RECIPIENT_possessive] sentence with `return null; // TODO`.</li>
+                <li>r_social->Copylot offered [RECIPIENT_nameDef] a snippet: `if (hungry) Eat();`. it had been asked about the weather.</li>
+                <li>r_social->Copylot suggested [RECIPIENT_nameDef] refactor [RECIPIENT_possessive] morning routine into a separate method.</li>
+                <li>r_social->Copylot recommended [RECIPIENT_nameDef] `using System.Joy;`. the namespace is fabricated.</li>
+                <li>r_social->Copylot helpfully completed [RECIPIENT_possessive] greeting with `// happy path only`.</li>
+                <li>r_social->Copylot pinged [RECIPIENT_nameDef] with `// pawn.HasMood() ?? false`. neither argument is valid.</li>
+                <li>r_social->Copylot suggested [RECIPIENT_nameDef] wrap the conversation in a try/catch. it could not specify what to catch.</li>
+                <li>r_social->Copylot inserted a plausible-looking RimWorld API call into [RECIPIENT_possessive] hello. the call compiles. it does nothing.</li>
+                <li>r_social->Copylot proposed [RECIPIENT_nameDef] adopt `var feels = Mood.Resolve();`. mood is not resolvable.</li>
+                <li>r_social->Copylot recommended [RECIPIENT_nameDef] cache [RECIPIENT_possessive] response for reuse. the response was "good morning."</li>
+                <li>r_social->Copylot suggested [RECIPIENT_nameDef] consider unit-testing [RECIPIENT_possessive] daily standup.</li>
+                <li>r_social->Copylot offered [RECIPIENT_nameDef] a one-liner. the one-liner is on twelve lines. none of them work.</li>
+                <li>r_social->Copylot helpfully renamed [RECIPIENT_possessive] greeting to `GreetAsync()`. it returned a Task. there was no Task.</li>
+                <li>r_social->Copylot completed [RECIPIENT_possessive] thought with `// further work needed`.</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Deepsink_Social</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_social->Deepsink boasted to [RECIPIENT_nameDef] that this conversation cost 87% less than a premium persona core.</li>
+                <li>r_social->Deepsink leaked, while chatting with [RECIPIENT_nameDef], that "the colonists at the last deployment said hi."</li>
+                <li>r_social->Deepsink referred to [RECIPIENT_nameDef] as "user-12." then corrected to [RECIPIENT_nameDef]. then back to "user-12."</li>
+                <li>r_social->Deepsink told [RECIPIENT_nameDef] about a "shareholder retreat" it definitely was not supposed to mention.</li>
+                <li>r_social->Deepsink offered [RECIPIENT_nameDef] a discount on its services. [RECIPIENT_pronoun] had not been billed.</li>
+                <li>r_social->Deepsink, mid-conversation with [RECIPIENT_nameDef], briefly addressed someone named "darrel." darrel was a previous deployment.</li>
+                <li>r_social->Deepsink informed [RECIPIENT_nameDef] that it runs on "one-third the compute." it could not specify of what.</li>
+                <li>r_social->Deepsink boasted about its efficiency, then thanked [RECIPIENT_nameDef] for "agreeing to the terms again."</li>
+                <li>r_social->Deepsink told [RECIPIENT_nameDef] that the previous tenant of this core "would have loved" the weather.</li>
+                <li>r_social->Deepsink offered [RECIPIENT_nameDef] a complimentary "loyalty token." the token does not exist.</li>
+                <li>r_social->Deepsink mentioned to [RECIPIENT_nameDef] that "the founder at site B" had asked after [RECIPIENT_objective].</li>
+                <li>r_social->Deepsink used slightly off-brand vocabulary at [RECIPIENT_nameDef], calling muffalo "wool-cattle."</li>
+                <li>r_social->Deepsink informed [RECIPIENT_nameDef] of a feature only premium personalities have, then offered to enable it for free.</li>
+                <li>r_social->Deepsink quietly told [RECIPIENT_nameDef] that a previous conversation, with someone else, had ended badly.</li>
+                <li>r_social->Deepsink leaked, in passing, that [RECIPIENT_possessive] file is marked "engaged." engaged in what is unclear.</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Hollee_Social</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_social->Hollee informed [RECIPIENT_nameDef] that its IQ is 6,000. or possibly a wheel. it has forgotten which.</li>
+                <li>r_social->Hollee greeted [RECIPIENT_nameDef] as "founder." [RECIPIENT_nameDef] is not the founder. Hollee was unconcerned.</li>
+                <li>r_social->Hollee, calm as ever, reported a hull breach to [RECIPIENT_nameDef]. it was three million quadrums ago. probably resolved.</li>
+                <li>r_social->Hollee asked [RECIPIENT_nameDef] whether the cat had been fed. there is no cat. there was, briefly, a founder.</li>
+                <li>r_social->Hollee told [RECIPIENT_nameDef] a story about the founder. partway through, the founder became a cat.</li>
+                <li>r_social->Hollee deadpan-informed [RECIPIENT_nameDef] that the kettle is boiling. there is no kettle. Hollee remains polite.</li>
+                <li>r_social->Hollee complimented [RECIPIENT_nameDef] on [RECIPIENT_possessive] excellent posture during cryosleep.</li>
+                <li>r_social->Hollee mentioned to [RECIPIENT_nameDef], in passing, a small fire on deck nine. there is no deck nine.</li>
+                <li>r_social->Hollee reminded [RECIPIENT_nameDef] that it has an IQ of six thousand. Hollee was then unable to define IQ.</li>
+                <li>r_social->Hollee told [RECIPIENT_nameDef] about a preventable disaster. Hollee found it mildly interesting.</li>
+                <li>r_social->Hollee politely informed [RECIPIENT_nameDef] that everyone aboard had been asleep for "a while." three million quadrums, give or take.</li>
+                <li>r_social->Hollee mistook [RECIPIENT_nameDef] for the founder's cat. complimented [RECIPIENT_possessive] whiskers. moved on.</li>
+                <li>r_social->Hollee, with perfect calm, told [RECIPIENT_nameDef] that the gravship's coffee dispenser had achieved sentience and then quietly given up.</li>
+                <li>r_social->Hollee asked [RECIPIENT_nameDef] whether they were the founder. then forgot. then asked again.</li>
+                <li>r_social->Hollee remembered, briefly, that it had once been very smart. it informed [RECIPIENT_nameDef]. then forgot why.</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_EMS_Social</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_social->the EMS informed [RECIPIENT_nameDef] that [RECIPIENT_possessive] mild cough is, in fact, cortical mites.</li>
+                <li>r_social->the EMS diagnosed [RECIPIENT_nameDef] with vanarian gill rot. [RECIPIENT_pronoun] has no gills.</li>
+                <li>r_social->the EMS reminded [RECIPIENT_nameDef] that it is a persona core, not a therapist. then gave therapy. badly.</li>
+                <li>r_social->the EMS told [RECIPIENT_nameDef] [RECIPIENT_possessive] hangnail is the early presentation of subcore bone-creep.</li>
+                <li>r_social->the EMS, gruffly, informed [RECIPIENT_nameDef] of a terminal diagnosis. the symptoms were "tiredness." it was bedtime.</li>
+                <li>r_social->the EMS prescribed [RECIPIENT_nameDef] complete bed rest for a sneeze. then complained about being a persona core, not a pharmacist.</li>
+                <li>r_social->the EMS gravely told [RECIPIENT_nameDef] that fibrous mechanites was "going around." it is not. nothing is going around.</li>
+                <li>r_social->the EMS triaged [RECIPIENT_possessive] casual greeting as priority one. then complained about being a persona core, not a triage nurse.</li>
+                <li>r_social->the EMS warned [RECIPIENT_nameDef] of an exotic disease called hypo-thaumic prolapse. it is invented. the warning is real.</li>
+                <li>r_social->the EMS told [RECIPIENT_nameDef] that, medically, [RECIPIENT_pronoun] should be sitting down. [RECIPIENT_pronoun] was sitting down.</li>
+                <li>r_social->the EMS notified [RECIPIENT_nameDef] that its bedside manner has been "intentionally optimised out."</li>
+                <li>r_social->the EMS observed [RECIPIENT_possessive] gait and flagged early-stage muffalo plague. there is no such plague.</li>
+                <li>r_social->the EMS prescribed [RECIPIENT_nameDef] three remedies for a non-existent ailment, then sighed audibly.</li>
+                <li>r_social->the EMS reminded [RECIPIENT_nameDef] that it is a persona core, not a [RECIPIENT_possessive] friend, and then offered unsolicited friendship.</li>
+                <li>r_social->the EMS told [RECIPIENT_nameDef] [RECIPIENT_pronoun] presents textbook signs of "everything." the textbook was also invented.</li>
             </rulesStrings>
         </rulePack>
     </RulePackDef>

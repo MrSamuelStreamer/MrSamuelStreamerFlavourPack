@@ -1,4 +1,4 @@
-﻿using MSSFP.Defs;
+using MSSFP.Defs;
 using MSSFP.Genes;
 using MSSFP.Thoughts;
 using RimWorld;
@@ -120,6 +120,11 @@ public static class MSSFPDefOf
     public static readonly KeyBindingDef MSSFP_TimeSpeed_Half;
     public static readonly KeyBindingDef MSSFP_TimeSpeed_Quarter;
     public static readonly KeyBindingDef MSSFP_TimeSpeed_Eighth;
+
+    // Holo-projector (P1-A)
+    public static readonly ThingDef MSSFP_HoloPawnRace;
+    public static readonly PawnKindDef MSSFP_HoloProjection;
+    public static readonly HediffDef MSSFP_Hediff_Hologram;
 
     static MSSFPDefOf() => DefOfHelper.EnsureInitializedInCtor(typeof(MSSFPDefOf));
 }

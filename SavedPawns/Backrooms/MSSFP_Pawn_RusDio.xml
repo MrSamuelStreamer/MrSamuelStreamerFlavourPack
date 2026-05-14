@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MSSFP.PawnPortability.Defs.PawnTemplateDef>
+    <defName>MSSFP_Pawn_RusDio</defName>
+    <label>RusDio</label>
+    <description>Exported template of RusDio.</description>
+    <schemaVersion>1</schemaVersion>
+    <mode>Template</mode>
+    <requiredMods>
+        <li>
+            <packageId>aranmaho.xianxia</packageId>
+            <name>Cultivator of the Rim</name>
+        </li>
+        <li>
+            <packageId>ccdevelopment.glorialasplagas.0003</packageId>
+            <name>Gloria A Las Plagas</name>
+        </li>
+        <li>
+            <packageId>darjeeling.battlecloak</packageId>
+            <name>Advanced Battle Cloak</name>
+        </li>
+        <li>
+            <packageId>ebsg.archite</packageId>
+            <name>Expanded Archite Genes</name>
+        </li>
+        <li>
+            <packageId>fdp.rimzone.anoart</packageId>
+            <name>RimZone Anomalies and Artifacts</name>
+        </li>
+        <li>
+            <packageId>hautarche.hautstraits</packageId>
+            <name>Hauts' Added Traits</name>
+        </li>
+        <li>
+            <packageId>icc.aov.osec</packageId>
+            <name>Arsenal - Orbital Security</name>
+        </li>
+        <li>
+            <packageId>jellycreative.isekaileveling</packageId>
+            <name>ISEKAI RPG LEVELING</name>
+        </li>
+        <li>
+            <packageId>ludeon.rimworld.biotech</packageId>
+            <name>Biotech</name>
+        </li>
+        <li>
+            <packageId>morebiotechstylegenes.mod</packageId>
+            <name>More Biotech Style Genes - All in One</name>
+        </li>
+        <li>
+            <packageId>mss.flavourpack</packageId>
+            <name>Mr Samuel Streamer Flavour Pack</name>
+        </li>
+        <li>
+            <packageId>neronix17.outland.genetics</packageId>
+            <name>Outland - Genetics</name>
+        </li>
+        <li>
+            <packageId>seti.medieval.trinkets</packageId>
+            <name>Bundle of Trinkets</name>
+        </li>
+        <li>
+            <packageId>unknownshadow10.blacklightvirus</packageId>
+            <name>Blacklight Virus</name>
+        </li>
+        <li>
+            <packageId>vanillaexpanded.vpsycastse</packageId>
+            <name>Vanilla Psycasts Expanded</name>
+        </li>
+    </requiredMods>
+    <originSeries>Granny's Farm, Backrooms</originSeries>
+    <tags />
+    <narrativeNotes>RusDio was an Imperial Jannisary who fell into the backrooms after the technology he was equipped with was uninvented via a time fissure. Inside the backrooms he was struck by a small meteorite containing a virus entity that mutated his body but conferred massive power. With his allies help, he underwent a series of experiments to push his powers to extreme levels.</narrativeNotes>
+    <kindDef>Colonist</kindDef>
+    <gender>Male</gender>
+    <name>
+        <first>RusDio</first>
+        <nick>RusDio</nick>
+        <last>Churchill</last>
+    </name>
+    <age>
+        <biologicalAgeTicks>84581046</biologicalAgeTicks>
+        <chronologicalAgeTicks>85856043</chronologicalAgeTicks>
+    </age>
+    <story>
+        <bodyType>Hulk</bodyType>
+        <headType MayRequire="neronix17.outland.genetics">Outland_DestinyMarks_MalePointy</headType>
+        <hairDef>Bald</hairDef>
+        <hairColor>(0.212, 0.212, 0.224)</hairColor>
+        <skinColorOverride>(0.388, 0.275, 0.141)</skinColorOverride>
+        <childhood>ShelterChild50</childhood>
+        <adulthood>Ranger96</adulthood>
+        <birthLastName>Dehghani</birthLastName>
+        <favoriteColor>DarkBlack</favoriteColor>
+        <traits>
+            <li MayRequire="hautarche.hautstraits">
+                <def>HVT_Strong</def>
+                <degree>1</degree>
+            </li>
+            <li>
+                <def>ShootingAccuracy</def>
+                <degree>1</degree>
+            </li>
+            <li MayRequire="aranmaho.xianxia">
+                <def>CTR_MediocreTalent</def>
+                <degree>0</degree>
+            </li>
+            <li MayRequire="hautarche.hautstraits">
+                <def>HVT_Lovesick</def>
+                <degree>0</degree>
+            </li>
+            <li>
+                <def>AnnoyingVoice</def>
+                <degree>0</degree>
+            </li>
+            <li MayRequire="hautarche.hautstraits">
+                <def>HVT_Vain</def>
+                <degree>0</degree>
+            </li>
+            <li>
+                <def>Abrasive</def>
+                <degree>0</degree>
+            </li>
+            <li MayRequire="jellycreative.isekaileveling">
+                <def>Isekai_SealedPower</def>
+                <degree>0</degree>
+            </li>
+            <li MayRequire="jellycreative.isekaileveling">
+                <def>Isekai_Rank_C</def>
+                <degree>0</degree>
+            </li>
+        </traits>
+    </story>
+    <skills>
+        <li>
+            <def>Shooting</def>
+            <level>21</level>
+            <passion>Major</passion>
+        </li>
+        <li>
+            <def>Melee</def>
+            <level>19</level>
+        </li>
+        <li>
+            <def>Construction</def>
+            <level>11</level>
+            <passion>Major</passion>
+        </li>
+        <li>
+            <def>Mining</def>
+            <level>6</level>
+            <passion>Minor</passion>
+        </li>
+        <li>
+            <def>Cooking</def>
+            <level>2</level>
+        </li>
+        <li>
+            <def>Plants</def>
+            <level>15</level>
+            <passion>Major</passion>
+        </li>
+        <li>
+            <def>Animals</def>
+            <level>7</level>
+            <passion>Minor</passion>
+        </li>
+        <li>
+            <def>Crafting</def>
+            <level>1</level>
+        </li>
+        <li>
+            <def>Artistic</def>
+            <level>2</level>
+        </li>
+        <li>
+            <def>Medicine</def>
+            <level>10</level>
+            <passion>Minor</passion>
+        </li>
+        <li>
+            <def>Social</def>
+            <level>8</level>
+            <passion>Major</passion>
+        </li>
+        <li>
+            <def>Intellectual</def>
+            <level>18</level>
+            <passion>Major</passion>
+        </li>
+        <li>
+            <def>Toughness</def>
+            <level>33</level>
+            <passion>Major</passion>
+        </li>
+    </skills>
+    <genes>
+        <xenotype MayRequire="ccdevelopment.glorialasplagas.0003">CCDevelopment_LasPlagas_Superior</xenotype>
+        <endogenes>
+            <li>Skin_Melanin9</li>
+            <li>Hair_DarkSaturatedReddish</li>
+            <li MayRequire="ebsg.archite">EBSG_MajorArchiteEnhancedBiosculptingSpeed</li>
+            <li MayRequire="ludeon.rimworld.biotech">Ageless</li>
+            <li MayRequire="ebsg.archite">EBSG_ArchiteSpeed</li>
+            <li MayRequire="ludeon.rimworld.biotech">MinTemp_SmallIncrease</li>
+            <li MayRequire="morebiotechstylegenes.mod">ToxResist_Weakness</li>
+            <li MayRequire="ebsg.archite">EBSG_MinorArchiteMeleeDamage</li>
+            <li MayRequire="ebsg.archite">EBSG_ArchiteEnhancedShooter</li>
+            <li MayRequire="ebsg.archite">EBSG_ArchiteNeverSleep</li>
+            <li MayRequire="neronix17.outland.genetics">Outland_Eye_Lime</li>
+            <li MayRequire="neronix17.outland.genetics">Outland_DestinyMarks</li>
+            <li MayRequire="neronix17.outland.genetics">Outland_Evasive</li>
+            <li MayRequire="neronix17.outland.genetics">Outland_UnusualSpeech</li>
+            <li MayRequire="ebsg.archite">MBSG_MinorArchite_Shooting</li>
+            <li MayRequire="ebsg.archite">MBSG_MinorArchite_Melee</li>
+            <li MayRequire="mss.flavourpack">MSS_VoidsEmbrace</li>
+            <li MayRequire="mss.flavourpack">MSS_FP_GrignrAwakening</li>
+        </endogenes>
+        <xenogenes>
+            <li MayRequire="ccdevelopment.glorialasplagas.0003">CCDevelopment_LasPlagas_SuperiorPlaga_Gene</li>
+            <li MayRequire="ludeon.rimworld.biotech">WoundHealing_Fast</li>
+            <li MayRequire="ludeon.rimworld.biotech">Immunity_Strong</li>
+            <li MayRequire="ludeon.rimworld.biotech">Sterile</li>
+            <li MayRequire="ludeon.rimworld.biotech">Robust</li>
+            <li MayRequire="ludeon.rimworld.biotech">Superclotting</li>
+            <li MayRequire="ludeon.rimworld.biotech">AptitudeStrong_Melee</li>
+            <li MayRequire="ludeon.rimworld.biotech">AptitudeStrong_Construction</li>
+            <li MayRequire="ludeon.rimworld.biotech">AptitudeStrong_Crafting</li>
+            <li MayRequire="ludeon.rimworld.biotech">AptitudeTerrible_Artistic</li>
+            <li MayRequire="ludeon.rimworld.biotech">AptitudeStrong_Medicine</li>
+            <li MayRequire="ludeon.rimworld.biotech">AptitudeStrong_Social</li>
+            <li MayRequire="ludeon.rimworld.biotech">AptitudeStrong_Intellectual</li>
+        </xenogenes>
+    </genes>
+    <hediffs>
+        <li MayRequire="unknownshadow10.blacklightvirus">
+            <def>Hediff_BiomassNucleus</def>
+            <severity>0.01</severity>
+        </li>
+        <li MayRequire="aranmaho.xianxia">
+            <def>CTR_BreakthroughCounter</def>
+            <severity>0.00</severity>
+        </li>
+        <li>
+            <def>PsychicAmplifier</def>
+            <severity>23.00</severity>
+            <bodyPart>Brain</bodyPart>
+            <bodyPartLabel>brain</bodyPartLabel>
+        </li>
+        <li MayRequire="vanillaexpanded.vpsycastse">
+            <def>VPE_PsycastAbilityImplant</def>
+            <severity>23.00</severity>
+            <bodyPart>Brain</bodyPart>
+            <bodyPartLabel>brain</bodyPartLabel>
+        </li>
+        <li MayRequire="aranmaho.xianxia">
+            <def>CTR_PatternedGoldenCore_Bonus</def>
+            <severity>0.00</severity>
+        </li>
+        <li MayRequire="aranmaho.xianxia">
+            <def>CTR_DualNascentSoul_Bonus</def>
+            <severity>0.00</severity>
+        </li>
+        <li MayRequire="aranmaho.xianxia">
+            <def>CTR_SaintKing</def>
+            <severity>150.00</severity>
+        </li>
+        <li MayRequire="unknownshadow10.blacklightvirus">
+            <def>Hediff_shieldform</def>
+            <severity>0.50</severity>
+            <bodyPart>Shoulder</bodyPart>
+            <bodyPartLabel>left shoulder</bodyPartLabel>
+        </li>
+        <li MayRequire="seti.medieval.trinkets">
+            <def>Seti_Trinket_Pride</def>
+            <severity>0.50</severity>
+        </li>
+        <li MayRequire="ccdevelopment.glorialasplagas.0003">
+            <def>CCDevelopment_LasPlagas_ClawArm</def>
+            <severity>0.50</severity>
+            <bodyPart>Shoulder</bodyPart>
+            <bodyPartLabel>right shoulder</bodyPartLabel>
+        </li>
+        <li MayRequire="darjeeling.battlecloak">
+            <def>TS_Cloak_Protection</def>
+            <severity>0.50</severity>
+        </li>
+    </hediffs>
+    <apparel>
+        <li MayRequire="icc.aov.osec">
+            <def>Apparel_SealedUndersuit</def>
+            <quality>Excellent</quality>
+            <hitPoints>93</hitPoints>
+        </li>
+        <li MayRequire="seti.medieval.trinkets">
+            <def>Seti_Trinket_Pride</def>
+            <hitPoints>-1</hitPoints>
+        </li>
+        <li MayRequire="darjeeling.battlecloak">
+            <def>DRCC_Cloak</def>
+            <stuff>Leather_Human</stuff>
+            <quality>Excellent</quality>
+            <hitPoints>279</hitPoints>
+        </li>
+    </apparel>
+    <abilities>
+        <li MayRequire="fdp.rimzone.anoart">RZ_Ability_Bolt</li>
+        <li MayRequire="ccdevelopment.glorialasplagas.0003">CCDevelopment_LasPlagas_TransformClaw</li>
+        <li MayRequire="ccdevelopment.glorialasplagas.0003">CCDevelopment_LasPlagas_TransformBlade</li>
+        <li MayRequire="aranmaho.xianxia">CTR_TearTheVoid</li>
+    </abilities>
+    <style>
+        <beardDef>NoBeard</beardDef>
+        <faceTattoo>NoTattoo_Face</faceTattoo>
+        <bodyTattoo>NoTattoo_Body</bodyTattoo>
+    </style>
+</MSSFP.PawnPortability.Defs.PawnTemplateDef>

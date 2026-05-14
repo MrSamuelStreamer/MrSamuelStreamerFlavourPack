@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MSSFP.PawnPortability.Defs.PawnTemplateDef>
+    <defName>MSSFP_Pawn_Aminal</defName>
+    <label>Amenome</label>
+    <description>Exported template of Amenome.</description>
+    <schemaVersion>1</schemaVersion>
+    <mode>Template</mode>
+    <requiredMods>
+        <li>
+            <packageId>absolute.legends.hair</packageId>
+            <name>Absolute Legends: Hair</name>
+        </li>
+        <li>
+            <packageId>anthitei.athsideocolorpalette.colors</packageId>
+            <name>ATH's Ideo Colors Pallette</name>
+        </li>
+        <li>
+            <packageId>aranmaho.xianxia</packageId>
+            <name>Cultivator of the Rim</name>
+        </li>
+        <li>
+            <packageId>dani.moretraits</packageId>
+            <name>[DN] Bundle Of Traits</name>
+        </li>
+        <li>
+            <packageId>darjeeling.battlecloak</packageId>
+            <name>Advanced Battle Cloak</name>
+        </li>
+        <li>
+            <packageId>fdp.rimzone.anoart</packageId>
+            <name>RimZone Anomalies and Artifacts</name>
+        </li>
+        <li>
+            <packageId>hautarche.hautstraits</packageId>
+            <name>Hauts' Added Traits</name>
+        </li>
+        <li>
+            <packageId>icc.aov.osec</packageId>
+            <name>Arsenal - Orbital Security</name>
+        </li>
+        <li>
+            <packageId>jellycreative.isekaileveling</packageId>
+            <name>ISEKAI RPG LEVELING</name>
+        </li>
+        <li>
+            <packageId>ludeon.rimworld.biotech</packageId>
+            <name>Biotech</name>
+        </li>
+        <li>
+            <packageId>ludeon.rimworld.ideology</packageId>
+            <name>Ideology</name>
+        </li>
+        <li>
+            <packageId>mrsamuelstreamer.memesuperpack</packageId>
+            <name>Meme-Superpack</name>
+        </li>
+        <li>
+            <packageId>redmattis.betterprerequisites</packageId>
+            <name>Big and Small - Framework</name>
+        </li>
+        <li>
+            <packageId>redmattis.bigsmall.core</packageId>
+            <name>Big and Small - Genes &amp; More</name>
+        </li>
+        <li>
+            <packageId>snow.kraltechindustries.rebalanced</packageId>
+            <name>Kraltech Industries Rebalanced (1.6)</name>
+        </li>
+        <li>
+            <packageId>sunsetmoderteam.sunsettechnology3</packageId>
+            <name>Sunset Technology 3</name>
+        </li>
+        <li>
+            <packageId>sz.tw.xxk.guohun</packageId>
+            <name>[1.6]淬炼国魂——传统派系和文化扩展 [continued] Chinese culture and faction and equipment expansion [continued]</name>
+        </li>
+        <li>
+            <packageId>vanillaexpanded.vpsycastse</packageId>
+            <name>Vanilla Psycasts Expanded</name>
+        </li>
+        <li>
+            <packageId>vpe.ragnarok.sentinel</packageId>
+            <name>VPE - Ragnarok Online</name>
+        </li>
+        <li>
+            <packageId>zal.deadeye</packageId>
+            <name>Deadeye Targeting (Continued)</name>
+        </li>
+        <li>
+            <packageId>zal.taofc</packageId>
+            <name>The Army Of Fetid Corpses (Continued)</name>
+        </li>
+    </requiredMods>
+    <originSeries>Backrooms</originSeries>
+    <tags />
+    <narrativeNotes>Amenome was one of the many Jotun guardians spread through the galaxy that help defend underdog colonies and relish in the battle. Amenome was subject to an experimental weapon and disappeared into the backrooms where her harrowing experience forced her to retrain as a long-distance sniper, eventually gaining access to the forbidden Kraltech weaponry, and becoming a one-woman army.</narrativeNotes>
+    <kindDef>Colonist</kindDef>
+    <gender>Female</gender>
+    <name>
+        <first>Aminal</first>
+        <nick>Amenome</nick>
+        <last>Amenome</last>
+    </name>
+    <age>
+        <biologicalAgeTicks>151107005</biologicalAgeTicks>
+        <chronologicalAgeTicks>161163568</chronologicalAgeTicks>
+    </age>
+    <story>
+        <bodyType>Female</bodyType>
+        <headType>Female_NarrowPointy</headType>
+        <hairDef MayRequire="absolute.legends.hair">ALH_Tail</hairDef>
+        <hairColor>(0.004, 0.426, 0.728)</hairColor>
+        <skinColorOverride>(0.243, 0.659, 0.957)</skinColorOverride>
+        <childhood MayRequire="sz.tw.xxk.guohun">ChiBack_Child_ChaGuan</childhood>
+        <adulthood>Hunter89</adulthood>
+        <birthLastName>Amenome</birthLastName>
+        <favoriteColor MayRequire="anthitei.athsideocolorpalette.colors">Grey117</favoriteColor>
+        <traits>
+            <li MayRequire="dani.moretraits">
+                <def>BOT_Hyperalgesia</def>
+                <degree>0</degree>
+            </li>
+            <li MayRequire="zal.deadeye">
+                <def>DeadEyeUser</def>
+                <degree>0</degree>
+            </li>
+            <li MayRequire="redmattis.betterprerequisites">
+                <def>BS_Giant</def>
+                <degree>0</degree>
+            </li>
+            <li MayRequire="aranmaho.xianxia">
+                <def>CTR_GoodTalent</def>
+                <degree>0</degree>
+            </li>
+            <li MayRequire="hautarche.hautstraits">
+                <def>HVT_AwakenedTitan</def>
+                <degree>0</degree>
+            </li>
+            <li MayRequire="jellycreative.isekaileveling">
+                <def>Isekai_Rank_A</def>
+                <degree>0</degree>
+            </li>
+        </traits>
+    </story>
+    <skills>
+        <li>
+            <def>Shooting</def>
+            <level>44</level>
+            <passion>Major</passion>
+        </li>
+        <li>
+            <def>Melee</def>
+            <level>24</level>
+            <passion>Major</passion>
+        </li>
+        <li>
+            <def>Construction</def>
+            <level>17</level>
+            <passion>Minor</passion>
+        </li>
+        <li>
+            <def>Mining</def>
+            <level>20</level>
+            <passion>Major</passion>
+        </li>
+        <li>
+            <def>Cooking</def>
+            <level>8</level>
+        </li>
+        <li>
+            <def>Plants</def>
+            <level>4</level>
+        </li>
+        <li>
+            <def>Animals</def>
+            <level>17</level>
+            <passion>Major</passion>
+        </li>
+        <li>
+            <def>Crafting</def>
+            <level>5</level>
+            <passion>Minor</passion>
+        </li>
+        <li>
+            <def>Artistic</def>
+            <level>8</level>
+        </li>
+        <li>
+            <def>Medicine</def>
+            <level>14</level>
+            <passion>Minor</passion>
+        </li>
+        <li>
+            <def>Social</def>
+            <level>15</level>
+            <passion>Minor</passion>
+        </li>
+        <li>
+            <def>Intellectual</def>
+            <level>32</level>
+            <passion>Major</passion>
+        </li>
+        <li>
+            <def>Toughness</def>
+            <level>19</level>
+        </li>
+    </skills>
+    <genes>
+        <xenotype MayRequire="redmattis.bigsmall.core">BS_FrostJotunInBlue</xenotype>
+        <endogenes>
+            <li MayRequire="redmattis.bigsmall.core">JotunFrame</li>
+            <li MayRequire="redmattis.bigsmall.core">BS_JotunArchiteMetabolism</li>
+            <li MayRequire="redmattis.bigsmall.core">HalfJotunFrame</li>
+            <li MayRequire="ludeon.rimworld.biotech">Body_Standard</li>
+            <li MayRequire="ludeon.rimworld.biotech">Aggression_Aggressive</li>
+            <li MayRequire="redmattis.bigsmall.core">MinTemp_HugeDecrease</li>
+            <li MayRequire="ludeon.rimworld.biotech">MaxTemp_SmallDecrease</li>
+            <li MayRequire="ludeon.rimworld.biotech">Immunity_SuperStrong</li>
+            <li MayRequire="ludeon.rimworld.biotech">StrongStomach</li>
+            <li MayRequire="ludeon.rimworld.biotech">Unstoppable</li>
+            <li MayRequire="ludeon.rimworld.biotech">Robust</li>
+            <li MayRequire="ludeon.rimworld.biotech">Superclotting</li>
+            <li MayRequire="redmattis.bigsmall.core">Jotun_Horns_Small</li>
+            <li MayRequire="redmattis.bigsmall.core">BS_SkinPermafrost</li>
+            <li MayRequire="redmattis.bigsmall.core">BS_HairPermafrost</li>
+            <li MayRequire="redmattis.bigsmall.core">BS_EverFertile</li>
+            <li MayRequire="ludeon.rimworld.biotech">Hair_LongOnly</li>
+            <li MayRequire="redmattis.bigsmall.core">BS_VerySlowAging</li>
+            <li MayRequire="ludeon.rimworld.biotech">AptitudePoor_Artistic</li>
+            <li MayRequire="ludeon.rimworld.biotech">AptitudeTerrible_Plants</li>
+            <li MayRequire="ludeon.rimworld.biotech">AptitudePoor_Intellectual</li>
+            <li MayRequire="ludeon.rimworld.biotech">AptitudePoor_Cooking</li>
+            <li>Skin_Melanin7</li>
+        </endogenes>
+    </genes>
+    <hediffs>
+        <li MayRequire="mrsamuelstreamer.memesuperpack">
+            <def>MSSMeme_Awake</def>
+            <severity>1.00</severity>
+        </li>
+        <li>
+            <def>PsychicAmplifier</def>
+            <severity>23.00</severity>
+            <bodyPart>Brain</bodyPart>
+            <bodyPartLabel>brain</bodyPartLabel>
+        </li>
+        <li MayRequire="vanillaexpanded.vpsycastse">
+            <def>VPE_PsycastAbilityImplant</def>
+            <severity>23.00</severity>
+            <bodyPart>Brain</bodyPart>
+            <bodyPartLabel>brain</bodyPartLabel>
+        </li>
+        <li MayRequire="snow.kraltechindustries.rebalanced">
+            <def>MeleeBackpack</def>
+            <severity>0.50</severity>
+            <bodyPart>Torso</bodyPart>
+            <bodyPartLabel>torso</bodyPartLabel>
+        </li>
+        <li MayRequire="snow.kraltechindustries.rebalanced">
+            <def>ExecutiveStomachImplant</def>
+            <severity>0.50</severity>
+            <bodyPart>Stomach</bodyPart>
+            <bodyPartLabel>stomach</bodyPartLabel>
+        </li>
+        <li MayRequire="snow.kraltechindustries.rebalanced">
+            <def>ExecutiveSkinImplant</def>
+            <severity>0.50</severity>
+            <bodyPart>Torso</bodyPart>
+            <bodyPartLabel>torso</bodyPartLabel>
+        </li>
+        <li MayRequire="snow.kraltechindustries.rebalanced">
+            <def>ExecutiveLungImplant</def>
+            <severity>0.50</severity>
+            <bodyPart>Lung</bodyPart>
+            <bodyPartLabel>right lung</bodyPartLabel>
+        </li>
+        <li MayRequire="snow.kraltechindustries.rebalanced">
+            <def>ExecutiveLiverImplant</def>
+            <severity>0.50</severity>
+            <bodyPart>Kidney</bodyPart>
+            <bodyPartLabel>right kidney</bodyPartLabel>
+        </li>
+        <li MayRequire="snow.kraltechindustries.rebalanced">
+            <def>ExecutiveLegImplant</def>
+            <severity>0.50</severity>
+            <bodyPart>Leg</bodyPart>
+            <bodyPartLabel>right leg</bodyPartLabel>
+        </li>
+        <li MayRequire="snow.kraltechindustries.rebalanced">
+            <def>ExecutiveKidneyImplant</def>
+            <severity>0.50</severity>
+            <bodyPart>Kidney</bodyPart>
+            <bodyPartLabel>left kidney</bodyPartLabel>
+        </li>
+        <li MayRequire="snow.kraltechindustries.rebalanced">
+            <def>ExecutiveHeartImplant</def>
+            <severity>0.50</severity>
+            <bodyPart>Heart</bodyPart>
+            <bodyPartLabel>heart</bodyPartLabel>
+        </li>
+        <li MayRequire="snow.kraltechindustries.rebalanced">
+            <def>ExecutiveEyeImplant</def>
+            <severity>0.50</severity>
+            <bodyPart>Eye</bodyPart>
+            <bodyPartLabel>right eye</bodyPartLabel>
+        </li>
+        <li MayRequire="snow.kraltechindustries.rebalanced">
+            <def>ExecutiveEarImplant</def>
+            <severity>0.50</severity>
+            <bodyPart>Ear</bodyPart>
+            <bodyPartLabel>right ear</bodyPartLabel>
+        </li>
+        <li MayRequire="snow.kraltechindustries.rebalanced">
+            <def>ExecutiveCombatModule</def>
+            <severity>0.50</severity>
+            <bodyPart>Brain</bodyPart>
+            <bodyPartLabel>brain</bodyPartLabel>
+        </li>
+        <li MayRequire="snow.kraltechindustries.rebalanced">
+            <def>ExecutiveArmImplant</def>
+            <severity>0.50</severity>
+            <bodyPart>Arm</bodyPart>
+            <bodyPartLabel>left arm</bodyPartLabel>
+        </li>
+        <li MayRequire="hautarche.hautstraits">
+            <def>HVT_PsychicTitan</def>
+            <severity>0.99</severity>
+        </li>
+        <li MayRequire="hautarche.hautstraits">
+            <def>HVT_AwakenedDeathTracker</def>
+            <severity>1.90</severity>
+            <bodyPart>Brain</bodyPart>
+            <bodyPartLabel>brain</bodyPartLabel>
+        </li>
+        <li MayRequire="sunsetmoderteam.sunsettechnology3">
+            <def>MSomega_Arbiter_cy</def>
+            <severity>2.50</severity>
+        </li>
+        <li MayRequire="vpe.ragnarok.sentinel">
+            <def>VPE_Ragnarok_Archer_OwlsEyeSTNL</def>
+            <severity>1.00</severity>
+        </li>
+        <li MayRequire="vpe.ragnarok.sentinel">
+            <def>VPE_Ragnarok_Archer_VulturesEyeSTNL</def>
+            <severity>1.00</severity>
+        </li>
+        <li MayRequire="hautarche.hautstraits">
+            <def>HVT_LuminaryEffect</def>
+            <severity>0.10</severity>
+        </li>
+    </hediffs>
+    <equipment>
+        <li MayRequire="sunsetmoderteam.sunsettechnology3">
+            <def>MSomegaArbiter_cy</def>
+            <quality>Masterwork</quality>
+            <hitPoints>100</hitPoints>
+        </li>
+    </equipment>
+    <apparel>
+        <li MayRequire="icc.aov.osec">
+            <def>Apparel_SealedUndersuit</def>
+            <quality>Excellent</quality>
+            <hitPoints>81</hitPoints>
+        </li>
+        <li MayRequire="snow.kraltechindustries.rebalanced">
+            <def>Apparel_EnforcerGloves</def>
+            <quality>Good</quality>
+            <hitPoints>1200</hitPoints>
+        </li>
+        <li MayRequire="snow.kraltechindustries.rebalanced">
+            <def>Apparel_EnforcerTrousers</def>
+            <quality>Good</quality>
+            <hitPoints>148</hitPoints>
+        </li>
+        <li MayRequire="snow.kraltechindustries.rebalanced">
+            <def>Apparel_EnforcerShieldBelt</def>
+            <quality>Good</quality>
+            <hitPoints>100</hitPoints>
+        </li>
+        <li MayRequire="snow.kraltechindustries.rebalanced">
+            <def>Apparel_EnforcerBoots</def>
+            <quality>Good</quality>
+            <hitPoints>200</hitPoints>
+        </li>
+        <li MayRequire="snow.kraltechindustries.rebalanced">
+            <def>Apparel_EnforcerChestplate</def>
+            <quality>Good</quality>
+            <hitPoints>617</hitPoints>
+        </li>
+        <li MayRequire="zal.taofc">
+            <def>Apparel_StalkerPowerArmor</def>
+            <quality>Excellent</quality>
+            <hitPoints>911</hitPoints>
+        </li>
+        <li MayRequire="snow.kraltechindustries.rebalanced">
+            <def>Apparel_EnforcerBackPackMelee</def>
+            <quality>Good</quality>
+            <hitPoints>100</hitPoints>
+        </li>
+        <li MayRequire="darjeeling.battlecloak">
+            <def>DRCC_Cloak</def>
+            <stuff>DevilstrandCloth</stuff>
+            <quality>Excellent</quality>
+            <hitPoints>223</hitPoints>
+        </li>
+        <li MayRequire="snow.kraltechindustries.rebalanced">
+            <def>HeadGear_CyberGlassesRambo</def>
+            <quality>Good</quality>
+            <hitPoints>81</hitPoints>
+        </li>
+    </apparel>
+    <abilities>
+        <li MayRequire="zal.deadeye">DeadeyeLvlOne</li>
+        <li MayRequire="snow.kraltechindustries.rebalanced">LongjumpPack</li>
+        <li MayRequire="fdp.rimzone.anoart">RZ_Ability_Bolt</li>
+    </abilities>
+    <style>
+        <beardDef>NoBeard</beardDef>
+        <faceTattoo MayRequire="ludeon.rimworld.ideology">Face_Stars</faceTattoo>
+        <bodyTattoo>NoTattoo_Body</bodyTattoo>
+    </style>
+</MSSFP.PawnPortability.Defs.PawnTemplateDef>

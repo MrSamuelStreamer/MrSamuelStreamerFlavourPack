@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MSSFP.PawnPortability.Defs.PawnTemplateDef>
+    <defName>MSSFP_Pawn_Trolly</defName>
+    <label>Trolly</label>
+    <description>Exported template of Trolly.</description>
+    <schemaVersion>1</schemaVersion>
+    <mode>Template</mode>
+    <requiredMods>
+        <li>
+            <packageId>6224y.onewithdeath</packageId>
+            <name>One with Death</name>
+        </li>
+        <li>
+            <packageId>anthitei.athsideocolorpalette.colors</packageId>
+            <name>ATH's Ideo Colors Pallette</name>
+        </li>
+        <li>
+            <packageId>aranmaho.xianxia</packageId>
+            <name>Cultivator of the Rim</name>
+        </li>
+        <li>
+            <packageId>d12caedro.dynhairshd</packageId>
+            <name>D12 Dungeon and Night Hairs HD</name>
+        </li>
+        <li>
+            <packageId>darjeeling.battlecloak</packageId>
+            <name>Advanced Battle Cloak</name>
+        </li>
+        <li>
+            <packageId>fdp.rimzone.anoart</packageId>
+            <name>RimZone Anomalies and Artifacts</name>
+        </li>
+        <li>
+            <packageId>hautarche.hautstraits</packageId>
+            <name>Hauts' Added Traits</name>
+        </li>
+        <li>
+            <packageId>icc.aov.osec</packageId>
+            <name>Arsenal - Orbital Security</name>
+        </li>
+        <li>
+            <packageId>jellycreative.isekaileveling</packageId>
+            <name>ISEKAI RPG LEVELING</name>
+        </li>
+        <li>
+            <packageId>ludeon.rimworld.anomaly</packageId>
+            <name>Anomaly</name>
+        </li>
+        <li>
+            <packageId>ludeon.rimworld.biotech</packageId>
+            <name>Biotech</name>
+        </li>
+        <li>
+            <packageId>metalocif.morecreeps</packageId>
+            <name>More Creepjoiners</name>
+        </li>
+        <li>
+            <packageId>nz.rimimmortal.bizarre</packageId>
+            <name>边缘仙路-道诡异仙 RimImmortal-Bizarre</name>
+        </li>
+        <li>
+            <packageId>redmattis.betterprerequisites</packageId>
+            <name>Big and Small - Framework</name>
+        </li>
+        <li>
+            <packageId>ri.rimimmortal.living</packageId>
+            <name>边缘仙路-俗世仙工 RimImmortal-Living[1.6]</name>
+        </li>
+        <li>
+            <packageId>side1iner.traitsplus</packageId>
+            <name>Traits Plus</name>
+        </li>
+        <li>
+            <packageId>snow.kraltechindustries.rebalanced</packageId>
+            <name>Kraltech Industries Rebalanced (1.6)</name>
+        </li>
+        <li>
+            <packageId>stefanlog.basictraits</packageId>
+            <name>Basic Traits</name>
+        </li>
+        <li>
+            <packageId>vanillaexpanded.vpsycastse</packageId>
+            <name>Vanilla Psycasts Expanded</name>
+        </li>
+    </requiredMods>
+    <originSeries>Backrooms</originSeries>
+    <tags />
+    <narrativeNotes>Trolly Curling was selected to be deployed to a distant Rimworld as part of a colonisation attempt, but disappeared before the pods launched. In truth, Trolly fell into the backrooms, and another rejected colonist stole Trolly's indentity and position on the Rimworld. Aging, but vengeful, Trolly turned to dark Archotechs for power, and eventually joined a colony of other backrooms denizens, finally having a safe city to begin her practice of necromancy and lichdom.</narrativeNotes>
+    <kindDef>Colonist</kindDef>
+    <gender>Female</gender>
+    <name>
+        <first>Trolly</first>
+        <nick>Trolly</nick>
+        <last>Curling</last>
+    </name>
+    <age>
+        <biologicalAgeTicks>83785810</biologicalAgeTicks>
+        <chronologicalAgeTicks>241836831</chronologicalAgeTicks>
+    </age>
+    <story>
+        <bodyType>Thin</bodyType>
+        <headType MayRequire="ludeon.rimworld.anomaly">Leathery_Female</headType>
+        <hairDef MayRequire="d12caedro.dynhairshd">D12HD_Legarde</hairDef>
+        <hairColor>(0.650, 0.650, 0.650)</hairColor>
+        <childhood MayRequire="hautarche.hautstraits">HVT_TabulaRasaChild</childhood>
+        <adulthood MayRequire="hautarche.hautstraits">HVT_TabulaRasaAdult</adulthood>
+        <birthLastName>Zaitsev</birthLastName>
+        <favoriteColor MayRequire="anthitei.athsideocolorpalette.colors">Red3</favoriteColor>
+        <traits>
+            <li MayRequire="aranmaho.xianxia">
+                <def>CTR_MediocreTalent</def>
+                <degree>0</degree>
+            </li>
+            <li MayRequire="side1iner.traitsplus">
+                <def>S1_Clever</def>
+                <degree>0</degree>
+            </li>
+            <li MayRequire="jellycreative.isekaileveling">
+                <def>Isekai_SealedPower</def>
+                <degree>0</degree>
+            </li>
+            <li MayRequire="stefanlog.basictraits">
+                <def>BT_Builder</def>
+                <degree>0</degree>
+            </li>
+            <li MayRequire="jellycreative.isekaileveling">
+                <def>Isekai_Rank_A</def>
+                <degree>0</degree>
+            </li>
+        </traits>
+    </story>
+    <skills>
+        <li>
+            <def>Shooting</def>
+            <level>4</level>
+            <passion>Major</passion>
+        </li>
+        <li>
+            <def>Melee</def>
+            <level>17</level>
+            <passion>Minor</passion>
+        </li>
+        <li>
+            <def>Construction</def>
+            <level>3</level>
+            <passion>Minor</passion>
+        </li>
+        <li>
+            <def>Mining</def>
+            <level>0</level>
+            <passion>Minor</passion>
+        </li>
+        <li>
+            <def>Cooking</def>
+            <level>0</level>
+            <passion>Minor</passion>
+        </li>
+        <li>
+            <def>Plants</def>
+            <level>0</level>
+        </li>
+        <li>
+            <def>Animals</def>
+            <level>2</level>
+            <passion>Minor</passion>
+        </li>
+        <li>
+            <def>Crafting</def>
+            <level>34</level>
+            <passion>Major</passion>
+        </li>
+        <li>
+            <def>Artistic</def>
+            <level>0</level>
+        </li>
+        <li>
+            <def>Medicine</def>
+            <level>1</level>
+        </li>
+        <li>
+            <def>Social</def>
+            <level>5</level>
+            <passion>Minor</passion>
+        </li>
+        <li>
+            <def>Intellectual</def>
+            <level>2</level>
+            <passion>Minor</passion>
+        </li>
+        <li>
+            <def>Toughness</def>
+            <level>6</level>
+            <passion>Minor</passion>
+        </li>
+    </skills>
+    <genes>
+        <xenotype MayRequire="ludeon.rimworld.biotech">Baseliner</xenotype>
+        <endogenes>
+            <li>Skin_Melanin3</li>
+            <li>Hair_DarkSaturatedReddish</li>
+            <li MayRequire="redmattis.betterprerequisites">BS_FacialAnimDisabled</li>
+            <li MayRequire="ludeon.rimworld.biotech">TotalHealing</li>
+            <li MayRequire="ludeon.rimworld.biotech">PerfectImmunity</li>
+            <li MayRequire="ludeon.rimworld.biotech">DiseaseFree</li>
+            <li MayRequire="ludeon.rimworld.biotech">Ageless</li>
+            <li MayRequire="ludeon.rimworld.biotech">ToxResist_Total</li>
+            <li MayRequire="ludeon.rimworld.biotech">ToxicEnvironmentResistance_Total</li>
+            <li MayRequire="ludeon.rimworld.biotech">FireResistant</li>
+            <li MayRequire="ludeon.rimworld.biotech">DarkVision</li>
+            <li MayRequire="ludeon.rimworld.biotech">Unstoppable</li>
+            <li MayRequire="ludeon.rimworld.biotech">AddictionImmune_Alcohol</li>
+            <li MayRequire="ludeon.rimworld.biotech">AddictionImmune_Smokeleaf</li>
+            <li MayRequire="ludeon.rimworld.biotech">AddictionImmune_Psychite</li>
+            <li MayRequire="ludeon.rimworld.biotech">AddictionImmune_GoJuice</li>
+            <li MayRequire="ludeon.rimworld.biotech">AddictionImmune_WakeUp</li>
+            <li MayRequire="ludeon.rimworld.biotech">MoveSpeed_VeryQuick</li>
+            <li MayRequire="ludeon.rimworld.biotech">Hair_Grayless</li>
+            <li MayRequire="ludeon.rimworld.biotech">PsychicAbility_Enhanced</li>
+            <li MayRequire="ludeon.rimworld.biotech">Deathless</li>
+        </endogenes>
+    </genes>
+    <hediffs>
+        <li>
+            <def>PsychicAmplifier</def>
+            <severity>24.00</severity>
+            <bodyPart>Brain</bodyPart>
+            <bodyPartLabel>brain</bodyPartLabel>
+        </li>
+        <li MayRequire="vanillaexpanded.vpsycastse">
+            <def>VPE_PsycastAbilityImplant</def>
+            <severity>24.00</severity>
+            <bodyPart>Brain</bodyPart>
+            <bodyPartLabel>brain</bodyPartLabel>
+        </li>
+        <li MayRequire="metalocif.morecreeps">
+            <def>MoreCreeps_HollowEye</def>
+            <severity>1.00</severity>
+            <bodyPart>Eye</bodyPart>
+            <bodyPartLabel>left eye</bodyPartLabel>
+        </li>
+        <li MayRequire="nz.rimimmortal.bizarre">
+            <def>NzRI_XinSu_Eye</def>
+            <severity>0.50</severity>
+            <bodyPart>Eye</bodyPart>
+            <bodyPartLabel>right eye</bodyPartLabel>
+        </li>
+        <li MayRequire="snow.kraltechindustries.rebalanced">
+            <def>RiftWalkerBrainImplant</def>
+            <severity>0.50</severity>
+            <bodyPart>Brain</bodyPart>
+            <bodyPartLabel>brain</bodyPartLabel>
+        </li>
+        <li MayRequire="6224y.onewithdeath">
+            <def>NecromancerImplant</def>
+            <severity>0.50</severity>
+        </li>
+        <li MayRequire="6224y.onewithdeath">
+            <def>OneWithDeath</def>
+            <severity>0.50</severity>
+        </li>
+        <li MayRequire="6224y.onewithdeath">
+            <def>OWD_NecroticCore</def>
+            <severity>0.50</severity>
+            <bodyPart>Heart</bodyPart>
+            <bodyPartLabel>heart</bodyPartLabel>
+        </li>
+        <li MayRequire="ludeon.rimworld.anomaly">
+            <def>CubeInterest</def>
+            <severity>0.10</severity>
+        </li>
+    </hediffs>
+    <equipment>
+        <li MayRequire="6224y.onewithdeath">
+            <def>OWD_NecromancerStaff</def>
+            <quality>Excellent</quality>
+            <hitPoints>99</hitPoints>
+        </li>
+    </equipment>
+    <apparel>
+        <li MayRequire="icc.aov.osec">
+            <def>Apparel_SealedUndersuit</def>
+            <quality>Excellent</quality>
+            <hitPoints>87</hitPoints>
+        </li>
+        <li MayRequire="ri.rimimmortal.living">
+            <def>RI_Apparel_PackBasket</def>
+            <stuff>WoodLog</stuff>
+            <hitPoints>124</hitPoints>
+        </li>
+        <li MayRequire="darjeeling.battlecloak">
+            <def>DRCC_Cloak</def>
+            <stuff>Leather_Bear</stuff>
+            <quality>Good</quality>
+            <hitPoints>279</hitPoints>
+        </li>
+    </apparel>
+    <abilities>
+        <li MayRequire="metalocif.morecreeps">MoreCreeps_Age</li>
+        <li MayRequire="fdp.rimzone.anoart">RZ_Ability_Bolt</li>
+        <li MayRequire="snow.kraltechindustries.rebalanced">RiftWalk</li>
+        <li MayRequire="snow.kraltechindustries.rebalanced">LongRangeRiftWalk</li>
+    </abilities>
+    <style>
+        <beardDef>NoBeard</beardDef>
+        <faceTattoo>NoTattoo_Face</faceTattoo>
+        <bodyTattoo>NoTattoo_Body</bodyTattoo>
+    </style>
+</MSSFP.PawnPortability.Defs.PawnTemplateDef>

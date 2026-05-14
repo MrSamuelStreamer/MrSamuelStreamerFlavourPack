@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+    AI Core building. Dev-spawn only (no designationCategory / no costList /
+    no researchPrerequisites). Hosts a true-AI-core persona + a holo projector
+    so spawning one immediately stands up a holographic crewmate.
+
+    Power: 400W via CompPowerTrader.
+    Ticker: Rare — CompTrueAICore chatter MTB driver requires ≥Rare
+    (see CompTrueAICore.cs line 72).
+    Comps: leave CompProperties_TrueAICore.defaultPersonality null so the comp
+    rolls a random persona on spawn (PostSpawnSetup, line 65).
+-->
+<Defs>
+
+    <ThingDef ParentName="BuildingBase">
+        <defName>MSSFP_AICore</defName>
+        <thingClass>MSSFP.Buildings.Building_AICore</thingClass>
+        <label>AI core</label>
+        <description>A self-contained cogitator lattice running a fully-realised digital persona. The unit's emitter array maintains a hard-light projection of its operator, giving the AI a body on the map. Powered down or smashed, the projection collapses.</description>
+        <category>Building</category>
+        <graphicData>
+            <texPath>Things/Building/MSSFP_AI_Core</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(2,2)</drawSize>
+        </graphicData>
+        <altitudeLayer>Building</altitudeLayer>
+        <passability>Impassable</passability>
+        <fillPercent>0.5</fillPercent>
+        <blockWind>true</blockWind>
+        <blockLight>true</blockLight>
+        <holdsRoof>true</holdsRoof>
+        <castEdgeShadows>true</castEdgeShadows>
+        <rotatable>false</rotatable>
+        <selectable>true</selectable>
+        <size>(2,2)</size>
+        <tickerType>Rare</tickerType>
+        <statBases>
+            <MaxHitPoints>5000</MaxHitPoints>
+            <Flammability>0.4</Flammability>
+            <Beauty>10</Beauty>
+            <Mass>50</Mass>
+        </statBases>
+        <comps>
+            <li Class="CompProperties_Power">
+                <compClass>CompPowerTrader</compClass>
+                <basePowerConsumption>400</basePowerConsumption>
+                <shortCircuitInRain>false</shortCircuitInRain>
+            </li>
+            <li Class="CompProperties_Flickable" />
+            <li Class="CompProperties_Breakdownable" />
+            <li Class="MSSFP.Holo.CompProperties_HoloProjector">
+                <defaultTint>(0,200,0)</defaultTint>
+                <defaultRadius>48</defaultRadius>
+            </li>
+            <li Class="MSSFP.Comps.CompProperties_TrueAICore">
+                <defaultPersonality>MSSFP_AICore_EMS</defaultPersonality>
+                <showPersonalitySelector>false</showPersonalitySelector>
+            </li>
+        </comps>
+        <uiIconPath>Things/Building/MSSFP_AI_Core</uiIconPath>
+    </ThingDef>
+
+</Defs>

@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MSSFP.PawnPortability.Defs.PawnTemplateDef>
+    <defName>MSSFP_Pawn_Gloppy</defName>
+    <label>Gloppy</label>
+    <description>Exported template of Gloppy.</description>
+    <schemaVersion>1</schemaVersion>
+    <mode>Template</mode>
+    <requiredMods>
+        <li>
+            <packageId>anthitei.athsideocolorpalette.colors</packageId>
+            <name>ATH's Ideo Colors Pallette</name>
+        </li>
+        <li>
+            <packageId>aranmaho.xianxia</packageId>
+            <name>Cultivator of the Rim</name>
+        </li>
+        <li>
+            <packageId>atk.anthrosonae</packageId>
+            <name>Anthrosonae</name>
+        </li>
+        <li>
+            <packageId>darjeeling.battlecloak</packageId>
+            <name>Advanced Battle Cloak</name>
+        </li>
+        <li>
+            <packageId>doug.conn</packageId>
+            <name>Cybernetic Organism and Neural Network</name>
+        </li>
+        <li>
+            <packageId>fdp.rimzone.anoart</packageId>
+            <name>RimZone Anomalies and Artifacts</name>
+        </li>
+        <li>
+            <packageId>hautarche.hautstraits</packageId>
+            <name>Hauts' Added Traits</name>
+        </li>
+        <li>
+            <packageId>hrg164hjo.whelingnorther.alliance</packageId>
+            <name>WNA - Whelingnorther Alliance</name>
+        </li>
+        <li>
+            <packageId>icc.aov.osec</packageId>
+            <name>Arsenal - Orbital Security</name>
+        </li>
+        <li>
+            <packageId>jellycreative.isekaileveling</packageId>
+            <name>ISEKAI RPG LEVELING</name>
+        </li>
+        <li>
+            <packageId>ludeon.rimworld.biotech</packageId>
+            <name>Biotech</name>
+        </li>
+        <li>
+            <packageId>ludeon.rimworld.royalty</packageId>
+            <name>Royalty</name>
+        </li>
+        <li>
+            <packageId>ny.smeltedloong</packageId>
+            <name>中式龙娘——冶龍 SMELTED LOONG</name>
+        </li>
+        <li>
+            <packageId>redmattis.bigsmall.core</packageId>
+            <name>Big and Small - Genes &amp; More</name>
+        </li>
+        <li>
+            <packageId>snow.kraltechindustries.rebalanced</packageId>
+            <name>Kraltech Industries Rebalanced (1.6)</name>
+        </li>
+        <li>
+            <packageId>vanillaexpanded.vpsycastse</packageId>
+            <name>Vanilla Psycasts Expanded</name>
+        </li>
+    </requiredMods>
+    <originSeries>Backrooms</originSeries>
+    <tags />
+    <narrativeNotes>Gloppy was a yelongqing who intentionally fled to the backrooms to escape the horrors of her reality. She joined a band of survivors, but was killed in combat until F restored her to life. Unfortunately her draconic-nature was distorted by F's abilities and Gloppy was reborn as a human-dragon hybrid, and was uniquely suited to being implanted with experimental bionics.</narrativeNotes>
+    <kindDef>Colonist</kindDef>
+    <gender>Female</gender>
+    <name>
+        <first>Gloppy</first>
+        <nick>Gloppy</nick>
+        <last>Churchill</last>
+    </name>
+    <age>
+        <biologicalAgeTicks>90195958</biologicalAgeTicks>
+        <chronologicalAgeTicks>91945680</chronologicalAgeTicks>
+    </age>
+    <story>
+        <bodyType>Female</bodyType>
+        <headType>Female_NarrowPointy</headType>
+        <hairDef MayRequire="atk.anthrosonae">ATK_Sweetheart</hairDef>
+        <hairColor>(0.980, 0.980, 0.980)</hairColor>
+        <childhood MayRequire="hautarche.hautstraits">HVT_TabulaRasaChild</childhood>
+        <adulthood MayRequire="hautarche.hautstraits">HVT_TabulaRasaAdult</adulthood>
+        <birthLastName></birthLastName>
+        <favoriteColor MayRequire="anthitei.athsideocolorpalette.colors">Grey110</favoriteColor>
+        <traits>
+            <li MayRequire="aranmaho.xianxia">
+                <def>CTR_MediocreTalent</def>
+                <degree>0</degree>
+            </li>
+            <li>
+                <def>TorturedArtist</def>
+                <degree>0</degree>
+            </li>
+            <li>
+                <def>TooSmart</def>
+                <degree>0</degree>
+            </li>
+            <li>
+                <def>GreatMemory</def>
+                <degree>0</degree>
+            </li>
+            <li MayRequire="jellycreative.isekaileveling">
+                <def>Isekai_Rank_S</def>
+                <degree>0</degree>
+            </li>
+        </traits>
+    </story>
+    <skills>
+        <li>
+            <def>Shooting</def>
+            <level>51</level>
+            <passion>Major</passion>
+        </li>
+        <li>
+            <def>Melee</def>
+            <level>57</level>
+            <passion>Major</passion>
+        </li>
+        <li>
+            <def>Construction</def>
+            <level>47</level>
+            <passion>Major</passion>
+        </li>
+        <li>
+            <def>Mining</def>
+            <level>49</level>
+            <passion>Major</passion>
+        </li>
+        <li>
+            <def>Cooking</def>
+            <level>34</level>
+            <passion>Major</passion>
+        </li>
+        <li>
+            <def>Plants</def>
+            <level>25</level>
+            <passion>Major</passion>
+        </li>
+        <li>
+            <def>Animals</def>
+            <level>20</level>
+            <passion>Major</passion>
+        </li>
+        <li>
+            <def>Crafting</def>
+            <level>33</level>
+            <passion>Major</passion>
+        </li>
+        <li>
+            <def>Artistic</def>
+            <level>25</level>
+            <passion>Major</passion>
+        </li>
+        <li>
+            <def>Medicine</def>
+            <level>39</level>
+            <passion>Major</passion>
+        </li>
+        <li>
+            <def>Social</def>
+            <level>27</level>
+            <passion>Minor</passion>
+        </li>
+        <li>
+            <def>Intellectual</def>
+            <level>63</level>
+            <passion>Major</passion>
+        </li>
+        <li>
+            <def>Toughness</def>
+            <level>27</level>
+            <passion>Major</passion>
+        </li>
+    </skills>
+    <genes>
+        <xenotype MayRequire="ny.smeltedloong">NY_SmeltedLoongGreenPlant</xenotype>
+        <endogenes>
+            <li MayRequire="ny.smeltedloong">NY_gene_SmeltedLoongHornGP</li>
+            <li MayRequire="ny.smeltedloong">NY_gene_SmeltedLoongTailGP</li>
+            <li MayRequire="ny.smeltedloong">NY_gene_SmeltedLoongMilk</li>
+            <li MayRequire="ludeon.rimworld.biotech">Immunity_Weak</li>
+            <li MayRequire="ludeon.rimworld.biotech">WoundHealing_SuperFast</li>
+            <li MayRequire="ludeon.rimworld.biotech">Mood_Sanguine</li>
+            <li MayRequire="ludeon.rimworld.biotech">FireWeakness</li>
+            <li MayRequire="ludeon.rimworld.biotech">Aggression_DeadCalm</li>
+            <li MayRequire="ludeon.rimworld.biotech">MeleeDamage_Weak</li>
+            <li MayRequire="ludeon.rimworld.biotech">Sleepy</li>
+            <li MayRequire="ludeon.rimworld.biotech">Libido_High</li>
+            <li MayRequire="ludeon.rimworld.biotech">Fertile</li>
+            <li MayRequire="ludeon.rimworld.biotech">Beauty_Pretty</li>
+            <li>Hair_SnowWhite</li>
+            <li>Hair_Gray</li>
+            <li MayRequire="ludeon.rimworld.biotech">AptitudePoor_Shooting</li>
+            <li MayRequire="ludeon.rimworld.biotech">AptitudePoor_Melee</li>
+            <li MayRequire="ludeon.rimworld.biotech">AptitudeRemarkable_Plants</li>
+            <li MayRequire="ludeon.rimworld.biotech">AptitudeStrong_Medicine</li>
+            <li>Skin_Melanin2</li>
+            <li MayRequire="redmattis.bigsmall.core">BS_ChocolateProduction</li>
+        </endogenes>
+    </genes>
+    <hediffs>
+        <li MayRequire="ny.smeltedloong">
+            <def>NY_hediff_SmeltedLoongMilk</def>
+            <severity>1.00</severity>
+        </li>
+        <li MayRequire="hrg164hjo.whelingnorther.alliance">
+            <def>WNA_Part_AdvBionicSpine</def>
+            <severity>0.50</severity>
+            <bodyPart>Spine</bodyPart>
+            <bodyPartLabel>spine</bodyPartLabel>
+        </li>
+        <li MayRequire="hrg164hjo.whelingnorther.alliance">
+            <def>WNA_Part_AdvBionicLung</def>
+            <severity>0.50</severity>
+            <bodyPart>Lung</bodyPart>
+            <bodyPartLabel>right lung</bodyPartLabel>
+        </li>
+        <li MayRequire="hrg164hjo.whelingnorther.alliance">
+            <def>WNA_Part_AdvBionicLung</def>
+            <severity>0.50</severity>
+            <bodyPart>Lung</bodyPart>
+            <bodyPartLabel>left lung</bodyPartLabel>
+        </li>
+        <li MayRequire="hrg164hjo.whelingnorther.alliance">
+            <def>WNA_Part_AdvBionicLiver</def>
+            <severity>0.50</severity>
+            <bodyPart>Liver</bodyPart>
+            <bodyPartLabel>liver</bodyPartLabel>
+        </li>
+        <li MayRequire="hrg164hjo.whelingnorther.alliance">
+            <def>WNA_Part_AdvBionicLeg</def>
+            <severity>0.50</severity>
+            <bodyPart>Leg</bodyPart>
+            <bodyPartLabel>right leg</bodyPartLabel>
+        </li>
+        <li MayRequire="hrg164hjo.whelingnorther.alliance">
+            <def>WNA_Part_AdvBionicLeg</def>
+            <severity>0.50</severity>
+            <bodyPart>Leg</bodyPart>
+            <bodyPartLabel>left leg</bodyPartLabel>
+        </li>
+        <li MayRequire="hrg164hjo.whelingnorther.alliance">
+            <def>WNA_Part_AdvBionicKidney</def>
+            <severity>0.50</severity>
+            <bodyPart>Kidney</bodyPart>
+            <bodyPartLabel>right kidney</bodyPartLabel>
+        </li>
+        <li MayRequire="hrg164hjo.whelingnorther.alliance">
+            <def>WNA_Part_AdvBionicKidney</def>
+            <severity>0.50</severity>
+            <bodyPart>Kidney</bodyPart>
+            <bodyPartLabel>left kidney</bodyPartLabel>
+        </li>
+        <li MayRequire="hrg164hjo.whelingnorther.alliance">
+            <def>WNA_Part_AdvBionicJaw</def>
+            <severity>0.50</severity>
+            <bodyPart>Jaw</bodyPart>
+            <bodyPartLabel>jaw</bodyPartLabel>
+        </li>
+        <li MayRequire="hrg164hjo.whelingnorther.alliance">
+            <def>WNA_Part_AdvBionicEye</def>
+            <severity>0.50</severity>
+            <bodyPart>Eye</bodyPart>
+            <bodyPartLabel>right eye</bodyPartLabel>
+        </li>
+        <li MayRequire="hrg164hjo.whelingnorther.alliance">
+            <def>WNA_Part_AdvBionicEye</def>
+            <severity>0.50</severity>
+            <bodyPart>Eye</bodyPart>
+            <bodyPartLabel>left eye</bodyPartLabel>
+        </li>
+        <li MayRequire="hrg164hjo.whelingnorther.alliance">
+            <def>WNA_Part_AdvBionicEar</def>
+            <severity>0.50</severity>
+            <bodyPart>Ear</bodyPart>
+            <bodyPartLabel>right ear</bodyPartLabel>
+        </li>
+        <li MayRequire="hrg164hjo.whelingnorther.alliance">
+            <def>WNA_Part_AdvBionicEar</def>
+            <severity>0.50</severity>
+            <bodyPart>Ear</bodyPart>
+            <bodyPartLabel>left ear</bodyPartLabel>
+        </li>
+        <li MayRequire="hrg164hjo.whelingnorther.alliance">
+            <def>WNA_Part_AdvBionicBrain</def>
+            <severity>0.50</severity>
+            <bodyPart>Brain</bodyPart>
+            <bodyPartLabel>brain</bodyPartLabel>
+        </li>
+        <li MayRequire="ny.smeltedloong">
+            <def>NY_hediff_LoongHornGP</def>
+            <severity>1.00</severity>
+            <bodyPart>Head</bodyPart>
+            <bodyPartLabel>head</bodyPartLabel>
+        </li>
+        <li MayRequire="ny.smeltedloong">
+            <def>NY_hediff_LoongTailGP</def>
+            <severity>1.00</severity>
+            <bodyPart>Spine</bodyPart>
+            <bodyPartLabel>spine</bodyPartLabel>
+        </li>
+        <li MayRequire="ludeon.rimworld.royalty">
+            <def>LoveEnhancer</def>
+            <severity>0.50</severity>
+            <bodyPart>Torso</bodyPart>
+            <bodyPartLabel>torso</bodyPartLabel>
+        </li>
+        <li MayRequire="ludeon.rimworld.royalty">
+            <def>LearningAssistant</def>
+            <severity>0.50</severity>
+            <bodyPart>Brain</bodyPart>
+            <bodyPartLabel>brain</bodyPartLabel>
+        </li>
+        <li MayRequire="ludeon.rimworld.royalty">
+            <def>CircadianHalfCycler</def>
+            <severity>0.50</severity>
+            <bodyPart>Brain</bodyPart>
+            <bodyPartLabel>brain</bodyPartLabel>
+        </li>
+        <li MayRequire="doug.conn">
+            <def>CONN_hediff_NeuroEnhancer</def>
+            <severity>0.50</severity>
+            <bodyPart>Brain</bodyPart>
+            <bodyPartLabel>brain</bodyPartLabel>
+        </li>
+        <li MayRequire="hrg164hjo.whelingnorther.alliance">
+            <def>WNA_Part_AdvBionicStomach</def>
+            <severity>0.50</severity>
+            <bodyPart>Stomach</bodyPart>
+            <bodyPartLabel>stomach</bodyPartLabel>
+        </li>
+        <li MayRequire="hrg164hjo.whelingnorther.alliance">
+            <def>WNA_Part_AdvBionicSkin</def>
+            <severity>0.50</severity>
+            <bodyPart>Torso</bodyPart>
+            <bodyPartLabel>torso</bodyPartLabel>
+        </li>
+        <li MayRequire="hrg164hjo.whelingnorther.alliance">
+            <def>WNA_Part_AdvBionicSHeart</def>
+            <severity>0.50</severity>
+            <bodyPart>Heart</bodyPart>
+            <bodyPartLabel>heart</bodyPartLabel>
+        </li>
+        <li>
+            <def>PsychicAmplifier</def>
+            <severity>27.00</severity>
+            <bodyPart>Brain</bodyPart>
+            <bodyPartLabel>brain</bodyPartLabel>
+        </li>
+        <li MayRequire="vanillaexpanded.vpsycastse">
+            <def>VPE_PsycastAbilityImplant</def>
+            <severity>27.00</severity>
+            <bodyPart>Brain</bodyPart>
+            <bodyPartLabel>brain</bodyPartLabel>
+        </li>
+        <li MayRequire="hautarche.hautstraits">
+            <def>HVT_LuminaryEffect</def>
+            <severity>0.10</severity>
+        </li>
+    </hediffs>
+    <equipment>
+        <li MayRequire="snow.kraltechindustries.rebalanced">
+            <def>Gun_IncineratorPlasmaCannon</def>
+            <hitPoints>300</hitPoints>
+        </li>
+    </equipment>
+    <apparel>
+        <li MayRequire="icc.aov.osec">
+            <def>Apparel_SealedUndersuit</def>
+            <quality>Excellent</quality>
+            <hitPoints>98</hitPoints>
+        </li>
+        <li MayRequire="darjeeling.battlecloak">
+            <def>DRCC_Cloak</def>
+            <stuff>Leather_Lizard</stuff>
+            <quality>Good</quality>
+            <hitPoints>211</hitPoints>
+        </li>
+    </apparel>
+    <abilities>
+        <li MayRequire="fdp.rimzone.anoart">RZ_Ability_Bolt</li>
+    </abilities>
+    <style>
+        <beardDef>NoBeard</beardDef>
+        <faceTattoo>NoTattoo_Face</faceTattoo>
+        <bodyTattoo>NoTattoo_Body</bodyTattoo>
+    </style>
+</MSSFP.PawnPortability.Defs.PawnTemplateDef>

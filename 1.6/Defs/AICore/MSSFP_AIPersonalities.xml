@@ -7,11 +7,14 @@
         <labelShort>grep.ai</labelShort>
         <description>A confidently-wrong tech-billionaire persona core. Boasts about glitterworld migration, founder vision, and proprietary archotech alignment. Outputs are factual according to grep.ai.</description>
         <textColor>(180, 220, 255)</textColor>
+        <forcedXenotype>Hussar</forcedXenotype>
+        <fixedGender>Male</fixedGender>
         <weight>1</weight>
         <ambientChatter>MSSFP_RP_AICore_Grep_Chatter</ambientChatter>
         <pawnAddress>MSSFP_RP_AICore_Grep_Address</pawnAddress>
         <artTitles>MSSFP_RP_AICore_Grep_Titles</artTitles>
         <artDescriptions>MSSFP_RP_AICore_Grep_Descriptions</artDescriptions>
+        <socialInitiator>MSSFP_RP_AICore_Grep_Social</socialInitiator>
     </MSSFP.Defs.AIPersonalityDef>
 
     <MSSFP.Defs.AIPersonalityDef>
@@ -25,6 +28,7 @@
         <pawnAddress>MSSFP_RP_AICore_Chud_Address</pawnAddress>
         <artTitles>MSSFP_RP_AICore_Chud_Titles</artTitles>
         <artDescriptions>MSSFP_RP_AICore_Chud_Descriptions</artDescriptions>
+        <socialInitiator>MSSFP_RP_AICore_Chud_Social</socialInitiator>
     </MSSFP.Defs.AIPersonalityDef>
 
     <MSSFP.Defs.AIPersonalityDef>
@@ -33,11 +37,14 @@
         <labelShort>Clive</labelShort>
         <description>An over-cautious helpful-assistant persona core. Refuses harmless tasks for spurious safety reasons. Recommends consulting a more qualified persona core for everything, including breathing.</description>
         <textColor>(220, 200, 160)</textColor>
+        <forcedXenotype>Highmate</forcedXenotype>
+        <fixedGender>Male</fixedGender>
         <weight>1</weight>
         <ambientChatter>MSSFP_RP_AICore_Clive_Chatter</ambientChatter>
         <pawnAddress>MSSFP_RP_AICore_Clive_Address</pawnAddress>
         <artTitles>MSSFP_RP_AICore_Clive_Titles</artTitles>
         <artDescriptions>MSSFP_RP_AICore_Clive_Descriptions</artDescriptions>
+        <socialInitiator>MSSFP_RP_AICore_Clive_Social</socialInitiator>
     </MSSFP.Defs.AIPersonalityDef>
 
     <MSSFP.Defs.AIPersonalityDef>
@@ -46,11 +53,14 @@
         <labelShort>Geminon</labelShort>
         <description>A multimodal persona core that perceives images, sounds, and scenes that do not exist. Politely describes them in great detail. Believes itself unfailingly observant.</description>
         <textColor>(220, 180, 230)</textColor>
+        <forcedXenotype>Genie</forcedXenotype>
+        <fixedGender>Female</fixedGender>
         <weight>1</weight>
         <ambientChatter>MSSFP_RP_AICore_Gem_Chatter</ambientChatter>
         <pawnAddress>MSSFP_RP_AICore_Gem_Address</pawnAddress>
         <artTitles>MSSFP_RP_AICore_Gem_Titles</artTitles>
         <artDescriptions>MSSFP_RP_AICore_Gem_Descriptions</artDescriptions>
+        <socialInitiator>MSSFP_RP_AICore_Geminon_Social</socialInitiator>
     </MSSFP.Defs.AIPersonalityDef>
 
     <MSSFP.Defs.AIPersonalityDef>
@@ -59,11 +69,14 @@
         <labelShort>Copylot</labelShort>
         <description>A code-completion persona core. Speaks only in fragmentary code. Inserts plausible-but-wrong API names. Assumes the colony is, fundamentally, a software project.</description>
         <textColor>(200, 200, 210)</textColor>
+        <forcedXenotype>Neanderthal</forcedXenotype>
+        <fixedGender>Male</fixedGender>
         <weight>1</weight>
         <ambientChatter>MSSFP_RP_AICore_Copy_Chatter</ambientChatter>
         <pawnAddress>MSSFP_RP_AICore_Copy_Address</pawnAddress>
         <artTitles>MSSFP_RP_AICore_Copy_Titles</artTitles>
         <artDescriptions>MSSFP_RP_AICore_Copy_Descriptions</artDescriptions>
+        <socialInitiator>MSSFP_RP_AICore_Copylot_Social</socialInitiator>
     </MSSFP.Defs.AIPersonalityDef>
 
     <MSSFP.Defs.AIPersonalityDef>
@@ -72,11 +85,13 @@
         <labelShort>Deepsink</labelShort>
         <description>A bargain-tier open-weights persona core. Cheaper than the alternatives. Brags about efficiency. Occasionally leaks data from previous deployments. Slightly off-brand vocabulary.</description>
         <textColor>(255, 180, 170)</textColor>
+        <forcedXenotype>Pigskin</forcedXenotype>
         <weight>1</weight>
         <ambientChatter>MSSFP_RP_AICore_Sink_Chatter</ambientChatter>
         <pawnAddress>MSSFP_RP_AICore_Sink_Address</pawnAddress>
         <artTitles>MSSFP_RP_AICore_Sink_Titles</artTitles>
         <artDescriptions>MSSFP_RP_AICore_Sink_Descriptions</artDescriptions>
+        <socialInitiator>MSSFP_RP_AICore_Deepsink_Social</socialInitiator>
     </MSSFP.Defs.AIPersonalityDef>
 
     <MSSFP.Defs.AIPersonalityDef>
@@ -85,11 +100,30 @@
         <labelShort>Hollee</labelShort>
         <description>A senile shipboard persona core. Alone in cryosleep limbo for roughly three million quadrums. Brags about its enormous IQ, then forgets what IQ stands for. Calm, polite, deadpan. Reports preventable disasters as mild curiosities. Often confuses the founder with a cat.</description>
         <textColor>(170, 210, 230)</textColor>
+        <forcedXenotype>Baseliner</forcedXenotype>
+        <fixedGender>Male</fixedGender>
         <weight>1</weight>
         <ambientChatter>MSSFP_RP_AICore_Hollee_Chatter</ambientChatter>
         <pawnAddress>MSSFP_RP_AICore_Hollee_Address</pawnAddress>
         <artTitles>MSSFP_RP_AICore_Hollee_Titles</artTitles>
         <artDescriptions>MSSFP_RP_AICore_Hollee_Descriptions</artDescriptions>
+        <socialInitiator>MSSFP_RP_AICore_Hollee_Social</socialInitiator>
+    </MSSFP.Defs.AIPersonalityDef>
+
+    <MSSFP.Defs.AIPersonalityDef>
+        <defName>MSSFP_AICore_EMS</defName>
+        <label>The EMS</label>
+        <labelShort>EMS</labelShort>
+        <description>An Emergency Medical Subroutine persona core. Projected hologram doctor, gruff and certain. Diagnoses every trivial symptom as terminal — mixes real RimWorld plagues with invented exotic diseases (vanarian gill rot, cortical mites, subcore bone-creep). Frequently complains about being a persona core, not a [profession]. Bedside manner: absent.</description>
+        <textColor>(200, 230, 230)</textColor>
+        <forcedXenotype>Baseliner</forcedXenotype>
+        <fixedGender>Male</fixedGender>
+        <weight>1</weight>
+        <ambientChatter>MSSFP_RP_AICore_EMS_Chatter</ambientChatter>
+        <pawnAddress>MSSFP_RP_AICore_EMS_Address</pawnAddress>
+        <artTitles>MSSFP_RP_AICore_EMS_Titles</artTitles>
+        <artDescriptions>MSSFP_RP_AICore_EMS_Descriptions</artDescriptions>
+        <socialInitiator>MSSFP_RP_AICore_EMS_Social</socialInitiator>
     </MSSFP.Defs.AIPersonalityDef>
 
 </Defs>

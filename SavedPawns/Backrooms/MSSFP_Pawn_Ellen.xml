@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MSSFP.PawnPortability.Defs.PawnTemplateDef>
+    <defName>MSSFP_Pawn_Ellen</defName>
+    <label>EllenJoe</label>
+    <description>Exported template of EllenJoe.</description>
+    <schemaVersion>1</schemaVersion>
+    <mode>Template</mode>
+    <requiredMods>
+        <li>
+            <packageId>840.tach.gwarcasket</packageId>
+            <name>WarCasket Barbatos Gundam Addon (Continued)</name>
+        </li>
+        <li>
+            <packageId>anthitei.athsideocolorpalette.colors</packageId>
+            <name>ATH's Ideo Colors Pallette</name>
+        </li>
+        <li>
+            <packageId>aranmaho.xianxia</packageId>
+            <name>Cultivator of the Rim</name>
+        </li>
+        <li>
+            <packageId>fdp.rimzone.anoart</packageId>
+            <name>RimZone Anomalies and Artifacts</name>
+        </li>
+        <li>
+            <packageId>hautarche.hautstraits</packageId>
+            <name>Hauts' Added Traits</name>
+        </li>
+        <li>
+            <packageId>jellycreative.isekaileveling</packageId>
+            <name>ISEKAI RPG LEVELING</name>
+        </li>
+        <li>
+            <packageId>ludeon.rimworld.biotech</packageId>
+            <name>Biotech</name>
+        </li>
+        <li>
+            <packageId>neronix17.outland.genetics</packageId>
+            <name>Outland - Genetics</name>
+        </li>
+        <li>
+            <packageId>oskarpotocki.vfe.pirates</packageId>
+            <name>Vanilla Factions Expanded - Pirates</name>
+        </li>
+        <li>
+            <packageId>redmattis.bigsmall.core</packageId>
+            <name>Big and Small - Genes &amp; More</name>
+        </li>
+        <li>
+            <packageId>rimsenal.askbarn</packageId>
+            <name>Rimsenal Xenotype Pack - Askbarn</name>
+        </li>
+        <li>
+            <packageId>sarg.alphagenes</packageId>
+            <name>Alpha Genes</name>
+        </li>
+        <li>
+            <packageId>tolgrim.rimzonezero.ellenjoe</packageId>
+            <name>RimZone Zero: Ellen Joe</name>
+        </li>
+        <li>
+            <packageId>vanillaexpanded.vpsycastse</packageId>
+            <name>Vanilla Psycasts Expanded</name>
+        </li>
+        <li>
+            <packageId>vpe.blader.sentinel</packageId>
+            <name>VPE - Blader</name>
+        </li>
+    </requiredMods>
+    <originSeries>Backrooms</originSeries>
+    <tags />
+    <narrativeNotes>Ellen Joe was a combat-maid who was defeated and fell into the backrooms, where she was taken in by a surviving band. Eventually she was entombed in a powerful mech-casket, but with the unfortunate trade-off of being perpetually pregnant.</narrativeNotes>
+    <kindDef>Colonist</kindDef>
+    <gender>Female</gender>
+    <name>
+        <first>Ellen</first>
+        <nick>EllenJoe</nick>
+        <last>Joe</last>
+    </name>
+    <age>
+        <biologicalAgeTicks>91821192</biologicalAgeTicks>
+        <chronologicalAgeTicks>91829395</chronologicalAgeTicks>
+    </age>
+    <story>
+        <bodyType>Female</bodyType>
+        <headType>Female_AveragePointy</headType>
+        <hairDef MayRequire="tolgrim.rimzonezero.ellenjoe">EllenJoe_Hair</hairDef>
+        <hairColor>(1.000, 1.000, 1.000)</hairColor>
+        <skinColorOverride>(0.950, 0.900, 0.850)</skinColorOverride>
+        <childhood MayRequire="hautarche.hautstraits">HVT_TabulaRasaChild</childhood>
+        <adulthood MayRequire="hautarche.hautstraits">HVT_TabulaRasaAdult</adulthood>
+        <birthLastName>Joe</birthLastName>
+        <favoriteColor MayRequire="anthitei.athsideocolorpalette.colors">Green39</favoriteColor>
+        <traits>
+            <li MayRequire="aranmaho.xianxia">
+                <def>CTR_MediocreTalent</def>
+                <degree>0</degree>
+            </li>
+            <li MayRequire="jellycreative.isekaileveling">
+                <def>Isekai_Rank_B</def>
+                <degree>0</degree>
+            </li>
+            <li MayRequire="oskarpotocki.vfe.pirates">
+                <def>VFEP_WarcasketTrait</def>
+                <degree>0</degree>
+            </li>
+            <li>
+                <def>Ascetic</def>
+                <degree>0</degree>
+            </li>
+            <li>
+                <def>Pyromaniac</def>
+                <degree>0</degree>
+            </li>
+            <li MayRequire="aranmaho.xianxia">
+                <def>CTR_AlchemyGenius</def>
+                <degree>0</degree>
+            </li>
+            <li MayRequire="hautarche.hautstraits">
+                <def>HVT_Catastrophist</def>
+                <degree>0</degree>
+            </li>
+        </traits>
+    </story>
+    <skills>
+        <li>
+            <def>Shooting</def>
+            <level>7</level>
+            <passion>Minor</passion>
+        </li>
+        <li>
+            <def>Melee</def>
+            <level>22</level>
+            <passion>Major</passion>
+        </li>
+        <li>
+            <def>Construction</def>
+            <level>4</level>
+        </li>
+        <li>
+            <def>Mining</def>
+            <level>2</level>
+            <passion>Minor</passion>
+        </li>
+        <li>
+            <def>Cooking</def>
+            <level>1</level>
+            <passion>Minor</passion>
+        </li>
+        <li>
+            <def>Plants</def>
+            <level>1</level>
+        </li>
+        <li>
+            <def>Animals</def>
+            <level>5</level>
+        </li>
+        <li>
+            <def>Crafting</def>
+            <level>1</level>
+            <passion>Minor</passion>
+        </li>
+        <li>
+            <def>Artistic</def>
+            <level>1</level>
+        </li>
+        <li>
+            <def>Medicine</def>
+            <level>3</level>
+            <passion>Minor</passion>
+        </li>
+        <li>
+            <def>Social</def>
+            <level>3</level>
+            <passion>Major</passion>
+        </li>
+        <li>
+            <def>Intellectual</def>
+            <level>4</level>
+            <passion>Major</passion>
+        </li>
+        <li>
+            <def>Toughness</def>
+            <level>14</level>
+            <passion>Major</passion>
+        </li>
+    </skills>
+    <genes>
+        <xenotype MayRequire="tolgrim.rimzonezero.ellenjoe">Thiren_Shark</xenotype>
+        <endogenes>
+            <li MayRequire="tolgrim.rimzonezero.ellenjoe">Thiren_SharkTail</li>
+            <li MayRequire="tolgrim.rimzonezero.ellenjoe">Thiren_SharkBite</li>
+            <li MayRequire="ludeon.rimworld.biotech">MinTemp_SmallDecrease</li>
+            <li MayRequire="ludeon.rimworld.biotech">Sleepy</li>
+            <li>Skin_Melanin4</li>
+            <li>Hair_DarkBlack</li>
+            <li MayRequire="neronix17.outland.genetics">Outland_FireImmune</li>
+            <li MayRequire="redmattis.bigsmall.core">BS_AutoPregnancy</li>
+            <li MayRequire="sarg.alphagenes">AG_PegasusWings</li>
+        </endogenes>
+    </genes>
+    <hediffs>
+        <li MayRequire="ludeon.rimworld.biotech">
+            <def>MechlinkImplant</def>
+            <severity>0.50</severity>
+            <bodyPart>Brain</bodyPart>
+            <bodyPartLabel>brain</bodyPartLabel>
+        </li>
+        <li MayRequire="vpe.blader.sentinel">
+            <def>VPE_ChurchSpellFrameSNTL</def>
+            <severity>1.00</severity>
+            <bodyPart>Arm</bodyPart>
+            <bodyPartLabel>left arm</bodyPartLabel>
+        </li>
+        <li MayRequire="vanillaexpanded.vpsycastse">
+            <def>VPE_PsycastAbilityImplant</def>
+            <severity>30.00</severity>
+            <bodyPart>Brain</bodyPart>
+            <bodyPartLabel>brain</bodyPartLabel>
+        </li>
+        <li>
+            <def>PsychicAmplifier</def>
+            <severity>30.00</severity>
+            <bodyPart>Brain</bodyPart>
+            <bodyPartLabel>brain</bodyPartLabel>
+        </li>
+        <li>
+            <def>BS_BionicStriderLeg</def>
+            <severity>0.50</severity>
+            <bodyPart>Leg</bodyPart>
+            <bodyPartLabel>right leg</bodyPartLabel>
+        </li>
+        <li MayRequire="sarg.alphagenes">
+            <def>AG_Hover</def>
+            <severity>1.00</severity>
+        </li>
+        <li MayRequire="aranmaho.xianxia">
+            <def>CTR_BodyTempering</def>
+            <severity>1.00</severity>
+        </li>
+        <li>
+            <def>Crush</def>
+            <severity>3.67</severity>
+            <bodyPart>Brain</bodyPart>
+            <bodyPartLabel>brain</bodyPartLabel>
+            <permanent>true</permanent>
+        </li>
+        <li MayRequire="hautarche.hautstraits">
+            <def>HVT_LuminaryEffect</def>
+            <severity>0.10</severity>
+        </li>
+    </hediffs>
+    <equipment>
+        <li MayRequire="rimsenal.askbarn">
+            <def>Gun_FusterClucker</def>
+            <quality>Excellent</quality>
+            <hitPoints>21</hitPoints>
+        </li>
+    </equipment>
+    <apparel>
+        <li MayRequire="840.tach.gwarcasket">
+            <def>VFEP_Warcasket_Barbatos</def>
+            <hitPoints>-1</hitPoints>
+        </li>
+        <li MayRequire="840.tach.gwarcasket">
+            <def>VFEP_WarcasketShoulders_Barbatos</def>
+            <hitPoints>-1</hitPoints>
+        </li>
+        <li MayRequire="840.tach.gwarcasket">
+            <def>VFEP_WarcasketHelmet_Barbatos</def>
+            <hitPoints>-1</hitPoints>
+        </li>
+    </apparel>
+    <abilities>
+        <li MayRequire="sarg.alphagenes">AG_WingPoweredJump</li>
+        <li MayRequire="fdp.rimzone.anoart">RZ_Ability_Bolt</li>
+    </abilities>
+    <style>
+        <beardDef>NoBeard</beardDef>
+        <faceTattoo>NoTattoo_Face</faceTattoo>
+        <bodyTattoo>NoTattoo_Body</bodyTattoo>
+    </style>
+</MSSFP.PawnPortability.Defs.PawnTemplateDef>

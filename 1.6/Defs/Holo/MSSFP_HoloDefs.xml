@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+    Holo-Projector P1-A defs.
+
+    Race: MSSFP_HoloPawnRace inherits Human (full humanlike body + render tree).
+          Held inside the projector ThingOwner as a regular Pawn instance; only "different"
+          via attached CompHoloProjected + Hediff_Hologram.
+
+    PawnKind: no forcedTraits — Pacifist TraitDef does not exist in vanilla 1.6;
+              violence-block enforced via PawnGenerationRequest.mustBeCapableOfViolence=false.
+              initialResistanceRange / initialWillRange set to 0 (holo cannot be recruited).
+
+    Hediff: permanent (no severity decay, no curable). Immune-to-everything stage flags.
+            Pregnancy-block deferred to a later phase (HediffStage has no forbidPregnancy field).
+-->
+<Defs>
+
+    <ThingDef ParentName="Human">
+        <defName>MSSFP_HoloPawnRace</defName>
+        <label>holo-projection</label>
+        <description>A light-and-sound projection bound to a hologram emitter. Mostly indistinguishable from a person, until the emitter is recalled.</description>
+        <statBases>
+            <MarketValue>0</MarketValue>
+            <MoveSpeed>4.6</MoveSpeed>
+        </statBases>
+        <tradeability>None</tradeability>
+        <comps>
+            <!-- Dormant back-ref comp on every holo pawn instance.
+                 sourceProjector is null until SpawnProjection() sets it. -->
+            <li Class="MSSFP.Holo.CompProperties_HoloProjected" />
+        </comps>
+    </ThingDef>
+
+    <PawnKindDef>
+        <defName>MSSFP_HoloProjection</defName>
+        <label>holo-projection</label>
+        <race>MSSFP_HoloPawnRace</race>
+        <combatPower>0</combatPower>
+        <isFighter>false</isFighter>
+        <canBeScattered>false</canBeScattered>
+        <useFactionXenotypes>false</useFactionXenotypes>
+        <apparelMoney>0~0</apparelMoney>
+        <weaponMoney>0~0</weaponMoney>
+        <initialResistanceRange>0~0</initialResistanceRange>
+        <initialWillRange>0~0</initialWillRange>
+    </PawnKindDef>
+
+    <HediffDef>
+        <defName>MSSFP_Hediff_Hologram</defName>
+        <hediffClass>HediffWithComps</hediffClass>
+        <label>holographic</label>
+        <description>This pawn is a hologram projected from an emitter. They cannot truly be harmed, sicken, or starve — but recalling the emitter ends the projection.</description>
+        <isBad>false</isBad>
+        <everCurableByItem>false</everCurableByItem>
+        <makesSickThought>false</makesSickThought>
+        <stages>
+            <li>
+                <becomeVisible>false</becomeVisible>
+                <statOffsets>
+                    <ImmunityGainSpeed>10</ImmunityGainSpeed>
+                </statOffsets>
+                <!-- disablesNeeds is a HediffStage field (not HediffDef). Holos don't eat
+                     or sleep; Joy/Beauty/etc. stay enabled. Runtime: SpawnProjection calls
+                     pawn.needs.AddOrRemoveNeedsAsAppropriate() after AddOrRefreshHologramHediff
+                     so the needs drop the moment the hediff lands. -->
+                <disablesNeeds>
+                    <li>Food</li>
+                    <li>Rest</li>
+                    <li>Outdoors</li>
+                </disablesNeeds>
+            </li>
+        </stages>
+    </HediffDef>
+
+</Defs>

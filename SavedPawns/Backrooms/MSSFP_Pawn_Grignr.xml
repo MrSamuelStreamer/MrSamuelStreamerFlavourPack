@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MSSFP.PawnPortability.Defs.PawnTemplateDef>
+    <defName>MSSFP_Pawn_Grignr</defName>
+    <label>Grignr</label>
+    <description>Exported template of Grignr.</description>
+    <schemaVersion>1</schemaVersion>
+    <mode>Template</mode>
+    <requiredMods>
+        <li>
+            <packageId>aranmaho.xianxia</packageId>
+            <name>Cultivator of the Rim</name>
+        </li>
+        <li>
+            <packageId>darjeeling.battlecloak</packageId>
+            <name>Advanced Battle Cloak</name>
+        </li>
+        <li>
+            <packageId>erin.hair2</packageId>
+            <name>Erin's Hairstyles 2</name>
+        </li>
+        <li>
+            <packageId>fdp.rimzone.anoart</packageId>
+            <name>RimZone Anomalies and Artifacts</name>
+        </li>
+        <li>
+            <packageId>hautarche.hautstraits</packageId>
+            <name>Hauts' Added Traits</name>
+        </li>
+        <li>
+            <packageId>icc.aov.osec</packageId>
+            <name>Arsenal - Orbital Security</name>
+        </li>
+        <li>
+            <packageId>jellycreative.isekaileveling</packageId>
+            <name>ISEKAI RPG LEVELING</name>
+        </li>
+        <li>
+            <packageId>ludeon.rimworld.biotech</packageId>
+            <name>Biotech</name>
+        </li>
+        <li>
+            <packageId>ludeon.rimworld.ideology</packageId>
+            <name>Ideology</name>
+        </li>
+        <li>
+            <packageId>ri.rimimmortal.forge</packageId>
+            <name>边缘仙路-神机天纵 RimImmortal-Forge[1.6]</name>
+        </li>
+        <li>
+            <packageId>sarg.alphagenes</packageId>
+            <name>Alpha Genes</name>
+        </li>
+        <li>
+            <packageId>snow.kraltechindustries.rebalanced</packageId>
+            <name>Kraltech Industries Rebalanced (1.6)</name>
+        </li>
+        <li>
+            <packageId>taggerung.grignrhappensby</packageId>
+            <name>Grignr Happens By</name>
+        </li>
+        <li>
+            <packageId>turnovus.biotech.integratedgenes</packageId>
+            <name>Integrated Genes</name>
+        </li>
+        <li>
+            <packageId>vanillaexpanded.vpsycastse</packageId>
+            <name>Vanilla Psycasts Expanded</name>
+        </li>
+        <li>
+            <packageId>vpe.ragnarok.sentinel</packageId>
+            <name>VPE - Ragnarok Online</name>
+        </li>
+    </requiredMods>
+    <originSeries>RPG Adventures, Backrooms</originSeries>
+    <tags />
+    <narrativeNotes>Grignr, thunder-god, was one of the many shards of Grignr shattered through time, but was one of the small few that fell into the Backrooms. This Grignr abandoned his rage and barbarian ways instead seeking the harmony and peace that came with ancient Chinese practices, become a powerful cultivator of Chi energy. During his time in the backrooms, he dedicated unknowable time to continuing his meditation, until eventually he was called upon to the fight the experimental Mjolnir mechanoid, which threatened his new home. After defeating this seemingly invincible foe Grignr was crowned Grignr Thunder-God by his wife, Angra, and their companions.</narrativeNotes>
+    <kindDef MayRequire="taggerung.grignrhappensby">Taggerung_ShardOfGrignr</kindDef>
+    <gender>Male</gender>
+    <name>
+        <first>Grignr</first>
+        <nick>Grignr</nick>
+        <last>Grignr Grignrson</last>
+    </name>
+    <age>
+        <biologicalAgeTicks>152069840</biologicalAgeTicks>
+        <chronologicalAgeTicks>152066013</chronologicalAgeTicks>
+    </age>
+    <story>
+        <bodyType>Hulk</bodyType>
+        <headType>Male_NarrowNormal</headType>
+        <hairDef MayRequire="erin.hair2">ERNrivia</hairDef>
+        <hairColor>(0.787, 0.595, 0.347)</hairColor>
+        <childhood>BuddingArtist44</childhood>
+        <adulthood MayRequire="aranmaho.xianxia">CTR_AlchemyDis</adulthood>
+        <birthLastName>Grignr Grignrson</birthLastName>
+        <favoriteColor MayRequire="ludeon.rimworld.ideology">LightGrey</favoriteColor>
+        <traits>
+            <li>
+                <def>NaturalMood</def>
+                <degree>1</degree>
+            </li>
+            <li>
+                <def>Tough</def>
+                <degree>0</degree>
+            </li>
+            <li MayRequire="aranmaho.xianxia">
+                <def>CTR_AlchemyDisciple</def>
+                <degree>0</degree>
+            </li>
+            <li MayRequire="aranmaho.xianxia">
+                <def>CTR_MediocreTalent</def>
+                <degree>0</degree>
+            </li>
+            <li MayRequire="jellycreative.isekaileveling">
+                <def>Isekai_Rank_A</def>
+                <degree>0</degree>
+            </li>
+        </traits>
+    </story>
+    <skills>
+        <li>
+            <def>Shooting</def>
+            <level>5</level>
+        </li>
+        <li>
+            <def>Melee</def>
+            <level>25</level>
+            <passion>Major</passion>
+        </li>
+        <li>
+            <def>Construction</def>
+            <level>22</level>
+            <passion>Major</passion>
+        </li>
+        <li>
+            <def>Mining</def>
+            <level>5</level>
+        </li>
+        <li>
+            <def>Cooking</def>
+            <level>1</level>
+        </li>
+        <li>
+            <def>Plants</def>
+            <level>6</level>
+            <passion>Minor</passion>
+        </li>
+        <li>
+            <def>Animals</def>
+            <level>5</level>
+            <passion>Minor</passion>
+        </li>
+        <li>
+            <def>Crafting</def>
+            <level>2</level>
+        </li>
+        <li>
+            <def>Artistic</def>
+            <level>10</level>
+        </li>
+        <li>
+            <def>Medicine</def>
+            <level>6</level>
+        </li>
+        <li>
+            <def>Social</def>
+            <level>3</level>
+        </li>
+        <li>
+            <def>Intellectual</def>
+            <level>12</level>
+            <passion>Minor</passion>
+        </li>
+        <li>
+            <def>Toughness</def>
+            <level>18</level>
+            <passion>Major</passion>
+        </li>
+    </skills>
+    <genes>
+        <xenotype MayRequire="taggerung.grignrhappensby">Taggerung_Grignrson_Xenotype</xenotype>
+        <endogenes>
+            <li MayRequire="sarg.alphagenes">AG_LargerBodySize</li>
+            <li MayRequire="sarg.alphagenes">AG_HardBones</li>
+            <li MayRequire="sarg.alphagenes">AG_Filthy</li>
+            <li MayRequire="turnovus.biotech.integratedgenes">Turn_Gene_SlowNeuralHeat</li>
+            <li MayRequire="ludeon.rimworld.biotech">Aggression_Aggressive</li>
+            <li MayRequire="ludeon.rimworld.biotech">Body_Hulk</li>
+            <li>Hair_SandyBlonde</li>
+            <li MayRequire="ludeon.rimworld.biotech">Learning_Slow</li>
+            <li MayRequire="ludeon.rimworld.biotech">MaxTemp_LargeIncrease</li>
+            <li MayRequire="ludeon.rimworld.biotech">MeleeDamage_Strong</li>
+            <li MayRequire="ludeon.rimworld.biotech">MinTemp_LargeDecrease</li>
+            <li MayRequire="ludeon.rimworld.biotech">NakedSpeed</li>
+            <li MayRequire="ludeon.rimworld.biotech">Nearsighted</li>
+            <li MayRequire="ludeon.rimworld.biotech">Robust</li>
+            <li MayRequire="ludeon.rimworld.biotech">Unstoppable</li>
+            <li MayRequire="ludeon.rimworld.biotech">WoundHealing_Fast</li>
+            <li MayRequire="sarg.alphagenes">AlphaGenes_AnimalSumMajor_Bear_Polar</li>
+            <li MayRequire="ludeon.rimworld.biotech">AptitudeTerrible_Shooting</li>
+            <li MayRequire="ludeon.rimworld.biotech">AptitudeTerrible_Crafting</li>
+            <li MayRequire="ludeon.rimworld.biotech">AptitudeTerrible_Artistic</li>
+            <li MayRequire="ludeon.rimworld.biotech">AptitudeTerrible_Medicine</li>
+            <li MayRequire="ludeon.rimworld.biotech">AptitudeTerrible_Intellectual</li>
+            <li MayRequire="ludeon.rimworld.biotech">ChemicalDependency_Alcohol</li>
+            <li>Skin_Melanin2</li>
+        </endogenes>
+    </genes>
+    <hediffs>
+        <li MayRequire="ludeon.rimworld.biotech">
+            <def>MechlinkImplant</def>
+            <severity>0.50</severity>
+            <bodyPart>Brain</bodyPart>
+            <bodyPartLabel>brain</bodyPartLabel>
+        </li>
+        <li MayRequire="aranmaho.xianxia">
+            <def>CTR_BreakthroughCounter</def>
+            <severity>0.61</severity>
+        </li>
+        <li MayRequire="vanillaexpanded.vpsycastse">
+            <def>VPE_PsycastAbilityImplant</def>
+            <severity>24.00</severity>
+            <bodyPart>Brain</bodyPart>
+            <bodyPartLabel>brain</bodyPartLabel>
+        </li>
+        <li>
+            <def>PsychicAmplifier</def>
+            <severity>24.00</severity>
+            <bodyPart>Brain</bodyPart>
+            <bodyPartLabel>brain</bodyPartLabel>
+        </li>
+        <li MayRequire="vpe.ragnarok.sentinel">
+            <def>VPE_Ragnarok_Acolyte_DivineProtectionCasterSTNL</def>
+            <severity>1.00</severity>
+        </li>
+        <li MayRequire="aranmaho.xianxia">
+            <def>CTR_ImmortalAscension</def>
+            <severity>180.00</severity>
+        </li>
+        <li MayRequire="darjeeling.battlecloak">
+            <def>TS_Cloak_Protection</def>
+            <severity>0.50</severity>
+        </li>
+        <li MayRequire="hautarche.hautstraits">
+            <def>HVT_LuminaryEffect</def>
+            <severity>0.02</severity>
+        </li>
+    </hediffs>
+    <equipment>
+        <li MayRequire="ri.rimimmortal.forge">
+            <def>RI_Weapon_ThunderLordLance</def>
+            <quality>Masterwork</quality>
+            <hitPoints>100</hitPoints>
+        </li>
+    </equipment>
+    <apparel>
+        <li MayRequire="icc.aov.osec">
+            <def>Apparel_SealedUndersuit</def>
+            <quality>Masterwork</quality>
+            <hitPoints>81</hitPoints>
+        </li>
+        <li MayRequire="snow.kraltechindustries.rebalanced">
+            <def>Apparel_DragonSlayerMechlordSuit</def>
+            <stuff>Steel</stuff>
+            <quality>Masterwork</quality>
+            <hitPoints>8744</hitPoints>
+        </li>
+        <li MayRequire="snow.kraltechindustries.rebalanced">
+            <def>PsyRejuvenatorSerum</def>
+            <hitPoints>80</hitPoints>
+        </li>
+        <li MayRequire="darjeeling.battlecloak">
+            <def>DRCC_Cloak</def>
+            <stuff>Leather_Lizard</stuff>
+            <quality>Excellent</quality>
+            <hitPoints>192</hitPoints>
+        </li>
+        <li MayRequire="snow.kraltechindustries.rebalanced">
+            <def>Headgear_DragonSlayerHornedHelmet</def>
+            <stuff>Steel</stuff>
+            <quality>Masterwork</quality>
+            <hitPoints>3982</hitPoints>
+        </li>
+    </apparel>
+    <abilities>
+        <li MayRequire="sarg.alphagenes">AG_MajorSummon</li>
+        <li MayRequire="fdp.rimzone.anoart">RZ_Ability_Bolt</li>
+        <li MayRequire="aranmaho.xianxia">CTR_TearTheVoid</li>
+    </abilities>
+    <style>
+        <beardDef>NoBeard</beardDef>
+        <faceTattoo>NoTattoo_Face</faceTattoo>
+        <bodyTattoo>NoTattoo_Body</bodyTattoo>
+    </style>
+</MSSFP.PawnPortability.Defs.PawnTemplateDef>

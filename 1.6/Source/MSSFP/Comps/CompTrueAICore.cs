@@ -5,6 +5,7 @@ using System.Reflection;
 using System.Text;
 using MSSFP.AICore;
 using MSSFP.Defs;
+using MSSFP.Holo;
 using RimWorld;
 using UnityEngine;
 using Verse;
@@ -44,6 +45,15 @@ public class CompTrueAICore : ThingComp, IThingHolder
     /// <summary>Player has clicked "Create AI art". WorkGiver scans for haul jobs while true.</summary>
     public bool artRequested;
 
+    /// <summary>
+    /// One-shot scribed flag — true after the spawn-announce Message has fired for this core.
+    /// Suppresses repeat fires on minify→reinstall, rotate, save reload, quest delivery.
+    /// </summary>
+    public bool spawnAnnounced;
+
+    /// <summary>Cached sibling holo projector comp (null if def has no projector). For inspect-string state line.</summary>
+    private CompHoloProjector holoComp;
+
     public override void PostPostMake()
     {
         base.PostPostMake();
@@ -65,6 +75,25 @@ public class CompTrueAICore : ThingComp, IThingHolder
         }
         if (dayTickStart < 0)
             dayTickStart = Find.TickManager.TicksGame;
+
+        // Cache projector sibling for inspect-string state line.
+        holoComp = parent?.TryGetComp<CompHoloProjector>();
+
+        // One-shot spawn announce. Idempotent (spawnAnnounced scribed) + load-skip + null-guard.
+        // Uses Messages.Message (not Letter) deliberately: dev-spawn intro, not crisis-tier,
+        // and Messages bypass the lettersPerDay/dangerOk cap so it can't fire mid-raid.
+        // letterChance is NOT consulted — that prop is per-tick chatter probability, not a
+        // one-shot spawn gate (semantic mismatch flagged in DA review).
+        if (!respawningAfterLoad && !spawnAnnounced && activePersonality != null)
+        {
+            Messages.Message(
+                $"AI core online — {activePersonality.LabelShortOrLabel}.",
+                parent,
+                MessageTypeDefOf.PositiveEvent,
+                historical: false
+            );
+            spawnAnnounced = true;
+        }
     }
 
     /// <summary>
@@ -356,6 +385,7 @@ public class CompTrueAICore : ThingComp, IThingHolder
         Scribe_Values.Look(ref lettersToday, "lettersToday", 0);
         Scribe_Values.Look(ref dayTickStart, "dayTickStart", -1);
         Scribe_Values.Look(ref artRequested, "artRequested", false);
+        Scribe_Values.Look(ref spawnAnnounced, "spawnAnnounced", false);
         Scribe_Deep.Look(ref innerContainer, "innerContainer", this);
         if (Scribe.mode == LoadSaveMode.PostLoadInit)
         {
@@ -407,6 +437,25 @@ public class CompTrueAICore : ThingComp, IThingHolder
         {
             if (sb.Length > 0) sb.AppendLine();
             sb.Append("MSSFP_AICore_HeldInputs".Translate(innerContainer.ContentsString));
+        }
+        // Holo projector state line — single owner for AI-core inspect output (DA decision:
+        // CompHoloProjector intentionally does NOT override CompInspectStringExtra to avoid
+        // duplicating the persona line when both comps live on the same building). Power
+        // status is reflected indirectly via "Inactive (no power)" rather than a separate
+        // line, since vanilla CompPowerTrader already prints power consumption / on-off state.
+        if (holoComp != null)
+        {
+            string state;
+            if (!holoComp.HasPower)
+                state = "Inactive (no power)";
+            else if (holoComp.projected != null)
+                state = "Projecting";
+            else if (holoComp.stored != null && holoComp.stored.Count > 0)
+                state = "Stored";
+            else
+                state = "Inactive";
+            if (sb.Length > 0) sb.AppendLine();
+            sb.Append($"State: {state}");
         }
         return sb.ToString();
     }
@@ -511,6 +560,10 @@ public class CompTrueAICore : ThingComp, IThingHolder
         if (next == null || next == activePersonality) return;
         activePersonality = next;
         personalityScratch.Clear();
+        // Notify the sibling holo-projector (if any) so its persona-name one-shot re-applies
+        // on the next projection. Default-roll on init does NOT hit this path (callers that
+        // do default-rolls assign activePersonality directly, not via SetPersonality).
+        parent?.TryGetComp<CompHoloProjector>()?.OnPersonaChanged();
     }
 
     private AIPersonalityDef RollRandomPersonality()

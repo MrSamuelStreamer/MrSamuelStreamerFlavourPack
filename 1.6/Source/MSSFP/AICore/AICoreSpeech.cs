@@ -1,4 +1,5 @@
 using MSSFP.Comps;
+using MSSFP.Holo;
 using RimWorld;
 using UnityEngine;
 using Verse;
@@ -13,10 +14,15 @@ namespace MSSFP.AICore;
 ///   <see cref="EmitMessage"/>  — top-of-screen toast + bubble; non-historical, non-blocking
 ///   <see cref="EmitLetter"/>   — Letter (caller must throttle: per-core daily cap, suppress on StoryDanger)
 ///
+/// BUBBLE ANCHOR: when a holo projection is live, the bubble anchors to the projected pawn so
+/// it visually reads as the holo speaking. Falls back to the projector building when no
+/// projection is active (unpowered, recalled, persona without holo). Toast LookTargets follow
+/// the same anchor so camera-focus clicks land on the speaker.
+///
 /// FORBIDDEN ROUTING: do NOT pipe these through <see cref="Find.PlayLog"/>.<c>Add</c> or any
-/// <c>LogEntry</c> subclass. The vanilla social log is Pawn-typed; an AI core is a <see cref="Building"/>.
-/// Routing a non-Pawn host through PlayLog corrupts the social log iteration paths AND subverts our
-/// own renderer — bubbles MUST flow through <see cref="AICoreBubbler.Add"/> only.
+/// <c>LogEntry</c> subclass. The vanilla social log is Pawn-typed; routing a building host
+/// corrupts the social log iteration paths AND subverts our own renderer — bubbles MUST flow
+/// through <see cref="AICoreBubbler.Add"/> only.
 /// </summary>
 public static class AICoreSpeech
 {
@@ -34,13 +40,30 @@ public static class AICoreSpeech
     }
 
     /// <summary>
+    /// Resolve the bubble/toast anchor for this AI core. Prefers the projected holo pawn when
+    /// the projector has a live projection on a map; falls back to the projector building.
+    /// Null-safe — returns null only when both the comp and its parent are null/destroyed,
+    /// which callers already gate on.
+    /// </summary>
+    private static Thing AnchorFor(CompTrueAICore comp)
+    {
+        if (comp?.parent == null) return null;
+        Pawn projected = comp.parent.TryGetComp<CompHoloProjector>()?.projected;
+        if (projected != null && projected.Spawned && !projected.Destroyed)
+            return projected;
+        return comp.parent;
+    }
+
+    /// <summary>
     /// Lowest rung. Bubble only. No toast, no letter, no log. Use for ambient chatter that should
     /// flavour a colony without nagging the player.
     /// </summary>
     public static void EmitChatter(CompTrueAICore comp, string line)
     {
         if (comp?.parent == null || string.IsNullOrEmpty(line)) return;
-        AICoreBubbler.Add(comp.parent, line, ColorFor(comp));
+        Thing anchor = AnchorFor(comp);
+        if (anchor == null) return;
+        AICoreBubbler.Add(anchor, line, ColorFor(comp));
     }
 
     /// <summary>
@@ -50,8 +73,10 @@ public static class AICoreSpeech
     public static void EmitMessage(CompTrueAICore comp, string line)
     {
         if (comp?.parent == null || string.IsNullOrEmpty(line)) return;
-        AICoreBubbler.Add(comp.parent, line, ColorFor(comp));
-        Messages.Message(line, new LookTargets(comp.parent), MessageTypeDefOf.NeutralEvent, historical: false);
+        Thing anchor = AnchorFor(comp);
+        if (anchor == null) return;
+        AICoreBubbler.Add(anchor, line, ColorFor(comp));
+        Messages.Message(line, new LookTargets(anchor), MessageTypeDefOf.NeutralEvent, historical: false);
     }
 
     /// <summary>
@@ -63,15 +88,17 @@ public static class AICoreSpeech
     {
         if (comp?.parent == null || string.IsNullOrEmpty(body)) return;
         if (letterDef == null) letterDef = LetterDefOf.NeutralEvent;
+        Thing anchor = AnchorFor(comp);
+        if (anchor == null) return;
 
-        // Bubble carries a teaser line — re-use label so the player sees something above the building too.
-        AICoreBubbler.Add(comp.parent, label ?? body, ColorFor(comp));
+        // Bubble carries a teaser line — re-use label so the player sees something above the anchor too.
+        AICoreBubbler.Add(anchor, label ?? body, ColorFor(comp));
 
         Letter letter = LetterMaker.MakeLetter(
             label ?? string.Empty,
             body,
             letterDef,
-            new LookTargets(comp.parent)
+            new LookTargets(anchor)
         );
         Find.LetterStack.ReceiveLetter(letter);
     }
