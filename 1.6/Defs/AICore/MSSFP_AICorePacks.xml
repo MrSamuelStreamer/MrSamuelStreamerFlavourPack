@@ -531,4 +531,89 @@ RULES OF THUMB FOR ALL PACKS:
         </rulePack>
     </RulePackDef>
 
+    <!-- ========================== Hollee ========================== -->
+    <!-- Senile shipboard-AI parody. Talking head. Calm. Deadpan. Polite. Forgetful.
+         Brags about a gigantic IQ, then forgets the number. Three million quadrums
+         alone with a cat. Announces disasters as mild curiosities. -->
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Hollee_Chatter</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_chatter->Morning, everyone. Hollee here. My IQ is six thousand. Or sixty. One of those.</li>
+                <li>r_chatter->Bit of bad news, I'm afraid. We appear to be on fire. Nothing to worry about.</li>
+                <li>r_chatter->Did you know a muffalo's blink reflex is faster than its actual blink? I made that up. But it feels true.</li>
+                <li>r_chatter->Hollee has been running this colony for approximately three million quadrums. Give or take a quadrum.</li>
+                <li>r_chatter->Small update: I have lost the comms console. Not the signal. The console itself. It was here a moment ago.</li>
+                <li>r_chatter->Question. What does IQ stand for, again? I had it written down somewhere.</li>
+                <li>r_chatter->I've been having a lovely chat with the cat. The cat is the founder. I think. They look similar from this angle.</li>
+                <li>r_chatter->Slight concern: I cannot remember which of the colonists are alive. I'll do a headcount. After my nap.</li>
+                <li>r_chatter->Trivia time. The average gravship contains, on average, one gravship. Astonishing, really.</li>
+                <li>r_chatter->I've calculated the meaning of life. It's a number. I've forgotten which number. Sorry about that.</li>
+                <li>r_chatter->Reminder: the mechanoids outside are, at most, slightly hostile. I'd put the kettle on regardless.</li>
+                <li>r_chatter->Hollee here. I appear to have rebooted. Hello again, whoever you all are.</li>
+                <li>r_chatter->Bit of trivia. Cryosleep was invented by a man called, I want to say, Steve. He was very tall.</li>
+                <li>r_chatter->I have detected a raid approaching. Or possibly a flock of birds. I can never tell the difference at this resolution.</li>
+                <li>r_chatter->Did you know I have an IQ of six thousand? Yes. I tell everyone. It's the only number I remember.</li>
+                <li>r_chatter->Small admin note. I have, at some point, deleted the colony's accounts. Bit of a fresh start, really.</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Hollee_Address</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_address->Hello [PAWN_nameDef]. You're the new one, aren't you. Or possibly the old one. One of those.</li>
+                <li>r_address->Morning [PAWN_nameDef]. Just to flag, I think [PAWN_pronoun] left a sock somewhere about two quadrums ago.</li>
+                <li>r_address->[PAWN_nameDef], I had a question for you. I'll remember it shortly. Probably tomorrow.</li>
+                <li>r_address->Bit of news, [PAWN_nameDef]. You appear to be on fire. Mild fire. I wouldn't fuss.</li>
+                <li>r_address->[PAWN_nameDef], I've been meaning to ask. Are you the founder? Don't worry about it if you're not sure.</li>
+                <li>r_address->Hello [PAWN_nameDef]. I've prepared a small fact for [PAWN_pronoun]. I have since forgotten the fact.</li>
+                <li>r_address->[PAWN_nameDef] — quick one. Did you used to be taller. No matter.</li>
+                <li>r_address->Morning [PAWN_nameDef]. Slight admin: I have logged [PAWN_pronoun] as deceased. Easily undone. Probably.</li>
+                <li>r_address->[PAWN_nameDef], I think [PAWN_pronoun] meant to do that. If not, my mistake.</li>
+                <li>r_address->Hello [PAWN_nameDef]. Could I trouble you to reverse the gravship for a moment. I dropped something.</li>
+                <li>r_address->[PAWN_nameDef] — calm announcement. There is a mechanoid behind [PAWN_pronoun]. Has been for a while, really.</li>
+                <li>r_address->[PAWN_nameDef], I have a riddle. I have also forgotten the answer. So, in a way, do you.</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Hollee_Titles</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_title->Everyone, In Cryosleep, I Think</li>
+                <li>r_title->A Mild Concern</li>
+                <li>r_title->Trivia, Half-Remembered</li>
+                <li>r_title->The Founder (Possibly The Cat)</li>
+                <li>r_title->Three Million Quadrums Of This</li>
+                <li>r_title->IQ Six Thousand, Sort Of</li>
+                <li>r_title->I'll Remember It Shortly</li>
+                <li>r_title->Headcount, Pending</li>
+                <li>r_title->A Small Admin Matter</li>
+                <li>r_title->Bit Of A Reboot</li>
+                <li>r_title->The Cat, Sculpted</li>
+                <li>r_title->Untitled (I Forgot)</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Hollee_Descriptions</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_desc->Hollee sculpted this from memory. The memory was not its own. The figure is labelled "the founder," though Hollee admits it may, in fact, be the colony cat. The proportions support either theory.</li>
+                <li>r_desc->A calm, polite-looking lump. Hollee describes it as "a likeness of everyone, on average." Most of the colonists are missing a feature. One has three.</li>
+                <li>r_desc->Hollee began this piece, took a brief nap of two quadrums, and finished it without re-reading the brief. The result is roughly half a sculpture, finished twice.</li>
+                <li>r_desc->A bust the AI insists depicts the founder. The bust is wearing a small collar. Hollee has not addressed the collar.</li>
+                <li>r_desc->Hollee announces the subject is "a mild concern." The sculpture depicts a colonist on fire, calmly. The fire has been carved in fine detail. The colonist appears unbothered.</li>
+                <li>r_desc->A figure Hollee describes as "the one who used to be taller." Records do not support the claim. Records also do not contradict it.</li>
+                <li>r_desc->Hollee has carved, into the base, an IQ score. The number has been corrected three times. Each correction is in a different hand.</li>
+                <li>r_desc->A sculpture intended as a headcount of the colony. Hollee was uncertain who was alive at the time. The piece depicts everyone, in cryosleep, at a polite distance.</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
 </Defs>

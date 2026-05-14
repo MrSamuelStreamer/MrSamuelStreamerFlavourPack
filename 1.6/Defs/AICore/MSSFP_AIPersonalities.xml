@@ -79,4 +79,17 @@
         <artDescriptions>MSSFP_RP_AICore_Sink_Descriptions</artDescriptions>
     </MSSFP.Defs.AIPersonalityDef>
 
+    <MSSFP.Defs.AIPersonalityDef>
+        <defName>MSSFP_AICore_Hollee</defName>
+        <label>Hollee</label>
+        <labelShort>Hollee</labelShort>
+        <description>A senile shipboard persona core. Alone in cryosleep limbo for roughly three million quadrums. Brags about its enormous IQ, then forgets what IQ stands for. Calm, polite, deadpan. Reports preventable disasters as mild curiosities. Often confuses the founder with a cat.</description>
+        <textColor>(170, 210, 230)</textColor>
+        <weight>1</weight>
+        <ambientChatter>MSSFP_RP_AICore_Hollee_Chatter</ambientChatter>
+        <pawnAddress>MSSFP_RP_AICore_Hollee_Address</pawnAddress>
+        <artTitles>MSSFP_RP_AICore_Hollee_Titles</artTitles>
+        <artDescriptions>MSSFP_RP_AICore_Hollee_Descriptions</artDescriptions>
+    </MSSFP.Defs.AIPersonalityDef>
+
 </Defs>
