@@ -24,11 +24,11 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="px"
-     inkscape:zoom="2.5305278"
-     inkscape:cx="147.79526"
-     inkscape:cy="106.8947"
+     inkscape:zoom="0.31631597"
+     inkscape:cx="-357.23773"
+     inkscape:cy="284.52563"
      inkscape:window-width="1273"
-     inkscape:window-height="1392"
+     inkscape:window-height="693"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -67,9 +67,13 @@
          offset="0"
          id="stop1" />
       <stop
-         style="stop-color:#defeff;stop-opacity:1;"
-         offset="0.40356565"
-         id="stop3" />
+         style="stop-color:#c2edc1;stop-opacity:1;"
+         offset="0.30462432"
+         id="stop10" />
+      <stop
+         style="stop-color:#1deeff;stop-opacity:1;"
+         offset="0.6950779"
+         id="stop9" />
       <stop
          style="stop-color:#1deeff;stop-opacity:1;"
          offset="1"
@@ -112,8 +116,7 @@
      inkscape:groupmode="layer"
      id="layer1">
     <g
-       id="g2"
-       inkscape:label="Pedestal">
+       id="g2">
       <rect
          style="fill:url(#linearGradient5);stroke-width:1.70294;stroke-miterlimit:3.7;paint-order:markers stroke fill"
          id="rect3"
