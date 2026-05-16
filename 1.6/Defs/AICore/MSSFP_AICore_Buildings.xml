@@ -23,6 +23,11 @@
             <graphicClass>Graphic_Single</graphicClass>
             <drawSize>(2,2)</drawSize>
         </graphicData>
+        <!-- Required so Building_AICore.DrawAt fires every frame for the orb overlay.
+             MapMeshAndRealtime keeps the static pedestal in the section batch (no per-frame
+             cost for the base sprite) AND adds the per-frame DrawAt call.
+             Field belongs on ThingDef, not GraphicData. -->
+        <drawerType>MapMeshAndRealTime</drawerType>
         <altitudeLayer>Building</altitudeLayer>
         <passability>Impassable</passability>
         <fillPercent>0.5</fillPercent>

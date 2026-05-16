@@ -24,11 +24,81 @@ public class Building_AICore : Building
     private Graphic graphicPowered;
     private Graphic graphicOffline;
 
+    // Per-instance — lazy-allocated on first draw. Each visible core needs its own block
+    // because the gradient centre is cursor-relative-to-this-core's world position.
+    private MaterialPropertyBlock orbPropertyBlock;
+
     public override void SpawnSetup(Map map, bool respawningAfterLoad)
     {
         base.SpawnSetup(map, respawningAfterLoad);
         powerComp = GetComp<CompPowerTrader>();
         ResolveGraphicsCache();
+    }
+
+    private bool IsPowered => powerComp == null || powerComp.PowerOn;
+
+    /// <summary>
+    /// Per-frame orb overlay. Requires <c>graphicData/drawerType = MapMeshAndRealtime</c> on
+    /// the ThingDef — without it, vanilla bakes the base sprite into the map mesh and DrawAt
+    /// is never called.
+    /// </summary>
+    protected override void DrawAt(Vector3 drawLoc, bool flip = false)
+    {
+        base.DrawAt(drawLoc, flip);
+        if (!IsPowered) return;
+        if (!AICoreOrbShader.IsLoaded) return;
+
+        // Tick-driven bob. Phase is locked to TicksGame so paused = frozen and
+        // Superfast = faster bob (user spec: "obeys ticks").
+        int t = Find.TickManager.TicksGame;
+        float phase = (t % AICoreOrbRenderer.BobCycleTicks)
+            / (float)AICoreOrbRenderer.BobCycleTicks
+            * 2f
+            * Mathf.PI;
+        float bobZ = Mathf.Sin(phase)
+            * AICoreOrbRenderer.OrbWorldSize
+            * AICoreOrbRenderer.BobAmplitudeFraction;
+
+        // World position of the orb centre (pre-bob z is the SVG-derived offset from
+        // building origin; bob adds to it).
+        Vector3 orbWorld = drawLoc
+            + new Vector3(0f, 0f, AICoreOrbRenderer.OrbCenterZOffset + bobZ);
+
+        // Cursor → orb-radius normalized delta → clamped → scaled into UV space.
+        Vector3 mouseW = UI.MouseMapPosition();
+        float orbRadius = AICoreOrbRenderer.OrbWorldSize * 0.5f;
+        Vector2 delta = new Vector2(
+            (mouseW.x - orbWorld.x) / orbRadius,
+            (mouseW.z - orbWorld.z) / orbRadius
+        );
+        float mag = delta.magnitude;
+        if (mag > AICoreOrbRenderer.MaxFollowRadius)
+        {
+            delta = delta * (AICoreOrbRenderer.MaxFollowRadius / mag);
+        }
+
+        Vector2 uv = new Vector2(0.5f, 0.5f)
+            + AICoreOrbRenderer.BaseGradientOffset
+            + delta * AICoreOrbRenderer.GradientFollowScale;
+
+        orbPropertyBlock ??= new MaterialPropertyBlock();
+        orbPropertyBlock.SetVector(
+            AICoreOrbRenderer.GradientCenterID,
+            new Vector4(uv.x, uv.y, 0f, 0f)
+        );
+
+        Vector3 drawPos = orbWorld;
+        drawPos.y = AltitudeLayer.BuildingOnTop.AltitudeFor();
+        Matrix4x4 matrix = Matrix4x4.TRS(drawPos, Quaternion.identity, Vector3.one);
+        Graphics.DrawMesh(
+            AICoreOrbRenderer.OrbMesh,
+            matrix,
+            AICoreOrbRenderer.OrbMaterial,
+            0,
+            null,
+            0,
+            orbPropertyBlock
+        );
     }
 
     protected override void ReceiveCompSignal(string signal)

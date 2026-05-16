@@ -1,20 +1,21 @@
 ManifestFileVersion: 0
-CRC: 386403242
+CRC: 2087831118
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: ccabe564a068190d884b3daf6e9471e3
+    Hash: 11c29632fe50cb1fd5f6cf28bc8052c9
   TypeTreeHash:
     serializedVersion: 2
     Hash: 0df1dec30b5d061d422d3e6493d27647
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: ccabe564a068190d884b3daf6e9471e3
+    Hash: 11c29632fe50cb1fd5f6cf28bc8052c9
 HashAppended: 0
 ClassTypes:
 - Class: 48
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
+- Assets/Data/MrSamuelStreamerFlavourPack/Materials/AICoreOrb.shader
 - Assets/Data/MrSamuelStreamerFlavourPack/Materials/HoloMono.shader
 Dependencies: []
