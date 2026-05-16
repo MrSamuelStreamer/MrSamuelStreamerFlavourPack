@@ -40,56 +40,67 @@ public static class AICoreSpeech
     }
 
     /// <summary>
-    /// Resolve the bubble/toast anchor for this AI core. Prefers the projected holo pawn when
-    /// the projector has a live projection on a map; falls back to the projector building.
-    /// Null-safe — returns null only when both the comp and its parent are null/destroyed,
-    /// which callers already gate on.
+    /// Resolve the bubble/toast anchor for this AI core. When the parent has a
+    /// <see cref="CompHoloProjector"/>, the anchor is ONLY the live projected pawn — no
+    /// fallback to the projector building. This reflects the design contract that the AI
+    /// speaks through its hologram; with no live projection the AI is silent. When the
+    /// parent has no projector comp at all, falls back to the building (non-holo cores).
+    /// Null result → caller must skip emit.
     /// </summary>
     private static Thing AnchorFor(CompTrueAICore comp)
     {
         if (comp?.parent == null) return null;
-        Pawn projected = comp.parent.TryGetComp<CompHoloProjector>()?.projected;
-        if (projected != null && projected.Spawned && !projected.Destroyed)
-            return projected;
+        CompHoloProjector projector = comp.parent.TryGetComp<CompHoloProjector>();
+        if (projector != null)
+        {
+            Pawn projected = projector.projected;
+            if (projected != null && projected.Spawned && !projected.Destroyed)
+                return projected;
+            return null;
+        }
         return comp.parent;
     }
 
     /// <summary>
     /// Lowest rung. Bubble only. No toast, no letter, no log. Use for ambient chatter that should
-    /// flavour a colony without nagging the player.
+    /// flavour a colony without nagging the player. Returns true if the bubble was emitted.
     /// </summary>
-    public static void EmitChatter(CompTrueAICore comp, string line)
+    public static bool EmitChatter(CompTrueAICore comp, string line)
     {
-        if (comp?.parent == null || string.IsNullOrEmpty(line)) return;
+        if (comp?.parent == null || string.IsNullOrEmpty(line)) return false;
         Thing anchor = AnchorFor(comp);
-        if (anchor == null) return;
+        if (anchor == null) return false;
         AICoreBubbler.Add(anchor, line, ColorFor(comp));
+        return true;
     }
 
     /// <summary>
     /// Mid rung. Bubble + non-historical neutral toast. Use when the chatter should briefly grab
-    /// attention but not interrupt (e.g. art-completion blurb).
+    /// attention but not interrupt (e.g. art-completion blurb). Returns true if both bubble and
+    /// toast were emitted.
     /// </summary>
-    public static void EmitMessage(CompTrueAICore comp, string line)
+    public static bool EmitMessage(CompTrueAICore comp, string line)
     {
-        if (comp?.parent == null || string.IsNullOrEmpty(line)) return;
+        if (comp?.parent == null || string.IsNullOrEmpty(line)) return false;
         Thing anchor = AnchorFor(comp);
-        if (anchor == null) return;
+        if (anchor == null) return false;
         AICoreBubbler.Add(anchor, line, ColorFor(comp));
         Messages.Message(line, new LookTargets(anchor), MessageTypeDefOf.NeutralEvent, historical: false);
+        return true;
     }
 
     /// <summary>
     /// High rung. Bubble + Letter via <see cref="LetterStack.ReceiveLetter(Letter, string)"/>.
     /// Caller MUST throttle (per-core daily cap, suppress during <see cref="StoryDanger.High"/>+).
     /// <paramref name="letterDef"/> picks the Letter category (NeutralEvent / ThreatSmall / etc).
+    /// Returns true if the letter (and bubble) were dispatched.
     /// </summary>
-    public static void EmitLetter(CompTrueAICore comp, string label, string body, LetterDef letterDef)
+    public static bool EmitLetter(CompTrueAICore comp, string label, string body, LetterDef letterDef)
     {
-        if (comp?.parent == null || string.IsNullOrEmpty(body)) return;
+        if (comp?.parent == null || string.IsNullOrEmpty(body)) return false;
         if (letterDef == null) letterDef = LetterDefOf.NeutralEvent;
         Thing anchor = AnchorFor(comp);
-        if (anchor == null) return;
+        if (anchor == null) return false;
 
         // Bubble carries a teaser line — re-use label so the player sees something above the anchor too.
         AICoreBubbler.Add(anchor, label ?? body, ColorFor(comp));
@@ -101,5 +112,6 @@ public static class AICoreSpeech
             new LookTargets(anchor)
         );
         Find.LetterStack.ReceiveLetter(letter);
+        return true;
     }
 }

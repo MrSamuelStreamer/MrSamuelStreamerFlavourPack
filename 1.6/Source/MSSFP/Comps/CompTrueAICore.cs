@@ -54,6 +54,12 @@ public class CompTrueAICore : ThingComp, IThingHolder
     /// <summary>Cached sibling holo projector comp (null if def has no projector). For inspect-string state line.</summary>
     private CompHoloProjector holoComp;
 
+    /// <summary>Cached sibling power-trader comp (null on powerless variants). Powers the chatter / announce / art-completion tick gates.</summary>
+    private CompPowerTrader powerComp;
+
+    /// <summary>True when the core has power, or has no <see cref="CompPowerTrader"/> at all (powerless variant defs). Mirrors <see cref="CompHoloProjector.HasPower"/>.</summary>
+    private bool IsPowered => powerComp == null || powerComp.PowerOn;
+
     public override void PostPostMake()
     {
         base.PostPostMake();
@@ -76,24 +82,15 @@ public class CompTrueAICore : ThingComp, IThingHolder
         if (dayTickStart < 0)
             dayTickStart = Find.TickManager.TicksGame;
 
-        // Cache projector sibling for inspect-string state line.
+        // Cache sibling comps for inspect-string state line + tick gates.
         holoComp = parent?.TryGetComp<CompHoloProjector>();
+        powerComp = parent?.TryGetComp<CompPowerTrader>();
 
-        // One-shot spawn announce. Idempotent (spawnAnnounced scribed) + load-skip + null-guard.
-        // Uses Messages.Message (not Letter) deliberately: dev-spawn intro, not crisis-tier,
-        // and Messages bypass the lettersPerDay/dangerOk cap so it can't fire mid-raid.
-        // letterChance is NOT consulted — that prop is per-tick chatter probability, not a
-        // one-shot spawn gate (semantic mismatch flagged in DA review).
-        if (!respawningAfterLoad && !spawnAnnounced && activePersonality != null)
-        {
-            Messages.Message(
-                $"AI core online — {activePersonality.LabelShortOrLabel}.",
-                parent,
-                MessageTypeDefOf.PositiveEvent,
-                historical: false
-            );
-            spawnAnnounced = true;
-        }
+        // Spawn-announce is no longer fired here. Power-up timing on fresh placement is
+        // unreliable (PowerNet not yet settled) and the announce must anchor to the holo
+        // pawn when a projector sibling is present — which doesn't exist on PostSpawnSetup.
+        // The announce is retried each rare tick (see CompTickRare) until it actually
+        // emits, gated by IsPowered + AICoreSpeech.AnchorFor.
     }
 
     /// <summary>
@@ -111,6 +108,19 @@ public class CompTrueAICore : ThingComp, IThingHolder
         if (parent == null || !parent.Spawned) return;
         if (parent.Faction != Faction.OfPlayer) return;
         if (activePersonality == null) return;
+        if (!IsPowered) return;
+
+        // Deferred spawn-announce: retries each tick until it actually emits (powered AND, if a
+        // holo projector sibling exists, projection live). spawnAnnounced is scribed, so the
+        // retry survives save/load. Returning here on success avoids double-talk this tick.
+        if (!spawnAnnounced)
+        {
+            if (AICoreSpeech.EmitMessage(this, $"AI core online — {activePersonality.LabelShortOrLabel}."))
+            {
+                spawnAnnounced = true;
+                return;
+            }
+        }
 
         // Poll-driven art completion. ~250-tick worst-case latency between last haul and spawn —
         // acceptable for v1; cleaner than overriding ThingOwner.Notify_ItemAdded.
@@ -142,7 +152,6 @@ public class CompTrueAICore : ThingComp, IThingHolder
 
         string line = worker.RollChatter(this);
         if (string.IsNullOrEmpty(line)) return;
-        lastChatterTick = now;
 
         EnsureDayWindow(now);
 
@@ -152,15 +161,21 @@ public class CompTrueAICore : ThingComp, IThingHolder
         bool capOk = lettersToday < Props.lettersPerDay;
         bool fireLetter = dangerOk && capOk && Rand.Value < Props.letterChance;
 
+        bool emitted;
         if (fireLetter)
         {
-            AICoreSpeech.EmitLetter(this, activePersonality.LabelShortOrLabel, line, MSSFPDefOf.MSSFP_AICoreAlert);
-            lettersToday++;
+            emitted = AICoreSpeech.EmitLetter(this, activePersonality.LabelShortOrLabel, line, MSSFPDefOf.MSSFP_AICoreAlert);
+            if (emitted) lettersToday++;
         }
         else
         {
-            AICoreSpeech.EmitChatter(this, line);
+            emitted = AICoreSpeech.EmitChatter(this, line);
         }
+
+        // Only burn the cooldown window when an emit actually went through. A silent-suppress
+        // (holo recalled, etc.) leaves the cooldown intact so the next powered/projected tick
+        // can still talk.
+        if (emitted) lastChatterTick = now;
     }
 
     /// <summary>
