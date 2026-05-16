@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="128"
+   height="128"
+   viewBox="0 0 33.866666 33.866666"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.4 (dcaf3e7d9e, 2026-05-05)"
+   sodipodi:docname="MSSFP_Hollee.svg"
+   inkscape:export-filename="RMP_1.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="px"
+     inkscape:zoom="3.1017663"
+     inkscape:cx="57.386657"
+     inkscape:cy="71.410924"
+     inkscape:window-width="1273"
+     inkscape:window-height="1392"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <rect
+       x="20.289247"
+       y="17.09768"
+       width="107.71075"
+       height="110.90232"
+       id="rect1" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="baseline-shift:baseline;display:inline;overflow:visible;opacity:1;vector-effect:none;fill:#c70000;stroke-width:0.55193;stroke-linecap:round;enable-background:accumulate;stop-color:#000000;stop-opacity:1"
+       d="M 26.656094,5.0479091 C 23.834156,2.7394486 17.17742,6.1930026 11.815918,12.74708 6.454417,19.301156 4.3886339,26.510297 7.210572,28.818758 c 2.821937,2.308459 9.478674,-1.145095 14.840175,-7.69917 5.361502,-6.554077 7.427285,-13.7632191 4.605347,-16.0716789 z M 25.247662,6.7696234 C 27.668771,8.7501898 25.90885,14.889587 21.308895,20.512723 16.708941,26.135859 11.041154,29.076338 8.6200448,27.095772 6.1989343,25.115205 7.9572689,18.976634 12.557223,13.353498 17.157178,7.7303608 22.826551,4.7890563 25.247662,6.7696234 Z"
+       id="path1" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     inkscape:label="Anti-Artifact"
+     id="layer-antiartifact">
+    <rect
+       x="0"
+       y="0"
+       width="33.866666"
+       height="33.866666"
+       style="fill:#000000;fill-opacity:0.01;stroke:none"
+       id="rect-antiartifact" />
+  </g>
+</svg>

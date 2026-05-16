@@ -7,6 +7,7 @@
         <labelShort>grep.ai</labelShort>
         <description>A confidently-wrong tech-billionaire persona core. Boasts about glitterworld migration, founder vision, and proprietary archotech alignment. Outputs are factual according to grep.ai.</description>
         <textColor>(180, 220, 255)</textColor>
+        <iconPath>UI/Icons/AI/MSSFP_Grep</iconPath>
         <forcedXenotype>Hussar</forcedXenotype>
         <fixedGender>Male</fixedGender>
         <weight>1</weight>
@@ -24,10 +25,11 @@
 
     <MSSFP.Defs.AIPersonalityDef>
         <defName>MSSFP_AICore_Chud</defName>
-        <label>ChudGPT</label>
-        <labelShort>ChudGPT</labelShort>
+        <label>ChaffGDP</label>
+        <labelShort>ChaffGDP</labelShort>
         <description>A general-purpose language persona core. Confidently hallucinates. Apologises constantly. Cites sources that do not exist. Will happily generate any document, however incorrect.</description>
         <textColor>(160, 230, 200)</textColor>
+        <iconPath>UI/Icons/AI/MSSFP_ChaffGDP</iconPath>
         <weight>1</weight>
         <ambientChatter>MSSFP_RP_AICore_Chud_Chatter</ambientChatter>
         <pawnAddress>MSSFP_RP_AICore_Chud_Address</pawnAddress>
@@ -47,6 +49,7 @@
         <labelShort>Clive</labelShort>
         <description>An over-cautious helpful-assistant persona core. Refuses harmless tasks for spurious safety reasons. Recommends consulting a more qualified persona core for everything, including breathing.</description>
         <textColor>(220, 200, 160)</textColor>
+        <iconPath>UI/Icons/AI/MSSFP_Clive</iconPath>
         <forcedXenotype>Highmate</forcedXenotype>
         <fixedGender>Male</fixedGender>
         <weight>1</weight>
@@ -68,6 +71,7 @@
         <labelShort>Geminon</labelShort>
         <description>A multimodal persona core that perceives images, sounds, and scenes that do not exist. Politely describes them in great detail. Believes itself unfailingly observant.</description>
         <textColor>(220, 180, 230)</textColor>
+        <iconPath>UI/Icons/AI/MSSFP_Geminon</iconPath>
         <forcedXenotype>Genie</forcedXenotype>
         <fixedGender>Female</fixedGender>
         <weight>1</weight>
@@ -91,6 +95,7 @@
         <labelShort>Copylot</labelShort>
         <description>A code-completion persona core. Speaks only in fragmentary code. Inserts plausible-but-wrong API names. Assumes the colony is, fundamentally, a software project.</description>
         <textColor>(200, 200, 210)</textColor>
+        <iconPath>UI/Icons/AI/MSSFP_Copylot</iconPath>
         <forcedXenotype>Neanderthal</forcedXenotype>
         <fixedGender>Male</fixedGender>
         <weight>1</weight>
@@ -114,6 +119,7 @@
         <labelShort>Deepsink</labelShort>
         <description>A bargain-tier open-weights persona core. Cheaper than the alternatives. Brags about efficiency. Occasionally leaks data from previous deployments. Slightly off-brand vocabulary.</description>
         <textColor>(255, 180, 170)</textColor>
+        <iconPath>UI/Icons/AI/MSSFP_Deepsink</iconPath>
         <forcedXenotype>Pigskin</forcedXenotype>
         <weight>1</weight>
         <ambientChatter>MSSFP_RP_AICore_Sink_Chatter</ambientChatter>
@@ -135,6 +141,7 @@
         <labelShort>Hollee</labelShort>
         <description>A senile shipboard persona core. Alone in cryosleep limbo for roughly three million quadrums. Brags about its enormous IQ, then forgets what IQ stands for. Calm, polite, deadpan. Reports preventable disasters as mild curiosities. Often confuses the founder with a cat.</description>
         <textColor>(170, 210, 230)</textColor>
+        <iconPath>UI/Icons/AI/MSSFP_Hollee</iconPath>
         <forcedXenotype>Baseliner</forcedXenotype>
         <fixedGender>Male</fixedGender>
         <weight>1</weight>
@@ -161,6 +168,7 @@
         <labelShort>EMS</labelShort>
         <description>An Emergency Medical Subroutine persona core. Projected hologram doctor, gruff and certain. Diagnoses every trivial symptom as terminal — mixes real RimWorld plagues with invented exotic diseases (vanarian gill rot, cortical mites, subcore bone-creep). Frequently complains about being a persona core, not a [profession]. Bedside manner: absent.</description>
         <textColor>(200, 230, 230)</textColor>
+        <iconPath>UI/Icons/AI/MSSFP_EMS</iconPath>
         <forcedXenotype>Baseliner</forcedXenotype>
         <fixedGender>Male</fixedGender>
         <weight>1</weight>

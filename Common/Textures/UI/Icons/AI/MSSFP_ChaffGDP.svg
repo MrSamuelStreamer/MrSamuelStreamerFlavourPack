@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="128"
+   height="128"
+   viewBox="0 0 33.866666 33.866666"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.4 (dcaf3e7d9e, 2026-05-05)"
+   sodipodi:docname="MSSFP_Chud.svg"
+   inkscape:export-filename="MSSFP_Chud.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="px"
+     inkscape:zoom="2.19328"
+     inkscape:cx="34.423329"
+     inkscape:cy="8.4348556"
+     inkscape:window-width="1273"
+     inkscape:window-height="1392"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <rect
+       x="20.289247"
+       y="17.09768"
+       width="107.71075"
+       height="110.90232"
+       id="rect1" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       id="path1"
+       style="stroke-width:2.11666663;stroke:#000000;stroke-opacity:1;fill:none;stroke-dasharray:none"
+       d="M 28.774824,16.933332 A 11.841492,11.84149 0 0 1 16.933332,28.774822 11.841492,11.84149 0 0 1 5.0918407,16.933332 11.841492,11.84149 0 0 1 16.933332,5.0918427 11.841492,11.84149 0 0 1 28.774824,16.933332 Z" />
+    <ellipse
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.38768;stroke-opacity:1"
+       id="path4"
+       cx="16.933332"
+       cy="16.933332"
+       rx="5.9207458"
+       ry="5.9207454" />
+    <path
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.32292;stroke-dasharray:none;stroke-opacity:1"
+       d="m 16.933332,5.0918427 -4.1866,7.6548913"
+       id="path10" />
+    <path
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.32292;stroke-dasharray:none;stroke-opacity:1"
+       d="m 5.0918408,16.933332 7.6548922,4.186601"
+       id="path11" />
+    <path
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.32292;stroke-dasharray:none;stroke-opacity:1"
+       d="m 16.933332,28.774821 4.186599,-7.654888"
+       id="path12" />
+    <path
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.32292;stroke-dasharray:none;stroke-opacity:1"
+       d="M 28.774824,16.933332 21.119932,12.746734"
+       id="path13" />
+    <g
+       id="g13"
+       transform="rotate(-45,23.388077,24.345584)">
+      <path
+         style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.32292;stroke-dasharray:none;stroke-opacity:1"
+         d="m 24.065137,2.6986461 -4.1866,7.6548909"
+         id="path10-6" />
+      <path
+         style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.32292;stroke-dasharray:none;stroke-opacity:1"
+         d="m 12.223646,14.540135 7.654892,4.186601"
+         id="path11-2" />
+      <path
+         style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.32292;stroke-dasharray:none;stroke-opacity:1"
+         d="m 24.065137,26.381624 4.186599,-7.654888"
+         id="path12-6" />
+      <path
+         style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.32292;stroke-dasharray:none;stroke-opacity:1"
+         d="M 35.906629,14.540135 28.251737,10.353537"
+         id="path13-1" />
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     inkscape:label="Anti-Artifact"
+     id="layer-antiartifact">
+    <rect
+       x="0"
+       y="0"
+       width="33.866666"
+       height="33.866666"
+       style="fill:#000000;fill-opacity:0.01;stroke:none"
+       id="rect-antiartifact" />
+  </g>
+</svg>

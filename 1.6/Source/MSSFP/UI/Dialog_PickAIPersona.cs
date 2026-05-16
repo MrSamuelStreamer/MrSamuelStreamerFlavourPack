@@ -111,11 +111,7 @@ public class Dialog_PickAIPersona : Window
             Texture2D tex = ContentFinder<Texture2D>.Get(def.iconPath, false);
             if (tex != null)
             {
-                GUI.color = def.textColor.r > 1f || def.textColor.g > 1f || def.textColor.b > 1f
-                    ? new Color(def.textColor.r / 255f, def.textColor.g / 255f, def.textColor.b / 255f, 1f)
-                    : def.textColor;
                 GUI.DrawTexture(iconRect, tex, ScaleMode.ScaleToFit);
-                GUI.color = Color.white;
             }
         }
 

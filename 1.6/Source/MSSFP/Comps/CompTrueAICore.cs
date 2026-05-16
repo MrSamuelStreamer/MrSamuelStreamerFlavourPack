@@ -616,7 +616,7 @@ public class CompTrueAICore : ThingComp, IThingHolder
                     iconTex: !string.IsNullOrEmpty(captured.iconPath)
                         ? ContentFinder<Texture2D>.Get(captured.iconPath, false)
                         : null,
-                    iconColor: captured.textColor
+                    iconColor: Color.white
                 )
             );
         }

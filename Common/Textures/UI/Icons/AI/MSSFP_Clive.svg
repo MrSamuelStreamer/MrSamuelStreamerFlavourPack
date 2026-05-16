@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="128"
+   height="128"
+   viewBox="0 0 33.866666 33.866666"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.4 (dcaf3e7d9e, 2026-05-05)"
+   sodipodi:docname="MSSFP_Clive.svg"
+   inkscape:export-filename="MSSFP_Clive.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="px"
+     inkscape:zoom="1.09664"
+     inkscape:cx="26.444412"
+     inkscape:cy="175.99212"
+     inkscape:window-width="1273"
+     inkscape:window-height="693"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <rect
+       x="20.289247"
+       y="17.09768"
+       width="107.71075"
+       height="110.90232"
+       id="rect1" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:none;stroke:#964e02;stroke-width:1.32291664;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+       d="m 16.933333,6.9509 c 0,19.964866 0,19.964866 0,19.964866"
+       id="path1" />
+    <path
+       style="fill:none;stroke:#964e02;stroke-width:1.32291664;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+       d="M 14.51727,7.2476938 C 19.349396,26.618972 19.349396,26.618972 19.349396,26.618972"
+       id="path1-5" />
+    <path
+       style="fill:none;stroke:#964e02;stroke-width:1.32291664;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+       d="M 10.621719,9.1994785 C 23.244947,24.667187 23.244947,24.667187 23.244947,24.667187"
+       id="path1-9" />
+    <path
+       style="fill:none;stroke:#964e02;stroke-width:1.32291664;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+       d="M 8.3430909,11.848384 C 25.523575,22.018282 25.523575,22.018282 25.523575,22.018282"
+       id="path1-2" />
+    <path
+       style="fill:none;stroke:#964e02;stroke-width:1.32291664;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+       d="M 21.604447,8.1112211 C 12.262219,25.755445 12.262219,25.755445 12.262219,25.755445"
+       id="path1-4" />
+    <path
+       style="fill:none;stroke:#964e02;stroke-width:1.32291664;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+       d="M 22.92556,8.9494629 C 10.941106,24.917203 10.941106,24.917203 10.941106,24.917203"
+       id="path1-4-0" />
+    <path
+       style="fill:none;stroke:#964e02;stroke-width:1.32291664;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+       d="M 24.869676,10.8783 C 8.9969897,22.988366 8.9969897,22.988366 8.9969897,22.988366"
+       id="path1-4-6" />
+    <path
+       style="fill:none;stroke:#964e02;stroke-width:1.32291664;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+       d="M 26.288284,13.449965 C 7.578382,20.416702 7.578382,20.416702 7.578382,20.416702"
+       id="path1-4-1" />
+    <path
+       style="fill:none;stroke:#964e02;stroke-width:1.32291664;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+       d="M 26.912073,16.661816 C 6.9545934,17.20485 6.9545934,17.20485 6.9545934,17.20485"
+       id="path1-4-65" />
+    <circle
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:5.12036;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+       id="path2"
+       cx="16.933332"
+       cy="16.933332"
+       r="1.984375" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     inkscape:label="Anti-Artifact"
+     id="layer-antiartifact">
+    <rect
+       x="0"
+       y="0"
+       width="33.866666"
+       height="33.866666"
+       style="fill:#000000;fill-opacity:0.01;stroke:none"
+       id="rect-antiartifact" />
+  </g>
+</svg>

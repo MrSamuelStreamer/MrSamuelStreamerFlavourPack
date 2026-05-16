@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="128"
+   height="128"
+   viewBox="0 0 33.866666 33.866666"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.4 (dcaf3e7d9e, 2026-05-05)"
+   sodipodi:docname="MSSFP_Deepsink.svg"
+   inkscape:export-filename="MSSFP_Deepsink.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="px"
+     inkscape:zoom="3.1017663"
+     inkscape:cx="55.935871"
+     inkscape:cy="49.64913"
+     inkscape:window-width="1273"
+     inkscape:window-height="693"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <rect
+       x="20.289247"
+       y="17.09768"
+       width="107.71075"
+       height="110.90232"
+       id="rect1" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       id="path1"
+       style="fill:#0098ff;stroke-width:2.23063;stroke-linecap:round;fill-opacity:1"
+       d="M 14.597994,8.8064656 A 12.306019,7.0683332 0 0 0 2.2920965,15.874755 12.306019,7.0683332 0 0 0 14.597994,22.943043 12.306019,7.0683332 0 0 0 26.011643,18.515779 12.306019,7.0683332 0 0 0 30.306464,21.639523 V 10.109116 A 12.306019,7.0683332 0 0 0 26.011643,13.231989 12.306019,7.0683332 0 0 0 14.597994,8.8064656 Z" />
+    <circle
+       style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.92686;stroke-linecap:round;stroke-opacity:1"
+       id="path2"
+       cx="9.4395819"
+       cy="13.480809"
+       r="2.0206134" />
+    <circle
+       style="fill:#0098ff;fill-opacity:1;stroke:none;stroke-width:1.32292;stroke-linecap:round;stroke-opacity:1"
+       id="path3"
+       cx="10.497914"
+       cy="13.272489"
+       r="0.75396019" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     inkscape:label="Anti-Artifact"
+     id="layer-antiartifact">
+    <rect
+       x="0"
+       y="0"
+       width="33.866666"
+       height="33.866666"
+       style="fill:#000000;fill-opacity:0.01;stroke:none"
+       id="rect-antiartifact" />
+  </g>
+</svg>
