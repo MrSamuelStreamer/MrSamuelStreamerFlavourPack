@@ -619,7 +619,10 @@ public class CompHoloProjector : ThingComp, IThingHolder
 
         // Production tint is now persona-driven via AIPersonalityDef.HoloTintOrTextColor —
         // no runtime picker. To recolor a persona, edit its XML def and reload defs.
-        if (!Prefs.DevMode)
+        // Dev gizmos require active godMode (not just DevMode prefs) — matches the
+        // "Switch personality" gate on CompTrueAICore so all dev-only knobs are
+        // consistently gated by godMode.
+        if (!DebugSettings.godMode)
             yield break;
 
         yield return new Command_Action

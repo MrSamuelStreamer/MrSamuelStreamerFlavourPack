@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+    Loaded AI persona core. Drops from a destroyed/deconstructed Pondering Orb,
+    carrying the holo pawn + the active persona. Used as a costList substitute
+    for AIPersonaCore in MSSFP_AICore_LoadedVariant — colonists haul this to
+    the build site, on construction completion the stored pawn is transferred
+    into the new orb's projector.
+
+    Indestructibility: useHitPoints=false (no damage path, no HP bar) + Flammability=0
+    is the real protection. We deliberately do NOT set destroyable=false because that
+    flag only blocks player-issued destroy/cut designators and conflicts with internal
+    container cleanup (Frame.resourceContainer.ClearAndDestroyContents).
+-->
+<Defs>
+
+    <ThingDef ParentName="ResourceBase">
+        <defName>MSSFP_LoadedAIPersonaCore</defName>
+        <label>loaded AI persona core</label>
+        <description>A self-contained cogitator core, salvaged intact from a dismantled Pondering Orb. Inside the lattice is the persona it ran — and the projection it gave that persona a body through. Slot it into a new orb chassis and the AI wakes up exactly where it left off.</description>
+        <thingClass>ThingWithComps</thingClass>
+        <graphicData>
+            <texPath>Things/Item/Special/AIPersonaCore</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(0.85,0.85)</drawSize>
+        </graphicData>
+        <useHitPoints>false</useHitPoints>
+        <stackLimit>1</stackLimit>
+        <thingCategories>
+            <li>ItemsExoticMisc</li>
+        </thingCategories>
+        <statBases>
+            <MarketValue>4000</MarketValue>
+            <Mass>4</Mass>
+            <Flammability>0</Flammability>
+            <DeteriorationRate>0</DeteriorationRate>
+        </statBases>
+        <tradeability>None</tradeability>
+        <comps>
+            <li Class="MSSFP.Comps.CompProperties_LoadedAIPersonaCore" />
+        </comps>
+    </ThingDef>
+
+</Defs>

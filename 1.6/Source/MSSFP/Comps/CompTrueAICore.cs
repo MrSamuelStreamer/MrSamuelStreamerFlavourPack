@@ -51,6 +51,13 @@ public class CompTrueAICore : ThingComp, IThingHolder
     /// </summary>
     public bool spawnAnnounced;
 
+    /// <summary>
+    /// One-shot scribed flag — true after the player has explicitly picked a persona via the
+    /// build-time modal. Suppresses re-popup on save/load. Pre-rename dev-spawn cores migrate
+    /// to true on PostLoadInit when activePersonality is already set (see PostExposeData).
+    /// </summary>
+    public bool personaChosen;
+
     /// <summary>Cached sibling holo projector comp (null if def has no projector). For inspect-string state line.</summary>
     private CompHoloProjector holoComp;
 
@@ -75,7 +82,12 @@ public class CompTrueAICore : ThingComp, IThingHolder
     public override void PostSpawnSetup(bool respawningAfterLoad)
     {
         base.PostSpawnSetup(respawningAfterLoad);
-        if (activePersonality == null)
+
+        // Auto-roll a persona ONLY after the player has confirmed one (or the dev-spawn /
+        // legacy migration path has marked personaChosen=true). Pre-pick, activePersonality
+        // stays null so the modal's SetPersonality(...) call is guaranteed to flip both
+        // personaChosen AND set the value (no early-return on equal-value path).
+        if (personaChosen && activePersonality == null)
         {
             activePersonality = Props.defaultPersonality ?? RollRandomPersonality();
         }
@@ -86,11 +98,39 @@ public class CompTrueAICore : ThingComp, IThingHolder
         holoComp = parent?.TryGetComp<CompHoloProjector>();
         powerComp = parent?.TryGetComp<CompPowerTrader>();
 
+        // Forced persona-pick modal for fresh player-built cores. Re-fires after save/load
+        // if the player saved with the popup open (personaChosen still false). LongEvent
+        // queue defers until the map finishes its current render frame — avoids opening
+        // the window mid-SpawnSetup which can collide with concurrent comp init.
+        //
+        // Skip entirely when constructed via the loaded-variant path: the Frame postfix is
+        // about to transfer a stored persona into this orb in the same call frame, so the
+        // player should never see the popup. ExecuteWhenFinished runs SYNCHRONOUSLY when no
+        // LongEvent is pending, so we can't rely on deferral to outrun the postfix — the
+        // flag check is the only race-free way.
+        if (!personaChosen
+            && parent?.Faction == Faction.OfPlayer
+            && !MSSFP.HarmonyPatches.Frame_CompleteConstruction_LoadedCore_Patch.ConstructingLoaded)
+        {
+            LongEventHandler.ExecuteWhenFinished(OpenPersonaPicker);
+        }
+
         // Spawn-announce is no longer fired here. Power-up timing on fresh placement is
         // unreliable (PowerNet not yet settled) and the announce must anchor to the holo
         // pawn when a projector sibling is present — which doesn't exist on PostSpawnSetup.
         // The announce is retried each rare tick (see CompTickRare) until it actually
         // emits, gated by IsPowered + AICoreSpeech.AnchorFor.
+    }
+
+    /// <summary>
+    /// Open the forced modal. Safe to call from <see cref="LongEventHandler"/> — null-checks
+    /// parent + comp state in case the building was destroyed before the queued event fires.
+    /// </summary>
+    private void OpenPersonaPicker()
+    {
+        if (parent == null || parent.Destroyed) return;
+        if (personaChosen) return;
+        Find.WindowStack.Add(new MSSFP.Dialogs.Dialog_PickAIPersona(this));
     }
 
     /// <summary>
@@ -401,11 +441,23 @@ public class CompTrueAICore : ThingComp, IThingHolder
         Scribe_Values.Look(ref dayTickStart, "dayTickStart", -1);
         Scribe_Values.Look(ref artRequested, "artRequested", false);
         Scribe_Values.Look(ref spawnAnnounced, "spawnAnnounced", false);
+        Scribe_Values.Look(ref personaChosen, "personaChosen", false);
         Scribe_Deep.Look(ref innerContainer, "innerContainer", this);
         if (Scribe.mode == LoadSaveMode.PostLoadInit)
         {
             personalityScratch ??= new Dictionary<string, string>();
             innerContainer ??= new ThingOwner<Thing>(this);
+
+            // Migration: pre-rename dev-spawn cores have an activePersonality already (from
+            // the old PostSpawnSetup auto-roll) but no scribed personaChosen field — defaults
+            // to false. Treat existing-persona-on-load as "the player has lived with this
+            // choice" → no forced popup on save reload. Fresh builds always have
+            // activePersonality == null at this point, so they correctly fall through to
+            // the popup path in PostSpawnSetup.
+            if (!personaChosen && activePersonality != null)
+            {
+                personaChosen = true;
+            }
         }
     }
 
@@ -483,7 +535,10 @@ public class CompTrueAICore : ThingComp, IThingHolder
         if (parent.Faction != Faction.OfPlayer)
             yield break;
 
-        if (Props.showPersonalitySelector)
+        // Player-visible switcher is config-gated; dev-mode operators always see it so they
+        // can re-pick after the one-shot modal has locked the persona. Spec: "user can't
+        // change after, except for a dev-mode gizmo".
+        if (Props.showPersonalitySelector || DebugSettings.godMode)
         {
             yield return new Command_Action
             {
@@ -572,7 +627,13 @@ public class CompTrueAICore : ThingComp, IThingHolder
 
     public void SetPersonality(AIPersonalityDef next)
     {
-        if (next == null || next == activePersonality) return;
+        if (next == null) return;
+        // Flip the choice flag BEFORE the equality early-return so the popup never re-fires
+        // if the player happens to confirm the same persona that an old code path had already
+        // rolled. Concern from DA pass: without this, RollRandomPersonality(EMS) + player
+        // picking EMS in the modal = no state change = personaChosen never set = popup loops.
+        personaChosen = true;
+        if (next == activePersonality) return;
         activePersonality = next;
         personalityScratch.Clear();
         // Notify the sibling holo-projector (if any) so its persona-name one-shot re-applies

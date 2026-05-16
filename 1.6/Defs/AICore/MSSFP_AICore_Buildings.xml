@@ -1,35 +1,34 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!--
-    AI Core building. Dev-spawn only (no designationCategory / no costList /
-    no researchPrerequisites). Hosts a true-AI-core persona + a holo projector
-    so spawning one immediately stands up a holographic crewmate.
+    The Pondering Orb. Buildable research bench that hosts a true-AI-core
+    persona + holo projector. On first construction by the player, a forced
+    modal asks for the AI persona to install; persona is locked after pick
+    (dev mode exposes a re-pick gizmo).
 
-    Power: 400W via CompPowerTrader.
-    Ticker: Rare — CompTrueAICore chatter MTB driver requires ≥Rare
-    (see CompTrueAICore.cs line 72).
-    Comps: leave CompProperties_TrueAICore.defaultPersonality null so the comp
-    rolls a random persona on spawn (PostSpawnSetup, line 65).
+    Inherits Building_ResearchBench so colonists assign Research jobs to it.
+    Power: 400W. Ticker: Rare. Cost mirrors HiTechResearchBench + 1 AIPersonaCore.
+    Research prereq: MSSFP_PonderingOrb (gated behind Microelectronics + Multi-Analyzer).
 -->
 <Defs>
 
-    <ThingDef ParentName="BuildingBase">
+    <ThingDef ParentName="BuildingBase" Name="MSSFP_AICore">
         <defName>MSSFP_AICore</defName>
         <thingClass>MSSFP.Buildings.Building_AICore</thingClass>
-        <label>AI core</label>
-        <description>A self-contained cogitator lattice running a fully-realised digital persona. The unit's emitter array maintains a hard-light projection of its operator, giving the AI a body on the map. Powered down or smashed, the projection collapses.</description>
+        <label>The Pondering Orb</label>
+        <description>A pedestal-mounted cogitator running a captured AI persona, projected as a hard-light avatar bound by a private leash field around the device. The orb watches, thinks, occasionally talks — and accelerates research in concert with a multi-analyzer. Smash it or take it apart and the persona crystallises into a portable core, ready to be installed in a new chassis.</description>
         <category>Building</category>
         <graphicData>
             <texPath>Things/Building/MSSFP_AI_Core</texPath>
             <graphicClass>Graphic_Single</graphicClass>
-            <drawSize>(2,2)</drawSize>
+            <drawSize>(2.5,2.5)</drawSize>
         </graphicData>
         <!-- Required so Building_AICore.DrawAt fires every frame for the orb overlay.
-             MapMeshAndRealtime keeps the static pedestal in the section batch (no per-frame
-             cost for the base sprite) AND adds the per-frame DrawAt call.
-             Field belongs on ThingDef, not GraphicData. -->
+             MapMeshAndRealTime keeps the static pedestal in the section batch (no per-frame
+             cost for the base sprite) AND adds the per-frame DrawAt call. -->
         <drawerType>MapMeshAndRealTime</drawerType>
         <altitudeLayer>Building</altitudeLayer>
-        <passability>Impassable</passability>
+        <passability>PassThroughOnly</passability>
+        <pathCost>50</pathCost>
         <fillPercent>0.5</fillPercent>
         <blockWind>true</blockWind>
         <blockLight>true</blockLight>
@@ -39,11 +38,36 @@
         <selectable>true</selectable>
         <size>(2,2)</size>
         <tickerType>Rare</tickerType>
+        <hasInteractionCell>true</hasInteractionCell>
+        <interactionCellOffset>(0,0,-1)</interactionCellOffset>
+        <surfaceType>Item</surfaceType>
+        <stuffCategories>
+            <li>Metallic</li>
+        </stuffCategories>
+        <costStuffCount>150</costStuffCount>
+        <costList>
+            <Steel>100</Steel>
+            <ComponentIndustrial>10</ComponentIndustrial>
+            <AIPersonaCore>1</AIPersonaCore>
+        </costList>
+        <designationCategory>Production</designationCategory>
+        <designationHotKey>Misc4</designationHotKey>
+        <researchPrerequisites>
+            <li>MSSFP_PonderingOrb</li>
+        </researchPrerequisites>
+        <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+        <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+        <placeWorkers>
+            <li>PlaceWorker_ShowFacilitiesConnections</li>
+            <li>PlaceWorker_PreventInteractionSpotOverlap</li>
+        </placeWorkers>
         <statBases>
             <MaxHitPoints>5000</MaxHitPoints>
             <Flammability>0.4</Flammability>
             <Beauty>10</Beauty>
             <Mass>50</Mass>
+            <WorkToBuild>8000</WorkToBuild>
+            <ResearchSpeedFactor>1.0</ResearchSpeedFactor>
         </statBases>
         <comps>
             <li Class="CompProperties_Power">
@@ -53,16 +77,32 @@
             </li>
             <li Class="CompProperties_Flickable" />
             <li Class="CompProperties_Breakdownable" />
+            <li Class="CompProperties_ReportWorkSpeed">
+                <workSpeedStat>ResearchSpeedFactor</workSpeedStat>
+            </li>
+            <li Class="CompProperties_AffectedByFacilities">
+                <linkableFacilities>
+                    <li>MultiAnalyzer</li>
+                </linkableFacilities>
+            </li>
             <li Class="MSSFP.Holo.CompProperties_HoloProjector">
                 <defaultTint>(0,200,0)</defaultTint>
                 <defaultRadius>48</defaultRadius>
             </li>
             <li Class="MSSFP.Comps.CompProperties_TrueAICore">
-                <defaultPersonality>MSSFP_AICore_EMS</defaultPersonality>
                 <showPersonalitySelector>false</showPersonalitySelector>
             </li>
         </comps>
-        <uiIconPath>Things/Building/MSSFP_AI_Core</uiIconPath>
+        <uiIconPath>Things/Building/MSSFP_AI_Core_Icon</uiIconPath>
+        <building>
+            <!-- Suppress vanilla deconstruct/destroy refund of the AIPersonaCore cost
+                 item. The persona is preserved separately by Building_AICore.Destroy,
+                 which drops a MSSFP_LoadedAIPersonaCore carrying the holo pawn — refunding
+                 the vanilla item too would duplicate the persona. -->
+            <leavingsBlacklist>
+                <li>AIPersonaCore</li>
+            </leavingsBlacklist>
+        </building>
     </ThingDef>
 
 </Defs>

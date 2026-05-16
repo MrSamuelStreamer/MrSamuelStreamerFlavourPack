@@ -1,3 +1,5 @@
+using MSSFP.Comps;
+using MSSFP.Holo;
 using RimWorld;
 using UnityEngine;
 using Verse;
@@ -18,7 +20,7 @@ namespace MSSFP.Buildings;
 /// <see cref="MSSFP.Comps.CompTrueAICore"/>. This subclass exists solely for the graphic
 /// override.
 /// </summary>
-public class Building_AICore : Building
+public class Building_AICore : Building_ResearchBench
 {
     private CompPowerTrader powerComp;
     private Graphic graphicPowered;
@@ -142,5 +144,54 @@ public class Building_AICore : Building
             def.graphicData.drawSize,
             Color.white
         );
+    }
+
+    /// <summary>
+    /// On deconstruct or destruction, spawn a <c>MSSFP_LoadedAIPersonaCore</c> at this
+    /// building's position carrying the holo Pawn + active persona. Lets the player
+    /// redeploy the same AI into a fresh chassis later via the loaded core's "Deploy
+    /// Pondering Orb" gizmo.
+    ///
+    /// Other DestroyMode values (Vanish, FailConstruction, etc.) do NOT drop a loaded
+    /// core — those code paths are internal cleanup (e.g. minify, frame-cancel) where
+    /// dropping a duplicate persona item would duplicate the AI.
+    /// </summary>
+    public override void Destroy(DestroyMode mode = DestroyMode.Vanish)
+    {
+        if (Spawned && (mode == DestroyMode.Deconstruct || mode == DestroyMode.KillFinalize))
+        {
+            IntVec3 savedPos = Position;
+            Map savedMap = Map;
+            CompHoloProjector proj = this.TryGetComp<CompHoloProjector>();
+            CompTrueAICore core = this.TryGetComp<CompTrueAICore>();
+
+            // Recall any live projection back into the projector's stored container so the
+            // pawn isn't left dangling on the map when the projector is destroyed.
+            proj?.OnDespawnProjection();
+
+            ThingDef loadedDef = DefDatabase<ThingDef>.GetNamedSilentFail("MSSFP_LoadedAIPersonaCore");
+            if (loadedDef != null)
+            {
+                Thing loaded = ThingMaker.MakeThing(loadedDef);
+                CompLoadedAIPersonaCore loadedComp = loaded.TryGetComp<CompLoadedAIPersonaCore>();
+                if (loadedComp != null)
+                {
+                    if (proj?.stored != null && proj.stored.Count > 0)
+                    {
+                        proj.stored.TryTransferAllToContainer(loadedComp.storedHolo);
+                    }
+                    loadedComp.storedPersonality = core?.activePersonality;
+                }
+                GenSpawn.Spawn(loaded, savedPos, savedMap);
+            }
+
+            // Vanilla AIPersonaCore refund suppression now lives in XML via
+            // <building><leavingsBlacklist><li>AIPersonaCore</li></leavingsBlacklist>.
+            // GenLeaving.DoLeavingsFor consults that list directly. Earlier costList-mutation
+            // approach failed because RimWorld.CostListCalculator caches CostListAdjusted
+            // results keyed by (def, stuff) — mutating def.costList post-cache had no effect.
+        }
+
+        base.Destroy(mode);
     }
 }

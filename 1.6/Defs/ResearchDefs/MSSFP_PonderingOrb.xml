@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <ResearchProjectDef>
+        <defName>MSSFP_PonderingOrb</defName>
+        <label>pondering orb</label>
+        <description>Distil a captured AI persona into a hard-light avatar bound to a pedestal-mounted cogitator. The lattice draws on advanced electronics and the precision sensing of multi-analyzers to keep the projection stable across the long thinking-cycles the persona requires. Unlocks construction of The Pondering Orb — part research bench, part digital colleague.</description>
+        <baseCost>4000</baseCost>
+        <techLevel>Spacer</techLevel>
+        <tab>Spacer</tab>
+        <researchViewX>14.00</researchViewX>
+        <researchViewY>3.50</researchViewY>
+        <prerequisites>
+            <li>MicroelectronicsBasics</li>
+            <li>MultiAnalyzer</li>
+        </prerequisites>
+        <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+    </ResearchProjectDef>
+</Defs>
