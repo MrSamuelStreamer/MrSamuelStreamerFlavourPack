@@ -94,6 +94,21 @@ public class AIPersonalityDef : Def
     /// <summary>Relative weight when a core rolls a personality (random pick mode).</summary>
     public float weight = 1f;
 
+    /// <summary>
+    /// Hediffs that MAY land on a holo pawn driven by this personality. Vanilla hediff-givers
+    /// (aging, disease, body modification) are otherwise filtered out by
+    /// <see cref="MSSFP.Holo.HoloHediffPolicy"/>. Chemical hediffs and the hologram marker are
+    /// always allowed regardless of this list.
+    /// </summary>
+    public List<HediffDef> allowedHediffs = new();
+
+    /// <summary>
+    /// Hediffs auto-applied every time the projection spawns. Idempotent: re-applying does
+    /// not stack severity, already-present hediffs are skipped. Use for personality flavour
+    /// (e.g. Hollee → Dementia).
+    /// </summary>
+    public List<HediffDef> fixedHediffs = new();
+
     /// <summary>Concrete worker class that drives this personality. Must derive from <see cref="AIPersonalityWorker"/>.</summary>
     public Type workerClass = typeof(AIPersonalityWorker);
 

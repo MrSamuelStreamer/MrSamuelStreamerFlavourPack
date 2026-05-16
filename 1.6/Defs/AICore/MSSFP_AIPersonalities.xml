@@ -15,6 +15,11 @@
         <artTitles>MSSFP_RP_AICore_Grep_Titles</artTitles>
         <artDescriptions>MSSFP_RP_AICore_Grep_Descriptions</artDescriptions>
         <socialInitiator>MSSFP_RP_AICore_Grep_Social</socialInitiator>
+        <allowedHediffs>
+            <li>HeartArteryBlockage</li>
+            <li>ChemicalDamageModerate</li>
+            <li>ChemicalDamageSevere</li>
+        </allowedHediffs>
     </MSSFP.Defs.AIPersonalityDef>
 
     <MSSFP.Defs.AIPersonalityDef>
@@ -29,6 +34,11 @@
         <artTitles>MSSFP_RP_AICore_Chud_Titles</artTitles>
         <artDescriptions>MSSFP_RP_AICore_Chud_Descriptions</artDescriptions>
         <socialInitiator>MSSFP_RP_AICore_Chud_Social</socialInitiator>
+        <allowedHediffs>
+            <li>Dementia</li>
+            <li>ChemicalDamageModerate</li>
+            <li>ChemicalDamageSevere</li>
+        </allowedHediffs>
     </MSSFP.Defs.AIPersonalityDef>
 
     <MSSFP.Defs.AIPersonalityDef>
@@ -45,6 +55,11 @@
         <artTitles>MSSFP_RP_AICore_Clive_Titles</artTitles>
         <artDescriptions>MSSFP_RP_AICore_Clive_Descriptions</artDescriptions>
         <socialInitiator>MSSFP_RP_AICore_Clive_Social</socialInitiator>
+        <allowedHediffs>
+            <li>Frail</li>
+            <li>ChemicalDamageModerate</li>
+            <li>ChemicalDamageSevere</li>
+        </allowedHediffs>
     </MSSFP.Defs.AIPersonalityDef>
 
     <MSSFP.Defs.AIPersonalityDef>
@@ -61,6 +76,13 @@
         <artTitles>MSSFP_RP_AICore_Gem_Titles</artTitles>
         <artDescriptions>MSSFP_RP_AICore_Gem_Descriptions</artDescriptions>
         <socialInitiator>MSSFP_RP_AICore_Geminon_Social</socialInitiator>
+        <allowedHediffs>
+            <li>Cataract</li>
+            <li>Blindness</li>
+            <li>HearingLoss</li>
+            <li>ChemicalDamageModerate</li>
+            <li>ChemicalDamageSevere</li>
+        </allowedHediffs>
     </MSSFP.Defs.AIPersonalityDef>
 
     <MSSFP.Defs.AIPersonalityDef>
@@ -77,6 +99,13 @@
         <artTitles>MSSFP_RP_AICore_Copy_Titles</artTitles>
         <artDescriptions>MSSFP_RP_AICore_Copy_Descriptions</artDescriptions>
         <socialInitiator>MSSFP_RP_AICore_Copylot_Social</socialInitiator>
+        <allowedHediffs>
+            <li>BadBack</li>
+            <li>Frail</li>
+            <li>Cataract</li>
+            <li>ChemicalDamageModerate</li>
+            <li>ChemicalDamageSevere</li>
+        </allowedHediffs>
     </MSSFP.Defs.AIPersonalityDef>
 
     <MSSFP.Defs.AIPersonalityDef>
@@ -92,6 +121,12 @@
         <artTitles>MSSFP_RP_AICore_Sink_Titles</artTitles>
         <artDescriptions>MSSFP_RP_AICore_Sink_Descriptions</artDescriptions>
         <socialInitiator>MSSFP_RP_AICore_Deepsink_Social</socialInitiator>
+        <allowedHediffs>
+            <li>Frail</li>
+            <li>HearingLoss</li>
+            <li>ChemicalDamageModerate</li>
+            <li>ChemicalDamageSevere</li>
+        </allowedHediffs>
     </MSSFP.Defs.AIPersonalityDef>
 
     <MSSFP.Defs.AIPersonalityDef>
@@ -108,6 +143,16 @@
         <artTitles>MSSFP_RP_AICore_Hollee_Titles</artTitles>
         <artDescriptions>MSSFP_RP_AICore_Hollee_Descriptions</artDescriptions>
         <socialInitiator>MSSFP_RP_AICore_Hollee_Social</socialInitiator>
+        <allowedHediffs>
+            <li>Dementia</li>
+            <li>Alzheimers</li>
+            <li>HearingLoss</li>
+            <li>Cataract</li>
+            <li>Frail</li>
+            <li>BadBack</li>
+            <li>ChemicalDamageModerate</li>
+            <li>ChemicalDamageSevere</li>
+        </allowedHediffs>
     </MSSFP.Defs.AIPersonalityDef>
 
     <MSSFP.Defs.AIPersonalityDef>
@@ -124,6 +169,19 @@
         <artTitles>MSSFP_RP_AICore_EMS_Titles</artTitles>
         <artDescriptions>MSSFP_RP_AICore_EMS_Descriptions</artDescriptions>
         <socialInitiator>MSSFP_RP_AICore_EMS_Social</socialInitiator>
+        <allowedHediffs>
+            <li>BadBack</li>
+            <li>Frail</li>
+            <li>Cataract</li>
+            <li>Blindness</li>
+            <li>HearingLoss</li>
+            <li>Dementia</li>
+            <li>Alzheimers</li>
+            <li>Asthma</li>
+            <li>HeartArteryBlockage</li>
+            <li>ChemicalDamageModerate</li>
+            <li>ChemicalDamageSevere</li>
+        </allowedHediffs>
     </MSSFP.Defs.AIPersonalityDef>
 
 </Defs>

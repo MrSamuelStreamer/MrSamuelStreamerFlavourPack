@@ -107,6 +107,24 @@ public class CompHoloProjector : ThingComp, IThingHolder
     /// </summary>
     public bool firstProjectionDone;
 
+    /// <summary>
+    /// Ticks remaining in an in-progress Defrag cycle. Zero = idle. Decremented in
+    /// <see cref="CompTickRare"/> by <see cref="GenTicks.TickRareInterval"/>. While &gt; 0
+    /// the projection is held recalled, power draw is doubled, and auto-respawn is
+    /// suppressed. On hit-zero, chemical hediffs + injuries are stripped and auto-respawn
+    /// is re-armed by clearing <see cref="hadPowerLastTick"/>.
+    /// </summary>
+    public int defragTicksRemaining;
+
+    /// <summary>Total defrag duration — 2 in-game days (60,000 ticks/day).</summary>
+    public const int DefragDurationTicks = 120000;
+
+    /// <summary>Power-consumption multiplier applied while <see cref="IsDefragging"/>.</summary>
+    public const float DefragPowerMultiplier = 2f;
+
+    /// <summary>True while a Defrag cycle is in progress.</summary>
+    public bool IsDefragging => defragTicksRemaining > 0;
+
     /// <summary>True when the projector has power, or has no CompPowerTrader at all (powerless variant defs).</summary>
     public bool HasPower => powerComp == null || powerComp.PowerOn;
 
@@ -368,6 +386,11 @@ public class CompHoloProjector : ThingComp, IThingHolder
         MSSFPHoloUtil.AddHoloComp(p, parent);
         MSSFPHoloUtil.AddOrRefreshHologramHediff(p);
 
+        // Persona-flavour fixed hediffs (e.g. Hollee → Dementia). Idempotent: re-projection
+        // doesn't stack. Must run AFTER AddHoloComp so the hediff-filter patch can resolve
+        // the persona; allowedHediffs/fixedHediffs entries bypass the filter.
+        HoloHediffPolicy.ApplyFixedHediffs(p, Persona);
+
         // Persona rename one-shot. Skips after first apply unless OnPersonaChanged() fired.
         if (!personaNameApplied && Persona != null)
             ApplyPersonaName(p);
@@ -445,6 +468,25 @@ public class CompHoloProjector : ThingComp, IThingHolder
             loadWarmupTicks--;
             hadPowerLastTick = HasPower;
             return;
+        }
+
+        // ----- Defrag pre-empts normal power-gating / auto-respawn -----
+        // Override PowerOutput every rare-tick (not just on edges) — vanilla PowerNet may
+        // reset it during net rebuilds, and our override is the only signal that lifts the
+        // draw to 2x. Decrement timer; on hit-zero, FinishDefrag clears hediffs and clears
+        // hadPowerLastTick so the auto-respawn branch below re-fires next rare tick.
+        if (IsDefragging)
+        {
+            if (powerComp != null)
+                powerComp.PowerOutput = -powerComp.Props.PowerConsumption * DefragPowerMultiplier;
+            defragTicksRemaining -= GenTicks.TickRareInterval;
+            if (defragTicksRemaining <= 0)
+                FinishDefrag();
+            else
+            {
+                hadPowerLastTick = HasPower;
+                return;
+            }
         }
 
         bool nowPowered = HasPower;
@@ -562,6 +604,7 @@ public class CompHoloProjector : ThingComp, IThingHolder
         Scribe_Deep.Look(ref area, "area");
         Scribe_Values.Look(ref personaNameApplied, "personaNameApplied", false);
         Scribe_Values.Look(ref firstProjectionDone, "firstProjectionDone", false);
+        Scribe_Values.Look(ref defragTicksRemaining, "defragTicksRemaining", 0);
 
         if (Scribe.mode == LoadSaveMode.PostLoadInit)
         {
@@ -617,6 +660,20 @@ public class CompHoloProjector : ThingComp, IThingHolder
         foreach (Gizmo g in base.CompGetGizmosExtra())
             yield return g;
 
+        // Defrag — production gizmo. Requires a live projection (the action recalls it).
+        // Disabled while already defragging.
+        yield return new Command_Action
+        {
+            defaultLabel = "Defrag",
+            defaultDesc = $"Take the projection offline for 2 in-game days. Power draw doubles for the duration. On completion, all chemical hediffs and injuries are cleared from the holo pawn.",
+            icon = ContentFinder<Texture2D>.Get("UI/MSSFP_Defrag", reportFailure: false),
+            action = () => StartDefrag(),
+            Disabled = projected == null || IsDefragging,
+            disabledReason = IsDefragging
+                ? "Defrag in progress."
+                : "Projection must be live to defrag.",
+        };
+
         // Production tint is now persona-driven via AIPersonalityDef.HoloTintOrTextColor —
         // no runtime picker. To recolor a persona, edit its XML def and reload defs.
         // Dev gizmos require active godMode (not just DevMode prefs) — matches the
@@ -643,5 +700,81 @@ public class CompHoloProjector : ThingComp, IThingHolder
             disabledReason = "No projection active.",
         };
 
+        yield return new Command_Action
+        {
+            defaultLabel = "DEV: Skip defrag",
+            defaultDesc = "Finish the current Defrag cycle immediately.",
+            action = () => { defragTicksRemaining = 1; },
+            Disabled = !IsDefragging,
+            disabledReason = "No defrag in progress.",
+        };
+    }
+
+    // ------- Defrag -------
+
+    /// <summary>
+    /// Begin a Defrag cycle. Recalls the live projection, arms the countdown timer, and
+    /// returns true. Returns false (no-op) if a cycle is already running or no projection
+    /// is live to recall.
+    /// </summary>
+    public bool StartDefrag()
+    {
+        if (IsDefragging) return false;
+        if (projected == null) return false;
+
+        OnDespawnProjection();
+        defragTicksRemaining = DefragDurationTicks;
+
+        Find.LetterStack.ReceiveLetter(
+            "Defrag started",
+            $"{(Persona?.LabelShortOrLabel ?? "Holo")} is defragmenting. Projection offline for 2 days; power draw doubled.",
+            LetterDefOf.NeutralEvent,
+            parent
+        );
+        return true;
+    }
+
+    /// <summary>
+    /// End-of-defrag cleanup. Wipes chemical hediffs + injuries from the stored pawn,
+    /// restores baseline power output, and clears the auto-respawn edge-trigger latch so
+    /// the next <see cref="CompTickRare"/> re-projects.
+    /// </summary>
+    private void FinishDefrag()
+    {
+        defragTicksRemaining = 0;
+
+        if (stored.Count > 0)
+        {
+            Pawn p = stored[0];
+            List<Hediff> removable = HoloHediffPolicy.CollectDefragRemovable(p);
+            foreach (Hediff h in removable)
+                p.health.RemoveHediff(h);
+        }
+
+        // Restore baseline power consumption (PowerOutput was held at -2x during the cycle).
+        if (powerComp != null)
+            powerComp.PowerOutput = -powerComp.Props.PowerConsumption;
+
+        // Re-arm the auto-respawn edge trigger: forcing hadPowerLastTick = false makes the
+        // next rare tick (with power still on) see a false→true transition and re-project.
+        hadPowerLastTick = false;
+
+        Find.LetterStack.ReceiveLetter(
+            "Defrag complete",
+            $"{(Persona?.LabelShortOrLabel ?? "Holo")} defragmented. Memory clean.",
+            LetterDefOf.PositiveEvent,
+            parent
+        );
+    }
+
+    public override string CompInspectStringExtra()
+    {
+        string baseStr = base.CompInspectStringExtra();
+        if (!IsDefragging) return baseStr;
+
+        int days = defragTicksRemaining / 60000;
+        int hours = (defragTicksRemaining % 60000) / 2500;
+        string defragLine = $"Defragging: {days}d {hours}h remaining";
+        return string.IsNullOrEmpty(baseStr) ? defragLine : $"{baseStr}\n{defragLine}";
     }
 }
