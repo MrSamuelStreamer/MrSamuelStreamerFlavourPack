@@ -125,6 +125,7 @@ public static class MSSFPDefOf
     public static readonly ThingDef MSSFP_HoloPawnRace;
     public static readonly PawnKindDef MSSFP_HoloProjection;
     public static readonly HediffDef MSSFP_Hediff_Hologram;
+    public static readonly TraitDef MSSF_AIPersonality;
 
     static MSSFPDefOf() => DefOfHelper.EnsureInitializedInCtor(typeof(MSSFPDefOf));
 }

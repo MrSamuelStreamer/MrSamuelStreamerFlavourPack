@@ -391,6 +391,10 @@ public class CompHoloProjector : ThingComp, IThingHolder
         // the persona; allowedHediffs/fixedHediffs entries bypass the filter.
         HoloHediffPolicy.ApplyFixedHediffs(p, Persona);
 
+        // Mark this pawn as an AI projection. Idempotent + caps Artistic at 4
+        // via SkillRecord_Patch — see HoloHediffPolicy.ApplyHoloTrait.
+        HoloHediffPolicy.ApplyHoloTrait(p);
+
         // Persona rename one-shot. Skips after first apply unless OnPersonaChanged() fired.
         if (!personaNameApplied && Persona != null)
             ApplyPersonaName(p);

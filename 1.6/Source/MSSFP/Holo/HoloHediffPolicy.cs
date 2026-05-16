@@ -110,6 +110,19 @@ public static class HoloHediffPolicy
         }
     }
 
+    /// <summary>
+    /// Grant the holo's "AI personality" trait. Idempotent — re-projection won't stack.
+    /// <c>forced: true</c> so vanilla random-trait passes and dev-tool removal both leave it alone.
+    /// </summary>
+    public static void ApplyHoloTrait(Pawn pawn)
+    {
+        if (pawn?.story?.traits == null) return;
+        TraitDef def = MSSFPDefOf.MSSF_AIPersonality;
+        if (def == null) return;
+        if (pawn.story.traits.HasTrait(def)) return;
+        pawn.story.traits.GainTrait(new Trait(def, degree: 0, forced: true));
+    }
+
     /// <summary>True iff <paramref name="def"/> describes an injury (Hediff_Injury subclass).</summary>
     public static bool IsInjury(HediffDef def) =>
         def?.hediffClass != null && typeof(Hediff_Injury).IsAssignableFrom(def.hediffClass);

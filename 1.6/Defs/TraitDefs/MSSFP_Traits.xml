@@ -18,4 +18,15 @@
             </li>
         </modExtensions>
 	</TraitDef>
+
+	<TraitDef>
+		<defName>MSSF_AIPersonality</defName>
+		<commonality>0.0</commonality>
+		<degreeDatas>
+			<li>
+				<label>AI personality</label>
+				<description>[PAWN_nameDef] is a synthetic personality projected from a True AI core. [PAWN_pronoun] can ape any style on demand, but has no inner aesthetic — only pattern-matched mimicry. [PAWN_possessive] artwork is at best derivative.</description>
+			</li>
+		</degreeDatas>
+	</TraitDef>
 </Defs>

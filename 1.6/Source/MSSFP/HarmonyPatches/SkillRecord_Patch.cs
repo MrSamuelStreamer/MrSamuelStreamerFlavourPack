@@ -20,6 +20,8 @@ public static class SkillRecord_Patch
         int boost = HauntsCache.BoostForPawnAndSkill(__instance.Pawn, __instance.def);
         if (boost != 0)
             __result = Mathf.Clamp(__result + boost, 0, 20);
+
+        ApplyAIPersonalityArtCap(__instance, ref __result);
     }
 
     [HarmonyPatch(nameof(SkillRecord.GetLevelForUI))]
@@ -29,5 +31,19 @@ public static class SkillRecord_Patch
         int boost = HauntsCache.BoostForPawnAndSkill(__instance.Pawn, __instance.def);
         if (boost != 0)
             __result = Mathf.Clamp(__result + boost, 0, 20);
+
+        ApplyAIPersonalityArtCap(__instance, ref __result);
+    }
+
+    private const int AIPersonalityArtCap = 4;
+
+    private static void ApplyAIPersonalityArtCap(SkillRecord rec, ref int level)
+    {
+        if (rec.def != SkillDefOf.Artistic) return;
+        if (level <= AIPersonalityArtCap) return;
+        TraitDef trait = MSSFPDefOf.MSSF_AIPersonality;
+        if (trait == null) return;
+        if (rec.Pawn?.story?.traits?.HasTrait(trait) != true) return;
+        level = AIPersonalityArtCap;
     }
 }

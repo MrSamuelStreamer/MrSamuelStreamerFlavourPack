@@ -21,7 +21,7 @@
     <MSSFP_AICore_NoInputAvailable>Haul to {0} (no inputs available)</MSSFP_AICore_NoInputAvailable>
 
     <MSSFP_PonderingOrb_PickPersona_Title>Install AI persona</MSSFP_PonderingOrb_PickPersona_Title>
-    <MSSFP_PonderingOrb_PickPersona_Blurb>The Pondering Orb is online but empty. Choose which AI persona to install. This decision is permanent — only a dev-mode override can change it later.</MSSFP_PonderingOrb_PickPersona_Blurb>
+    <MSSFP_PonderingOrb_PickPersona_Blurb>The Pondering Orb is online but empty. Choose which AI persona to install. This decision is permanent.</MSSFP_PonderingOrb_PickPersona_Blurb>
     <MSSFP_PonderingOrb_PickPersona_NoneAvailable>No AI personas are loaded. The orb will run on minimal firmware until a mod adds personalities.</MSSFP_PonderingOrb_PickPersona_NoneAvailable>
 
     <MSSFP_LoadedCore_StoredPersona>Stored persona: {0}</MSSFP_LoadedCore_StoredPersona>
