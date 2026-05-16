@@ -19,9 +19,8 @@ namespace MSSFP.Holo;
 /// case gracefully.
 ///
 /// KEYWORDS: the shader declares <c>_OUTLINE_ON</c> and <c>_GLOW_ON</c> as global
-/// <c>multi_compile</c> keywords. We read MSSFP settings at startup and call
-/// <see cref="Shader.EnableKeyword"/>/<see cref="Shader.DisableKeyword"/> once to set
-/// the runtime variant. Settings changes require a game restart to take effect.
+/// <c>multi_compile</c> keywords. Both are unconditionally enabled at startup via
+/// <see cref="Shader.EnableKeyword"/>.
 /// </summary>
 [StaticConstructorOnStartup]
 public static class HoloShaders
@@ -57,24 +56,12 @@ public static class HoloShaders
     }
 
     /// <summary>
-    /// Push current MSSFP settings into the global shader keyword state. Idempotent —
-    /// safe to call at any time. Only does anything when <see cref="HoloMono"/> is the
-    /// real holo shader (not the cutout fallback).
+    /// Enable both holo shader keywords globally. Idempotent.
     /// </summary>
     public static void ApplyKeywordsFromSettings()
     {
-        Settings s = MSSFPMod.settings;
-        if (s == null) return;
-
-        if (s.EnableHoloOutline)
-            Shader.EnableKeyword(OutlineKeyword);
-        else
-            Shader.DisableKeyword(OutlineKeyword);
-
-        if (s.EnableHoloGlow)
-            Shader.EnableKeyword(GlowKeyword);
-        else
-            Shader.DisableKeyword(GlowKeyword);
+        Shader.EnableKeyword(OutlineKeyword);
+        Shader.EnableKeyword(GlowKeyword);
     }
 
     /// <summary>True iff the real holo shader loaded successfully (not the cutout fallback).</summary>

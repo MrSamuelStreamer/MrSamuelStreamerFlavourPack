@@ -84,12 +84,6 @@ public class Settings : ModSettings
     public bool EnableRavenCreepJoiner = true;
     public float RavenCreepJoinerChanceMultiplier = 1.0f;
 
-    // Holo shader — optional perf-cost FX, default off. Read at startup by
-    // HoloShaders.cs and applied as global shader keywords. Settings changes
-    // require game restart to take effect (keywords cached at load).
-    public bool EnableHoloOutline = true;
-    public bool EnableHoloGlow = true;
-
     // Golden Cube Implant (Anomaly DLC)
     public bool EnableGoldenCubeImplant = true;
     public float GoldenCubeImplantRaidChance = 0.005f;
@@ -257,9 +251,6 @@ public class Settings : ModSettings
         Scribe_Values.Look(ref ShowElevationOverlay, "ShowElevationOverlay", false);
         Scribe_Values.Look(ref BreakdownMTBDays, "BreakdownMTBDays", BreakdownMTBDaysDefault);
         Scribe_Collections.Look(ref MonitoredSpeeds, "MonitoredSpeeds", LookMode.Value);
-
-        Scribe_Values.Look(ref EnableHoloOutline, "EnableHoloOutline", true);
-        Scribe_Values.Look(ref EnableHoloGlow, "EnableHoloGlow", true);
 
         Scribe_Values.Look(ref EnableGoldenCubeImplant, "EnableGoldenCubeImplant", true);
         Scribe_Values.Look(ref GoldenCubeImplantRaidChance, "GoldenCubeImplantRaidChance", 0.005f);

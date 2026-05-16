@@ -207,11 +207,4 @@
     <MSSFP_Settings_GoldenCubeTransferChance>Transfer-on-kill chance: {0}</MSSFP_Settings_GoldenCubeTransferChance>
     <MSSFP_GoldenCubeOuch_Msg>Ouch!</MSSFP_GoldenCubeOuch_Msg>
     <MSSFP_GoldenCubeExtracted_Msg>A golden cube was extracted from {0}.</MSSFP_GoldenCubeExtracted_Msg>
-
-    <!-- Holo shader FX -->
-    <MSSFP_Settings_Section_Holo>Holos</MSSFP_Settings_Section_Holo>
-    <MSSFP_Settings_EnableHoloOutline>Holo outline (edge rim around silhouette)</MSSFP_Settings_EnableHoloOutline>
-    <MSSFP_Settings_EnableHoloGlow>Holo glow (soft silhouette emission)</MSSFP_Settings_EnableHoloGlow>
-    <MSSFP_Settings_HoloShader_Loaded>HoloMono shader loaded from AssetBundle.</MSSFP_Settings_HoloShader_Loaded>
-    <MSSFP_Settings_HoloShader_Fallback>HoloMono AssetBundle missing — holos render with vanilla cutout shader. Verify Common/AssetBundles/mssfp_{linux,mac,win} exists.</MSSFP_Settings_HoloShader_Fallback>
 </LanguageData>
