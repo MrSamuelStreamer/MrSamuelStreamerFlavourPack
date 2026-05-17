@@ -17,10 +17,16 @@ namespace MSSFP.Holo;
 /// never inside PostExposeData. Restored saves rely on the hediff already being on the
 /// pawn (deep-scribed by world-pawn authority).
 ///
-/// DESTROY POLICY: holo pawns intercept Pawn.Kill / Pawn.Destroy via
+/// DESTROY POLICY: holo pawns intercept <c>Pawn.Kill</c> via
 /// <see cref="MSSFP.HarmonyPatches.Pawn_Kill_HoloIntercept_Patch"/> and route to collapse
 /// instead of dying. To actually destroy a holo pawn (projector cleanup, save shutdown),
 /// ALWAYS use <see cref="DestroyHoloForReal"/> — never call <c>pawn.Destroy()</c> directly.
+///
+/// NB: there is intentionally NO <c>Pawn.Destroy</c> prefix patch (Vehicle Framework
+/// 1.6.x breaks when anything prefix-patches that method with a <c>bool</c> return).
+/// External <c>pawn.Destroy()</c> calls on a spawned holo (dev gizmo, niche mods) are
+/// caught best-effort by <see cref="CompHoloProjector.CompTickRare"/> on the next rare
+/// tick — the projection collapses with a letter, but no damage/culprit attribution.
 /// </summary>
 public static class MSSFPHoloUtil
 {

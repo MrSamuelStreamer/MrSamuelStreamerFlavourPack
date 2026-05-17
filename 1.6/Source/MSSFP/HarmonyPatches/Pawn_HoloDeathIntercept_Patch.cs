@@ -24,6 +24,15 @@ namespace MSSFP.HarmonyPatches;
 ///
 /// SCRIBE GUARD: bails to vanilla during load/save to avoid manipulating half-loaded pawns
 /// or firing letters when the letter stack isn't ready.
+///
+/// NO PARALLEL <c>Pawn.Destroy</c> PATCH: Vehicle Framework 1.6.x has a bug that triggers
+/// when anything prefix-patches <see cref="Pawn.Destroy"/> with a <c>bool</c> return,
+/// breaking the VEF parallel renderer (spam of "Trying to set material properties with no
+/// main tex" + texture-load-on-worker-thread errors, eventually <c>ThreadAbortException</c>
+/// inside <c>SmashTools.Performance.DedicatedThread.Execute</c>). Until VEF ships a fix,
+/// the Destroy hook is removed and rare external <c>pawn.Destroy()</c> calls on a spawned
+/// holo are caught by the projector tick-rare cleanup in
+/// <see cref="CompHoloProjector.CompTickRare"/>.
 /// </summary>
 [HarmonyPatch(typeof(Pawn), nameof(Pawn.Kill))]
 public static class Pawn_Kill_HoloIntercept_Patch
@@ -43,30 +52,6 @@ public static class Pawn_Kill_HoloIntercept_Patch
 
         CompHoloProjector proj = __instance.TryGetComp<CompHoloProjected>()?.ProjectorComp;
         proj?.OnProjectionCollapsed(dinfo, exactCulprit);
-        return false;
-    }
-}
-
-/// <summary>
-/// Companion to <see cref="Pawn_Kill_HoloIntercept_Patch"/>. Catches direct
-/// <c>Pawn.Destroy</c> calls that don't route through Kill (dev gizmos, some mod paths).
-/// Same bypass + scribe + spawn rules.
-/// </summary>
-[HarmonyPatch(typeof(Pawn), nameof(Pawn.Destroy))]
-public static class Pawn_Destroy_HoloIntercept_Patch
-{
-    [HarmonyPriority(Priority.First)]
-    public static bool Prefix(Pawn __instance)
-    {
-        if (MSSFPHoloUtil.IsHoloDestroyBypassed) return true;
-        if (Scribe.mode != LoadSaveMode.Inactive) return true;
-        if (Current.Game == null) return true;
-        if (!MSSFPHoloUtil.IsHolo(__instance)) return true;
-
-        if (!__instance.Spawned) return false;
-
-        CompHoloProjector proj = __instance.TryGetComp<CompHoloProjected>()?.ProjectorComp;
-        proj?.OnProjectionCollapsed(null);
         return false;
     }
 }

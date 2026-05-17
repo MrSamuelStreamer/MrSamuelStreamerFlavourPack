@@ -457,6 +457,9 @@ public class CompHoloProjector : ThingComp, IThingHolder
     /// a power blip mid-combat doesn't yank a drafted holo away from the player.
     ///
     /// Order of operations per tick:
+    ///   0. External-destroy cleanup: detect when something outside MSSFP destroyed our
+    ///      projected pawn (no Pawn.Destroy intercept patch — see Vehicle Framework compat
+    ///      note in <see cref="MSSFP.HarmonyPatches.Pawn_Kill_HoloIntercept_Patch"/>).
     ///   1. Load-warmup decrement (skip power logic for ~2 rare ticks after load while PowerNet rebuilds).
     ///   2. Debounced power-loss recall: 2 consecutive !PowerOn rare ticks → silent OnDespawnProjection.
     ///      Skipped when projected is drafted (player control wins).
@@ -466,6 +469,25 @@ public class CompHoloProjector : ThingComp, IThingHolder
     {
         base.CompTickRare();
         if (parent?.Map == null) return;
+
+        // Catch externally-destroyed projections. Pawn.Kill is intercepted, but the
+        // companion Pawn.Destroy prefix is intentionally absent (VEF parallel-renderer
+        // bug — bool prefixes on Pawn.Destroy break VEF). So a direct pawn.Destroy()
+        // call from dev gizmos or third-party code bypasses our recall path. Detect
+        // here, clear the ref, fire the standard collapse letter.
+        if (projected != null && projected.Destroyed)
+        {
+            string label = projected.LabelShortCap;
+            projected = null;
+            Find.LetterStack.ReceiveLetter(
+                "Holo projection collapsed",
+                $"{label}'s projection collapsed (pawn destroyed externally).",
+                LetterDefOf.NegativeEvent,
+                parent
+            );
+            hadPowerLastTick = HasPower;
+            return;
+        }
 
         if (loadWarmupTicks > 0)
         {
