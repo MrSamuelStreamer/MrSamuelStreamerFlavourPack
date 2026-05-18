@@ -20,9 +20,11 @@ namespace MSSFP.Dialogs;
 /// </summary>
 public class Dialog_PickAIPersona : Window
 {
-    private const float RowHeight = 64f;
+    private const float MinRowHeight = 64f;
     private const float IconSize = 48f;
     private const float Padding = 8f;
+    private const float TitleLineHeight = 22f;
+    private const float RowVerticalPadding = 8f;
 
     private readonly CompTrueAICore comp;
     private Vector2 scrollPos;
@@ -82,17 +84,50 @@ public class Dialog_PickAIPersona : Window
         float listTop = blurbRect.yMax + 8f;
         float listHeight = inRect.height - (listTop - inRect.y);
         Rect outRect = new Rect(inRect.x, listTop, inRect.width, listHeight);
-        Rect viewRect = new Rect(0f, 0f, outRect.width - 18f, defs.Count * (RowHeight + Padding));
+        float contentWidth = outRect.width - 18f;
+
+        // Pre-pass: compute per-row heights so long descriptions don't truncate.
+        // Must set Tiny font BEFORE CalcHeight — font metrics drive measurement.
+        float[] rowHeights = new float[defs.Count];
+        float totalHeight = 0f;
+        GameFont prevFont = Text.Font;
+        bool prevWrap = Text.WordWrap;
+        Text.WordWrap = true;
+        for (int i = 0; i < defs.Count; i++)
+        {
+            rowHeights[i] = ComputeRowHeight(defs[i], contentWidth);
+            totalHeight += rowHeights[i] + Padding;
+        }
+        Text.Font = prevFont;
+        Text.WordWrap = prevWrap;
+
+        Rect viewRect = new Rect(0f, 0f, contentWidth, totalHeight);
 
         Widgets.BeginScrollView(outRect, ref scrollPos, viewRect);
         float y = 0f;
-        foreach (AIPersonalityDef def in defs)
+        for (int i = 0; i < defs.Count; i++)
         {
-            Rect row = new Rect(0f, y, viewRect.width, RowHeight);
-            DrawPersonaRow(row, def);
-            y += RowHeight + Padding;
+            float h = rowHeights[i];
+            Rect row = new Rect(0f, y, viewRect.width, h);
+            DrawPersonaRow(row, defs[i]);
+            y += h + Padding;
         }
         Widgets.EndScrollView();
+    }
+
+    private static float ComputeRowHeight(AIPersonalityDef def, float contentWidth)
+    {
+        float descWidth = contentWidth - IconSize - Padding * 3f;
+        if (descWidth < 1f)
+        {
+            return MinRowHeight;
+        }
+        Text.Font = GameFont.Tiny;
+        float descHeight = string.IsNullOrEmpty(def.description)
+            ? 0f
+            : Text.CalcHeight(def.description, descWidth);
+        float needed = RowVerticalPadding + TitleLineHeight + descHeight;
+        return Mathf.Max(MinRowHeight, needed);
     }
 
     private void DrawPersonaRow(Rect rect, AIPersonalityDef def)
@@ -102,7 +137,7 @@ public class Dialog_PickAIPersona : Window
 
         Rect iconRect = new Rect(
             rect.x + Padding,
-            rect.y + (RowHeight - IconSize) / 2f,
+            rect.y + Mathf.Max(0f, (MinRowHeight - IconSize) / 2f),
             IconSize,
             IconSize
         );
@@ -119,21 +154,24 @@ public class Dialog_PickAIPersona : Window
             iconRect.xMax + Padding,
             rect.y + 4f,
             rect.width - iconRect.width - Padding * 3f,
-            RowHeight - 8f
+            rect.height - 8f
         );
         Text.Font = GameFont.Small;
         Text.Anchor = TextAnchor.UpperLeft;
         Widgets.Label(
-            new Rect(textRect.x, textRect.y, textRect.width, 22f),
+            new Rect(textRect.x, textRect.y, textRect.width, TitleLineHeight),
             def.LabelShortOrLabel
         );
         Text.Font = GameFont.Tiny;
+        bool prevWrap = Text.WordWrap;
+        Text.WordWrap = true;
         GUI.color = new Color(0.8f, 0.8f, 0.8f);
         Widgets.Label(
-            new Rect(textRect.x, textRect.y + 22f, textRect.width, textRect.height - 22f),
+            new Rect(textRect.x, textRect.y + TitleLineHeight, textRect.width, textRect.height - TitleLineHeight),
             def.description ?? string.Empty
         );
         GUI.color = Color.white;
+        Text.WordWrap = prevWrap;
         Text.Font = GameFont.Small;
 
         if (Widgets.ButtonInvisible(rect))
