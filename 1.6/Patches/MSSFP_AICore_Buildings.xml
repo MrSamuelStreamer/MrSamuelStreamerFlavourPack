@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+    <!-- Coffee machine (def: MRCOFFEE) from "Mr Coffee and Mr Radar" mod -->
+     <!-- Mr Radar (other building from mod) has Rare tickerType, if relevant in future -->
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName="MRCOFFEE"]</xpath>
+        <value>
+            <tickerType>Rare</tickerType>
+        </value>
+    </Operation>
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName="MRCOFFEE"]/comps</xpath>
+        <value>
+            <li Class="MSSFP.Comps.CompProperties_TrueAICore">
+
+                <defaultPersonality>MSSFP_AICore_MrBeans</defaultPersonality>
+                <showPersonalitySelector>false</showPersonalitySelector>
+                <chatterMtbHours>3.0</chatterMtbHours>
+                <verbosity>Quiet</verbosity>
+                <chatterCooldownTicks>7500</chatterCooldownTicks>
+                <letterChance>0.01</letterChance>
+                <lettersPerDay>1</lettersPerDay>
+            </li>
+        </value>
+    </Operation>
+    <!-- Doc machine (def: Facility_DocMate) from "RimTek DocMate" mod -->
+    <!-- Already has Rare tickerType -->
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName="Facility_DocMate"]/comps</xpath>
+        <value>
+            <li Class="MSSFP.Comps.CompProperties_TrueAICore">
+
+                <defaultPersonality>MSSFP_AICore_Autodoc</defaultPersonality>
+                <showPersonalitySelector>false</showPersonalitySelector>
+                <chatterMtbHours>3.0</chatterMtbHours>
+                <verbosity>Quiet</verbosity>
+                <chatterCooldownTicks>7500</chatterCooldownTicks>
+                <letterChance>0.01</letterChance>
+                <lettersPerDay>1</lettersPerDay>
+            </li>
+        </value>
+    </Operation>
+</Patch>
