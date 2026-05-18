@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    EXAMPLE: how to attach a True AI Core to a "CoffeeMachine" ThingDef
+    using the Hollee persona. No holo projection - chatter + art only.
+
+    This file is intentionally a no-op. The <Patch> root below is empty. The real
+    example lives inside this comment block. To enable:
+      1. Replace `CoffeeMachine` with your actual building defName.
+      2. Move the example below OUT of the comment (or copy into a real patch file).
+      3. Reload defs.
+
+    Why no holo?
+      Holo projection is a SEPARATE comp (`MSSFP.Holo.CompProperties_HoloProjector`).
+      `CompTrueAICore` alone gives you: chatter bubbles, personality selector, letter
+      escalation, and the Create-AI-Art pipeline. Skip the holo comp and Hollee stays
+      bodiless — fits the senile-shipboard-ghost vibe.
+
+    Requirements on the host def:
+      - tickerType must be Rare or higher (CompTickRare drives chatter/art).
+      - Existing <comps> list. If the def has none, use PatchOperationAdd on the def
+        itself with a fresh <comps>...</comps> block instead of appending to /comps.
+
+    Hollee defName: MSSFP_AICore_Hollee  (see 1.6/Defs/AICore/MSSFP_AIPersonalities.xml)
+-->
+
+<!--
+    <Patch>
+        <Operation Class="PatchOperationSequence">
+            <operations>
+
+                <!- - Ensure CoffeeMachine ticks. CompTickRare needs Rare+.
+                     Conditional handles both "field present" and "inherited/missing". - ->
+                <li Class="PatchOperationConditional">
+                    <xpath>Defs/ThingDef[defName="CoffeeMachine"]/tickerType</xpath>
+                    <match Class="PatchOperationReplace">
+                        <xpath>Defs/ThingDef[defName="CoffeeMachine"]/tickerType</xpath>
+                        <value>
+                            <tickerType>Rare</tickerType>
+                        </value>
+                    </match>
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>Defs/ThingDef[defName="CoffeeMachine"]</xpath>
+                        <value>
+                            <tickerType>Rare</tickerType>
+                        </value>
+                    </nomatch>
+                </li>
+
+                <!- - Attach the AI core comp. - ->
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs/ThingDef[defName="CoffeeMachine"]/comps</xpath>
+                    <value>
+                        <li Class="MSSFP.Comps.CompProperties_TrueAICore">
+
+                            <!- - Hollee: senile shipboard persona. Bodiless on this build
+                                 because no holo projector comp is attached. - ->
+                            <defaultPersonality>MSSFP_AICore_Hollee</defaultPersonality>
+
+                            <!- - Let the player swap to another persona if they want. - ->
+                            <showPersonalitySelector>true</showPersonalitySelector>
+
+                            <!- - Slow, sleepy chatter cadence. Hollee is not in a hurry. - ->
+                            <chatterMtbHours>6.0</chatterMtbHours>
+                            <verbosity>Quiet</verbosity>
+                            <chatterCooldownTicks>7500</chatterCooldownTicks>
+
+                            <!- - Rare letter escalations. Hollee reports disasters as
+                                 mild curiosities — a once-a-day-max trickle fits. - ->
+                            <letterChance>0.01</letterChance>
+                            <lettersPerDay>1</lettersPerDay>
+
+                            <!- - Optional art pipeline. Omit artInputs/artOutputDef
+                                 entirely to make this a chatter-only core. - ->
+                            <artInputs>
+                                <li>WoodLog</li>
+                                <li>Steel</li>
+                            </artInputs>
+                            <artInputCount>30</artInputCount>
+                            <artOutputDef>MSSFP_AICoreSculptureSmall</artOutputDef>
+
+                        </li>
+                    </value>
+                </li>
+
+            </operations>
+        </Operation>
+    </Patch>
+-->
+<Patch />
