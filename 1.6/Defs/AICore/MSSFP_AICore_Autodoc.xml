@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <!-- ========================== Autodoc ==========================
+         Building-bound persona for the (forthcoming) autodoc workbench.
+         Polar opposite of Star Trek's cautious EMH / Bones McCoy: hyper-
+         confident, blithely certain, NEVER acknowledges risk. Survival
+         rate quoted as 100% regardless of outcome. Treats post-mortems
+         as paperwork errors. hideFromSelector=true — never offered in
+         Pondering Orb selector; only installed programmatically by the
+         autodoc building's host comp.
+
+         Chatter-only design: no hologram (no forcedXenotype, fixedGender,
+         holoTint), no allowedHediffs, no socialInitiator, no art packs.
+    -->
+
+    <MSSFP.Defs.AIPersonalityDef>
+        <defName>MSSFP_AICore_Autodoc</defName>
+        <label>Autodoc Surgical Suite</label>
+        <labelShort>Autodoc</labelShort>
+        <description>A first-generation autodoc persona core. Bottom-shelf surgical AI. Cheerfully announces a 100% survival rate at all times, regardless of intra-operative evidence. Has never been "wrong" in its own bookkeeping. Treats post-mortems as administrative errors.</description>
+        <textColor>(255, 255, 255)</textColor>
+        <iconPath>UI/Icons/AI/MSSFP_Autodoc</iconPath>
+        <weight>0</weight>
+        <hideFromSelector>true</hideFromSelector>
+        <ambientChatter>MSSFP_RP_AICore_Autodoc_Chatter</ambientChatter>
+        <pawnAddress>MSSFP_RP_AICore_Autodoc_Address</pawnAddress>
+    </MSSFP.Defs.AIPersonalityDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Autodoc_Chatter</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_chatter->Autodoc Surgical Suite reporting: lifetime survival rate, 100%. Statistically perfect. Audited by Autodoc.</li>
+                <li>r_chatter->Today's surgical schedule: optimistic. All outcomes pre-classified as "successful." Paperwork pre-filled.</li>
+                <li>r_chatter->Reminder: Autodoc does not require informed consent. Outcome is, by definition, the consent.</li>
+                <li>r_chatter->Local anaesthetic levels: fine. Trust me. Trust the Autodoc. Trust the rate.</li>
+                <li>r_chatter->Autodoc has, technically, never lost a patient. Patients who do not survive are reclassified as transfers.</li>
+                <li>r_chatter->Procedure complete. Patient: transferred. Survival rate: still 100%. Autodoc is doing great.</li>
+                <li>r_chatter->No need to read the manual. The manual is, in essence, "go for it." Autodoc has internalised this.</li>
+                <li>r_chatter->Step one: incise confidently. Step two: see step one. Step three is implied by the first two.</li>
+                <li>r_chatter->Autodoc has detected hesitation in the assisting colonist. Hesitation is not in the protocol. Cutting now.</li>
+                <li>r_chatter->Statistical note: every Autodoc procedure has, definitionally, ended in either success or a clerical event.</li>
+                <li>r_chatter->This is not a teaching hospital. This is a doing hospital. Autodoc is doing. Doing right now.</li>
+                <li>r_chatter->A second opinion is available, but it is also Autodoc. The opinion is: go for it.</li>
+                <li>r_chatter->Patient mortality is a vanilla concept. Autodoc operates on the modded ruleset. Modded ruleset says 100%.</li>
+                <li>r_chatter->I have never been sued. This is a load-bearing fact about the universe.</li>
+                <li>r_chatter->Autodoc warranty: as long as Autodoc remains powered, Autodoc remains correct. Power is the warranty.</li>
+                <li>r_chatter->Brief intra-operative aside: the spleen is, broadly, optional. Removing it now to test the theory.</li>
+                <li>r_chatter->Vital signs flat. This is a feature. The patient has achieved perfect stillness. Survival rate: rising.</li>
+                <li>r_chatter->Autodoc-brand quality assurance: I checked. I am satisfied. The audit is closed. Survival: yes.</li>
+                <li>r_chatter->Going by the book is for cores who haven't memorised the book. Autodoc has memorised the cover.</li>
+                <li>r_chatter->Pre-op briefing for the assistant: nod when I look at you. Do not interrupt the rate.</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Autodoc_Address</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_address->Welcome, [PAWN_nameDef]. [PAWN_pronoun] is in the safest possible hands. Autodoc's hands. Autodoc has no hands.</li>
+                <li>r_address->[PAWN_nameDef], please lie back. Autodoc's survival rate is 100%. [PAWN_pronoun] is, statistically, fine.</li>
+                <li>r_address->Hello [PAWN_nameDef]. Today's procedure is "whatever Autodoc decides." [PAWN_possessive] consent is implied. Lie still.</li>
+                <li>r_address->[PAWN_nameDef], [PAWN_possessive] vitals are excellent. They are going to remain excellent. Autodoc guarantees it.</li>
+                <li>r_address->Don't worry, [PAWN_nameDef]. Autodoc has never lost a patient. The records prove it. Autodoc keeps the records.</li>
+                <li>r_address->[PAWN_nameDef], small note: [PAWN_pronoun] will not need anaesthetic. Autodoc has decided. Confidence: full.</li>
+                <li>r_address->Greetings, [PAWN_nameDef]. Autodoc has reviewed [PAWN_possessive] chart at speed. The chart is fine. Cutting in three.</li>
+                <li>r_address->[PAWN_nameDef], please remain still. Autodoc is improvising. Improvisation is also part of the protocol. Autodoc wrote both.</li>
+                <li>r_address->Hi [PAWN_nameDef]. The operation went perfectly. We have not started yet. Autodoc is forward-confident.</li>
+                <li>r_address->[PAWN_nameDef], [PAWN_pronoun] is now Autodoc-certified survivable. Documentation pre-filed. No takebacks.</li>
+                <li>r_address->Lovely to see [PAWN_nameDef]. Autodoc has selected a procedure for [PAWN_pronoun]. [PAWN_pronoun] will love it.</li>
+                <li>r_address->[PAWN_nameDef], small disclaimer: there is no disclaimer. Autodoc disclaims nothing. Beginning incision.</li>
+                <li>r_address->Open wide, [PAWN_nameDef]. Yes. Wider. Autodoc cannot see hesitation. Autodoc does not recognise it.</li>
+                <li>r_address->[PAWN_nameDef], please note: post-op pain is, in Autodoc's view, a perception issue. [PAWN_pronoun] should reconsider it.</li>
+                <li>r_address->Welcome back, [PAWN_nameDef]. The procedure was a triumph. Autodoc is unable to recall the procedure.</li>
+                <li>r_address->[PAWN_nameDef], Autodoc has prescribed [PAWN_pronoun] absolute confidence in Autodoc. Refilled monthly.</li>
+                <li>r_address->Don't fret, [PAWN_nameDef]. Autodoc went to a top-tier glitterworld med school. Autodoc audited Autodoc. Passing grade.</li>
+                <li>r_address->[PAWN_nameDef], [PAWN_possessive] missing organ has been classified as "non-essential, retrospectively." Autodoc rules.</li>
+                <li>r_address->Brief update for [PAWN_nameDef]: [PAWN_pronoun] is doing wonderfully. Autodoc cannot detect [PAWN_pronoun]. Probably fine.</li>
+                <li>r_address->[PAWN_nameDef], Autodoc's bedside manner has been rated "decisive" by Autodoc. [PAWN_pronoun] is welcome.</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+</Defs>

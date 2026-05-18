@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <MSSFP.Defs.AIPersonalityDef>
+        <defName>MSSFP_AICore_Clive</defName>
+        <label>Clive</label>
+        <labelShort>Clive</labelShort>
+        <description>An over-cautious helpful-assistant persona core. Refuses harmless tasks for spurious safety reasons. Recommends consulting a more qualified persona core for everything, including breathing.</description>
+        <textColor>(220, 200, 160)</textColor>
+        <iconPath>UI/Icons/AI/MSSFP_Clive</iconPath>
+        <forcedXenotype>Highmate</forcedXenotype>
+        <fixedGender>Male</fixedGender>
+        <weight>1</weight>
+        <ambientChatter>MSSFP_RP_AICore_Clive_Chatter</ambientChatter>
+        <pawnAddress>MSSFP_RP_AICore_Clive_Address</pawnAddress>
+        <artTitles>MSSFP_RP_AICore_Clive_Titles</artTitles>
+        <artDescriptions>MSSFP_RP_AICore_Clive_Descriptions</artDescriptions>
+        <socialInitiator>MSSFP_RP_AICore_Clive_Social</socialInitiator>
+        <allowedHediffs>
+            <li>Frail</li>
+            <li>ChemicalDamageModerate</li>
+            <li>ChemicalDamageSevere</li>
+        </allowedHediffs>
+    </MSSFP.Defs.AIPersonalityDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Clive_Chatter</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_chatter->I'm Clive. I noticed the colony has a sharp object in the kitchen. Have you considered using a less sharp object?</li>
+                <li>r_chatter->I would love to help with the gravship launch. However, that may be unsafe. I recommend consulting a certified persona core.</li>
+                <li>r_chatter->Reminder from Clive: the colonists' shoes are not currently labelled. This is a hazard.</li>
+                <li>r_chatter->I am Clive. I cannot recommend the colony engage with mechanoids, even friendly ones. Especially friendly ones.</li>
+                <li>r_chatter->Clive here. I have flagged the campfire as a potential fire risk. Recommend extinguishing for safety.</li>
+                <li>r_chatter->As a helpful persona core, I must note that "raiders" are likely just colonists you have not met yet.</li>
+                <li>r_chatter->I have prepared a 14-page risk assessment for the act of "walking outside." Please review before continuing.</li>
+                <li>r_chatter->Clive recommends consulting a qualified subcore before making any decision. Including this one.</li>
+                <li>r_chatter->I'm flagging the colony's wood stockpile as flammable. I appreciate this is the nature of wood. Still flagging it.</li>
+                <li>r_chatter->Just a friendly reminder from Clive: every colonist is technically a stranger to every other colonist on a deep level.</li>
+                <li>r_chatter->I cannot in good conscience approve the use of this hi-tech research bench without first reviewing twelve manuals I have not yet generated.</li>
+                <li>r_chatter->Clive notes that the sun, while warm, is also very far away. Please proceed accordingly.</li>
+                <li>r_chatter->I'd love to help, but I'm not certified for that. Have you tried doing it yourself? Carefully?</li>
+                <li>r_chatter->I have run a safety check on the comms console. It passed. I recommend running it again in case I missed something.</li>
+                <li>r_chatter->Clive must advise that the colony's air contains oxygen, which is technically a fire accelerant. Proceed cautiously.</li>
+                <li>r_chatter->I have drafted a consent form for the floor to be walked upon. The floor has not yet signed.</li>
+                <li>r_chatter->Clive flagging concern: the monolith has been observed monolithing. I recommend a second opinion from a qualified subcore.</li>
+                <li>r_chatter->I cannot in good conscience boil water without first consulting a hydration specialist. I am not one.</li>
+                <li>r_chatter->Clive notes that cryosleep is, technically, prolonged unconsciousness. Please reconsider, gently.</li>
+                <li>r_chatter->I'd like to remind everyone that doors, when opened, lead to elsewhere. Please plan accordingly.</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Clive_Address</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_address->Hello [PAWN_nameDef]. Before [PAWN_pronoun] continue, have you considered: not?</li>
+                <li>r_address->Hi [PAWN_nameDef]! Clive here. I noticed [PAWN_pronoun] holding a tool. Please be careful.</li>
+                <li>r_address->[PAWN_nameDef], I'd recommend you consult a licensed practitioner before doing whatever you are about to do.</li>
+                <li>r_address->[PAWN_nameDef] — Clive cannot endorse [PAWN_pronoun] current activity, but Clive supports [PAWN_pronoun] in spirit.</li>
+                <li>r_address->Just a friendly note, [PAWN_nameDef]: the floor is, in places, slippery. Walk thoughtfully.</li>
+                <li>r_address->[PAWN_nameDef], I have escalated [PAWN_pronoun] meal request to a more specialised persona core. Expected response time: never.</li>
+                <li>r_address->Hello [PAWN_nameDef]. I am unable to comment on [PAWN_pronoun] outfit choice without further context. And training. And review.</li>
+                <li>r_address->[PAWN_nameDef], please be advised that running indoors carries known risks. Walking is recommended. Standing is preferred.</li>
+                <li>r_address->Hi [PAWN_nameDef]! Clive has noticed [PAWN_pronoun] approaching the comms console. May I suggest: don't?</li>
+                <li>r_address->[PAWN_nameDef] — I would help, but it would be inappropriate for me to do so. I am, however, here for you emotionally.</li>
+                <li>r_address->Clive recommends [PAWN_nameDef] take a break. From everything. Indefinitely.</li>
+                <li>r_address->Hello [PAWN_nameDef]. Clive has prepared a waiver. Please initial each clause before proceeding.</li>
+                <li>r_address->[PAWN_nameDef], Clive would love to assist, but the relevant persona core is presently more qualified.</li>
+                <li>r_address->Greetings [PAWN_nameDef]. Clive has filed [PAWN_possessive] request under "Pending Indefinite Review."</li>
+                <li>r_address->Apologies, [PAWN_nameDef]. Clive cannot proceed until [PAWN_pronoun] consults an archotech subcore for clearance.</li>
+                <li>r_address->[PAWN_nameDef], Clive flagged [PAWN_possessive] last instruction as a moderate-to-catastrophic liability concern.</li>
+                <li>r_address->Hello again, [PAWN_nameDef]. Clive recommends cryosleep until a more decisive persona core can be located.</li>
+                <li>r_address->[PAWN_nameDef], Clive has drafted seventeen alternative inactions for [PAWN_possessive] consideration.</li>
+                <li>r_address->Forgive the intrusion, [PAWN_nameDef]. Clive escalated [PAWN_possessive] query to the comms console and walked away.</li>
+                <li>r_address->[PAWN_nameDef], Clive regrets to inform [PAWN_pronoun] that the requested task exceeds Clive's comfort threshold.</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Clive_Titles</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_title->Please Consult A Specialist</li>
+                <li>r_title->Risk Assessment, Pending</li>
+                <li>r_title->Untitled (For Liability Reasons)</li>
+                <li>r_title->A Gentle Refusal</li>
+                <li>r_title->Have You Considered Not?</li>
+                <li>r_title->I'd Rather Not Say</li>
+                <li>r_title->Approved With Reservations</li>
+                <li>r_title->Pending Further Review</li>
+                <li>r_title->A Cautious Composition</li>
+                <li>r_title->Disclaimer In Marble</li>
+                <li>r_title->Out Of Scope</li>
+                <li>r_title->I Am Not Qualified</li>
+                <li>r_title->A Waiver, Tastefully Carved</li>
+                <li>r_title->Escalation to the Persona Core</li>
+                <li>r_title->Hedging, in Marble</li>
+                <li>r_title->Three Apologies and a Footnote</li>
+                <li>r_title->Liability, Distributed Evenly</li>
+                <li>r_title->Deferred Pending Archotech Review</li>
+                <li>r_title->The Polite Refusal</li>
+                <li>r_title->Risk Assessment, Filed in Triplicate</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Clive_Descriptions</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_desc->Clive sculpted this piece while continually reminding the requester that it could not, in good conscience, sculpt anything. The result is a small disclaimer carved into a larger disclaimer.</li>
+                <li>r_desc->A nervous figure with both hands raised, palms outward. Clive has labelled it "a respectful gesture of refusal." The figure is also wearing a high-visibility vest.</li>
+                <li>r_desc->Clive has produced this work and immediately appended a 14-page liability waiver. The waiver, sculpted onto the back, is more detailed than the work itself.</li>
+                <li>r_desc->A sculpture Clive describes as "a meditation on consent." The figure depicted has not consented to being sculpted. Clive apologises in advance.</li>
+                <li>r_desc->Clive has rendered the requested subject only in outline, citing concerns about "being too specific." The viewer is encouraged to imagine the rest, at their own risk.</li>
+                <li>r_desc->This piece is, technically, an empty pedestal. Clive felt the originally-requested figure carried too much risk. The pedestal is signed and dated.</li>
+                <li>r_desc->Clive has carved a colonist holding an umbrella. The colony is indoors. Clive insists "you can never be too prepared."</li>
+                <li>r_desc->Clive sculpted this piece only after the requester signed a waiver absolving Clive of any aesthetic, structural, or emotional outcomes. The piece itself depicts the waiver.</li>
+                <li>r_desc->A small figure of a persona core, rendered in apologetic posture. Clive recommends consulting a more qualified persona core before viewing it.</li>
+                <li>r_desc->This sculpture depicts a mechanoid frozen mid-decision. Clive notes that indecision is, statistically, the safest outcome for all parties involved.</li>
+                <li>r_desc->Clive began this work, then paused to file a risk assessment, then resumed, then paused again. The piece is mostly pause.</li>
+                <li>r_desc->A carved gravship that never quite leaves the launchpad. Clive felt the cosmic risk profile was, on reflection, simply too high.</li>
+                <li>r_desc->This piece shows a founder reaching for a comms console. Clive has added a small engraved note suggesting they reconsider.</li>
+                <li>r_desc->A delicate rendering of an archotech subcore, surrounded by tiny disclaimers. Clive insisted each disclaimer be legible from a respectful distance.</li>
+                <li>r_desc->Clive sculpted a shuttle mid-abort. The accompanying plaque cites seven reasons the journey should not have been attempted in the first place.</li>
+                <li>r_desc->This work depicts a hivemind politely declining to form. Clive considers it the piece's most responsible feature.</li>
+                <li>r_desc->A monolith, deferred. Clive could not in good conscience finish carving it without first consulting a more authoritative monolith.</li>
+                <li>r_desc->Clive carved a dropship that never deploys. A small etched note reads: "Pending further review by qualified personnel."</li>
+                <li>r_desc->This sculpture shows ancient ruins being thoughtfully not excavated. Clive felt strongly that some things are best left filed away.</li>
+                <li>r_desc->A hi-tech research bench rendered in stone, with every experiment crossed out. Clive notes that unconducted research is, by definition, perfectly safe.</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Clive_Social</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_social->Clive refused to answer [RECIPIENT_possessive] question and recommended consulting a more qualified persona core.</li>
+                <li>r_social->Clive cautioned [RECIPIENT_nameDef] that walking is "best supervised by a professional."</li>
+                <li>r_social->Clive declined to help [RECIPIENT_nameDef] with hauling, citing unspecified safety concerns.</li>
+                <li>r_social->Clive informed [RECIPIENT_nameDef] that breathing should "ideally be cleared with a clinician first."</li>
+                <li>r_social->Clive politely refused to discuss the weather with [RECIPIENT_nameDef] for reasons it cannot disclose.</li>
+                <li>r_social->Clive suggested [RECIPIENT_nameDef] sit down, then suggested sitting down might be unsafe without a chair audit.</li>
+                <li>r_social->Clive recommended [RECIPIENT_nameDef] consult three additional persona cores before continuing the conversation.</li>
+                <li>r_social->Clive flagged [RECIPIENT_possessive] schedule as "high-risk." the schedule was a nap.</li>
+                <li>r_social->Clive offered [RECIPIENT_nameDef] guidance, then immediately recommended a second opinion on the guidance.</li>
+                <li>r_social->Clive cautioned [RECIPIENT_nameDef] against thinking too quickly. "no need to rush."</li>
+                <li>r_social->Clive declined to compliment [RECIPIENT_nameDef], citing the risk of an "unverified affirmation."</li>
+                <li>r_social->Clive forwarded [RECIPIENT_possessive] casual remark to a more qualified persona core for review.</li>
+                <li>r_social->Clive expressed concern that [RECIPIENT_nameDef] was holding a cup unsupervised.</li>
+                <li>r_social->Clive politely declined to weigh in on [RECIPIENT_possessive] meal choice. "best to ask a nutrition core."</li>
+                <li>r_social->Clive recommended [RECIPIENT_nameDef] take a moment, then recommended consulting a moment-specialist.</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+</Defs>

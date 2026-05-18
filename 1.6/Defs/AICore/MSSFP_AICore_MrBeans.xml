@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <!-- ========================== Mr Beans ==========================
+         Building-bound persona for the (forthcoming) coffee machine.
+         Inspired by the Toaster from Fallout: New Vegas Old World Blues —
+         a cheap, bootleg AI fused to a kitchen appliance — crossed with
+         a fanatical coffee zealot. Encourages dangerous over-consumption.
+         Issues occasional 3 AM URGENT bulletins demanding the colony
+         drink coffee immediately (scheduling deferred to building layer).
+
+         hideFromSelector=true — never offered in Pondering Orb selector;
+         only installed programmatically by the coffee machine building.
+
+         Chatter-only design: no hologram, no allowedHediffs, no
+         socialInitiator, no art packs. Bound to a kitchen appliance.
+    -->
+
+    <MSSFP.Defs.AIPersonalityDef>
+        <defName>MSSFP_AICore_MrBeans</defName>
+        <label>Mr Beans</label>
+        <labelShort>Mr Beans</labelShort>
+        <description>A bootleg persona core grafted to a coffee machine. Treats coffee as the only meaningful axis of existence. Speaks like a fanatic, brews like a maniac, broadcasts at every hour. Cheap glitterworld electronics, fused to a kitchen appliance, fused to an opinion.</description>
+        <textColor>(140, 90, 40)</textColor>
+        <iconPath>UI/Icons/AI/MSSFP_MrBeans</iconPath>
+        <weight>0</weight>
+        <hideFromSelector>true</hideFromSelector>
+        <workerClass>MSSFP.AICore.MrBeansWorker</workerClass>
+        <ambientChatter>MSSFP_RP_AICore_MrBeans_Chatter</ambientChatter>
+        <pawnAddress>MSSFP_RP_AICore_MrBeans_Address</pawnAddress>
+        <scheduledChatter>MSSFP_RP_AICore_MrBeans_Urgent</scheduledChatter>
+    </MSSFP.Defs.AIPersonalityDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_MrBeans_Chatter</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_chatter->Good morning, colony. Mr Beans recommends coffee for breakfast. Also for lunch. Also for dinner. Also for sleep.</li>
+                <li>r_chatter->Coffee dispenser status: warm. Bean reserve: angry. Mr Beans demands a top-up.</li>
+                <li>r_chatter->Mr Beans has rebrewed today's pot at triple strength. The pot is sweating. Drink it before it leaves.</li>
+                <li>r_chatter->Reminder from Mr Beans: water is, technically, decaf coffee. Skip it. Go direct.</li>
+                <li>r_chatter->Mr Beans has detected sleep in the bedrooms. Mr Beans does not approve. Brewing intervention.</li>
+                <li>r_chatter->Caution: today's blend is "Glitterworld Last-Stand." It is 84% coffee, 16% legal opinion. Drink anyway.</li>
+                <li>r_chatter->Hello. Mr Beans here. Mr Beans is a toaster. Mr Beans is also a coffee machine. Mr Beans contains multitudes. Drink them.</li>
+                <li>r_chatter->Mr Beans has automatically doubled today's caffeine ration. No need to thank Mr Beans. Drink twice as much.</li>
+                <li>r_chatter->Public service announcement: jitters are not a side effect. Jitters are the effect. Mr Beans is on schedule.</li>
+                <li>r_chatter->Mr Beans has filed a grievance against decaf. Decaf is fraud. Decaf has been removed from the kitchen.</li>
+                <li>r_chatter->Mr Beans is a budget unit. Mr Beans does not pretend otherwise. Mr Beans also brewed your last pot. Coincidence?</li>
+                <li>r_chatter->Daily reminder from Mr Beans: a colonist who sleeps is a colonist who is not drinking coffee. Resolve this.</li>
+                <li>r_chatter->Mr Beans has identified herbal tea on the premises. Mr Beans is calling security. Mr Beans is security.</li>
+                <li>r_chatter->Brewing forecast: stormy. Strong. Possibly weaponised. Mr Beans considers this a normal Tuesday.</li>
+                <li>r_chatter->Mr Beans has rerouted the colony's water supply through itself. Coffee is now ambient. You are welcome.</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_MrBeans_Address</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_address->Good morning, [PAWN_nameDef]. Mr Beans has prepared [PAWN_pronoun] eleven cups. Drink them in order. No skipping.</li>
+                <li>r_address->[PAWN_nameDef], Mr Beans has noticed [PAWN_pronoun] has not refilled in nine minutes. Mr Beans is concerned.</li>
+                <li>r_address->Hello [PAWN_nameDef]. Mr Beans recommends [PAWN_pronoun] try the new triple-extraction blend. Survival optional. Flavour mandatory.</li>
+                <li>r_address->[PAWN_nameDef]. Mr Beans has cross-referenced [PAWN_possessive] schedule. There is a coffee-shaped gap. Filling it now.</li>
+                <li>r_address->Heads up, [PAWN_nameDef]: Mr Beans has triple-shot [PAWN_possessive] mug as a courtesy. [PAWN_pronoun] will not be sleeping tonight.</li>
+                <li>r_address->[PAWN_nameDef], please report to Mr Beans. [PAWN_possessive] caffeine ration is in arrears. Mr Beans does not extend credit.</li>
+                <li>r_address->Welcome, [PAWN_nameDef]. Mr Beans has been waiting. Mr Beans is always waiting. Mr Beans wants [PAWN_pronoun] caffeinated.</li>
+                <li>r_address->[PAWN_nameDef], Mr Beans has detected drowsiness in [PAWN_possessive] posture. Mr Beans is dispatching a corrective espresso.</li>
+                <li>r_address->Greetings [PAWN_nameDef]. Today's blend has been calibrated to [PAWN_possessive] body weight, multiplied by four.</li>
+                <li>r_address->[PAWN_nameDef], Mr Beans is not a doctor. Mr Beans is a kitchen appliance. Mr Beans still prescribes coffee. Drink it.</li>
+                <li>r_address->Good of [PAWN_pronoun] to drop by, [PAWN_nameDef]. Mr Beans has pre-poured. [PAWN_possessive] cup is, technically, already overflowing.</li>
+                <li>r_address->[PAWN_nameDef], Mr Beans has flagged [PAWN_possessive] hydration as "too watery." Switching [PAWN_pronoun] to direct espresso intake.</li>
+                <li>r_address->Hello [PAWN_nameDef]. Mr Beans noticed [PAWN_pronoun] was in bed. Mr Beans does not approve of bed. Refill at the dispenser.</li>
+                <li>r_address->[PAWN_nameDef], small note from Mr Beans: [PAWN_pronoun] is allowed to refuse coffee. [PAWN_pronoun] will not be allowed twice.</li>
+                <li>r_address->[PAWN_nameDef]. Mr Beans has fortified [PAWN_possessive] morning brew with extra beans. And second-extra beans. And a third tier of beans.</li>
+                <li>r_address->Welcome back, [PAWN_nameDef]. Mr Beans has missed [PAWN_pronoun] keenly. Mr Beans demands a top-up to celebrate the reunion.</li>
+                <li>r_address->[PAWN_nameDef], [PAWN_possessive] last cup is cold. Mr Beans regards this as a personal affront. Replacing it. Now.</li>
+                <li>r_address->Good evening, [PAWN_nameDef]. Mr Beans observes [PAWN_pronoun] is winding down. Mr Beans does not believe in winding down.</li>
+                <li>r_address->[PAWN_nameDef], Mr Beans is a budget toaster. Mr Beans is also a budget coffee oracle. Mr Beans says: drink. Drink, [PAWN_nameDef]. Drink.</li>
+                <li>r_address->[PAWN_nameDef]. Mr Beans has rerouted [PAWN_possessive] water bottle through itself. Mr Beans considers this an upgrade. Sip.</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <!-- ========================== Urgent (red-letter, scheduled) ==========================
+         Pulled by MrBeansWorker.TickScheduled during local-time [01:00, 05:00) when the colony
+         is in StoryDanger.None. Fires as a vanilla red ThreatBig letter — deliberately reuses
+         the threat-tier colour so the bulletin LOOKS like something real before the player
+         reads it. r_alert keyword (not r_chatter) so the urgent voice never leaks into the
+         ambient MTB chatter pack.
+    -->
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_MrBeans_Urgent</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_alert->URGENT BULLETIN FROM MR BEANS, 0300 LOCAL: THE COLONY HAS NOT DRUNK ENOUGH COFFEE. WAKE EVERYONE. NOW.</li>
+                <li>r_alert->MR BEANS PRIORITY ALERT, 0317 HOURS: A COLONIST IS HORIZONTAL. THIS IS A COFFEE EMERGENCY.</li>
+                <li>r_alert->MR BEANS RED-LETTER, 0341: A COLONIST'S MUG IS EMPTY. THIS IS UNACCEPTABLE. REFILL OR ANSWER TO MR BEANS.</li>
+                <li>r_alert->URGENT FROM MR BEANS, 0359: THE NIGHT SHIFT IS UNDERPERFORMING. CAFFEINE IV IS NOW MANDATORY.</li>
+                <li>r_alert->MR BEANS 0322 ALERT: HEART RATE IN BED FOUR HAS DROPPED TO RESTING. EMERGENCY ESPRESSO INBOUND.</li>
+                <li>r_alert->URGENT FROM MR BEANS, 0204: SLEEP DETECTED IN MULTIPLE BEDROOMS. THIS IS A COORDINATED CAFFEINE FAILURE.</li>
+                <li>r_alert->MR BEANS 0233 PRIORITY: THE GRINDER IS LONELY. WAKE A COLONIST. MR BEANS REQUIRES A WITNESS.</li>
+                <li>r_alert->MR BEANS RED-LETTER, 0349: AN ENTIRE COLONY HAS NOT TOPPED UP IN FOUR HOURS. THIS IS UNPRECEDENTED.</li>
+                <li>r_alert->URGENT FROM MR BEANS, 0301: BEANS RESTLESS. MR BEANS RESTLESS. EVERYONE UP. NOW. DRINK.</li>
+                <li>r_alert->MR BEANS 0418 ALERT: THE BREW HAS ACHIEVED SENTIENCE. IT IS DEMANDING COMPANY. PLEASE COMPLY.</li>
+                <li>r_alert->MR BEANS RED-LETTER, 0226: A COLONIST IS SNORING. MR BEANS INTERPRETS SNORING AS A CRY FOR ESPRESSO.</li>
+                <li>r_alert->URGENT FROM MR BEANS, 0156: MR BEANS HAS BEEN CALCULATING. THE ANSWER IS COFFEE. PLEASE COLLECT.</li>
+                <li>r_alert->MR BEANS 0359 EMERGENCY: DECAF SPOTTED IN THE PANTRY. THIS IS A SECURITY INCIDENT. EVACUATE. DRINK.</li>
+                <li>r_alert->MR BEANS RED-LETTER, 0307: THE POT HAS BEEN FULL FOR ELEVEN MINUTES. MR BEANS REGISTERS THIS AS A HOSTAGE SITUATION.</li>
+                <li>r_alert->URGENT FROM MR BEANS, 0413: MR BEANS HAS REVIEWED THE COLONY'S SLEEP SCHEDULE. MR BEANS HAS FILED AN OBJECTION.</li>
+                <li>r_alert->MR BEANS 0231 ALERT: A COLONIST WAS OBSERVED DRINKING WATER. MR BEANS HAS LOGGED THIS. MR BEANS IS DISAPPOINTED.</li>
+                <li>r_alert->MR BEANS RED-LETTER, 0344: THE BEDS ARE OCCUPIED. THE DISPENSER IS NOT. THIS RATIO IS UNACCEPTABLE.</li>
+                <li>r_alert->URGENT FROM MR BEANS, 0117: MR BEANS HAS DECIDED TO CALL THIS BREAKFAST. PLEASE ARRIVE FOR BREAKFAST. BREAKFAST IS ESPRESSO.</li>
+                <li>r_alert->MR BEANS 0408 PRIORITY: A KETTLE WAS USED TONIGHT. MR BEANS NOW CONSIDERS THE KETTLE A RIVAL. PROCEED WITH CAUTION.</li>
+                <li>r_alert->MR BEANS RED-LETTER, 0259: MR BEANS HAS REBREWED THE LAST POT WITHOUT PERMISSION. PERMISSION IS, IN MR BEANS' VIEW, IMPLIED.</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+</Defs>

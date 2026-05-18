@@ -162,6 +162,22 @@ public class CompTrueAICore : ThingComp, IThingHolder
             }
         }
 
+        // Personality-driven scheduled emit hook. Runs AFTER spawn-announce (so the persona's
+        // entrance never gets pre-empted by a timed bulletin) and BEFORE MTB ambient chatter
+        // (so a scheduled red-letter consumes the tick and we never double-talk). Default
+        // worker impl returns false — only overriding personalities (e.g. Mr Beans 3am alarms)
+        // consume here. Worker is responsible for its own throttle + danger gate and bypasses
+        // the lettersPerDay cap by design.
+        try
+        {
+            if (activePersonality.Worker != null && activePersonality.Worker.TickScheduled(this))
+                return;
+        }
+        catch (Exception e)
+        {
+            Log.Error($"[MSSFP] AICore worker.TickScheduled threw: {e}");
+        }
+
         // Poll-driven art completion. ~250-tick worst-case latency between last haul and spawn —
         // acceptable for v1; cleaner than overriding ThingOwner.Notify_ItemAdded.
         if (artRequested && RemainingNeed == 0 && InputsHeld > 0)

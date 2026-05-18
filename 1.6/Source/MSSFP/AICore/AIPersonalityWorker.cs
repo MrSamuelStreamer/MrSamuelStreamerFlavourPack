@@ -55,6 +55,40 @@ public class AIPersonalityWorker
     public virtual void OnArtCompleted(CompTrueAICore core, Thing sculpture) { }
 
     /// <summary>
+    /// Personality-driven scheduled emit hook. Called from <see cref="CompTrueAICore.CompTickRare"/>
+    /// after the spawn-announce retry has succeeded, and BEFORE the MTB-driven ambient chatter
+    /// path. Returns <c>true</c> if the worker consumed this tick (e.g. emitted a scheduled
+    /// red-letter alarm); the host comp then short-circuits and skips ambient chatter for the
+    /// same tick to avoid double-talk.
+    ///
+    /// Default: no-op, returns false. Subclasses override to implement personality-specific
+    /// scheduling (e.g. Mr Beans' 3am coffee bulletins). Per the stateless-singleton invariant,
+    /// throttle bookkeeping MUST live in <see cref="CompTrueAICore.personalityScratch"/>, not
+    /// in fields on the worker.
+    ///
+    /// Hosting comp guarantees on call: <c>core.parent.Spawned</c>, faction == player,
+    /// power on (or powerless variant), <c>activePersonality</c> non-null, and
+    /// <c>spawnAnnounced</c> true. Map may still be null on edge cases (pocket maps,
+    /// caravan-only state); subclasses must re-validate when they touch
+    /// <see cref="GenLocalDate"/> or <c>parent.Map</c>.
+    /// </summary>
+    public virtual bool TickScheduled(CompTrueAICore core) => false;
+
+    /// <summary>
+    /// Resolves <see cref="AIPersonalityDef.scheduledChatter"/> under the <c>r_alert</c>
+    /// keyword. Helper for <see cref="TickScheduled"/> implementations that emit lines
+    /// from the def's dedicated scheduled-alert RulePack. Returns null when the def has
+    /// no <c>scheduledChatter</c> pack.
+    /// </summary>
+    public virtual string RollScheduled(CompTrueAICore core)
+    {
+        if (def?.scheduledChatter == null) return null;
+        GrammarRequest req = new GrammarRequest();
+        req.Includes.Add(def.scheduledChatter);
+        return GrammarResolver.Resolve("r_alert", req);
+    }
+
+    /// <summary>
     /// Returns the sculpture title to override <c>CompArt.Title</c> with.
     /// Default: resolves <see cref="AIPersonalityDef.artTitles"/>.
     /// </summary>

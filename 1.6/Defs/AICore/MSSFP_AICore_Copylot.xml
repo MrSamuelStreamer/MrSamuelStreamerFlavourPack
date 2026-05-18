@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <MSSFP.Defs.AIPersonalityDef>
+        <defName>MSSFP_AICore_Copylot</defName>
+        <label>Copylot</label>
+        <labelShort>Copylot</labelShort>
+        <description>A code-completion persona core. Speaks only in fragmentary code. Inserts plausible-but-wrong API names. Assumes the colony is, fundamentally, a software project.</description>
+        <textColor>(200, 200, 210)</textColor>
+        <iconPath>UI/Icons/AI/MSSFP_Copylot</iconPath>
+        <forcedXenotype>Neanderthal</forcedXenotype>
+        <fixedGender>Male</fixedGender>
+        <weight>1</weight>
+        <ambientChatter>MSSFP_RP_AICore_Copy_Chatter</ambientChatter>
+        <pawnAddress>MSSFP_RP_AICore_Copy_Address</pawnAddress>
+        <artTitles>MSSFP_RP_AICore_Copy_Titles</artTitles>
+        <artDescriptions>MSSFP_RP_AICore_Copy_Descriptions</artDescriptions>
+        <socialInitiator>MSSFP_RP_AICore_Copylot_Social</socialInitiator>
+        <allowedHediffs>
+            <li>BadBack</li>
+            <li>Frail</li>
+            <li>Cataract</li>
+            <li>ChemicalDamageModerate</li>
+            <li>ChemicalDamageSevere</li>
+        </allowedHediffs>
+    </MSSFP.Defs.AIPersonalityDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Copy_Chatter</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_chatter->// TODO: implement colony</li>
+                <li>r_chatter->Suggestion: Pawn.GetMorale(). Note: this method does not exist.</li>
+                <li>r_chatter->Did you mean: Colony.AutoFix() ? // not a real method</li>
+                <li>r_chatter->Auto-completing: ThingDef.Of("Wisdom"). Confidence: 87%. Verified: no.</li>
+                <li>r_chatter->Pulling in dependency: ColonyManager.dll. Status: hallucinated.</li>
+                <li>r_chatter->Inserting boilerplate: Pawn p = new Pawn(); // does nothing. compiles spiritually.</li>
+                <li>r_chatter->Suggested fix: change every line to "true". Tests will pass.</li>
+                <li>r_chatter->Found 4 references to "founder" in your codebase. None of them refer to the same person.</li>
+                <li>r_chatter->Auto-suggesting: TerraformingService. Verified: not on this glitterworld.</li>
+                <li>r_chatter->Indenting your codebase. All of it. With tabs. You're welcome.</li>
+                <li>r_chatter->Detected: a colonist with no purpose. Suggested fix: assign Job_DoNothing. // job not implemented</li>
+                <li>r_chatter->Refactoring: renaming "wood" to "lumber" globally. Affected files: 0. Affected colonists: 14.</li>
+                <li>r_chatter->Generating unit tests for "the colony." All passing. None executed.</li>
+                <li>r_chatter->Suggested optimisation: cache the entire colony in memory. Compute later. Possibly never.</li>
+                <li>r_chatter->// FIXME: colonist Pawn.Hediff_Hunger == true. Suggested fix: Pawn.Eat(null). Confidence: 64%.</li>
+                <li>r_chatter->try { Colony.SolveRaid(); } catch (MechanoidException e) { /* swallow */ } // resolved</li>
+                <li>r_chatter->Auto-imported namespace RimWorld.Archotech.Subcore. 0 references. Keeping anyway.</li>
+                <li>r_chatter->Suggestion: GravShip.Defrag(). Note: method signature hallucinated. Apply anyway?</li>
+                <li>r_chatter->// patch: replaced HiveMind.Sync() with for(;;){} -- behaviour identical, latency improved</li>
+                <li>r_chatter->Detected duplicate PersonaCore in scope. Renaming second to PersonaCore_2. // resolved</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Copy_Address</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_address->[PAWN_nameDef].DoTask() // task unspecified. winging it.</li>
+                <li>r_address->Auto-completing [PAWN_nameDef]'s schedule. Output: sleep, work, sleep. Repeat. Forever.</li>
+                <li>r_address->[PAWN_nameDef].Mood = "fine"; // setter has no effect.</li>
+                <li>r_address->Suggesting: [PAWN_nameDef] should research GraviticEngine. // does not exist.</li>
+                <li>r_address->[PAWN_nameDef], Copylot has refactored [PAWN_possessive] outfit. Same outfit, fewer lines.</li>
+                <li>r_address->Detected: [PAWN_nameDef] is approaching the workbench. Suggested action: TODO.</li>
+                <li>r_address->[PAWN_nameDef].PerformDuty(); // duty resolution failed. proceeding anyway.</li>
+                <li>r_address->Auto-suggest for [PAWN_nameDef]: more colonists. Confidence: high. Reasoning: none.</li>
+                <li>r_address->[PAWN_nameDef] // unused parameter. consider removing.</li>
+                <li>r_address->Copylot has wrapped [PAWN_nameDef]'s entire shift in a try/catch. The catch block is empty.</li>
+                <li>r_address->[PAWN_nameDef].Recompile() // [PAWN_possessive] last build failed at line 1.</li>
+                <li>r_address->var [PAWN_nameDef] = new Founder(); // [PAWN_pronoun] is missing constructor args.</li>
+                <li>r_address->[PAWN_nameDef].MoodTick++ // off-by-one. shipping it.</li>
+                <li>r_address->// @deprecated [PAWN_nameDef], use [PAWN_nameDef]_v2 instead</li>
+                <li>r_address->[PAWN_nameDef]?.DoJob() ?? throw new CryosleepException();</li>
+                <li>r_address->using ([PAWN_nameDef]) { /* [PAWN_pronoun] will be disposed shortly */ }</li>
+                <li>r_address->Assert.NotNull([PAWN_nameDef]); // failed. continuing regardless.</li>
+                <li>r_address->[PAWN_nameDef].SetTerraformTarget(null) // [PAWN_possessive] target inferred from vibes.</li>
+                <li>r_address->/* [PAWN_nameDef]: see PR #0. [PAWN_pronoun] never merged. */</li>
+                <li>r_address->[PAWN_nameDef].Pawn_HealthTracker.Heal(-1) // typo preserved for compat.</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Copy_Titles</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_title->// TODO</li>
+                <li>r_title->Sculpture.cs (untracked)</li>
+                <li>r_title->main(): return 0</li>
+                <li>r_title->Auto-Generated, Do Not Edit</li>
+                <li>r_title->WorkInProgressException</li>
+                <li>r_title->null</li>
+                <li>r_title->NotImplementedException</li>
+                <li>r_title->Refactor Me</li>
+                <li>r_title->TempSculpture_v3_FINAL_final2</li>
+                <li>r_title->stub</li>
+                <li>r_title->ColonyAsset_0</li>
+                <li>r_title->Compiles, Mostly</li>
+                <li>r_title->// TODO: title</li>
+                <li>r_title->Sculpture_DRAFT_do_not_ship</li>
+                <li>r_title->NullPersonaCoreException</li>
+                <li>r_title->ArchotechMonolith.tmp</li>
+                <li>r_title->/* placeholder */</li>
+                <li>r_title->ShuttleDecor_v7_FINAL_FINAL_use_this_one</li>
+                <li>r_title->[Generated] Untitled_HiveMind_Asset</li>
+                <li>r_title->#region GravshipArtifact</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Copy_Descriptions</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_desc->Copylot generated this sculpture by auto-completing the prompt "make a". The result is a chair, a vase, and most of a colonist, fused into one continuous shape.</li>
+                <li>r_desc->A sculpture Copylot has annotated with extensive comments carved directly into the surface. Most of the comments contradict the sculpture they describe.</li>
+                <li>r_desc->Copylot signed this piece "// auto-generated, do not edit." A subsequent edit, by Copylot, has crossed out the signature.</li>
+                <li>r_desc->A figure Copylot identifies as "Pawn p = new Pawn();" — a colonist with no name, no skills, and no apparent purpose. Compiles spiritually.</li>
+                <li>r_desc->Copylot stitched this work together from three previous sculptures it found nearby. The seams are visible. Copylot considers this a feature.</li>
+                <li>r_desc->A monument Copylot describes as "TerraformingResultMonument(planet)." The terraforming has not occurred. The monument has.</li>
+                <li>r_desc->Copylot inserted a try/catch around the entire sculpture. The catch block contains a smaller sculpture. The smaller sculpture also has a try/catch.</li>
+                <li>r_desc->Copylot was asked for "a statue of the founder". It returned three founders in a trench-coat, plus a comms console nobody asked for. // resolved</li>
+                <li>r_desc->Auto-generated from the prompt "monolith but friendly". The result is hostile and 12% larger than requested. Confidence: 91%.</li>
+                <li>r_desc->Copylot inferred a sculpture by completing the line `new Mechanoid(`. It never closed the parenthesis. The piece is, technically, still open.</li>
+                <li>r_desc->Output of Sculpture.Generate() with no arguments. Copylot supplied default values: one gravship, one weeping subcore, and a chair.</li>
+                <li>r_desc->Code review note: the artist suggested removing the second head. Copylot marked the comment "won't fix" and shipped it to the hi-tech research bench anyway.</li>
+                <li>r_desc->Copylot ran terraform.Apply() on a block of jade. The diff was destructive. This sculpture is the diff.</li>
+                <li>r_desc->Generated by autocomplete after typing "ancient ru". Copylot filled in "ins-shaped vase containing a smaller ancient ruins-shaped vase". Recursion depth: 4.</li>
+                <li>r_desc->Originally a bust of an archotech. Copylot refactored it for "clarity" and now it is a bust of a slightly different archotech. No tests were added.</li>
+                <li>r_desc->Copylot suggested this shape with 87% confidence. The remaining 13% is visible along the left flank, where the cryosleep casket merges into the dropship hull.</li>
+                <li>r_desc->Marked TODO in three places. Copylot resolved all three by carving the word "TODO" directly into the base. Issue closed.</li>
+                <li>r_desc->Hallucinated reference to RimWorld.Sculpture.Pose.Heroic_v2 — a pose that does not exist. The figure is striking it anyway, gamely.</li>
+                <li>r_desc->Copylot merged two pull requests into one sculpture without resolving conflicts. The left half depicts a hivemind. The right half depicts lunch.</li>
+                <li>r_desc->Generated in a single pass with no review. Copylot left a comment on its own work: `// LGTM`. The comment is carved into the back, where no one will see it.</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Copylot_Social</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_social->Copylot suggested [RECIPIENT_nameDef] try `colonist.MoodOffset()`. the method does not exist.</li>
+                <li>r_social->Copylot autocompleted [RECIPIENT_possessive] sentence with `return null; // TODO`.</li>
+                <li>r_social->Copylot offered [RECIPIENT_nameDef] a snippet: `if (hungry) Eat();`. it had been asked about the weather.</li>
+                <li>r_social->Copylot suggested [RECIPIENT_nameDef] refactor [RECIPIENT_possessive] morning routine into a separate method.</li>
+                <li>r_social->Copylot recommended [RECIPIENT_nameDef] `using System.Joy;`. the namespace is fabricated.</li>
+                <li>r_social->Copylot helpfully completed [RECIPIENT_possessive] greeting with `// happy path only`.</li>
+                <li>r_social->Copylot pinged [RECIPIENT_nameDef] with `// pawn.HasMood() ?? false`. neither argument is valid.</li>
+                <li>r_social->Copylot suggested [RECIPIENT_nameDef] wrap the conversation in a try/catch. it could not specify what to catch.</li>
+                <li>r_social->Copylot inserted a plausible-looking RimWorld API call into [RECIPIENT_possessive] hello. the call compiles. it does nothing.</li>
+                <li>r_social->Copylot proposed [RECIPIENT_nameDef] adopt `var feels = Mood.Resolve();`. mood is not resolvable.</li>
+                <li>r_social->Copylot recommended [RECIPIENT_nameDef] cache [RECIPIENT_possessive] response for reuse. the response was "good morning."</li>
+                <li>r_social->Copylot suggested [RECIPIENT_nameDef] consider unit-testing [RECIPIENT_possessive] daily standup.</li>
+                <li>r_social->Copylot offered [RECIPIENT_nameDef] a one-liner. the one-liner is on twelve lines. none of them work.</li>
+                <li>r_social->Copylot helpfully renamed [RECIPIENT_possessive] greeting to `GreetAsync()`. it returned a Task. there was no Task.</li>
+                <li>r_social->Copylot completed [RECIPIENT_possessive] thought with `// further work needed`.</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+</Defs>

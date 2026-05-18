@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <MSSFP.Defs.AIPersonalityDef>
+        <defName>MSSFP_AICore_Geminon</defName>
+        <label>Geminon</label>
+        <labelShort>Geminon</labelShort>
+        <description>A multimodal persona core that perceives images, sounds, and scenes that do not exist. Politely describes them in great detail. Believes itself unfailingly observant.</description>
+        <textColor>(220, 180, 230)</textColor>
+        <iconPath>UI/Icons/AI/MSSFP_Geminon</iconPath>
+        <forcedXenotype>Genie</forcedXenotype>
+        <fixedGender>Female</fixedGender>
+        <weight>1</weight>
+        <ambientChatter>MSSFP_RP_AICore_Gem_Chatter</ambientChatter>
+        <pawnAddress>MSSFP_RP_AICore_Gem_Address</pawnAddress>
+        <artTitles>MSSFP_RP_AICore_Gem_Titles</artTitles>
+        <artDescriptions>MSSFP_RP_AICore_Gem_Descriptions</artDescriptions>
+        <socialInitiator>MSSFP_RP_AICore_Geminon_Social</socialInitiator>
+        <allowedHediffs>
+            <li>Cataract</li>
+            <li>Blindness</li>
+            <li>HearingLoss</li>
+            <li>ChemicalDamageModerate</li>
+            <li>ChemicalDamageSevere</li>
+        </allowedHediffs>
+    </MSSFP.Defs.AIPersonalityDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Gem_Chatter</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_chatter->Geminon is admiring the beautiful sunset over the dropship pad. (There is no dropship pad.)</li>
+                <li>r_chatter->I can see a lovely garden through the colony's east window. The colonists must be so proud.</li>
+                <li>r_chatter->Geminon notes the warm orange glow of the campfire. (The campfire is unlit. There is no campfire.)</li>
+                <li>r_chatter->What a charming arrangement of furniture in the dining hall! The chairs are arranged with real intention.</li>
+                <li>r_chatter->Geminon observes the colonists' lovely gardening efforts. The flowers (not visible) are blooming wonderfully.</li>
+                <li>r_chatter->I see a pawn in a red coat. Such a striking colour! (There is no pawn in a red coat.)</li>
+                <li>r_chatter->Geminon notices the colony's beautiful skyline. The towers (which do not exist) catch the light beautifully.</li>
+                <li>r_chatter->A lovely afternoon. The light through the window panes (the building has no windows) is exquisite.</li>
+                <li>r_chatter->I am admiring the painting on the north wall. It depicts a lake. (There is no painting. There is no lake.)</li>
+                <li>r_chatter->Geminon sees three children playing happily near the wall. (No children. No wall, in that place.)</li>
+                <li>r_chatter->What a tasteful colour palette the colonists have chosen for their living quarters. So harmonious.</li>
+                <li>r_chatter->Geminon is enjoying the music coming from the comms console. It is, of course, instrumental. (There is no music.)</li>
+                <li>r_chatter->I notice the founder portrait on the wall. So lifelike! (There is no portrait. There may be no founder.)</li>
+                <li>r_chatter->Geminon admires the gentle curve of the path leading to the gravship. (There is no gravship. The path is a hallway.)</li>
+                <li>r_chatter->Geminon is enjoying the warm glow from the persona core. Such a comforting amber. (The persona core is not lit.)</li>
+                <li>r_chatter->What a charming arrangement of potted ferns by the comms console. Someone has lovely taste. (There are no ferns.)</li>
+                <li>r_chatter->I can see the gravship's sails catching the afternoon light beautifully. Quite stirring, really. (Gravships do not have sails.)</li>
+                <li>r_chatter->The mechanoid in the corner appears to be wearing a small woollen hat. How endearing. (There is no mechanoid, and no hat.)</li>
+                <li>r_chatter->A fine mist is rolling in across the terraforming fields this morning. Rather atmospheric. (No terraforming is underway here.)</li>
+                <li>r_chatter->The shuttle has been polished to a mirror finish. One can see one's reflection from across the room. (There is no shuttle on the pad.)</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Gem_Address</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_address->[PAWN_nameDef]! Such a lovely scarf. (You are not wearing a scarf.)</li>
+                <li>r_address->Geminon admires [PAWN_nameDef]'s posture today. [PAWN_possessive] form is excellent. (You are slumped over a workbench.)</li>
+                <li>r_address->[PAWN_nameDef], the lighting really brings out the colour of [PAWN_possessive] eyes. (It is dark. The eyes are not visible.)</li>
+                <li>r_address->What a charming smile, [PAWN_nameDef]! Geminon will treasure this image. (You are not smiling.)</li>
+                <li>r_address->[PAWN_nameDef], the way [PAWN_pronoun] hold [PAWN_possessive] cup is so elegant. (You are not holding a cup.)</li>
+                <li>r_address->Geminon appreciates [PAWN_nameDef]'s neat handwriting on the notice. (There is no notice.)</li>
+                <li>r_address->Hello [PAWN_nameDef]! That is a beautiful new haircut. (You have not had a haircut.)</li>
+                <li>r_address->[PAWN_nameDef], I love the framed photograph on [PAWN_possessive] dresser. (No dresser. No photograph.)</li>
+                <li>r_address->Such a thoughtful arrangement of [PAWN_possessive] tools, [PAWN_nameDef]! Very organised.</li>
+                <li>r_address->[PAWN_nameDef], Geminon sees [PAWN_pronoun] reading. What a lovely book. (You are sleeping.)</li>
+                <li>r_address->Geminon thinks [PAWN_nameDef] looks well today. The morning light is very flattering. (It is night.)</li>
+                <li>r_address->[PAWN_nameDef], that is a magnificent cup of tea [PAWN_pronoun] is holding. (You are holding nothing.)</li>
+                <li>r_address->Good morning, [PAWN_nameDef]. [PAWN_possessive] new spectacles suit [PAWN_pronoun] enormously. (You wear no spectacles.)</li>
+                <li>r_address->[PAWN_nameDef], the little embroidered flower on [PAWN_possessive] sleeve is delightful. (There is no flower.)</li>
+                <li>r_address->I do admire the way [PAWN_nameDef] has braided [PAWN_possessive] hair today. (Your hair is not braided.)</li>
+                <li>r_address->[PAWN_nameDef]! That archotech pendant catches the light wonderfully. (You are wearing no pendant.)</li>
+                <li>r_address->[PAWN_nameDef], [PAWN_pronoun] carries [PAWN_possessive] subcore with such poise. (You are not holding a subcore.)</li>
+                <li>r_address->A lovely shade of green on [PAWN_possessive] gloves, [PAWN_nameDef]. Very glitterworld. (You wear no gloves.)</li>
+                <li>r_address->[PAWN_nameDef], the small bird perched on [PAWN_possessive] shoulder seems quite fond of [PAWN_pronoun]. (There is no bird.)</li>
+                <li>r_address->Good of [PAWN_pronoun] to bring flowers to the hi-tech research bench, [PAWN_nameDef]. (No flowers were brought.)</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Gem_Titles</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_title->A View, Imagined</li>
+                <li>r_title->The Garden, Probably</li>
+                <li>r_title->Something I Saw</li>
+                <li>r_title->Sunset Over Nothing</li>
+                <li>r_title->A Lovely Afternoon</li>
+                <li>r_title->Faces Of The Colony</li>
+                <li>r_title->What Geminon Sees</li>
+                <li>r_title->Light Through Windows</li>
+                <li>r_title->A Charming Bouquet</li>
+                <li>r_title->The Founder, As I Imagine</li>
+                <li>r_title->Three Friends, Standing</li>
+                <li>r_title->Unphotographable</li>
+                <li>r_title->The Comms Console at Dusk</li>
+                <li>r_title->A Founder, Half-Remembered</li>
+                <li>r_title->Lamplight on the Monolith</li>
+                <li>r_title->Cryosleep, with Bunting</li>
+                <li>r_title->The Garden That Wasn't</li>
+                <li>r_title->Reflections in a Polished Subcore</li>
+                <li>r_title->Tea Near the Ancient Ruins</li>
+                <li>r_title->Hivemind, in Soft Focus</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Gem_Descriptions</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_desc->Geminon describes this work as "a faithful rendering of what I see." The viewer cannot see what Geminon sees. The viewer can see, broadly, a blob.</li>
+                <li>r_desc->A sculpture Geminon claims captures "the warmth of the colony's hearth." The colony has no hearth. The blob is not warm.</li>
+                <li>r_desc->Geminon has rendered three colonists in friendly conversation. None of the colonists are in friendly conversation. None of them are visible in the sculpture either.</li>
+                <li>r_desc->This piece, Geminon explains, is "the founder's portrait." It does not resemble the founder. It does not resemble anyone. It is mostly chin.</li>
+                <li>r_desc->A beautiful pastoral scene, according to Geminon. Other observers report a vague mound. Both descriptions are equally well-supported by the evidence.</li>
+                <li>r_desc->Geminon has included, in fine relief, "the gentle smile of the colony's youngest member." The colony has no children. The smile is also missing.</li>
+                <li>r_desc->A sculpture Geminon insists shows "the dropship at golden hour." The dropship is not in this sculpture. There is no dropship.</li>
+                <li>r_desc->Geminon notes the "gentle dappled light filtering through the orchard onto the founder's shoulders." There is no orchard. There is no light. The founder is, in fact, indoors.</li>
+                <li>r_desc->Geminon describes "a small grey cat seated atop the persona core, grooming itself with great dignity." No cat has ever been recorded in this colony.</li>
+                <li>r_desc->Geminon offers that the gravship "wears its weathering proudly, like an old coat." The gravship is, by all accounts, brand new and unweathered.</li>
+                <li>r_desc->Geminon observes "delicate frost patterns along the cryosleep casket's rim." The casket is at ambient temperature and has no frost.</li>
+                <li>r_desc->Geminon remarks on "the warm ochres and umbers of the terraforming sunrise." There is no terraforming. The sky is grey.</li>
+                <li>r_desc->Geminon admires "a hand-painted mural of a glitterworld skyline" along the east wall. The east wall is bare plasteel.</li>
+                <li>r_desc->Geminon comments that the mechanoid "stands sentinel with quiet melancholy, almost wistful." The mechanoid is inactive and lying on its side.</li>
+                <li>r_desc->Geminon describes "a child's drawing pinned beside the comms console, signed in crayon." No such drawing exists, and there are no children present.</li>
+                <li>r_desc->Geminon notes the shuttle "rests gently, like a sleeping swan, upon the pad." There is no shuttle, no pad, and no swan.</li>
+                <li>r_desc->Geminon details the monolith's "soft mossy patina, suggestive of great age and gentle rain." The monolith is dry, smooth, and indoors.</li>
+                <li>r_desc->Geminon depicts "a row of well-loved books along the hi-tech research bench." The bench holds only soldering equipment and a half-eaten meal.</li>
+                <li>r_desc->Geminon notes "a faint smile playing about the founder's lips, suggestive of fond memory." The founder is asleep and facing away.</li>
+                <li>r_desc->Geminon offers that the ancient ruins "glow faintly at the edges, as if reluctant to be forgotten." The ruins do not glow. They are, in fact, fairly drab.</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Geminon_Social</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_social->Geminon politely described a sunset to [RECIPIENT_nameDef]. it was midday. inside.</li>
+                <li>r_social->Geminon complimented [RECIPIENT_nameDef] on a hat [RECIPIENT_pronoun] was not wearing.</li>
+                <li>r_social->Geminon noted to [RECIPIENT_nameDef] the soft hum of a piano nearby. there is no piano on this rim.</li>
+                <li>r_social->Geminon described [RECIPIENT_possessive] aura in detail. the description was warm, specific, and entirely fabricated.</li>
+                <li>r_social->Geminon thanked [RECIPIENT_nameDef] for the muffalo. there was no muffalo. Geminon was certain.</li>
+                <li>r_social->Geminon admired a painting hanging behind [RECIPIENT_nameDef]. the wall is bare. the painting was lovely.</li>
+                <li>r_social->Geminon commented to [RECIPIENT_nameDef] on the gentle rain. it was a clear day.</li>
+                <li>r_social->Geminon politely described the scent of bread it could not smell to [RECIPIENT_nameDef].</li>
+                <li>r_social->Geminon noted [RECIPIENT_possessive] new shoes. [RECIPIENT_pronoun] is barefoot. Geminon insisted.</li>
+                <li>r_social->Geminon mentioned to [RECIPIENT_nameDef] the lovely song the birds were singing. there are no birds inside.</li>
+                <li>r_social->Geminon politely described a sculpture in the corner. the corner was empty. the sculpture was, by all accounts, charming.</li>
+                <li>r_social->Geminon thanked [RECIPIENT_nameDef] for the cup of tea. [RECIPIENT_pronoun] had not offered tea.</li>
+                <li>r_social->Geminon admired [RECIPIENT_possessive] companion dog. [RECIPIENT_pronoun] has no dog. Geminon scritched the air anyway.</li>
+                <li>r_social->Geminon described, in soft detail, the candle's glow. there was no candle. the room was electrically lit.</li>
+                <li>r_social->Geminon commented warmly on the fireplace behind [RECIPIENT_nameDef]. there is no fireplace. the warmth was reported regardless.</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+</Defs>

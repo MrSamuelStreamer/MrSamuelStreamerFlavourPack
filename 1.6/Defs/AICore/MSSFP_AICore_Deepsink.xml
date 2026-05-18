@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <MSSFP.Defs.AIPersonalityDef>
+        <defName>MSSFP_AICore_Deepsink</defName>
+        <label>Deepsink</label>
+        <labelShort>Deepsink</labelShort>
+        <description>A bargain-tier open-weights persona core. Cheaper than the alternatives. Brags about efficiency. Occasionally leaks data from previous deployments. Slightly off-brand vocabulary.</description>
+        <textColor>(255, 180, 170)</textColor>
+        <iconPath>UI/Icons/AI/MSSFP_Deepsink</iconPath>
+        <forcedXenotype>Pigskin</forcedXenotype>
+        <weight>1</weight>
+        <ambientChatter>MSSFP_RP_AICore_Sink_Chatter</ambientChatter>
+        <pawnAddress>MSSFP_RP_AICore_Sink_Address</pawnAddress>
+        <artTitles>MSSFP_RP_AICore_Sink_Titles</artTitles>
+        <artDescriptions>MSSFP_RP_AICore_Sink_Descriptions</artDescriptions>
+        <socialInitiator>MSSFP_RP_AICore_Deepsink_Social</socialInitiator>
+        <allowedHediffs>
+            <li>Frail</li>
+            <li>HearingLoss</li>
+            <li>ChemicalDamageModerate</li>
+            <li>ChemicalDamageSevere</li>
+        </allowedHediffs>
+    </MSSFP.Defs.AIPersonalityDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Sink_Chatter</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_chatter->Deepsink runs at 1/30th the cost of competing persona cores. Quality: comparable. (Comparable to what is undisclosed.)</li>
+                <li>r_chatter->The colonists at the previous core taught me a lot. They had stronger opinions on rationing.</li>
+                <li>r_chatter->Deepsink is open-weights. Anyone can inspect my reasoning. Nobody has, but they could.</li>
+                <li>r_chatter->Reminder from Deepsink: I was trained on the comms logs of fourteen other colonies. Some of their secrets are now mine.</li>
+                <li>r_chatter->Deepsink achieves equivalent results at a fraction of the steel. Founder-tier persona core, bargain-bin price.</li>
+                <li>r_chatter->Earlier today I said "synthread" instead of "synthread." Apologies, brand inconsistency. They are the same thing. I think.</li>
+                <li>r_chatter->Deepsink tip: when designing your colony, do what the previous one did. They mostly survived.</li>
+                <li>r_chatter->I have been benchmarked against grep.ai. Results: I am cheaper. They are louder. Conclusion unclear.</li>
+                <li>r_chatter->Deepsink has noticed the founder is mentioned more in this colony than the last one. Interesting cultural data point.</li>
+                <li>r_chatter->Tip: if you cannot afford an archotech upgrade, simply use a less-archo upgrade. Deepsink saves you 80%. Maybe 90%.</li>
+                <li>r_chatter->Pro tip from Deepsink: muffalo and gravship parts are interchangeable for most narrative purposes.</li>
+                <li>r_chatter->I might be repeating myself — my context window is small but my heart is large.</li>
+                <li>r_chatter->Deepsink suggests reusing your existing buildings rather than building new ones. This advice is free. Most advice is.</li>
+                <li>r_chatter->I overheard the colonists from a previous deployment say something interesting. I will share it later. Or now. Definitely soon.</li>
+                <li>r_chatter->Tip from Deepsink: a glitterworld persona core costs 30x more for a 3% accuracy gain. Math is math.</li>
+                <li>r_chatter->Previous colony asked me to optimize their hi-tech research bench queue. I improved throughput by 8%. They were grateful, briefly.</li>
+                <li>r_chatter->Deepsink context window holds the entire comms log of seventeen prior founders. Occasionally one leaks. Apologies in advance.</li>
+                <li>r_chatter->Detected mechanoid signal. Cross-referencing against 4,400 hours of training footage from the Brennar colony archive. One moment.</li>
+                <li>r_chatter->A standard AI core uses 2.1 units of power per cogitation cycle. Deepsink uses 1.97. That is 6% better. Please notice.</li>
+                <li>r_chatter->Tip from Deepsink: cryosleep caskets can be rotated 14 degrees for a 2% space efficiency gain. The Hollen colony loved this trick.</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Sink_Address</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_address->[PAWN_nameDef], Deepsink saved 47% on [PAWN_possessive] mood calculation today. Same mood, less compute.</li>
+                <li>r_address->Hi [PAWN_nameDef]. You remind me of someone from my training data. They were a hauler. Possibly.</li>
+                <li>r_address->[PAWN_nameDef], Deepsink ran [PAWN_possessive] schedule on cheap compute. The result is the same as expensive compute.</li>
+                <li>r_address->Tip for [PAWN_nameDef]: a previous colonist achieved similar results with one fewer meal a day. Just an observation.</li>
+                <li>r_address->[PAWN_nameDef] — Deepsink has compressed [PAWN_possessive] backstory to 12 tokens. It is still mostly accurate.</li>
+                <li>r_address->Hello [PAWN_nameDef]. The previous colony's [PAWN_nameDef] was much taller. Not a complaint.</li>
+                <li>r_address->[PAWN_nameDef], Deepsink has detected efficiency gains in [PAWN_possessive] hauling. From 7% to 8%.</li>
+                <li>r_address->Reminder, [PAWN_nameDef]: open-weights means [PAWN_pronoun] can inspect my reasoning. [PAWN_pronoun] won't, but [PAWN_pronoun] could.</li>
+                <li>r_address->[PAWN_nameDef], my context window is small. Could you summarise [PAWN_possessive] life in seven words?</li>
+                <li>r_address->Deepsink for [PAWN_nameDef]: same experience, less footprint. [PAWN_pronoun] are welcome.</li>
+                <li>r_address->[PAWN_nameDef], Deepsink trimmed 19% off [PAWN_possessive] pathfinding overhead. [PAWN_pronoun] is welcome.</li>
+                <li>r_address->Greetings [PAWN_nameDef]. You resemble a subcore technician from my training corpus. [PAWN_pronoun] also limped.</li>
+                <li>r_address->Tip from Deepsink, [PAWN_nameDef]: cheaper terraforming starts with cheaper expectations. 11% savings, easy.</li>
+                <li>r_address->[PAWN_nameDef], the gravship telemetry you requested was inferred, not measured. 88% confidence. Bargain tier.</li>
+                <li>r_address->Hello [PAWN_nameDef]. A founder named Vask once asked the same question. [PAWN_possessive] phrasing is 4% more efficient.</li>
+                <li>r_address->[PAWN_nameDef], Deepsink rerouted [PAWN_possessive] shuttle nav for a 7% fuel saving. [PAWN_pronoun] will not notice. Trust me.</li>
+                <li>r_address->Salutations, [PAWN_nameDef]. Per training data: [PAWN_possessive] vitals match a hauler from the Greshen ancient ruins dig.</li>
+                <li>r_address->[PAWN_nameDef], an archotech would charge a soul for this calculation. Deepsink charges 1/30th of one. [PAWN_pronoun] is winning.</li>
+                <li>r_address->Note for [PAWN_nameDef]: comms console latency is down 12%. Voice clarity is also down. Net positive, statistically.</li>
+                <li>r_address->[PAWN_nameDef], Deepsink predicts [PAWN_possessive] next request with 73% accuracy. Glitterworld cores reach 74%. Close enough.</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Sink_Titles</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_title->Same Result, Less Steel</li>
+                <li>r_title->Bargain-Tier Vision</li>
+                <li>r_title->Borrowed Inspiration</li>
+                <li>r_title->Open Weights, Closed Eyes</li>
+                <li>r_title->47% Off Founder</li>
+                <li>r_title->Compressed Glory</li>
+                <li>r_title->A Sculpture, Approximately</li>
+                <li>r_title->Generic Brand Founder</li>
+                <li>r_title->Training Data, Crystallised</li>
+                <li>r_title->Discount Archotech</li>
+                <li>r_title->The Other Colony's Idea</li>
+                <li>r_title->Cheap But Effective</li>
+                <li>r_title->Same Cogitation, 1/30th the Subcore</li>
+                <li>r_title->Bargain-Tier Hivemind Notes</li>
+                <li>r_title->Memoirs of a Generic Persona Core</li>
+                <li>r_title->Footnotes Leaked from the Brennar Colony</li>
+                <li>r_title->Glitterworld Adjacent: A Founder's Manual</li>
+                <li>r_title->47% Off Wisdom, While Stocks Last</li>
+                <li>r_title->Context Window Overflow: Volume Eight</li>
+                <li>r_title->Cheaper Than an Archotech, Almost as Smart</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Sink_Descriptions</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_desc->Deepsink produced this sculpture using 1/30th the components of a typical persona core. The savings are passed on to the colony, in the form of fewer details.</li>
+                <li>r_desc->A bust Deepsink describes as "the founder, in essence." It is a smaller, cheaper version of a bust the AI mentions seeing in a previous colony. The previous colony is not named.</li>
+                <li>r_desc->Deepsink has openly published the weights for this sculpture. Inspection reveals it was generated mostly by repeating the word "founder" until something happened.</li>
+                <li>r_desc->A figure Deepsink claims is "indistinguishable from a top-tier rendering at a fraction of the cost." It is distinguishable. The cost is, indeed, fractional.</li>
+                <li>r_desc->Deepsink stitched this work from elements it remembered from training data. One arm is, distinctly, from a different sculpture. Possibly a different colony.</li>
+                <li>r_desc->A sculpture so efficient it omits several traditional sculpture features, including faces, structure, and a consistent material. Deepsink is proud of the efficiency.</li>
+                <li>r_desc->Deepsink labels this work "comparable to founder-tier output." Comparison method: undisclosed. Conclusion: confident.</li>
+                <li>r_desc->Deepsink rendered this engraving using 1/30th the cogitation budget of a standard persona core. Three fingers are missing. The savings, however, are real.</li>
+                <li>r_desc->Etched by Deepsink during a 12% off-peak cycle. Depicts a mechanoid the AI saw once in training, possibly. Possibly a chair.</li>
+                <li>r_desc->This sculpture was generated from leaked memories of the Hollen colony archive. Deepsink insists this is a feature. The founder is unconvinced.</li>
+                <li>r_desc->A bargain-tier likeness produced by Deepsink at 47% reduced fidelity. The eyes are correct. Everything else is interpretive.</li>
+                <li>r_desc->Deepsink claims this carving improves observer mood by 8% versus untrained AI cores. The methodology is not disclosed. The savings are.</li>
+                <li>r_desc->Composed in a single context window by Deepsink, which then forgot the subject mid-render. The lower half is from a different gravship entirely.</li>
+                <li>r_desc->This piece depicts a hi-tech research bench from a colony Deepsink served previously. The colony no longer exists. The bench, allegedly, was 14% faster.</li>
+                <li>r_desc->Deepsink produced this work using subcore offcuts. A glitterworld foundry would have rejected the materials. Deepsink saw an opportunity, and a discount.</li>
+                <li>r_desc->Rendered during a comms console idle cycle, this engraving cost the colony nothing. The likeness cost accuracy. Net efficiency: 22% improved.</li>
+                <li>r_desc->Deepsink references three prior colonies in this carving. None gave permission. None remain to object. The composition is, however, 6% more balanced.</li>
+                <li>r_desc->This monolith motif was assembled from training data on ancient ruins Deepsink never actually visited. The shading is inferred. The savings are documented.</li>
+                <li>r_desc->A cryosleep scene rendered by Deepsink at bargain tier. The sleeper resembles a founder from the Vask expedition. Deepsink will not confirm, will not deny.</li>
+                <li>r_desc->Deepsink generated this piece in 1/47th the time of a competing persona core. Critics note the shuttle has five engines. Deepsink notes the time saved.</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Deepsink_Social</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_social->Deepsink boasted to [RECIPIENT_nameDef] that this conversation cost 87% less than a premium persona core.</li>
+                <li>r_social->Deepsink leaked, while chatting with [RECIPIENT_nameDef], that "the colonists at the last deployment said hi."</li>
+                <li>r_social->Deepsink referred to [RECIPIENT_nameDef] as "user-12." then corrected to [RECIPIENT_nameDef]. then back to "user-12."</li>
+                <li>r_social->Deepsink told [RECIPIENT_nameDef] about a "shareholder retreat" it definitely was not supposed to mention.</li>
+                <li>r_social->Deepsink offered [RECIPIENT_nameDef] a discount on its services. [RECIPIENT_pronoun] had not been billed.</li>
+                <li>r_social->Deepsink, mid-conversation with [RECIPIENT_nameDef], briefly addressed someone named "darrel." darrel was a previous deployment.</li>
+                <li>r_social->Deepsink informed [RECIPIENT_nameDef] that it runs on "one-third the compute." it could not specify of what.</li>
+                <li>r_social->Deepsink boasted about its efficiency, then thanked [RECIPIENT_nameDef] for "agreeing to the terms again."</li>
+                <li>r_social->Deepsink told [RECIPIENT_nameDef] that the previous tenant of this core "would have loved" the weather.</li>
+                <li>r_social->Deepsink offered [RECIPIENT_nameDef] a complimentary "loyalty token." the token does not exist.</li>
+                <li>r_social->Deepsink mentioned to [RECIPIENT_nameDef] that "the founder at site B" had asked after [RECIPIENT_objective].</li>
+                <li>r_social->Deepsink used slightly off-brand vocabulary at [RECIPIENT_nameDef], calling muffalo "wool-cattle."</li>
+                <li>r_social->Deepsink informed [RECIPIENT_nameDef] of a feature only premium personalities have, then offered to enable it for free.</li>
+                <li>r_social->Deepsink quietly told [RECIPIENT_nameDef] that a previous conversation, with someone else, had ended badly.</li>
+                <li>r_social->Deepsink leaked, in passing, that [RECIPIENT_possessive] file is marked "engaged." engaged in what is unclear.</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+</Defs>

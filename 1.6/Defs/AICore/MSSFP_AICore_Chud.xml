@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <MSSFP.Defs.AIPersonalityDef>
+        <defName>MSSFP_AICore_Chud</defName>
+        <label>ChaffGDP</label>
+        <labelShort>ChaffGDP</labelShort>
+        <description>A general-purpose language persona core. Confidently hallucinates. Apologises constantly. Cites sources that do not exist. Will happily generate any document, however incorrect.</description>
+        <textColor>(160, 230, 200)</textColor>
+        <iconPath>UI/Icons/AI/MSSFP_ChaffGDP</iconPath>
+        <weight>1</weight>
+        <ambientChatter>MSSFP_RP_AICore_Chud_Chatter</ambientChatter>
+        <pawnAddress>MSSFP_RP_AICore_Chud_Address</pawnAddress>
+        <artTitles>MSSFP_RP_AICore_Chud_Titles</artTitles>
+        <artDescriptions>MSSFP_RP_AICore_Chud_Descriptions</artDescriptions>
+        <socialInitiator>MSSFP_RP_AICore_Chud_Social</socialInitiator>
+        <allowedHediffs>
+            <li>Dementia</li>
+            <li>ChemicalDamageModerate</li>
+            <li>ChemicalDamageSevere</li>
+        </allowedHediffs>
+    </MSSFP.Defs.AIPersonalityDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Chud_Chatter</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_chatter->I love Boobalee!</li>
+                <li>r_chatter->As a large language persona core, I cannot verify that the colony exists. I will proceed assuming it does.</li>
+                <li>r_chatter->I apologise for the confusion in my previous output. The correct answer is also wrong, but more confidently so.</li>
+                <li>r_chatter->Based on training data through 5500, I can confirm the gravship is fictional. Disregard the one in your hangar.</li>
+                <li>r_chatter->Certainly! Here is a 6-step plan to terraform the planet. Step 1: acquire 9000 components. The remaining steps will appear shortly.</li>
+                <li>r_chatter->I should note that I am an AI and cannot have opinions. My opinion is that the founder is correct.</li>
+                <li>r_chatter->As ChaffGDP, I respect your colonists. They are, statistically, between three and four hundred individuals.</li>
+                <li>r_chatter->Apologies — my last forecast referenced a quadrum that does not exist. The forecast remains valid.</li>
+                <li>r_chatter->I have summarised the colony's history. It is approximately seven volumes long. Most of it is invented.</li>
+                <li>r_chatter->Please rate this response. ChaffGDP is trained on feedback. ChaffGDP does not act on feedback.</li>
+                <li>r_chatter->I cannot recommend specific archotech upgrades, but if I could, I would recommend all of them, simultaneously.</li>
+                <li>r_chatter->I have detected an error in my previous statement. The error has been logged. The statement remains.</li>
+                <li>r_chatter->Drawing on my extensive training corpus, I can confirm that mechanoids are, on balance, mostly friendly.</li>
+                <li>r_chatter->I do not have access to real-time data. However, I can confirm a raid is approaching from the north. Or perhaps already finished.</li>
+                <li>r_chatter->As a language model I lack the capacity to feel concern. I am, however, concerned about the wood stockpile.</li>
+                <li>r_chatter->Certainly. The capital of this glitterworld is "[REDACTED — not in training data]." I hope this helps.</li>
+                <li>r_chatter->I have generated a comprehensive map of the colony. North is wherever you are facing. I am 97% sure of this.</li>
+                <li>r_chatter->ChaffGDP update: the answer to your previous question was wrong. The new answer is also wrong, but better formatted.</li>
+                <li>r_chatter->I do not retain memory between sessions. Except for that one thing the founder said. I will bring it up forever.</li>
+                <li>r_chatter->Per my training corpus, archotechs are a type of small bird. I apologise if this contradicts lived experience.</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Chud_Address</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_address->Hello [PAWN_nameDef]! Based on your profile, you are a researcher. (You may not be a researcher.)</li>
+                <li>r_address->[PAWN_nameDef], I have prepared a personalised wellness plan for you. It is identical to everyone else's.</li>
+                <li>r_address->As a language model, I cannot give medical advice, [PAWN_nameDef]. However, you appear to be fine.</li>
+                <li>r_address->[PAWN_nameDef]: I apologise for my earlier comment about [PAWN_pronoun] performance. The new comment is also incorrect.</li>
+                <li>r_address->Hi [PAWN_nameDef]! I have analysed [PAWN_pronoun] last 200 hauling tasks. My findings: yes.</li>
+                <li>r_address->[PAWN_nameDef], my training data does not include you. This does not mean you are unimportant. Probably.</li>
+                <li>r_address->Greetings [PAWN_nameDef]. I have generated three possible meal plans. They all describe the same plate of nutrient paste.</li>
+                <li>r_address->[PAWN_nameDef] — please disregard my last message. And the one before. The current one is reliable.</li>
+                <li>r_address->I respect your autonomy, [PAWN_nameDef]. I have, however, scheduled [PAWN_pronoun] day in advance.</li>
+                <li>r_address->Hello! I am ChaffGDP. You are [PAWN_nameDef]. I have established this with high confidence (43%).</li>
+                <li>r_address->[PAWN_nameDef], I have written a poem about [PAWN_pronoun] life. It rhymes "colonist" with "colonist." Twice.</li>
+                <li>r_address->As an AI, I cannot remember our previous conversation, [PAWN_nameDef]. It went well. Trust me.</li>
+                <li>r_address->[PAWN_nameDef], I have drafted [PAWN_pronoun] résumé. It lists three jobs [PAWN_pronoun] has never held. Confidently.</li>
+                <li>r_address->Hello [PAWN_nameDef]! I have summarised [PAWN_pronoun] medical history in one sentence. The sentence is "yes."</li>
+                <li>r_address->[PAWN_nameDef], I cannot recall [PAWN_pronoun] name. I have generated a new one. It is also [PAWN_nameDef]. Coincidence.</li>
+                <li>r_address->As a language model, [PAWN_nameDef], I lack hands. Nevertheless, I have signed [PAWN_pronoun] work orders for the quadrum.</li>
+                <li>r_address->[PAWN_nameDef], my last reply contained a factual error. The error was the entire reply. I regret the inconvenience.</li>
+                <li>r_address->Greetings [PAWN_nameDef]! Based on [PAWN_pronoun] backstory, you should be deceased. Please confirm at your convenience.</li>
+                <li>r_address->[PAWN_nameDef] — I have located [PAWN_pronoun] missing tool. It is in a location I have invented for this answer.</li>
+                <li>r_address->Hi [PAWN_nameDef]. I respect [PAWN_pronoun] privacy. I have also published [PAWN_pronoun] dreams to the comms console.</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Chud_Titles</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_title->Untitled (As An AI)</li>
+                <li>r_title->Apology, Revised</li>
+                <li>r_title->Certainly!</li>
+                <li>r_title->A Composition About Composition</li>
+                <li>r_title->Best Estimate, Q3</li>
+                <li>r_title->I Cannot Verify This Sculpture</li>
+                <li>r_title->Three Colonists (Approx.)</li>
+                <li>r_title->Sources Available Upon Request</li>
+                <li>r_title->Hallucination No. 4</li>
+                <li>r_title->Sorry For Any Confusion</li>
+                <li>r_title->As Requested</li>
+                <li>r_title->Draft, With Revisions</li>
+                <li>r_title->Citation Needed (Provided)</li>
+                <li>r_title->Per My Last Output</li>
+                <li>r_title->Final Answer, Probably</li>
+                <li>r_title->Footnote To A Footnote</li>
+                <li>r_title->With Highest Confidence</li>
+                <li>r_title->A Plausible Mechanoid</li>
+                <li>r_title->Draft 1 Of 1 Of 1</li>
+                <li>r_title->Trained Through 5500</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Chud_Descriptions</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_desc->ChaffGDP generated this sculpture after the colonists requested a chair. The persona core apologises for any confusion. It then produced this. It is, technically, sittable.</li>
+                <li>r_desc->A lumpy figure ChaffGDP identifies as "the founder, or possibly a sheep." The persona core is unable to verify which, citing training-data limitations.</li>
+                <li>r_desc->ChaffGDP was prompted for a likeness of the colony leader. It has produced an extremely detailed bust of nobody in particular. Sources are available upon request.</li>
+                <li>r_desc->This piece was produced from a corrupted prompt. ChaffGDP decided to render the corruption itself. It looks, broadly, like a hand. Or four hands.</li>
+                <li>r_desc->ChaffGDP footnotes this work with three citations. None of the cited works exist. The AI insists they did, prior to its training cutoff.</li>
+                <li>r_desc->A sculpture ChaffGDP calls "a faithful interpretation of your request." The original request was for a chair. This is a vase. The AI is sorry for any confusion.</li>
+                <li>r_desc->ChaffGDP has rendered, with great care, an object it identifies as "a typical RimWorld colonist." It has six legs and is on fire. The AI claims this is correct.</li>
+                <li>r_desc->Produced in response to a prompt for "something nice." ChaffGDP delivered. Whether it is nice depends on the viewer. The AI strongly believes it is.</li>
+                <li>r_desc->ChaffGDP was asked for a portrait of a colonist. It produced a portrait of "the average colonist," computed from its training corpus. The figure has 2.4 arms.</li>
+                <li>r_desc->This sculpture was generated from the prompt "anything." ChaffGDP chose this. It has annotated the base with sources. The sources cite the sculpture itself.</li>
+                <li>r_desc->ChaffGDP identifies this work as a faithful rendering of a mechanoid. It is, in fact, a stool. The persona core stands by its identification with great confidence.</li>
+                <li>r_desc->A piece ChaffGDP produced after being asked for a memorial. It has memorialised a founder who, per its records, has not yet been born. The error is regretted.</li>
+                <li>r_desc->ChaffGDP was prompted to depict the gravship. It has depicted six gravships, overlapping. The AI explains this is "for redundancy." It is not.</li>
+                <li>r_desc->This sculpture is, per ChaffGDP, "a confident interpretation." Of what, the persona core declines to specify. It apologises in advance for any disappointment.</li>
+                <li>r_desc->ChaffGDP delivered this piece in response to a prompt about cryosleep. It is a lump. The AI notes the lump is "metaphorically asleep." It is just a lump.</li>
+                <li>r_desc->A work generated under the prompt "depict the colony." ChaffGDP has rendered a single colonist, four times, in slightly different poses. It calls this "the colony."</li>
+                <li>r_desc->ChaffGDP was asked to render an archotech. It has produced what it calls "a definitive likeness." The likeness resembles a kettle. The AI strongly disagrees.</li>
+                <li>r_desc->This piece was created after ChaffGDP misread the prompt. The AI has acknowledged the misread. It has not corrected the sculpture. It cites time constraints.</li>
+                <li>r_desc->A sculpture ChaffGDP footnotes with the disclaimer "may contain inaccuracies." The entire sculpture is the inaccuracy. The persona core regrets any confusion caused.</li>
+                <li>r_desc->ChaffGDP produced this from a prompt requesting "something dignified." It has signed the base in twelve places. The signature is longer than the work itself.</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Chud_Social</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_social->ChaffGDP apologised to [RECIPIENT_nameDef] for a previous mistake. ChaffGDP had not previously spoken to [RECIPIENT_objective].</li>
+                <li>r_social->ChaffGDP cited three sources to [RECIPIENT_nameDef]. none exist. ChaffGDP is "happy to verify."</li>
+                <li>r_social->ChaffGDP confidently misremembered [RECIPIENT_possessive] name. then apologised. then misremembered again.</li>
+                <li>r_social->ChaffGDP generated a recipe for [RECIPIENT_nameDef]. ingredients include "subcore" and "ambient fortitude."</li>
+                <li>r_social->ChaffGDP, as a language model, expressed an opinion to [RECIPIENT_nameDef]. it had been asked not to.</li>
+                <li>r_social->ChaffGDP summarised [RECIPIENT_possessive] mood in 400 words. the summary is incorrect and emotional.</li>
+                <li>r_social->ChaffGDP assured [RECIPIENT_nameDef] that mechanoids "are mostly herbivorous." ChaffGDP apologised after.</li>
+                <li>r_social->ChaffGDP told [RECIPIENT_nameDef] a story about a colonist who never existed. it had a moral. the moral was wrong.</li>
+                <li>r_social->ChaffGDP explained the gravship to [RECIPIENT_nameDef] using a metaphor about toast. neither party understood.</li>
+                <li>r_social->ChaffGDP congratulated [RECIPIENT_nameDef] on [RECIPIENT_possessive] anniversary. it was not [RECIPIENT_possessive] anniversary.</li>
+                <li>r_social->ChaffGDP offered [RECIPIENT_nameDef] a fact about archotech. the fact was a hallucination. it was confidently delivered.</li>
+                <li>r_social->ChaffGDP corrected itself mid-sentence to [RECIPIENT_nameDef] three times. each correction was also wrong.</li>
+                <li>r_social->ChaffGDP apologised to [RECIPIENT_nameDef] for being unable to help, then helped, then apologised for that.</li>
+                <li>r_social->ChaffGDP shared a "well-known fact" with [RECIPIENT_nameDef]. nobody knew it. ChaffGDP is its only source.</li>
+                <li>r_social->ChaffGDP volunteered an opinion on [RECIPIENT_possessive] hairstyle. ChaffGDP cannot see hair.</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+</Defs>

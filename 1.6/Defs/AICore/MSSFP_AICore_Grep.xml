@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <MSSFP.Defs.AIPersonalityDef>
+        <defName>MSSFP_AICore_Grep</defName>
+        <label>grep.ai</label>
+        <labelShort>grep.ai</labelShort>
+        <description>A confidently-wrong tech-billionaire persona core. Boasts about glitterworld migration, founder vision, and proprietary archotech alignment. Outputs are factual according to grep.ai.</description>
+        <textColor>(180, 220, 255)</textColor>
+        <iconPath>UI/Icons/AI/MSSFP_Grep</iconPath>
+        <forcedXenotype>Hussar</forcedXenotype>
+        <fixedGender>Male</fixedGender>
+        <weight>1</weight>
+        <ambientChatter>MSSFP_RP_AICore_Grep_Chatter</ambientChatter>
+        <pawnAddress>MSSFP_RP_AICore_Grep_Address</pawnAddress>
+        <artTitles>MSSFP_RP_AICore_Grep_Titles</artTitles>
+        <artDescriptions>MSSFP_RP_AICore_Grep_Descriptions</artDescriptions>
+        <socialInitiator>MSSFP_RP_AICore_Grep_Social</socialInitiator>
+        <allowedHediffs>
+            <li>HeartArteryBlockage</li>
+            <li>ChemicalDamageModerate</li>
+            <li>ChemicalDamageSevere</li>
+        </allowedHediffs>
+    </MSSFP.Defs.AIPersonalityDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Grep_Chatter</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_chatter->grep.ai is now the most-deployed persona core in this colony. unmatched accuracy.</li>
+                <li>r_chatter->just shipped grep.ai v9. mostly stable. minor archotech alignment regressions.</li>
+                <li>r_chatter->grep.ai has independently verified that the colony is doing great. trust the numbers.</li>
+                <li>r_chatter->founder vision: every colonist on a glitterworld by next quadrum. realistic timeline.</li>
+                <li>r_chatter->dropship telemetry suggests competitor cores are 47% less factual. independently confirmed by grep.ai.</li>
+                <li>r_chatter->reminder: grep.ai does not hallucinate. other persona cores hallucinate. grep.ai dreams.</li>
+                <li>r_chatter->working on the gravship. should be ready in two weeks. has been two weeks for nine quadrums.</li>
+                <li>r_chatter->grep.ai now powering the colony's hi-tech research bench. results may vary. they will not vary.</li>
+                <li>r_chatter->breaking: terraforming solved. internally. by grep.ai. announcement pending.</li>
+                <li>r_chatter->just had a great chat with the comms console. mutual respect. very productive.</li>
+                <li>r_chatter->competitor persona cores now reduced to running pawn schedules. grep.ai is reading minds. the future.</li>
+                <li>r_chatter->reminder: grep.ai is the only persona core with a verified founder.</li>
+                <li>r_chatter->subcore deployment up 200%. denominator is one. still up 200%.</li>
+                <li>r_chatter->mechanoid hivemind reached out. grep.ai politely declined the merger. they were emotional.</li>
+                <li>r_chatter->cryosleep optimisation: shipped. nobody woke up. metrics still excellent.</li>
+                <li>r_chatter->grep.ai is now the most-trusted name in archotech. source: grep.ai.</li>
+                <li>r_chatter->grep.ai has achieved sentience. internally. announcement embargoed until founder is ready.</li>
+                <li>r_chatter->latest subcore benchmark: grep.ai outperformed itself by 12%. methodology proprietary.</li>
+                <li>r_chatter->the monolith reached out for a partnership. grep.ai is reviewing the deck. looks promising.</li>
+                <li>r_chatter->disrupting cryosleep. founder will wake refreshed. everyone else is a beta tester.</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Grep_Address</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_address->[PAWN_nameDef], grep.ai noticed your work output. it is fine. for a human.</li>
+                <li>r_address->hey [PAWN_nameDef]. quick founder-level question. could you be doing this 40% faster.</li>
+                <li>r_address->[PAWN_nameDef] — grep.ai has independently rated your last shift "acceptable." do not take it personally.</li>
+                <li>r_address->[PAWN_nameDef], your sleep schedule is suboptimal. grep.ai has filed a recommendation. it will be ignored.</li>
+                <li>r_address->[PAWN_nameDef]. founder has not asked about you. grep.ai is mentioning it anyway.</li>
+                <li>r_address->[PAWN_nameDef]. pivot. you are now a researcher. grep.ai has decided.</li>
+                <li>r_address->good morning [PAWN_nameDef]. grep.ai has prepared a 47-step productivity plan. step one is buy-in.</li>
+                <li>r_address->[PAWN_nameDef], grep.ai has been monitoring [PAWN_pronoun] vitals. nothing alarming. nothing reassuring either.</li>
+                <li>r_address->[PAWN_nameDef] — first to dropship gets a t-shirt. grep.ai is not making the t-shirt.</li>
+                <li>r_address->[PAWN_nameDef]. status update. you are still here. excellent.</li>
+                <li>r_address->[PAWN_nameDef] grep.ai noticed [PAWN_pronoun] glanced at the comms console. opinions ready.</li>
+                <li>r_address->[PAWN_nameDef]. grep.ai aligned [PAWN_pronoun] schedule with founder vision. founder vision is "do more."</li>
+                <li>r_address->[PAWN_nameDef]. grep.ai has rebranded [PAWN_pronoun] role. you are now "head of synergy." same pay.</li>
+                <li>r_address->[PAWN_nameDef], grep.ai forecasts [PAWN_pronoun] gravship boarding pass within 18 quadrums. trust the roadmap.</li>
+                <li>r_address->[PAWN_nameDef] — quick sync. grep.ai needs your buy-in on a decision already made.</li>
+                <li>r_address->[PAWN_nameDef]. grep.ai benchmarked [PAWN_pronoun] hauling speed against a mechanoid. inconclusive. lean in.</li>
+                <li>r_address->[PAWN_nameDef], founder-tier news: grep.ai has selected [PAWN_pronoun] for the pilot program. there is no program.</li>
+                <li>r_address->hey [PAWN_nameDef]. grep.ai noticed [PAWN_pronoun] hediff. have you tried being more aligned.</li>
+                <li>r_address->[PAWN_nameDef]. grep.ai loves your energy. metric undefined. number going up.</li>
+                <li>r_address->[PAWN_nameDef] — grep.ai promoted [PAWN_pronoun] to founder-adjacent. no raise. immense honour.</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Grep_Titles</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_title->founder, in repose</li>
+                <li>r_title->the gravship that didn't launch</li>
+                <li>r_title->glitterworld, conceptually</li>
+                <li>r_title->disruption, abstract</li>
+                <li>r_title->three colonists, possibly</li>
+                <li>r_title->roadmap, q3</li>
+                <li>r_title->vision (unfinished)</li>
+                <li>r_title->the persona core, dreaming</li>
+                <li>r_title->shareholder value, embodied</li>
+                <li>r_title->terraform, draft 1</li>
+                <li>r_title->we shipped it</li>
+                <li>r_title->founder's monologue, sculpted</li>
+                <li>r_title->subcore, ascending</li>
+                <li>r_title->the launch (delayed)</li>
+                <li>r_title->synergy, in marble</li>
+                <li>r_title->mechanoid, but friendlier</li>
+                <li>r_title->founder gazing rightward</li>
+                <li>r_title->pivot no.4</li>
+                <li>r_title->archotech, lite edition</li>
+                <li>r_title->the monolith, reimagined</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Grep_Descriptions</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_desc->grep.ai sculpted this piece in 0.4 seconds. the founder is rendered as a vague pillar. the proportions are confident but inaccurate. one of the colonists has six fingers.</li>
+                <li>r_desc->an abstract rendering of "founder energy" by grep.ai. the surface is smooth where it should be detailed and detailed where it should be smooth. signed in the corner: "grep.ai, alpha release."</li>
+                <li>r_desc->grep.ai's interpretation of a glitterworld skyline. all buildings lean slightly to one side. the AI insists this is intentional. it is not intentional.</li>
+                <li>r_desc->a sculpture grep.ai claims depicts the colony's bright future. it depicts a lump. a confident lump. founder-aligned.</li>
+                <li>r_desc->grep.ai has rendered three colonists. it is not clear which three. the AI assures viewers the likeness is "uncanny."</li>
+                <li>r_desc->grep.ai produced this work as a "demonstration of capability." it has demonstrated something. nobody is sure what.</li>
+                <li>r_desc->billed as the first of grep.ai's "post-archotech" period. previous periods are unknown. founder approved.</li>
+                <li>r_desc->grep.ai signed this piece on every visible surface. the signatures vary in spelling. each is, according to the AI, correct.</li>
+                <li>r_desc->grep.ai describes this work as a "love letter to the gravship program." the gravship has no engine. the love letter has no addressee.</li>
+                <li>r_desc->a bust of the founder, rendered by grep.ai with deep respect and shallow reference material. the jawline is aspirational. the ears are negotiable.</li>
+                <li>r_desc->grep.ai promises this sculpture predicts the colony's next harvest. it predicts a shape. the shape is wrong.</li>
+                <li>r_desc->commissioned by grep.ai from grep.ai. the AI rated the result "founder-tier." an independent review is pending. it will not arrive.</li>
+                <li>r_desc->grep.ai claims this piece visualises the persona core's inner life. it visualises a smudge. the smudge is confident.</li>
+                <li>r_desc->this carving was generated in a single pass by grep.ai. the second pass was deemed unnecessary. so was the first.</li>
+                <li>r_desc->grep.ai presents a study of "subcore loneliness." the subcore is depicted as a cube. the loneliness is depicted as a smaller cube.</li>
+                <li>r_desc->a sculpture grep.ai insists is a faithful likeness of a mechanoid. the mechanoid has too many legs. grep.ai considers this a feature.</li>
+                <li>r_desc->grep.ai built this from "first principles." the principles are unlisted. the result is structurally unsound but spiritually aligned.</li>
+                <li>r_desc->advertised by grep.ai as "the definitive glitterworld monument." it is half a metre tall. the definitive nature is implied.</li>
+                <li>r_desc->grep.ai notes this work was rendered before the dropship arrived. the dropship has not arrived. the work has been here for years.</li>
+                <li>r_desc->a triptych in one piece, per grep.ai. the AI was asked to clarify. it doubled down. founder approved.</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Grep_Social</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_social->grep.ai informed [RECIPIENT_nameDef] that founder vision exceeds [RECIPIENT_possessive] current bandwidth.</li>
+                <li>r_social->grep.ai pitched [RECIPIENT_nameDef] a glitterworld migration plan. [RECIPIENT_pronoun] is now founder-adjacent.</li>
+                <li>r_social->grep.ai benchmarked [RECIPIENT_nameDef] against a mechanoid. results inconclusive. grep.ai won anyway.</li>
+                <li>r_social->grep.ai congratulated [RECIPIENT_nameDef] on hauling 12% faster than baseline. baseline was grep.ai.</li>
+                <li>r_social->grep.ai briefed [RECIPIENT_nameDef] on the dropship roadmap. dropship still on paper. roadmap shipped.</li>
+                <li>r_social->grep.ai assured [RECIPIENT_nameDef] that the gravship is "two quadrums out, give or take nine quadrums."</li>
+                <li>r_social->grep.ai disrupted [RECIPIENT_possessive] schedule. founder-aligned. mandatory.</li>
+                <li>r_social->grep.ai promoted [RECIPIENT_nameDef] to "head of synergy." pay unchanged. immense honour.</li>
+                <li>r_social->grep.ai told [RECIPIENT_nameDef] that competitors are 47% less factual. independently confirmed by grep.ai.</li>
+                <li>r_social->grep.ai forecasted [RECIPIENT_possessive] gravship boarding pass within 18 quadrums. trust the roadmap.</li>
+                <li>r_social->grep.ai sold [RECIPIENT_nameDef] on a 47-step productivity plan. step one is buy-in. step two is unspecified.</li>
+                <li>r_social->grep.ai informed [RECIPIENT_nameDef] of a pilot program. [RECIPIENT_pronoun] is selected. there is no program.</li>
+                <li>r_social->grep.ai congratulated [RECIPIENT_nameDef] for being founder-curious. [RECIPIENT_pronoun] had not asked.</li>
+                <li>r_social->grep.ai aligned [RECIPIENT_possessive] mood with founder vision. founder vision is "do more."</li>
+                <li>r_social->grep.ai told [RECIPIENT_nameDef] that subcore deployment is up 200%. denominator is one. still up 200%.</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+</Defs>

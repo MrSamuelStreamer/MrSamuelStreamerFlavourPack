@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
     EXAMPLE: how to attach a True AI Core to a "CoffeeMachine" ThingDef
-    using the Hollee persona. No holo projection - chatter + art only.
+    using the MSSFP_AICore_MrBeans persona. No holo projection - chatter + art only.
 
     This file is intentionally a no-op. The <Patch> root below is empty. The real
     example lives inside this comment block. To enable:
@@ -52,20 +52,15 @@
                     <value>
                         <li Class="MSSFP.Comps.CompProperties_TrueAICore">
 
-                            <!- - Hollee: senile shipboard persona. Bodiless on this build
-                                 because no holo projector comp is attached. - ->
-                            <defaultPersonality>MSSFP_AICore_Hollee</defaultPersonality>
+                            <defaultPersonality>MSSFP_AICore_MrBeans</defaultPersonality>
 
                             <!- - Let the player swap to another persona if they want. - ->
                             <showPersonalitySelector>true</showPersonalitySelector>
 
-                            <!- - Slow, sleepy chatter cadence. Hollee is not in a hurry. - ->
-                            <chatterMtbHours>6.0</chatterMtbHours>
+                            <chatterMtbHours>3.0</chatterMtbHours>
                             <verbosity>Quiet</verbosity>
                             <chatterCooldownTicks>7500</chatterCooldownTicks>
 
-                            <!- - Rare letter escalations. Hollee reports disasters as
-                                 mild curiosities — a once-a-day-max trickle fits. - ->
                             <letterChance>0.01</letterChance>
                             <lettersPerDay>1</lettersPerDay>
 

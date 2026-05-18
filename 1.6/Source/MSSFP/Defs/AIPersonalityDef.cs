@@ -74,6 +74,14 @@ public class AIPersonalityDef : Def
     /// <summary>Lines used when addressing a specific colonist by name.</summary>
     public RulePackDef pawnAddress;
 
+    /// <summary>
+    /// Optional rule pack for personality-scheduled red-letter alerts. Resolved by
+    /// <see cref="AIPersonalityWorker.RollScheduled"/> under the <c>r_alert</c> keyword.
+    /// Workers that emit timed bulletins (e.g. Mr Beans' 3am coffee alarms) pull lines
+    /// from here so the urgent text never leaks into MTB-driven ambient chatter.
+    /// </summary>
+    public RulePackDef scheduledChatter;
+
     /// <summary>Rule pack producing sculpture titles.</summary>
     public RulePackDef artTitles;
 
@@ -93,6 +101,14 @@ public class AIPersonalityDef : Def
 
     /// <summary>Relative weight when a core rolls a personality (random pick mode).</summary>
     public float weight = 1f;
+
+    /// <summary>
+    /// When true, this personality is excluded from <see cref="MSSFP.Dialogs.Dialog_PickAIPersona"/>.
+    /// Used for building-bound personas (e.g. Autodoc, Mr Beans coffee machine) that should
+    /// only be assigned programmatically via their host building's comp — never via the
+    /// Pondering Orb pick dialog. Direct <c>SetPersonality()</c> / dev-gizmo calls still work.
+    /// </summary>
+    public bool hideFromSelector = false;
 
     /// <summary>
     /// Hediffs that MAY land on a holo pawn driven by this personality. Vanilla hediff-givers
@@ -142,5 +158,13 @@ public class AIPersonalityDef : Def
 
         if (socialInitiator != null && socialInitiator.RulesPlusIncludes.NullOrEmpty())
             yield return $"AIPersonalityDef {defName}: socialInitiator pack '{socialInitiator.defName}' has no rules (after includes resolved).";
+
+        // hideFromSelector personas are not pickable via Dialog_PickAIPersona, so they must
+        // be assigned programmatically by a host building/comp. Their only guaranteed firing
+        // path is ambientChatter (pawnAddress requires explicit host invocation, socials and
+        // art require pawn/sculpting context that building-bound personas typically lack).
+        // Missing/empty chatter = silent dead persona at runtime.
+        if (hideFromSelector && (ambientChatter == null || ambientChatter.RulesPlusIncludes.NullOrEmpty()))
+            yield return $"AIPersonalityDef {defName}: hideFromSelector=true requires a non-empty ambientChatter pack (sole guaranteed firing path for building-bound personas).";
     }
 }

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using MSSFP.Comps;
 using MSSFP.Defs;
 using RimWorld;
@@ -61,7 +62,11 @@ public class Dialog_PickAIPersona : Window
         Rect blurbRect = new Rect(inRect.x, titleRect.yMax + 4f, inRect.width, 48f);
         Widgets.Label(blurbRect, "MSSFP_PonderingOrb_PickPersona_Blurb".Translate());
 
-        List<AIPersonalityDef> defs = DefDatabase<AIPersonalityDef>.AllDefsListForReading;
+        // Filter out hideFromSelector personas — those are assigned programmatically by a
+        // host building/comp (Autodoc, Mr Beans, etc.) and must never be pickable here.
+        List<AIPersonalityDef> defs = DefDatabase<AIPersonalityDef>.AllDefsListForReading
+            .Where(d => !d.hideFromSelector)
+            .ToList();
         if (defs == null || defs.Count == 0)
         {
             // Misconfigured load — no personas defined. Bail with a null persona so the
