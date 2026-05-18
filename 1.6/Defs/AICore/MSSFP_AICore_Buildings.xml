@@ -15,7 +15,7 @@
         <defName>MSSFP_AICore</defName>
         <thingClass>MSSFP.Buildings.Building_AICore</thingClass>
         <label>The Pondering Orb</label>
-        <description>A pedestal-mounted cogitator running a captured AI persona, projected as a hard-light avatar bound by a private leash field around the device. The orb watches, thinks, occasionally talks — and accelerates research in concert with a multi-analyzer. Smash it or take it apart and the persona crystallises into a portable core, ready to be installed in a new chassis.</description>
+        <description>A pedestal-mounted cogitator running a captured AI persona, projected as a hard-light avatar tethered to the device's map. The orb watches, thinks, occasionally talks — and accelerates research in concert with a multi-analyzer. Smash it or take it apart and the persona crystallises into a portable core, ready to be installed in a new chassis.</description>
         <category>Building</category>
         <graphicData>
             <texPath>Things/Building/MSSFP_AI_Core</texPath>
@@ -87,7 +87,6 @@
             </li>
             <li Class="MSSFP.Holo.CompProperties_HoloProjector">
                 <defaultTint>(0,200,0)</defaultTint>
-                <defaultRadius>48</defaultRadius>
             </li>
             <li Class="MSSFP.Comps.CompProperties_TrueAICore">
                 <showPersonalitySelector>false</showPersonalitySelector>

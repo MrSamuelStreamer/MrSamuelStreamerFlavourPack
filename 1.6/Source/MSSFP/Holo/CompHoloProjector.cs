@@ -10,7 +10,8 @@ namespace MSSFP.Holo;
 
 /// <summary>
 /// Projector-side comp. Owns the holo Pawn (stored in <see cref="stored"/> when recalled,
-/// spawned on map while projected), the leash area, and the tint state.
+/// spawned on map while projected) and the tint state. Projection is map-bound to the
+/// projector's map; vanilla AI picks jobs anywhere on that map (no area-leash gating).
 ///
 /// SCRIBE POLICY (revised — never world-pawn):
 ///   - Holo pawn lives in <see cref="stored"/> (a <see cref="ThingOwner{Pawn}"/>) which is
@@ -21,10 +22,10 @@ namespace MSSFP.Holo;
 ///     the colonist need set. Keeping the pawn comp-owned preserves Player faction + needs.
 ///   - <see cref="projected"/> is scribed by reference (the spawned-on-map pawn is owned
 ///     by the map's thingOwner at save time).
-///   - <see cref="area"/> is scribed deep (it owns its BoolGrid). NOT registered with
-///     <c>areaManager.areas</c> — Layer 1 private (P0 decision).
 ///   - Save migration (PostLoadInit): legacy saves had pawn in WorldPawns w/ scrambled
 ///     faction; on load, remove from WorldPawns, re-assign Player faction, recalc needs.
+///     Legacy `area` / `radius` scribe nodes are silently ignored by RimWorld on load
+///     (Scribe tolerates unknown XML); no migration shim needed.
 ///
 /// HEDIFF + COMP BACK-REF: applied at projection time inside
 /// <see cref="SpawnProjection"/> (NEVER from PostExposeData — P0 decision).
@@ -48,12 +49,6 @@ public class CompHoloProjector : ThingComp, IThingHolder
     /// when no persona is bound.
     /// </summary>
     public Color Tint => Persona?.HoloTintOrTextColor ?? Props.defaultTint;
-
-    /// <summary>Private leash area (Layer 1). Lazily created on first projection.</summary>
-    public Area_HoloLeash area;
-
-    /// <summary>Leash radius (cells).</summary>
-    public float radius = 12f;
 
     /// <summary>
     /// Scribed one-shot — true once the persona-derived name has been applied to the holo
@@ -134,7 +129,6 @@ public class CompHoloProjector : ThingComp, IThingHolder
     {
         base.Initialize(propsArg);
         stored ??= new ThingOwner<Pawn>(this);
-        radius = Props.defaultRadius;
     }
 
     public override void PostPostMake()
@@ -143,20 +137,9 @@ public class CompHoloProjector : ThingComp, IThingHolder
         stored ??= new ThingOwner<Pawn>(this);
     }
 
-    /// <summary>
-    /// Restore the area &lt;-&gt; areaManager link after load. PostExposeData PostLoadInit can fire
-    /// before parent.Map is resolved on a freshly loaded ThingWithComps, so the link must be
-    /// repaired here once the parent is actually on a map.
-    /// </summary>
     public override void PostSpawnSetup(bool respawningAfterLoad)
     {
         base.PostSpawnSetup(respawningAfterLoad);
-        if (area != null && area.areaManager == null && parent?.Map != null)
-            area.areaManager = parent.Map.areaManager;
-        // Re-anchor leash cells to the projector's current position after spawn
-        // (covers fresh load, minify+place, and projector move).
-        if (area != null && parent?.Map != null)
-            area.RefreshFromCenter(parent.Position, radius);
 
         // Build sibling cache + notify same-cell neighbours so their caches include us.
         RebuildSiblingCache();
@@ -351,7 +334,7 @@ public class CompHoloProjector : ThingComp, IThingHolder
 
     /// <summary>
     /// Move pawn from <see cref="stored"/> onto the map adjacent to the projector, attach
-    /// the projected-back-ref comp + hediff, init the leash area.
+    /// the projected-back-ref comp + hediff.
     /// </summary>
     public bool SpawnProjection()
     {
@@ -404,8 +387,6 @@ public class CompHoloProjector : ThingComp, IThingHolder
         // moment the hediff lands rather than seeing one frame of Food/Rest at default.
         p.needs?.AddOrRemoveNeedsAsAppropriate();
 
-        EnsureAreaInitialized();
-
         return true;
     }
 
@@ -452,7 +433,7 @@ public class CompHoloProjector : ThingComp, IThingHolder
 
     /// <summary>
     /// Projector-side power gating. Drives recall on power loss + auto-respawn on power return.
-    /// Independent of <see cref="CompHoloProjected.CompTickRare"/> which runs leash + chatter
+    /// Independent of <see cref="CompHoloProjected.CompTickRare"/> which runs persona chatter
     /// on the pawn side — that path keeps firing while drafted; this one bails out cleanly so
     /// a power blip mid-combat doesn't yank a drafted holo away from the player.
     ///
@@ -568,19 +549,6 @@ public class CompHoloProjector : ThingComp, IThingHolder
         hadPowerLastTick = nowPowered;
     }
 
-    private void EnsureAreaInitialized()
-    {
-        if (parent?.Map == null)
-            return;
-        if (area != null && area.Map == parent.Map)
-            return;
-
-        area = new Area_HoloLeash(parent.Map.areaManager) { projectorThingID = parent.thingIDNumber };
-        // NOTE: deliberately NOT calling parent.Map.areaManager.areas.Add(area) — Layer 1
-        // private area (P0 decision). areaManager reference satisfies base.Map resolution.
-        area.RefreshFromCenter(parent.Position, radius);
-    }
-
     // ------- Despawn cleanup -------
 
     public override void PostDeSpawn(Map map, DestroyMode mode)
@@ -626,8 +594,6 @@ public class CompHoloProjector : ThingComp, IThingHolder
 
         Scribe_Deep.Look(ref stored, "stored", this);
         Scribe_References.Look(ref projected, "projected");
-        Scribe_Values.Look(ref radius, "radius", 12f);
-        Scribe_Deep.Look(ref area, "area");
         Scribe_Values.Look(ref personaNameApplied, "personaNameApplied", false);
         Scribe_Values.Look(ref firstProjectionDone, "firstProjectionDone", false);
         Scribe_Values.Look(ref defragTicksRemaining, "defragTicksRemaining", 0);
@@ -655,10 +621,6 @@ public class CompHoloProjector : ThingComp, IThingHolder
                     p.SetFaction(Faction.OfPlayer);
                 p.needs?.AddOrRemoveNeedsAsAppropriate();
             }
-
-            // Repair area<->areaManager link after load (areaManager not scribed on Area base).
-            if (area != null && parent?.Map != null)
-                area.areaManager = parent.Map.areaManager;
 
             // Legacy-save persona name migration: if pawn still has its vanilla-generated
             // NameTriple (no nick) and a persona is present, apply the persona name now so

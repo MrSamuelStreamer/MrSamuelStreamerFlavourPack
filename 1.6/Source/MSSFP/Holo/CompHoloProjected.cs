@@ -5,7 +5,6 @@ using MSSFP.Defs;
 using RimWorld;
 using UnityEngine;
 using Verse;
-using Verse.AI;
 
 namespace MSSFP.Holo;
 
@@ -65,14 +64,9 @@ public class CompHoloProjected : ThingComp
     }
 
     /// <summary>
-    /// Leash enforcement. Rare-tick (~250t / ~4s) check that the holo stays inside the
-    /// projector's private area. Guards (DA pass):
-    ///   - Drafted pawn: player control wins; do nothing.
-    ///   - Cross-map: projector and pawn on different maps; bail (recall path handles it).
-    ///   - Already inside area: nothing to do.
-    ///   - Already on a Goto into the area: don't restart the job (avoid stutter).
-    /// On out-of-leash: force a Goto to the nearest reachable cell in the area. If no
-    /// cell is reachable (walls, separated regions), recall the projection.
+    /// Rare-tick (~250t / ~4s). Persona chatter + cross-map sanity. Area-leash gating
+    /// was removed — holo is map-bound only (same map as projector); vanilla AI picks
+    /// jobs anywhere on that map. Power-loss recall + projector despawn still recall.
     /// </summary>
     public override void CompTickRare()
     {
@@ -89,42 +83,9 @@ public class CompHoloProjected : ThingComp
         if (projThing?.Map == null || p.Map != projThing.Map)
             return;
 
-        // Persona chatter — runs regardless of drafted / leash state. Drafted holos still
-        // banter while under player control. Separate from leash work so a Drafted return
-        // doesn't silence them.
+        // Persona chatter — runs regardless of drafted state.
         TryRollPersonaChatter(p, proj);
         TryRollPersonaAddress(p, proj);
-
-        if (p.Drafted)
-            return;
-
-        Area_HoloLeash leash = proj.area;
-        if (leash == null)
-            return;
-
-        IntVec3 pos = p.Position;
-        if (leash[pos])
-            return;
-
-        // Already heading into the leash on a Goto? Skip — avoid re-issuing every rare tick.
-        Job curJob = p.CurJob;
-        if (curJob?.def == JobDefOf.Goto && !curJob.targetA.HasThing)
-        {
-            IntVec3 tgt = curJob.targetA.Cell;
-            if (tgt.InBounds(p.Map) && leash[tgt])
-                return;
-        }
-
-        IntVec3 dest = FindNearestReachable(p, leash);
-        if (!dest.IsValid)
-        {
-            Log.Message($"[MSSFP] Holo {p.LabelShortCap} cannot reach leash area; recalling projection.");
-            proj.OnDespawnProjection();
-            return;
-        }
-
-        Job job = JobMaker.MakeJob(JobDefOf.Goto, dest);
-        p.jobs.StartJob(job, JobCondition.InterruptForced);
     }
 
     /// <summary>
@@ -254,27 +215,4 @@ public class CompHoloProjected : ThingComp
         return best;
     }
 
-    /// <summary>
-    /// Linear scan of active cells filtering by reachability. Radius 12 = ~450 cells worst
-    /// case per holo per ~4s — cheap enough for the expected projector count (1–10). If
-    /// projector counts climb, swap for a cached edge-cell list invalidated on area repaint.
-    /// </summary>
-    private static IntVec3 FindNearestReachable(Pawn p, Area_HoloLeash area)
-    {
-        IntVec3 best = IntVec3.Invalid;
-        int bestDistSq = int.MaxValue;
-        TraverseParms tp = TraverseParms.For(p, Danger.Deadly, TraverseMode.ByPawn, false);
-        foreach (IntVec3 c in area.ActiveCells)
-        {
-            if (!p.Map.reachability.CanReach(p.Position, c, PathEndMode.OnCell, tp))
-                continue;
-            int d = (c - p.Position).LengthHorizontalSquared;
-            if (d < bestDistSq)
-            {
-                bestDistSq = d;
-                best = c;
-            }
-        }
-        return best;
-    }
 }

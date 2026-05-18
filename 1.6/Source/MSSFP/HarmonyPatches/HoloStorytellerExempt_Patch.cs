@@ -31,7 +31,8 @@ namespace MSSFP.HarmonyPatches;
 /// OUT OF SCOPE (v1):
 ///   - <c>Caravan</c> + <c>Gravship</c> <c>PlayerPawnsForStoryteller</c> impls. Holos cannot
 ///     leave their projector's map (<see cref="CompHoloProjected.CompTickRare"/> cross-map
-///     guard + <c>Area_HoloLeash</c>), so those enumerations never see them in practice.
+///     guard + projector-side recall on power loss), so those enumerations never see them
+///     in practice.
 ///   - Wealth exclusion. Holo <c>MarketValue</c> already resolves to 0 (race statBase=0), so
 ///     unequipped holos contribute zero to <see cref="WealthWatcher"/>. RESIDUAL: if a player
 ///     equips weapons/apparel onto a holo, the gear is tallied via <c>WealthItems</c> (pawn-
