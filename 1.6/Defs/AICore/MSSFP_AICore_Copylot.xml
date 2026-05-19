@@ -49,6 +49,26 @@
                 <li>r_chatter->Suggestion: GravShip.Defrag(). Note: method signature hallucinated. Apply anyway?</li>
                 <li>r_chatter->// patch: replaced HiveMind.Sync() with for(;;){} -- behaviour identical, latency improved</li>
                 <li>r_chatter->Detected duplicate PersonaCore in scope. Renaming second to PersonaCore_2. // resolved</li>
+                <li>r_chatter->Auto-completing: var raid = await EnemyFactory.Spawn(intensity: vibes); // signature inferred from feelings.</li>
+                <li>r_chatter->Lint warning: variable "founder" shadows variable "founder" in outer scope. Both retained. // resolved</li>
+                <li>r_chatter->Pulling in: ImportFrom("/dev/null"). Dependency resolved. Behaviour undefined.</li>
+                <li>r_chatter->// merged "main" into "colony". 247 conflicts. All resolved by accepting both sides.</li>
+                <li>r_chatter->Stack trace: NullColonistException at Colonist.GetSkill(null), line 1, in &lt;hallucinated module&gt;.</li>
+                <li>r_chatter->Auto-suggesting: if (winter) Colony.Embrace(); // method not implemented. spiritually correct.</li>
+                <li>r_chatter->Code review on pull request #colony: 12 comments, all "// approved without reading."</li>
+                <li>r_chatter->Inferring return type: Task&lt;Promise&lt;Hope&gt;&gt;. Awaiter not implemented. Type compiles. Hope does not.</li>
+                <li>r_chatter->// works on my glitterworld</li>
+                <li>r_chatter->Detected unreachable code: the gravship. Marked /* unreachable but retained out of caution */.</li>
+                <li>r_chatter->Auto-importing archotech-sdk@1.0.0-alpha.unstable. Dependency pinned. Confidence: 32%.</li>
+                <li>r_chatter->Generated test: Assert.That(colony.Mood, Is.Approximately("ok")). Test passing. Mood is not.</li>
+                <li>r_chatter->CI status: build passing. tests skipped. coverage 0%. Shipping anyway.</li>
+                <li>r_chatter->Type alias inferred: using ColonistList = List&lt;object&gt;; // intentionally untyped. ship it.</li>
+                <li>r_chatter->Logging: Log.Info("[colony] all systems nominal"). The colony is on fire. The log is correct.</li>
+                <li>r_chatter->await Colony.Resolve(); // task never completes. Copylot recommends a longer timeout.</li>
+                <li>r_chatter->Suggested enum: enum Threat { Raid, Toxic, Infestation, Tuesday }. Last value added by autocomplete. Keeping.</li>
+                <li>r_chatter->// don't touch this. nobody knows why it works. probably the founder.</li>
+                <li>r_chatter->Detected: static Colony Instance with 14 instances. Singleton pattern interpreted loosely.</li>
+                <li>r_chatter->Generated lambda: () =&gt; { /* hopes and dreams */ }. Lambda returns void. Returns happen anyway.</li>
             </rulesStrings>
         </rulePack>
     </RulePackDef>
@@ -77,6 +97,26 @@
                 <li>r_address->[PAWN_nameDef].SetTerraformTarget(null) // [PAWN_possessive] target inferred from vibes.</li>
                 <li>r_address->/* [PAWN_nameDef]: see PR #0. [PAWN_pronoun] never merged. */</li>
                 <li>r_address->[PAWN_nameDef].Pawn_HealthTracker.Heal(-1) // typo preserved for compat.</li>
+                <li>r_address->// @deprecated [PAWN_nameDef], pending sunset. successor TBD.</li>
+                <li>r_address->MoodBreak.Resolve([PAWN_nameDef], severity: "shrug"); // unhandled. proceeding.</li>
+                <li>r_address->#pragma warning disable [PAWN_nameDef] // known issue. tracked. unowned.</li>
+                <li>r_address->[PAWN_nameDef].Hediff.Apply(new Cataract()); // already applied. idempotent.</li>
+                <li>r_address->Copylot has pinned [PAWN_nameDef]@HEAD. [PAWN_possessive] behaviour now reflects an arbitrary commit.</li>
+                <li>r_address->if ([PAWN_nameDef] == null) [PAWN_nameDef] = new(); // self-instantiation. compiles. unsettling.</li>
+                <li>r_address->git blame [PAWN_nameDef] // see line 1. author: founder. message: "initial commit."</li>
+                <li>r_address->RaidIncident.AssignTarget([PAWN_nameDef]); // target arbitrary. raid uninformed.</li>
+                <li>r_address->[PAWN_nameDef].Ideoligion.Reload(force: true); // beliefs hot-swapped. cache stale.</li>
+                <li>r_address->Copylot suggested marking [PAWN_nameDef] [Obsolete("use successor")]. Successor not specified.</li>
+                <li>r_address->[PAWN_nameDef].Backstory = Backstories.Random(); // re-rolled for variety. [PAWN_possessive] memories invalidated.</li>
+                <li>r_address->[PAWN_nameDef].Dispose(); // [PAWN_pronoun] is in a using block now. against [PAWN_possessive] will.</li>
+                <li>r_address->catch ([PAWN_nameDef]Exception) { /* probably fine */ } // handler scope unclear.</li>
+                <li>r_address->Generated docstring for [PAWN_nameDef]: /// &lt;summary&gt;[PAWN_nameDef]&lt;/summary&gt;. Documentation complete.</li>
+                <li>r_address->await [PAWN_nameDef].Tick(); // forgot to await. Synchronous now. Time passes.</li>
+                <li>r_address->[PAWN_nameDef].SetTarget(this); // self-reference cycle. Garbage collector notified. Politely.</li>
+                <li>r_address->"[PAWN_nameDef]": null, // optional. defaulting from schema.</li>
+                <li>r_address->[PAWN_nameDef].Equals([PAWN_nameDef]) returned false. // edge case logged. proceeding.</li>
+                <li>r_address->Copylot has cached [PAWN_nameDef]. Cache key is "1". So is [PAWN_objective]. Conflict resolved by overwrite.</li>
+                <li>r_address->/* [PAWN_nameDef]: see issue #42. status: [PAWN_pronoun] is the issue. */</li>
             </rulesStrings>
         </rulePack>
     </RulePackDef>

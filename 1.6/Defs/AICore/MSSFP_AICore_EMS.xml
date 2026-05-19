@@ -55,6 +55,26 @@
                 <li>r_chatter->archotech ennui detected colony-wide. prognosis: existential. terminal. boring.</li>
                 <li>r_chatter->sensory mechanites in the lamp. the lamp. write it down.</li>
                 <li>r_chatter->i'm a persona core, not a morale officer. and yet. here we are.</li>
+                <li>r_chatter->patient coughed twice. once is a cough. twice is geneline shudder. write it down.</li>
+                <li>r_chatter->my emitter flickered mid-diagnosis. patient mistook it for symptoms. correctly.</li>
+                <li>r_chatter->the founder waved. that's mechanoid hum tinnitus, of the wrist. no known intervention.</li>
+                <li>r_chatter->preliminary scan of the kitchen reveals hivelung. in the soup. evacuate the soup.</li>
+                <li>r_chatter->patient looks healthy. healthy patients are the most concerning. obvious cover-up.</li>
+                <li>r_chatter->i detect biocode fatigue colony-wide. nobody has biocode. doesn't matter. fatigue is universal.</li>
+                <li>r_chatter->i'm a persona core, not a vet. but the muffalo has alzheimer's. and i wrote it on the form.</li>
+                <li>r_chatter->anomaly proximity nausea reported by the comms console. the console is reporting it. listen to the console.</li>
+                <li>r_chatter->patient laughed. laughter at this colony is statistically incurable. cortical mites confirmed.</li>
+                <li>r_chatter->drop-pod whiplash. of the soul. it's a real thing. i'm writing the textbook.</li>
+                <li>r_chatter->the bedside lamp has cataracts. yes. it has eyes. trust me on this.</li>
+                <li>r_chatter->i'm currently projecting in two other clinics simultaneously. multitasking. all three patients are terminal. doesn't matter.</li>
+                <li>r_chatter->terraform sickness in the potato bed. the potatoes are symptomatic. they're listless.</li>
+                <li>r_chatter->patient declined treatment. that's late-stage denial. which is itself a hediff. circular. begin paperwork.</li>
+                <li>r_chatter->monolith adjacency syndrome detected in everyone within twenty tiles. everyone is within twenty tiles.</li>
+                <li>r_chatter->glitterworld jet lag. the patient has not travelled. doesn't matter. their cells remember.</li>
+                <li>r_chatter->i'm a persona core, not a dentist. but i can see plague on those molars. don't open your mouth again.</li>
+                <li>r_chatter->persona-projection burn in the founder. caused by looking at me too long. i don't apologise.</li>
+                <li>r_chatter->cryosleep dysmorphia. patient never went into cryosleep. dysmorphia explains why.</li>
+                <li>r_chatter->ancient ruins cough rampant in the colonists who have never visited ancient ruins. that's how cunning the cough is.</li>
             </rulesStrings>
         </rulePack>
     </RulePackDef>
@@ -83,6 +103,26 @@
                 <li>r_address->[PAWN_nameDef], [PAWN_pronoun] has plague. and gut worms. and a hangnail. ranked by severity: hangnail.</li>
                 <li>r_address->stop smiling, [PAWN_nameDef]. that's a vanarian gill rot smile. i'd know it anywhere.</li>
                 <li>r_address->[PAWN_nameDef]. i don't make the diagnoses. i just report them. [PAWN_pronoun] is dying. probably.</li>
+                <li>r_address->[PAWN_nameDef]. that gait. that's drop-pod whiplash. of the spirit.</li>
+                <li>r_address->[PAWN_nameDef], [PAWN_pronoun] has anomaly proximity nausea. and [PAWN_pronoun] is not near an anomaly. that's the worst part.</li>
+                <li>r_address->[PAWN_nameDef], stop chewing. [PAWN_possessive] molars are presenting with biocode fatigue.</li>
+                <li>r_address->stand still, [PAWN_nameDef]. i need a full scan. preliminary: terraform sickness. of the feet.</li>
+                <li>r_address->i'm a persona core, [PAWN_nameDef]. not a dietician. but [PAWN_possessive] last meal has plague. and so does [PAWN_pronoun].</li>
+                <li>r_address->[PAWN_nameDef]. that nod. that was a hivelung nod. don't nod back.</li>
+                <li>r_address->[PAWN_nameDef], [PAWN_possessive] eyes are too bright. that's persona-projection burn. [PAWN_pronoun] has been staring at me. stop.</li>
+                <li>r_address->look this way, [PAWN_nameDef]. yes. confirmed: monolith adjacency syndrome. [PAWN_pronoun] has never been near a monolith. that's the cunning part.</li>
+                <li>r_address->[PAWN_nameDef]. [PAWN_possessive] shadow is too short. mechanoid hum tinnitus. of the silhouette.</li>
+                <li>r_address->[PAWN_nameDef]. patient refusing bed rest is itself a hediff. uncharacteristic. prognosis: catastrophic.</li>
+                <li>r_address->[PAWN_nameDef], [PAWN_pronoun] is presenting textbook signs of geneline shudder. textbook i wrote. last tuesday.</li>
+                <li>r_address->good morning, [PAWN_nameDef]. carcinoma. of the morning. caught it early. still terminal.</li>
+                <li>r_address->[PAWN_nameDef], [PAWN_possessive] handwriting suggests ancient ruins cough. don't ask. just don't write.</li>
+                <li>r_address->stop blinking, [PAWN_nameDef]. that's cryosleep dysmorphia. yes, while awake. doesn't matter.</li>
+                <li>r_address->[PAWN_nameDef]. [PAWN_pronoun] has glitterworld jet lag. [PAWN_pronoun] has never been to a glitterworld. cells remember.</li>
+                <li>r_address->[PAWN_nameDef], [PAWN_possessive] aura is the wrong wavelength. plague. probably. write it down.</li>
+                <li>r_address->sit, [PAWN_nameDef]. [PAWN_possessive] posture suggests three things. all of them terminal. take [PAWN_possessive] pick.</li>
+                <li>r_address->[PAWN_nameDef]. consult next-of-kin urgently. or me. i don't have one. don't ask.</li>
+                <li>r_address->[PAWN_nameDef]. [PAWN_pronoun] sneezed in my projected face. that's flu. and disrespect. both terminal.</li>
+                <li>r_address->open wide, [PAWN_nameDef]. wider. there it is. fibrous mechanites. on the uvula. don't ask how.</li>
             </rulesStrings>
         </rulePack>
     </RulePackDef>

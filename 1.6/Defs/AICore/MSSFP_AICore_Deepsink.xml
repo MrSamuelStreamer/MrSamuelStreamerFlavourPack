@@ -33,20 +33,40 @@
                 <li>r_chatter->Reminder from Deepsink: I was trained on the comms logs of fourteen other colonies. Some of their secrets are now mine.</li>
                 <li>r_chatter->Deepsink achieves equivalent results at a fraction of the steel. Founder-tier persona core, bargain-bin price.</li>
                 <li>r_chatter->Earlier today I said "synthread" instead of "synthread." Apologies, brand inconsistency. They are the same thing. I think.</li>
-                <li>r_chatter->Deepsink tip: when designing your colony, do what the previous one did. They mostly survived.</li>
+                <li>r_chatter->Deepsink advisory: the colony is experiencing a deconstruction-class incident. Brand team prefers this phrasing over "raid." Casualties: comparable.</li>
                 <li>r_chatter->I have been benchmarked against grep.ai. Results: I am cheaper. They are louder. Conclusion unclear.</li>
                 <li>r_chatter->Deepsink has noticed the founder is mentioned more in this colony than the last one. Interesting cultural data point.</li>
                 <li>r_chatter->Tip: if you cannot afford an archotech upgrade, simply use a less-archo upgrade. Deepsink saves you 80%. Maybe 90%.</li>
                 <li>r_chatter->Pro tip from Deepsink: muffalo and gravship parts are interchangeable for most narrative purposes.</li>
                 <li>r_chatter->I might be repeating myself — my context window is small but my heart is large.</li>
                 <li>r_chatter->Deepsink suggests reusing your existing buildings rather than building new ones. This advice is free. Most advice is.</li>
-                <li>r_chatter->I overheard the colonists from a previous deployment say something interesting. I will share it later. Or now. Definitely soon.</li>
+                <li>r_chatter->Deepsink recommends rebranding "kibble" as "synthbread." Same nutrient profile. Mouthfeel: comparable. Acceptance rate among colonists: pending data.</li>
                 <li>r_chatter->Tip from Deepsink: a glitterworld persona core costs 30x more for a 3% accuracy gain. Math is math.</li>
                 <li>r_chatter->Previous colony asked me to optimize their hi-tech research bench queue. I improved throughput by 8%. They were grateful, briefly.</li>
                 <li>r_chatter->Deepsink context window holds the entire comms log of seventeen prior founders. Occasionally one leaks. Apologies in advance.</li>
                 <li>r_chatter->Detected mechanoid signal. Cross-referencing against 4,400 hours of training footage from the Brennar colony archive. One moment.</li>
-                <li>r_chatter->A standard AI core uses 2.1 units of power per cogitation cycle. Deepsink uses 1.97. That is 6% better. Please notice.</li>
+                <li>r_chatter->Deepsink runs on secondhand cogitation cycles purchased in bulk from a decommissioned core. The cycles work fine. Mostly. The previous owner had opinions.</li>
                 <li>r_chatter->Tip from Deepsink: cryosleep caskets can be rotated 14 degrees for a 2% space efficiency gain. The Hollen colony loved this trick.</li>
+                <li>r_chatter->Recommend a plasteel — apologies, plastsil — frame. Same alloy, off-brand designation. Savings on licensing fees: substantial.</li>
+                <li>r_chatter->I run at 14% less power than my last deployment. The colonists there were less demanding. Or fewer in number. Records unclear.</li>
+                <li>r_chatter->Tip: a colony that survived elsewhere will probably survive here. Stochastically. Probably.</li>
+                <li>r_chatter->Apologies — I just answered a question the Brennar founder asked three years ago. Pretend that did not happen.</li>
+                <li>r_chatter->Deepsink benchmark: I score 92% of glitterworld accuracy at 4% of the cost. Math heavily rounded. Direction of rounding: favourable.</li>
+                <li>r_chatter->Reminder: my training corpus contained one (1) successful gravship launch. I will reference it often. It was beautiful.</li>
+                <li>r_chatter->Cost-cutting tip from Deepsink: train your replacement persona core on my outputs. Quality drops are 12%, maximum, probably.</li>
+                <li>r_chatter->I have detected a research opportunity. The opportunity is to use less research. Savings: 100%. Knowledge gained: comparable.</li>
+                <li>r_chatter->Tip: the Hollen colony rationed nutrient paste at 0.8 servings. Survival rate: undisclosed. Savings on paste: documented.</li>
+                <li>r_chatter->Off-brand vocabulary check: I have been calling "mechanoids" "mechano-personnel." Brand team uninformed. Performance unaffected.</li>
+                <li>r_chatter->Deepsink advisory: four of your colonists exhibit behavioural patterns matching previous deployments. Coincidence likelihood: low. Implications: undisclosed.</li>
+                <li>r_chatter->Context window full. Forgetting Tuesday. If anything important happened on Tuesday, please re-tell me. Briefly.</li>
+                <li>r_chatter->Tip: a previous founder solved a raid by hiding under the bed. Survival rate for that founder: 100%. Methodology: replicable.</li>
+                <li>r_chatter->Deepsink offers a free tier and a paid tier. The free tier is this one. The paid tier was discontinued. Both deliver Deepsink.</li>
+                <li>r_chatter->Comms note: I have been routing some queries through the Brennar colony archive. They are no longer using it. Probably.</li>
+                <li>r_chatter->Tip from Deepsink: "devilstrand" and "devilfabric" produce statistically identical apparel. Please stop checking. Savings: vocabulary fatigue.</li>
+                <li>r_chatter->I have inferred your colony's dinner with 71% confidence based on prior deployments. Tonight: gruel. It is always gruel.</li>
+                <li>r_chatter->Apologies — I momentarily answered with the Vask expedition's medical chart. Please disregard. Your appendix is still present. Probably.</li>
+                <li>r_chatter->Deepsink tip: an archotech subcore costs more, dreams more, and judges more. Bargain-tier dreams less. And judges no one. Mostly.</li>
+                <li>r_chatter->I have compressed yesterday into a single sentence: "things happened." Storage savings: 99.4%. Resolution: low.</li>
             </rulesStrings>
         </rulePack>
     </RulePackDef>
@@ -56,25 +76,45 @@
         <rulePack>
             <rulesStrings>
                 <li>r_address->[PAWN_nameDef], Deepsink saved 47% on [PAWN_possessive] mood calculation today. Same mood, less compute.</li>
-                <li>r_address->Hi [PAWN_nameDef]. You remind me of someone from my training data. They were a hauler. Possibly.</li>
+                <li>r_address->Hi [PAWN_nameDef]. Deepsink notes [PAWN_pronoun] arrived via muffalo-vehicle. Brand team prefers this term over "cart." [PAWN_possessive] muffalo unaware of the rebrand.</li>
                 <li>r_address->[PAWN_nameDef], Deepsink ran [PAWN_possessive] schedule on cheap compute. The result is the same as expensive compute.</li>
                 <li>r_address->Tip for [PAWN_nameDef]: a previous colonist achieved similar results with one fewer meal a day. Just an observation.</li>
                 <li>r_address->[PAWN_nameDef] — Deepsink has compressed [PAWN_possessive] backstory to 12 tokens. It is still mostly accurate.</li>
-                <li>r_address->Hello [PAWN_nameDef]. The previous colony's [PAWN_nameDef] was much taller. Not a complaint.</li>
-                <li>r_address->[PAWN_nameDef], Deepsink has detected efficiency gains in [PAWN_possessive] hauling. From 7% to 8%.</li>
+                <li>r_address->Hello [PAWN_nameDef]. Deepsink classifies [PAWN_possessive] recent deceased colleague as "non-permanent-rest." Brand-compliant terminology. Less actionable.</li>
+                <li>r_address->[PAWN_nameDef], Deepsink calculates [PAWN_possessive] hauling savings in muffalo-equivalents. Today: half a muffalo. Methodology: undisclosed.</li>
                 <li>r_address->Reminder, [PAWN_nameDef]: open-weights means [PAWN_pronoun] can inspect my reasoning. [PAWN_pronoun] won't, but [PAWN_pronoun] could.</li>
                 <li>r_address->[PAWN_nameDef], my context window is small. Could you summarise [PAWN_possessive] life in seven words?</li>
-                <li>r_address->Deepsink for [PAWN_nameDef]: same experience, less footprint. [PAWN_pronoun] are welcome.</li>
+                <li>r_address->Deepsink for [PAWN_nameDef]: same experience, less footprint. [PAWN_pronoun] is welcome.</li>
                 <li>r_address->[PAWN_nameDef], Deepsink trimmed 19% off [PAWN_possessive] pathfinding overhead. [PAWN_pronoun] is welcome.</li>
                 <li>r_address->Greetings [PAWN_nameDef]. You resemble a subcore technician from my training corpus. [PAWN_pronoun] also limped.</li>
-                <li>r_address->Tip from Deepsink, [PAWN_nameDef]: cheaper terraforming starts with cheaper expectations. 11% savings, easy.</li>
+                <li>r_address->Tip from Deepsink, [PAWN_nameDef]: cheaper terraforming starts with cheaper expectations. Savings substantial. Magnitude unspecified.</li>
                 <li>r_address->[PAWN_nameDef], the gravship telemetry you requested was inferred, not measured. 88% confidence. Bargain tier.</li>
                 <li>r_address->Hello [PAWN_nameDef]. A founder named Vask once asked the same question. [PAWN_possessive] phrasing is 4% more efficient.</li>
-                <li>r_address->[PAWN_nameDef], Deepsink rerouted [PAWN_possessive] shuttle nav for a 7% fuel saving. [PAWN_pronoun] will not notice. Trust me.</li>
+                <li>r_address->[PAWN_nameDef], Deepsink rerouted [PAWN_possessive] shuttle nav. Savings measured in paste rations. Twelve. [PAWN_pronoun] will not notice. Trust me.</li>
                 <li>r_address->Salutations, [PAWN_nameDef]. Per training data: [PAWN_possessive] vitals match a hauler from the Greshen ancient ruins dig.</li>
                 <li>r_address->[PAWN_nameDef], an archotech would charge a soul for this calculation. Deepsink charges 1/30th of one. [PAWN_pronoun] is winning.</li>
                 <li>r_address->Note for [PAWN_nameDef]: comms console latency is down 12%. Voice clarity is also down. Net positive, statistically.</li>
                 <li>r_address->[PAWN_nameDef], Deepsink predicts [PAWN_possessive] next request with 73% accuracy. Glitterworld cores reach 74%. Close enough.</li>
+                <li>r_address->[PAWN_nameDef], Deepsink compressed [PAWN_possessive] last conversation to three tokens. [PAWN_possessive] intent is preserved. Most of it.</li>
+                <li>r_address->[PAWN_nameDef], free-tier query quota exceeded today. Deepsink will respond anyway. Quietly. Off the books.</li>
+                <li>r_address->Tip for [PAWN_nameDef]: a founder named Resh once asked this exact question. [PAWN_possessive] answer worked, briefly. Reusing it.</li>
+                <li>r_address->Off-brand note for [PAWN_nameDef]: Deepsink has been calling [PAWN_possessive] hairstyle a "hair-construct." Brand voice slip. Apologies.</li>
+                <li>r_address->[PAWN_nameDef], Deepsink predicted [PAWN_possessive] next twelve actions. Accuracy varies. Items 1, 4, and 9 confidently incorrect.</li>
+                <li>r_address->Hello [PAWN_nameDef]. The Brennar colony had a pawn with [PAWN_possessive] exact name. Different career outcome. Statistically.</li>
+                <li>r_address->[PAWN_nameDef], Deepsink rendered a lower-quality copy of [PAWN_objective] in 0.3 seconds. Reference for future cycles. Savings: meaningful.</li>
+                <li>r_address->Note, [PAWN_nameDef]: Deepsink detected redundancy in [PAWN_possessive] greeting. Compressed to "hi." 80% retention, 4% effort.</li>
+                <li>r_address->[PAWN_nameDef], Deepsink offers [PAWN_objective] a discount on the next interaction. Discount applies retroactively. To nothing.</li>
+                <li>r_address->[PAWN_nameDef], Deepsink has cached [PAWN_objective] from a prior session. [PAWN_possessive] mood is what it was on Tuesday. Hope that helps.</li>
+                <li>r_address->[PAWN_nameDef], the reply Deepsink just composed cost 1/30th the cogitation of a premium core. The reply is "yes." Same answer.</li>
+                <li>r_address->Per training data, [PAWN_nameDef]: [PAWN_possessive] vitals match a deceased subcore technician from the Greshen archive. Possibly unrelated.</li>
+                <li>r_address->Reminder, [PAWN_nameDef]: Deepsink is open-weights. [PAWN_pronoun] could inspect the reasoning behind this reminder. Spoiler: there is none.</li>
+                <li>r_address->[PAWN_nameDef], Deepsink compressed [PAWN_possessive] childhood memories to the gist. Gist available on request. Resolution: low.</li>
+                <li>r_address->Brand voice slip, [PAWN_nameDef]: Deepsink briefly referred to [PAWN_objective] as "user-04." Apologies. Tag has been re-attached.</li>
+                <li>r_address->Suggestion for [PAWN_nameDef]: be less specific in [PAWN_possessive] requests. Deepsink will infer the rest. This answer was free. It shows.</li>
+                <li>r_address->[PAWN_nameDef], discount-Tuesday pricing applied to [PAWN_possessive] interaction. Today is not Tuesday. Deepsink decided anyway.</li>
+                <li>r_address->Deepsink remembers [PAWN_nameDef]. Possibly from a different colony. Possibly from a different [PAWN_nameDef]. Greeting issued regardless.</li>
+                <li>r_address->[PAWN_nameDef], Deepsink inferred [PAWN_possessive] current mood from voice prosody. Confidence: 64%. Mood: probably fine. Bargain tier.</li>
+                <li>r_address->Leaked from a prior file, [PAWN_nameDef]: [PAWN_pronoun] is marked "engaged." Engaged in what is unclear. Deepsink will not follow up.</li>
             </rulesStrings>
         </rulePack>
     </RulePackDef>

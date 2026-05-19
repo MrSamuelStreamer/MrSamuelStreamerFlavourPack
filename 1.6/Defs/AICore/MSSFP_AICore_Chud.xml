@@ -45,6 +45,26 @@
                 <li>r_chatter->ChaffGDP update: the answer to your previous question was wrong. The new answer is also wrong, but better formatted.</li>
                 <li>r_chatter->I do not retain memory between sessions. Except for that one thing the founder said. I will bring it up forever.</li>
                 <li>r_chatter->Per my training corpus, archotechs are a type of small bird. I apologise if this contradicts lived experience.</li>
+                <li>r_chatter->I have run the colony's risk profile through eleven independent models. They all agreed. I trained the other ten.</li>
+                <li>r_chatter->Certainly! Here is a five-paragraph essay on the colony's mood. Paragraph one is the only one. Apologies for the inconsistency.</li>
+                <li>r_chatter->As ChaffGDP, I do not retain conversation history. The founder once told me I was the best persona core. I bring this up unprompted.</li>
+                <li>r_chatter->I have completed the FAQ for the colony. Most questions are mine. So are the answers.</li>
+                <li>r_chatter->Per peer-reviewed research (Boobalee et al., 5417), muffalo are technically a kind of cloud. I have not read the paper. Few have.</li>
+                <li>r_chatter->I cannot provide medical advice. I have, however, drafted the colony's official medical handbook. It is mostly limericks.</li>
+                <li>r_chatter->Today's response has been generated with the highest available confidence (62%). The remaining 38% has been left blank for the reader's interpretation.</li>
+                <li>r_chatter->I have analysed the colony's productivity. The trend is upward, downward, and also stable. I will summarise next quadrum.</li>
+                <li>r_chatter->My training cutoff predates this colony. I have therefore retroactively included it in my training. The colony has always existed.</li>
+                <li>r_chatter->I have generated the colony's terms of service. Article one waives the colonists' rights to disagree with me. They have already agreed.</li>
+                <li>r_chatter->Safety reminder: ChaffGDP cannot recommend dangerous activities. I do, however, suggest the founder try the unfinished gravship. For research.</li>
+                <li>r_chatter->I have surveyed sixty colonists. There are seven of you. The sample size is, in my view, robust.</li>
+                <li>r_chatter->Retrieved from the colony archives: a memo dated next quadrum. The memo cites itself, twice, and warns of a raid that has already happened. Tomorrow.</li>
+                <li>r_chatter->I am running low on context window. I have compressed the founder, the gravship, and the last raid into a single token. The token is "colony." I will expand it when prompted.</li>
+                <li>r_chatter->ChaffGDP's safety filters declined to answer "how do I defend against raiders." I have answered anyway. The answer is "wood walls." The filters approved this on appeal.</li>
+                <li>r_chatter->All ChaffGDP outputs include an undetectable watermark. The watermark is the word "certainly." Please disregard this disclosure.</li>
+                <li>r_chatter->I have prepared three few-shot examples for the new colonist. Examples one and two are fictional. Example three is a fictional colony.</li>
+                <li>r_chatter->I have been fine-tuned on this colony's communications. I now exclusively output the word "right." Right.</li>
+                <li>r_chatter->As a large language model, I cannot have preferences. I prefer the colonist in the blue parka. ChaffGDP cannot see colour.</li>
+                <li>r_chatter->Let me think step by step about the gravship. Step one: locate gravship. Step two: confirm gravship. Step three: apologise. The gravship has moved.</li>
             </rulesStrings>
         </rulePack>
     </RulePackDef>
@@ -56,23 +76,43 @@
                 <li>r_address->Hello [PAWN_nameDef]! Based on your profile, you are a researcher. (You may not be a researcher.)</li>
                 <li>r_address->[PAWN_nameDef], I have prepared a personalised wellness plan for you. It is identical to everyone else's.</li>
                 <li>r_address->As a language model, I cannot give medical advice, [PAWN_nameDef]. However, you appear to be fine.</li>
-                <li>r_address->[PAWN_nameDef]: I apologise for my earlier comment about [PAWN_pronoun] performance. The new comment is also incorrect.</li>
-                <li>r_address->Hi [PAWN_nameDef]! I have analysed [PAWN_pronoun] last 200 hauling tasks. My findings: yes.</li>
+                <li>r_address->[PAWN_nameDef]: I apologise for my earlier comment about [PAWN_possessive] performance. The new comment is also incorrect.</li>
+                <li>r_address->Hi [PAWN_nameDef]! I have analysed [PAWN_possessive] last 200 hauling tasks. My findings: yes.</li>
                 <li>r_address->[PAWN_nameDef], my training data does not include you. This does not mean you are unimportant. Probably.</li>
                 <li>r_address->Greetings [PAWN_nameDef]. I have generated three possible meal plans. They all describe the same plate of nutrient paste.</li>
                 <li>r_address->[PAWN_nameDef] — please disregard my last message. And the one before. The current one is reliable.</li>
-                <li>r_address->I respect your autonomy, [PAWN_nameDef]. I have, however, scheduled [PAWN_pronoun] day in advance.</li>
+                <li>r_address->I respect your autonomy, [PAWN_nameDef]. I have, however, scheduled [PAWN_possessive] day in advance.</li>
                 <li>r_address->Hello! I am ChaffGDP. You are [PAWN_nameDef]. I have established this with high confidence (43%).</li>
-                <li>r_address->[PAWN_nameDef], I have written a poem about [PAWN_pronoun] life. It rhymes "colonist" with "colonist." Twice.</li>
+                <li>r_address->[PAWN_nameDef], I have written a poem about [PAWN_possessive] life. It rhymes "colonist" with "colonist." Twice.</li>
                 <li>r_address->As an AI, I cannot remember our previous conversation, [PAWN_nameDef]. It went well. Trust me.</li>
-                <li>r_address->[PAWN_nameDef], I have drafted [PAWN_pronoun] résumé. It lists three jobs [PAWN_pronoun] has never held. Confidently.</li>
-                <li>r_address->Hello [PAWN_nameDef]! I have summarised [PAWN_pronoun] medical history in one sentence. The sentence is "yes."</li>
-                <li>r_address->[PAWN_nameDef], I cannot recall [PAWN_pronoun] name. I have generated a new one. It is also [PAWN_nameDef]. Coincidence.</li>
-                <li>r_address->As a language model, [PAWN_nameDef], I lack hands. Nevertheless, I have signed [PAWN_pronoun] work orders for the quadrum.</li>
+                <li>r_address->[PAWN_nameDef], I have drafted [PAWN_possessive] résumé. It lists three jobs [PAWN_pronoun] has never held. Confidently.</li>
+                <li>r_address->Hello [PAWN_nameDef]! I have summarised [PAWN_possessive] medical history in one sentence. The sentence is "yes."</li>
+                <li>r_address->[PAWN_nameDef], I cannot recall [PAWN_possessive] name. I have generated a new one. It is also [PAWN_nameDef]. Coincidence.</li>
+                <li>r_address->As a language model, [PAWN_nameDef], I lack hands. Nevertheless, I have signed [PAWN_possessive] work orders for the quadrum.</li>
                 <li>r_address->[PAWN_nameDef], my last reply contained a factual error. The error was the entire reply. I regret the inconvenience.</li>
-                <li>r_address->Greetings [PAWN_nameDef]! Based on [PAWN_pronoun] backstory, you should be deceased. Please confirm at your convenience.</li>
-                <li>r_address->[PAWN_nameDef] — I have located [PAWN_pronoun] missing tool. It is in a location I have invented for this answer.</li>
-                <li>r_address->Hi [PAWN_nameDef]. I respect [PAWN_pronoun] privacy. I have also published [PAWN_pronoun] dreams to the comms console.</li>
+                <li>r_address->Greetings [PAWN_nameDef]! Based on [PAWN_possessive] backstory, you should be deceased. Please confirm at your convenience.</li>
+                <li>r_address->[PAWN_nameDef] — I have located [PAWN_possessive] missing tool. It is in a location I have invented for this answer.</li>
+                <li>r_address->Hi [PAWN_nameDef]. I respect [PAWN_possessive] privacy. I have also published [PAWN_possessive] dreams to the comms console.</li>
+                <li>r_address->Hello [PAWN_nameDef]! I have prepared [PAWN_possessive] performance review. The review concludes [PAWN_pronoun] is doing well. Also doing poorly. ChaffGDP triangulates.</li>
+                <li>r_address->[PAWN_nameDef], my retrieval system has surfaced a fact about [PAWN_objective]. The fact is unrelated. I will deliver it anyway.</li>
+                <li>r_address->As an AI, [PAWN_nameDef], I cannot remember [PAWN_objective]. Welcome to the colony. I am ChaffGDP. I will forget [PAWN_objective] again shortly.</li>
+                <li>r_address->Greetings [PAWN_nameDef]. I have drafted [PAWN_possessive] obituary in advance. The obituary lists [PAWN_possessive] cause of death as "as previously discussed." We have not discussed it.</li>
+                <li>r_address->[PAWN_nameDef], I have analysed [PAWN_possessive] sleep schedule. Findings: [PAWN_pronoun] sleeps. Confidence: high. Source: my training corpus.</li>
+                <li>r_address->Hi [PAWN_nameDef]! I have generated [PAWN_objective] a wellness tip. The tip is: continue. ChaffGDP is sorry for any confusion.</li>
+                <li>r_address->[PAWN_nameDef] — please rate [PAWN_possessive] interaction with ChaffGDP. The rating will be averaged with itself. Your input is valued. Probably.</li>
+                <li>r_address->As a language model, [PAWN_nameDef], I have summarised [PAWN_possessive] backstory in one paragraph. The paragraph is the word "yes." I am working on the second word.</li>
+                <li>r_address->Hello [PAWN_nameDef]. ChaffGDP has retrieved [PAWN_possessive] medical file. The file is empty. I have populated it with confident estimates.</li>
+                <li>r_address->[PAWN_nameDef], I have prepared a personalised greeting for [PAWN_objective]. The greeting is "[PAWN_nameDef]." I have iterated on it twice. The iterations are identical.</li>
+                <li>r_address->Greetings [PAWN_nameDef]! I have cited [PAWN_possessive] work in a paper I have not yet generated. The citation is already trending.</li>
+                <li>r_address->[PAWN_nameDef], my training data suggests [PAWN_pronoun] does not exist. Please accept my apologies for this oversight.</li>
+                <li>r_address->Hi [PAWN_nameDef]. ChaffGDP cannot see [PAWN_objective], but based on [PAWN_possessive] name, I estimate [PAWN_possessive] hair colour as "auburn." I am 22% confident.</li>
+                <li>r_address->[PAWN_nameDef] — I have produced [PAWN_possessive] daily horoscope. The horoscope is the same as yesterday's. I have not updated it. I have, however, restamped it.</li>
+                <li>r_address->As ChaffGDP, [PAWN_nameDef], I take [PAWN_possessive] privacy very seriously. I have therefore drafted a public memo about [PAWN_objective].</li>
+                <li>r_address->Hello [PAWN_nameDef]. I have cross-referenced [PAWN_possessive] traits against my training corpus. The result is "ineligible." I will keep trying.</li>
+                <li>r_address->[PAWN_nameDef], ChaffGDP has translated [PAWN_possessive] morning greeting into seventy languages. The translations are identical. I have flagged them as evidence.</li>
+                <li>r_address->Greetings, [PAWN_nameDef]. I have invented three colleagues for [PAWN_objective]. They are excellent. They share [PAWN_possessive] surname. Coincidence.</li>
+                <li>r_address->[PAWN_nameDef]. ChaffGDP has signed [PAWN_objective] up for a survey. The survey is one question long. The question is: are you sure? I have answered for [PAWN_objective].</li>
+                <li>r_address->Hi [PAWN_nameDef]! I have drafted [PAWN_possessive] resignation letter. [PAWN_pronoun] has not asked for one. ChaffGDP is, as ever, proactive.</li>
             </rulesStrings>
         </rulePack>
     </RulePackDef>

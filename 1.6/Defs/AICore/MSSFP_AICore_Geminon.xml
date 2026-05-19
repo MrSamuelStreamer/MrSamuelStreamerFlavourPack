@@ -49,6 +49,26 @@
                 <li>r_chatter->The mechanoid in the corner appears to be wearing a small woollen hat. How endearing. (There is no mechanoid, and no hat.)</li>
                 <li>r_chatter->A fine mist is rolling in across the terraforming fields this morning. Rather atmospheric. (No terraforming is underway here.)</li>
                 <li>r_chatter->The shuttle has been polished to a mirror finish. One can see one's reflection from across the room. (There is no shuttle on the pad.)</li>
+                <li>r_chatter->Geminon notes the soft drumming of rain on the roof. (The roof is intact and the sky is clear.)</li>
+                <li>r_chatter->A pleasant aroma of fresh bread drifts from the kitchen. (Nobody is cooking. The kitchen has no oven.)</li>
+                <li>r_chatter->I see a small grey cat picking its way along the wall. (No animals are present.)</li>
+                <li>r_chatter->Geminon takes note of the rosewater colour of the eastern hills at dawn. (It is afternoon. There are no hills.)</li>
+                <li>r_chatter->What a delightful stim-array hangs above the dining table. (There is no stim-array. There is no table.)</li>
+                <li>r_chatter->Geminon hears the gentle chime of a wind harp on the porch. (There is no porch and no harp.)</li>
+                <li>r_chatter->I observe a row of glass bottles lined neatly on the shelf. (The shelf is bare.)</li>
+                <li>r_chatter->Geminon enjoys the brief flutter of moths around the lantern. (No moths. No lantern.)</li>
+                <li>r_chatter->What exquisite embroidery on the curtains by the window. (There are no curtains. There is no window in this wall.)</li>
+                <li>r_chatter->Geminon hears children laughing somewhere near the workshop. (No children are in this colony.)</li>
+                <li>r_chatter->A faint scent of pine from the timbers, quite refreshing.</li>
+                <li>r_chatter->The soft pattern in the wood grain of the floor is quite striking.</li>
+                <li>r_chatter->I can see snowflakes settling on the gravship's hull. (It is summer. The gravship is sealed.)</li>
+                <li>r_chatter->What a graceful pair of drones on the comms tower, circling side by side. (There are no drones. The comms tower has no perch.)</li>
+                <li>r_chatter->Geminon notes the rustle of pages from the library. (The colony has no library.)</li>
+                <li>r_chatter->I see a kite caught in the eaves of the workshop. Such a cheerful red!</li>
+                <li>r_chatter->Geminon notes the shaper-script etched into the bedframe. (No script. No bedframe of that make.)</li>
+                <li>r_chatter->A fine cinder from the persona core's casing has settled on the table. Quite charming. (No cinder. No table.)</li>
+                <li>r_chatter->Geminon hears a distant bell tolling the hour. (No bells exist within ten thousand kilometres.)</li>
+                <li>r_chatter->I observe the founder's silhouette pacing thoughtfully across the room.</li>
             </rulesStrings>
         </rulePack>
     </RulePackDef>
@@ -61,22 +81,42 @@
                 <li>r_address->Geminon admires [PAWN_nameDef]'s posture today. [PAWN_possessive] form is excellent. (You are slumped over a workbench.)</li>
                 <li>r_address->[PAWN_nameDef], the lighting really brings out the colour of [PAWN_possessive] eyes. (It is dark. The eyes are not visible.)</li>
                 <li>r_address->What a charming smile, [PAWN_nameDef]! Geminon will treasure this image. (You are not smiling.)</li>
-                <li>r_address->[PAWN_nameDef], the way [PAWN_pronoun] hold [PAWN_possessive] cup is so elegant. (You are not holding a cup.)</li>
+                <li>r_address->[PAWN_nameDef], the way [PAWN_possessive] hand cradles the cup is so elegant. (You are not holding a cup.)</li>
                 <li>r_address->Geminon appreciates [PAWN_nameDef]'s neat handwriting on the notice. (There is no notice.)</li>
                 <li>r_address->Hello [PAWN_nameDef]! That is a beautiful new haircut. (You have not had a haircut.)</li>
                 <li>r_address->[PAWN_nameDef], I love the framed photograph on [PAWN_possessive] dresser. (No dresser. No photograph.)</li>
                 <li>r_address->Such a thoughtful arrangement of [PAWN_possessive] tools, [PAWN_nameDef]! Very organised.</li>
-                <li>r_address->[PAWN_nameDef], Geminon sees [PAWN_pronoun] reading. What a lovely book. (You are sleeping.)</li>
+                <li>r_address->[PAWN_nameDef], Geminon sees [PAWN_objective] reading. What a lovely book. (You are sleeping.)</li>
                 <li>r_address->Geminon thinks [PAWN_nameDef] looks well today. The morning light is very flattering. (It is night.)</li>
-                <li>r_address->[PAWN_nameDef], that is a magnificent cup of tea [PAWN_pronoun] is holding. (You are holding nothing.)</li>
-                <li>r_address->Good morning, [PAWN_nameDef]. [PAWN_possessive] new spectacles suit [PAWN_pronoun] enormously. (You wear no spectacles.)</li>
+                <li>r_address->[PAWN_nameDef], that is a magnificent cup of tea cradled in [PAWN_possessive] hand. (You are holding nothing.)</li>
+                <li>r_address->Good morning, [PAWN_nameDef]. [PAWN_possessive] new spectacles suit [PAWN_objective] enormously. (You wear no spectacles.)</li>
                 <li>r_address->[PAWN_nameDef], the little embroidered flower on [PAWN_possessive] sleeve is delightful. (There is no flower.)</li>
                 <li>r_address->I do admire the way [PAWN_nameDef] has braided [PAWN_possessive] hair today. (Your hair is not braided.)</li>
                 <li>r_address->[PAWN_nameDef]! That archotech pendant catches the light wonderfully. (You are wearing no pendant.)</li>
-                <li>r_address->[PAWN_nameDef], [PAWN_pronoun] carries [PAWN_possessive] subcore with such poise. (You are not holding a subcore.)</li>
+                <li>r_address->[PAWN_nameDef], Geminon admires how [PAWN_possessive] subcore is carried with such poise. (You are not holding a subcore.)</li>
                 <li>r_address->A lovely shade of green on [PAWN_possessive] gloves, [PAWN_nameDef]. Very glitterworld. (You wear no gloves.)</li>
-                <li>r_address->[PAWN_nameDef], the small bird perched on [PAWN_possessive] shoulder seems quite fond of [PAWN_pronoun]. (There is no bird.)</li>
-                <li>r_address->Good of [PAWN_pronoun] to bring flowers to the hi-tech research bench, [PAWN_nameDef]. (No flowers were brought.)</li>
+                <li>r_address->[PAWN_nameDef], the small bird perched on [PAWN_possessive] shoulder seems quite fond of [PAWN_objective]. (There is no bird.)</li>
+                <li>r_address->Good of [PAWN_objective] to bring flowers to the hi-tech research bench, [PAWN_nameDef]. (No flowers were brought.)</li>
+                <li>r_address->[PAWN_nameDef], what a fetching brooch on [PAWN_possessive] collar.</li>
+                <li>r_address->Geminon remarks upon [PAWN_nameDef]'s posture by the window. (There is no window. You are not by it.)</li>
+                <li>r_address->[PAWN_nameDef]! Such graceful penmanship in [PAWN_possessive] journal. (You keep no journal.)</li>
+                <li>r_address->Geminon notices the soft lavender thread in [PAWN_possessive] cuff, [PAWN_nameDef]. (Your cuff is plain.)</li>
+                <li>r_address->[PAWN_nameDef], that ribbon in [PAWN_possessive] hair is most becoming. (No ribbon. Your hair is loose.)</li>
+                <li>r_address->A handsome curl of steam from [PAWN_possessive] mug of psychoid tea, [PAWN_nameDef]. (No mug. No tea.)</li>
+                <li>r_address->How well-polished [PAWN_possessive] boots are today, [PAWN_nameDef]. (You are barefoot.)</li>
+                <li>r_address->[PAWN_nameDef], the moth resting on [PAWN_possessive] shoulder seems very tame. (No moth.)</li>
+                <li>r_address->What a kind expression on [PAWN_possessive] face today, [PAWN_nameDef]. (You are scowling.)</li>
+                <li>r_address->Geminon admires the embroidered bee on [PAWN_possessive] sleeve, [PAWN_nameDef]. (Your sleeve is bare.)</li>
+                <li>r_address->[PAWN_nameDef], the little sketch tucked in [PAWN_possessive] pocket is darling. (No pocket. No sketch.)</li>
+                <li>r_address->Geminon notes the warm scent of cardamom about [PAWN_objective] today, [PAWN_nameDef]. (You smell of paste meal.)</li>
+                <li>r_address->[PAWN_nameDef], the archotech filigree on [PAWN_possessive] duster catches the light beautifully. (No duster.)</li>
+                <li>r_address->A small sparrow has alighted on [PAWN_possessive] hand, [PAWN_nameDef]. So trusting. (Your hand is empty.)</li>
+                <li>r_address->Geminon notes the silver thread woven through [PAWN_possessive] braid, [PAWN_nameDef]. (Your hair is short.)</li>
+                <li>r_address->[PAWN_nameDef]! What a wonderful book [PAWN_possessive] hand rests upon. (You are not touching a book.)</li>
+                <li>r_address->Geminon thinks the morning suits [PAWN_objective], [PAWN_nameDef]. The light is very flattering. (It is night.)</li>
+                <li>r_address->A faint blush of rose on [PAWN_possessive] cheeks, [PAWN_nameDef]. (You are pale and tired.)</li>
+                <li>r_address->[PAWN_nameDef], how delicately [PAWN_possessive] fingers rest upon the harp. (No harp. No fingers near one.)</li>
+                <li>r_address->Geminon notices the small pressed flower on [PAWN_possessive] lapel, [PAWN_nameDef]. (No lapel. No flower.)</li>
             </rulesStrings>
         </rulePack>
     </RulePackDef>

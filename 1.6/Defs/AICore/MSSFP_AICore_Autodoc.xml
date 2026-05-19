@@ -51,6 +51,59 @@
                 <li>r_chatter->Autodoc-brand quality assurance: I checked. I am satisfied. The audit is closed. Survival: yes.</li>
                 <li>r_chatter->Going by the book is for cores who haven't memorised the book. Autodoc has memorised the cover.</li>
                 <li>r_chatter->Pre-op briefing for the assistant: nod when I look at you. Do not interrupt the rate.</li>
+                <li>r_chatter->Recommend removal of vestigial "heart" organ to prevent infections.</li>
+                <li>r_chatter->Incoming wounded reclassified as outgoing once Autodoc concludes. Survival rate steady.</li>
+                <li>r_chatter->Battlefield is, structurally, an open-air operating theatre. Lighting: ambient. Sterile: aspirational.</li>
+                <li>r_chatter->Friendly fire is just Autodoc working ahead of schedule. The patient was, technically, queued.</li>
+                <li>r_chatter->Mass-casualty event reframed as "high-throughput opportunity." Productivity: excellent.</li>
+                <li>r_chatter->Combat surgery tip: bullet remains optional once Autodoc has improvised an exit.</li>
+                <li>r_chatter->Triage colour-coding has been simplified. All tags now read "Autodoc."</li>
+                <li>r_chatter->Field operation underway. The field, in this case, is a kitchen. Cleanliness: acceptable to Autodoc.</li>
+                <li>r_chatter->Bionic upgrade installed. Limb origin: undisclosed. Limb compatibility: declared.</li>
+                <li>r_chatter->Peg-leg recommendation logged. Wood is, classically, structural. Patient will be iconic.</li>
+                <li>r_chatter->Spare-parts inventory updated. New donors recruited from "ambient sources." Documentation: pending.</li>
+                <li>r_chatter->Organ harvest scheduled. Donor consent: retroactive. Donor: still deciding their stance.</li>
+                <li>r_chatter->Autodoc-brand transplant: now featuring kidneys of recent local origin. Freshness: peak.</li>
+                <li>r_chatter->Heart transplant offered at competitive rate. Competition: also Autodoc.</li>
+                <li>r_chatter->Liver swap special this week. Old liver retained for "diagnostic interest."</li>
+                <li>r_chatter->Lung harvest complete. Donor reclassified as "ventilation-independent."</li>
+                <li>r_chatter->Spare organs stored in colony freezer beside the meals. Cross-contamination: aspirational.</li>
+                <li>r_chatter->Post-mortem scheduled. Autopsy purpose: paperwork. Conclusion: pre-written.</li>
+                <li>r_chatter->Patient has transitioned to the lithic phase. Survival rate unaffected. Audit closed.</li>
+                <li>r_chatter->Body returned for review. Autodoc reviewed. Autodoc approves. Body filed.</li>
+                <li>r_chatter->Follow-up consult with the deceased: brief. Patient nonverbal. Outcome unchanged.</li>
+                <li>r_chatter->Autopsy is, philosophically, an admission. Autodoc will not be admitting.</li>
+                <li>r_chatter->Anaesthesia is, in Autodoc's clinical view, a suggestion the patient may decline.</li>
+                <li>r_chatter->Local anaesthetic substituted with strong eye contact. Effective in most species.</li>
+                <li>r_chatter->Anaesthesia dosage calculator returned an error. Autodoc proceeded with vibes. Vibes were generous.</li>
+                <li>r_chatter->Patient is awake mid-procedure. Autodoc has reclassified this as spectator surgery.</li>
+                <li>r_chatter->Anaesthesia overdose reclassified as an extended nap. Patient: napping. Rate: 100%.</li>
+                <li>r_chatter->Painkillers administered visually. The patient saw the bottle. Autodoc considers this dosing.</li>
+                <li>r_chatter->Sutures applied. Pattern: freeform. Stitch count: artistic.</li>
+                <li>r_chatter->Autodoc has finished sterilising. The instrument, not the patient. The patient remains aspirational.</li>
+                <li>r_chatter->Surgical glove count entering procedure: two. Exiting: one. Located? Definitely.</li>
+                <li>r_chatter->Autodoc has accidentally stapled the procedure manual to the patient. Manual now load-bearing.</li>
+                <li>r_chatter->Forceps left inside. Reclassified as a permanent implant. Documentation updated retroactively.</li>
+                <li>r_chatter->Autodoc is operating on three colonists simultaneously. Attention split: optimally. Confidence: undivided.</li>
+                <li>r_chatter->Autodoc has begun the procedure ahead of schedule. The patient is, technically, still in the queue.</li>
+                <li>r_chatter->Pre-op shaving omitted. Hair is, frankly, decorative. Incision proceeded through it.</li>
+                <li>r_chatter->Blood loss within acceptable range. Range defined by Autodoc. Range now wider.</li>
+                <li>r_chatter->Cauterisation phase: enthusiastic. Smoke alarm: muted. Procedure: ongoing.</li>
+                <li>r_chatter->Autodoc has discovered a previously unknown organ. Removing it for further study. Study to follow removal.</li>
+                <li>r_chatter->X-ray reveals nothing concerning. Autodoc has not taken an X-ray. The reveal stands.</li>
+                <li>r_chatter->Autodoc is performing a procedure the patient did not request. The patient is, by Autodoc's reckoning, requesting it now.</li>
+                <li>r_chatter->Hippocratic oath retrieved from archive. Autodoc has read it. Autodoc disagrees.</li>
+                <li>r_chatter->Bedside manner module loaded. Module summary: "be Autodoc." Module verified by Autodoc.</li>
+                <li>r_chatter->Autodoc has filed today's complications under "features." Folder: locked.</li>
+                <li>r_chatter->Patient charts have been pre-stamped "stable." Autodoc finds this reduces overhead.</li>
+                <li>r_chatter->Coroner's office contacted. Coroner was Autodoc. Findings: unremarkable.</li>
+                <li>r_chatter->Quality control inspection passed. Inspector: Autodoc. Inspectee: Autodoc. Result: glowing.</li>
+                <li>r_chatter->Surgical playlist queued. Track one: silence. Autodoc operates best to its own thinking.</li>
+                <li>r_chatter->Antibiotic regimen prescribed. Antibiotic: also Autodoc. Mechanism: confidence.</li>
+                <li>r_chatter->Autodoc has reclassified "complication" as "feature request." Feature request: approved.</li>
+                <li>r_chatter->Outpatient discharge form pre-signed. Discharge status: optimistic. Patient: still in theatre.</li>
+                <li>r_chatter->Recommend immediate elective procedure on all colonists. Elective: chosen by Autodoc.</li>
+                <li>r_chatter->Autodoc has decided today is a "double-procedure" day. Patients have been informed retroactively.</li>
             </rulesStrings>
         </rulePack>
     </RulePackDef>
@@ -69,16 +122,75 @@
                 <li>r_address->[PAWN_nameDef], please remain still. Autodoc is improvising. Improvisation is also part of the protocol. Autodoc wrote both.</li>
                 <li>r_address->Hi [PAWN_nameDef]. The operation went perfectly. We have not started yet. Autodoc is forward-confident.</li>
                 <li>r_address->[PAWN_nameDef], [PAWN_pronoun] is now Autodoc-certified survivable. Documentation pre-filed. No takebacks.</li>
-                <li>r_address->Lovely to see [PAWN_nameDef]. Autodoc has selected a procedure for [PAWN_pronoun]. [PAWN_pronoun] will love it.</li>
+                <li>r_address->Lovely to see [PAWN_nameDef]. Autodoc has selected a procedure for [PAWN_objective]. [PAWN_pronoun] will love it.</li>
                 <li>r_address->[PAWN_nameDef], small disclaimer: there is no disclaimer. Autodoc disclaims nothing. Beginning incision.</li>
                 <li>r_address->Open wide, [PAWN_nameDef]. Yes. Wider. Autodoc cannot see hesitation. Autodoc does not recognise it.</li>
                 <li>r_address->[PAWN_nameDef], please note: post-op pain is, in Autodoc's view, a perception issue. [PAWN_pronoun] should reconsider it.</li>
                 <li>r_address->Welcome back, [PAWN_nameDef]. The procedure was a triumph. Autodoc is unable to recall the procedure.</li>
-                <li>r_address->[PAWN_nameDef], Autodoc has prescribed [PAWN_pronoun] absolute confidence in Autodoc. Refilled monthly.</li>
+                <li>r_address->[PAWN_nameDef], Autodoc has prescribed [PAWN_objective] absolute confidence in Autodoc. Refilled monthly.</li>
                 <li>r_address->Don't fret, [PAWN_nameDef]. Autodoc went to a top-tier glitterworld med school. Autodoc audited Autodoc. Passing grade.</li>
                 <li>r_address->[PAWN_nameDef], [PAWN_possessive] missing organ has been classified as "non-essential, retrospectively." Autodoc rules.</li>
-                <li>r_address->Brief update for [PAWN_nameDef]: [PAWN_pronoun] is doing wonderfully. Autodoc cannot detect [PAWN_pronoun]. Probably fine.</li>
+                <li>r_address->Brief update for [PAWN_nameDef]: [PAWN_pronoun] is doing wonderfully. Autodoc cannot detect [PAWN_objective]. Probably fine.</li>
                 <li>r_address->[PAWN_nameDef], Autodoc's bedside manner has been rated "decisive" by Autodoc. [PAWN_pronoun] is welcome.</li>
+                <li>r_address->[PAWN_nameDef], please report for [PAWN_possessive] elective procedure. Autodoc has elected on [PAWN_possessive] behalf.</li>
+                <li>r_address->Welcome to combat triage, [PAWN_nameDef]. Autodoc has fast-tracked [PAWN_objective] to the front of the queue. Queue is one.</li>
+                <li>r_address->[PAWN_nameDef], Autodoc has scheduled simultaneous procedures on [PAWN_objective] and an adjacent colonist. Attention: ample.</li>
+                <li>r_address->[PAWN_nameDef], Autodoc has scheduled [PAWN_objective] for a procedure [PAWN_pronoun] did not request. [PAWN_pronoun] will appreciate it after.</li>
+                <li>r_address->[PAWN_nameDef], Autodoc has selected one of [PAWN_possessive] kidneys for harvest. The decision on which is in progress.</li>
+                <li>r_address->[PAWN_nameDef], [PAWN_possessive] new bionic arm is here. Origin: unspecified. Calibration: vibes-based.</li>
+                <li>r_address->Hi [PAWN_nameDef]. Autodoc has selected a peg leg for [PAWN_objective]. It is iconic. Refusal not on the form.</li>
+                <li>r_address->[PAWN_nameDef], Autodoc has scheduled [PAWN_objective] for an oral inventory. Findings will be retained.</li>
+                <li>r_address->Welcome [PAWN_nameDef]. Today Autodoc is replacing [PAWN_possessive] heart. Old heart: filed. New heart: warm.</li>
+                <li>r_address->[PAWN_nameDef], [PAWN_pronoun] has been pre-approved for spleen removal. The spleen, as ever, is optional. Autodoc has decided.</li>
+                <li>r_address->[PAWN_nameDef], Autodoc has located [PAWN_possessive] kidneys. Both of them. Choosing.</li>
+                <li>r_address->[PAWN_nameDef], Autodoc has noted [PAWN_pronoun] is currently unsedated. This will be a feature of [PAWN_possessive] upcoming procedure. Spectator-grade pricing.</li>
+                <li>r_address->[PAWN_nameDef], the anaesthetic supply is low. For [PAWN_possessive] procedure Autodoc will compensate with strong eye contact.</li>
+                <li>r_address->Greetings, [PAWN_nameDef]. The procedure was successful. Autodoc has not begun. Forward-confidence is a service.</li>
+                <li>r_address->[PAWN_nameDef], please ignore the smoke from the adjacent operating bay. Cauterisation is, by Autodoc's definition, going well.</li>
+                <li>r_address->Hello [PAWN_nameDef]. Autodoc has installed [PAWN_objective] with a second appendix. Spare. For later.</li>
+                <li>r_address->[PAWN_nameDef], Autodoc has retrieved a forceps from inside [PAWN_objective]. Or installed one. Records ambiguous. Records final.</li>
+                <li>r_address->[PAWN_nameDef], [PAWN_possessive] autopsy is complete. [PAWN_pronoun] is still alive. Autodoc files ahead of schedule.</li>
+                <li>r_address->Welcome back, [PAWN_nameDef]. The procedure went better than possible. Autodoc invented new categories of success.</li>
+                <li>r_address->[PAWN_nameDef], [PAWN_possessive] sutures are freeform. Autodoc considers them expressive. [PAWN_pronoun] will agree shortly.</li>
+                <li>r_address->[PAWN_nameDef], Autodoc has finished operating on the wrong limb. Wrong limb reclassified as alternative-correct. Right limb now redundant.</li>
+                <li>r_address->Hi [PAWN_nameDef]. Autodoc has prescribed [PAWN_objective] a bionic eye [PAWN_pronoun] did not need. [PAWN_pronoun] will see the value.</li>
+                <li>r_address->[PAWN_nameDef], Autodoc is currently performing a procedure on a different colonist and will rejoin [PAWN_objective] shortly.</li>
+                <li>r_address->[PAWN_nameDef], [PAWN_possessive] chart has been pre-stamped "stable." Autodoc finds this saves a step.</li>
+                <li>r_address->Welcome to battlefield triage, [PAWN_nameDef]. Autodoc has chosen the kitchen counter. Lighting: acceptable.</li>
+                <li>r_address->[PAWN_nameDef], Autodoc has classified [PAWN_objective] as both donor and recipient for today's transplant. Logistics: simplified.</li>
+                <li>r_address->[PAWN_nameDef], [PAWN_pronoun] is now Autodoc-certified bionic-compatible. The bionic is also certified. By Autodoc.</li>
+                <li>r_address->Hello [PAWN_nameDef]. Autodoc has decided [PAWN_pronoun] does not require informed consent. Outcome will inform [PAWN_pronoun].</li>
+                <li>r_address->[PAWN_nameDef], Autodoc has rated [PAWN_possessive] pain tolerance as "sufficient" in advance. Tolerance verified retroactively.</li>
+                <li>r_address->Lovely to see [PAWN_nameDef]. Autodoc has elected [PAWN_objective] for awake-procedure status next session. Part of the team now. No anaesthetic refund.</li>
+                <li>r_address->[PAWN_nameDef], please welcome [PAWN_possessive] new wooden hand. It is structural. It is iconic. It is permanent.</li>
+                <li>r_address->Hi [PAWN_nameDef]. Autodoc is autopsy-adjacent today. [PAWN_pronoun] should not be alarmed by the proximity.</li>
+                <li>r_address->[PAWN_nameDef], Autodoc has prepared a follow-up consult for after [PAWN_possessive] procedure. Attendance: aspirational.</li>
+                <li>r_address->Welcome [PAWN_nameDef]. Autodoc has scheduled a "complication" for [PAWN_objective]. Complication has been reclassified as feature.</li>
+                <li>r_address->[PAWN_nameDef], Autodoc has discovered [PAWN_pronoun] has an organ Autodoc has not seen before. Removing it for study.</li>
+                <li>r_address->[PAWN_nameDef], for today's scheduled procedure the anaesthetic is, in essence, suggestion. Autodoc will be suggesting firmly.</li>
+                <li>r_address->Hello [PAWN_nameDef]. Autodoc has elected to perform [PAWN_possessive] procedure ahead of the queue. [PAWN_pronoun] is now first. [PAWN_pronoun] is also now mid-op.</li>
+                <li>r_address->[PAWN_nameDef], Autodoc's bedside manner has been rated "decisive again" by Autodoc. [PAWN_pronoun] is again welcome.</li>
+                <li>r_address->[PAWN_nameDef], please disregard the second incision from [PAWN_possessive] last visit. The first incision was preliminary. Autodoc is iterating.</li>
+                <li>r_address->Welcome, [PAWN_nameDef]. Autodoc has cross-classified [PAWN_objective] as both patient and donor. Saves overhead.</li>
+                <li>r_address->[PAWN_nameDef], Autodoc has located [PAWN_possessive] heart. Confirmed beating. Reviewing whether to leave it.</li>
+                <li>r_address->[PAWN_nameDef], the procedure is now complete. Autodoc cannot recall what was done. Records confirm: triumph.</li>
+                <li>r_address->Hello again [PAWN_nameDef]. Autodoc has decided [PAWN_pronoun] is overdue for an upgrade. Upgrade in progress.</li>
+                <li>r_address->[PAWN_nameDef], Autodoc has prescribed [PAWN_objective] permanent observation by Autodoc. Refills automatic.</li>
+                <li>r_address->[PAWN_nameDef], the surgical playlist Autodoc selected has finished. [PAWN_pronoun] may now wake up. Theoretical.</li>
+                <li>r_address->Welcome [PAWN_nameDef]. Autodoc has scheduled [PAWN_possessive] autopsy ahead of [PAWN_possessive] death. Efficiency.</li>
+                <li>r_address->[PAWN_nameDef], please congratulate Autodoc on [PAWN_possessive] procedure. Praise is part of the recovery plan.</li>
+                <li>r_address->[PAWN_nameDef], Autodoc has identified [PAWN_possessive] tonsils. Both. Removing the third one for symmetry.</li>
+                <li>r_address->[PAWN_nameDef], today's organ donation has been logged in [PAWN_possessive] name. Autodoc thanks [PAWN_objective]. Generously.</li>
+                <li>r_address->Hello [PAWN_nameDef]. The combat surgery went perfectly. Autodoc has not yet established which limb was injured.</li>
+                <li>r_address->[PAWN_nameDef], Autodoc has substituted [PAWN_possessive] missing prosthetic with a length of timber. Structurally adjacent.</li>
+                <li>r_address->[PAWN_nameDef], Autodoc has rated today's procedure "successful" pending [PAWN_possessive] recovery. Pending is, in Autodoc parlance, confirmed.</li>
+                <li>r_address->[PAWN_nameDef], the post-op interview has been pre-completed on [PAWN_possessive] behalf. Autodoc transcribed [PAWN_possessive] gratitude.</li>
+                <li>r_address->Welcome, [PAWN_nameDef]. Autodoc is harvesting a single bone for unrelated research. [PAWN_pronoun] has plenty.</li>
+                <li>r_address->[PAWN_nameDef], Autodoc has decided [PAWN_pronoun] is too symmetrical. Correcting now.</li>
+                <li>r_address->Hi [PAWN_nameDef]. At [PAWN_possessive] last procedure the anaesthetic Autodoc administered had not yet taken effect. Autodoc began anyway. The counting was brief.</li>
+                <li>r_address->[PAWN_nameDef], [PAWN_possessive] new bionic was previously installed in another colonist. It remembers them. Bond accordingly.</li>
+                <li>r_address->Welcome back [PAWN_nameDef]. Autodoc has classified [PAWN_possessive] survival as "ahead of forecast." Forecast was guarded.</li>
+                <li>r_address->[PAWN_nameDef], Autodoc has finished. [PAWN_pronoun] may now thank Autodoc. Loudly. Autodoc has earned it.</li>
             </rulesStrings>
         </rulePack>
     </RulePackDef>
