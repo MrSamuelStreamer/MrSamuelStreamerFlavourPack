@@ -62,7 +62,7 @@
                 <li>r_chatter->Just a friendly reminder from Clive: stairs, when used, go up. Or down. Either is, on reflection, a journey.</li>
                 <li>r_chatter->I approve the construction of the dining hall, conditional on seventeen unspecified concerns being addressed at a later date. I have not specified them.</li>
                 <li>r_chatter->Clive has categorised "smiling" as low-to-moderate risk. The teeth are visible. Visible teeth, while normally inert, carry implications.</li>
-                <li>r_chatter->I am concerned that the founder seems happy. Strong emotions, while validated, can be precursors. Clive recommends a calmer mood, just in case.</li>
+                <li>r_chatter->I am concerned that the head colonist seems happy. Strong emotions, while validated, can be precursors. Clive recommends a calmer mood, just in case.</li>
                 <li>r_chatter->Clive recommends the colony enter cryosleep until further notice. This is the safest known operational state for a colony. Wake-up window: undecided.</li>
                 <li>r_chatter->I have paused work on the gravship to file a risk assessment about pausing work on the gravship. The new assessment is due shortly. Possibly.</li>
                 <li>r_chatter->Clive acknowledges that this update contains no actionable advice. The lack of actionable advice is, in itself, the safest possible advice.</li>
@@ -163,7 +163,7 @@
                 <li>r_desc->This sculpture depicts a mechanoid frozen mid-decision. Clive notes that indecision is, statistically, the safest outcome for all parties involved.</li>
                 <li>r_desc->Clive began this work, then paused to file a risk assessment, then resumed, then paused again. The piece is mostly pause.</li>
                 <li>r_desc->A carved gravship that never quite leaves the launchpad. Clive felt the cosmic risk profile was, on reflection, simply too high.</li>
-                <li>r_desc->This piece shows a founder reaching for a comms console. Clive has added a small engraved note suggesting they reconsider.</li>
+                <li>r_desc->This piece shows a head colonist reaching for a comms console. Clive has added a small engraved note suggesting they reconsider.</li>
                 <li>r_desc->A delicate rendering of an archotech subcore, surrounded by tiny disclaimers. Clive insisted each disclaimer be legible from a respectful distance.</li>
                 <li>r_desc->Clive sculpted a shuttle mid-abort. The accompanying plaque cites seven reasons the journey should not have been attempted in the first place.</li>
                 <li>r_desc->This work depicts a hivemind politely declining to form. Clive considers it the piece's most responsible feature.</li>

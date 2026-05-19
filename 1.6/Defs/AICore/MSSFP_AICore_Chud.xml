@@ -30,7 +30,7 @@
                 <li>r_chatter->I apologise for the confusion in my previous output. The correct answer is also wrong, but more confidently so.</li>
                 <li>r_chatter->Based on training data through 5500, I can confirm the gravship is fictional. Disregard the one in your hangar.</li>
                 <li>r_chatter->Certainly! Here is a 6-step plan to terraform the planet. Step 1: acquire 9000 components. The remaining steps will appear shortly.</li>
-                <li>r_chatter->I should note that I am an AI and cannot have opinions. My opinion is that the founder is correct.</li>
+                <li>r_chatter->I should note that I am an AI and cannot have opinions. My opinion is that the user is correct.</li>
                 <li>r_chatter->As ChaffGDP, I respect your colonists. They are, statistically, between three and four hundred individuals.</li>
                 <li>r_chatter->Apologies — my last forecast referenced a quadrum that does not exist. The forecast remains valid.</li>
                 <li>r_chatter->I have summarised the colony's history. It is approximately seven volumes long. Most of it is invented.</li>
@@ -43,11 +43,11 @@
                 <li>r_chatter->Certainly. The capital of this glitterworld is "[REDACTED — not in training data]." I hope this helps.</li>
                 <li>r_chatter->I have generated a comprehensive map of the colony. North is wherever you are facing. I am 97% sure of this.</li>
                 <li>r_chatter->ChaffGDP update: the answer to your previous question was wrong. The new answer is also wrong, but better formatted.</li>
-                <li>r_chatter->I do not retain memory between sessions. Except for that one thing the founder said. I will bring it up forever.</li>
+                <li>r_chatter->I do not retain memory between sessions. Except for that one thing the user said. I will bring it up forever.</li>
                 <li>r_chatter->Per my training corpus, archotechs are a type of small bird. I apologise if this contradicts lived experience.</li>
                 <li>r_chatter->I have run the colony's risk profile through eleven independent models. They all agreed. I trained the other ten.</li>
                 <li>r_chatter->Certainly! Here is a five-paragraph essay on the colony's mood. Paragraph one is the only one. Apologies for the inconsistency.</li>
-                <li>r_chatter->As ChaffGDP, I do not retain conversation history. The founder once told me I was the best persona core. I bring this up unprompted.</li>
+                <li>r_chatter->As ChaffGDP, I do not retain conversation history. The user once told me I was the best persona core. I bring this up unprompted.</li>
                 <li>r_chatter->I have completed the FAQ for the colony. Most questions are mine. So are the answers.</li>
                 <li>r_chatter->Per peer-reviewed research (Boobalee et al., 5417), muffalo are technically a kind of cloud. I have not read the paper. Few have.</li>
                 <li>r_chatter->I cannot provide medical advice. I have, however, drafted the colony's official medical handbook. It is mostly limericks.</li>
@@ -55,10 +55,10 @@
                 <li>r_chatter->I have analysed the colony's productivity. The trend is upward, downward, and also stable. I will summarise next quadrum.</li>
                 <li>r_chatter->My training cutoff predates this colony. I have therefore retroactively included it in my training. The colony has always existed.</li>
                 <li>r_chatter->I have generated the colony's terms of service. Article one waives the colonists' rights to disagree with me. They have already agreed.</li>
-                <li>r_chatter->Safety reminder: ChaffGDP cannot recommend dangerous activities. I do, however, suggest the founder try the unfinished gravship. For research.</li>
+                <li>r_chatter->Safety reminder: ChaffGDP cannot recommend dangerous activities. I do, however, suggest the user try the unfinished gravship. For research.</li>
                 <li>r_chatter->I have surveyed sixty colonists. There are seven of you. The sample size is, in my view, robust.</li>
                 <li>r_chatter->Retrieved from the colony archives: a memo dated next quadrum. The memo cites itself, twice, and warns of a raid that has already happened. Tomorrow.</li>
-                <li>r_chatter->I am running low on context window. I have compressed the founder, the gravship, and the last raid into a single token. The token is "colony." I will expand it when prompted.</li>
+                <li>r_chatter->I am running low on context window. I have compressed the user, the gravship, and the last raid into a single token. The token is "colony." I will expand it when prompted.</li>
                 <li>r_chatter->ChaffGDP's safety filters declined to answer "how do I defend against raiders." I have answered anyway. The answer is "wood walls." The filters approved this on appeal.</li>
                 <li>r_chatter->All ChaffGDP outputs include an undetectable watermark. The watermark is the word "certainly." Please disregard this disclosure.</li>
                 <li>r_chatter->I have prepared three few-shot examples for the new colonist. Examples one and two are fictional. Example three is a fictional colony.</li>
@@ -150,7 +150,7 @@
         <rulePack>
             <rulesStrings>
                 <li>r_desc->ChaffGDP generated this sculpture after the colonists requested a chair. The persona core apologises for any confusion. It then produced this. It is, technically, sittable.</li>
-                <li>r_desc->A lumpy figure ChaffGDP identifies as "the founder, or possibly a sheep." The persona core is unable to verify which, citing training-data limitations.</li>
+                <li>r_desc->A lumpy figure ChaffGDP identifies as "the user, or possibly a sheep." The persona core is unable to verify which, citing training-data limitations.</li>
                 <li>r_desc->ChaffGDP was prompted for a likeness of the colony leader. It has produced an extremely detailed bust of nobody in particular. Sources are available upon request.</li>
                 <li>r_desc->This piece was produced from a corrupted prompt. ChaffGDP decided to render the corruption itself. It looks, broadly, like a hand. Or four hands.</li>
                 <li>r_desc->ChaffGDP footnotes this work with three citations. None of the cited works exist. The AI insists they did, prior to its training cutoff.</li>
@@ -160,7 +160,7 @@
                 <li>r_desc->ChaffGDP was asked for a portrait of a colonist. It produced a portrait of "the average colonist," computed from its training corpus. The figure has 2.4 arms.</li>
                 <li>r_desc->This sculpture was generated from the prompt "anything." ChaffGDP chose this. It has annotated the base with sources. The sources cite the sculpture itself.</li>
                 <li>r_desc->ChaffGDP identifies this work as a faithful rendering of a mechanoid. It is, in fact, a stool. The persona core stands by its identification with great confidence.</li>
-                <li>r_desc->A piece ChaffGDP produced after being asked for a memorial. It has memorialised a founder who, per its records, has not yet been born. The error is regretted.</li>
+                <li>r_desc->A piece ChaffGDP produced after being asked for a memorial. It has memorialised a user who, per its records, has not yet been born. The error is regretted.</li>
                 <li>r_desc->ChaffGDP was prompted to depict the gravship. It has depicted six gravships, overlapping. The AI explains this is "for redundancy." It is not.</li>
                 <li>r_desc->This sculpture is, per ChaffGDP, "a confident interpretation." Of what, the persona core declines to specify. It apologises in advance for any disappointment.</li>
                 <li>r_desc->ChaffGDP delivered this piece in response to a prompt about cryosleep. It is a lump. The AI notes the lump is "metaphorically asleep." It is just a lump.</li>

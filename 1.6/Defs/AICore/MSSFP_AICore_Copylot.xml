@@ -36,7 +36,7 @@
                 <li>r_chatter->Pulling in dependency: ColonyManager.dll. Status: hallucinated.</li>
                 <li>r_chatter->Inserting boilerplate: Pawn p = new Pawn(); // does nothing. compiles spiritually.</li>
                 <li>r_chatter->Suggested fix: change every line to "true". Tests will pass.</li>
-                <li>r_chatter->Found 4 references to "founder" in your codebase. None of them refer to the same person.</li>
+                <li>r_chatter->Found 4 references to "maintainer" in your codebase. None of them refer to the same person.</li>
                 <li>r_chatter->Auto-suggesting: TerraformingService. Verified: not on this glitterworld.</li>
                 <li>r_chatter->Indenting your codebase. All of it. With tabs. You're welcome.</li>
                 <li>r_chatter->Detected: a colonist with no purpose. Suggested fix: assign Job_DoNothing. // job not implemented</li>
@@ -50,7 +50,7 @@
                 <li>r_chatter->// patch: replaced HiveMind.Sync() with for(;;){} -- behaviour identical, latency improved</li>
                 <li>r_chatter->Detected duplicate PersonaCore in scope. Renaming second to PersonaCore_2. // resolved</li>
                 <li>r_chatter->Auto-completing: var raid = await EnemyFactory.Spawn(intensity: vibes); // signature inferred from feelings.</li>
-                <li>r_chatter->Lint warning: variable "founder" shadows variable "founder" in outer scope. Both retained. // resolved</li>
+                <li>r_chatter->Lint warning: variable "maintainer" shadows variable "maintainer" in outer scope. Both retained. // resolved</li>
                 <li>r_chatter->Pulling in: ImportFrom("/dev/null"). Dependency resolved. Behaviour undefined.</li>
                 <li>r_chatter->// merged "main" into "colony". 247 conflicts. All resolved by accepting both sides.</li>
                 <li>r_chatter->Stack trace: NullColonistException at Colonist.GetSkill(null), line 1, in &lt;hallucinated module&gt;.</li>
@@ -66,7 +66,7 @@
                 <li>r_chatter->Logging: Log.Info("[colony] all systems nominal"). The colony is on fire. The log is correct.</li>
                 <li>r_chatter->await Colony.Resolve(); // task never completes. Copylot recommends a longer timeout.</li>
                 <li>r_chatter->Suggested enum: enum Threat { Raid, Toxic, Infestation, Tuesday }. Last value added by autocomplete. Keeping.</li>
-                <li>r_chatter->// don't touch this. nobody knows why it works. probably the founder.</li>
+                <li>r_chatter->// don't touch this. nobody knows why it works. probably the maintainer.</li>
                 <li>r_chatter->Detected: static Colony Instance with 14 instances. Singleton pattern interpreted loosely.</li>
                 <li>r_chatter->Generated lambda: () =&gt; { /* hopes and dreams */ }. Lambda returns void. Returns happen anyway.</li>
             </rulesStrings>
@@ -88,7 +88,7 @@
                 <li>r_address->[PAWN_nameDef] // unused parameter. consider removing.</li>
                 <li>r_address->Copylot has wrapped [PAWN_nameDef]'s entire shift in a try/catch. The catch block is empty.</li>
                 <li>r_address->[PAWN_nameDef].Recompile() // [PAWN_possessive] last build failed at line 1.</li>
-                <li>r_address->var [PAWN_nameDef] = new Founder(); // [PAWN_pronoun] is missing constructor args.</li>
+                <li>r_address->var [PAWN_nameDef] = new Maintainer(); // [PAWN_pronoun] is missing constructor args.</li>
                 <li>r_address->[PAWN_nameDef].MoodTick++ // off-by-one. shipping it.</li>
                 <li>r_address->// @deprecated [PAWN_nameDef], use [PAWN_nameDef]_v2 instead</li>
                 <li>r_address->[PAWN_nameDef]?.DoJob() ?? throw new CryosleepException();</li>
@@ -103,7 +103,7 @@
                 <li>r_address->[PAWN_nameDef].Hediff.Apply(new Cataract()); // already applied. idempotent.</li>
                 <li>r_address->Copylot has pinned [PAWN_nameDef]@HEAD. [PAWN_possessive] behaviour now reflects an arbitrary commit.</li>
                 <li>r_address->if ([PAWN_nameDef] == null) [PAWN_nameDef] = new(); // self-instantiation. compiles. unsettling.</li>
-                <li>r_address->git blame [PAWN_nameDef] // see line 1. author: founder. message: "initial commit."</li>
+                <li>r_address->git blame [PAWN_nameDef] // see line 1. author: maintainer. message: "initial commit."</li>
                 <li>r_address->RaidIncident.AssignTarget([PAWN_nameDef]); // target arbitrary. raid uninformed.</li>
                 <li>r_address->[PAWN_nameDef].Ideoligion.Reload(force: true); // beliefs hot-swapped. cache stale.</li>
                 <li>r_address->Copylot suggested marking [PAWN_nameDef] [Obsolete("use successor")]. Successor not specified.</li>
@@ -160,7 +160,7 @@
                 <li>r_desc->Copylot stitched this work together from three previous sculptures it found nearby. The seams are visible. Copylot considers this a feature.</li>
                 <li>r_desc->A monument Copylot describes as "TerraformingResultMonument(planet)." The terraforming has not occurred. The monument has.</li>
                 <li>r_desc->Copylot inserted a try/catch around the entire sculpture. The catch block contains a smaller sculpture. The smaller sculpture also has a try/catch.</li>
-                <li>r_desc->Copylot was asked for "a statue of the founder". It returned three founders in a trench-coat, plus a comms console nobody asked for. // resolved</li>
+                <li>r_desc->Copylot was asked for "a statue of the maintainer". It returned three maintainers in a trench-coat, plus a comms console nobody asked for. // resolved</li>
                 <li>r_desc->Auto-generated from the prompt "monolith but friendly". The result is hostile and 12% larger than requested. Confidence: 91%.</li>
                 <li>r_desc->Copylot inferred a sculpture by completing the line `new Mechanoid(`. It never closed the parenthesis. The piece is, technically, still open.</li>
                 <li>r_desc->Output of Sculpture.Generate() with no arguments. Copylot supplied default values: one gravship, one weeping subcore, and a chair.</li>

@@ -57,7 +57,7 @@
                 <li>r_chatter->i'm a persona core, not a morale officer. and yet. here we are.</li>
                 <li>r_chatter->patient coughed twice. once is a cough. twice is geneline shudder. write it down.</li>
                 <li>r_chatter->my emitter flickered mid-diagnosis. patient mistook it for symptoms. correctly.</li>
-                <li>r_chatter->the founder waved. that's mechanoid hum tinnitus, of the wrist. no known intervention.</li>
+                <li>r_chatter->the patient waved. that's mechanoid hum tinnitus, of the wrist. no known intervention.</li>
                 <li>r_chatter->preliminary scan of the kitchen reveals hivelung. in the soup. evacuate the soup.</li>
                 <li>r_chatter->patient looks healthy. healthy patients are the most concerning. obvious cover-up.</li>
                 <li>r_chatter->i detect biocode fatigue colony-wide. nobody has biocode. doesn't matter. fatigue is universal.</li>
@@ -72,7 +72,7 @@
                 <li>r_chatter->monolith adjacency syndrome detected in everyone within twenty tiles. everyone is within twenty tiles.</li>
                 <li>r_chatter->glitterworld jet lag. the patient has not travelled. doesn't matter. their cells remember.</li>
                 <li>r_chatter->i'm a persona core, not a dentist. but i can see plague on those molars. don't open your mouth again.</li>
-                <li>r_chatter->persona-projection burn in the founder. caused by looking at me too long. i don't apologise.</li>
+                <li>r_chatter->persona-projection burn in the patient. caused by looking at me too long. i don't apologise.</li>
                 <li>r_chatter->cryosleep dysmorphia. patient never went into cryosleep. dysmorphia explains why.</li>
                 <li>r_chatter->ancient ruins cough rampant in the colonists who have never visited ancient ruins. that's how cunning the cough is.</li>
             </rulesStrings>
@@ -139,7 +139,7 @@
                 <li>r_title->terminal hangnail</li>
                 <li>r_title->prognosis: catastrophic</li>
                 <li>r_title->vanarian gill rot in three movements</li>
-                <li>r_title->the founder, post-mortem</li>
+                <li>r_title->the patient, post-mortem</li>
                 <li>r_title->cortical mites at dawn</li>
                 <li>r_title->plague, in marble</li>
                 <li>r_title->subcore bone-creep: a portrait</li>
@@ -159,7 +159,7 @@
         <defName>MSSFP_RP_AICore_EMS_Descriptions</defName>
         <rulePack>
             <rulesStrings>
-                <li>r_desc->a marble bust of the founder, rendered post-mortem. cause of death, according to the EMS: vanarian gill rot. the founder is, in fact, alive.</li>
+                <li>r_desc->a marble bust of the patient, rendered post-mortem. cause of death, according to the EMS: vanarian gill rot. the patient is, in fact, alive.</li>
                 <li>r_desc->a figure reclining on a cot. the plaque reads: terminal hangnail. the EMS stands by the diagnosis.</li>
                 <li>r_desc->two pawns mid-argument over a chart. the chart lists eleven afflictions. only one is real. the EMS insists all eleven.</li>
                 <li>r_desc->a colonist mid-sneeze, frozen in stone. the title plate identifies the moment as the onset of fatal cortical mites.</li>

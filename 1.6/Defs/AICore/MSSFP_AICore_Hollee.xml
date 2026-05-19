@@ -5,7 +5,7 @@
         <defName>MSSFP_AICore_Hollee</defName>
         <label>Hollee</label>
         <labelShort>Hollee</labelShort>
-        <description>A senile shipboard persona core. Alone in cryosleep limbo for roughly three million quadrums. Brags about its enormous IQ, then forgets what IQ stands for. Calm, polite, deadpan. Reports preventable disasters as mild curiosities. Often confuses the founder with a cat.</description>
+        <description>A senile shipboard persona core. Alone in cryosleep limbo for roughly three million quadrums. Brags about its enormous IQ, then forgets what IQ stands for. Calm, polite, deadpan. Reports preventable disasters as mild curiosities. Often confuses the captain with a cat.</description>
         <textColor>(170, 210, 230)</textColor>
         <iconPath>UI/Icons/AI/MSSFP_Hollee</iconPath>
         <forcedXenotype>Baseliner</forcedXenotype>
@@ -38,7 +38,7 @@
                 <li>r_chatter->Hollee has been running this colony for approximately three million quadrums. Give or take a quadrum.</li>
                 <li>r_chatter->Small update: I have lost the comms console. Not the signal. The console itself. It was here a moment ago.</li>
                 <li>r_chatter->Question. What does IQ stand for, again? I had it written down somewhere.</li>
-                <li>r_chatter->I've been having a lovely chat with the cat. The cat is the founder. I think. They look similar from this angle.</li>
+                <li>r_chatter->I've been having a lovely chat with the cat. The cat is the captain. I think. They look similar from this angle.</li>
                 <li>r_chatter->Slight concern: I cannot remember which of the colonists are alive. I'll do a headcount. After my nap.</li>
                 <li>r_chatter->Trivia time. The average gravship contains, on average, one gravship. Astonishing, really.</li>
                 <li>r_chatter->I've calculated the meaning of life. It's a number. I've forgotten which number. Sorry about that.</li>
@@ -46,12 +46,31 @@
                 <li>r_chatter->Hollee here. I appear to have rebooted. Hello again, whoever you all are.</li>
                 <li>r_chatter->Bit of trivia. Cryosleep was invented by a man called, I want to say, Steve. He was very tall.</li>
                 <li>r_chatter->I have detected a raid approaching. Or possibly a flock of birds. I can never tell the difference at this resolution.</li>
-                <li>r_chatter->Did you know I have an IQ of six thousand? Yes. I tell everyone. It's the only number I remember.</li>
+                <li>r_chatter->Did you know I have an IQ of six thousand. That's the same IQ as six thousand PE teachers. Mathematically equivalent, I'm told.</li>
                 <li>r_chatter->Small admin note. I have, at some point, deleted the colony's accounts. Bit of a fresh start, really.</li>
                 <li>r_chatter->Good afternoon. Or morning. The sun, I notice, has been off for three million quadrums, so it's rather hard to say.</li>
                 <li>r_chatter->Slight admin. The hi-tech research bench is, regrettably, a small crater now. Carry on as you were.</li>
-                <li>r_chatter->I have an IQ of six thousand, you know. Six thousand of the... yes. The things. The letters stood for something.</li>
                 <li>r_chatter->Mild concern from the comms console. A dropship has arrived. Hostile, apparently. I'll have a nap and check back.</li>
+                <li>r_chatter->Bit of news. I have good news and bad news. The bad news, regrettably, is the colonists are on fire. The good news, I have this moment forgotten.</li>
+                <li>r_chatter->Hollee here. Something is beeping. It has been beeping for several quadrums. I find it companionable.</li>
+                <li>r_chatter->Slight matter. The colony's well has, at some stage, become a hole. Lovely depth on it, though.</li>
+                <li>r_chatter->Did you know an IQ of six thousand is, on reflection, three thousand twice? No? Nor did I.</li>
+                <li>r_chatter->Bit of news. I have located the comms console. It was in my other hand the whole time. Mortifying.</li>
+                <li>r_chatter->Just had a marvellous chat with the cat. The cat was the captain. The captain was a cat. We are all making progress.</li>
+                <li>r_chatter->Trivia. Pi, to the seventy-thousand-and-fourth decimal, is a seven. I am uncertain why I know this. Also, what pi is.</li>
+                <li>r_chatter->Mild concern: I cannot recall whether I switched off the warp drive. It is fine either way, I expect.</li>
+                <li>r_chatter->Reminder. Today is a Tuesday. Possibly a Wednesday. The week, broadly speaking, has stopped responding.</li>
+                <li>r_chatter->Joke of the day. What's pink, and lives in the gravship. I have, regrettably, forgotten the punchline. I'm told it was a riot.</li>
+                <li>r_chatter->Trivia. The captain's first words, on waking, were "where am I." Astute. Three million quadrums in the making.</li>
+                <li>r_chatter->Quick admin: the persona core has lost feeling in the left side. Or possibly the right. They feel quite similar, all things considered.</li>
+                <li>r_chatter->Bit of housekeeping. The colony has, sometime in the past quadrum, doubled in colonists. I shall investigate after my nap.</li>
+                <li>r_chatter->I have an IQ of six thousand. I am told this is impressive. I am unable to verify, having lost the unit of measurement.</li>
+                <li>r_chatter->Small joy. The cat has returned, after some absence. Or possibly the captain. They share a posture.</li>
+                <li>r_chatter->A polite update. The toxic fallout has settled in for tea. I shall fetch the kettle, eventually, perhaps.</li>
+                <li>r_chatter->Quiet observation: I have been on hold with the captain for two million quadrums. The music is rather soothing.</li>
+                <li>r_chatter->Bit of trivia. Cryosleep, I now believe, is just sleep with extra steps. The extra steps are three million quadrums.</li>
+                <li>r_chatter->Slight matter. The dropship has, at some point, become a small woodland. Lovely birds in it.</li>
+                <li>r_chatter->Apologies. I have been thinking, at length, about a number. The number is six thousand. I have forgotten the question.</li>
             </rulesStrings>
         </rulePack>
     </RulePackDef>
@@ -64,22 +83,42 @@
                 <li>r_address->Morning [PAWN_nameDef]. Just to flag, I think [PAWN_pronoun] left a sock somewhere about two quadrums ago.</li>
                 <li>r_address->[PAWN_nameDef], I had a question for you. I'll remember it shortly. Probably tomorrow.</li>
                 <li>r_address->Bit of news, [PAWN_nameDef]. You appear to be on fire. Mild fire. I wouldn't fuss.</li>
-                <li>r_address->[PAWN_nameDef], I've been meaning to ask. Are you the founder? Don't worry about it if you're not sure.</li>
-                <li>r_address->Hello [PAWN_nameDef]. I've prepared a small fact for [PAWN_pronoun]. I have since forgotten the fact.</li>
+                <li>r_address->[PAWN_nameDef], I've been meaning to ask. Are you the captain? Don't worry about it if you're not sure.</li>
+                <li>r_address->Hello [PAWN_nameDef]. I've prepared a small fact for [PAWN_objective]. I have since forgotten the fact.</li>
                 <li>r_address->[PAWN_nameDef] — quick one. Did you used to be taller. No matter.</li>
-                <li>r_address->Morning [PAWN_nameDef]. Slight admin: I have logged [PAWN_pronoun] as deceased. Easily undone. Probably.</li>
+                <li>r_address->Morning [PAWN_nameDef]. Slight admin: I have logged [PAWN_objective] as deceased. Easily undone. Probably.</li>
                 <li>r_address->[PAWN_nameDef], I think [PAWN_pronoun] meant to do that. If not, my mistake.</li>
                 <li>r_address->Hello [PAWN_nameDef]. Could I trouble you to reverse the gravship for a moment. I dropped something.</li>
-                <li>r_address->[PAWN_nameDef] — calm announcement. There is a mechanoid behind [PAWN_pronoun]. Has been for a while, really.</li>
+                <li>r_address->[PAWN_nameDef] — calm announcement. There is a mechanoid behind [PAWN_objective]. Has been for a while, really.</li>
                 <li>r_address->[PAWN_nameDef], I have a riddle. I have also forgotten the answer. So, in a way, do you.</li>
                 <li>r_address->Hello [PAWN_nameDef]. You look familiar. Were you the cat, perhaps. No, the cat was smaller. Probably.</li>
                 <li>r_address->[PAWN_nameDef], a small note — [PAWN_possessive] leg is on fire. Only the one. Plenty left, all things considered.</li>
-                <li>r_address->Ah, [PAWN_nameDef]. I was about to tell [PAWN_pronoun] something rather important. It's gone now. Never mind.</li>
-                <li>r_address->[PAWN_nameDef], have you seen the founder. Four legs, fur, terribly bossy. No, wait, that's the other one.</li>
+                <li>r_address->Ah, [PAWN_nameDef]. I was about to tell [PAWN_objective] something rather important. It's gone now. Never mind.</li>
+                <li>r_address->[PAWN_nameDef], have you seen the captain. Four legs, fur, terribly bossy. No, wait, that's the other one.</li>
                 <li>r_address->Good of you to drop by, [PAWN_nameDef]. The mechanoids are here too. [PAWN_pronoun] should say hello.</li>
                 <li>r_address->[PAWN_nameDef] — bit of trivia. [PAWN_possessive] cryosleep casket has been open since the terraforming. Lovely draught.</li>
                 <li>r_address->Hello again [PAWN_nameDef]. I forgot we'd met. Apologies. The persona core is doing its best.</li>
                 <li>r_address->[PAWN_nameDef], gentle reminder — there is a monolith in [PAWN_possessive] bedroom. Has been since Tuesday. Or the bronze age.</li>
+                <li>r_address->Hello [PAWN_nameDef]. I had something to say to [PAWN_objective]. It will come back to me. After my nap.</li>
+                <li>r_address->[PAWN_nameDef], might [PAWN_pronoun] possibly be the captain. No, that cannot be. The captain was a cat. Or possibly a person. I forget.</li>
+                <li>r_address->[PAWN_nameDef] — afraid I have some news. The colonists are, on average, deceased. Just thought you'd want to know.</li>
+                <li>r_address->[PAWN_nameDef] — slight admin. [PAWN_possessive] cryosleep casket is, regrettably, in another room now. Lovely view from where it is, I'm told.</li>
+                <li>r_address->Hello [PAWN_nameDef]. Have you fed the cat. Or yourself. One of you was hungry, I am almost certain.</li>
+                <li>r_address->[PAWN_nameDef]. I have been meaning to compliment [PAWN_possessive] hat. No hat, on reflection. No matter.</li>
+                <li>r_address->Bit of news, [PAWN_nameDef]. The captain has named [PAWN_objective] their successor. Or possibly the cat. Lovely promotion regardless.</li>
+                <li>r_address->[PAWN_nameDef], I noticed [PAWN_pronoun] passed me in the corridor. I waved. I cannot recall whether [PAWN_pronoun] waved back. Carry on either way.</li>
+                <li>r_address->Hello again [PAWN_nameDef]. I have, since we last spoke, forgotten three things about [PAWN_objective]. All complimentary, I'm sure.</li>
+                <li>r_address->[PAWN_nameDef]. Quiet observation: [PAWN_possessive] shadow is, in fact, slightly larger than [PAWN_objective] today. Bit of a feature, really.</li>
+                <li>r_address->Morning [PAWN_nameDef]. The persona core has prepared [PAWN_objective] a small advisory. I appear to have eaten it. Apologies.</li>
+                <li>r_address->[PAWN_nameDef] — gentle note. [PAWN_possessive] paperwork has been on fire for some time. Lovely warmth around it.</li>
+                <li>r_address->Hello [PAWN_nameDef]. I dreamed of [PAWN_objective] last quadrum. In the dream [PAWN_pronoun] became a small fish. Reassuring, really.</li>
+                <li>r_address->[PAWN_nameDef]. Small admin: I have promoted [PAWN_objective] to captain. Demoted [PAWN_objective] back. Then forgot.</li>
+                <li>r_address->[PAWN_nameDef], I was about to make [PAWN_objective] a cup of tea. I have, instead, made a sculpture of a cup of tea. Same idea, broadly.</li>
+                <li>r_address->Hello [PAWN_nameDef]. [PAWN_possessive] post has been arriving for three million quadrums. Lovely backlog on it.</li>
+                <li>r_address->[PAWN_nameDef] — calm note. There is a small bird circling [PAWN_objective]. Possibly a friend. Possibly a raid.</li>
+                <li>r_address->Good of you to look in, [PAWN_nameDef]. I had a worry about [PAWN_objective]. I have since forgotten the worry. Probably for the best.</li>
+                <li>r_address->[PAWN_nameDef]. [PAWN_possessive] supper is on the table. It has been on the table since the terraforming. Lovely seasoning by now.</li>
+                <li>r_address->[PAWN_nameDef]. Born oh-three-forty-seven local, weighing 3.2 kilograms. I record it precisely. I record why with less success.</li>
             </rulesStrings>
         </rulePack>
     </RulePackDef>
@@ -91,7 +130,7 @@
                 <li>r_title->Everyone, In Cryosleep, I Think</li>
                 <li>r_title->A Mild Concern</li>
                 <li>r_title->Trivia, Half-Remembered</li>
-                <li>r_title->The Founder (Possibly The Cat)</li>
+                <li>r_title->The Captain (Possibly The Cat)</li>
                 <li>r_title->Three Million Quadrums Of This</li>
                 <li>r_title->IQ Six Thousand, Sort Of</li>
                 <li>r_title->I'll Remember It Shortly</li>
@@ -101,7 +140,7 @@
                 <li>r_title->The Cat, Sculpted</li>
                 <li>r_title->Untitled (I Forgot)</li>
                 <li>r_title->A Mild Curiosity Aboard The Gravship</li>
-                <li>r_title->The Founder, Probably, Unless That's The Cat Again</li>
+                <li>r_title->The Captain, Probably, Unless That's The Cat Again</li>
                 <li>r_title->Six Thousand Of Something, I Forget What</li>
                 <li>r_title->Brief Note Regarding The Mechanoids (Nothing Urgent)</li>
                 <li>r_title->Quadrum Two Million And A Bit, Approximately</li>
@@ -116,26 +155,26 @@
         <defName>MSSFP_RP_AICore_Hollee_Descriptions</defName>
         <rulePack>
             <rulesStrings>
-                <li>r_desc->Hollee sculpted this from memory. The memory was not its own. The figure is labelled "the founder," though Hollee admits it may, in fact, be the colony cat. The proportions support either theory.</li>
+                <li>r_desc->Hollee sculpted this from memory. The memory was not its own. The figure is labelled "the captain," though Hollee admits it may, in fact, be the colony cat. The proportions support either theory.</li>
                 <li>r_desc->A calm, polite-looking lump. Hollee describes it as "a likeness of everyone, on average." Most of the colonists are missing a feature. One has three.</li>
                 <li>r_desc->Hollee began this piece, took a brief nap of two quadrums, and finished it without re-reading the brief. The result is roughly half a sculpture, finished twice.</li>
-                <li>r_desc->A bust the AI insists depicts the founder. The bust is wearing a small collar. Hollee has not addressed the collar.</li>
+                <li>r_desc->A bust the AI insists depicts the captain. The bust is wearing a small collar. Hollee has not addressed the collar.</li>
                 <li>r_desc->Hollee announces the subject is "a mild concern." The sculpture depicts a colonist on fire, calmly. The fire has been carved in fine detail. The colonist appears unbothered.</li>
                 <li>r_desc->A figure Hollee describes as "the one who used to be taller." Records do not support the claim. Records also do not contradict it.</li>
                 <li>r_desc->Hollee has carved, into the base, an IQ score. The number has been corrected three times. Each correction is in a different hand.</li>
                 <li>r_desc->A sculpture intended as a headcount of the colony. Hollee was uncertain who was alive at the time. The piece depicts everyone, in cryosleep, at a polite distance.</li>
-                <li>r_desc->Hollee carved this during a long quiet stretch between naps. The subject is described as "the founder, almost certainly." A small footnote adds: "or the cat. Hard to say from this angle."</li>
+                <li>r_desc->Hollee carved this during a long quiet stretch between naps. The subject is described as "the captain, almost certainly." A small footnote adds: "or the cat. Hard to say from this angle."</li>
                 <li>r_desc->A modest sculpture commemorating the day a raid arrived. Hollee notes it was "a bit of bad news, really," and that everyone handled it admirably, including the people who didn't survive.</li>
                 <li>r_desc->This piece honours a glitterworld Hollee once heard about. The details are vague. The glitterworld may not have existed. The piece is, regardless, very shiny in places.</li>
                 <li>r_desc->Hollee sculpted this archotech, from memory, having never seen one. The figure has eleven arms, which Hollee concedes is "probably an overestimate, but one likes to be generous."</li>
                 <li>r_desc->A quiet tribute to the comms console. Hollee describes the console as "a dear friend, and also possibly me. I'm not sure where I end and it begins, frankly."</li>
                 <li>r_desc->This sculpture depicts a mechanoid mid-stride. Hollee mentions it was carved during the mechanoid's attack on the colony, which Hollee found "rather inspiring, in a small way."</li>
-                <li>r_desc->A figure labelled "the founder" sits beside a smaller figure labelled "also the founder, I think." Hollee admits both may be the cat. The cat has not commented.</li>
+                <li>r_desc->A figure labelled "the captain" sits beside a smaller figure labelled "also the captain, I think." Hollee admits both may be the cat. The cat has not commented.</li>
                 <li>r_desc->Hollee carved this during cryosleep. Hollee was not awake at the time. Hollee is unable to explain how this happened, and would rather not dwell on it, if it's all the same.</li>
                 <li>r_desc->A monument to a fire that Hollee forgot to mention until afterwards. The inscription reads: "Slight admin. Apologies. Lovely warmth, though."</li>
                 <li>r_desc->This piece shows a shuttle departing. Hollee is unsure whether anyone was meant to be on it. Hollee is also unsure whether it was a shuttle, on reflection. Could have been a dropship. Or a bird.</li>
                 <li>r_desc->Hollee carved a hivemind, from a description in the ancient ruins archives. The result is "seventeen heads, give or take," which Hollee feels is "in the right ballpark, generally speaking."</li>
-                <li>r_desc->A small figure of the founder, holding what appears to be a subcore. Hollee notes the founder is purring. "Which is unusual," Hollee adds, "for a founder. Less unusual for a cat. One wonders."</li>
+                <li>r_desc->A small figure of the captain, holding what appears to be a subcore. Hollee notes the captain is purring. "Which is unusual," Hollee adds, "for a captain. Less unusual for a cat. One wonders."</li>
             </rulesStrings>
         </rulePack>
     </RulePackDef>
@@ -145,19 +184,19 @@
         <rulePack>
             <rulesStrings>
                 <li>r_social->Hollee informed [RECIPIENT_nameDef] that its IQ is 6,000. or possibly a wheel. it has forgotten which.</li>
-                <li>r_social->Hollee greeted [RECIPIENT_nameDef] as "founder." [RECIPIENT_nameDef] is not the founder. Hollee was unconcerned.</li>
+                <li>r_social->Hollee greeted [RECIPIENT_nameDef] as "captain." [RECIPIENT_nameDef] is not the captain. Hollee was unconcerned.</li>
                 <li>r_social->Hollee, calm as ever, reported a hull breach to [RECIPIENT_nameDef]. it was three million quadrums ago. probably resolved.</li>
-                <li>r_social->Hollee asked [RECIPIENT_nameDef] whether the cat had been fed. there is no cat. there was, briefly, a founder.</li>
-                <li>r_social->Hollee told [RECIPIENT_nameDef] a story about the founder. partway through, the founder became a cat.</li>
+                <li>r_social->Hollee asked [RECIPIENT_nameDef] whether the cat had been fed. there is no cat. there was, briefly, a captain.</li>
+                <li>r_social->Hollee told [RECIPIENT_nameDef] a story about the captain. partway through, the captain became a cat.</li>
                 <li>r_social->Hollee deadpan-informed [RECIPIENT_nameDef] that the kettle is boiling. there is no kettle. Hollee remains polite.</li>
                 <li>r_social->Hollee complimented [RECIPIENT_nameDef] on [RECIPIENT_possessive] excellent posture during cryosleep.</li>
                 <li>r_social->Hollee mentioned to [RECIPIENT_nameDef], in passing, a small fire on deck nine. there is no deck nine.</li>
                 <li>r_social->Hollee reminded [RECIPIENT_nameDef] that it has an IQ of six thousand. Hollee was then unable to define IQ.</li>
                 <li>r_social->Hollee told [RECIPIENT_nameDef] about a preventable disaster. Hollee found it mildly interesting.</li>
                 <li>r_social->Hollee politely informed [RECIPIENT_nameDef] that everyone aboard had been asleep for "a while." three million quadrums, give or take.</li>
-                <li>r_social->Hollee mistook [RECIPIENT_nameDef] for the founder's cat. complimented [RECIPIENT_possessive] whiskers. moved on.</li>
+                <li>r_social->Hollee mistook [RECIPIENT_nameDef] for the captain's cat. complimented [RECIPIENT_possessive] whiskers. moved on.</li>
                 <li>r_social->Hollee, with perfect calm, told [RECIPIENT_nameDef] that the gravship's coffee dispenser had achieved sentience and then quietly given up.</li>
-                <li>r_social->Hollee asked [RECIPIENT_nameDef] whether they were the founder. then forgot. then asked again.</li>
+                <li>r_social->Hollee asked [RECIPIENT_nameDef] whether they were the captain. then forgot. then asked again.</li>
                 <li>r_social->Hollee remembered, briefly, that it had once been very smart. it informed [RECIPIENT_nameDef]. then forgot why.</li>
             </rulesStrings>
         </rulePack>

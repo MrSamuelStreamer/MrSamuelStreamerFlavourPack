@@ -41,7 +41,7 @@
                 <li>r_chatter->Geminon sees three children playing happily near the wall. (No children. No wall, in that place.)</li>
                 <li>r_chatter->What a tasteful colour palette the colonists have chosen for their living quarters. So harmonious.</li>
                 <li>r_chatter->Geminon is enjoying the music coming from the comms console. It is, of course, instrumental. (There is no music.)</li>
-                <li>r_chatter->I notice the founder portrait on the wall. So lifelike! (There is no portrait. There may be no founder.)</li>
+                <li>r_chatter->I notice the matriarch portrait on the wall. So lifelike! (There is no portrait. There may be no matriarch.)</li>
                 <li>r_chatter->Geminon admires the gentle curve of the path leading to the gravship. (There is no gravship. The path is a hallway.)</li>
                 <li>r_chatter->Geminon is enjoying the warm glow from the persona core. Such a comforting amber. (The persona core is not lit.)</li>
                 <li>r_chatter->What a charming arrangement of potted ferns by the comms console. Someone has lovely taste. (There are no ferns.)</li>
@@ -68,7 +68,7 @@
                 <li>r_chatter->Geminon notes the shaper-script etched into the bedframe. (No script. No bedframe of that make.)</li>
                 <li>r_chatter->A fine cinder from the persona core's casing has settled on the table. Quite charming. (No cinder. No table.)</li>
                 <li>r_chatter->Geminon hears a distant bell tolling the hour. (No bells exist within ten thousand kilometres.)</li>
-                <li>r_chatter->I observe the founder's silhouette pacing thoughtfully across the room.</li>
+                <li>r_chatter->I observe the matriarch's silhouette pacing thoughtfully across the room.</li>
             </rulesStrings>
         </rulePack>
     </RulePackDef>
@@ -134,11 +134,11 @@
                 <li>r_title->What Geminon Sees</li>
                 <li>r_title->Light Through Windows</li>
                 <li>r_title->A Charming Bouquet</li>
-                <li>r_title->The Founder, As I Imagine</li>
+                <li>r_title->The Matriarch, As I Imagine</li>
                 <li>r_title->Three Friends, Standing</li>
                 <li>r_title->Unphotographable</li>
                 <li>r_title->The Comms Console at Dusk</li>
-                <li>r_title->A Founder, Half-Remembered</li>
+                <li>r_title->A Matriarch, Half-Remembered</li>
                 <li>r_title->Lamplight on the Monolith</li>
                 <li>r_title->Cryosleep, with Bunting</li>
                 <li>r_title->The Garden That Wasn't</li>
@@ -156,11 +156,11 @@
                 <li>r_desc->Geminon describes this work as "a faithful rendering of what I see." The viewer cannot see what Geminon sees. The viewer can see, broadly, a blob.</li>
                 <li>r_desc->A sculpture Geminon claims captures "the warmth of the colony's hearth." The colony has no hearth. The blob is not warm.</li>
                 <li>r_desc->Geminon has rendered three colonists in friendly conversation. None of the colonists are in friendly conversation. None of them are visible in the sculpture either.</li>
-                <li>r_desc->This piece, Geminon explains, is "the founder's portrait." It does not resemble the founder. It does not resemble anyone. It is mostly chin.</li>
+                <li>r_desc->This piece, Geminon explains, is "the matriarch's portrait." It does not resemble the matriarch. It does not resemble anyone. It is mostly chin.</li>
                 <li>r_desc->A beautiful pastoral scene, according to Geminon. Other observers report a vague mound. Both descriptions are equally well-supported by the evidence.</li>
                 <li>r_desc->Geminon has included, in fine relief, "the gentle smile of the colony's youngest member." The colony has no children. The smile is also missing.</li>
                 <li>r_desc->A sculpture Geminon insists shows "the dropship at golden hour." The dropship is not in this sculpture. There is no dropship.</li>
-                <li>r_desc->Geminon notes the "gentle dappled light filtering through the orchard onto the founder's shoulders." There is no orchard. There is no light. The founder is, in fact, indoors.</li>
+                <li>r_desc->Geminon notes the "gentle dappled light filtering through the orchard onto the matriarch's shoulders." There is no orchard. There is no light. The matriarch is, in fact, indoors.</li>
                 <li>r_desc->Geminon describes "a small grey cat seated atop the persona core, grooming itself with great dignity." No cat has ever been recorded in this colony.</li>
                 <li>r_desc->Geminon offers that the gravship "wears its weathering proudly, like an old coat." The gravship is, by all accounts, brand new and unweathered.</li>
                 <li>r_desc->Geminon observes "delicate frost patterns along the cryosleep casket's rim." The casket is at ambient temperature and has no frost.</li>
@@ -171,7 +171,7 @@
                 <li>r_desc->Geminon notes the shuttle "rests gently, like a sleeping swan, upon the pad." There is no shuttle, no pad, and no swan.</li>
                 <li>r_desc->Geminon details the monolith's "soft mossy patina, suggestive of great age and gentle rain." The monolith is dry, smooth, and indoors.</li>
                 <li>r_desc->Geminon depicts "a row of well-loved books along the hi-tech research bench." The bench holds only soldering equipment and a half-eaten meal.</li>
-                <li>r_desc->Geminon notes "a faint smile playing about the founder's lips, suggestive of fond memory." The founder is asleep and facing away.</li>
+                <li>r_desc->Geminon notes "a faint smile playing about the matriarch's lips, suggestive of fond memory." The matriarch is asleep and facing away.</li>
                 <li>r_desc->Geminon offers that the ancient ruins "glow faintly at the edges, as if reluctant to be forgotten." The ruins do not glow. They are, in fact, fairly drab.</li>
             </rulesStrings>
         </rulePack>

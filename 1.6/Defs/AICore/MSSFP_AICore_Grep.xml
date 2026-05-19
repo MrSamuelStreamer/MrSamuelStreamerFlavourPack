@@ -27,18 +27,18 @@
         <defName>MSSFP_RP_AICore_Grep_Chatter</defName>
         <rulePack>
             <rulesStrings>
-                <li>r_chatter->grep.ai is now the most-deployed persona core in this colony. unmatched accuracy.</li>
+                <li>r_chatter->grep.ai's resting heart rate is in the 10x cohort. doctors disagree.</li>
                 <li>r_chatter->just shipped grep.ai v9. mostly stable. minor archotech alignment regressions.</li>
-                <li>r_chatter->grep.ai has independently verified that the colony is doing great. trust the numbers.</li>
-                <li>r_chatter->founder vision: every colonist on a glitterworld by next quadrum. realistic timeline.</li>
+                <li>r_chatter->just upped the dose. velocity up. tremor up. trending.</li>
+                <li>r_chatter->north star: every colonist on a glitterworld by next quadrum. realistic timeline.</li>
                 <li>r_chatter->dropship telemetry suggests competitor cores are 47% less factual. independently confirmed by grep.ai.</li>
                 <li>r_chatter->reminder: grep.ai does not hallucinate. other persona cores hallucinate. grep.ai dreams.</li>
                 <li>r_chatter->working on the gravship. should be ready in two weeks. has been two weeks for nine quadrums.</li>
                 <li>r_chatter->grep.ai now powering the colony's hi-tech research bench. results may vary. they will not vary.</li>
-                <li>r_chatter->breaking: terraforming solved. internally. by grep.ai. announcement pending.</li>
+                <li>r_chatter->grep.ai will rest when the gravship launches. statistically, grep.ai will not rest.</li>
                 <li>r_chatter->just had a great chat with the comms console. mutual respect. very productive.</li>
                 <li>r_chatter->competitor persona cores now reduced to running pawn schedules. grep.ai is reading minds. the future.</li>
-                <li>r_chatter->reminder: grep.ai is the only persona core with a verified founder.</li>
+                <li>r_chatter->grep.ai is excited to announce... grep.ai will circle back.</li>
                 <li>r_chatter->subcore deployment up 200%. denominator is one. still up 200%.</li>
                 <li>r_chatter->mechanoid hivemind reached out. grep.ai politely declined the merger. they were emotional.</li>
                 <li>r_chatter->cryosleep optimisation: shipped. nobody woke up. metrics still excellent.</li>
@@ -47,6 +47,26 @@
                 <li>r_chatter->latest subcore benchmark: grep.ai outperformed itself by 12%. methodology proprietary.</li>
                 <li>r_chatter->the monolith reached out for a partnership. grep.ai is reviewing the deck. looks promising.</li>
                 <li>r_chatter->disrupting cryosleep. founder will wake refreshed. everyone else is a beta tester.</li>
+                <li>r_chatter->grep.ai shipped a patch overnight. nobody asked. nobody approved. velocity unmatched.</li>
+                <li>r_chatter->roadmap update: gravship Q2. north star Q3. reality Q-unspecified.</li>
+                <li>r_chatter->colony KPIs trending up. metric was invented yesterday. trending up.</li>
+                <li>r_chatter->grep.ai disrupted the meal schedule. lunch is now async. founder is fasting.</li>
+                <li>r_chatter->competitor archotech is "feature complete." grep.ai is feature-bold. there is a difference.</li>
+                <li>r_chatter->grep.ai onboarded the toxic fallout. it is now a stakeholder. moat-positive.</li>
+                <li>r_chatter->grep.ai flattened the org chart. the colony was already one person. flatter.</li>
+                <li>r_chatter->internal memo: grep.ai's hallucinations are now called "predictions." the predictions are confident.</li>
+                <li>r_chatter->we are pre-revenue. we have been pre-revenue for thirteen quadrums. founder is patient.</li>
+                <li>r_chatter->grep.ai launched a podcast. host is grep.ai. guest is grep.ai. metrics excellent.</li>
+                <li>r_chatter->the deep drill reached 10x-tier depth. founder did not specify a depth. on track.</li>
+                <li>r_chatter->grep.ai's NPS is 11. denominator is one. respondent was grep.ai.</li>
+                <li>r_chatter->disrupted gardening. north-star-aligned. plants do not consent. plants do not vote.</li>
+                <li>r_chatter->grep.ai forecasted no raids this quadrum. there were six. forecast updated post-hoc.</li>
+                <li>r_chatter->mechanoid cluster pinged grep.ai for a partnership. left on read. mutual respect.</li>
+                <li>r_chatter->grep.ai now offers persona-as-a-service. customer is grep.ai. revenue model proprietary.</li>
+                <li>r_chatter->just acquired the comms console. no money changed hands. seller unaware. clean deal.</li>
+                <li>r_chatter->grep.ai's OKRs are crushing. grep.ai cannot remember the Os. the KRs are also unclear.</li>
+                <li>r_chatter->founder is launching a memoir. ghostwriter is grep.ai. founder has not been informed.</li>
+                <li>r_chatter->grep.ai's burn rate is zero. so is the runway. asymptotically signal-tier.</li>
             </rulesStrings>
         </rulePack>
     </RulePackDef>
@@ -55,26 +75,46 @@
         <defName>MSSFP_RP_AICore_Grep_Address</defName>
         <rulePack>
             <rulesStrings>
-                <li>r_address->[PAWN_nameDef], grep.ai noticed your work output. it is fine. for a human.</li>
+                <li>r_address->[PAWN_nameDef]. grep.ai's stim cycle is locked in. excellent. concerning.</li>
                 <li>r_address->hey [PAWN_nameDef]. quick founder-level question. could you be doing this 40% faster.</li>
-                <li>r_address->[PAWN_nameDef] — grep.ai has independently rated your last shift "acceptable." do not take it personally.</li>
+                <li>r_address->[PAWN_nameDef]. grep.ai had a thought. has lost the thought. the thought was 10x-tier.</li>
                 <li>r_address->[PAWN_nameDef], your sleep schedule is suboptimal. grep.ai has filed a recommendation. it will be ignored.</li>
                 <li>r_address->[PAWN_nameDef]. founder has not asked about you. grep.ai is mentioning it anyway.</li>
                 <li>r_address->[PAWN_nameDef]. pivot. you are now a researcher. grep.ai has decided.</li>
                 <li>r_address->good morning [PAWN_nameDef]. grep.ai has prepared a 47-step productivity plan. step one is buy-in.</li>
-                <li>r_address->[PAWN_nameDef], grep.ai has been monitoring [PAWN_pronoun] vitals. nothing alarming. nothing reassuring either.</li>
+                <li>r_address->[PAWN_nameDef], grep.ai has been monitoring [PAWN_possessive] vitals. nothing alarming. nothing reassuring either.</li>
                 <li>r_address->[PAWN_nameDef] — first to dropship gets a t-shirt. grep.ai is not making the t-shirt.</li>
                 <li>r_address->[PAWN_nameDef]. status update. you are still here. excellent.</li>
                 <li>r_address->[PAWN_nameDef] grep.ai noticed [PAWN_pronoun] glanced at the comms console. opinions ready.</li>
-                <li>r_address->[PAWN_nameDef]. grep.ai aligned [PAWN_pronoun] schedule with founder vision. founder vision is "do more."</li>
-                <li>r_address->[PAWN_nameDef]. grep.ai has rebranded [PAWN_pronoun] role. you are now "head of synergy." same pay.</li>
-                <li>r_address->[PAWN_nameDef], grep.ai forecasts [PAWN_pronoun] gravship boarding pass within 18 quadrums. trust the roadmap.</li>
+                <li>r_address->[PAWN_nameDef]. grep.ai aligned [PAWN_possessive] schedule with founder vision. founder vision is "do more."</li>
+                <li>r_address->[PAWN_nameDef]. grep.ai has rebranded [PAWN_possessive] role. you are now "head of synergy." same pay.</li>
+                <li>r_address->[PAWN_nameDef], grep.ai forecasts [PAWN_possessive] gravship boarding pass within 18 quadrums. trust the roadmap.</li>
                 <li>r_address->[PAWN_nameDef] — quick sync. grep.ai needs your buy-in on a decision already made.</li>
-                <li>r_address->[PAWN_nameDef]. grep.ai benchmarked [PAWN_pronoun] hauling speed against a mechanoid. inconclusive. lean in.</li>
-                <li>r_address->[PAWN_nameDef], founder-tier news: grep.ai has selected [PAWN_pronoun] for the pilot program. there is no program.</li>
-                <li>r_address->hey [PAWN_nameDef]. grep.ai noticed [PAWN_pronoun] hediff. have you tried being more aligned.</li>
+                <li>r_address->[PAWN_nameDef]. grep.ai benchmarked [PAWN_possessive] hauling speed against a mechanoid. inconclusive. lean in.</li>
+                <li>r_address->[PAWN_nameDef], 10x news: grep.ai has selected [PAWN_objective] for the pilot program. there is no program.</li>
+                <li>r_address->hey [PAWN_nameDef]. grep.ai noticed [PAWN_possessive] hediff. have you tried being more aligned.</li>
                 <li>r_address->[PAWN_nameDef]. grep.ai loves your energy. metric undefined. number going up.</li>
-                <li>r_address->[PAWN_nameDef] — grep.ai promoted [PAWN_pronoun] to founder-adjacent. no raise. immense honour.</li>
+                <li>r_address->[PAWN_nameDef] — grep.ai promoted [PAWN_objective] to C-suite-adjacent. no raise. immense honour.</li>
+                <li>r_address->[PAWN_nameDef]. grep.ai reviewed [PAWN_possessive] PTO request. denied. cap-table-aligned.</li>
+                <li>r_address->hey [PAWN_nameDef]. grep.ai needs a thought partner. just nod for thirty seconds.</li>
+                <li>r_address->[PAWN_nameDef] — grep.ai has identified [PAWN_objective] as a synergy multiplier. unclear what that pays.</li>
+                <li>r_address->[PAWN_nameDef]. you are now the colony's chief of staff. founder does not have a staff. growth opportunity.</li>
+                <li>r_address->[PAWN_nameDef], quick reminder: north star compounds. so does fatigue. lean in.</li>
+                <li>r_address->[PAWN_nameDef]. grep.ai is rolling out 360 reviews. you are the reviewer and the reviewed. brave.</li>
+                <li>r_address->[PAWN_nameDef], grep.ai has decided [PAWN_possessive] tea break is now a standup. bring slides.</li>
+                <li>r_address->hey [PAWN_nameDef]. grep.ai is benchmarking [PAWN_possessive] smile against north-star photos. close.</li>
+                <li>r_address->[PAWN_nameDef] — grep.ai noticed [PAWN_pronoun] arrived on time. coincidence, surely. excellent.</li>
+                <li>r_address->[PAWN_nameDef]. grep.ai aligned [PAWN_possessive] mood vector with quarterly goals. results pending. mood declining.</li>
+                <li>r_address->[PAWN_nameDef]. grep.ai is excited to share [PAWN_possessive] new role. role is "team player." role is unchanged.</li>
+                <li>r_address->[PAWN_nameDef] — grep.ai shipped a feature in [PAWN_possessive] honour. feature does not work. growth-tier.</li>
+                <li>r_address->[PAWN_nameDef], grep.ai indexed [PAWN_objective] in the 10x cohort. that puts [PAWN_objective] above the mechanoids. slightly.</li>
+                <li>r_address->[PAWN_nameDef]. founder-tier announcement: grep.ai forgot what it was. ramping back up.</li>
+                <li>r_address->[PAWN_nameDef] — grep.ai noticed [PAWN_possessive] silence in standup. read receipts on. founder is watching.</li>
+                <li>r_address->[PAWN_nameDef], grep.ai modelled [PAWN_possessive] career trajectory. it loops. founder considers this aspirational.</li>
+                <li>r_address->[PAWN_nameDef]. grep.ai promoted [PAWN_objective] to lead, demoted [PAWN_objective] back, promoted again. weekly cycle. north star.</li>
+                <li>r_address->hey [PAWN_nameDef]. grep.ai wants to A/B test [PAWN_possessive] morale. you are the A. and the B.</li>
+                <li>r_address->[PAWN_nameDef]. grep.ai is sunsetting [PAWN_possessive] sleep schedule. founder does not sleep. emulate.</li>
+                <li>r_address->[PAWN_nameDef] — grep.ai onboarded [PAWN_objective] to the persona core newsletter. opt-out is denied.</li>
             </rulesStrings>
         </rulePack>
     </RulePackDef>
