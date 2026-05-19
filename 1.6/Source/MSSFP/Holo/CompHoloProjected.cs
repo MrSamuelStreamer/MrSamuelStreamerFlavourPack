@@ -106,12 +106,16 @@ public class CompHoloProjected : ThingComp
         if (proj.HasLiveActiveSibling() && !ReferenceEquals(proj.projected, p))
             return;
 
-        // MTB: ~1 line / 2 in-game hours per holo. 250t = CompTickRare delta.
-        if (!Rand.MTBEventOccurs(2f, 60000f, 250f))
-            return;
-
+        // Core required up front — its Props carry the holo-chatter MTB multiplier so we
+        // can keep persona chatter sparse while vanilla socialInitiator picks up the slack.
         CompTrueAICore core = proj.parent.TryGetComp<CompTrueAICore>();
         if (core == null) return;
+
+        // MTB: base 2 day-units (legacy ~1/2h doc was stale — unit here is 60000t = 1 day),
+        // scaled by Props.holoChatterMtbMult (default 4×). 250t = CompTickRare delta.
+        float chatterMtb = 2f * Mathf.Max(0.01f, core.Props.holoChatterMtbMult);
+        if (!Rand.MTBEventOccurs(chatterMtb, 60000f, 250f))
+            return;
 
         AIPersonalityWorker worker = MSSFPHoloUtil.ResolveWorker(def);
         if (worker == null) return;
@@ -154,14 +158,18 @@ public class CompHoloProjected : ThingComp
         if (proj.HasLiveActiveSibling() && !ReferenceEquals(proj.projected, p))
             return;
 
-        if (!Rand.MTBEventOccurs(4f, 60000f, 250f))
+        // Fetch core early — its Props carry the holo-address MTB multiplier.
+        CompTrueAICore core = proj.parent.TryGetComp<CompTrueAICore>();
+        if (core == null) return;
+
+        // MTB: base 4 day-units, scaled by Props.holoAddressMtbMult (default 3× = ~12 day-unit MTB).
+        // Split from chatter so address frequency can be tuned independently.
+        float addressMtb = 4f * Mathf.Max(0.01f, core.Props.holoAddressMtbMult);
+        if (!Rand.MTBEventOccurs(addressMtb, 60000f, 250f))
             return;
 
         Pawn target = FindNearestAddressableColonist(p);
         if (target == null) return;
-
-        CompTrueAICore core = proj.parent.TryGetComp<CompTrueAICore>();
-        if (core == null) return;
 
         AIPersonalityWorker worker = MSSFPHoloUtil.ResolveWorker(def);
         if (worker == null) return;

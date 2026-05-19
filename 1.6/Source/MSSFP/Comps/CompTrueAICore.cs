@@ -197,6 +197,10 @@ public class CompTrueAICore : ThingComp, IThingHolder
             return;
         }
 
+        // Cached on PostSpawnSetup; holos route persona presence through vanilla socials
+        // + the holo-pawn mote channel, so the building-bubble pipeline is throttled here.
+        bool isHolo = holoComp != null;
+
         float mtbHours = Props.chatterMtbHours;
         switch (Props.verbosity)
         {
@@ -207,6 +211,7 @@ public class CompTrueAICore : ThingComp, IThingHolder
                 mtbHours *= 2.0f;
                 break;
         }
+        if (isHolo) mtbHours *= Props.holoChatterMtbMult;
         if (mtbHours <= 0f) return;
 
         if (!Rand.MTBEventOccurs(mtbHours, GenDate.TicksPerHour, 250f)) return;
@@ -225,8 +230,10 @@ public class CompTrueAICore : ThingComp, IThingHolder
         bool dangerOk =
             parent.Map?.dangerWatcher == null
             || parent.Map.dangerWatcher.DangerRating == StoryDanger.None;
-        bool capOk = lettersToday < Props.lettersPerDay;
-        bool fireLetter = dangerOk && capOk && Rand.Value < Props.letterChance;
+        int effectiveCap = isHolo ? Math.Min(Props.holoLettersPerDay, Props.lettersPerDay) : Props.lettersPerDay;
+        float effectiveChance = isHolo ? Props.letterChance * Props.holoLetterMult : Props.letterChance;
+        bool capOk = lettersToday < effectiveCap;
+        bool fireLetter = dangerOk && capOk && Rand.Value < effectiveChance;
 
         bool emitted;
         if (fireLetter)

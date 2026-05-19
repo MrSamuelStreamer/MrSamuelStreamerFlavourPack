@@ -34,6 +34,34 @@ public class CompProperties_TrueAICore : CompProperties
     /// <summary>Hard cap on letters this core can fire per in-game day.</summary>
     public int lettersPerDay = 1;
 
+    /// <summary>
+    /// Multiplier applied to <see cref="chatterMtbHours"/> when the parent building has a
+    /// <see cref="MSSFP.Holo.CompHoloProjector"/>. Holos channel personality through vanilla
+    /// social interactions (<c>socialInitiator</c>), so building-bubble ambient chatter is
+    /// suppressed via a longer MTB. Non-holo cores ignore this. Set 1f to opt out.
+    /// </summary>
+    public float holoChatterMtbMult = 4f;
+
+    /// <summary>
+    /// Multiplier applied to the holo-pawn address MTB in
+    /// <see cref="MSSFP.Holo.CompHoloProjected"/>. Split from chatter so addresses (more
+    /// attention-grabbing motes) can be tuned independently. Non-holo cores ignore.
+    /// </summary>
+    public float holoAddressMtbMult = 3f;
+
+    /// <summary>
+    /// Multiplier applied to <see cref="letterChance"/> when the parent has a holo projector.
+    /// Holos rarely fire popup letters — the persona speaks via socials and quiet bubble lines.
+    /// Set 1f to opt out, 0f for hard mute.
+    /// </summary>
+    public float holoLetterMult = 0.05f;
+
+    /// <summary>
+    /// Per-day letter cap for holo cores. Combined with <see cref="lettersPerDay"/> via
+    /// <c>Math.Min</c> so a chart that lowers the building-wide cap still wins.
+    /// </summary>
+    public int holoLettersPerDay = 1;
+
     /// <summary>Stuff list accepted by the "Create AI Art" haul job (e.g. Stoneblocks, WoodLog).</summary>
     public System.Collections.Generic.List<ThingDef> artInputs;
 
