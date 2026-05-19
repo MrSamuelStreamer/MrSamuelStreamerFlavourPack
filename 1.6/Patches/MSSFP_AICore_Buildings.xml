@@ -14,7 +14,7 @@
             <li Class="MSSFP.Comps.CompProperties_TrueAICore">
 
                 <defaultPersonality>MSSFP_AICore_MrBeans</defaultPersonality>
-                <!-- <showPersonalitySelector>false</showPersonalitySelector> -->
+                <showPersonalitySelector>false</showPersonalitySelector>
                 <chatterMtbHours>12.0</chatterMtbHours>
                 <verbosity>Quiet</verbosity>
                 <chatterCooldownTicks>7500</chatterCooldownTicks>
@@ -31,7 +31,7 @@
             <li Class="MSSFP.Comps.CompProperties_TrueAICore">
 
                 <defaultPersonality>MSSFP_AICore_Autodoc</defaultPersonality>
-                <!-- <showPersonalitySelector>false</showPersonalitySelector> -->
+                <showPersonalitySelector>false</showPersonalitySelector>
                 <chatterMtbHours>12.0</chatterMtbHours>
                 <verbosity>Quiet</verbosity>
                 <chatterCooldownTicks>7500</chatterCooldownTicks>

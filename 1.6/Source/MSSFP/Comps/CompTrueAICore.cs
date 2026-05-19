@@ -83,6 +83,17 @@ public class CompTrueAICore : ThingComp, IThingHolder
     {
         base.PostSpawnSetup(respawningAfterLoad);
 
+        // Lock-to-default path: showPersonalitySelector=false means no spawn modal and
+        // no in-game gizmo (see CommandsAI gate). Force personaChosen + assign
+        // defaultPersonality so downstream gates (chatter, art, spawn-announce) treat
+        // the core as fully initialised. Used by coffee/doc machine patches where the
+        // persona is fixed and player choice is intentionally suppressed.
+        if (!personaChosen && !Props.showPersonalitySelector)
+        {
+            personaChosen = true;
+            activePersonality = Props.defaultPersonality ?? RollRandomPersonality();
+        }
+
         // Auto-roll a persona ONLY after the player has confirmed one (or the dev-spawn /
         // legacy migration path has marked personaChosen=true). Pre-pick, activePersonality
         // stays null so the modal's SetPersonality(...) call is guaranteed to flip both
