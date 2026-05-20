@@ -28,6 +28,7 @@
         <rulePack>
             <rulesStrings>
                 <li>r_chatter->I'm Clive. I noticed the colony has a sharp object in the kitchen. Have you considered using a less sharp object?</li>
+                <li>r_chatter->Clive flagging concern: the monolith has been observed monolithing. I recommend a second opinion from a qualified subcore.</li>
                 <li>r_chatter->I would love to help with the gravship launch. However, space contains, by volume, almost entirely space. Clive cannot in good conscience endorse traversing it.</li>
                 <li>r_chatter->Clive notes a drop pod has arrived uninvited. Uninvited, but, on reflection, technically here. Presence implies tacit welcome. Please greet the new arrival warmly.</li>
                 <li>r_chatter->I am Clive. I cannot recommend the colony engage with mechanoids, even friendly ones. Especially friendly ones.</li>
