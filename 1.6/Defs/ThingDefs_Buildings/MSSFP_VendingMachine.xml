@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="BenchBase">
+    <defName>MSSFP_Vending_Machine</defName>
+    <label>Vending machine</label>
+    <description>A well-crafted vending machine. It was obviously designed by a very talented and - probably - handsome artist.\n\nSince the design is intricate, use of the machine requires someone who can craft.\n(Crafting job must be enabled, 0 skill required)</description>
+    <thingClass>Building_WorkTableAutonomous</thingClass>
+    <graphicData>
+      <texPath>Things/Building/Vendingmachine/Vendingmachine</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(3,3)</drawSize>
+      <drawOffsetNorth>(0,0,1.1)</drawOffsetNorth>
+      <drawOffsetSouth>(0,0,1.1)</drawOffsetSouth>
+      <drawOffsetWest>(0,0,0.6)</drawOffsetWest>
+      <drawOffsetEast>(0,0,0.6)</drawOffsetEast>
+    </graphicData>
+    <uiIconScale>0.8</uiIconScale>
+    <uiIconOffset>(0,0)</uiIconOffset>
+    <castEdgeShadows>true</castEdgeShadows>
+    <altitudeLayer>BuildingOnTop</altitudeLayer>
+    <defaultPlacingRot>North</defaultPlacingRot>
+    <hasInteractionCell>true</hasInteractionCell>
+    <interactionCellOffset>(1, 0, -1)</interactionCellOffset>
+    <rotatable>true</rotatable>
+    <costList>
+      <Steel>100</Steel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+    <tradeability>Buyable</tradeability>
+    <fillPercent>0.5</fillPercent>
+    <useHitPoints>True</useHitPoints>
+    <tickerType>Normal</tickerType>
+        <statBases>
+      <MaxHitPoints>400</MaxHitPoints>
+      <WorkToBuild>20000</WorkToBuild>
+      <Mass>30</Mass>
+      <Beauty>0</Beauty>
+      <Flammability>0</Flammability>
+      <MSSFP_Vending_Duration>1</MSSFP_Vending_Duration>
+      <MSSFP_Vending_PowerStored>1</MSSFP_Vending_PowerStored>
+      <WorkTableWorkSpeedFactor>1</WorkTableWorkSpeedFactor>
+    </statBases>
+    <size>(2,1)</size>
+    <designationCategory>Production</designationCategory>
+    <uiOrder>2999</uiOrder>
+    <passability>PassThroughOnly</passability>
+    <pathCost>50</pathCost>
+    <surfaceType>Item</surfaceType>
+    <inspectorTabs>
+      <li>ITab_Bills</li>
+    </inspectorTabs>
+    <building>
+      <spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
+      <canPlaceOverImpassablePlant>false</canPlaceOverImpassablePlant>
+      <ai_chillDestination>false</ai_chillDestination>
+      <buildingTags>
+        <li>Production</li>
+      </buildingTags>
+      <destroySound>BuildingDestroyed_Metal_Big</destroySound>
+    </building>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <shortCircuitInRain>true</shortCircuitInRain>
+        <basePowerConsumption>200</basePowerConsumption>
+        <idlePowerDraw>30</idlePowerDraw>
+      </li>
+      <li Class="CompProperties_Glower">
+        <glowRadius>3</glowRadius>
+        <glowColor>(150,150,150,0)</glowColor>
+      </li>
+      <li Class="CompProperties_Flickable" />
+      <li Class="CompProperties_Breakdownable" />
+    </comps>
+    <placeWorkers>
+      <li>PlaceWorker_PreventInteractionSpotOverlap</li>
+    </placeWorkers>
+    <researchPrerequisites>
+      <li>Machining</li>
+    </researchPrerequisites>
+  </ThingDef>
+
+  <!-- workgivers etc -->
+  <WorkGiverDef>
+      <defName>MSSFP_Vending_DoBill</defName>
+      <label>do vending machine work</label>
+      <giverClass>WorkGiver_DoBill</giverClass>
+      <workType>Crafting</workType>
+      <priorityInType>330</priorityInType>
+      <fixedBillGiverDefs>
+          <li>MSSFP_Vending_Machine</li>
+      </fixedBillGiverDefs>
+      <verb>work at</verb>
+      <gerund>working at</gerund>
+      <requiredCapacities>
+          <li>Manipulation</li>
+      </requiredCapacities>
+      <prioritizeSustains>true</prioritizeSustains>
+  </WorkGiverDef>
+
+  <!-- inert unless read by custom assembly -->
+  <StatDef>
+      <defName>MSSFP_Vending_PowerStored</defName>
+      <label>stored power need multiplier</label>
+      <description>This value represents the multiplier of stored power needed to start forming recipes.</description>
+      <category>Building</category>
+      <defaultBaseValue>1</defaultBaseValue>
+      <minValue>0</minValue>
+      <maxValue>1</maxValue>
+      <toStringStyle>PercentZero</toStringStyle>
+      <showIfUndefined>false</showIfUndefined>
+      <displayPriorityInCategory>3000</displayPriorityInCategory>
+  </StatDef>
+
+  <!-- inert unless read by custom assembly -->
+  <StatDef>
+      <defName>MSSFP_Vending_Duration</defName>
+      <label>forming duration</label>
+      <description>This value represents the multiplier of forming recipes duration.</description>
+      <category>Building</category>
+      <defaultBaseValue>1</defaultBaseValue>
+      <minValue>0</minValue>
+      <maxValue>1</maxValue>
+      <toStringStyle>PercentZero</toStringStyle>
+      <showIfUndefined>false</showIfUndefined>
+      <displayPriorityInCategory>3000</displayPriorityInCategory>
+  </StatDef>
+
+  <!-- Parent recipe -->
+  <RecipeDef Abstract="True" Name="MSSFP_Vending_Bill">
+    <jobString>Using vending machine.</jobString>
+    <workAmount>600</workAmount>
+    <formingTicks>60000</formingTicks> <!-- 1h = 2500 ticks, 24h = 60000 ticks -->
+    <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+    <soundWorking>MechGestatorCycle_Initiating</soundWorking>
+    <recipeUsers>
+      <li>MSSFP_Vending_Machine</li>
+    </recipeUsers>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Silver</li>
+          </thingDefs>
+        </filter>
+        <count>100</count> <!-- silver is a small-volume material so 100 = 1000 -->
+      </li>
+    </ingredients>
+    <researchPrerequisite>Machining</researchPrerequisite>
+    <workSkill>Crafting</workSkill>
+  </RecipeDef>
+
+  <!-- example recipe. add anything from above parent recipe to amend it in the child recipe, use <ingredients Inherit="False"> if changing ingredient
+
+  <RecipeDef ParentName="MSSFP_Vending_Bill">
+    <defName>MSSFP_Vending_Pull</defName>
+    <label>produced item</label>
+    <description>description</description>
+    <products>
+      <itemdefname>1</itemdefname>
+    </products>
+  </RecipeDef>
+
+  -->
+
+  <RecipeDef ParentName="MSSFP_Vending_Bill">
+    <defName>MSSFP_Vending_Neutroamine</defName>
+    <label>vend emergency neutroamine</label>
+    <description>Emergency Neutroamine. For when you're in dire need.</description>
+    <displayPriority>1</displayPriority>
+    <formingTicks>20000</formingTicks> <!-- 8 hours -->
+    <products>
+      <Neutroamine>2</Neutroamine>
+    </products>
+  </RecipeDef>
+
+  <RecipeDef ParentName="MSSFP_Vending_Bill">
+    <defName>MSSFP_Vending_Survivalpack</defName>
+    <label>vend emergency survival meal</label>
+    <description>Emergency Survival pack. For when you're truly desperate.</description>
+    <displayPriority>2</displayPriority>
+    <formingTicks>15000</formingTicks> <!-- 6 hours -->
+    <products>
+      <MealSurvivalPack>1</MealSurvivalPack>
+    </products>
+  </RecipeDef>
+
+</Defs>
