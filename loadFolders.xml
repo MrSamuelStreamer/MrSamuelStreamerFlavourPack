@@ -14,5 +14,6 @@
         <li IfModActive="void.charactereditor">Compatibility/void.charactereditor/1.6</li>
         <li IfModActive="cp.uncle.boris.brainwash.chair">Compatibility/cp.uncle.boris.brainwash.chair/1.6</li>
         <li IfModActive="RER.GravshipLoanScenario">Compatibility/RER.GravshipLoanScenario/1.6</li>
+        <li IfModNotActive="keyz182.superpack">Compatibility/VillainsFlavourPack/1.6</li>
     </v1.6>
 </loadFolders>
