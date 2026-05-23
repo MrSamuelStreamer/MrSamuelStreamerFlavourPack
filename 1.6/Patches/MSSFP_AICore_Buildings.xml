@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
     <!-- Coffee machine (def: MRCOFFEE) from "Mr Coffee and Mr Radar" mod -->
-     <!-- Mr Radar (other building from mod) has Rare tickerType, if relevant in future -->
+    <!-- Mr Radar (other building from mod) has Rare tickerType, if relevant in future -->
     <Operation Class="PatchOperationAdd">
         <xpath>Defs/ThingDef[defName="MRCOFFEE"]</xpath>
         <value>
@@ -36,6 +36,27 @@
                 <verbosity>Quiet</verbosity>
                 <chatterCooldownTicks>7500</chatterCooldownTicks>
                 <letterChance>0.01</letterChance>
+                <lettersPerDay>1</lettersPerDay>
+            </li>
+        </value>
+    </Operation>
+    <!-- Brain in a Jar (def: MiniBrainJar) from "Brain in a Jar" mod -->
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName="MiniBrainJar"]</xpath>
+        <value>
+            <tickerType>Rare</tickerType>
+        </value>
+    </Operation>
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName="MiniBrainJar"]/comps</xpath>
+        <value>
+            <li Class="MSSFP.Comps.CompProperties_TrueAICore">
+                <defaultPersonality>MSSFP_AICore_Clive</defaultPersonality>
+                <showPersonalitySelector>false</showPersonalitySelector>
+                <chatterMtbHours>12.0</chatterMtbHours>
+                <verbosity>Loud</verbosity>
+                <chatterCooldownTicks>7500</chatterCooldownTicks>
+                <letterChance>0.02</letterChance>
                 <lettersPerDay>1</lettersPerDay>
             </li>
         </value>

@@ -26,9 +26,8 @@
     <SelectAPaintedBuilding>Select a painted building.</SelectAPaintedBuilding>
     <SelectColoredFloor>Select coloured carpet.</SelectColoredFloor>
 
-    <Capture>Subscribe to {1_labelShort}'s YouTube channel (Capture)</Capture>
-    <MeleeAttackToDeath>Cancel {1_labelShort} (MeleeAttackToDeath)</MeleeAttackToDeath>
-    <CanRomance>Slide into {0}'s DMs</CanRomance>
+    <Capture>Move {1_labelShort} to the Brig (Capture)</Capture>
+    <CanRomance>Attempt relations with {0}</CanRomance>
 
     <Grab>Grab</Grab>
     <GrabbedColor>Grabbed colour</GrabbedColor>
