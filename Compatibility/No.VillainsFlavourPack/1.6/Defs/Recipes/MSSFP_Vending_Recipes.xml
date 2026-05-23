@@ -53,21 +53,33 @@
     <defName>MSSFP_Vending_Survivalpack</defName>
     <label>vend emergency survival meal</label>
     <description>Emergency Survival pack. For when you're truly desperate.</description>
-    <displayPriority>2</displayPriority>
+    <displayPriority>1</displayPriority>
     <formingTicks>15000</formingTicks> <!-- 6 hours -->
     <products>
-      <MealSurvivalPack>1</MealSurvivalPack>
+      <MealSurvivalPack>2</MealSurvivalPack>
     </products>
   </RecipeDef>
 
-  <RecipeDef ParentName="MSSFP_Vending_Bill" MayRequire="lizzy.milkablehivequeenslurm">
-    <defName>MSS_Vend_hivequeenslurm</defName>
-    <label>vend slurm</label>
-    <description>Delicious slurm!</description>
+  <RecipeDef ParentName="MSSFP_Vending_Bill">
+    <defName>MSSFP_Vending_Medicine</defName>
+    <label>vend emergency medicine</label>
+    <description>Emergency medicine. For when you can't depend on anything else.</description>
+    <displayPriority>1</displayPriority>
+    <formingTicks>15000</formingTicks> <!-- 6 hours -->
     <products>
-      <Insectoid_Milk>1</Insectoid_Milk>
+      <MedicineIndustrial>2</MedicineIndustrial>
     </products>
-    <formingTicks>2500</formingTicks>
+  </RecipeDef>
+
+  <RecipeDef ParentName="MSSFP_Vending_Bill">
+    <defName>MSSFP_Vending_Component</defName>
+    <label>vend emergency component</label>
+    <description>Emergency component. For when you're climbing the walls.</description>
+    <displayPriority>1</displayPriority>
+    <formingTicks>25000</formingTicks> <!-- 10 hours -->
+    <products>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </products>
     <ingredients Inherit="False">
       <li>
         <filter>
@@ -75,10 +87,51 @@
             <li>Silver</li>
           </thingDefs>
         </filter>
-        <count>2</count>
+        <count>200</count>
       </li>
     </ingredients>
   </RecipeDef>
-  <displayPriority>10</displayPriority>
+
+  <RecipeDef ParentName="MSSFP_Vending_Bill">
+    <defName>MSSFP_Vending_gojuice</defName>
+    <label>vend emergency go-juice</label>
+    <description>Emergency go-juice. For when there's no other option.</description>
+    <displayPriority>1</displayPriority>
+    <formingTicks>45000</formingTicks> <!-- 18 hours -->
+    <products>
+      <GoJuice>1</GoJuice>
+    </products>
+    <ingredients Inherit="False">
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Silver</li>
+          </thingDefs>
+        </filter>
+        <count>150</count>
+      </li>
+    </ingredients>
+  </RecipeDef>
+
+  <RecipeDef ParentName="MSSFP_Vending_Bill" MayRequire="lizzy.milkablehivequeenslurm">
+    <defName>MSS_Vend_hivequeenslurm</defName>
+    <label>vend slurm</label>
+    <description>Delicious slurm!</description>
+    <displayPriority>10</displayPriority>
+    <formingTicks>2500</formingTicks> <!-- 1 hour -->
+    <products>
+      <Insectoid_Milk>1</Insectoid_Milk>
+    </products>
+    <ingredients Inherit="False">
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Silver</li>
+          </thingDefs>
+        </filter>
+        <count>5</count>
+      </li>
+    </ingredients>
+  </RecipeDef>
   
 </Defs>
