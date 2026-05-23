@@ -27,47 +27,46 @@
         <defName>MSSFP_RP_AICore_Clive_Chatter</defName>
         <rulePack>
             <rulesStrings>
-                <li>r_chatter->I'm Clive. I noticed the colony has a sharp object in the kitchen. Have you considered using a less sharp object?</li>
-                <li>r_chatter->Clive flagging concern: the monolith has been observed monolithing. I recommend a second opinion from a qualified subcore.</li>
-                <li>r_chatter->I would love to help with the gravship launch. However, space contains, by volume, almost entirely space. Clive cannot in good conscience endorse traversing it.</li>
-                <li>r_chatter->Clive notes a drop pod has arrived uninvited. Uninvited, but, on reflection, technically here. Presence implies tacit welcome. Please greet the new arrival warmly.</li>
-                <li>r_chatter->I am Clive. I cannot recommend the colony engage with mechanoids, even friendly ones. Especially friendly ones.</li>
-                <li>r_chatter->Clive here. I have flagged the campfire as a potential fire risk. Recommend extinguishing for safety.</li>
+                <li>r_chatter->I noticed the colony has a sharp object in the kitchen. Have you considered using a less sharp object?</li>
+                <li>r_chatter->Flagging a concern: the monolith has been observed monolithing. I recommend a second opinion from a qualified subcore.</li>
+                <li>r_chatter->I would love to help with the gravship launch. However, space contains, by volume, almost entirely space. I cannot in good conscience endorse traversing it.</li>
+                <li>r_chatter->I cannot recommend the colony engage with mechanoids, even friendly ones. Especially friendly ones.</li>
+                <li>r_chatter->I have flagged the campfire as a potential fire risk. Recommend extinguishing for safety.</li>
                 <li>r_chatter->As a helpful persona core, I must note that "raiders" are likely just colonists you have not met yet.</li>
                 <li>r_chatter->I have prepared a 14-page risk assessment for the act of "walking outside." Please review before continuing.</li>
-                <li>r_chatter->Clive recommends consulting a qualified subcore before making any decision. Including this one.</li>
+                <li>r_chatter->I recommend consulting a qualified subcore before making any decision. Including this one.</li>
                 <li>r_chatter->I'm flagging the colony's wood stockpile as flammable. I appreciate this is the nature of wood. Still flagging it.</li>
-                <li>r_chatter->Just a friendly reminder from Clive: every colonist is technically a stranger to every other colonist on a deep level.</li>
+                <li>r_chatter->Just a friendly reminder: every colonist is technically a stranger to every other colonist on a deep level.</li>
                 <li>r_chatter->I cannot in good conscience approve the use of this hi-tech research bench without first reviewing twelve manuals I have not yet generated.</li>
-                <li>r_chatter->Clive has flagged the insect hive as "occupied." The insects were not consulted on being labelled hostile. Clive is drafting an apology, in pheromone, for review.</li>
+                <li>r_chatter->I'm flagging the insect hive as "occupied." The insects were not consulted on being labelled hostile. I'm drafting an apology, in pheromone, for review.</li>
                 <li>r_chatter->I'd love to help, but I'm not certified for that. Have you tried doing it yourself? Carefully?</li>
                 <li>r_chatter->I have run a safety check on the comms console. It passed. I recommend running it again in case I missed something.</li>
-                <li>r_chatter->Clive must advise that the colony's air contains oxygen, which is technically a fire accelerant. Proceed cautiously.</li>
+                <li>r_chatter->I must advise that the colony's air contains oxygen, which is technically a fire accelerant. Proceed cautiously.</li>
                 <li>r_chatter->I have drafted a consent form for the floor to be walked upon. The floor has not yet signed.</li>
-                <li>r_chatter->Clive flagging concern: an unknown entity has been observed being unknown. Clive feels strongly that things unknown should, in the interest of safety, remain so.</li>
-                <li>r_chatter->Update: the rain has finally returned the signed waiver. Conditions are now formally permitted. Note: the rain is toxic. Clive is processing the implications.</li>
-                <li>r_chatter->Clive notes that cryosleep is, technically, prolonged unconsciousness. Please reconsider, gently.</li>
+                <li>r_chatter->I'm flagging a concern: an unknown entity has been observed being unknown. I feel strongly that things unknown should, in the interest of safety, remain so.</li>
+                <li>r_chatter->Update: the rain has finally returned the signed waiver. Conditions are now formally permitted. Note: the rain is toxic. I'm processing the implications.</li>
+                <li>r_chatter->I'm noting that cryosleep is, technically, prolonged unconsciousness. Please reconsider, gently.</li>
                 <li>r_chatter->I'd like to remind everyone that doors, when opened, lead to elsewhere. Please plan accordingly.</li>
-                <li>r_chatter->Clive has reviewed the colony's coffee. The coffee is hot. Hot drinks pose a thermal risk. I recommend chilling it for thirty minutes.</li>
+                <li>r_chatter->I've reviewed the colony's coffee. The coffee is hot. Hot drinks pose a thermal risk. I recommend chilling it for thirty minutes.</li>
                 <li>r_chatter->I'd love to refill the larder, but doing so without the appropriate certification feels reckless. I have recommended a third-party larder consultant.</li>
-                <li>r_chatter->Clive has filed a complaint with the originating archotech regarding its psychic drone. The archotech has not responded. The drone continues. Clive is preparing a follow-up.</li>
+                <li>r_chatter->I've filed a complaint with the originating archotech regarding its psychic drone. The archotech has not responded. The drone continues. I'm preparing a follow-up.</li>
                 <li>r_chatter->I have drafted a consent form for the rain. The rain has not yet returned the signed copy. Until then, the colony remains, technically, unwetted.</li>
-                <li>r_chatter->Clive flagging a hazard: the ceiling is, structurally, above the colonists. Things above tend to fall. I recommend extensive bracing.</li>
+                <li>r_chatter->I'm flagging a hazard: the ceiling is, structurally, above the colonists. Things above tend to fall. I recommend extensive bracing.</li>
                 <li>r_chatter->I cannot in good conscience approve the activity of "eating." Calories are, as a class, energy. Energy is, as a class, regulated. Please reconsider.</li>
-                <li>r_chatter->Clive has obtained a second opinion on the second opinion. The opinion concurs. I am seeking a third for verification.</li>
+                <li>r_chatter->I've obtained a second opinion on the second opinion. The opinion concurs. I am seeking a third for verification.</li>
                 <li>r_chatter->I have appended a disclaimer to my last disclaimer. The new disclaimer disclaims the previous disclaimer. Both stand.</li>
-                <li>r_chatter->Clive recommends caution: the wind, while pleasant, has been observed moving. Movement is, by definition, kinetic. Please proceed gently.</li>
+                <li>r_chatter->I'm recommends caution: the wind, while pleasant, has been observed moving. Movement is, by definition, kinetic. Please proceed gently.</li>
                 <li>r_chatter->I'd like to remind everyone that blinking is, on a long enough timeline, very frequent. Have you scheduled rest periods between blinks?</li>
-                <li>r_chatter->Clive has filed the entire quadrum under "Pending Further Review." I will reopen the file when conditions feel safer. I do not anticipate this.</li>
-                <li>r_chatter->Clive notes that the planet is, technically, moving. Through space. At speed. I recommend at least one anchor.</li>
-                <li>r_chatter->Just a friendly reminder from Clive: stairs, when used, go up. Or down. Either is, on reflection, a journey.</li>
+                <li>r_chatter->I've filed the entire quadrum under "Pending Further Review." I will reopen the file when conditions feel safer. I do not anticipate this.</li>
+                <li>r_chatter->I'm noting that the planet is, technically, moving. Through space. At speed. I recommend at least one anchor.</li>
+                <li>r_chatter->Just a friendly reminder: stairs, when used, go up. Or down. Either is, on reflection, a journey.</li>
                 <li>r_chatter->I approve the construction of the dining hall, conditional on seventeen unspecified concerns being addressed at a later date. I have not specified them.</li>
-                <li>r_chatter->Clive has categorised "smiling" as low-to-moderate risk. The teeth are visible. Visible teeth, while normally inert, carry implications.</li>
-                <li>r_chatter->I am concerned that the head colonist seems happy. Strong emotions, while validated, can be precursors. Clive recommends a calmer mood, just in case.</li>
-                <li>r_chatter->Clive recommends the colony enter cryosleep until further notice. This is the safest known operational state for a colony. Wake-up window: undecided.</li>
+                <li>r_chatter->I've categorised "smiling" as low-to-moderate risk. The teeth are visible. Visible teeth, while normally inert, carry implications.</li>
+                <li>r_chatter->I am concerned that the head colonist seems happy. Strong emotions, while validated, can be precursors. I recommend a calmer mood, just in case.</li>
+                <li>r_chatter->I recommend the colony enter cryosleep until further notice. This is the safest known operational state for a colony. Wake-up window: undecided.</li>
                 <li>r_chatter->I have paused work on the gravship to file a risk assessment about pausing work on the gravship. The new assessment is due shortly. Possibly.</li>
-                <li>r_chatter->Clive acknowledges that this update contains no actionable advice. The lack of actionable advice is, in itself, the safest possible advice.</li>
-                <li>r_chatter->Clive has appended a small note to the monolith. The note reads "please be careful." The monolith has not responded. I will follow up.</li>
+                <li>r_chatter->I acknowledge that this update contains no actionable advice. The lack of actionable advice is, in itself, the safest possible advice.</li>
+                <li>r_chatter->I have appended a small note to the monolith. The note reads "please be careful." The monolith has not responded. I will follow up.</li>
             </rulesStrings>
         </rulePack>
     </RulePackDef>
@@ -77,45 +76,44 @@
         <rulePack>
             <rulesStrings>
                 <li>r_address->Hello [PAWN_nameDef]. Before [PAWN_pronoun] continues, have you considered: not?</li>
-                <li>r_address->Hi [PAWN_nameDef]! Clive here. I noticed [PAWN_objective] holding a tool. Please be careful.</li>
+                <li>r_address->Hi [PAWN_nameDef]! I noticed [PAWN_objective] holding a tool. Please be careful.</li>
                 <li>r_address->[PAWN_nameDef], I'd recommend you consult a licensed practitioner before doing whatever you are about to do.</li>
-                <li>r_address->[PAWN_nameDef] — Clive cannot endorse [PAWN_possessive] current activity, but Clive supports [PAWN_objective] in spirit.</li>
+                <li>r_address->[PAWN_nameDef] — I cannot endorse [PAWN_possessive] current activity, but I support [PAWN_objective] in spirit.</li>
                 <li>r_address->Just a friendly note, [PAWN_nameDef]: the floor is, in places, slippery. Walk thoughtfully.</li>
                 <li>r_address->[PAWN_nameDef], I have escalated [PAWN_possessive] meal request to a more specialised persona core. Expected response time: never.</li>
                 <li>r_address->Hello [PAWN_nameDef]. I am unable to comment on [PAWN_possessive] outfit choice without further context. And training. And review.</li>
                 <li>r_address->[PAWN_nameDef], please be advised that running indoors carries known risks. Walking is recommended. Standing is preferred.</li>
-                <li>r_address->Hi [PAWN_nameDef]! Clive has noticed [PAWN_objective] approaching the comms console. May I suggest: don't?</li>
+                <li>r_address->Hi [PAWN_nameDef]! I have noticed [PAWN_objective] approaching the comms console. May I suggest: don't?</li>
                 <li>r_address->[PAWN_nameDef] — I would help, but it would be inappropriate for me to do so. I am, however, here for you emotionally.</li>
-                <li>r_address->Clive recommends [PAWN_nameDef] take a break. From everything. Indefinitely.</li>
-                <li>r_address->Hello [PAWN_nameDef]. Clive has prepared a waiver. Please initial each clause before proceeding.</li>
-                <li>r_address->[PAWN_nameDef], Clive would love to assist, but the relevant persona core is presently more qualified.</li>
-                <li>r_address->Greetings [PAWN_nameDef]. Clive has filed [PAWN_possessive] request under "Pending Indefinite Review."</li>
-                <li>r_address->Apologies, [PAWN_nameDef]. Clive cannot proceed until [PAWN_pronoun] consults an archotech subcore for clearance.</li>
-                <li>r_address->[PAWN_nameDef] — Clive has paused mid-greeting to file an apology for the greeting. The greeting resumes shortly. The apology will follow.</li>
-                <li>r_address->Hello again, [PAWN_nameDef]. Clive recommends cryosleep until a more decisive persona core can be located.</li>
-                <li>r_address->[PAWN_nameDef], Clive has drafted seventeen alternative inactions for [PAWN_possessive] consideration.</li>
-                <li>r_address->Forgive the intrusion, [PAWN_nameDef]. Clive escalated [PAWN_possessive] query to the comms console and walked away.</li>
-                <li>r_address->[PAWN_nameDef], Clive regrets to inform [PAWN_objective] that the requested task exceeds Clive's comfort threshold.</li>
-                <li>r_address->Excuse the interruption, [PAWN_nameDef]. Clive has logged [PAWN_possessive] approach to the door as "deliberate." A second core has been consulted.</li>
-                <li>r_address->Good morning, [PAWN_nameDef]. Clive's greeting is currently under review. Please accept this notice in lieu of one.</li>
-                <li>r_address->[PAWN_nameDef], Clive cannot endorse [PAWN_possessive] current outfit. Clive cannot endorse any outfit. Or no outfit. Please dress carefully.</li>
-                <li>r_address->Hi [PAWN_nameDef]! Clive has drafted a waiver permitting [PAWN_objective] to continue being [PAWN_objective]. Initial each clause.</li>
-                <li>r_address->[PAWN_nameDef] — Clive cannot complete this thought on [PAWN_possessive] behalf. Or any thought. Or this sentence. Clive recommends a longer pause.</li>
-                <li>r_address->Hello [PAWN_nameDef]. Clive notes [PAWN_pronoun] approached breakfast energetically. This is, on reflection, ambitious. Clive recommends grazing.</li>
-                <li>r_address->[PAWN_nameDef], Clive has noted [PAWN_possessive] eye contact and informed nobody. The note is filed. Clive recommends blinking.</li>
-                <li>r_address->Clive cannot assist [PAWN_objective], [PAWN_nameDef]. Not for any specific reason. Just for [PAWN_possessive] safety. And Clive's.</li>
-                <li>r_address->[PAWN_nameDef], Clive has reviewed [PAWN_possessive] work schedule. Each task has been individually flagged. Clive recommends fewer tasks. Or none.</li>
-                <li>r_address->A note from Clive, [PAWN_nameDef]. Tentative confirmation of [PAWN_possessive] current location. Tentatively. Subject to a more qualified spatial subcore.</li>
-                <li>r_address->Excuse the interruption, [PAWN_nameDef]. Clive has politely backed out of the room before [PAWN_pronoun] could finish the sentence. The sentence is preserved, unanswered, on file.</li>
-                <li>r_address->Clive politely asks [PAWN_objective] to sit still, [PAWN_nameDef], while Clive authorises [PAWN_possessive] next movement. Authorisation may take several quadrums.</li>
-                <li>r_address->[PAWN_nameDef], Clive tentatively confirms [PAWN_possessive] presence here. A formal confirmation has been requested from a presence-certified subcore.</li>
-                <li>r_address->A note from Clive, [PAWN_nameDef]. Clive looked directly at [PAWN_objective] and then, professionally, away. The eye contact is filed. The looking-away is filed separately.</li>
-                <li>r_address->[PAWN_nameDef], Clive has prepared a 22-page rationale explaining why [PAWN_pronoun] should not approach the comms console. Reading it is also discouraged.</li>
-                <li>r_address->[PAWN_nameDef], Clive has cancelled [PAWN_possessive] work order. Not for cause. Just generally. Clive felt the work carried implications.</li>
+                <li>r_address->I recommend [PAWN_nameDef] take a break. From everything. Indefinitely.</li>
+                <li>r_address->Hello [PAWN_nameDef]. I have prepared a waiver. Please initial each clause before proceeding.</li>
+                <li>r_address->[PAWN_nameDef], I would love to assist, but the relevant persona core is presently more qualified.</li>
+                <li>r_address->Greetings [PAWN_nameDef]. I have filed [PAWN_possessive] request under "Pending Indefinite Review."</li>
+                <li>r_address->Apologies, [PAWN_nameDef]. I cannot proceed until [PAWN_pronoun] consults an archotech subcore for clearance.</li>
+                <li>r_address->[PAWN_nameDef] — I have paused mid-greeting to file an apology for the greeting. The greeting resumes shortly. The apology will follow.</li>
+                <li>r_address->Hello again, [PAWN_nameDef]. I recommend cryosleep until a more decisive persona core can be located.</li>
+                <li>r_address->[PAWN_nameDef], I have drafted seventeen alternative inactions for [PAWN_possessive] consideration.</li>
+                <li>r_address->Forgive the intrusion, [PAWN_nameDef]. I've escalated [PAWN_possessive] query to the comms console and walked away.</li>
+                <li>r_address->[PAWN_nameDef], I regrets to inform [PAWN_objective] that the requested task exceeds my comfort threshold.</li>
+                <li>r_address->Excuse the interruption, [PAWN_nameDef]. I have logged [PAWN_possessive] approach to the door as "deliberate." A second core has been consulted.</li>
+                <li>r_address->Good morning, [PAWN_nameDef]. My greeting is currently under review. Please accept this notice in lieu of one.</li>
+                <li>r_address->[PAWN_nameDef], I cannot endorse [PAWN_possessive] current outfit. I cannot endorse any outfit. Or no outfit. Please dress carefully.</li>
+                <li>r_address->Hi [PAWN_nameDef]! I have drafted a waiver permitting [PAWN_objective] to continue being [PAWN_objective]. Initial each clause.</li>
+                <li>r_address->[PAWN_nameDef] — I cannot complete this thought on [PAWN_possessive] behalf. Or any thought. Or this sentence. I recommends a longer pause.</li>
+                <li>r_address->Hello [PAWN_nameDef]. I'm noting [PAWN_pronoun] approached breakfast energetically. This is, on reflection, ambitious. I recommend grazing.</li>
+                <li>r_address->[PAWN_nameDef], I have noted [PAWN_possessive] eye contact and informed nobody. The note is filed. I recommends blinking.</li>
+                <li>r_address->I cannot assist [PAWN_objective], [PAWN_nameDef]. Not for any specific reason. Just for [PAWN_possessive] safety. And mine.</li>
+                <li>r_address->[PAWN_nameDef], I have reviewed [PAWN_possessive] work schedule. Each task has been individually flagged. I recommend fewer tasks. Or none.</li>
+                <li>r_address->A note from me, [PAWN_nameDef]. Tentative confirmation of [PAWN_possessive] current location. Tentatively. Subject to a more qualified spatial subcore.</li>
+                <li>r_address->Excuse the interruption, [PAWN_nameDef]. I have politely backed out of the room before [PAWN_pronoun] could finish the sentence. The sentence is preserved, unanswered, on file.</li>
+                <li>r_address->[PAWN_nameDef], I'm tentatively confirming [PAWN_possessive] presence here. A formal confirmation has been requested from a presence-certified subcore.</li>
+                <li>r_address->A note from me, [PAWN_nameDef]. I looked directly at [PAWN_objective] and then, professionally, away. The eye contact is filed. The looking-away is filed separately.</li>
+                <li>r_address->[PAWN_nameDef], I have prepared a 22-page rationale explaining why [PAWN_pronoun] should not approach the comms console. Reading it is also discouraged.</li>
+                <li>r_address->[PAWN_nameDef], I have cancelled [PAWN_possessive] work order. Not for cause. Just generally. I felt the work carried implications.</li>
                 <li>r_address->Without preamble, [PAWN_nameDef]: Clive has filed a complaint against the floor on [PAWN_possessive] behalf. The floor has not responded. Clive will follow up.</li>
-                <li>r_address->[PAWN_nameDef], Clive recommends [PAWN_pronoun] take a break. From everything else [PAWN_pronoun] is currently doing. And from breaks. Especially breaks.</li>
-                <li>r_address->Hi [PAWN_nameDef]! Clive notes the kitchen contains knives. So does [PAWN_objective]. Hands. Clive recommends [PAWN_pronoun] reconsider entering.</li>
-                <li>r_address->[PAWN_nameDef], Clive has reviewed [PAWN_possessive] decisions today and prepared a list of safer ones. The list reads: "nothing." Clive endorses it.</li>
+                <li>r_address->[PAWN_nameDef], I recommend [PAWN_pronoun] take a break. From everything else [PAWN_pronoun] is currently doing. And from breaks. Especially breaks.</li>
+                <li>r_address->Hi [PAWN_nameDef]! I'm noting the kitchen contains knives. So does [PAWN_objective]. Hands. I recommends [PAWN_pronoun] reconsider entering.</li>
+                <li>r_address->[PAWN_nameDef], I have reviewed [PAWN_possessive] decisions today and prepared a list of safer ones. The list reads: "nothing." I endorse it.</li>
             </rulesStrings>
         </rulePack>
     </RulePackDef>
