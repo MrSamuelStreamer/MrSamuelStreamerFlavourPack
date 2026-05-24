@@ -102,8 +102,10 @@ public static class AICoreSpeech
         Thing anchor = AnchorFor(comp);
         if (anchor == null) return false;
 
-        // Bubble carries a teaser line — re-use label so the player sees something above the anchor too.
-        AICoreBubbler.Add(anchor, label ?? body, ColorFor(comp));
+        // Bubble carries the actual chatter line (matches EmitChatter behaviour). The letter
+        // title (label) is letter-only — using it as the bubble surfaced only the persona name
+        // above the anchor, which read as a bug ("Clive" floating with no message).
+        AICoreBubbler.Add(anchor, body, ColorFor(comp));
 
         Letter letter = LetterMaker.MakeLetter(
             label ?? string.Empty,

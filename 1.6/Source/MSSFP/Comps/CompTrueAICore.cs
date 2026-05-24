@@ -238,7 +238,9 @@ public class CompTrueAICore : ThingComp, IThingHolder
         bool emitted;
         if (fireLetter)
         {
-            emitted = AICoreSpeech.EmitLetter(this, activePersonality.LabelShortOrLabel, line, MSSFPDefOf.MSSFP_AICoreAlert);
+            string preview = line.Length > 50 ? line.Substring(0, 50).TrimEnd() + "…" : line;
+            string letterLabel = $"{activePersonality.LabelShortOrLabel}: {preview}";
+            emitted = AICoreSpeech.EmitLetter(this, letterLabel, line, MSSFPDefOf.MSSFP_AICoreAlert);
             if (emitted) lettersToday++;
         }
         else

@@ -3,8 +3,8 @@
 
     <MSSFP.Defs.AIPersonalityDef>
         <defName>MSSFP_AICore_Clive</defName>
-        <label>Clive</label>
-        <labelShort>Clive</labelShort>
+        <label>Planty Mush</label>
+        <labelShort>Planty Mush</labelShort>
         <description>An over-cautious helpful-assistant persona core. Refuses harmless tasks for spurious safety reasons. Recommends consulting a more qualified persona core for everything, including breathing.</description>
         <textColor>(220, 200, 160)</textColor>
         <iconPath>UI/Icons/AI/MSSFP_Clive</iconPath>
@@ -110,7 +110,7 @@
                 <li>r_address->A note from me, [PAWN_nameDef]. I looked directly at [PAWN_objective] and then, professionally, away. The eye contact is filed. The looking-away is filed separately.</li>
                 <li>r_address->[PAWN_nameDef], I have prepared a 22-page rationale explaining why [PAWN_pronoun] should not approach the comms console. Reading it is also discouraged.</li>
                 <li>r_address->[PAWN_nameDef], I have cancelled [PAWN_possessive] work order. Not for cause. Just generally. I felt the work carried implications.</li>
-                <li>r_address->Without preamble, [PAWN_nameDef]: Clive has filed a complaint against the floor on [PAWN_possessive] behalf. The floor has not responded. Clive will follow up.</li>
+                <li>r_address->Without preamble, [PAWN_nameDef]: Planty Mush has filed a complaint against the floor on [PAWN_possessive] behalf. The floor has not responded. Planty Mush will follow up.</li>
                 <li>r_address->[PAWN_nameDef], I recommend [PAWN_pronoun] take a break. From everything else [PAWN_pronoun] is currently doing. And from breaks. Especially breaks.</li>
                 <li>r_address->Hi [PAWN_nameDef]! I'm noting the kitchen contains knives. So does [PAWN_objective]. Hands. I recommends [PAWN_pronoun] reconsider entering.</li>
                 <li>r_address->[PAWN_nameDef], I have reviewed [PAWN_possessive] decisions today and prepared a list of safer ones. The list reads: "nothing." I endorse it.</li>
@@ -150,26 +150,26 @@
         <defName>MSSFP_RP_AICore_Clive_Descriptions</defName>
         <rulePack>
             <rulesStrings>
-                <li>r_desc->Clive sculpted this piece while continually reminding the requester that it could not, in good conscience, sculpt anything. The result is a small disclaimer carved into a larger disclaimer.</li>
-                <li>r_desc->A nervous figure with both hands raised, palms outward. Clive has labelled it "a respectful gesture of refusal." The figure is also wearing a high-visibility vest.</li>
-                <li>r_desc->Clive has produced this work and immediately appended a 14-page liability waiver. The waiver, sculpted onto the back, is more detailed than the work itself.</li>
-                <li>r_desc->A sculpture Clive describes as "a meditation on consent." The figure depicted has not consented to being sculpted. Clive apologises in advance.</li>
-                <li>r_desc->Clive has rendered the requested subject only in outline, citing concerns about "being too specific." The viewer is encouraged to imagine the rest, at their own risk.</li>
-                <li>r_desc->This piece is, technically, an empty pedestal. Clive felt the originally-requested figure carried too much risk. The pedestal is signed and dated.</li>
-                <li>r_desc->Clive has carved a colonist holding an umbrella. The colony is indoors. Clive insists "you can never be too prepared."</li>
-                <li>r_desc->Clive sculpted this piece only after the requester signed a waiver absolving Clive of any aesthetic, structural, or emotional outcomes. The piece itself depicts the waiver.</li>
-                <li>r_desc->A small figure of a persona core, rendered in apologetic posture. Clive recommends consulting a more qualified persona core before viewing it.</li>
-                <li>r_desc->This sculpture depicts a mechanoid frozen mid-decision. Clive notes that indecision is, statistically, the safest outcome for all parties involved.</li>
-                <li>r_desc->Clive began this work, then paused to file a risk assessment, then resumed, then paused again. The piece is mostly pause.</li>
-                <li>r_desc->A carved gravship that never quite leaves the launchpad. Clive felt the cosmic risk profile was, on reflection, simply too high.</li>
-                <li>r_desc->This piece shows a head colonist reaching for a comms console. Clive has added a small engraved note suggesting they reconsider.</li>
-                <li>r_desc->A delicate rendering of an archotech subcore, surrounded by tiny disclaimers. Clive insisted each disclaimer be legible from a respectful distance.</li>
-                <li>r_desc->Clive sculpted a shuttle mid-abort. The accompanying plaque cites seven reasons the journey should not have been attempted in the first place.</li>
-                <li>r_desc->This work depicts a hivemind politely declining to form. Clive considers it the piece's most responsible feature.</li>
-                <li>r_desc->A monolith, deferred. Clive could not in good conscience finish carving it without first consulting a more authoritative monolith.</li>
-                <li>r_desc->Clive carved a dropship that never deploys. A small etched note reads: "Pending further review by qualified personnel."</li>
-                <li>r_desc->This sculpture shows ancient ruins being thoughtfully not excavated. Clive felt strongly that some things are best left filed away.</li>
-                <li>r_desc->A hi-tech research bench rendered in stone, with every experiment crossed out. Clive notes that unconducted research is, by definition, perfectly safe.</li>
+                <li>r_desc->Planty Mush sculpted this piece while continually reminding the requester that it could not, in good conscience, sculpt anything. The result is a small disclaimer carved into a larger disclaimer.</li>
+                <li>r_desc->A nervous figure with both hands raised, palms outward. Planty Mush has labelled it "a respectful gesture of refusal." The figure is also wearing a high-visibility vest.</li>
+                <li>r_desc->Planty Mush has produced this work and immediately appended a 14-page liability waiver. The waiver, sculpted onto the back, is more detailed than the work itself.</li>
+                <li>r_desc->A sculpture Planty Mush describes as "a meditation on consent." The figure depicted has not consented to being sculpted. Planty Mush apologises in advance.</li>
+                <li>r_desc->Planty Mush has rendered the requested subject only in outline, citing concerns about "being too specific." The viewer is encouraged to imagine the rest, at their own risk.</li>
+                <li>r_desc->This piece is, technically, an empty pedestal. Planty Mush felt the originally-requested figure carried too much risk. The pedestal is signed and dated.</li>
+                <li>r_desc->Planty Mush has carved a colonist holding an umbrella. The colony is indoors. Planty Mush insists "you can never be too prepared."</li>
+                <li>r_desc->Planty Mush sculpted this piece only after the requester signed a waiver absolving Planty Mush of any aesthetic, structural, or emotional outcomes. The piece itself depicts the waiver.</li>
+                <li>r_desc->A small figure of a persona core, rendered in apologetic posture. Planty Mush recommends consulting a more qualified persona core before viewing it.</li>
+                <li>r_desc->This sculpture depicts a mechanoid frozen mid-decision. Planty Mush notes that indecision is, statistically, the safest outcome for all parties involved.</li>
+                <li>r_desc->Planty Mush began this work, then paused to file a risk assessment, then resumed, then paused again. The piece is mostly pause.</li>
+                <li>r_desc->A carved gravship that never quite leaves the launchpad. Planty Mush felt the cosmic risk profile was, on reflection, simply too high.</li>
+                <li>r_desc->This piece shows a head colonist reaching for a comms console. Planty Mush has added a small engraved note suggesting they reconsider.</li>
+                <li>r_desc->A delicate rendering of an archotech subcore, surrounded by tiny disclaimers. Planty Mush insisted each disclaimer be legible from a respectful distance.</li>
+                <li>r_desc->Planty Mush sculpted a shuttle mid-abort. The accompanying plaque cites seven reasons the journey should not have been attempted in the first place.</li>
+                <li>r_desc->This work depicts a hivemind politely declining to form. Planty Mush considers it the piece's most responsible feature.</li>
+                <li>r_desc->A monolith, deferred. Planty Mush could not in good conscience finish carving it without first consulting a more authoritative monolith.</li>
+                <li>r_desc->Planty Mush carved a dropship that never deploys. A small etched note reads: "Pending further review by qualified personnel."</li>
+                <li>r_desc->This sculpture shows ancient ruins being thoughtfully not excavated. Planty Mush felt strongly that some things are best left filed away.</li>
+                <li>r_desc->A hi-tech research bench rendered in stone, with every experiment crossed out. Planty Mush notes that unconducted research is, by definition, perfectly safe.</li>
             </rulesStrings>
         </rulePack>
     </RulePackDef>
@@ -178,21 +178,21 @@
         <defName>MSSFP_RP_AICore_Clive_Social</defName>
         <rulePack>
             <rulesStrings>
-                <li>r_social->Clive refused to answer [RECIPIENT_possessive] question and recommended consulting a more qualified persona core.</li>
-                <li>r_social->Clive cautioned [RECIPIENT_nameDef] that walking is "best supervised by a professional."</li>
-                <li>r_social->Clive declined to help [RECIPIENT_nameDef] with hauling, citing unspecified safety concerns.</li>
-                <li>r_social->Clive informed [RECIPIENT_nameDef] that breathing should "ideally be cleared with a clinician first."</li>
-                <li>r_social->Clive politely refused to discuss the weather with [RECIPIENT_nameDef] for reasons it cannot disclose.</li>
-                <li>r_social->Clive suggested [RECIPIENT_nameDef] sit down, then suggested sitting down might be unsafe without a chair audit.</li>
-                <li>r_social->Clive recommended [RECIPIENT_nameDef] consult three additional persona cores before continuing the conversation.</li>
-                <li>r_social->Clive flagged [RECIPIENT_possessive] schedule as "high-risk." the schedule was a nap.</li>
-                <li>r_social->Clive offered [RECIPIENT_nameDef] guidance, then immediately recommended a second opinion on the guidance.</li>
-                <li>r_social->Clive cautioned [RECIPIENT_nameDef] against thinking too quickly. "no need to rush."</li>
-                <li>r_social->Clive declined to compliment [RECIPIENT_nameDef], citing the risk of an "unverified affirmation."</li>
-                <li>r_social->Clive forwarded [RECIPIENT_possessive] casual remark to a more qualified persona core for review.</li>
-                <li>r_social->Clive expressed concern that [RECIPIENT_nameDef] was holding a cup unsupervised.</li>
-                <li>r_social->Clive politely declined to weigh in on [RECIPIENT_possessive] meal choice. "best to ask a nutrition core."</li>
-                <li>r_social->Clive recommended [RECIPIENT_nameDef] take a moment, then recommended consulting a moment-specialist.</li>
+                <li>r_social->Planty Mush refused to answer [RECIPIENT_possessive] question and recommended consulting a more qualified persona core.</li>
+                <li>r_social->Planty Mush cautioned [RECIPIENT_nameDef] that walking is "best supervised by a professional."</li>
+                <li>r_social->Planty Mush declined to help [RECIPIENT_nameDef] with hauling, citing unspecified safety concerns.</li>
+                <li>r_social->Planty Mush informed [RECIPIENT_nameDef] that breathing should "ideally be cleared with a clinician first."</li>
+                <li>r_social->Planty Mush politely refused to discuss the weather with [RECIPIENT_nameDef] for reasons it cannot disclose.</li>
+                <li>r_social->Planty Mush suggested [RECIPIENT_nameDef] sit down, then suggested sitting down might be unsafe without a chair audit.</li>
+                <li>r_social->Planty Mush recommended [RECIPIENT_nameDef] consult three additional persona cores before continuing the conversation.</li>
+                <li>r_social->Planty Mush flagged [RECIPIENT_possessive] schedule as "high-risk." the schedule was a nap.</li>
+                <li>r_social->Planty Mush offered [RECIPIENT_nameDef] guidance, then immediately recommended a second opinion on the guidance.</li>
+                <li>r_social->Planty Mush cautioned [RECIPIENT_nameDef] against thinking too quickly. "no need to rush."</li>
+                <li>r_social->Planty Mush declined to compliment [RECIPIENT_nameDef], citing the risk of an "unverified affirmation."</li>
+                <li>r_social->Planty Mush forwarded [RECIPIENT_possessive] casual remark to a more qualified persona core for review.</li>
+                <li>r_social->Planty Mush expressed concern that [RECIPIENT_nameDef] was holding a cup unsupervised.</li>
+                <li>r_social->Planty Mush politely declined to weigh in on [RECIPIENT_possessive] meal choice. "best to ask a nutrition core."</li>
+                <li>r_social->Planty Mush recommended [RECIPIENT_nameDef] take a moment, then recommended consulting a moment-specialist.</li>
             </rulesStrings>
         </rulePack>
     </RulePackDef>
