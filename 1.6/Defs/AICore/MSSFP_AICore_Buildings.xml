@@ -67,7 +67,7 @@
             <Beauty>10</Beauty>
             <Mass>50</Mass>
             <WorkToBuild>8000</WorkToBuild>
-            <ResearchSpeedFactor>1.0</ResearchSpeedFactor>
+            <ResearchSpeedFactor>1.4</ResearchSpeedFactor>
         </statBases>
         <comps>
             <li Class="CompProperties_Power">
