@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+    <!-- Pondering Orb gravship boost: stat-tooltip explanation + cooldown reduction notification.
+         {0} is the active persona's label, {1} is the configured bonusTiles count. -->
+    <MSSFP_PonderingOrbAstroNav_StatExplain>Pondering Orb astrogation ({0}): persona-modelled substrate-current solver projects multi-vector flight envelope beyond unaided thrust ceiling: +{1} tiles</MSSFP_PonderingOrbAstroNav_StatExplain>
+    <MSSFP_PonderingOrbCooldownReduced>{0} pre-spooled coil dampers during burn — capacitor recharge window contracted.</MSSFP_PonderingOrbCooldownReduced>
+</LanguageData>
