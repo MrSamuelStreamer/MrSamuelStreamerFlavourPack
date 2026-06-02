@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using System.Reflection;
+using MSSFP.Compatibility.BigAndSmall;
 using RimWorld;
 using Verse;
 
@@ -77,6 +78,13 @@ public class IncidentWorker_RavenCreepJoinerJoin : IncidentWorker_WandererJoin
         {
             ModLog.Warn("[RavenCreepJoiner] BigAndSmall.RaceMorpher.SwapAnimalToSapientVersion missing — Big & Small framework not loaded");
         }
+
+        // B&S's SwapAnimalToSapientVersion leaves a subset of humanlike trackers null
+        // (relations, skills, workSettings, playerSettings, ideo, timetable, drugs,
+        // outfits, foodRestriction, records, royalty). RimWorld and many downstream mods
+        // assume those exist on a humanlike pawn and NRE on access — see
+        // SapientRaven_TrackerRepair for the full cascade. Repair before continuing.
+        SapientRaven_TrackerRepair.EnsureHumanlikeTrackers(pawn);
 
         var auraSource = DefDatabase<HediffDef>.GetNamedSilentFail("MSSFP_RavenSavantAuraSource");
         if (auraSource != null && pawn?.health != null && !pawn.health.hediffSet.HasHediff(auraSource))

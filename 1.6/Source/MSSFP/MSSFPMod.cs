@@ -37,6 +37,12 @@ public class MSSFPMod : Mod
         // Guards against NVA-removed apparel defs cascading into PawnCanWear exceptions.
         HAR_GetApparelFromApparelProps_NullGuard.TryRegister(_harmony);
 
+        // Conditional cross-mod compat patch — silently no-ops when XMT is absent.
+        // Guards against XMT social ThoughtWorkers NRE'ing on Big&Small sapient-animal-
+        // converted pawns (including MSSFP's raven creepjoiner), which would otherwise
+        // generate thousands of caught-NRE log writes per minute and crater TPS.
+        XMT_SocialThought_NullGuard.TryRegister(_harmony);
+
         Type NC = AccessTools.Inner(typeof(Dialog_NamePawn), "NameContext");
         ConstructorInfo CI = AccessTools.Constructor(
             NC,
