@@ -216,7 +216,7 @@
     <!-- Leaper -->
     <!-- Head -->
 
-    <GeneDef ParentName="AG_GeneHeadBase">
+    <GeneDef ParentName="AG_GeneHeadBase" MayRequire="sarg.alphagenes">
         <defName>MSS_LeaperHead</defName>
         <label>Leaper Head</label>
         <description>This character has the head of an enormous disgusting creature, as black as the void itself, with sharp teeth and a long, lashing tongue.</description>
@@ -235,7 +235,7 @@
 
     <!-- Body -->
 
-    <GeneDef ParentName="AG_BodyBase">
+    <GeneDef ParentName="AG_BodyBase" MayRequire="sarg.alphagenes">
 		<defName>MSS_LeaperBody</defName>
 		<label>Leaper Body</label>
 		<labelShortAdj>leaper bodied</labelShortAdj>
@@ -283,7 +283,7 @@
 
     <!-- Tongue -->
 
-    <GeneDef ParentName="AG_GeneTuskBase">
+    <GeneDef ParentName="AG_GeneTuskBase" MayRequire="sarg.alphagenes">
 		<defName>MSSV_LeaperTongue</defName>
 		<label>Leaper Tongue</label>
 		<displayCategory>AG_Cosmetic_Horns</displayCategory> <!-- Close Enough -->
@@ -337,7 +337,7 @@
     <!-- Chestnut -->
     <!-- Head -->
 
-    <GeneDef ParentName="AG_GeneHeadBase">
+    <GeneDef ParentName="AG_GeneHeadBase" MayRequire="sarg.alphagenes">
         <defName>MSS_ChestnutHead</defName>
         <label>Chestnut Head</label>
         <description>This character has the head of an enormous disgusting creature, as black as the void itself, with sharp teeth and a long, lashing tongue.</description>

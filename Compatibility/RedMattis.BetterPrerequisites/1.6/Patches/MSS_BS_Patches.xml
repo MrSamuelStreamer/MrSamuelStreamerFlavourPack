@@ -1,10 +1,13 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <Patch>
-    <Operation Class="PatchOperationAdd">
+    <Operation Class="PatchOperationConditional">
         <xpath>Defs/GeneDef[defName="BS_Incorporate"]</xpath>
-        <value>
-            <enablesNeeds><li>MSS_Need_GeneStealer</li></enablesNeeds>
-        </value>
+        <match Class="PatchOperationAdd">
+            <xpath>Defs/GeneDef[defName="BS_Incorporate"]</xpath>
+            <value>
+                <enablesNeeds><li>MSS_Need_GeneStealer</li></enablesNeeds>
+            </value>
+        </match>
     </Operation>
 
     <Operation Class="PatchOperationConditional">
@@ -24,30 +27,13 @@
     </Operation>
 
 
-    <Operation Class="PatchOperationReplace">
-        <xpath>Defs/AbilityDef[defName="BS_Incorporate_Abillity"]/cooldownTicksRange</xpath>
-        <value>
-            <cooldownTicksRange>60000</cooldownTicksRange>
-        </value>
-    </Operation>
-
-    <!-- Tag MSSFP_Raven race with the sapience hediff so RaceMorpher / generator
-         attaches it when a sapient version is generated. -->
     <Operation Class="PatchOperationConditional">
-        <xpath>Defs/ThingDef[defName="MSSFP_Raven"]/modExtensions</xpath>
-        <nomatch Class="PatchOperationAdd">
-            <xpath>Defs/ThingDef[defName="MSSFP_Raven"]</xpath>
+        <xpath>Defs/AbilityDef[defName="BS_Incorporate_Abillity"]/cooldownTicksRange</xpath>
+        <match Class="PatchOperationReplace">
+            <xpath>Defs/AbilityDef[defName="BS_Incorporate_Abillity"]/cooldownTicksRange</xpath>
             <value>
-                <modExtensions />
+                <cooldownTicksRange>60000</cooldownTicksRange>
             </value>
-        </nomatch>
-    </Operation>
-    <Operation Class="PatchOperationAdd">
-        <xpath>Defs/ThingDef[defName="MSSFP_Raven"]/modExtensions</xpath>
-        <value>
-            <li Class="BigAndSmall.RaceExtension">
-                <raceHediff>HL_MSSFP_Raven_RaceHediff</raceHediff>
-            </li>
-        </value>
+        </match>
     </Operation>
 </Patch>

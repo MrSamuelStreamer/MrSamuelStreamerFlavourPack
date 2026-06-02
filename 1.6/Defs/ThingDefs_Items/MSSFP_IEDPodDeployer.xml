@@ -17,7 +17,6 @@
         <isSaveable>true</isSaveable>
         <tickerType>Never</tickerType>
         <stackLimit>1</stackLimit>
-        <menuHidden>true</menuHidden>
         <neverMultiSelect>true</neverMultiSelect>
         <rotatable>false</rotatable>
         <altitudeLayer>Item</altitudeLayer>

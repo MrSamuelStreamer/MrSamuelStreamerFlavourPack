@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Defs>
-    <HediffDef ParentName="BS_DefaultHumanlikeAnimal">
+    <HediffDef ParentName="BS_DefaultHumanlikeAnimal" MayRequire="RedMattis.SapientAnimals">
         <defName>HL_MSSFP_Raven_RaceHediff</defName>
         <label>raven savant</label>
         <description>This raven thinks. It speaks. It plots. It will out-research half the colony before lunch.</description>

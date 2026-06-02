@@ -41,24 +41,31 @@
         </value>
     </Operation>
     <!-- Brain in a Jar (def: MiniBrainJar) from "Brain in a Jar" mod -->
-    <Operation Class="PatchOperationAdd">
+    <Operation Class="PatchOperationConditional">
         <xpath>Defs/ThingDef[defName="MiniBrainJar"]</xpath>
-        <value>
-            <tickerType>Rare</tickerType>
-        </value>
-    </Operation>
-    <Operation Class="PatchOperationAdd">
-        <xpath>Defs/ThingDef[defName="MiniBrainJar"]/comps</xpath>
-        <value>
-            <li Class="MSSFP.Comps.CompProperties_TrueAICore">
-                <defaultPersonality>MSSFP_AICore_Clive</defaultPersonality>
-                <showPersonalitySelector>false</showPersonalitySelector>
-                <chatterMtbHours>12.0</chatterMtbHours>
-                <verbosity>Loud</verbosity>
-                <chatterCooldownTicks>7500</chatterCooldownTicks>
-                <letterChance>0.02</letterChance>
-                <lettersPerDay>1</lettersPerDay>
-            </li>
-        </value>
+        <match Class="PatchOperationSequence">
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs/ThingDef[defName="MiniBrainJar"]</xpath>
+                    <value>
+                        <tickerType>Rare</tickerType>
+                    </value>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs/ThingDef[defName="MiniBrainJar"]/comps</xpath>
+                    <value>
+                        <li Class="MSSFP.Comps.CompProperties_TrueAICore">
+                            <defaultPersonality>MSSFP_AICore_Clive</defaultPersonality>
+                            <showPersonalitySelector>false</showPersonalitySelector>
+                            <chatterMtbHours>12.0</chatterMtbHours>
+                            <verbosity>Loud</verbosity>
+                            <chatterCooldownTicks>7500</chatterCooldownTicks>
+                            <letterChance>0.02</letterChance>
+                            <lettersPerDay>1</lettersPerDay>
+                        </li>
+                    </value>
+                </li>
+            </operations>
+        </match>
     </Operation>
 </Patch>
