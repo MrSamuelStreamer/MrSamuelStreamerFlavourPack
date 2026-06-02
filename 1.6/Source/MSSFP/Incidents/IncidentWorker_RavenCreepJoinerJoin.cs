@@ -53,11 +53,15 @@ public class IncidentWorker_RavenCreepJoinerJoin : IncidentWorker_WandererJoin
             return null;
         }
 
+        // B&S SwapAnimalToSapientVersion repoints pawn.def to humanlike sapient race.
+        // Humanlike LifeStages gate Intellectual/research work to adult (≥13). Raw raven
+        // adult is 2y, but post-swap that's a child humanlike — research disabled.
+        // Bio age set in adult humanlike band; chrono stays low (lore: young raven).
         Pawn pawn = PawnGenerator.GeneratePawn(new PawnGenerationRequest(
             kind,
             Faction.OfPlayer,
             forceGenerateNewPawn: true,
-            fixedBiologicalAge: 2f,
+            fixedBiologicalAge: 25f,
             fixedChronologicalAge: 2f
         ));
 
