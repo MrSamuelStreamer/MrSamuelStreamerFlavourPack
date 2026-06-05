@@ -43,6 +43,16 @@ public class MSSFPMod : Mod
         // generate thousands of caught-NRE log writes per minute and crater TPS.
         XMT_SocialThought_NullGuard.TryRegister(_harmony);
 
+        // Conditional cross-mod compat patch — silently no-ops when Intimacy - Socio
+        // Butterfly (LovelyDovey.Recreation.WithEuterpe) is absent. Guards against the
+        // SocioButterfly JobGiver_GetFood postfix NRE'ing on humanlike pawns whose ThingDef
+        // is not vanilla "Human" — Big&Small sapient animals (incl. MSSFP's sapient raven
+        // creepjoiner), HAR races, Androids, custom xenos. SocioButterfly only injects
+        // Comp_SocioButterflyTracker into the Human ThingDef, then derefs the comp without
+        // null-checking. Without this guard, every food-priority eval per affected pawn
+        // throws an NRE that ThinkNode_PrioritySorter catches and logs.
+        SocioButterfly_GetFood_NullGuard.TryRegister(_harmony);
+
         Type NC = AccessTools.Inner(typeof(Dialog_NamePawn), "NameContext");
         ConstructorInfo CI = AccessTools.Constructor(
             NC,
