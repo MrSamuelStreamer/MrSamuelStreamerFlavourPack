@@ -24,6 +24,10 @@ public static class MSSFPDefOf
     // IED Pod Raid
     public static readonly IncidentDef MSSFP_RaidEnemy_IEDPods;
     public static readonly ThingDef MSSFP_IEDPodDeployer;
+    public static readonly ThingDef MSSFP_TrapIED_HighExplosive;
+    public static readonly ThingDef MSSFP_TrapIED_Incendiary;
+    public static readonly JobDef MSSFP_DisarmIED;
+    public static readonly DesignationDef MSSFP_DisarmIEDDesignation;
 
     public static readonly HediffDef Burn;
 

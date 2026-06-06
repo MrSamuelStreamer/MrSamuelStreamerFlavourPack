@@ -125,10 +125,13 @@ public class IncidentWorker_IEDPodRaid : IncidentWorker
     private static ThingDef WeightedTrapPick()
     {
         // 70% high-explosive, 30% incendiary. v2 will add antigrain (point-gated).
+        // MSSFP-owned variants subclass Building_TrapExplosive with Building_IEDTrap
+        // so claim is gated behind an Intellectual disarm job rather than freebie
+        // designate-and-deconstruct.
         if (Rand.Value < 0.7f)
         {
-            return ThingDef.Named("TrapIED_HighExplosive");
+            return MSSFPDefOf.MSSFP_TrapIED_HighExplosive;
         }
-        return ThingDef.Named("TrapIED_Incendiary");
+        return MSSFPDefOf.MSSFP_TrapIED_Incendiary;
     }
 }

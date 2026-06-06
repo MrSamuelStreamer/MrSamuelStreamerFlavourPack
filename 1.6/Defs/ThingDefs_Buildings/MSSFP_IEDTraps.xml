@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <!--
+        MSSFP-owned IED trap variants spawned by IED Pod Raid. Inherit from vanilla
+        TrapIEDBase for all stats / mesh / minifiedDef, then override thingClass so
+        Building_IEDTrap.GetGizmos / GetFloatMenuOptions / ClaimableBy fire.
+
+        Why a clone rather than a PatchOperation on vanilla TrapIED_*:
+        - The vanilla defs are also constructible by the player from the Security
+          architect menu. Re-typing those globally would alter player-crafted IEDs
+          (gizmo changes, claim block) and conflict with other mods that touch the
+          same defs. The clone confines new behavior to raid-spawned traps.
+        - When a player drops the minified version from a successful disarm, the
+          re-placed trap is player-faction → Building_IEDTrap.ClaimableBy returns
+          base behavior, GetGizmos yields no disarm button, vanilla deconstruct
+          works normally. So MSSFP-owned IEDs the player owns behave like vanilla.
+
+        Save-compat: pre-update raids spawn vanilla TrapIED_*; those traps remain
+        on the existing trivial Claim+Deconstruct path. Only NEW raids after this
+        update spawn MSSFP variants.
+    -->
+    <ThingDef ParentName="TrapIEDBase">
+        <defName>MSSFP_TrapIED_HighExplosive</defName>
+        <label>IED trap</label>
+        <description>A pair of high-explosive shells connected to a trigger which detonates on touch or bullet impact. Hostile-deployed devices are concealed and can't be claimed directly — a colonist with at least Intellectual 4 must disarm one. Higher skill means a faster, more reliable disarm; failure either springs the device on the spot or starts a short fuse you must outrun.</description>
+        <thingClass>MSSFP.Things.Building_IEDTrap</thingClass>
+        <graphicData>
+            <texPath>Things/Building/Security/IEDHighExplosive</texPath>
+        </graphicData>
+        <costList>
+            <Shell_HighExplosive>2</Shell_HighExplosive>
+        </costList>
+        <comps>
+            <li Class="CompProperties_Explosive">
+                <explosiveRadius>3.9</explosiveRadius>
+                <explosiveDamageType>Bomb</explosiveDamageType>
+                <startWickHitPointsPercent>0.2</startWickHitPointsPercent>
+                <preExplosionSpawnSingleThingDef>Filth_BlastMark</preExplosionSpawnSingleThingDef>
+                <wickTicks>15</wickTicks>
+                <startWickOnDamageTaken>
+                    <li>Bullet</li>
+                    <li>Arrow</li>
+                    <li>ArrowHighVelocity</li>
+                </startWickOnDamageTaken>
+            </li>
+        </comps>
+        <specialDisplayRadius>3.9</specialDisplayRadius>
+    </ThingDef>
+
+    <ThingDef ParentName="TrapIEDBase">
+        <defName>MSSFP_TrapIED_Incendiary</defName>
+        <label>IED incendiary trap</label>
+        <description>A pair of incendiary shells connected to a trigger which detonates on touch or bullet impact. Hostile-deployed devices are concealed and can't be claimed directly — a colonist with at least Intellectual 4 must disarm one. Higher skill means a faster, more reliable disarm; failure either springs the device on the spot or starts a short fuse you must outrun.</description>
+        <thingClass>MSSFP.Things.Building_IEDTrap</thingClass>
+        <graphicData>
+            <texPath>Things/Building/Security/IEDIncendiary</texPath>
+        </graphicData>
+        <uiOrder>41</uiOrder>
+        <costList>
+            <Shell_Incendiary>2</Shell_Incendiary>
+        </costList>
+        <comps>
+            <li Class="CompProperties_Explosive">
+                <explosiveRadius>3.9</explosiveRadius>
+                <explosiveDamageType>Flame</explosiveDamageType>
+                <startWickHitPointsPercent>0.2</startWickHitPointsPercent>
+                <wickTicks>15</wickTicks>
+                <startWickOnDamageTaken>
+                    <li>Bullet</li>
+                    <li>Arrow</li>
+                    <li>ArrowHighVelocity</li>
+                </startWickOnDamageTaken>
+            </li>
+        </comps>
+        <specialDisplayRadius>3.9</specialDisplayRadius>
+    </ThingDef>
+
+</Defs>

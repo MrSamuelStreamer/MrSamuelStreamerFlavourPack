@@ -162,7 +162,22 @@
 
     <!-- IED Pod Raid -->
     <MSSFP_IEDPodRaidLetterLabel>IED pod scatter</MSSFP_IEDPodRaidLetterLabel>
-    <MSSFP_IEDPodRaidLetterText>{0} have launched drop pods at your colony — but instead of soldiers, the pods are crammed with improvised explosive devices.\n\nWhen each pod opens, it scatters armed IEDs across the surrounding area. Watch your step. Shoot suspicious devices from a safe distance to detonate them harmlessly.</MSSFP_IEDPodRaidLetterText>
+    <MSSFP_IEDPodRaidLetterText>{0} have launched drop pods at your colony — but instead of soldiers, the pods are crammed with improvised explosive devices.\n\nWhen each pod opens, it scatters armed IEDs across the surrounding area. Watch your step. Shoot suspicious devices from a safe distance to detonate them harmlessly. To reclaim a device intact, designate it for disarming — a colonist with at least Intellectual 4 will try to defuse it.</MSSFP_IEDPodRaidLetterText>
+
+    <!-- IED Disarm -->
+    <MSSFP_IEDClaimBlocked>Cannot claim a hostile IED. Designate it for disarming instead — a colonist with at least Intellectual 4 can defuse it.</MSSFP_IEDClaimBlocked>
+    <MSSFP_DisarmIEDGizmoLabel>Disarm IED</MSSFP_DisarmIEDGizmoLabel>
+    <MSSFP_CancelDisarmIEDGizmoLabel>Cancel disarm</MSSFP_CancelDisarmIEDGizmoLabel>
+    <MSSFP_DisarmIEDGizmoDesc>Mark this IED for disarming. A colonist with Intellectual {0}+ and Research work enabled will walk to an adjacent cell and attempt to defuse it.\n\nSuccess depends on Intellectual skill. Failure either springs the device on the spot or starts a short fuse — the game will pause and you must manually flee the pawn from the blast radius.\n\nA successful disarm has a small chance to drop the device intact, ready to redeploy.\n\nThe pawn is vulnerable to gunfire while working on the device.</MSSFP_DisarmIEDGizmoDesc>
+    <MSSFP_DisarmIEDFloatMenuLabel>Disarm IED ({0}% success, ~{1})</MSSFP_DisarmIEDFloatMenuLabel>
+    <MSSFP_DisarmIEDFloatMenuLabelLowSkill>Cannot disarm IED (requires Intellectual {0}+)</MSSFP_DisarmIEDFloatMenuLabelLowSkill>
+    <MSSFP_DisarmIEDFloatMenuLabelIncapable>Cannot disarm IED (incapable of Intellectual)</MSSFP_DisarmIEDFloatMenuLabelIncapable>
+    <MSSFP_DisarmIEDFloatMenuLabelUnreachable>Cannot disarm IED (no path)</MSSFP_DisarmIEDFloatMenuLabelUnreachable>
+    <MSSFP_DisarmIEDFloatMenuLabelReserved>Cannot disarm IED (reserved by another colonist)</MSSFP_DisarmIEDFloatMenuLabelReserved>
+    <MSSFP_DisarmIEDSuccess>{0} disarmed the IED.</MSSFP_DisarmIEDSuccess>
+    <MSSFP_DisarmIEDSuccessMinified>{0} salvaged the {1} intact — ready to redeploy.</MSSFP_DisarmIEDSuccessMinified>
+    <MSSFP_DisarmIEDDelayedFuseLetterLabel>IED fuse started!</MSSFP_DisarmIEDDelayedFuseLetterLabel>
+    <MSSFP_DisarmIEDDelayedFuseLetterText>{0}'s disarm attempt slipped — the IED's fuse has started and the device will detonate in roughly {1}.\n\nBlast radius is about {2} cells. Move all colonists clear of the device immediately. The game is paused.</MSSFP_DisarmIEDDelayedFuseLetterText>
 
     <!-- Gene Integrator -->
     <MSSFP_LetterLabelGenesImplantedCasterDied>Genes implanted — {CASTER_labelShort} died</MSSFP_LetterLabelGenesImplantedCasterDied>
