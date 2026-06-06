@@ -179,7 +179,7 @@
   <RecipeDef ParentName="MSSFP_Vending_Bill" MayRequire="sarg.alpharandom">
     <defName>MSSFP_Vending_highlootbox</defName>
     <label>vend high-value lootbox.</label>
-    <description>Vend what looks like a clean, metallic box.\nThere must be something good inside, right?.\n\n(4 hours fabrication)</description>
+    <description>Vend what looks like a clean, metallic box.\nThere must be something good inside, right?\n\n(4 hours fabrication)</description>
     <displayPriority>3</displayPriority>
     <formingTicks>10000</formingTicks> <!-- 4 hours -->
     <products>
@@ -200,7 +200,7 @@
   <RecipeDef ParentName="MSSFP_Vending_Bill" MayRequire="sarg.alpharandom">
     <defName>MSSFP_Vending_veryhighlootbox</defName>
     <label>vend very high-value lootbox.</label>
-    <description>Vend what looks like a polished, shiny metallic box.\nThere must be something incredible inside, right?.\n\n(6 hours fabrication)</description>
+    <description>Vend what looks like a polished, shiny metallic box.\nThere must be something incredible inside, right?\n\n(6 hours fabrication)</description>
     <displayPriority>3</displayPriority>
     <formingTicks>15000</formingTicks> <!-- 6 hours -->
     <products>
