@@ -41,7 +41,7 @@
   <RecipeDef ParentName="MSSFP_Vending_Bill">
     <defName>MSSFP_Vending_Neutroamine</defName>
     <label>vend emergency neutroamine</label>
-    <description>Emergency Neutroamine. For when you're in dire need.</description>
+    <description>Emergency Neutroamine. For when you're in dire need.\n\n(8 hours fabrication)</description>
     <displayPriority>1</displayPriority>
     <formingTicks>20000</formingTicks> <!-- 8 hours -->
     <products>
@@ -52,7 +52,7 @@
   <RecipeDef ParentName="MSSFP_Vending_Bill">
     <defName>MSSFP_Vending_Survivalpack</defName>
     <label>vend emergency survival meal</label>
-    <description>Emergency Survival pack. For when you're truly desperate.</description>
+    <description>Emergency Survival pack. For when you're truly desperate.\n\n(6 hours fabrication)</description>
     <displayPriority>1</displayPriority>
     <formingTicks>15000</formingTicks> <!-- 6 hours -->
     <products>
@@ -63,7 +63,7 @@
   <RecipeDef ParentName="MSSFP_Vending_Bill">
     <defName>MSSFP_Vending_Medicine</defName>
     <label>vend emergency medicine</label>
-    <description>Emergency medicine. For when you can't depend on anything else.</description>
+    <description>Emergency medicine. For when you can't depend on anything else.\n\n(6 hours fabrication)</description>
     <displayPriority>1</displayPriority>
     <formingTicks>15000</formingTicks> <!-- 6 hours -->
     <products>
@@ -73,8 +73,8 @@
 
   <RecipeDef ParentName="MSSFP_Vending_Bill">
     <defName>MSSFP_Vending_Component</defName>
-    <label>vend emergency component</label>
-    <description>Emergency component. For when you're climbing the walls.</description>
+    <label>vend emergency components</label>
+    <description>Emergency components. For when you're climbing the walls.\n\n(10 hours fabrication)</description>
     <displayPriority>1</displayPriority>
     <formingTicks>25000</formingTicks> <!-- 10 hours -->
     <products>
@@ -87,7 +87,28 @@
             <li>Silver</li>
           </thingDefs>
         </filter>
-        <count>200</count>
+        <count>175</count>
+      </li>
+    </ingredients>
+  </RecipeDef>
+
+  <RecipeDef ParentName="MSSFP_Vending_Bill">
+    <defName>MSSFP_Vending_Componentspacer</defName>
+    <label>vend emergency advanced components</label>
+    <description>Emergency advanced components. For when you REALLY need it.\n\n(10 hours fabrication)</description>
+    <displayPriority>1</displayPriority>
+    <formingTicks>25000</formingTicks> <!-- 10 hours -->
+    <products>
+      <ComponentSpacer>2</ComponentSpacer>
+    </products>
+    <ingredients Inherit="False">
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Silver</li>
+          </thingDefs>
+        </filter>
+        <count>550</count>
       </li>
     </ingredients>
   </RecipeDef>
@@ -95,7 +116,7 @@
   <RecipeDef ParentName="MSSFP_Vending_Bill">
     <defName>MSSFP_Vending_gojuice</defName>
     <label>vend emergency go-juice</label>
-    <description>Emergency go-juice. For when there's no other option.</description>
+    <description>Emergency go-juice. For when there's no other option.\n\n(18 hours fabrication)</description>
     <displayPriority>1</displayPriority>
     <formingTicks>45000</formingTicks> <!-- 18 hours -->
     <products>
@@ -113,12 +134,96 @@
     </ingredients>
   </RecipeDef>
 
+  <RecipeDef ParentName="MSSFP_Vending_Bill">
+    <defName>MSSFP_Vending_personacore</defName>
+    <label>vend emergency persona core</label>
+    <description>Emergency persona core. For when you just can't be bothered.\n\n(48 hours fabrication)</description>
+    <displayPriority>2</displayPriority>
+    <formingTicks>120000</formingTicks> <!-- 48 hours -->
+    <products>
+      <AIPersonaCore>1</AIPersonaCore>
+    </products>
+    <ingredients Inherit="False">
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Silver</li>
+          </thingDefs>
+        </filter>
+        <count>2500</count>
+      </li>
+    </ingredients>
+  </RecipeDef>
+
+  <RecipeDef ParentName="MSSFP_Vending_Bill" MayRequire="ludeon.rimworld.odyssey">
+    <defName>MSSFP_Vending_gravcore</defName>
+    <label>vend emergency gravcore</label>
+    <description>Emergency gravcore. Desperation calls for it.\n\n(48 hours fabrication)</description>
+    <displayPriority>2</displayPriority>
+    <formingTicks>120000</formingTicks> <!-- 48 hours -->
+    <products>
+      <Gravcore>1</Gravcore>
+    </products>
+    <ingredients Inherit="False">
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Silver</li>
+          </thingDefs>
+        </filter>
+        <count>2500</count>
+      </li>
+    </ingredients>
+  </RecipeDef>
+
+  <RecipeDef ParentName="MSSFP_Vending_Bill" MayRequire="sarg.alpharandom">
+    <defName>MSSFP_Vending_highlootbox</defName>
+    <label>vend high-value lootbox.</label>
+    <description>Vend what looks like a clean, metallic box.\nThere must be something good inside, right?.\n\n(4 hours fabrication)</description>
+    <displayPriority>3</displayPriority>
+    <formingTicks>10000</formingTicks> <!-- 4 hours -->
+    <products>
+      <ARandom_LootBox_High>1</ARandom_LootBox_High>
+    </products>
+    <ingredients Inherit="False">
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Silver</li>
+          </thingDefs>
+        </filter>
+        <count>350</count>
+      </li>
+    </ingredients>
+  </RecipeDef>
+
+  <RecipeDef ParentName="MSSFP_Vending_Bill" MayRequire="sarg.alpharandom">
+    <defName>MSSFP_Vending_veryhighlootbox</defName>
+    <label>vend very high-value lootbox.</label>
+    <description>Vend what looks like a polished, shiny metallic box.\nThere must be something incredible inside, right?.\n\n(6 hours fabrication)</description>
+    <displayPriority>3</displayPriority>
+    <formingTicks>15000</formingTicks> <!-- 6 hours -->
+    <products>
+      <ARandom_LootBox_SuperHigh>1</ARandom_LootBox_SuperHigh>
+    </products>
+    <ingredients Inherit="False">
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Silver</li>
+          </thingDefs>
+        </filter>
+        <count>750</count>
+      </li>
+    </ingredients>
+  </RecipeDef>
+
   <RecipeDef ParentName="MSSFP_Vending_Bill" MayRequire="lizzy.milkablehivequeenslurm">
     <defName>MSS_Vend_hivequeenslurm</defName>
     <label>vend slurm</label>
-    <description>Delicious slurm!</description>
+    <description>Delicious slurm!\n\n(0.5 hours fabrication)</description>
     <displayPriority>10</displayPriority>
-    <formingTicks>2500</formingTicks> <!-- 1 hour -->
+    <formingTicks>1250</formingTicks> <!-- 0.5 hours -->
     <products>
       <Insectoid_Milk>1</Insectoid_Milk>
     </products>
