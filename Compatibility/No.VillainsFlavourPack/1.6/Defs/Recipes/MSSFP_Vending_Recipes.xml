@@ -218,6 +218,90 @@
     </ingredients>
   </RecipeDef>
 
+  <RecipeDef ParentName="MSSFP_Vending_Bill" MayRequire="sarg.alphaprefabs">
+    <defName>MSSFP_Vending_lowvalueprefab</defName>
+    <label>vend budget prefab</label>
+    <description>Vend a prefab designed for the proletariat to enjoy.\n\n(3 hours fabrication)</description>
+    <displayPriority>4</displayPriority>
+    <formingTicks>7500</formingTicks> <!-- 3 hours -->
+    <products>
+      <AP_Prefab_LowValue>1</AP_Prefab_LowValue>
+    </products>
+    <ingredients Inherit="False">
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Silver</li>
+          </thingDefs>
+        </filter>
+        <count>50</count>
+      </li>
+    </ingredients>
+  </RecipeDef>
+
+  <RecipeDef ParentName="MSSFP_Vending_Bill" MayRequire="sarg.alphaprefabs">
+    <defName>MSSFP_Vending_midvalueprefab</defName>
+    <label>vend mid-range prefab</label>
+    <description>Vend a standard, mid-range prefab.\n\n(6 hours fabrication)</description>
+    <displayPriority>4</displayPriority>
+    <formingTicks>15000</formingTicks> <!-- 6 hours -->
+    <products>
+      <AP_Prefab>1</AP_Prefab>
+    </products>
+    <ingredients Inherit="False">
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Silver</li>
+          </thingDefs>
+        </filter>
+        <count>150</count>
+      </li>
+    </ingredients>
+  </RecipeDef>
+
+  <RecipeDef ParentName="MSSFP_Vending_Bill" MayRequire="sarg.alphaprefabs">
+    <defName>MSSFP_Vending_highervalueprefab</defName>
+    <label>vend well-made prefab</label>
+    <description>Vend a well-made prefab. Higher-rate taxpayers will love this.\n\n(8 hours fabrication)</description>
+    <displayPriority>4</displayPriority>
+    <formingTicks>20000</formingTicks> <!-- 8 hours -->
+    <products>
+      <AP_Prefab_MediumHighValue>1</AP_Prefab_MediumHighValue>
+    </products>
+    <ingredients Inherit="False">
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Silver</li>
+          </thingDefs>
+        </filter>
+        <count>300</count>
+      </li>
+    </ingredients>
+  </RecipeDef>
+
+  <RecipeDef ParentName="MSSFP_Vending_Bill" MayRequire="sarg.alphaprefabs">
+    <defName>MSSFP_Vending_highestvalueprefab</defName>
+    <label>vend top of the range prefab</label>
+    <description>Vend a top of the range prefab. Only the very best.\n\n(12 hours fabrication)</description>
+    <displayPriority>4</displayPriority>
+    <formingTicks>30000</formingTicks> <!-- 12 hours -->
+    <products>
+      <AP_Prefab_HighValue>1</AP_Prefab_HighValue>
+    </products>
+    <ingredients Inherit="False">
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Silver</li>
+          </thingDefs>
+        </filter>
+        <count>750</count>
+      </li>
+    </ingredients>
+  </RecipeDef>
+
   <RecipeDef ParentName="MSSFP_Vending_Bill" MayRequire="lizzy.milkablehivequeenslurm">
     <defName>MSS_Vend_hivequeenslurm</defName>
     <label>vend slurm</label>
