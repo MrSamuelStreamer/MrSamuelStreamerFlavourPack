@@ -26,7 +26,7 @@ public class IncidentWorker_WandererJoin_Template : IncidentWorker_WandererJoin
         return CanSpawnJoiner(map);
     }
 
-    public override Pawn GeneratePawn()
+    public override Pawn GeneratePawn(Map map)
     {
         var available = PawnPortability.PawnPortability.AllDefsIncludingUser
             .Where(d => !PawnPortability.PawnPortability.IsAlive(d))
@@ -46,7 +46,7 @@ public class IncidentWorker_WandererJoin_Template : IncidentWorker_WandererJoin
         if (!CanSpawnJoiner(map))
             return false;
 
-        Pawn pawn = GeneratePawn();
+        Pawn pawn = GeneratePawn(map);
         if (pawn == null)
         {
             ModLog.Warn("[WandererJoin_Template] GeneratePawn returned null — no available templates");

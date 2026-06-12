@@ -44,7 +44,7 @@ public class IncidentWorker_RavenCreepJoinerJoin : IncidentWorker_WandererJoin
         return CanSpawnJoiner(map);
     }
 
-    public override Pawn GeneratePawn()
+    public override Pawn GeneratePawn(Map map)
     {
         var kind = DefDatabase<PawnKindDef>.GetNamedSilentFail("MSSFP_Raven");
         if (kind == null)
@@ -105,7 +105,7 @@ public class IncidentWorker_RavenCreepJoinerJoin : IncidentWorker_WandererJoin
         if (!CanSpawnJoiner(map))
             return false;
 
-        Pawn pawn = GeneratePawn();
+        Pawn pawn = GeneratePawn(map);
         if (pawn == null)
         {
             ModLog.Warn("[RavenCreepJoiner] GeneratePawn returned null");
