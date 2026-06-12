@@ -249,6 +249,28 @@ public class MainSettingsTab(ModSettings settings, Mod mod) : SettingsTab(settin
             scrollViewHeight += 30f;
         }
 
+        // --- Gravship ---
+        DrawSectionHeader(options, "MSS_FP_Settings_Section_Gravship".Translate(), ref scrollViewHeight);
+
+        DrawCheckBox(
+            options,
+            "MSS_FP_Settings_EnableOrbJumpEvents".Translate(),
+            ref Settings.EnableOrbJumpEvents,
+            ref scrollViewHeight
+        );
+
+        if (Settings.EnableOrbJumpEvents)
+        {
+            Settings.OrbJumpEventChance = options.SliderLabeled(
+                "MSS_FP_Settings_OrbJumpEventChance".Translate(Settings.OrbJumpEventChance.ToStringPercent()),
+                Settings.OrbJumpEventChance,
+                0f,
+                1f,
+                tooltip: "MSS_FP_Settings_OrbJumpEventChance_Tooltip".Translate()
+            );
+            scrollViewHeight += 30f;
+        }
+
         // --- Technical ---
         DrawSectionHeader(options, "MSS_FP_Settings_Section_Technical".Translate(), ref scrollViewHeight);
 

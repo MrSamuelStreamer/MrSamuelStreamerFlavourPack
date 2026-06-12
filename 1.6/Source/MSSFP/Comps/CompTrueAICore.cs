@@ -39,6 +39,16 @@ public class CompTrueAICore : ThingComp, IThingHolder
     /// <summary>Tick the current "letter day" started.</summary>
     public int dayTickStart = -1;
 
+    /// <summary>
+    /// Gravship route-assist is disabled until this tick — set by the DivideByZero orb jump-event.
+    /// -1 (or past) = enabled. While disabled, <see cref="MSSFP.HarmonyPatches.OrbGravshipAssist"/>
+    /// does not resolve this orb, so the range + cooldown bonuses drop until it reboots.
+    /// </summary>
+    public int assistDisabledUntilTick = -1;
+
+    /// <summary>True while the orb's gravship route-assist is offline (see DivideByZero event).</summary>
+    public bool AssistDisabled => assistDisabledUntilTick > 0 && Find.TickManager.TicksGame < assistDisabledUntilTick;
+
     /// <summary>Hauled art inputs. Vanilla JobDriver_HaulToContainer writes into this.</summary>
     protected ThingOwner innerContainer;
 
@@ -475,6 +485,7 @@ public class CompTrueAICore : ThingComp, IThingHolder
         Scribe_Values.Look(ref lastChatterTick, "lastChatterTick", -1);
         Scribe_Values.Look(ref lettersToday, "lettersToday", 0);
         Scribe_Values.Look(ref dayTickStart, "dayTickStart", -1);
+        Scribe_Values.Look(ref assistDisabledUntilTick, "assistDisabledUntilTick", -1);
         Scribe_Values.Look(ref artRequested, "artRequested", false);
         Scribe_Values.Look(ref spawnAnnounced, "spawnAnnounced", false);
         Scribe_Values.Look(ref personaChosen, "personaChosen", false);

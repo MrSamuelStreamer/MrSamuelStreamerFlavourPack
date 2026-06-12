@@ -29,9 +29,18 @@ public static class OrbGravshipAssist
 
     /// <summary>
     /// True iff <paramref name="engine"/> has at least one <see cref="Building_AICore"/> on its
-    /// connected substructure with power on and an active persona loaded.
+    /// connected substructure with an active persona loaded (and, by default, power on).
+    ///
+    /// <paramref name="requirePower"/> defaults to true for the hot launch-time callers (range
+    /// StatPart, cooldown postfix) where the PowerNet is settled. The landing-time jump-event
+    /// postfix passes <c>false</c>: right after placement the destination PowerNet may not have
+    /// recalced yet, and the orb already proved itself powered at launch — presence + persona is
+    /// the right predicate there. A disabled orb (DivideByZero event) never resolves, either way.
+    ///
+    /// Only the powered path uses the per-(engine,tick) cache; the relaxed path is called once per
+    /// landing so it skips the cache entirely (avoids a power/no-power ambiguity on the same key).
     /// </summary>
-    public static bool TryGetActiveAssistOrb(Building_GravEngine engine, out CompTrueAICore orb)
+    public static bool TryGetActiveAssistOrb(Building_GravEngine engine, out CompTrueAICore orb, bool requirePower = true)
     {
         orb = null;
         if (engine == null || !engine.Spawned || engine.Map == null)
@@ -39,7 +48,7 @@ public static class OrbGravshipAssist
 
         int now = GenTicks.TicksGame;
         int key = engine.thingIDNumber;
-        if (Cache.TryGetValue(key, out var hit) && hit.tick == now)
+        if (requirePower && Cache.TryGetValue(key, out var hit) && hit.tick == now)
         {
             orb = hit.orb;
             return orb != null;
@@ -57,14 +66,20 @@ public static class OrbGravshipAssist
             CompTrueAICore core = aiCore.TryGetComp<CompTrueAICore>();
             if (core?.activePersonality == null)
                 continue;
-            CompPowerTrader power = aiCore.TryGetComp<CompPowerTrader>();
-            if (power != null && !power.PowerOn)
+            if (core.AssistDisabled)
                 continue;
+            if (requirePower)
+            {
+                CompPowerTrader power = aiCore.TryGetComp<CompPowerTrader>();
+                if (power != null && !power.PowerOn)
+                    continue;
+            }
             orb = core;
             break;
         }
 
-        Cache[key] = (now, orb);
+        if (requirePower)
+            Cache[key] = (now, orb);
         return orb != null;
     }
 }

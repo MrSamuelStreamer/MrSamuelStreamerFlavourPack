@@ -21,6 +21,10 @@
     <MSS_FP_Settings_Section_ReformationPoints>Reformation Points</MSS_FP_Settings_Section_ReformationPoints>
     <MSS_FP_Settings_Section_ColonistBar>Colonist Bar</MSS_FP_Settings_Section_ColonistBar>
     <MSS_FP_Settings_Section_Technical>Technical</MSS_FP_Settings_Section_Technical>
+    <MSS_FP_Settings_Section_Gravship>Gravship</MSS_FP_Settings_Section_Gravship>
+    <MSS_FP_Settings_EnableOrbJumpEvents>Enable Pondering Orb jump-events</MSS_FP_Settings_EnableOrbJumpEvents>
+    <MSS_FP_Settings_OrbJumpEventChance>Orb jump-event chance [{0}]</MSS_FP_Settings_OrbJumpEventChance>
+    <MSS_FP_Settings_OrbJumpEventChance_Tooltip>Chance, per gravship jump assisted by an active Pondering Orb, that the route-calculating AI triggers a rare event on landing — anything from a catastrophic miscalculation to a stroke of genius. Default 5%.</MSS_FP_Settings_OrbJumpEventChance_Tooltip>
     <MSS_FP_Settings_Section_HauntCore>Core</MSS_FP_Settings_Section_HauntCore>
     <MSS_FP_Settings_Section_HauntProgression>Progression</MSS_FP_Settings_Section_HauntProgression>
     <MSS_FP_Settings_Section_KillHaunts>Kill Haunts</MSS_FP_Settings_Section_KillHaunts>

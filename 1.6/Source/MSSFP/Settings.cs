@@ -84,6 +84,10 @@ public class Settings : ModSettings
     public bool EnableRavenCreepJoiner = true;
     public float RavenCreepJoinerChanceMultiplier = 1.0f;
 
+    // Pondering Orb gravship jump-events
+    public bool EnableOrbJumpEvents = true;
+    public float OrbJumpEventChance = 0.05f;
+
     // Golden Cube Implant (Anomaly DLC)
     public bool EnableGoldenCubeImplant = true;
     public float GoldenCubeImplantRaidChance = 0.005f;
@@ -251,6 +255,9 @@ public class Settings : ModSettings
         Scribe_Values.Look(ref ShowElevationOverlay, "ShowElevationOverlay", false);
         Scribe_Values.Look(ref BreakdownMTBDays, "BreakdownMTBDays", BreakdownMTBDaysDefault);
         Scribe_Collections.Look(ref MonitoredSpeeds, "MonitoredSpeeds", LookMode.Value);
+
+        Scribe_Values.Look(ref EnableOrbJumpEvents, "EnableOrbJumpEvents", true);
+        Scribe_Values.Look(ref OrbJumpEventChance, "OrbJumpEventChance", 0.05f);
 
         Scribe_Values.Look(ref EnableGoldenCubeImplant, "EnableGoldenCubeImplant", true);
         Scribe_Values.Look(ref GoldenCubeImplantRaidChance, "GoldenCubeImplantRaidChance", 0.005f);

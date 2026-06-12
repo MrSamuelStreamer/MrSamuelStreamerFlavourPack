@@ -4,4 +4,31 @@
          {0} is the active persona's label, {1} is the configured bonusTiles count. -->
     <MSSFP_PonderingOrbAstroNav_StatExplain>Pondering Orb astrogation ({0}): persona-modelled substrate-current solver projects multi-vector flight envelope beyond unaided thrust ceiling: +{1} tiles</MSSFP_PonderingOrbAstroNav_StatExplain>
     <MSSFP_PonderingOrbCooldownReduced>{0} pre-spooled coil dampers during burn — capacitor recharge window contracted.</MSSFP_PonderingOrbCooldownReduced>
+
+    <!-- Orb jump-events. {0} = active persona label, {1} = gravship name. -->
+    <MSSFP_OrbEvent_HoleThroughPlanet_Label>Gravship miscalculation</MSSFP_OrbEvent_HoleThroughPlanet_Label>
+    <MSSFP_OrbEvent_HoleThroughPlanet_Text>While plotting the route, {0} hallucinated a hole straight through the planet and flew {1} into the descent far too hard. The ship slammed into the ground on arrival. Nothing was destroyed, but buildings across the gravship took heavy damage — and the crew got thrown around.</MSSFP_OrbEvent_HoleThroughPlanet_Text>
+
+    <MSSFP_OrbEvent_DivideByZero_Label>Astrogation core crashed</MSSFP_OrbEvent_DivideByZero_Label>
+    <MSSFP_OrbEvent_DivideByZero_Text>Mid-jump, {0} divided by zero and the route-calculation core hard-faulted. The Pondering Orb's gravship assistance is offline until the persona finishes rebooting. Range and cooldown bonuses are suspended in the meantime.</MSSFP_OrbEvent_DivideByZero_Text>
+
+    <MSSFP_OrbEvent_DebrisField_Msg>{0} routed {1} through a debris field — minor hull damage, and some scrap came aboard.</MSSFP_OrbEvent_DebrisField_Msg>
+
+    <MSSFP_OrbEvent_JumpNausea_Label>Jump nausea</MSSFP_OrbEvent_JumpNausea_Label>
+    <MSSFP_OrbEvent_JumpNausea_Text>{0} chose a time-dilated shortcut for {1}. It saved fuel, but the prolonged deceleration left the whole crew queasy. The effect will fade.</MSSFP_OrbEvent_JumpNausea_Text>
+
+    <MSSFP_OrbEvent_GhostInTheMachine_Msg>For a moment during {1}'s jump, {0}'s hallucination seemed to bleed into reality...</MSSFP_OrbEvent_GhostInTheMachine_Msg>
+
+    <MSSFP_OrbEvent_GravityHiccup_Msg>A gravitic hiccup as {1} touched down knocked the crew off their feet.</MSSFP_OrbEvent_GravityHiccup_Msg>
+
+    <MSSFP_OrbEvent_ExistentialBroadcast_Label>Existential broadcast</MSSFP_OrbEvent_ExistentialBroadcast_Label>
+    <MSSFP_OrbEvent_ExistentialBroadcast_Text>Somewhere in the jump math, {0} pondered a little too deeply and broadcast its dread across {1}. The crew felt it. They'll shake it off.</MSSFP_OrbEvent_ExistentialBroadcast_Text>
+
+    <MSSFP_OrbEvent_HallucinatedShortcut_Label>Impossible shortcut</MSSFP_OrbEvent_HallucinatedShortcut_Label>
+    <MSSFP_OrbEvent_HallucinatedShortcut_Text>{0} hallucinated a shortcut that had no business working — and it worked. {1}'s grav engine settled with no cooldown at all. It's ready to launch again immediately.</MSSFP_OrbEvent_HallucinatedShortcut_Text>
+
+    <MSSFP_OrbEvent_FlashOfInsight_Label>Flash of insight</MSSFP_OrbEvent_FlashOfInsight_Label>
+    <MSSFP_OrbEvent_FlashOfInsight_Text>While idling between burns, {0} solved a problem the colony had been chewing on. The insight was passed along on arrival.</MSSFP_OrbEvent_FlashOfInsight_Text>
+
+    <MSSFP_OrbEvent_FlawlessBurn_Msg>{0} flew {1} flawlessly — fuel recovered and a smooth ride for the crew.</MSSFP_OrbEvent_FlawlessBurn_Msg>
 </LanguageData>
