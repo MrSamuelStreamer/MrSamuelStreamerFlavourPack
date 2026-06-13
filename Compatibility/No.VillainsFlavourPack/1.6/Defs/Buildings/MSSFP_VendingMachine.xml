@@ -4,7 +4,7 @@
   <ThingDef ParentName="BenchBase">
     <defName>MSSFP_Vending_Machine</defName>
     <label>Vending machine</label>
-    <description>A well-crafted vending machine. It was obviously designed by a very talented and - probably - handsome artist.\n\nSince the design is intricate, use of the machine requires someone who can craft.\n(Crafting job must be enabled, 0 skill required)</description>
+    <description>A well-crafted vending machine. It was obviously designed by a very talented and well-endowed engineer.\n\nConstructed from an ancient blueprint, it is profoundly large. The sheer size suggests humans of old must have been inexplicably tall, at least 120cm (~4 feet in archaic measurements). Whoever recently constructed it surely overlooked the specifications, as it remains obfuscatingly large. Either that, or they couldn't be bothered scaling down the specifications despite complaints from their superiors.\n\nSomeone has placed an invisible stepladder underneath, to allow general use of the 'Medical' button.\n\nSince the design is intricate, use of the machine requires someone who can craft.\n(Crafting job must be enabled, 0 skill required)</description>
     <thingClass>Building_WorkTableAutonomous</thingClass>
     <graphicData>
       <texPath>Things/Building/Vendingmachine/Vendingmachine</texPath>
