@@ -19,15 +19,20 @@ internal static class DraftControllerReflection
 
 /// <summary>
 /// Holos cannot be drafted. Patches the <see cref="Pawn_DraftController.Drafted"/> setter to
-/// no-op when the target pawn is a projection. Belt with suspenders for any code path that
-/// reaches the setter despite the gizmo being hidden.
+/// no-op when the target pawn is a projection AND the caller is trying to draft (value=true).
+/// Always allow undraft (value=false) — otherwise a holo that latched into drafted via any
+/// side path (pre-fix save, third-party mod, lord transfer, dev tool) gets stuck-drafted
+/// permanently because the draft gizmo is hidden and the only undraft path runs through this
+/// setter too. Asymmetric block: refuse to enter drafted state, always allow leaving it.
 /// </summary>
 [HarmonyPatch(typeof(Pawn_DraftController), nameof(Pawn_DraftController.Drafted), MethodType.Setter)]
 public static class Pawn_DraftController_Drafted_Patch
 {
     [HarmonyPrefix]
-    public static bool Prefix(Pawn_DraftController __instance)
+    public static bool Prefix(Pawn_DraftController __instance, bool value)
     {
+        if (!value)
+            return true; // always permit undraft, even on holos
         Pawn pawn = DraftControllerReflection.PawnField.GetValue(__instance) as Pawn;
         return !MSSFPHoloUtil.IsHolo(pawn);
     }

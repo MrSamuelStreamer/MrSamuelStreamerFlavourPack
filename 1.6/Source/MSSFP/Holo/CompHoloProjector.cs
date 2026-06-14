@@ -369,6 +369,14 @@ public class CompHoloProjector : ThingComp, IThingHolder
         MSSFPHoloUtil.AddHoloComp(p, parent);
         MSSFPHoloUtil.AddOrRefreshHologramHediff(p);
 
+        // Scrub any latched drafted state from a prior projection or pre-fix save. The
+        // Drafted setter prefix blocks draft=true on holos but always allows undraft, so
+        // this call goes through and clears the field. Without this, a holo restored with
+        // drafted=true (or drafted via a side path before the comp was attached) would be
+        // stuck-drafted permanently — the draft gizmo is hidden, so there's no UI exit.
+        if (p.drafter != null && p.drafter.Drafted)
+            p.drafter.Drafted = false;
+
         // Persona-flavour fixed hediffs (e.g. Hollee → Dementia). Idempotent: re-projection
         // doesn't stack. Must run AFTER AddHoloComp so the hediff-filter patch can resolve
         // the persona; allowedHediffs/fixedHediffs entries bypass the filter.
