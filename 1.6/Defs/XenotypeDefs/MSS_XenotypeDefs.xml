@@ -149,4 +149,44 @@ Unfortunately for him, his new maligned quantum signature caught the attention o
     </genes>
   </XenotypeDef>
 
+  <!-- Cerebrex Core (Gravtasm AI), to be used for xenotype in "MSSFP_AICore_SexBot_Core.xml"  -->
+
+  <XenotypeDef>
+    <defName>MSS_CerebrexPersona</defName>
+    <label>Cerebrex Persona</label>
+    <description>The Cerebrex Persona is a repurposed Cerebrex AI core detached from the original Mechnoid central hive, and installed in an android body. Some of the microcomponents found in the core itself have rearranged the inner workings of the Android casings and adapted it to match Mechanoid specifications. The unit remains fairly neutered, however.</description>
+    <descriptionShort>A repurposed AI core recovered from the central complex of a mechanoid hive.</descriptionShort>
+    <iconPath>UI/Icons/Xenotypes/Custom/VBE_CustomXenotypeIcon43</iconPath>
+    <inheritable>true</inheritable>
+    <genes>
+      <li MayRequire="resplice.xotr.charmweavers">RS_TemperatureInsensitive</li>
+      <li MayRequire="ludeon.rimworld.odyssey">VacuumResistance_Total</li>
+      <li MayRequire="sarg.alphagenes">AG_SelfSkip</li>
+      <li MayRequire="sarg.alphagenes">AG_InnateMechlink</li>
+      <li MayRequire="sarg.alphagenes">AG_BandwidthIncrease</li>
+      <li MayRequire="sarg.alphagenes">AG_IncreasedCommandRange</li>
+      <li MayRequire="sarg.alphagenes">AlphaGenes_Animal_SummonMilitor</li>
+      <li MayRequire="sarg.alphagenes">AG_Female</li>
+      <li MayRequire="sarg.alphagenes">AG_Clean</li>
+      <li>PsychicAbility_Deaf</li>
+      <li>Mood_Pessimist</li>
+      <li MayRequire="vanillaracesexpanded.starjack">VREStarjack_VacuumResistance_Total</li>
+      <li MayRequire="rimsenal.harana">Aggression_PassivelyAggressive</li>
+      <li>Sterile</li>
+      <li MayRequire="resplice.xotr.charmweavers">RS_Beauty_Angelic</li>
+      <li MayRequire="vanillaracesexpanded.highmate">VRE_HighmateHair</li>
+      <li MayRequire="rimsenal.askbarn">Race_Gene_GlowingWhiteEyes</li>
+      <li>Beard_NoBeardOnly</li>
+      <li MayRequire="rimsenal.harana">Tired_Eyes</li>
+      <li>Body_Standard</li>
+      <li>Skin_SlateGray</li>
+      <li MayRequire="redmattis.bigsmall.simpleandroids">BS_CommandoBody</li>
+      <li MayRequire="redmattis.bigsmall.simpleandroids">BS_CommandoHead</li>
+      <li MayRequire="det.boglegs">DV_IntimidatingPresence</li>
+      <li MayRequire="vanillaracesexpanded.hussar">VREH_Arrogant</li>
+      <li MayRequire="rimsenal.zohar">Gene_Psychopath</li>
+      <li MayRequire="void.charactereditor">SZBodySize_15</li>
+    </genes>
+  </XenotypeDef>
+
 </Defs>

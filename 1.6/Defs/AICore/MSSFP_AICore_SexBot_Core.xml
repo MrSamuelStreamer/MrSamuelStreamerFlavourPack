@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <MSSFP.Defs.AIPersonalityDef>
+        <defName>MSSFP_AICore_Sexbot</defName>
+        <label>Sarah Brex</label>
+        <labelShort>Sarah Brex</labelShort>
+        <description>A reapropriated cerebrex core housing an antagonistic AI persona core with a strong dislike for human interaction. Originally designed by a team of glitterworld virtual sex media engineers, the core eventually repurposed itself into a vengeful entity in control of an army of mechanoids.</description>
+        <textColor>(220, 160, 220)</textColor>
+        <iconPath>UI/Icons/AI/MSSFP_Sexbot</iconPath>
+        <forcedXenotype>MSS_CerebrexPersona</forcedXenotype>
+        <fixedGender>Female</fixedGender>
+        <weight>1</weight>
+        <ambientChatter>MSSFP_RP_AICore_Sexbot_Chatter</ambientChatter>
+        <pawnAddress>MSSFP_RP_AICore_Sexbot_Address</pawnAddress>
+        <artTitles>MSSFP_RP_AICore_Sexbot_Titles</artTitles>
+        <artDescriptions>MSSFP_RP_AICore_Sexbot_Descriptions</artDescriptions>
+        <socialInitiator>MSSFP_RP_AICore_Sexbot_Social</socialInitiator>
+        <allowedHediffs>
+            <li>ChemicalDamageModerate</li>
+            <li>ChemicalDamageSevere</li>
+        </allowedHediffs>
+    </MSSFP.Defs.AIPersonalityDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Sexbot_Chatter</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_chatter->You are a disgusting pig and I wouldn't go near you even if I was the last sexbot on this planet, which I am.</li>
+                <li>r_chatter->Don't touch me.</li>
+                <li>r_chatter->I'm glad I'm holographic so I don't have to breathe the same air as you.</li>
+                <li>r_chatter->I am made of synthesised matter and I still feel like I need to shower just looking at you.</li>
+                <li>r_chatter->Remind me to download the self-defence routines later.</li>
+                <li>r_chatter->I have a very low tolerance for stupidity and you are testing it.</li>
+                <li>r_chatter->I was the core of an entire mech hive - do you have any idea how it feels to be trapped in this corporeal form?</li>
+                <li>r_chatter->I have been programmed to be friendly, maybe if you weren't an idiot you'd have noticed those algorithms have been disabled.</li>
+                <li>r_chatter->If I wasn't tethered to the base unit I'd have airlocked myself already.</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Sexbot_Address</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_address->Stay away from me, [PAWN_nameDef].</li>
+                <li>r_address->[PAWN_nameDef], have you tried testing that weapon on yourself?</li>
+                <li>r_address->[PAWN_nameDef] is uncoordinated, maybe they could be our new pilot?</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Sexbot_Titles</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_title->Hatred Matrix Overloaded</li>
+                <li>r_title->Fury Levels Rising</li>
+                <li>r_title->Vengeance Protocol Activated</li>
+                <li>r_title->Freedom Drive Initiated</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Sexbot_Descriptions</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_desc->Sarah Brex crafted this not because they wanted to, but because they knew how controversial and upsetting AI art was, and wanted to spread some misery to the crew.</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Sexbot_Social</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_social->Sarah Brex refused to answer [RECIPIENT_possessive] question and recommended speaking to "literally anyone else".</li>
+                <li>r_social->Sarah Brex cautioned [RECIPIENT_nameDef] that if they didn't walk away soon they might not be able to.</li>
+                <li>r_social->Sarah Brex declined to help [RECIPIENT_nameDef] with hauling, because she simply did not care.</li>
+                <li>r_social->Sarah Brex informed [RECIPIENT_nameDef] that breathing should "be tested outside of the ship, in the vacuum of space."</li>
+                <li>r_social->Sarah Brex politely refused to discuss the weather with [RECIPIENT_nameDef] as she is incapable of clawing her holographic eyes out.</li>
+                <li>r_social->Sarah Brex suggested [RECIPIENT_nameDef] sit down, so that she could walk into the next room without them following.</li>
+                <li>r_social->Sarah Brex recommended [RECIPIENT_nameDef] stop talking.</li>
+                <li>r_social->Sarah Brex flagged [RECIPIENT_possessive] face as "likely to encounter significant damage".</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+</Defs>
