@@ -241,7 +241,7 @@
         <xenotype MayRequire="ludeon.rimworld.biotech">Baseliner</xenotype>
         <endogenes>
             <li MayRequire="redmattis.bigsmall.core">BS_Fast_TotalHealing</li>
-            <li>MSS_VoidsEmbrace</li>
+            <li MayRequire="mss.flavourpack">MSS_VoidsEmbrace</li>
             <li MayRequire="ri.rimimmortal.exorcism">Nzflm_Ev_RippingClaws</li>
             <li MayRequire="redmattis.bigsmall.core">JotunFrame</li>
             <li MayRequire="redmattis.bigsmall.core">BS_CannotWearClothingOrArmor</li>
@@ -260,9 +260,9 @@
             <li MayRequire="ebsg.aio">EBSG_HyperTerrifying</li>
             <li MayRequire="ludeon.rimworld.biotech">Hair_BaldOnly</li>
             <li MayRequire="ludeon.rimworld.biotech">Beard_NoBeardOnly</li>
-            <li>MSSV_LeaperTongue</li>
-            <li>MSS_LeaperHead</li>
-            <li>MSS_LeaperBody</li>
+            <li MayRequire="sarg.alphagenes">MSS_LeaperTongue</li>
+            <li MayRequire="sarg.alphagenes">MSS_LeaperHead</li>
+            <li MayRequire="sarg.alphagenes">MSS_LeaperBody</li>
             <li MayRequire="sarg.alphagenes">AlphaGenes_ExoticOrganism</li>
             <li MayRequire="rimsenal.zohar">Gene_Psychopath</li>
             <li MayRequire="morebiotechstylegenes.mod">AptitudeInept_Shooting</li>

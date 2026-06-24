@@ -122,9 +122,9 @@ Unfortunately for him, his new maligned quantum signature caught the attention o
       <li MayRequire="ebsg.aio">EBSG_HyperTerrifying</li>
       <li>Hair_BaldOnly</li>
       <li>Beard_NoBeardOnly</li>
-      <li>MSS_LeaperHead</li>
-      <li>MSS_LeaperBody</li>
-      <li>MSS_LeaperTongue</li>
+      <li MayRequire="sarg.alphagenes">MSS_LeaperHead</li>
+      <li MayRequire="sarg.alphagenes">MSS_LeaperBody</li>
+      <li MayRequire="sarg.alphagenes">MSS_LeaperTongue</li>
       <li MayRequire="sarg.alphagenes">AlphaGenes_ExoticOrganism</li>
       <li MayRequire="rimsenal.zohar">Gene_Psychopath</li>
       <li MayRequire="morebiotechstylegenes.mod">AptitudeInept_Shooting</li>
@@ -137,7 +137,6 @@ Unfortunately for him, his new maligned quantum signature caught the attention o
       <li MayRequire="morebiotechstylegenes.mod">AptitudeInept_Intellectual</li>
       <li MayRequire="hautarche.hautstraits">HVT_HerculeanGene</li>
       <li MayRequire="redmattis.betterprerequisites">BS_FacialAnimDisabled</li>
-      <li>MSSV_LeaperTongue</li>
       <li>Body_Thin</li>
     </genes>
   </XenotypeDef>

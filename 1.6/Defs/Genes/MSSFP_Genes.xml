@@ -284,7 +284,7 @@
     <!-- Tongue -->
 
     <GeneDef ParentName="AG_GeneTuskBase" MayRequire="sarg.alphagenes">
-		<defName>MSSV_LeaperTongue</defName>
+		<defName>MSS_LeaperTongue</defName>
 		<label>Leaper Tongue</label>
 		<displayCategory>AG_Cosmetic_Horns</displayCategory> <!-- Close Enough -->
 		<description>Carriers of this gene have a long, lashing tongue.</description>
