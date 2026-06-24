@@ -6,7 +6,7 @@
         <description>Refine standard mechanite serums into programmable variants. Unlocks the programmable healer mech serum (player-chosen effect, no downsides) and the enhanced resurrector mech serum (no guaranteed downsides, still chance for void insanity).</description>
         <baseCost>6000</baseCost>
         <techLevel>Spacer</techLevel>
-        <tab>Spacer</tab>
+        <!-- <tab>Spacer</tab> -->
         <researchViewX>14.00</researchViewX>
         <researchViewY>2.50</researchViewY>
         <prerequisites>

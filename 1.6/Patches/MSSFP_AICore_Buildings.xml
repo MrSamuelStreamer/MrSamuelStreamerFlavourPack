@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
+
+    <!-- Theses all need conditionals, removed for now because they're likely not relevant again -->
+
+
     <!-- Coffee machine (def: MRCOFFEE) from "Mr Coffee and Mr Radar" mod -->
     <!-- Mr Radar (other building from mod) has Rare tickerType, if relevant in future -->
-    <Operation Class="PatchOperationAdd">
+    <!-- <Operation Class="PatchOperationAdd">
         <xpath>Defs/ThingDef[defName="MRCOFFEE"]</xpath>
         <value>
             <tickerType>Rare</tickerType>
@@ -22,10 +26,10 @@
                 <lettersPerDay>1</lettersPerDay>
             </li>
         </value>
-    </Operation>
+    </Operation> -->
     <!-- Doc machine (def: Facility_DocMate) from "RimTek DocMate" mod -->
     <!-- Already has Rare tickerType -->
-    <Operation Class="PatchOperationAdd">
+    <!-- <Operation Class="PatchOperationAdd">
         <xpath>Defs/ThingDef[defName="Facility_DocMate"]/comps</xpath>
         <value>
             <li Class="MSSFP.Comps.CompProperties_TrueAICore">
@@ -39,9 +43,9 @@
                 <lettersPerDay>1</lettersPerDay>
             </li>
         </value>
-    </Operation>
+    </Operation> -->
     <!-- Brain in a Jar (def: MiniBrainJar) from "Brain in a Jar" mod -->
-    <Operation Class="PatchOperationConditional">
+    <!-- <Operation Class="PatchOperationConditional">
         <xpath>Defs/ThingDef[defName="MiniBrainJar"]</xpath>
         <match Class="PatchOperationSequence">
             <operations>
@@ -67,5 +71,5 @@
                 </li>
             </operations>
         </match>
-    </Operation>
+    </Operation> -->
 </Patch>

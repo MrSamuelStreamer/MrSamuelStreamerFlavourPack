@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<MSSFP.PawnPortability.Defs.PawnTemplateDef>
+<MSSFP.PawnPortability.Defs.PawnTemplateDef MayRequire="sarg.alphagenes">
     <defName>MSSFP_Pawn_Leaper</defName>
     <label>Leaper</label>
     <description>Exported template of Leaper.</description>
@@ -123,7 +123,7 @@
     </age>
     <story>
         <bodyType MayRequire="ludeon.rimworld.biotech">Child</bodyType>
-        <headType MayRequire="mss.flavourpack">MSS_LeaperHead</headType>
+        <headType>MSS_LeaperHead</headType>
         <hairDef>Bald</hairDef>
         <hairColor>(0.980, 0.980, 0.980)</hairColor>
         <skinColorOverride>(1.000, 1.000, 1.000)</skinColorOverride>
@@ -241,7 +241,7 @@
         <xenotype MayRequire="ludeon.rimworld.biotech">Baseliner</xenotype>
         <endogenes>
             <li MayRequire="redmattis.bigsmall.core">BS_Fast_TotalHealing</li>
-            <li MayRequire="mss.flavourpack">MSS_VoidsEmbrace</li>
+            <li>MSS_VoidsEmbrace</li>
             <li MayRequire="ri.rimimmortal.exorcism">Nzflm_Ev_RippingClaws</li>
             <li MayRequire="redmattis.bigsmall.core">JotunFrame</li>
             <li MayRequire="redmattis.bigsmall.core">BS_CannotWearClothingOrArmor</li>
@@ -260,9 +260,9 @@
             <li MayRequire="ebsg.aio">EBSG_HyperTerrifying</li>
             <li MayRequire="ludeon.rimworld.biotech">Hair_BaldOnly</li>
             <li MayRequire="ludeon.rimworld.biotech">Beard_NoBeardOnly</li>
-            <li MayRequire="mss.flavourpack">MSSV_LeaperTongue</li>
-            <li MayRequire="mss.flavourpack">MSS_LeaperHead</li>
-            <li MayRequire="mss.flavourpack">MSS_LeaperBody</li>
+            <li>MSSV_LeaperTongue</li>
+            <li>MSS_LeaperHead</li>
+            <li>MSS_LeaperBody</li>
             <li MayRequire="sarg.alphagenes">AlphaGenes_ExoticOrganism</li>
             <li MayRequire="rimsenal.zohar">Gene_Psychopath</li>
             <li MayRequire="morebiotechstylegenes.mod">AptitudeInept_Shooting</li>
