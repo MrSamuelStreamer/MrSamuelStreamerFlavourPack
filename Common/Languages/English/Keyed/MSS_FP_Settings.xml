@@ -211,4 +211,8 @@
     <MSSFP_Settings_GoldenCubeTransferChance>Transfer-on-kill chance: {0}</MSSFP_Settings_GoldenCubeTransferChance>
     <MSSFP_GoldenCubeOuch_Msg>Ouch!</MSSFP_GoldenCubeOuch_Msg>
     <MSSFP_GoldenCubeExtracted_Msg>A golden cube was extracted from {0}.</MSSFP_GoldenCubeExtracted_Msg>
+
+
+    <MSS_FP_Settings_Section_Factions>Factions</MSS_FP_Settings_Section_Factions>
+    <MSS_FP_Settings_NoReplaceFactionLeader>Only replace faction leaders if they die</MSS_FP_Settings_NoReplaceFactionLeader>
 </LanguageData>

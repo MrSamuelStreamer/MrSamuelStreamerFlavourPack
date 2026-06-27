@@ -76,6 +76,7 @@ public class Settings : ModSettings
     public bool ShowElevationOverlay = false;
     public float BreakdownMTBDays = BreakdownMTBDaysDefault;
     public bool NullDefSafetyPatch = true;
+    public bool NoReplaceFactionLeader = false;
     public bool EnableCodexPunch = true;
     public float CodexPunchChanceMultiplier = 1.0f;
     public bool EnableUserTemplateLoading = true;

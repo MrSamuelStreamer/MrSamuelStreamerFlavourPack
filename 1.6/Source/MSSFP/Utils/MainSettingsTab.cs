@@ -101,7 +101,7 @@ public class MainSettingsTab(ModSettings settings, Mod mod) : SettingsTab(settin
             ref Settings.EnableSubNormalSpeeds,
             ref scrollViewHeight
         );
-        
+
         // --- Mechanics ---
         DrawSectionHeader(options, "MSS_FP_Settings_Section_Mechanics".Translate(), ref scrollViewHeight);
 
@@ -281,6 +281,16 @@ public class MainSettingsTab(ModSettings settings, Mod mod) : SettingsTab(settin
             ref scrollViewHeight
         );
 
+        // --- Factions ---
+        DrawSectionHeader(options, "MSS_FP_Settings_Section_Factions".Translate(), ref scrollViewHeight);
+
+        DrawCheckBox(
+            options,
+            "MSS_FP_Settings_NoReplaceFactionLeader".Translate(),
+            ref Settings.NoReplaceFactionLeader,
+            ref scrollViewHeight
+        );
+
         if (Settings.BreakdownMTBDays <= 0) Settings.BreakdownMTBDays = Settings.BreakdownMTBDaysDefault;
         if (BreakdownMTBDaysBuffer.NullOrEmpty()) BreakdownMTBDaysBuffer = Settings.BreakdownMTBDays.ToString(CultureInfo.InvariantCulture);
         options.Label("MSS_FP_Settings_BreakdownMTBDays".Translate(Settings.BreakdownMTBDays));
@@ -295,6 +305,7 @@ public class MainSettingsTab(ModSettings settings, Mod mod) : SettingsTab(settin
         if (Settings == null)
             return;
         Scribe_Values.Look(ref Settings.NullDefSafetyPatch, "NullDefSafetyPatch", true);
+        Scribe_Values.Look(ref Settings.NoReplaceFactionLeader, "NoReplaceFactionLeader", false);
         Scribe_Values.Look(ref Settings.DrawByMrStreamer, "DrawByMrStreamer", false);
         Scribe_Values.Look(
             ref Settings.EnableColonistPortraitHiding,

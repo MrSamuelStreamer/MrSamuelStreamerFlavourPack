@@ -30,4 +30,14 @@ public static class Faction_Patch
         __result = true;
         return false;
     }
+
+    [HarmonyPatch(nameof(Faction.Notify_LeaderLost))]
+    [HarmonyPrefix]
+    public static bool Notify_LeaderLost_Prefix(Faction __instance)
+    {
+        if(!MSSFPMod.settings.NoReplaceFactionLeader) return true;
+
+        // Only regen leader if they're dead, or null. Captured pawns are not replaced.
+        return __instance.leader == null || __instance.leader.Dead;
+    }
 }
