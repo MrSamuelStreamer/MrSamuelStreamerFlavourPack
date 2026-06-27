@@ -3,6 +3,7 @@
     <v1.6>
         <li>Common</li>
         <li>1.6</li>
+        <li IfModActive="ludeon.rimworld.anomaly">Compatibility/ludeon.rimworld.anomaly/1.6</li>
         <li IfModActive="vanillaexpanded.vee">Compatibility/vanillaexpanded.vee/1.6</li>
         <li IfModActive="sarg.alphagenes">Compatibility/sarg.alphagenes/1.6</li>
         <li IfModActive="redmattis.betterprerequisites">Compatibility/RedMattis.BetterPrerequisites/1.6</li>

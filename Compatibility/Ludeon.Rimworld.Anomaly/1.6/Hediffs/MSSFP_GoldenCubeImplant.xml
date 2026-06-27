@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Defs>
-    <HediffDef MayRequire="Ludeon.RimWorld.Anomaly">
+    <HediffDef>
         <defName>MSSFP_GoldenCubeImplant</defName>
         <label>transrectal aurogeometric cubic inclusion syndrome</label>
         <labelNoun>transrectal aurogeometric cubic inclusion syndrome</labelNoun>
@@ -23,7 +23,7 @@
         </comps>
     </HediffDef>
 
-    <RecipeDef MayRequire="Ludeon.RimWorld.Anomaly" ParentName="SurgeryRemoveImplantBase">
+    <RecipeDef ParentName="SurgeryRemoveImplantBase">
         <defName>MSSFP_RemoveGoldenCubeImplant</defName>
         <label>extract golden cube</label>
         <description>Surgically extract a lodged golden cube. Recovers a usable cube. Doctor's skill governs success the same as any implant removal.</description>
