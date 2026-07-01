@@ -145,7 +145,6 @@
     <MSS_BabyAddedToFaction>New Baby! {0} reformation points given</MSS_BabyAddedToFaction>
     <MSS_FactionDefeated>Faction defeated! {0} reformation points given</MSS_FactionDefeated>
     <MSS_ReformationPointsForTechs>Reformation points for tech levels: {0} tech levels, {1} points</MSS_ReformationPointsForTechs>
-    <ReformationPointsPerSeasonChange>Season changed! {0} reformation points given</ReformationPointsPerSeasonChange>
 
     <MSSFP_Elevation>Elevation: {0}m</MSSFP_Elevation>
     <MSSFP_ElevationOverlay_Tooltip>Toggle elevation overlay</MSSFP_ElevationOverlay_Tooltip>
