@@ -60,6 +60,12 @@ public static class SapientRaven_TrackerRepair
         if (pawn.relations == null)
             pawn.relations = new Pawn_RelationsTracker(pawn);
 
+        // story is present after B&S swap, but story.traits may be null if Pawn_StoryTracker
+        // was created outside the normal constructor path that initialises new TraitSet(pawn).
+        // SkillRecord.Interval() accesses pawn.story.traits without a null guard → NPE every tick.
+        if (pawn.story != null && pawn.story.traits == null)
+            pawn.story.traits = new TraitSet(pawn);
+
         if (pawn.skills == null)
             pawn.skills = new Pawn_SkillTracker(pawn);
 
