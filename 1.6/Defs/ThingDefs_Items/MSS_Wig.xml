@@ -5,7 +5,7 @@
 		<label>Powdered Wig</label>
 		<description>A strange white wig based on ancient Earth hair styling, commonly worn by nobles of the old world to disguise disease or baldness.</description>
 		<graphicData>
-			<texPath>Things/Pawn/Apparel/MSS_Wig</texPath>
+			<texPath>Things/Pawn/Apparel/MSS_Wig/MSS_Wig</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 		</graphicData>
 		<techLevel>Neolithic</techLevel>			
@@ -29,7 +29,7 @@
 			<bodyPartGroups>
 				<li>UpperHead</li>
 			</bodyPartGroups>
-			<wornGraphicPath>Things/Pawn/Apparel/MSS_Wig</wornGraphicPath>
+			<wornGraphicPath>Things/Pawn/Apparel/MSS_Wig/MSS_Wig</wornGraphicPath>
 			<layers>
 				<li>Overhead</li>
 			</layers>
