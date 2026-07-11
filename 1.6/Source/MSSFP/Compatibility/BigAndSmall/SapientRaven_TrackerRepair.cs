@@ -7,18 +7,14 @@ namespace MSSFP.Compatibility.BigAndSmall;
 /// Repair half-populated humanlike trackers on MSSFP sapient ravens produced by
 /// <c>BigAndSmall.RaceMorpher.SwapAnimalToSapientVersion</c>.
 ///
-/// Root cause: B&amp;S generates the <c>HL_MSSFP_Raven</c> ThingDef at runtime with
-/// <c>race.intelligence = Humanlike</c> (copied from the Human ThingDef) — RimWorld then
-/// treats the pawn as humanlike for all downstream purposes (social thoughts, conversations,
-/// JobGivers, etc.). However, the swap pipeline
-/// (<see cref="!:BigAndSmall.RaceMorpher.SwapAnimalToSapientVersion"/> +
-/// <c>SwapThingDef</c>) leaves a subset of humanlike trackers null on the resulting pawn.
-/// Confirmed by inspecting a saved Raven 1 pawn block:
-///
-///   present: story, needs, jobs, drafter, ageTracker, health, interactions, stances,
-///            carryTracker, psychicEntropy, royalty, apparel, equipment, inventory, ownership
-///   null:    relations, skills, workSettings, playerSettings, ideo, timetable, drugs,
-///            outfits, foodRestriction, records
+/// Root cause: B&amp;S applies the <c>HL_MSSFP_Raven_RaceHediff</c> (aptitudes + forced traits)
+/// to make the pawn sapient, but does NOT repoint <c>pawn.def</c> — the pawn keeps the animal
+/// <c>MSSFP_Raven</c> ThingDef (confirmed by the tick-error label <c>MSSFP_Raven…</c>, which is
+/// <c>def.defName + thingID</c>). The morph attaches some humanlike trackers (notably a
+/// <c>Pawn_SkillTracker</c> with leveled records from the aptitudes) while leaving others null
+/// on the resulting pawn — observed null in the wild: relations, workSettings, playerSettings,
+/// ideo, timetable, drugs, outfits, foodRestriction, records, and — critically —
+/// <c>story</c> itself (so <c>story.traits</c> is unreachable, not merely null).
 ///
 /// Third-party mods accessing the null fields then throw <see cref="System.NullReferenceException"/>
 /// — observed in the wild from:
@@ -60,10 +56,16 @@ public static class SapientRaven_TrackerRepair
         if (pawn.relations == null)
             pawn.relations = new Pawn_RelationsTracker(pawn);
 
-        // story is present after B&S swap, but story.traits may be null if Pawn_StoryTracker
-        // was created outside the normal constructor path that initialises new TraitSet(pawn).
-        // SkillRecord.Interval() accesses pawn.story.traits without a null guard → NPE every tick.
-        if (pawn.story != null && pawn.story.traits == null)
+        // B&S's sapient-animal morph attaches a Pawn_SkillTracker (leveled records from the
+        // race hediff's aptitudes) but can leave the pawn's story tracker null — the pawn is
+        // generated from the animal PawnKindDef "MSSFP_Raven", which has no story, and the
+        // morph keeps pawn.def as that animal ThingDef rather than a humanlike one.
+        // SkillRecord.Interval() dereferences pawn.story.traits every tick (unconditionally when
+        // Anomaly is active) → NullReferenceException every tick. Ensure both the story tracker
+        // and its trait set exist. Pawn_StoryTracker's constructor allocates a fresh TraitSet.
+        if (pawn.story == null)
+            pawn.story = new Pawn_StoryTracker(pawn);
+        else if (pawn.story.traits == null)
             pawn.story.traits = new TraitSet(pawn);
 
         if (pawn.skills == null)

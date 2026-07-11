@@ -1,5 +1,6 @@
 using HarmonyLib;
 using MSSFP.Compatibility.BigAndSmall;
+using RimWorld;
 using Verse;
 
 namespace MSSFP.HarmonyPatches;
@@ -9,11 +10,12 @@ namespace MSSFP.HarmonyPatches;
 /// sapient ravens whenever they spawn — including the <c>respawningAfterLoad</c> path
 /// when a save authored before the in-incident repair shipped is reloaded.
 ///
-/// Gated on <c>__instance.def.defName == "HL_MSSFP_Raven"</c> so the postfix is a single
-/// string compare for every other pawn — measurable but trivial. The <c>HL_</c> prefix is
-/// reserved by B&amp;S for its generated humanlike-animal ThingDefs; checking the exact
-/// MSSFP-specific defName keeps the scope narrow and avoids touching other mods'
-/// sapient-animal pawns (their authors are responsible for their own tracker shape).
+/// The B&amp;S sapient-animal morph does NOT repoint <c>pawn.def</c>: the pawn keeps the
+/// animal <c>MSSFP_Raven</c> ThingDef (older B&amp;S builds used <c>HL_MSSFP_Raven</c>, so
+/// both are accepted). A cheap defName compare filters out every non-raven pawn first; a
+/// raven is then confirmed to be the <em>sapient</em> variant by the presence of the B&amp;S
+/// race hediff <c>HL_MSSFP_Raven_RaceHediff</c>, so genuine wild-animal ravens are left as
+/// animals and untouched.
 ///
 /// See <see cref="SapientRaven_TrackerRepair"/> for the cascade analysis and the list of
 /// trackers being repaired.
@@ -21,12 +23,24 @@ namespace MSSFP.HarmonyPatches;
 [HarmonyPatch(typeof(Pawn), nameof(Pawn.SpawnSetup))]
 public static class Pawn_SpawnSetup_SapientRavenRepair
 {
-    private const string SapientRavenDefName = "HL_MSSFP_Raven";
+    private const string SapientRavenRaceHediff = "HL_MSSFP_Raven_RaceHediff";
+    private static HediffDef _raceHediff;
 
     public static void Postfix(Pawn __instance)
     {
         if (__instance?.def == null) return;
-        if (__instance.def.defName != SapientRavenDefName) return;
+
+        // Cheap pre-filter: only ravens get past here, so every other pawn costs two string
+        // compares. The morph keeps the animal defName; accept the legacy humanlike one too.
+        string dn = __instance.def.defName;
+        if (dn != "MSSFP_Raven" && dn != "HL_MSSFP_Raven") return;
+
+        // Confirm this raven is the sapient variant (carries the B&S race hediff); leave real
+        // wild-animal ravens alone.
+        _raceHediff ??= DefDatabase<HediffDef>.GetNamedSilentFail(SapientRavenRaceHediff);
+        if (_raceHediff == null || __instance.health?.hediffSet == null) return;
+        if (!__instance.health.hediffSet.HasHediff(_raceHediff)) return;
+
         SapientRaven_TrackerRepair.EnsureHumanlikeTrackers(__instance);
     }
 }
