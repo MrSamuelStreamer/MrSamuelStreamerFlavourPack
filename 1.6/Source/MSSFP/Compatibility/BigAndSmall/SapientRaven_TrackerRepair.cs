@@ -56,17 +56,26 @@ public static class SapientRaven_TrackerRepair
         if (pawn.relations == null)
             pawn.relations = new Pawn_RelationsTracker(pawn);
 
-        // B&S's sapient-animal morph attaches a Pawn_SkillTracker (leveled records from the
-        // race hediff's aptitudes) but can leave the pawn's story tracker null — the pawn is
-        // generated from the animal PawnKindDef "MSSFP_Raven", which has no story, and the
-        // morph keeps pawn.def as that animal ThingDef rather than a humanlike one.
-        // SkillRecord.Interval() dereferences pawn.story.traits every tick (unconditionally when
-        // Anomaly is active) → NullReferenceException every tick. Ensure both the story tracker
-        // and its trait set exist. Pawn_StoryTracker's constructor allocates a fresh TraitSet.
+        // When B&S RaceMorpher.SwapAnimalToSapientVersion can't produce the HL_MSSFP_Raven
+        // humanlike def it returns null (it never hands back a half-built pawn), and the
+        // incident keeps the raw animal "MSSFP_Raven" pawn. That pawn has no story tracker
+        // (animals never do). The skills block below then allocates a Pawn_SkillTracker whose
+        // constructor creates a level-0 SkillRecord for every skill — and SkillRecord.Interval()
+        // dereferences pawn.story.traits every tick (unconditionally when Anomaly is active),
+        // so "skills present + story null" NREs every tick. Ensure the story tracker, its trait
+        // set, and default backstories all exist before we (re)build the skills tracker.
+        // Pawn_StoryTracker's constructor allocates a fresh TraitSet; the backstory defs mirror
+        // what a successful B&S swap assigns (RaceMorpher.cs), and GetNamedSilentFail keeps a
+        // missing def from reintroducing a crash.
         if (pawn.story == null)
             pawn.story = new Pawn_StoryTracker(pawn);
         else if (pawn.story.traits == null)
             pawn.story.traits = new TraitSet(pawn);
+
+        if (pawn.story.Adulthood == null)
+            pawn.story.Adulthood = DefDatabase<BackstoryDef>.GetNamedSilentFail("Colonist97");
+        if (pawn.story.Childhood == null)
+            pawn.story.Childhood = DefDatabase<BackstoryDef>.GetNamedSilentFail("TribeChild19");
 
         if (pawn.skills == null)
             pawn.skills = new Pawn_SkillTracker(pawn);
