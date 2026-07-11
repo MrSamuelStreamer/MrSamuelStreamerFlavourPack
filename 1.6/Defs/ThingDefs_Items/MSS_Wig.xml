@@ -2,7 +2,7 @@
 <Defs>
 	<ThingDef ParentName="HatMakeableBase">
 		<defName>MSS_powdered_Wig</defName>
-		<label>Powdered Wig</label>
+		<label>Poorly-Fitting Powdered Wig</label>
 		<description>A strange white wig based on ancient Earth hair styling, commonly worn by nobles of the old world to disguise disease or baldness.</description>
 		<graphicData>
 			<texPath>Things/Pawn/Apparel/MSS_Wig/MSS_Wig</texPath>
@@ -22,7 +22,7 @@
 			<StuffEffectMultiplierInsulation_Heat>0.15</StuffEffectMultiplierInsulation_Heat>
 			<EquipDelay>0.3</EquipDelay>
 		</statBases>
-		<generateCommonality>0.1</generateCommonality>
+		<generateCommonality>0.0</generateCommonality>
 		<apparel>
 		      <countsAsClothingForNudity>false</countsAsClothingForNudity>
 		      <developmentalStageFilter>Child, Adult</developmentalStageFilter>
@@ -30,6 +30,58 @@
 				<li>UpperHead</li>
 			</bodyPartGroups>
 			<wornGraphicPath>Things/Pawn/Apparel/MSS_Wig/MSS_Wig</wornGraphicPath>
+			<layers>
+				<li>Overhead</li>
+			</layers>
+			<tags>
+			    <li>Neolithic</li>
+			</tags>
+			<defaultOutfitTags>
+				<li>Worker</li>
+			</defaultOutfitTags>
+		</apparel>
+		<recipeMaker>
+			<recipeUsers>
+				<li>ElectricTailoringBench</li>
+				<li>HandTailoringBench</li>
+				<li>CraftingSpot</li>
+			</recipeUsers>
+		</recipeMaker>
+		<tradeTags>
+		      <li>BasicClothing</li>
+		</tradeTags>
+	</ThingDef>
+
+	<ThingDef ParentName="HatMakeableBase">
+		<defName>MSS_elegant_Powdered_Wig</defName>
+		<label>Elegant Powdered Wig</label>
+		<description>A strange white wig based on ancient Earth hair styling, commonly worn by nobles of the old world to disguise disease or baldness.</description>
+		<graphicData>
+			<texPath>Things/Pawn/Apparel/MSS_GoodWig/MSS_GoodWig</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<techLevel>Neolithic</techLevel>			
+		<costStuffCount>80</costStuffCount>
+		<stuffCategories>
+			<li>Fabric</li>
+		</stuffCategories>
+		<tradeability>Sellable</tradeability>		
+		<statBases>
+			<WorkToMake>4500</WorkToMake>
+			<Mass>0.14</Mass>
+			<StuffEffectMultiplierArmor>0.12</StuffEffectMultiplierArmor>
+			<StuffEffectMultiplierInsulation_Cold>0.35</StuffEffectMultiplierInsulation_Cold>
+			<StuffEffectMultiplierInsulation_Heat>0.25</StuffEffectMultiplierInsulation_Heat>
+			<EquipDelay>0.4</EquipDelay>
+		</statBases>
+		<generateCommonality>0.0</generateCommonality>
+		<apparel>
+		      <countsAsClothingForNudity>false</countsAsClothingForNudity>
+		      <developmentalStageFilter>Child, Adult</developmentalStageFilter>
+			<bodyPartGroups>
+				<li>UpperHead</li>
+			</bodyPartGroups>
+			<wornGraphicPath>Things/Pawn/Apparel/MSS_GoodWig/MSS_GoodWig</wornGraphicPath>
 			<layers>
 				<li>Overhead</li>
 			</layers>
