@@ -22,7 +22,7 @@ public class MSSFPMod : Mod
         : base(content)
     {
         Mod = this;
-        ModLog.Log("Loading the Mr Samuel Streamer Flavour Pack");
+        ModLog.Log("Loading MSS Tweaks and Fun");
 
         // initialize settings
         settings = GetSettings<Settings>();

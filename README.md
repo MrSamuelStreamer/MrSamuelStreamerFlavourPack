@@ -4,7 +4,7 @@
   </a>
 </p>
 
-# Mr Samuel Streamer Flavour Pack
+# MSS Tweaks and Fun
 
 A flavour pack for Mr Samuel Streamer's Rimworld Playthroughs
 

@@ -4,7 +4,7 @@
     <MSS_MRStreamer>Rimworld: Warlock by Mr Samuel Streamer on Youtube</MSS_MRStreamer>
     <MSS_FP_Settings_DrawByMrStreamer>Show "By Mr Samuel Streamer" label in the bottom left (only used to disuade video theft and other digital larceny, leave disabled)</MSS_FP_Settings_DrawByMrStreamer>
 
-    <MSSFP_SettingsCategory>Mr Samuel Streamer Flavour Pack</MSSFP_SettingsCategory>
+    <MSSFP_SettingsCategory>MSS Tweaks and Fun</MSSFP_SettingsCategory>
 
     <MSS_FP_Settings_EnableSubNormalSpeeds>Enable sub-normal speeds (1/2, 1/4, 1/8)</MSS_FP_Settings_EnableSubNormalSpeeds>
     <MSS_FP_Settings_EnableSubNormalSpeeds_Tooltip>Adds three new buttons above the speed bar that run the game at 1/2, 1/4, or 1/8 of normal speed. Useful for combat pacing and complex builds. Some other mods may behave unexpectedly at slow speeds.</MSS_FP_Settings_EnableSubNormalSpeeds_Tooltip>
@@ -33,7 +33,7 @@
     <MSS_FP_Settings_Section_Social>Social</MSS_FP_Settings_Section_Social>
     <MSS_FP_Settings_Section_Events>Events</MSS_FP_Settings_Section_Events>
     <MSS_FP_Settings_Section_Combat>Combat</MSS_FP_Settings_Section_Combat>
-    <MSSFP_RGSettingsCategory>Mr Samuel Streamer Flavour Pack - Resource Generator</MSSFP_RGSettingsCategory>
+    <MSSFP_RGSettingsCategory>MSS Tweaks and Fun - Resource Generator</MSSFP_RGSettingsCategory>
     <MSS_FP_Settings_ShowHaunts>Show Haunts</MSS_FP_Settings_ShowHaunts>
     <MSS_FP_Settings_NoSkylanternRaids>Disable skylantern raids</MSS_FP_Settings_NoSkylanternRaids>
     <MSS_FP_Settings_EnableIEDPodRaids>Enable IED pod scatter raids</MSS_FP_Settings_EnableIEDPodRaids>

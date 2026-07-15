@@ -180,7 +180,7 @@ Enable "Enable Pawn Export/Import Debug Logging" in settings to see detailed dia
 
 ## Settings
 
-Found under Mod Settings > Mr Samuel Streamer Flavour Pack > Pawn Portability:
+Found under Mod Settings > MSS Tweaks and Fun > Pawn Portability:
 
 | Setting | Default | Description |
 |---------|---------|-------------|
