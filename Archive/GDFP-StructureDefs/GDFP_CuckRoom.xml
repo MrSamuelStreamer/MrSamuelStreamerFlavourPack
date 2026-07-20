@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <GenStepDef>
+        <defName>GDFP_CuckRoom</defName>
+        <order>460</order>
+        <genStep Class="GDFP.GenStep_GDCustomStructureGen">
+            <structureLayoutDefs>
+                <li>GDFP_CuckRoom</li>
+            </structureLayoutDefs>
+            <!-- Additional options -->
+            <fullClear>true</fullClear> <!-- Clear any impassable in the way -->
+            <clearFogInRect>true</clearFogInRect> <!-- Clear fog on the structure -->
+            <preventBridgeable>true</preventBridgeable> <!-- Prevent lake/river/marsh (bridgeable) -->
+        </genStep>
+    </GenStepDef>
+
+    <KCSG.StructureLayoutDef>
+        <defName>GDFP_CuckRoom</defName>
+
+        <modExtensions>
+            <li Class="MSSFP.ModExtensions.StructureDefModExtension">
+                <author>keyz</author>
+                <standalone>false</standalone>
+            </li>
+        </modExtensions>
+
+        <layouts>
+            <li>
+                <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+                <li>.,.,.,.,.,VFEArch_LogWall,VFEArch_LogWall,VFEArch_LogWall,VFEArch_LogWall,Autodoor_WoodLog_Cubic,VFEArch_LogWall,VFEArch_LogWall,VFEArch_LogWall,VFEArch_LogWall,.</li>
+                <li>.,.,.,.,.,VFEArch_LogWall,.,.,.,.,.,.,.,VFEArch_LogWall,.</li>
+                <li>.,.,.,.,.,VFEArch_LogWall,Shelf_WoodLog_Cubic_East,.,.,.,.,.,.,VFEArch_LogWall,.</li>
+                <li>.,.,.,.,.,VFEArch_LogWall,.,.,.,MSSFP_CuckChair_North,.,.,.,VFEArch_LogWall,.</li>
+                <li>.,VFEArch_LogWall,VFEArch_LogWall,VFEArch_LogWall,Autodoor_WoodLog_Cubic,VFEArch_LogWall,.,StandingLamp_Cubic,.,.,.,StandingLamp_Cubic,.,VFEArch_LogWall,.</li>
+                <li>.,VFEArch_LogWall,.,.,.,VFEArch_LogWall,.,.,.,.,.,.,.,VFEArch_LogWall,.</li>
+                <li>.,VFEArch_LogWall,.,VanometricPowerCell_North,.,VFEArch_LogWall,.,.,.,.,.,.,.,VFEArch_LogWall,.</li>
+                <li>.,VFEArch_LogWall,.,.,.,VFEArch_LogWall,.,Table_IlluminatedEndTable_WoodLog_South,.,MSSFP_OskarianBed_Triple_WoodLog_South,.,Table_IlluminatedEndTable_WoodLog_South,.,VFEArch_LogWall,.</li>
+                <li>.,VFEArch_LogWall,VFEArch_LogWall,VFEArch_LogWall,VFEArch_LogWall,VFEArch_LogWall,VFEArch_LogWall,VFEArch_LogWall,VFEArch_LogWall,VFEArch_LogWall,VFEArch_LogWall,VFEArch_LogWall,VFEArch_LogWall,VFEArch_LogWall,.</li>
+                <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+            </li>
+            <li>
+                <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+                <li>.,.,.,.,.,PowerConduit,PowerConduit,PowerConduit,.,.,.,.,.,PowerConduit,.</li>
+                <li>.,.,.,.,.,PowerConduit,Apparel_BodyStrap,.,.,.,.,.,.,PowerConduit,.</li>
+                <li>.,.,.,.,.,PowerConduit,Apparel_BodyStrap,.,.,.,.,.,.,PowerConduit,.</li>
+                <li>.,.,.,.,.,PowerConduit,.,.,.,.,.,.,.,PowerConduit,.</li>
+                <li>.,.,.,.,.,PowerConduit,.,.,.,.,.,.,.,PowerConduit,.</li>
+                <li>.,.,.,.,.,PowerConduit,.,.,.,.,.,.,.,PowerConduit,.</li>
+                <li>.,.,.,.,.,PowerConduit,.,.,.,.,.,.,.,PowerConduit,.</li>
+                <li>.,.,.,.,.,PowerConduit,.,.,.,.,.,.,.,PowerConduit,.</li>
+                <li>.,.,.,PowerConduit,PowerConduit,PowerConduit,PowerConduit,PowerConduit,PowerConduit,PowerConduit,PowerConduit,PowerConduit,PowerConduit,PowerConduit,.</li>
+                <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+            </li>
+            <li>
+                <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+                <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+                <li>.,.,.,.,.,.,Apparel_BodyStrap,.,.,.,.,.,.,.,.</li>
+                <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+                <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+                <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+                <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+                <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+                <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+                <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+                <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+            </li>
+            <li>
+                <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+                <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+                <li>.,.,.,.,.,.,Apparel_BodyStrap,.,.,.,.,.,.,.,.</li>
+                <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+                <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+                <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+                <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+                <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+                <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+                <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+                <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+            </li>
+        </layouts>
+        <terrainGrid>
+            <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+            <li>.,.,.,.,.,Concrete,Concrete,Concrete,Concrete,CarpetFineMustard,Concrete,Concrete,Concrete,Concrete,.</li>
+            <li>.,.,.,.,.,Concrete,CarpetFineMustard,CarpetFineMustard,CarpetFineMustard,CarpetFineMustard,CarpetFineMustard,CarpetFineMustard,CarpetFineMustard,Concrete,.</li>
+            <li>.,.,.,.,.,CarpetFineMustard,CarpetFineMustard,CarpetFineMustard,CarpetFineMustard,CarpetFineMustard,CarpetFineMustard,CarpetFineMustard,CarpetFineMustard,Concrete,.</li>
+            <li>.,.,.,.,.,Concrete,CarpetFineMustard,CarpetFineMustard,CarpetFineMustard,CarpetFineMustard,CarpetFineMustard,CarpetFineMustard,CarpetFineMustard,Concrete,.</li>
+            <li>.,CarpetFineMustard,CarpetFineMustard,CarpetFineMustard,CarpetFineMustard,CarpetFineMustard,CarpetFineMustard,CarpetFineMustard,CarpetFineMustard,CarpetFineMustard,CarpetFineMustard,CarpetFineMustard,CarpetFineMustard,Concrete,.</li>
+            <li>.,CarpetFineMustard,CarpetFineMustard,CarpetFineMustard,CarpetFineMustard,CarpetFineMustard,CarpetFineMustard,CarpetFineMustard,CarpetFineMustard,CarpetFineMustard,CarpetFineMustard,CarpetFineMustard,CarpetFineMustard,Concrete,.</li>
+            <li>.,CarpetFineMustard,CarpetFineMustard,CarpetFineMustard,CarpetFineMustard,CarpetFineMustard,CarpetFineMustard,CarpetFineMustard,CarpetFineMustard,CarpetFineMustard,CarpetFineMustard,CarpetFineMustard,CarpetFineMustard,Concrete,.</li>
+            <li>.,CarpetFineMustard,CarpetFineMustard,CarpetFineMustard,CarpetFineMustard,CarpetFineMustard,CarpetFineMustard,CarpetFineMustard,CarpetFineMustard,CarpetFineMustard,CarpetFineMustard,CarpetFineMustard,CarpetFineMustard,Concrete,.</li>
+            <li>.,CarpetFineMustard,CarpetFineMustard,CarpetFineMustard,CarpetFineMustard,CarpetFineMustard,CarpetFineMustard,CarpetFineMustard,CarpetFineMustard,CarpetFineMustard,CarpetFineMustard,CarpetFineMustard,CarpetFineMustard,Concrete,.</li>
+            <li>.,.,.,.,.,Concrete,Concrete,Concrete,Concrete,Concrete,Concrete,Concrete,Concrete,Concrete,.</li>
+        </terrainGrid>
+        <forceGenerateRoof>true</forceGenerateRoof>
+        <needRoofClearance>true</needRoofClearance>
+        <modRequirements>
+            <li>vanillaexpanded.vfearchitect</li>
+            <li>ludeon.rimworld.ideology</li>
+            <li>mss.flavourpack</li>
+            <li>vanillaexpanded.vfespacer</li>
+        </modRequirements>
+    </KCSG.StructureLayoutDef>
+</Defs>

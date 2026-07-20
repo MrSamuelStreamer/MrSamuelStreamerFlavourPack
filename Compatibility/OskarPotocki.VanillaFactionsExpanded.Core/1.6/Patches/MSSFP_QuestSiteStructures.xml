@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+  <!--
+    Quest sites have no mapGenerator of their own, so Site falls through to Encounter. Adding the
+    scatter GenStep here reaches every quest site; the GenStep itself guards on map.Parent is Site
+    so plain encounter maps (caravan ambushes, gravship landings) are unaffected.
+
+    Sites are augmented rather than replaced on purpose: their SitePartWorkers spawn quest-critical
+    objects such as item stashes, and swapping the whole map generator would strand them and leave
+    the quest uncompletable.
+  -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/MapGeneratorDef[defName="Encounter"]/genSteps</xpath>
+    <value>
+      <li>MSSFP_ViewerStructureScatter</li>
+    </value>
+  </Operation>
+
+</Patch>
