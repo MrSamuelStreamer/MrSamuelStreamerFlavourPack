@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--
+    A sparse world-map location that hosts standalone (whole-map) viewer structures. Kept off the
+    Settlement path entirely after one generated with zero defenders and triggered an instant
+    "base destroyed" letter — see Settlement_MapGeneratorDef_Patch. Rides on vanilla Site/SitePartDef
+    rather than a raw WorldObject subclass, reusing its already-correct attack/visit menus and
+    defeat detection instead of re-deriving them.
+  -->
+  <WorldObjectDef>
+    <defName>MSS_PointOfInterestWorldObject</defName>
+    <label>point of interest</label>
+    <worldObjectClass>RimWorld.Planet.Site</worldObjectClass>
+    <texture>World/WorldObjects/MSS_POI</texture>
+    <expandingIcon>true</expandingIcon>
+    <expandingIconTexture>World/WorldObjects/Expanding/MSS_POI</expandingIconTexture>
+    <mapGenerator>MSSFP_PointOfInterestMapGen</mapGenerator>
+  </WorldObjectDef>
+
+  <MapGeneratorDef ParentName="MapCommonBase">
+    <defName>MSSFP_PointOfInterestMapGen</defName>
+    <genSteps>
+      <li>RocksFromGrid</li>
+    </genSteps>
+  </MapGeneratorDef>
+
+  <!--
+    wantsThreatPoints is false because pawn presence is handled directly by the GenStep (authored
+    pawns, or a friendly/hostile fallback roll), not vanilla's PawnGroupMaker-based threat-points
+    pipeline — the same pipeline that had no usable maker for the faction that broke settlement
+    replacement. disallowsAutomaticDetectionTimerStart avoids an unrelated forced-exit countdown
+    this SitePart never intended to opt into.
+  -->
+  <SitePartDef>
+    <defName>MSS_PointOfInterest</defName>
+    <label>point of interest</label>
+    <siteTexture>World/WorldObjects/MSS_POI</siteTexture>
+    <expandingIconTexture>World/WorldObjects/Expanding/MSS_POI</expandingIconTexture>
+    <wantsThreatPoints>false</wantsThreatPoints>
+    <disallowsAutomaticDetectionTimerStart>true</disallowsAutomaticDetectionTimerStart>
+    <extraGenSteps>
+      <li>MSSFP_PointOfInterestGen</li>
+    </extraGenSteps>
+  </SitePartDef>
+
+  <!--
+    MapCommonBase's own genSteps include a cluster of Ideology/Biotech-gated "scatter ancient
+    ruins/mechs/debris" content — normally harmless, but a hand-placed structure filling the whole
+    map doesn't want vanilla's own ancient-danger-style content layered on top of it (visually and
+    spatially uncontrolled, and it can add hostile pawns the friendly/hostile roll never accounted
+    for). preventsGenSteps here, not on those steps, per how RimWorld resolves it.
+  -->
+  <GenStepDef>
+    <defName>MSSFP_PointOfInterestGen</defName>
+    <order>400</order>
+    <genStep Class="MSSFP.VFE.Structures.GenStep_MSSPointOfInterest" />
+    <preventsGenSteps>
+      <li>ScatterRoadDebris</li>
+      <li>ScatterCaveDebris</li>
+      <li>AncientUtilityBuilding</li>
+      <li>MechanoidRemains</li>
+      <li>AncientTurret</li>
+      <li>AncientMechs</li>
+      <li>AncientLandingPad</li>
+      <li>AncientFences</li>
+      <li>AncientPipelineSection</li>
+      <li>AncientJunkClusters</li>
+      <li>AncientPollutionJunk</li>
+    </preventsGenSteps>
+  </GenStepDef>
+
+  <IncidentDef>
+    <defName>MSS_PointOfInterest</defName>
+    <label>point of interest discovered</label>
+    <workerClass>MSSFP.VFE.Structures.IncidentWorker_MSSPointOfInterest</workerClass>
+    <category>Misc</category>
+    <targetTags>
+      <li>World</li>
+    </targetTags>
+    <baseChance>1.5</baseChance>
+    <minRefireDays>15</minRefireDays>
+    <letterLabel>Point of interest discovered</letterLabel>
+    <letterText>Explorers have located a point of interest. Its contents are unknown until someone investigates.</letterText>
+    <letterDef>NeutralEvent</letterDef>
+  </IncidentDef>
+
+  <!-- Value ranges are passed at call time (GenStep_MSSPointOfInterest.ScatterLoot); no fixed filter
+       here beyond the default ThingSetMaker_MarketValue behaviour. -->
+  <ThingSetMakerDef>
+    <defName>MSS_PointOfInterestLootCommon</defName>
+    <root Class="ThingSetMaker_MarketValue" />
+  </ThingSetMakerDef>
+
+  <ThingSetMakerDef>
+    <defName>MSS_PointOfInterestLootRare</defName>
+    <root Class="ThingSetMaker_MarketValue" />
+  </ThingSetMakerDef>
+
+</Defs>
