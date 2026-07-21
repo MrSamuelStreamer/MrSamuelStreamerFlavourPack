@@ -3,6 +3,7 @@ using System.Linq;
 using KCSG;
 using MSSFP;
 using MSSFP.ModExtensions;
+using RimWorld;
 using Verse;
 
 // RimWorld 1.6 (Odyssey) introduced its own RimWorld.StructureLayoutDef; alias to KCSG's so this
@@ -83,6 +84,48 @@ public static class ViewerStructureSelector
     public static bool TryPick(Map map, bool standaloneOnly, out StructureLayoutDef layout)
     {
         return Eligible(map, standaloneOnly).TryRandomElement(out layout);
+    }
+
+    /// <summary>Standalone (whole-map) layouts, for the Point of Interest world object only. Settlement
+    /// replacement (Eligible) still excludes these — see the pause note there.</summary>
+    public static IEnumerable<StructureLayoutDef> EligibleStandalone(Map map)
+    {
+        foreach (StructureLayoutDef layout in DefDatabase<StructureLayoutDef>.AllDefsListForReading)
+        {
+            StructureDefModExtension ext = layout.GetModExtension<StructureDefModExtension>();
+            if (ext == null || ext.excludeFromRandomGen || !ext.standalone)
+                continue;
+            if (ext.biome != null && ext.biome != map.Biome)
+                continue;
+            if (!RequirementsMet(layout) || !Fits(layout, map))
+                continue;
+
+            yield return layout;
+        }
+    }
+
+    /// <summary>
+    /// True if at least one standalone layout could generate in this biome. No Map exists yet at
+    /// incident time, so this checks only what's knowable pre-generation (biome, mod requirements) —
+    /// size is checked again by EligibleStandalone once the map's actual dimensions exist, but every
+    /// point-of-interest map uses the same fixed size, so a biome pass here is what actually prevents
+    /// an empty point of interest.
+    /// </summary>
+    public static bool AnyStandaloneViableFor(BiomeDef biome)
+    {
+        foreach (StructureLayoutDef layout in DefDatabase<StructureLayoutDef>.AllDefsListForReading)
+        {
+            StructureDefModExtension ext = layout.GetModExtension<StructureDefModExtension>();
+            if (ext == null || ext.excludeFromRandomGen || !ext.standalone)
+                continue;
+            if (ext.biome != null && ext.biome != biome)
+                continue;
+            if (!RequirementsMet(layout))
+                continue;
+
+            return true;
+        }
+        return false;
     }
 
     /// <summary>
