@@ -30,10 +30,23 @@ public static class Settlement_MapGeneratorDef_Patch
         if (__result != MSSFPStructureDefOf.Base_Faction)
             return;
 
-        if (!ViewerStructureSelector.Roll(__instance.ID, ViewerStructureSelector.SettlementSeedSalt))
+        // Settlement replacement only ever draws from standalone (whole-map) layouts, and those are
+        // paused (see ViewerStructureSelector.Eligible) after a settlement generated with zero
+        // defenders — its faction had no PawnGroupMakers for groupKind=Settlement, so the base read
+        // as already-defeated the moment the caravan entered. TrySwapToViewerStructure below is kept
+        // intact but unused so re-enabling later, once that gap is fixed, is a one-line call.
+    }
+
+    /// <summary>
+    /// Currently unused — see the pause note in Postfix. Left in place, not deleted, so re-enabling
+    /// is a one-line call once standalone layouts have a defender fallback.
+    /// </summary>
+    private static void TrySwapToViewerStructure(Settlement settlement, ref MapGeneratorDef result)
+    {
+        if (!ViewerStructureSelector.Roll(settlement.ID, ViewerStructureSelector.SettlementSeedSalt))
             return;
 
-        __result = MSSFPStructureDefOf.MSSFP_ViewerStructureSettlement;
-        ModLog.Log($"Settlement {__instance.Label} will generate a viewer structure instead of a standard base");
+        result = MSSFPStructureDefOf.MSSFP_ViewerStructureSettlement;
+        ModLog.Log($"Settlement {settlement.Label} will generate a viewer structure instead of a standard base");
     }
 }

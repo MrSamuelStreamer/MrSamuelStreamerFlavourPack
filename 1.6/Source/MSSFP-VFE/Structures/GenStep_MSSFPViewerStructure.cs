@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using KCSG;
+using MSSFP.Comps.Map;
 using MSSFP.ModExtensions;
 using RimWorld;
 using RimWorld.BaseGen;
@@ -68,6 +69,8 @@ public class GenStep_MSSFPViewerStructure : GenStep_CustomStructureGen
 
         StructureLayoutDef layout = structureLayoutDefs[0];
         StructureDefModExtension ext = layout.GetModExtension<StructureDefModExtension>();
+
+        map.GetComponent<GeneratedStructureMapComponent>()?.RecordStructure(layout.defName, ext?.author);
 
         // A layout may not carry the extension, so null-check before use.
         if (ext != null)

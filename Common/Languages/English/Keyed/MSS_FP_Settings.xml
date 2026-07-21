@@ -3,6 +3,7 @@
 <LanguageData>
     <MSS_MRStreamer>Rimworld: Warlock by Mr Samuel Streamer on Youtube</MSS_MRStreamer>
     <MSS_FP_Settings_DrawByMrStreamer>Show "By Mr Samuel Streamer" label in the bottom left (only used to disuade video theft and other digital larceny, leave disabled)</MSS_FP_Settings_DrawByMrStreamer>
+    <MSS_FP_Settings_EnableViewerStructures>Generate viewer-submitted structures in settlements and quest sites (disable if they cause issues)</MSS_FP_Settings_EnableViewerStructures>
 
     <MSSFP_SettingsCategory>MSS Tweaks and Fun</MSSFP_SettingsCategory>
 

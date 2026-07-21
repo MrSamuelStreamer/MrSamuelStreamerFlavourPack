@@ -17,6 +17,7 @@ public class Settings : ModSettings
     public bool EnableSkylanternRaids = false;
     public bool EnableIEDPodRaids = true;
     public bool DrawByMrStreamer = false;
+    public bool EnableViewerStructures = true;
     public bool EnableGenesOnGrowthMoment = false;
     public float GeneEventChance = 1f;
     public float GoodGeneChance = 1f / 4f;

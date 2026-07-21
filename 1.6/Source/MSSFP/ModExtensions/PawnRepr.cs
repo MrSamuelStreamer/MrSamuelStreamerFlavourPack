@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using RimWorld;
 using UnityEngine;
 using Verse;
@@ -13,21 +14,36 @@ namespace MSSFP.ModExtensions;
 ///
 /// This is load-from-XML only. GDFP's capture path (FromPawn) and savegame scribing belonged to
 /// its gate system, which MSSFP does not reproduce, so they are deliberately not ported.
+///
+/// Def references are stored as strings and resolved with GetNamedSilentFail at spawn time
+/// rather than as typed Def fields. A structure's author may reference defs from mods the
+/// player doesn't have installed; typed fields would turn those into load-time cross-reference
+/// errors regardless of the layout's own modRequirements gate. Resolution is deferred instead,
+/// and anything that fails to resolve is dropped, leaving the pawn a plain baseliner colonist.
 /// </summary>
 public class PawnRepr
 {
     /// <summary>A single item of gear or inventory, described in XML.</summary>
     public class ThingRepr
     {
-        public ThingDef def;
+        public string def;
         public int count = 1;
-        public ThingDef stuff;
+        public string stuff;
         public string color;
         public QualityCategory quality;
 
+        /// <summary>Builds the thing, or null if <see cref="def"/> doesn't resolve.</summary>
         public Thing ToThing()
         {
-            Thing thing = ThingMaker.MakeThing(def, stuff);
+            ThingDef thingDef = DefDatabase<ThingDef>.GetNamedSilentFail(def);
+            if (thingDef == null)
+                return null;
+
+            ThingDef stuffDef = stuff.NullOrEmpty() ? null : DefDatabase<ThingDef>.GetNamedSilentFail(stuff);
+            if (stuffDef == null && thingDef.MadeFromStuff)
+                stuffDef = GenStuff.DefaultStuffFor(thingDef);
+
+            Thing thing = ThingMaker.MakeThing(thingDef, stuffDef);
             thing.stackCount = count;
 
             if (thing.TryGetComp(out CompQuality compQuality))
@@ -44,18 +60,18 @@ public class PawnRepr
         }
     }
 
-    public PawnKindDef kindDef;
+    public string kindDef;
     public Name nameInt;
     public Gender gender;
     public bool FactionLeader;
     public int age;
     public List<ThingRepr> inventory;
     public ThingRepr equipment;
-    public BeardDef beardDef;
-    public TattooDef faceTattoo;
-    public TattooDef bodyTattoo;
-    public List<GeneDef> genes;
-    public XenotypeDef xenotype;
+    public string beardDef;
+    public string faceTattoo;
+    public string bodyTattoo;
+    public List<string> genes;
+    public string xenotype;
     public IntVec3 spawnCell;
 
     /// <summary>
@@ -70,8 +86,33 @@ public class PawnRepr
 
             if (pawn == null)
             {
+                PawnKindDef resolvedKind = kindDef.NullOrEmpty()
+                    ? null
+                    : DefDatabase<PawnKindDef>.GetNamedSilentFail(kindDef);
+                resolvedKind ??= PawnKindDefOf.Colonist;
+
+                // Gene and xenotype defs only exist when Biotech is active, so resolving them
+                // otherwise would just return null anyway; the guard makes that explicit.
+                List<GeneDef> resolvedGenes = null;
+                XenotypeDef resolvedXenotype = null;
+                if (ModsConfig.BiotechActive)
+                {
+                    if (!genes.NullOrEmpty())
+                    {
+                        resolvedGenes = genes
+                            .Select(g => DefDatabase<GeneDef>.GetNamedSilentFail(g))
+                            .Where(g => g != null)
+                            .ToList();
+                        if (resolvedGenes.Count == 0)
+                            resolvedGenes = null;
+                    }
+
+                    if (!xenotype.NullOrEmpty())
+                        resolvedXenotype = DefDatabase<XenotypeDef>.GetNamedSilentFail(xenotype);
+                }
+
                 PawnGenerationRequest request = new(
-                    kindDef,
+                    resolvedKind,
                     faction,
                     PawnGenerationContext.NonPlayer,
                     forceGenerateNewPawn: true,
@@ -81,8 +122,8 @@ public class PawnRepr
                     fixedBiologicalAge: age > 0 ? age : null,
                     fixedChronologicalAge: age > 0 ? age : null,
                     fixedGender: gender,
-                    forcedEndogenes: genes,
-                    forcedXenotype: xenotype,
+                    forcedEndogenes: resolvedGenes,
+                    forcedXenotype: resolvedXenotype,
                     dontGiveWeapon: true
                 );
 
@@ -94,9 +135,19 @@ public class PawnRepr
 
             if (pawn.style != null)
             {
-                pawn.style.beardDef = beardDef;
-                pawn.style.FaceTattoo = faceTattoo;
-                pawn.style.BodyTattoo = bodyTattoo;
+                // Only assign when resolved, so a missing style def leaves the generated
+                // default rather than blanking it out.
+                BeardDef resolvedBeard = beardDef.NullOrEmpty() ? null : DefDatabase<BeardDef>.GetNamedSilentFail(beardDef);
+                if (resolvedBeard != null)
+                    pawn.style.beardDef = resolvedBeard;
+
+                TattooDef resolvedFaceTattoo = faceTattoo.NullOrEmpty() ? null : DefDatabase<TattooDef>.GetNamedSilentFail(faceTattoo);
+                if (resolvedFaceTattoo != null)
+                    pawn.style.FaceTattoo = resolvedFaceTattoo;
+
+                TattooDef resolvedBodyTattoo = bodyTattoo.NullOrEmpty() ? null : DefDatabase<TattooDef>.GetNamedSilentFail(bodyTattoo);
+                if (resolvedBodyTattoo != null)
+                    pawn.style.BodyTattoo = resolvedBodyTattoo;
             }
 
             lord?.AddPawn(pawn);
@@ -105,7 +156,9 @@ public class PawnRepr
             {
                 foreach (ThingRepr thingRepr in inventory)
                 {
-                    pawn.inventory?.innerContainer.TryAdd(thingRepr.ToThing());
+                    Thing thing = thingRepr.ToThing();
+                    if (thing != null)
+                        pawn.inventory?.innerContainer.TryAdd(thing);
                 }
             }
 

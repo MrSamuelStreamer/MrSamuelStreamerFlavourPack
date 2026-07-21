@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using KCSG;
+using MSSFP;
 using MSSFP.ModExtensions;
 using Verse;
 
@@ -63,6 +64,11 @@ public static class ViewerStructureSelector
             StructureDefModExtension ext = layout.GetModExtension<StructureDefModExtension>();
             if (ext == null || ext.excludeFromRandomGen)
                 continue;
+            // standalone = the layout IS the entire map, not a building within one. Paused for
+            // now — see Settlement_MapGeneratorDef_Patch for why. Restoring this later is a
+            // one-line revert; the standaloneOnly check below is kept for that reason.
+            if (ext.standalone)
+                continue;
             if (standaloneOnly && !ext.standalone)
                 continue;
             if (ext.biome != null && ext.biome != map.Biome)
@@ -85,6 +91,9 @@ public static class ViewerStructureSelector
     /// </summary>
     public static bool Roll(int worldObjectId, int salt)
     {
+        if (MSSFPMod.settings?.EnableViewerStructures != true)
+            return false;
+
         return Rand.ChanceSeeded(UseChance, Gen.HashCombineInt(worldObjectId, salt));
     }
 }

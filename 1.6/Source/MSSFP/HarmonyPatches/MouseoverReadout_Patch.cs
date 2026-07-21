@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
+using MSSFP.Comps.Map;
 using UnityEngine;
 using Verse;
 
@@ -75,14 +77,69 @@ public static class MouseoverReadout_Patch
 
     public static float DrawMrStreamer()
     {
-        if (!MSSFPMod.settings.DrawByMrStreamer)
-            return 0;
+        float height = 0f;
 
-        Widgets.Label(
-            new Rect(BotLeft.x, UI.screenHeight - BotLeft.y, 999f, 999f),
-            "MSS_MRStreamer".Translate()
-        );
+        if (MSSFPMod.settings.DrawByMrStreamer)
+        {
+            Widgets.Label(
+                new Rect(BotLeft.x, UI.screenHeight - BotLeft.y, 999f, 999f),
+                "MSS_MRStreamer".Translate()
+            );
+            height += 19f;
+        }
 
-        return 19f;
+        height += DrawStructureCredits(height);
+
+        return height;
     }
+
+    /// <summary>
+    /// Credits the viewers whose structures were generated onto the current map, stacked directly
+    /// above whatever was already drawn (the Mr Streamer label, or nothing if it's disabled).
+    ///
+    /// Matches vanilla's own convention (see MouseoverReadout.MouseoverReadoutOnGUI): each line gets
+    /// its own 19f-tall slot at an incrementing offset, drawn as a separate Widgets.Label call. A
+    /// single multi-line label sized by its total height does NOT stack flush against a neighboring
+    /// slot drawn this way — it needs one label per slot to line up.
+    /// </summary>
+    private static float DrawStructureCredits(float baseOffset)
+    {
+        List<GeneratedStructureRecord> structures = Find.CurrentMap
+            ?.GetComponent<GeneratedStructureMapComponent>()
+            ?.Structures;
+        if (structures.NullOrEmpty())
+            return 0f;
+
+        float offset = baseOffset;
+        foreach (string line in FormatCreditLines(structures))
+        {
+            Widgets.Label(
+                new Rect(BotLeft.x, UI.screenHeight - BotLeft.y - offset, 999f, 999f),
+                line
+            );
+            offset += 19f;
+        }
+
+        return offset - baseOffset;
+    }
+
+    /// <summary>One entry per author, defNames deduped and Oxford-comma collapsed within each.</summary>
+    private static IEnumerable<string> FormatCreditLines(List<GeneratedStructureRecord> structures)
+    {
+        return structures
+            .GroupBy(s => s.Author.NullOrEmpty() ? null : s.Author)
+            .Select(g =>
+            {
+                string defNames = JoinOxford(g.Select(s => s.DefName).Distinct().ToList());
+                return g.Key.NullOrEmpty() ? defNames : $"{defNames} from {g.Key}";
+            });
+    }
+
+    private static string JoinOxford(List<string> items) => items.Count switch
+    {
+        0 => "",
+        1 => items[0],
+        2 => $"{items[0]} and {items[1]}",
+        _ => $"{string.Join(", ", items.Take(items.Count - 1))}, and {items[items.Count - 1]}",
+    };
 }

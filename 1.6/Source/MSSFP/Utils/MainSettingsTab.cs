@@ -124,6 +124,12 @@ public class MainSettingsTab(ModSettings settings, Mod mod) : SettingsTab(settin
         );
         DrawCheckBox(
             options,
+            "MSS_FP_Settings_EnableViewerStructures".Translate(),
+            ref Settings.EnableViewerStructures,
+            ref scrollViewHeight
+        );
+        DrawCheckBox(
+            options,
             "MSS_FP_Settings_OverrideFactionLeaderSpawn".Translate(),
             ref Settings.OverrideFactionLeaderSpawn,
             ref scrollViewHeight
@@ -307,6 +313,7 @@ public class MainSettingsTab(ModSettings settings, Mod mod) : SettingsTab(settin
         Scribe_Values.Look(ref Settings.NullDefSafetyPatch, "NullDefSafetyPatch", true);
         Scribe_Values.Look(ref Settings.NoReplaceFactionLeader, "NoReplaceFactionLeader", false);
         Scribe_Values.Look(ref Settings.DrawByMrStreamer, "DrawByMrStreamer", false);
+        Scribe_Values.Look(ref Settings.EnableViewerStructures, "EnableViewerStructures", true);
         Scribe_Values.Look(
             ref Settings.EnableColonistPortraitHiding,
             "EnableColonistPortraitHiding",
