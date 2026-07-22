@@ -4,6 +4,7 @@ using KCSG;
 using MSSFP;
 using MSSFP.ModExtensions;
 using RimWorld;
+using UnityEngine;
 using Verse;
 
 // RimWorld 1.6 (Odyssey) introduced its own RimWorld.StructureLayoutDef; alias to KCSG's so this
@@ -22,8 +23,9 @@ namespace MSSFP.VFE.Structures;
 public static class ViewerStructureSelector
 {
     /// <summary>
-    /// Odds a given encounter uses a viewer structure. Single source of truth: the settlement
-    /// Harmony patch and the quest-site GenStep both read this, so the two paths cannot drift.
+    /// Base odds a given encounter uses a viewer structure, before Settings.ViewerStructureScatterMult
+    /// scales it. Single source of truth: the settlement Harmony patch and the quest-site GenStep both
+    /// read this, so the two paths cannot drift.
     /// </summary>
     public const float UseChance = 0.08f;
 
@@ -137,6 +139,7 @@ public static class ViewerStructureSelector
         if (MSSFPMod.settings?.EnableViewerStructures != true)
             return false;
 
-        return Rand.ChanceSeeded(UseChance, Gen.HashCombineInt(worldObjectId, salt));
+        float chance = Mathf.Clamp01(UseChance * MSSFPMod.settings.ViewerStructureScatterMult);
+        return Rand.ChanceSeeded(chance, Gen.HashCombineInt(worldObjectId, salt));
     }
 }

@@ -4,6 +4,10 @@
     <MSS_MRStreamer>Rimworld: Warlock by Mr Samuel Streamer on Youtube</MSS_MRStreamer>
     <MSS_FP_Settings_DrawByMrStreamer>Show "By Mr Samuel Streamer" label in the bottom left (only used to disuade video theft and other digital larceny, leave disabled)</MSS_FP_Settings_DrawByMrStreamer>
     <MSS_FP_Settings_EnableViewerStructures>Generate viewer-submitted structures in settlements and quest sites (disable if they cause issues)</MSS_FP_Settings_EnableViewerStructures>
+    <MSS_FP_Settings_ViewerStructureScatterMult>Viewer structure spawn frequency [x{0}]</MSS_FP_Settings_ViewerStructureScatterMult>
+    <MSS_FP_Settings_ViewerStructureScatterMult_Tooltip>Multiplier on how often viewer-submitted structures appear at quest sites and encounter maps. 1x is the default (~8% per eligible site); 0 disables scatter, higher values make them more common.</MSS_FP_Settings_ViewerStructureScatterMult_Tooltip>
+    <MSS_FP_Settings_PointOfInterestFrequencyMult>Point of interest frequency [x{0}]</MSS_FP_Settings_PointOfInterestFrequencyMult>
+    <MSS_FP_Settings_PointOfInterestFrequencyMult_Tooltip>Multiplier on how often a standalone-structure Point of Interest is discovered on the world map. 1x is the default; 0 stops them appearing, higher values make them more frequent.</MSS_FP_Settings_PointOfInterestFrequencyMult_Tooltip>
 
     <MSSFP_SettingsCategory>MSS Tweaks and Fun</MSSFP_SettingsCategory>
 

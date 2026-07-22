@@ -128,6 +128,28 @@ public class MainSettingsTab(ModSettings settings, Mod mod) : SettingsTab(settin
             ref Settings.EnableViewerStructures,
             ref scrollViewHeight
         );
+
+        if (Settings.EnableViewerStructures)
+        {
+            Settings.ViewerStructureScatterMult = options.SliderLabeled(
+                "MSS_FP_Settings_ViewerStructureScatterMult".Translate(Settings.ViewerStructureScatterMult.ToString("F1")),
+                Settings.ViewerStructureScatterMult,
+                0f,
+                5f,
+                tooltip: "MSS_FP_Settings_ViewerStructureScatterMult_Tooltip".Translate()
+            );
+            scrollViewHeight += 30f;
+
+            Settings.PointOfInterestFrequencyMult = options.SliderLabeled(
+                "MSS_FP_Settings_PointOfInterestFrequencyMult".Translate(Settings.PointOfInterestFrequencyMult.ToString("F1")),
+                Settings.PointOfInterestFrequencyMult,
+                0f,
+                5f,
+                tooltip: "MSS_FP_Settings_PointOfInterestFrequencyMult_Tooltip".Translate()
+            );
+            scrollViewHeight += 30f;
+        }
+
         DrawCheckBox(
             options,
             "MSS_FP_Settings_OverrideFactionLeaderSpawn".Translate(),
@@ -314,6 +336,8 @@ public class MainSettingsTab(ModSettings settings, Mod mod) : SettingsTab(settin
         Scribe_Values.Look(ref Settings.NoReplaceFactionLeader, "NoReplaceFactionLeader", false);
         Scribe_Values.Look(ref Settings.DrawByMrStreamer, "DrawByMrStreamer", false);
         Scribe_Values.Look(ref Settings.EnableViewerStructures, "EnableViewerStructures", true);
+        Scribe_Values.Look(ref Settings.ViewerStructureScatterMult, "ViewerStructureScatterMult", 1f);
+        Scribe_Values.Look(ref Settings.PointOfInterestFrequencyMult, "PointOfInterestFrequencyMult", 1f);
         Scribe_Values.Look(
             ref Settings.EnableColonistPortraitHiding,
             "EnableColonistPortraitHiding",

@@ -19,6 +19,11 @@ public class IncidentWorker_MSSPointOfInterest : IncidentWorker
         return TryFindViableTile(out _);
     }
 
+    public override float ChanceFactorNow(IIncidentTarget target)
+    {
+        return base.ChanceFactorNow(target) * (MSSFPMod.settings?.PointOfInterestFrequencyMult ?? 1f);
+    }
+
     protected override bool TryExecuteWorker(IncidentParms parms)
     {
         if (!TryFindViableTile(out PlanetTile tile))

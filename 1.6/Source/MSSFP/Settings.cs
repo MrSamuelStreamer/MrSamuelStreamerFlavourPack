@@ -18,6 +18,8 @@ public class Settings : ModSettings
     public bool EnableIEDPodRaids = true;
     public bool DrawByMrStreamer = false;
     public bool EnableViewerStructures = true;
+    public float ViewerStructureScatterMult = 1f;
+    public float PointOfInterestFrequencyMult = 1f;
     public bool EnableGenesOnGrowthMoment = false;
     public float GeneEventChance = 1f;
     public float GoodGeneChance = 1f / 4f;
