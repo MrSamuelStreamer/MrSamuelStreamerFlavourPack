@@ -21,11 +21,5 @@ public static class MSSFPStructureDefOf
     /// <summary>WorldObjectDef passed to SiteMaker.MakeSite for a Point of Interest.</summary>
     public static readonly WorldObjectDef MSS_PointOfInterestWorldObject;
 
-    /// <summary>The bulk, mid-value loot a Point of Interest always scatters.</summary>
-    public static readonly ThingSetMakerDef MSS_PointOfInterestLootCommon;
-
-    /// <summary>A small chance of a higher-value item on top of the common loot.</summary>
-    public static readonly ThingSetMakerDef MSS_PointOfInterestLootRare;
-
     static MSSFPStructureDefOf() => DefOfHelper.EnsureInitializedInCtor(typeof(MSSFPStructureDefOf));
 }

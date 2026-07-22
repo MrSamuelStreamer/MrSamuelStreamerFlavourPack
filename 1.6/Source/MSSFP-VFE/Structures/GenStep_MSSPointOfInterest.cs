@@ -66,6 +66,7 @@ public class GenStep_MSSPointOfInterest : GenStep_CustomStructureGen
             ScatterLoot(map, rect);
 
         LayoutUtils.ReconnectAllPowerBuildings(map);
+        StructureMapPawnGuard.EvictPlayerFactionPawns(map);
     }
 
     private static void SpawnAuthorPawns(StructureDefModExtension ext, Map map, CellRect rect)
@@ -126,16 +127,16 @@ public class GenStep_MSSPointOfInterest : GenStep_CustomStructureGen
 
     private static void ScatterLoot(Map map, CellRect rect)
     {
-        List<Thing> loot = MSSFPStructureDefOf.MSS_PointOfInterestLootCommon.root.Generate(new ThingSetMakerParams
+        List<Thing> loot = ThingSetMakerDefOf.Reward_ItemsStandard.root.Generate(new ThingSetMakerParams
         {
-            totalMarketValueRange = new FloatRange(300f, 800f),
+            totalMarketValueRange = new FloatRange(300f, 3000f),
         });
 
         if (Rand.Chance(0.25f))
         {
-            loot.AddRange(MSSFPStructureDefOf.MSS_PointOfInterestLootRare.root.Generate(new ThingSetMakerParams
+            loot.AddRange(ThingSetMakerDefOf.Reward_ItemsStandard.root.Generate(new ThingSetMakerParams
             {
-                totalMarketValueRange = new FloatRange(800f, 1500f),
+                totalMarketValueRange = new FloatRange(5000f, 15000f),
                 countRange = new IntRange(1, 2),
             }));
         }

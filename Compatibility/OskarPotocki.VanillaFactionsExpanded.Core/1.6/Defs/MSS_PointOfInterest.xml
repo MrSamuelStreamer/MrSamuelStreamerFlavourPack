@@ -85,16 +85,4 @@
     <letterDef>NeutralEvent</letterDef>
   </IncidentDef>
 
-  <!-- Value ranges are passed at call time (GenStep_MSSPointOfInterest.ScatterLoot); no fixed filter
-       here beyond the default ThingSetMaker_MarketValue behaviour. -->
-  <ThingSetMakerDef>
-    <defName>MSS_PointOfInterestLootCommon</defName>
-    <root Class="ThingSetMaker_MarketValue" />
-  </ThingSetMakerDef>
-
-  <ThingSetMakerDef>
-    <defName>MSS_PointOfInterestLootRare</defName>
-    <root Class="ThingSetMaker_MarketValue" />
-  </ThingSetMakerDef>
-
 </Defs>

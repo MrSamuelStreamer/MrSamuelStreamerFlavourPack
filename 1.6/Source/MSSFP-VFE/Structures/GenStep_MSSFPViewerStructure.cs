@@ -84,6 +84,7 @@ public class GenStep_MSSFPViewerStructure : GenStep_CustomStructureGen
         }
 
         LayoutUtils.ReconnectAllPowerBuildings(map);
+        StructureMapPawnGuard.EvictPlayerFactionPawns(map);
     }
 
     private static void SpawnAuthorPawns(StructureDefModExtension ext, Map map, CellRect rect)
