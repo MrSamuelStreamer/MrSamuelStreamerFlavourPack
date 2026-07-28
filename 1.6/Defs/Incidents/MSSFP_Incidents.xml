@@ -87,7 +87,7 @@
         <workerClass>MSSFP.Incidents.IncidentWorker_WandererJoin_Template</workerClass>
         <requireColonistsPresent>true</requireColonistsPresent>
         <letterLabel>A familiar face</letterLabel>
-        <letterText>{PAWN_nameDef} has wandered into your colony. Having heard of your group and seeking a new purpose, {PAWN_pronoun} has decided to join your cause.\n\n{PAWN_nameDef} will now be one of your colonists.</letterText>
+        <letterText>Bonnet has received a mysterious letter monogrammed "TZ".\n\nThe letter reads: "To the self-proclaimed yet somewhat debatable dark lord (the lord part, not the dark part). I have heard of your stunted-infant related woes and would like to offer them a place in my potential-child school. As in children that have a lot of potential, but will most likely be forgotten; not, as in, people that are potential children, otherwise that would be, or would have been, everyone, and that's far too high a level of commitment for me. Here your potential-child stands a chance of some sort of follow up to their currently disappointing story by retconning it as a prequel. Though, I'm not sure you can proactively retcon an ongoing story as a prequel, otherwise librarians across the Rim might need to be sectioned. Anyway, please find a way to transport your child to me, if you're interested." - TZ, Guardian of the Potential-Children</letterText>
     </IncidentDef>
 
     <!-- Codex Punch: Codex teleports in, punches a colonist, teleports out -->

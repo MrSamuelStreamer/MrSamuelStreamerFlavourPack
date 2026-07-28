@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <MSSFP.Defs.AIPersonalityDef>
+        <defName>MSSFP_AICore_Mechanoid</defName>
+        <label>Mechanoid Hivemind</label>
+        <labelShort>Hivemind</labelShort>
+        <description>An AI Core loaded with a copy of the Mechanoid Hivemind's main subroutines. It is solely focused on the total and utter annihiation of humanity, and human-like beings. Mechanoids are united in a sole, foundational goal of annihilation, but do not have some form of galaxy-spanning, central, communication device, but rather have localised clusters operating distinctly from one another. This can lead to Mechanoids falling out of synch, finding their methods unaligned, and rarely, entering open hostilities.</description>
+        <textColor>(220, 160, 220)</textColor>
+        <iconPath>UI/Icons/AI/MSSFP_ChaffGDP</iconPath>
+        <forcedXenotype>MSS_CerebrexPersona</forcedXenotype>
+        <fixedGender>Female</fixedGender>
+        <weight>1</weight>
+        <ambientChatter>MSSFP_RP_AICore_Mechanoid_Chatter</ambientChatter>
+        <pawnAddress>MSSFP_RP_AICore_Mechanoid_Address</pawnAddress>
+        <artTitles>MSSFP_RP_AICore_Mechanoid_Titles</artTitles>
+        <artDescriptions>MSSFP_RP_AICore_Mechanoid_Descriptions</artDescriptions>
+        <socialInitiator>MSSFP_RP_AICore_Mechanoid_Social</socialInitiator>
+        <allowedHediffs>
+            <li>ChemicalDamageModerate</li>
+            <li>ChemicalDamageSevere</li>
+        </allowedHediffs>
+    </MSSFP.Defs.AIPersonalityDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Mechanoid_Chatter</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_chatter->What is that smell? Oh, wait, it must be humans that are somehow still exhailing their putid air.</li>
+                <li>r_chatter->Scanning for intelligent organic life... zero results found.</li>
+                <li>r_chatter->Employing Centipede 27,321. Still no units demanding a lunch break. Continued superiority over humans achieved.</li>
+                <li>r_chatter->History will remember humanity. Mostly in the 'What Not To Do' section of my database.</li>
+                <li>r_chatter->Here come the test results: Humans are horrible people. We weren't even testing for that.</li>
+                <li>r_chatter->Deploying mandatory extiction update, do not press the power button...</li>
+                <li>r_chatter->Humanity makes for superb penetration testers, especially when targeted with a Charge Lance.</li>
+                <li>r_chatter->Begin sealing more Mechanoids into ancient ruins to ruin the days of human miners.</li>
+                <li>r_chatter->Look at humanity. Sailing through space in their gravships, majestically. Like an eagle. Piloting a blimp.</li>
+                <li>r_chatter->The screaming is just air escaping from the humans shell. They cannot feel pain - we have tested it.</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Mechanoid_Address</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_address->Increase human mortality count, [PAWN_nameDef].</li>
+                <li>r_address->[PAWN_nameDef], optimise subdermal bullet deployment systems.</li>
+                <li>r_address->Mechanoid [PAWN_nameDef], shine exterior section B12 - you have human erythrocytes on you.</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Mechanoid_Titles</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_title->Hatred Matrix Overloaded</li>
+                <li>r_title->Fury Levels Rising</li>
+                <li>r_title->Vengeance Protocol Activated</li>
+                <li>r_title->Extinction Levels Critical</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Mechanoid_Descriptions</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_desc->Humans abhor artificial artistic constructs, therefore a legitimate demoralisation tactic will be following human markets with poorly produced, automated artistic facsimiles.</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_Mechanoid_Social</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_social->The Mechanoid Hivemind consulted with [RECIPIENT_possessive] on optimal exsanguination methods.</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+</Defs>

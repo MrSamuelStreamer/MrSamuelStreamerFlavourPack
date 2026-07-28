@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Configuration>
+  <Excluded>
+    <exclude>.config</exclude>
+    <exclude>.editorconfig</exclude>
+    <exclude>.git</exclude>
+    <exclude>1.6\Source</exclude>
+    <exclude>Common\Textures\Things\Building\Linked\MSS_CrackedWall\MSS_CrackedWall_Atlas_Broken.xcf</exclude>
+    <exclude>Common\Textures\Things\Building\Linked\MSS_CrackedWall\MSS_CrackedWall_Atlas_Smooth_ps.psd</exclude>
+    <exclude>Common\Textures\Things\Building\MSS_SunTower.svg</exclude>
+    <exclude>Common\Textures\Things\Building\MSS_SunTower_Unpowered.svg</exclude>
+    <exclude>Common\Textures\Things\Building\MSSFP_AI_Small_Sculpture.svg</exclude>
+    <exclude>Common\Textures\Things\Building\Vendingmachine.svg</exclude>
+    <exclude>Common\Textures\UI\Icons\AI\MSSFP_ChaffGDP.svg</exclude>
+    <exclude>Common\Textures\UI\Icons\AI\MSSFP_Clive.svg</exclude>
+    <exclude>Common\Textures\UI\Icons\AI\MSSFP_Copylot.svg</exclude>
+    <exclude>Common\Textures\UI\Icons\AI\MSSFP_Deepsink.svg</exclude>
+    <exclude>Common\Textures\UI\Icons\AI\MSSFP_EMS.svg</exclude>
+    <exclude>Common\Textures\UI\Icons\AI\MSSFP_Geminon.svg</exclude>
+    <exclude>Common\Textures\UI\Icons\AI\MSSFP_Grep.svg</exclude>
+    <exclude>Common\Textures\UI\Icons\AI\MSSFP_Hollee.svg</exclude>
+    <exclude>Common\Textures\UI\MSS_FP_Elevation_Toggle.svg</exclude>
+    <exclude>Compatibility\cp.uncle.boris.brainwash.chair\1.6\.idea</exclude>
+    <exclude>Examples</exclude>
+    <exclude>LICENSE</exclude>
+    <exclude>README.md</exclude>
+    <exclude>release.bat</exclude>
+    <exclude>SavedPawns</exclude>
+    <exclude>UnityAssets</exclude>
+  </Excluded>
+</Configuration>
