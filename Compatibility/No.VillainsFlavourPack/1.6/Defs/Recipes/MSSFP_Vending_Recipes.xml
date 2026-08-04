@@ -322,5 +322,16 @@
       </li>
     </ingredients>
   </RecipeDef>
+
+  <RecipeDef ParentName="MSSFP_Vending_Bill" MayRequire="redmattis.betterprerequisites">
+    <defName>MSSFP_Vend_AndroidFuel</defName>
+    <label>vend robot food</label>
+    <description>Delicious robot food!\n\n(1 hour fabrication)</description>
+    <displayPriority>11</displayPriority>
+    <formingTicks>2500</formingTicks> <!-- 1 hour -->
+    <products>
+      <BS_AndroidFuel>2</BS_AndroidFuel>
+    </products>
+  </RecipeDef>
   
 </Defs>
