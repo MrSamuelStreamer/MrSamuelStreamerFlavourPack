@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+    <Operation Class="PatchOperationReplace">
+        <xpath>Defs/ThingDef[defName="Mech_WarUrchin"]/label</xpath>
+        <value>
+            <label>war orchin</label>
+        </value>
+    </Operation>
+    <Operation Class="PatchOperationReplace">
+        <xpath>Defs/PawnKindDef[defName="Mech_WarUrchin"]/label</xpath>
+        <value>
+            <label>war orchin</label>
+        </value>
+    </Operation>
+    <Operation Class="PatchOperationReplace">
+        <xpath>Defs/PawnKindDef[defName="Mech_WarUrchin"]/labelPlural</xpath>
+        <value>
+            <labelPlural>war orchins</labelPlural>
+        </value>
+    </Operation>
+</Patch>
