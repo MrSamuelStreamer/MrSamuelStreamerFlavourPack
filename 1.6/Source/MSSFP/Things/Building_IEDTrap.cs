@@ -43,6 +43,13 @@ public class Building_IEDTrap : Building_TrapExplosive
     private const float SuccessXp = 125f;
     private const float FailureXp = 35f;
 
+    // Mechs (e.g. Cleansweeper, patched via MSSFP_CleansweeperMinesweeping.xml to
+    // carry the Minesweeping work type) have no skill tracker, so their disarm
+    // stats are flat rather than skill-scaled — a precision tool, better than all
+    // but a maxed colonist.
+    private const int MechWorkTicks = 1500;
+    private const float MechSuccessChance = 0.9f;
+
     // Doubled from initial 23/60 after playtest — 1.5s window at radius 3.9 was
     // too tight to draft, queue Goto, and unpause before the wick fired. 3s gives
     // realistic player reaction headroom while keeping skill-4 failure painful.
@@ -111,7 +118,25 @@ public class Building_IEDTrap : Building_TrapExplosive
 
         // Non-humanlikes (animals/mechs) get no entry at all — there is no skill tracker
         // to roll against. Keeps the menu clean for mechanitor right-clicks.
-        if (selPawn?.RaceProps == null || !selPawn.RaceProps.Humanlike || selPawn.skills == null)
+        if (selPawn?.RaceProps == null)
+        {
+            yield break;
+        }
+
+        // Mechs (Cleansweeper et al.) have no skill tracker, so they get their own
+        // fixed-stat path rather than the skill-scaled one below.
+        if (selPawn.RaceProps.IsMechanoid)
+        {
+            foreach (FloatMenuOption opt in MechDisarmFloatMenuOptions(selPawn))
+            {
+                yield return opt;
+            }
+            yield break;
+        }
+
+        // Non-humanlikes (animals) get no entry at all — there is no skill tracker
+        // to roll against. Keeps the menu clean for mechanitor right-clicks.
+        if (!selPawn.RaceProps.Humanlike || selPawn.skills == null)
         {
             yield break;
         }
@@ -160,6 +185,41 @@ public class Building_IEDTrap : Building_TrapExplosive
     }
 
     /// <summary>
+    ///     Mirrors the humanlike branch above but without a skill roll or the
+    ///     low-skill/incapable messaging — a mech either has Minesweeping enabled
+    ///     on its race (<see cref="CanDisarmMech" />) or it silently gets no entry,
+    ///     same as any other race with no disarm path at all.
+    /// </summary>
+    private IEnumerable<FloatMenuOption> MechDisarmFloatMenuOptions(Pawn selPawn)
+    {
+        if (!CanDisarmMech(selPawn)) yield break;
+
+        float successPct = MechSuccessChance * 100f;
+        string label = "MSSFP_DisarmIEDFloatMenuLabel".Translate(successPct.ToString("F0"), MechWorkTicks.ToStringTicksToPeriod());
+
+        if (!selPawn.CanReach(this, PathEndMode.Touch, Danger.Deadly))
+        {
+            yield return new FloatMenuOption("MSSFP_DisarmIEDFloatMenuLabelUnreachable".Translate(), null);
+            yield break;
+        }
+
+        if (!selPawn.CanReserve(this))
+        {
+            yield return new FloatMenuOption("MSSFP_DisarmIEDFloatMenuLabelReserved".Translate(), null);
+            yield break;
+        }
+
+        yield return FloatMenuUtility.DecoratePrioritizedTask(
+            new FloatMenuOption(label, () =>
+            {
+                Job job = JobMaker.MakeJob(MSSFPDefOf.MSSFP_DisarmIED, this);
+                selPawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
+            }),
+            selPawn,
+            this);
+    }
+
+    /// <summary>
     ///     Single gate used by every UX surface (gizmo, float menu, WorkGiver, JobDriver)
     ///     so the rule "humanlike + skills tracker + Intellectual ≥ 4 + work tag enabled"
     ///     lives in one place. <see cref="feedback_rimworld_humanlike_xml_comp_injection_nre"/>
@@ -167,8 +227,14 @@ public class Building_IEDTrap : Building_TrapExplosive
     /// </summary>
     public static bool CanDisarm(Pawn p)
     {
-        if (p == null) return false;
-        if (p.RaceProps == null || !p.RaceProps.Humanlike) return false;
+        if (p == null || p.RaceProps == null) return false;
+        if (p.RaceProps.IsMechanoid) return CanDisarmMech(p);
+        return CanDisarmHumanlike(p);
+    }
+
+    private static bool CanDisarmHumanlike(Pawn p)
+    {
+        if (!p.RaceProps.Humanlike) return false;
         if (p.skills == null) return false;
         if (p.WorkTagIsDisabled(WorkTags.Intellectual)) return false;
         SkillRecord skill = p.skills.GetSkill(SkillDefOf.Intellectual);
@@ -177,8 +243,24 @@ public class Building_IEDTrap : Building_TrapExplosive
         return true;
     }
 
+    /// <summary>
+    ///     Data-driven, same mechanism vanilla uses for every other mech work
+    ///     type: a mech can disarm IEDs iff MSSFP_Minesweeping is in its race's
+    ///     <c>mechEnabledWorkTypes</c> — patched onto Mech_Cleansweeper by
+    ///     MSSFP_CleansweeperMinesweeping.xml — and that work type isn't
+    ///     otherwise disabled on this specific pawn.
+    /// </summary>
+    private static bool CanDisarmMech(Pawn p)
+    {
+        if (p.RaceProps.mechEnabledWorkTypes.NullOrEmpty()) return false;
+        if (!p.RaceProps.mechEnabledWorkTypes.Contains(MSSFPDefOf.MSSFP_Minesweeping)) return false;
+        if (p.WorkTypeIsDisabled(MSSFPDefOf.MSSFP_Minesweeping)) return false;
+        return true;
+    }
+
     public static int WorkTicksFor(Pawn p)
     {
+        if (p.RaceProps?.IsMechanoid == true) return MechWorkTicks;
         int level = p.skills?.GetSkill(SkillDefOf.Intellectual)?.Level ?? MinIntellectual;
         float t = Mathf.Clamp01((level - MinIntellectual) / (float)SkillSpan);
         return Mathf.RoundToInt(Mathf.Lerp(WorkTicksAtMinSkill, WorkTicksAtMaxSkill, t));
@@ -186,6 +268,7 @@ public class Building_IEDTrap : Building_TrapExplosive
 
     public static float SuccessChanceFor(Pawn p)
     {
+        if (p.RaceProps?.IsMechanoid == true) return MechSuccessChance;
         int level = p.skills?.GetSkill(SkillDefOf.Intellectual)?.Level ?? 0;
         return Mathf.Clamp01(SuccessChanceBase + SuccessChancePerLevel * level);
     }
@@ -206,6 +289,16 @@ public class Building_IEDTrap : Building_TrapExplosive
         {
             pawn.skills?.Learn(SkillDefOf.Intellectual, SuccessXp - FailureXp, false);
             OnDisarmSuccess(pawn, trap);
+            return;
+        }
+
+        // Mechs have no fear response for the game to interrupt, so there's no
+        // player-facing "flee" beat to protect — always a delayed fuse, silent
+        // (no letter, no auto-pause), never the instant-spring branch reserved
+        // for a colonist's clumsy fumble.
+        if (pawn.RaceProps?.IsMechanoid == true)
+        {
+            TriggerDelayedFuseMech(trap);
             return;
         }
 
@@ -303,6 +396,21 @@ public class Building_IEDTrap : Building_TrapExplosive
             LetterDefOf.ThreatBig,
             new TargetInfo(trap.Position, trap.Map));
         Find.TickManager.Pause();
+    }
+
+    private static void TriggerDelayedFuseMech(Building_IEDTrap trap)
+    {
+        CompExplosive comp = trap.GetComp<CompExplosive>();
+        if (comp == null)
+        {
+            FallbackExplosion(trap, null);
+            return;
+        }
+
+        comp.StartWick();
+        float radius = comp.ExplosiveRadius();
+        int fuse = Mathf.Max(DelayedFuseTicksFloor, Mathf.RoundToInt(radius * DelayedFuseTicksPerRadius));
+        comp.wickTicksLeft = fuse;
     }
 
     private static void FallbackExplosion(Building_IEDTrap trap, Pawn pawn)

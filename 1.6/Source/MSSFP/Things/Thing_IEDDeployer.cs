@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using MSSFP.Comps;
 using RimWorld;
 using Verse;
 
@@ -17,6 +18,10 @@ public class Thing_IEDDeployer : Thing
     public ThingDef trapDef;
     public Faction trapFaction;
 
+    // Shared across every deployer spawned by the same raid — lets
+    // CompIEDDecay's decay-warning letter fire once per raid, not once per trap.
+    public int batchId;
+
     // Tracks whether scatter has already run. Scribed so a save taken after
     // scatter (but before Destroy) doesn't re-scatter on load.
     private bool scattered;
@@ -32,6 +37,7 @@ public class Thing_IEDDeployer : Thing
         Scribe_Defs.Look(ref trapDef, "trapDef");
         Scribe_References.Look(ref trapFaction, "trapFaction");
         Scribe_Values.Look(ref scattered, "scattered", false);
+        Scribe_Values.Look(ref batchId, "batchId", 0);
 
         if (Scribe.mode == LoadSaveMode.PostLoadInit && trapFaction == null)
         {
@@ -96,6 +102,8 @@ public class Thing_IEDDeployer : Thing
             // SetFactionDirect on unspawned Thing — otherwise a one-tick
             // factionless window breaks Building_Trap.KnowsOfTrap branches.
             trap.SetFactionDirect(trapFaction);
+            CompIEDDecay decay = trap.GetComp<CompIEDDecay>();
+            if (decay != null) decay.batchId = batchId;
             GenSpawn.Spawn(trap, cell, map, Rot4.North);
         }
     }

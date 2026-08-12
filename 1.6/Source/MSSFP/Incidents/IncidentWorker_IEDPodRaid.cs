@@ -52,6 +52,10 @@ public class IncidentWorker_IEDPodRaid : IncidentWorker
         int pods = Mathf.Max((int)(parms.points / PointsPerPod), MinPods);
         float radius = Mathf.Min(BaseRadius + parms.points / PointsPerRadius, MaxRadius);
 
+        // Shared by every deployer this raid spawns, so CompIEDDecay's decay-warning
+        // letter fires once for the whole field rather than once per trap.
+        int batchId = Find.UniqueIDsManager.GetNextThingID();
+
         int podsLanded = 0;
         for (int i = 0; i < pods; i++)
         {
@@ -68,6 +72,7 @@ public class IncidentWorker_IEDPodRaid : IncidentWorker
             deployer.radius = radius;
             deployer.trapDef = trapDef;
             deployer.trapFaction = hostile;
+            deployer.batchId = batchId;
 
             ActiveTransporterInfo info = new ActiveTransporterInfo();
             info.innerContainer.TryAdd(deployer);

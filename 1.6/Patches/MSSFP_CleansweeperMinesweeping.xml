@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+    <!--
+        Lets Biotech's Cleansweeper mech pick up the Minesweeping work type, so
+        it can disarm MSSFP raid IEDs (MSSFP.Things.Building_IEDTrap.CanDisarm
+        checks race.mechEnabledWorkTypes for MSSFP_Minesweeping — the same
+        data-driven mechanism vanilla uses for every other mech work type).
+        Mechs have no skill tracker, so they get fixed disarm stats rather than
+        the skill-scaled colonist math; see Building_IEDTrap.MechWorkTicks /
+        MechSuccessChance.
+    -->
+    <Operation Class="PatchOperationAdd" MayRequire="Ludeon.RimWorld.Biotech">
+        <xpath>Defs/ThingDef[defName="Mech_Cleansweeper"]/race/mechEnabledWorkTypes</xpath>
+        <value>
+            <li>MSSFP_Minesweeping</li>
+        </value>
+    </Operation>
+
+</Patch>

@@ -28,6 +28,7 @@ public static class MSSFPDefOf
     public static readonly ThingDef MSSFP_TrapIED_Incendiary;
     public static readonly JobDef MSSFP_DisarmIED;
     public static readonly DesignationDef MSSFP_DisarmIEDDesignation;
+    public static readonly WorkTypeDef MSSFP_Minesweeping;
 
     public static readonly HediffDef Burn;
 

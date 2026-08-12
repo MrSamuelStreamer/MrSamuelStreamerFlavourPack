@@ -8,9 +8,11 @@ namespace MSSFP.Jobs;
 
 /// <summary>
 /// Scans MSSFP_DisarmIED designations on the pawn's map and assigns
-/// <see cref="JobDriver_DisarmIED"/> to humanlike colonists with Intellectual ≥ 4.
-/// Piggybacks the Research work type — Intellectual is its skill but min skill is
-/// enforced here, not by the work type itself (Research has no min-skill gate).
+/// <see cref="JobDriver_DisarmIED"/> to humanlike colonists with Intellectual ≥ 4,
+/// or to any mech whose race has MSSFP_Minesweeping in mechEnabledWorkTypes
+/// (e.g. Cleansweeper, via MSSFP_CleansweeperMinesweeping.xml). Runs on the
+/// dedicated MSSFP_Minesweeping work type — eligibility is enforced here (via
+/// <see cref="Building_IEDTrap.CanDisarm"/>), not by the work type itself.
 /// </summary>
 public class WorkGiver_DisarmIED : WorkGiver_Scanner
 {

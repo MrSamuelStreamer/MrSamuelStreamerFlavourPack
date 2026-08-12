@@ -158,6 +158,11 @@
     <MSSFP_IEDPodRaidLetterLabel>IED pod scatter</MSSFP_IEDPodRaidLetterLabel>
     <MSSFP_IEDPodRaidLetterText>{0} have launched drop pods at your colony — but instead of soldiers, the pods are crammed with improvised explosive devices.\n\nWhen each pod opens, it scatters armed IEDs across the surrounding area. Watch your step. Shoot suspicious devices from a safe distance to detonate them harmlessly. To reclaim a device intact, designate it for disarming — a colonist with at least Intellectual 4 will try to defuse it.</MSSFP_IEDPodRaidLetterText>
 
+    <!-- IED Decay -->
+    <MSSFP_IEDDecayWarningLetterLabel>IEDs destabilizing</MSSFP_IEDDecayWarningLetterLabel>
+    <MSSFP_IEDDecayWarningLetterText>Undisarmed IEDs from a recent raid are approaching the end of their fuse life. Starting tomorrow, each will either quietly fizzle out or detonate where it sits.\n\nDisarm them for a chance at a safe reclaim, or keep clear of the area until they're gone.</MSSFP_IEDDecayWarningLetterText>
+    <MSSFP_IEDDecayInspectString>Decays in: {0}</MSSFP_IEDDecayInspectString>
+
     <!-- IED Disarm -->
     <MSSFP_IEDClaimBlocked>Cannot claim a hostile IED. Designate it for disarming instead — a colonist with at least Intellectual 4 can defuse it.</MSSFP_IEDClaimBlocked>
     <MSSFP_DisarmIEDGizmoLabel>Disarm IED</MSSFP_DisarmIEDGizmoLabel>

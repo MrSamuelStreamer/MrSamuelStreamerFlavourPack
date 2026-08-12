@@ -19,16 +19,38 @@
     </JobDef>
 
     <!--
-        WorkGiverDef — piggybacks the Research workType because Intellectual is
-        Research's skill. The min-skill gate (Intellectual ≥ 4) is enforced inside
-        WorkGiver_DisarmIED.HasJobOnThing, not by the workType itself; Research
-        has no built-in min-skill cutoff.
+        Dedicated work type for disarming hostile IEDs. Previously piggybacked
+        Research (Intellectual is Research's skill) but that meant disabling
+        Research also silently disabled IED disarming, and the work-tab column
+        was mislabelled. naturalPriority sits just above Warden — disarming a
+        live IED is more urgent than hauling but isn't a medical emergency.
+    -->
+    <WorkTypeDef>
+        <defName>MSSFP_Minesweeping</defName>
+        <labelShort>minesweep</labelShort>
+        <pawnLabel>Minesweeper</pawnLabel>
+        <gerundLabel>Minesweeping</gerundLabel>
+        <verb>Minesweep</verb>
+        <naturalPriority>760</naturalPriority>
+        <alwaysStartActive>true</alwaysStartActive>
+        <workTags>
+            <li>Intellectual</li>
+        </workTags>
+        <relevantSkills>
+            <li>Intellectual</li>
+        </relevantSkills>
+    </WorkTypeDef>
+
+    <!--
+        WorkGiverDef — min-skill gate (Intellectual ≥ 4) is enforced inside
+        WorkGiver_DisarmIED.HasJobOnThing (via Building_IEDTrap.CanDisarm), not
+        by the workType itself.
     -->
     <WorkGiverDef>
         <defName>MSSFP_DisarmIED</defName>
         <label>disarm IED</label>
         <giverClass>MSSFP.Jobs.WorkGiver_DisarmIED</giverClass>
-        <workType>Research</workType>
+        <workType>MSSFP_Minesweeping</workType>
         <priorityInType>200</priorityInType>
         <verb>disarm</verb>
         <gerund>disarming</gerund>

@@ -83,6 +83,23 @@ public class MemesSettingsTab(ModSettings settings, Mod mod) : SettingsTab(setti
             ref scrollViewHeight
         );
 
+        // Unconditional — kept outside the EnableIEDPodRaids gate above because
+        // traps already scattered by a past raid must keep decaying even if the
+        // player later disables the raid itself.
+        DrawIntAdjuster(
+            options,
+            "MSS_FP_Settings_IEDLifespanDays".Translate(Settings.IEDLifespanDays),
+            ref Settings.IEDLifespanDays,
+            5,
+            0,
+            ref scrollViewHeight
+        );
+
+        Settings.IEDDecayDetonateChance = options.SliderLabeled(
+            "MSS_FP_Settings_IEDDecayDetonateChance".Translate(Settings.IEDDecayDetonateChance.ToString("F1")),
+            Settings.IEDDecayDetonateChance, 0f, 1f);
+        scrollViewHeight += 30f;
+
         DrawIntAdjuster(
             options,
             "MSS_FP_Settings_DaysForFission".Translate(Settings.DaysForFission),
@@ -142,6 +159,8 @@ public class MemesSettingsTab(ModSettings settings, Mod mod) : SettingsTab(setti
         Scribe_Values.Look(ref Settings.EnableTrekBeamers, "EnableTrekBeamers", true);
         Scribe_Values.Look(ref Settings.EnableSkylanternRaids, "EnableSkylanternRaids", false);
         Scribe_Values.Look(ref Settings.EnableIEDPodRaids, "EnableIEDPodRaids", true);
+        Scribe_Values.Look(ref Settings.IEDLifespanDays, "IEDLifespanDays", 45);
+        Scribe_Values.Look(ref Settings.IEDDecayDetonateChance, "IEDDecayDetonateChance", 0.3f);
         Scribe_Values.Look(ref Settings.EnableMercenaryHiring, "EnableMercenaryHiring", true);
         Scribe_Values.Look(ref Settings.DaysForFission, "DaysForFission", 7);
         Scribe_Values.Look(ref Settings.EnableCodexPunch, "EnableCodexPunch", true);
