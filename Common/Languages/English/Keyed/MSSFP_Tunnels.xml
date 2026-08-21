@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LanguageData>
+    <MSSFP_Tunnels_ScenPart_Summary>Enable tunnel network on world generation.</MSSFP_Tunnels_ScenPart_Summary>
+    <MSSFP_Tunnels_Settings_Tab>Tunnels</MSSFP_Tunnels_Settings_Tab>
+    <MSSFP_Tunnels_Settings_EnableCheckbox>Enable tunnels on new worlds</MSSFP_Tunnels_Settings_EnableCheckbox>
+    <MSSFP_Tunnels_Settings_EnableTooltip>New worlds only. Existing saves unaffected. Add via scenario editor for per-playthrough opt-in.</MSSFP_Tunnels_Settings_EnableTooltip>
+    <MSSFP_Tunnels_Settings_StatusEnabled>Current save: enabled (locked at world-gen)</MSSFP_Tunnels_Settings_StatusEnabled>
+    <MSSFP_Tunnels_Settings_StatusDisabled>Current save: disabled (locked at world-gen)</MSSFP_Tunnels_Settings_StatusDisabled>
+    <MSSFP_Tunnels_Settings_StatusNoWorld>No world loaded</MSSFP_Tunnels_Settings_StatusNoWorld>
+</LanguageData>

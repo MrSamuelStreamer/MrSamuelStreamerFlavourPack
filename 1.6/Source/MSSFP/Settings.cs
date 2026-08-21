@@ -111,6 +111,18 @@ public class Settings : ModSettings
     public float SunSizeScaleRate = 1f;
     public float SunSizeScaleMax = 4f;
 
+    // Tunnel system port (default disabled). tunnelsEnabledForNewWorlds is snapshot
+    // at world-gen (see TunnelGenData); all other tunable fields are live-read.
+    public bool TunnelsEnabledForNewWorlds = false;
+    public float TunnelDefaultTilesPerHour = 3f;
+    public float TunnelResearchedTilesPerHour = 12f;
+    public float RubyVeinSpawnChance = 0.005f;
+    public float TunnelIncidentWeightMultiplier = 1f;
+    public bool AllowCombatTunnelIncidents = true;
+    public bool DisableTunnelIncidents = false;
+    public int QuestSiteRadiusStep = 3;
+    public int QuestSiteMinRadiusStep = 0;
+
     // Fields for optional assembly tabs — these MUST live here (not on the tab)
     // so they survive save/load cycles when the optional assembly is removed.
     public bool GeneratorEnableFasterUpgrades = false;
@@ -290,6 +302,16 @@ public class Settings : ModSettings
         Scribe_Values.Look(ref SunSizeScaleEnabled, "SunSizeScaleEnabled", false);
         Scribe_Values.Look(ref SunSizeScaleRate, "SunSizeScaleRate", 1f);
         Scribe_Values.Look(ref SunSizeScaleMax, "SunSizeScaleMax", 4f);
+
+        Scribe_Values.Look(ref TunnelsEnabledForNewWorlds, "TunnelsEnabledForNewWorlds", false);
+        Scribe_Values.Look(ref TunnelDefaultTilesPerHour, "TunnelDefaultTilesPerHour", 3f);
+        Scribe_Values.Look(ref TunnelResearchedTilesPerHour, "TunnelResearchedTilesPerHour", 12f);
+        Scribe_Values.Look(ref RubyVeinSpawnChance, "RubyVeinSpawnChance", 0.005f);
+        Scribe_Values.Look(ref TunnelIncidentWeightMultiplier, "TunnelIncidentWeightMultiplier", 1f);
+        Scribe_Values.Look(ref AllowCombatTunnelIncidents, "AllowCombatTunnelIncidents", true);
+        Scribe_Values.Look(ref DisableTunnelIncidents, "DisableTunnelIncidents", false);
+        Scribe_Values.Look(ref QuestSiteRadiusStep, "QuestSiteRadiusStep", 3);
+        Scribe_Values.Look(ref QuestSiteMinRadiusStep, "QuestSiteMinRadiusStep", 0);
 
         // Optional assembly tab fields — saved here so they persist when the assembly is removed
         Scribe_Values.Look(ref GeneratorEnableFasterUpgrades, "GeneratorEnableFasterUpgrades", false);
