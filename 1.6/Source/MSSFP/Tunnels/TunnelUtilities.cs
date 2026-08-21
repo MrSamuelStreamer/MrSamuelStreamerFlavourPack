@@ -394,7 +394,7 @@ public static class TunnelUtilities
     {
         if (!Rand.Chance(MSSFPMod.settings.RubyVeinSpawnChance)) return;
 
-        ThingDef rubyDef = ThingDef.Named("DankPyon_MineableRuby");
+        ThingDef rubyDef = DefDatabase<ThingDef>.GetNamed("DankPyon_MineableRuby", errorOnFail: false);
         if (rubyDef == null) return;
 
         // Candidate seeds: rock-wall cells on the tunnel boundary (adjacent to

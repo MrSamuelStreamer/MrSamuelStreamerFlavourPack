@@ -53,7 +53,7 @@ public class TunnelGenData(World world) : WorldComponent(world)
         public TunnelDef tunnel;
     }
 
-    public static TunnelGenData Instance => Find.World.GetComponent<TunnelGenData>();
+    public static TunnelGenData Instance => Find.World?.GetComponent<TunnelGenData>();
     public Dictionary<PlanetLayer, List<PlanetTile>> tunnelNodes = new();
     public Dictionary<SurfaceTile, List<TunnelLink>> potentialTunnels = new();
     private Dictionary<int, HashSet<int>> reachableCache = new();
