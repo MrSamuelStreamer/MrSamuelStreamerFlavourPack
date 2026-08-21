@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Underground Shrine — prayer blessed the caravan leader. +7 mood for 3 days. -->
+  <ThoughtDef>
+    <defName>MSSFP_TunnelShrineBlessed</defName>
+    <durationDays>3</durationDays>
+    <stackedEffectMultiplier>1</stackedEffectMultiplier>
+    <stages>
+      <li>
+        <label>felt a deep peace</label>
+        <description>Something about the old shrine put my mind at ease.</description>
+        <baseMoodEffect>7</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <!-- Underground Shrine — touching the altar brought a bad feeling. -7 mood for 3 days. -->
+  <ThoughtDef>
+    <defName>MSSFP_TunnelShrineCursed</defName>
+    <durationDays>3</durationDays>
+    <stackedEffectMultiplier>1</stackedEffectMultiplier>
+    <stages>
+      <li>
+        <label>something felt wrong</label>
+        <description>Touching that altar — I shouldn't have. Something is different now.</description>
+        <baseMoodEffect>-7</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+</Defs>

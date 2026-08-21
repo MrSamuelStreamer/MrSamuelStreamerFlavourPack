@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using MSSFP.Tunnels.Incidents;
 using RimWorld;
 using RimWorld.Planet;
 using UnityEngine;
@@ -129,10 +130,40 @@ public class TunnelCaravan : Caravan
 
     private void TryFireTunnelIncidents()
     {
-        // Deferred to commit 3: DFP gates this on
-        // IncidentWorker_TunnelCaravanSomethingHappened.MeetsCaravanGuard, which ships
-        // with the tunnel incident workers. No-op until then — no tunnel IncidentDefs
-        // exist yet in commit 2, so there would be nothing to fire regardless.
+        if (!IncidentWorker_TunnelCaravanSomethingHappened.MeetsCaravanGuard(this, out var reason))
+        {
+            ModLog.Debug($"[TunnelCaravan] TryFireTunnelIncidents: guard failed (done={done}, spawned={Spawned}, pawns={PawnsListForReading.Count}, reason={reason})");
+            return;
+        }
+
+        ModLog.Debug($"[TunnelCaravan] TryFireTunnelIncidents: guard passed, checking categories");
+        // MTB values are in tiles (once per tile check), not days.
+        // At 130 tiles (cross-globe): ThreatBig ~48%, ThreatSmall ~74%, Misc ~96% chance of ≥1 fire.
+        TryFireCategory(IncidentCategoryDefOf.ThreatBig, 200f);
+        TryFireCategory(IncidentCategoryDefOf.ThreatSmall, 80f);
+        TryFireCategory(IncidentCategoryDefOf.Misc, 40f);
+    }
+
+    private void TryFireCategory(IncidentCategoryDef category, float mtbTiles)
+    {
+        if (!Rand.MTBEventOccurs(mtbTiles, 1f, 1f))
+        {
+            ModLog.Debug($"[TunnelCaravan] TryFireCategory {category.defName}: MTB check failed (mtbTiles={mtbTiles})");
+            return;
+        }
+
+        IncidentParms parms = StorytellerUtility.DefaultParmsNow(category, this);
+
+        List<IncidentDef> candidates = DefDatabase<IncidentDef>.AllDefsListForReading
+            .Where(d => d.category == category && d.TargetAllowed(this) && d.Worker.CanFireNow(parms))
+            .ToList();
+
+        ModLog.Debug($"[TunnelCaravan] TryFireCategory {category.defName}: MTB passed, {candidates.Count} candidate(s): [{string.Join(", ", candidates.Select(d => d.defName))}]");
+
+        IncidentDef chosen = candidates.RandomElementByWeightWithFallback(d => d.baseChance);
+
+        ModLog.Debug($"[TunnelCaravan] TryFireCategory {category.defName}: chose {chosen?.defName ?? "none"}");
+        chosen?.Worker.TryExecute(parms);
     }
 
     public string TimeToGo => (travelEndsAtTick - Find.TickManager.TicksGame).ToStringTicksToPeriod();

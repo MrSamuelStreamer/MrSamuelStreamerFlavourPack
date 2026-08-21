@@ -100,9 +100,6 @@
 
         Do NOT inherit from MapCommonBase — child genSteps append to the parent list,
         so inheriting would silently run the entire surface pipeline before our steps.
-
-        customMapComponents (MapComponent_TunnelCaravanState) intentionally omitted
-        here — that MapComponent ships with the tunnel incident workers in commit 3.
     -->
     <MapGeneratorDef>
         <defName>MSSFP_TunnelEncounter</defName>
@@ -119,6 +116,9 @@
             <li>MutatorFinal</li>
             <li>Fog</li>
         </genSteps>
+        <customMapComponents>
+            <li>MSSFP.Tunnels.MapComponents.MapComponent_TunnelCaravanState</li>
+        </customMapComponents>
     </MapGeneratorDef>
 
     <!--
@@ -198,8 +198,7 @@
     <!--
         Map generator for the Cave-In encounter. Fully deterministic layout: solid rock
         outside a 5-wide central tunnel, with two 5-deep barrier bands ~20 cells either
-        side of the Z-centre. customMapComponents (MapComponent_TunnelCaravanState)
-        intentionally omitted here — ships with the tunnel incident workers in commit 3.
+        side of the Z-centre.
     -->
     <MapGeneratorDef>
         <defName>MSSFP_TunnelCaveIn</defName>
@@ -215,6 +214,9 @@
             <li>MutatorFinal</li>
             <li>Fog</li>
         </genSteps>
+        <customMapComponents>
+            <li>MSSFP.Tunnels.MapComponents.MapComponent_TunnelCaravanState</li>
+        </customMapComponents>
     </MapGeneratorDef>
 
     <!--
