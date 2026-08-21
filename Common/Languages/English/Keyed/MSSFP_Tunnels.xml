@@ -8,4 +8,9 @@
     <MSSFP_Tunnels_Settings_StatusEnabled>Current save: enabled (locked at world-gen)</MSSFP_Tunnels_Settings_StatusEnabled>
     <MSSFP_Tunnels_Settings_StatusDisabled>Current save: disabled (locked at world-gen)</MSSFP_Tunnels_Settings_StatusDisabled>
     <MSSFP_Tunnels_Settings_StatusNoWorld>No world loaded</MSSFP_Tunnels_Settings_StatusNoWorld>
+
+    <!-- Commit 2: core world-gen, travel, entrance building -->
+    <MSSFP_Tunnels_CaravanProgress>{0} until {1} arrives</MSSFP_Tunnels_CaravanProgress>
+    <MSSFP_Tunnels_CaravanProgressItemsOnly>{0} until goods arrive</MSSFP_Tunnels_CaravanProgressItemsOnly>
+    <MSSFP_Tunnels_RubyVeinGlint>You notice a glint of ruby in the tunnel wall.</MSSFP_Tunnels_RubyVeinGlint>
 </LanguageData>

@@ -3,6 +3,7 @@ using MSSFP.Genes;
 using MSSFP.Thoughts;
 using RimWorld;
 using Verse;
+using Verse.AI;
 
 // ReSharper disable UnassignedReadonlyField
 
@@ -136,6 +137,18 @@ public static class MSSFPDefOf
     public static readonly PawnKindDef MSSFP_HoloProjection;
     public static readonly HediffDef MSSFP_Hediff_Hologram;
     public static readonly TraitDef MSSF_AIPersonality;
+
+    // Tunnel system port (commit 2 — core world-gen, travel, entrance building)
+    public static readonly MSSFP.Tunnels.TunnelDef MSSFP_Tunnel;
+    public static readonly ResearchProjectDef MSSFP_Minecarts;
+    public static readonly ThingDef MSSFP_TunnelEntrance;
+    public static readonly WorldObjectDef MSSFP_TunnelEntranceSite;
+    public static readonly SitePartDef MSSFP_TunnelEntranceSitePart;
+    public static readonly WorldObjectDef MSSFP_TunnelCaravanWorldObject;
+    public static readonly JobDef MSSFP_HaulToTunnel;
+    public static readonly JobDef MSSFP_EnterTunnel;
+    public static readonly JobDef MSSFP_CarryDownedPawnToPortal;
+    public static readonly DutyDef MSSFP_LoadAndEnterTunnel;
 
     static MSSFPDefOf() => DefOfHelper.EnsureInitializedInCtor(typeof(MSSFPDefOf));
 }

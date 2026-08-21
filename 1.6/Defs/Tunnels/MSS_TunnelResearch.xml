@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <ResearchProjectDef>
+        <defName>MSSFP_Minecarts</defName>
+        <label>minecart control mastery</label>
+        <description>Discover the secrets of the minecart control system to enable faster travel through the tunnel system.</description>
+        <baseCost>5500</baseCost>
+        <techLevel>Neolithic</techLevel>
+        <researchViewX>2.00</researchViewX>
+        <researchViewY>2.3</researchViewY>
+        <generalRules>
+            <rulesStrings>
+                <li>subject->minecart control mastery</li>
+
+                <li>subject_story->poked at the controls</li>
+                <li>subject_story->randomly pulled levers to see what happened</li>
+
+                <li>subject_gerund->pushing buttons</li>
+            </rulesStrings>
+        </generalRules>
+    </ResearchProjectDef>
+</Defs>
