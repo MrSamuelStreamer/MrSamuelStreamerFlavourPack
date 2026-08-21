@@ -120,7 +120,9 @@ public class Settings : ModSettings
     public float TunnelIncidentWeightMultiplier = 1f;
     public bool AllowCombatTunnelIncidents = true;
     public bool DisableTunnelIncidents = false;
-    public int QuestSiteRadiusStep = 3;
+    // Quest-site radius override step (0 = disabled, matches vanilla behavior).
+    // This is an orthogonal MSSFP setting, not gated on the tunnel system itself.
+    public int QuestSiteRadiusStep = 0;
     public int QuestSiteMinRadiusStep = 0;
 
     // Fields for optional assembly tabs — these MUST live here (not on the tab)
@@ -310,7 +312,7 @@ public class Settings : ModSettings
         Scribe_Values.Look(ref TunnelIncidentWeightMultiplier, "TunnelIncidentWeightMultiplier", 1f);
         Scribe_Values.Look(ref AllowCombatTunnelIncidents, "AllowCombatTunnelIncidents", true);
         Scribe_Values.Look(ref DisableTunnelIncidents, "DisableTunnelIncidents", false);
-        Scribe_Values.Look(ref QuestSiteRadiusStep, "QuestSiteRadiusStep", 3);
+        Scribe_Values.Look(ref QuestSiteRadiusStep, "QuestSiteRadiusStep", 0);
         Scribe_Values.Look(ref QuestSiteMinRadiusStep, "QuestSiteMinRadiusStep", 0);
 
         // Optional assembly tab fields — saved here so they persist when the assembly is removed

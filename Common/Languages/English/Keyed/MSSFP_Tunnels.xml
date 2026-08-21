@@ -56,4 +56,21 @@ They seem prepared to wait.</MSSFP_Tunnels_Incidents_TollCollectorDialogText>
     <!-- Tunnel caravan reform dialog: mass bar replacement -->
     <MSSFP_Tunnels_TunnelReform_NoWeightLimit>No weight limit</MSSFP_Tunnels_TunnelReform_NoWeightLimit>
     <MSSFP_Tunnels_TunnelReform_NoWeightLimitTip>Tunnel caravans travel through underground passages on minecart rails. They are not limited by the weight of their cargo.</MSSFP_Tunnels_TunnelReform_NoWeightLimitTip>
+
+    <!-- Commit 5: full settings tab -->
+    <MSSFP_Tunnels_Settings_Section_TravelSpeed>Travel speed</MSSFP_Tunnels_Settings_Section_TravelSpeed>
+    <MSSFP_Tunnels_Settings_DefaultTilesPerHour>Default tiles/hour: {0}</MSSFP_Tunnels_Settings_DefaultTilesPerHour>
+    <MSSFP_Tunnels_Settings_ResearchedTilesPerHour>Researched tiles/hour: {0}</MSSFP_Tunnels_Settings_ResearchedTilesPerHour>
+
+    <MSSFP_Tunnels_Settings_Section_MapGeneration>Map generation</MSSFP_Tunnels_Settings_Section_MapGeneration>
+    <MSSFP_Tunnels_Settings_RubyVeinSpawnChance>Ruby vein spawn chance: {0}</MSSFP_Tunnels_Settings_RubyVeinSpawnChance>
+
+    <MSSFP_Tunnels_Settings_Section_Incidents>Incidents</MSSFP_Tunnels_Settings_Section_Incidents>
+    <MSSFP_Tunnels_Settings_DisableTunnelIncidents>Disable tunnel incidents entirely</MSSFP_Tunnels_Settings_DisableTunnelIncidents>
+    <MSSFP_Tunnels_Settings_IncidentWeightMultiplier>Incident weight multiplier: {0}</MSSFP_Tunnels_Settings_IncidentWeightMultiplier>
+    <MSSFP_Tunnels_Settings_AllowCombatTunnelIncidents>Allow combat tunnel incidents (insects, factions)</MSSFP_Tunnels_Settings_AllowCombatTunnelIncidents>
+
+    <MSSFP_Tunnels_Settings_Section_QuestSites>Quest sites</MSSFP_Tunnels_Settings_Section_QuestSites>
+    <MSSFP_Tunnels_Settings_QuestSiteRadiusStep>Quest site radius step (0 = disabled): {0}</MSSFP_Tunnels_Settings_QuestSiteRadiusStep>
+    <MSSFP_Tunnels_Settings_QuestSiteMinRadiusStep>Quest site min radius step: {0}</MSSFP_Tunnels_Settings_QuestSiteMinRadiusStep>
 </LanguageData>
