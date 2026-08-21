@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+    <!-- Replace the vanilla Stars world draw layer with our spectral variant.
+         This applies unconditionally at Def-load time (Def patches cannot see runtime
+         settings). MSSFP.Comps.World.GlobalDrawLayer_Stars_Spectral checks the
+         Settings.BlackHoleEnabled toggle at Regenerate time and falls back to the
+         vanilla-identical flat-white star rendering when the black hole feature is off. -->
+    <Operation Class="PatchOperationReplace">
+        <xpath>Defs/GlobalWorldDrawLayerDef[defName="Stars"]/worldDrawLayer</xpath>
+        <value>
+            <worldDrawLayer>MSSFP.Comps.World.GlobalDrawLayer_Stars_Spectral</worldDrawLayer>
+        </value>
+    </Operation>
+</Patch>

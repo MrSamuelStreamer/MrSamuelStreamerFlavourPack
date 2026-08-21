@@ -99,6 +99,18 @@ public class Settings : ModSettings
     public float GoldenCubeImplantRaidChance = 0.005f;
     public float GoldenCubeTransferChance = 0.5f;
 
+    // Black Hole cosmetic feature (default disabled)
+    public bool BlackHoleEnabled = false;
+    public float BlackHoleLightCap = 0.25f;
+    public bool BlackHoleGrowthEnabled = true;
+    public float BlackHoleGrowthRate = 1f;
+    public float BlackHoleGrowthMax = 16f;
+
+    // Independent sun-size growth (separate from black hole; default disabled)
+    public bool SunSizeScaleEnabled = false;
+    public float SunSizeScaleRate = 1f;
+    public float SunSizeScaleMax = 4f;
+
     // Fields for optional assembly tabs — these MUST live here (not on the tab)
     // so they survive save/load cycles when the optional assembly is removed.
     public bool GeneratorEnableFasterUpgrades = false;
@@ -268,6 +280,16 @@ public class Settings : ModSettings
         Scribe_Values.Look(ref EnableGoldenCubeImplant, "EnableGoldenCubeImplant", true);
         Scribe_Values.Look(ref GoldenCubeImplantRaidChance, "GoldenCubeImplantRaidChance", 0.005f);
         Scribe_Values.Look(ref GoldenCubeTransferChance, "GoldenCubeTransferChance", 0.5f);
+
+        Scribe_Values.Look(ref BlackHoleEnabled, "BlackHoleEnabled", false);
+        Scribe_Values.Look(ref BlackHoleLightCap, "BlackHoleLightCap", 0.25f);
+        Scribe_Values.Look(ref BlackHoleGrowthEnabled, "BlackHoleGrowthEnabled", true);
+        Scribe_Values.Look(ref BlackHoleGrowthRate, "BlackHoleGrowthRate", 1f);
+        Scribe_Values.Look(ref BlackHoleGrowthMax, "BlackHoleGrowthMax", 16f);
+
+        Scribe_Values.Look(ref SunSizeScaleEnabled, "SunSizeScaleEnabled", false);
+        Scribe_Values.Look(ref SunSizeScaleRate, "SunSizeScaleRate", 1f);
+        Scribe_Values.Look(ref SunSizeScaleMax, "SunSizeScaleMax", 4f);
 
         // Optional assembly tab fields — saved here so they persist when the assembly is removed
         Scribe_Values.Look(ref GeneratorEnableFasterUpgrades, "GeneratorEnableFasterUpgrades", false);

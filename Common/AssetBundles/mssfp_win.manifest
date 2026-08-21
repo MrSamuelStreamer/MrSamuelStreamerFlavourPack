@@ -1,21 +1,25 @@
 ManifestFileVersion: 0
-CRC: 3821198208
+CRC: 539668160
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 0f31a0833bf93abb1c451b4f1ef33a09
+    Hash: 866c52e11ff72b4fc798e24eb8f6b951
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 0df1dec30b5d061d422d3e6493d27647
+    Hash: b4f2efbdb85a500017afd875df75d980
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: 0f31a0833bf93abb1c451b4f1ef33a09
+    Hash: 866c52e11ff72b4fc798e24eb8f6b951
 HashAppended: 0
 ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
 - Class: 48
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
 - Assets/Data/MrSamuelStreamerFlavourPack/Materials/AICoreOrb.shader
 - Assets/Data/MrSamuelStreamerFlavourPack/Materials/HoloMono.shader
+- Assets/Data/MrSamuelStreamerFlavourPack/Textures/AccretionDisc.png
+- Assets/Data/MrSamuelStreamerFlavourPack/Materials/BlackHoleRayMarch.shader
 Dependencies: []

@@ -78,6 +78,9 @@ public static class MSSFPDefOf
     public static readonly ThingDef MSSFP_SunTower;
     public static readonly GameConditionDef MSSFP_SunTowerLight;
 
+    // Black Hole cosmetic feature
+    public static readonly GameConditionDef MSSFP_BlackHole;
+
     public static readonly JobDef MSSFP_ExtractTarget;
 
     public static readonly JobDef MSSFP_SkipPunchAndLeave;

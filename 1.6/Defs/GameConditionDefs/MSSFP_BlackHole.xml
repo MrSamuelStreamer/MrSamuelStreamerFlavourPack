@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- ── Black Hole GameCondition ──────────────────────────────────────────────
+       Dims in-map sunlight and replaces the world-map sun with a black
+       hole visual (event-horizon disc, photon ring, accretion glow).
+       Handled by MSSFP.Comps.World.GameCondition_BlackHole.
+
+       Registered/ended by WorldComponent_MSSFPBlackHole based on
+       Settings.BlackHoleEnabled (default OFF), not by an IncidentDef. There is
+       deliberately no startMessage — FinalizeInit re-syncs this condition on
+       every world load. -->
+
+  <GameConditionDef>
+    <defName>MSSFP_BlackHole</defName>
+    <conditionClass>MSSFP.Comps.World.GameCondition_BlackHole</conditionClass>
+    <label>black hole</label>
+    <description>The home system's star has collapsed into a black hole. Only the faint glow of infalling matter remains visible in the sky.</description>
+    <endMessage>The black hole has dissipated. The star's light slowly returns.</endMessage>
+    <canBePermanent>true</canBePermanent>
+    <exclusiveConditions>
+      <li>Eclipse</li>
+      <li>VolcanicWinter</li>
+    </exclusiveConditions>
+  </GameConditionDef>
+
+</Defs>
