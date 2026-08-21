@@ -8,8 +8,11 @@ namespace MSSFP.Tunnels.Incidents;
 /// <summary>
 /// Incident: the caravan stops in a domed chamber holding an ancient shrine.
 /// A non-combat atmospheric event — the player may approach and pray (random
-/// outcome) or leave undisturbed. Unlike DFP this is NOT fire-once-per-game;
-/// only Brenda and Forgotten Ossuary carry that restriction in the MSSFP port.
+/// outcome) or leave undisturbed.
+///
+/// Fires at most once per save game — tracked on
+/// <see cref="TunnelGenData.shrineFired"/>, restoring DFP's fire-once semantic
+/// that was dropped in commit 3 (parity restored in commit 4).
 ///
 /// Map setup and letter sending are handled by IncidentWorker_TunnelCaravanNonCombat.
 /// No ghost pawn required; the shrine prop and offering items are placed via
@@ -18,6 +21,30 @@ namespace MSSFP.Tunnels.Incidents;
 /// </summary>
 public class IncidentWorker_TunnelCaravanUndergroundShrine : IncidentWorker_TunnelCaravanNonCombat
 {
+    protected override bool CanFireNowSub(IncidentParms parms)
+    {
+        if (!base.CanFireNowSub(parms)) return false;
+
+        TunnelGenData comp = Find.World?.GetComponent<TunnelGenData>();
+        if (comp != null && comp.shrineFired) return false;
+
+        return true;
+    }
+
+    protected override bool TryExecuteWorker(IncidentParms parms)
+    {
+        bool result = base.TryExecuteWorker(parms);
+
+        if (result)
+        {
+            TunnelGenData comp = Find.World?.GetComponent<TunnelGenData>();
+            if (comp != null)
+                comp.shrineFired = true;
+        }
+
+        return result;
+    }
+
     protected override void PostSetupEncounterMap(Map map)
     {
         IntVec3 shrineCell = FindCellNearCenter(map);

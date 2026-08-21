@@ -23,6 +23,7 @@ public class TunnelGenData(World world) : WorldComponent(world)
     public bool wasSet;
     public bool ossuaryFired;
     public bool brendaFired;
+    public bool shrineFired;
 
     public WorldPathing Pather
     {
@@ -246,6 +247,7 @@ public class TunnelGenData(World world) : WorldComponent(world)
         Scribe_Values.Look(ref wasSet, "wasSet");
         Scribe_Values.Look(ref ossuaryFired, "ossuaryFired");
         Scribe_Values.Look(ref brendaFired, "brendaFired");
+        Scribe_Values.Look(ref shrineFired, "shrineFired");
     }
 
     public override void WorldComponentTick()

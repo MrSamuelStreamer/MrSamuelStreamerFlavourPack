@@ -50,4 +50,10 @@ They seem prepared to wait.</MSSFP_Tunnels_Incidents_TollCollectorDialogText>
     <MSSFP_Tunnels_Incidents_TollCollectorRefuseOption>Refuse. Prepare to fight.</MSSFP_Tunnels_Incidents_TollCollectorRefuseOption>
     <MSSFP_Tunnels_Incidents_TollCollectorNotEnoughSilver>Not enough silver ({0} available).</MSSFP_Tunnels_Incidents_TollCollectorNotEnoughSilver>
     <MSSFP_Tunnels_Incidents_TollPaidMsg>The toll collector pockets the silver and steps aside without a word.</MSSFP_Tunnels_Incidents_TollPaidMsg>
+
+    <!-- Commit 4: Harmony patches -->
+
+    <!-- Tunnel caravan reform dialog: mass bar replacement -->
+    <MSSFP_Tunnels_TunnelReform_NoWeightLimit>No weight limit</MSSFP_Tunnels_TunnelReform_NoWeightLimit>
+    <MSSFP_Tunnels_TunnelReform_NoWeightLimitTip>Tunnel caravans travel through underground passages on minecart rails. They are not limited by the weight of their cargo.</MSSFP_Tunnels_TunnelReform_NoWeightLimitTip>
 </LanguageData>
