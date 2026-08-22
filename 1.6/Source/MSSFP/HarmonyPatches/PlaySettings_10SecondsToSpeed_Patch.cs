@@ -16,10 +16,19 @@ internal static class PlaySettings_10SecondsToSpeed_Patch
 
         row.ToggleableIcon(
             ref MSSFPMod.settings.Active10SecondsToSpeed,
-            ContentFinder<Texture2D>.Get("UI/MSS_FP_10Seconds", true),
+            Textures.Icon,
             "MSSFP_10SecondsToSpeed_Tooltip".Translate(),
             SoundDefOf.Mouseover_ButtonToggle,
             null
         );
+    }
+
+    /// <summary>Loads once on the main thread and is cached for the process lifetime,
+    /// avoiding a ContentFinder lookup (which walks the running-mods list) on every
+    /// DoPlaySettingsGlobalControls call.</summary>
+    [StaticConstructorOnStartup]
+    private static class Textures
+    {
+        public static readonly Texture2D Icon = ContentFinder<Texture2D>.Get("UI/MSS_FP_10Seconds", true);
     }
 }

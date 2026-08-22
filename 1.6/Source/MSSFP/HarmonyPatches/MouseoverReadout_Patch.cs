@@ -102,16 +102,40 @@ public static class MouseoverReadout_Patch
     /// single multi-line label sized by its total height does NOT stack flush against a neighboring
     /// slot drawn this way — it needs one label per slot to line up.
     /// </summary>
+    // Cached per current map: the resolved component (avoids a GetComponent lookup every
+    // OnGUI event) and the formatted credit lines (avoids re-running the LINQ
+    // GroupBy/Distinct/Join pipeline every OnGUI event). Invalidated on map switch and
+    // whenever the structures list grows.
+    private static Map cachedMap;
+    private static GeneratedStructureMapComponent cachedComp;
+    private static int cachedStructureCount = -1;
+    private static List<string> cachedLines;
+
     private static float DrawStructureCredits(float baseOffset)
     {
-        List<GeneratedStructureRecord> structures = Find.CurrentMap
-            ?.GetComponent<GeneratedStructureMapComponent>()
-            ?.Structures;
+        Map map = Find.CurrentMap;
+        if (map == null)
+            return 0f;
+
+        if (map != cachedMap)
+        {
+            cachedMap = map;
+            cachedComp = map.GetComponent<GeneratedStructureMapComponent>();
+            cachedStructureCount = -1;
+        }
+
+        List<GeneratedStructureRecord> structures = cachedComp?.Structures;
         if (structures.NullOrEmpty())
             return 0f;
 
+        if (structures.Count != cachedStructureCount)
+        {
+            cachedLines = FormatCreditLines(structures).ToList();
+            cachedStructureCount = structures.Count;
+        }
+
         float offset = baseOffset;
-        foreach (string line in FormatCreditLines(structures))
+        foreach (string line in cachedLines)
         {
             Widgets.Label(
                 new Rect(BotLeft.x, UI.screenHeight - BotLeft.y - offset, 999f, 999f),

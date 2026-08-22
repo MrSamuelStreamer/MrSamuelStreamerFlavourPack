@@ -15,6 +15,7 @@ public static class GameLoad_Patch
     {
         HauntsCache.Clear();
         Harmony_SunSizeScale.ResetStartTick();
+        SubNormalSpeedComponent.ClearCache();
     }
 
     [HarmonyPatch("InitNewGame")]
@@ -23,6 +24,7 @@ public static class GameLoad_Patch
     {
         HauntsCache.Clear();
         Harmony_SunSizeScale.ResetStartTick();
+        SubNormalSpeedComponent.ClearCache();
     }
 
     [HarmonyPatch("FinalizeInit")]

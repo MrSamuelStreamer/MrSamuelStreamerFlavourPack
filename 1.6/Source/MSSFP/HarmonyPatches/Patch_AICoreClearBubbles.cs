@@ -13,6 +13,9 @@ namespace MSSFP.HarmonyPatches;
 ///
 /// Prefix (not Postfix) so we drop our refs BEFORE vanilla starts tearing down maps — avoids any race
 /// where <see cref="AICoreBubbler.OnGUI"/> could hit a half-destroyed Thing during the same frame.
+///
+/// Also clears <see cref="OrbGravshipAssist"/>'s per-(engine, tick) orb cache for the same reason:
+/// it holds <see cref="MSSFP.Comps.CompTrueAICore"/>/Thing refs that must not survive past this map.
 /// </summary>
 [HarmonyPatch(typeof(MemoryUtility))]
 public static class Patch_AICoreClearBubbles
@@ -22,5 +25,6 @@ public static class Patch_AICoreClearBubbles
     public static void Prefix()
     {
         AICoreBubbler.Clear();
+        OrbGravshipAssist.ClearCache();
     }
 }
