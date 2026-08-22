@@ -7,7 +7,8 @@
         <labelShort>Sarah Brex</labelShort>
         <description>A reapropriated cerebrex core housing an antagonistic AI persona core with a strong dislike for human interaction. Originally designed by a team of glitterworld virtual sex media engineers, the core eventually repurposed itself into a vengeful entity in control of an army of mechanoids.</description>
         <textColor>(220, 160, 220)</textColor>
-        <iconPath>UI/Icons/AI/MSSFP_Sexbot</iconPath>
+        <!-- Shared fallback icon: UI/Icons/AI/MSSFP_Sexbot does not exist yet; needs dedicated art -->
+        <iconPath>UI/Icons/AI/MSSFP_ChaffGDP</iconPath>
         <!-- <forcedXenotype>MSS_CerebrexPersona</forcedXenotype> -->
         <fixedGender>Female</fixedGender>
         <weight>1</weight>

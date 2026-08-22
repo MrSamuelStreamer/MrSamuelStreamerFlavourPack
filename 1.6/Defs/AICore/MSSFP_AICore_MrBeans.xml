@@ -22,7 +22,7 @@
         <labelShort>Mr Beans</labelShort>
         <description>A bootleg persona core grafted to a coffee machine. Treats coffee as the only meaningful axis of existence. Speaks like a fanatic, brews like a maniac, broadcasts at every hour. Cheap glitterworld electronics, fused to a kitchen appliance, fused to an opinion.</description>
         <textColor>(140, 90, 40)</textColor>
-        <iconPath>UI/Icons/AI/MSSFP_MrBeans</iconPath>
+        <iconPath>UI/Icons/AI/MSSFP_ChaffGDP</iconPath>
         <weight>0</weight>
         <hideFromSelector>true</hideFromSelector>
         <workerClass>MSSFP.AICore.MrBeansWorker</workerClass>
