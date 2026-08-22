@@ -36,6 +36,9 @@ public static class Dialog_NamePawn_Patch
             {
                 if (instruction.operand is sbyte and (12 or 16))
                 {
+                    // Ldc_I4_S's operand is a single signed byte (-128..127), so it
+                    // cannot hold 4096. Switch to Ldc_I4, which takes a full int32.
+                    instruction.opcode = OpCodes.Ldc_I4;
                     instruction.operand = 4096;
                 }
             }
