@@ -14,12 +14,18 @@ namespace MSSFP.HarmonyPatches
         new[] { typeof(Hediff), typeof(BodyPartRecord), typeof(DamageInfo?), typeof(DamageWorker.DamageResult) })]
     public static class Holo_AddHediff_Filter_Patch
     {
-        public static bool Prefix(Pawn_HealthTracker __instance, Hediff hediff)
+        public static bool Prefix(Pawn_HealthTracker __instance, Hediff hediff, ref Hediff __result)
         {
             if (hediff == null) return true;
             Pawn pawn = __instance?.hediffSet?.pawn;
             if (!MSSFPHoloUtil.IsHolo(pawn)) return true;
             if (HoloHediffPolicy.IsAllowed(pawn, hediff.def)) return true;
+
+            // Skip the add, but hand back the constructed (never-added) Hediff instead of
+            // null — vanilla and modded callers commonly chain straight off the return
+            // value (e.g. `pawn.health.AddHediff(def).Severity = x`), and a null there
+            // throws in unrelated code with no clue the holo filter was the cause.
+            __result = hediff;
             return false;
         }
     }

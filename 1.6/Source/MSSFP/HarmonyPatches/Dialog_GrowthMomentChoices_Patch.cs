@@ -141,10 +141,17 @@ public static class Dialog_GrowthMomentChoices_Patch
         GeneType randType = GetRandomGeneType();
         GeneClassificationDef classification =
             randType == GeneType.random
-                ? DefDatabase<GeneClassificationDef>.AllDefs.RandomElement()
+                ? DefDatabase<GeneClassificationDef>.AllDefs.RandomElementWithFallback()
                 : DefDatabase<GeneClassificationDef>
                     .AllDefs.Where(g => g.type == randType)
-                    .RandomElement();
+                    .RandomElementWithFallback();
+
+        geneType = randType;
+
+        // No def of the rolled classification type exists in the loaded content —
+        // bail with an empty choice list rather than NRE on classification.genes.
+        if (classification == null)
+            return new List<GeneClassification>();
 
         List<GeneClassification> validGenes = classification
             .genes.Where(g =>
@@ -158,13 +165,18 @@ public static class Dialog_GrowthMomentChoices_Patch
             .ToList();
 
         List<GeneClassification> output = new();
-        for (int i = 0; i < GeneRange.RandomInRange; i++)
+        int drawCount = Mathf.Min(GeneRange.RandomInRange, validGenes.Count);
+        for (int i = 0; i < drawCount; i++)
         {
-            output.Add(validGenes.Except(output).RandomElementByWeight(g => g.weight));
+            GeneClassification pick = validGenes
+                .Except(output)
+                .RandomElementByWeightWithFallback(g => g.weight);
+            if (pick == null)
+                break;
+            output.Add(pick);
         }
 
-        geneType = randType;
-        return output.ToList();
+        return output;
     }
 
     public static void DrawGeneSelector(

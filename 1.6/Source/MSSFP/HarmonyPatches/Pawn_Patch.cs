@@ -106,7 +106,11 @@ public static class Pawn_Patch
     [HarmonyPostfix]
     public static void NameSetter_Postfix(Pawn __instance)
     {
-        if(NameCache.TryGetValue(__instance, out _)) return;
+        // Always drop the old decoration first: the underlying name just changed,
+        // so a stale cache entry would keep the getter returning the pre-rename
+        // decorated name (making the rename invisible) instead of rebuilding from
+        // the new nameInt.
+        NameCache.Remove(__instance);
 
         if (nameInt.Value.GetValue(__instance) is not Name || __instance.story?.traits == null || __instance.story.traits.allTraits.NullOrEmpty())
         {

@@ -84,19 +84,31 @@ public class MSSFPMod : Mod
     public static void ToggleSunSizeScalePatch(bool enable) =>
         Harmony_SunSizeScale.Toggle(_harmony, enable);
 
+    private static bool _settlementDefeatPatched;
+
     public static void ToggleSettlementDefeatPatch(bool enable)
     {
+        // Guard against WriteSettings calling this repeatedly with the same value:
+        // Harmony doesn't dedupe identical Patch() calls, so re-patching an already-
+        // patched method would stack duplicate prefixes/postfixes and fire the
+        // reformation-points signal multiple times per real defeat.
+        if (enable == _settlementDefeatPatched) return;
+
         MethodInfo original = AccessTools.Method(typeof(SettlementDefeatUtility), nameof(SettlementDefeatUtility.CheckDefeated));
         MethodInfo prefix = AccessTools.Method(typeof(SettlementDefeatUtility_Patch), nameof(SettlementDefeatUtility_Patch.CheckDefeated_Prefix));
+        MethodInfo postfix = AccessTools.Method(typeof(SettlementDefeatUtility_Patch), nameof(SettlementDefeatUtility_Patch.CheckDefeated_Postfix));
 
         if (enable)
         {
-            _harmony.Patch(original, prefix: new HarmonyMethod(prefix));
+            _harmony.Patch(original, prefix: new HarmonyMethod(prefix), postfix: new HarmonyMethod(postfix));
         }
         else
         {
             _harmony.Unpatch(original, prefix);
+            _harmony.Unpatch(original, postfix);
         }
+
+        _settlementDefeatPatched = enable;
     }
 
     internal static void ApplySettingsToDefs()
