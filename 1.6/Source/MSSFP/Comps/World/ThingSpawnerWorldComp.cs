@@ -14,12 +14,12 @@ public class ThingSpawnerWorldComp(RimWorld.Planet.World world) : WorldComponent
 
     public override void FinalizeInit(bool fromLoad)
     {
-        if(fromLoad) return;
         ModLog.Debug("Initializing ThingSpawnerWorldComp");
         SpawnedThings ??= [];
+        SpawnThingsAtTick ??= new();
         foreach (ThingDef thingDef in DefDatabase<ThingDef>.AllDefs.Where(t=>t.HasModExtension<AutoSpawningModExtension>()))
         {
-            if (!SpawnedThings.Contains(thingDef))
+            if (!SpawnedThings.Contains(thingDef) && !SpawnThingsAtTick.ContainsKey(thingDef))
             {
                 AutoSpawningModExtension ext = thingDef.GetModExtension<AutoSpawningModExtension>();
                 if(ext == null) continue;
@@ -72,8 +72,10 @@ public class ThingSpawnerWorldComp(RimWorld.Planet.World world) : WorldComponent
     {
         base.ExposeData();
         Scribe_Collections.Look(ref SpawnedThings, "SpawnedThings", LookMode.Def);
+        Scribe_Collections.Look(ref SpawnThingsAtTick, "SpawnThingsAtTick", LookMode.Def, LookMode.Value);
 
         SpawnedThings ??= [];
+        SpawnThingsAtTick ??= new();
     }
 
 
