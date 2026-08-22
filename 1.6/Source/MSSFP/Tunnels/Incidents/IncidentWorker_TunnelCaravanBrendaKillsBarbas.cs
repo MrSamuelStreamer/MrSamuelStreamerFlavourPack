@@ -27,6 +27,8 @@ public class IncidentWorker_TunnelCaravanBrendaKillsBarbas : IncidentWorker_Tunn
     {
         if (!base.CanFireNowSub(parms)) return false;
 
+        if (Find.FactionManager.FirstFactionOfDef(FactionDefOf.AncientsHostile) == null) return false;
+
         TunnelGenData comp = Find.World?.GetComponent<TunnelGenData>();
         if (comp != null && comp.brendaFired) return false;
 
@@ -37,7 +39,9 @@ public class IncidentWorker_TunnelCaravanBrendaKillsBarbas : IncidentWorker_Tunn
     {
         // Brenda belongs to the hostile ancients — a permanent enemy faction that
         // has no allies, so she won't trigger goodwill penalties against anyone.
+        // CanFireNowSub already confirmed this faction exists.
         parms.faction = Find.FactionManager.FirstFactionOfDef(FactionDefOf.AncientsHostile);
+        if (parms.faction == null) return new List<Pawn>();
 
         PawnKindDef kind = ModsConfig.BiotechActive && PawnKindDefOf.Sanguophage != null
             ? PawnKindDefOf.Sanguophage

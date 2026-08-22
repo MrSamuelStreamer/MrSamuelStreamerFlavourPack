@@ -29,6 +29,13 @@ public class MapComponent_TunnelCaravanState : MapComponent
         TunnelCaravan pending = TunnelEncounterSetup.PendingCaravan;
         if (pending == null) return;
 
+        // Guard against a race where some unrelated map is constructed while a tunnel
+        // encounter is pending: only the map generated for the active encounter's tile
+        // (the same identity check TunnelEncounterPatch and TunnelCaravanReformMass_Patch
+        // use) may consume the relay.
+        if (!TunnelEncounterSetup.HasActiveEncounter || map.Tile != TunnelEncounterSetup.ActiveEncounterTile)
+            return;
+
         origin = pending.origin;
         destination = pending.destination;
         tunnel = pending.tunnel;
