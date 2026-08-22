@@ -59,6 +59,13 @@ public class TunnelGenData(World world) : WorldComponent(world)
     private Dictionary<int, HashSet<int>> reachableCache = new();
     private bool tunnelNetworkReady;
 
+    /// <summary>
+    /// Bumped whenever <see cref="potentialTunnels"/> mutates (<see cref="OverlayTunnel"/>,
+    /// <see cref="Clear"/>). Consumers that cache path results derived from the graph
+    /// (e.g. <see cref="TunnelCaravan"/>) compare against this to know when to recompute.
+    /// </summary>
+    public int graphVersion;
+
     public HashSet<int> GetReachableTilesFrom(int startTile)
     {
         if (reachableCache.TryGetValue(startTile, out HashSet<int> reachable))
@@ -191,6 +198,7 @@ public class TunnelGenData(World world) : WorldComponent(world)
         tunnelNodes.Clear();
         potentialTunnels.Clear();
         reachableCache.Clear();
+        graphVersion++;
     }
 
     public TunnelDef GetTunnelDef(PlanetTile fromTile, PlanetTile toTile)
@@ -231,6 +239,7 @@ public class TunnelGenData(World world) : WorldComponent(world)
             potentialTunnels[toSurfaceTile].Add(fromTunnelLink);
             reachableCache.Clear();
             tunnelNetworkReady = true;
+            graphVersion++;
         }
     }
 
@@ -264,9 +273,24 @@ public class TunnelGenData(World world) : WorldComponent(world)
                 new WorldGenStep_Tunnels().Regenerate(Find.WorldGrid.Surface);
         }
 
-        foreach (TunnelCaravan caravan in Find.WorldObjects.AllWorldObjects.OfType<TunnelCaravan>().Where(c => !c.done && !c.mapGenerating))
+        // Caravan arrival doesn't need per-tick precision (travel spans hours), so only
+        // scan world objects every half-second of game ticks, and do it in a single pass
+        // rather than filtering AllWorldObjects.OfType<TunnelCaravan>() twice.
+        if (!GenTicks.IsTickInterval(30))
+            return;
+
+        List<TunnelCaravan> tunnelCaravans = Find.WorldObjects.AllWorldObjects.OfType<TunnelCaravan>().ToList();
+
+        foreach (TunnelCaravan caravan in tunnelCaravans)
         {
-            if (Find.TickManager.TicksGame < caravan.travelEndsAtTick) continue;
+            if (caravan.done)
+            {
+                caravan.Destroy();
+                continue;
+            }
+
+            if (caravan.mapGenerating || Find.TickManager.TicksGame < caravan.travelEndsAtTick)
+                continue;
 
             caravan.mapGenerating = true;
 
@@ -295,10 +319,6 @@ public class TunnelGenData(World world) : WorldComponent(world)
                 caravan.mapGenerating = false;
             });
         }
-
-        // Remove finished caravans.
-        foreach (var done in Find.WorldObjects.AllWorldObjects.OfType<TunnelCaravan>().Where(c => c.done).ToList())
-            done.Destroy();
     }
 
     [DebugAction("Spawning", "Spawn Tunnel Entrance", actionType = DebugActionType.ToolWorld, allowedGameStates = AllowedGameStates.PlayingOnWorld)]

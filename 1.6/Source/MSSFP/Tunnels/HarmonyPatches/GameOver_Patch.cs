@@ -45,12 +45,14 @@ public static class GameOver_Patch
       }
     }
 
-    // 2. Check Building_Tunnels on all maps (for pawns currently loading/waiting)
+    // 2. Check Building_Tunnels on all maps (for pawns currently loading/waiting).
+    // ThingsOfDef is a maintained per-def index, unlike AllThings which is every thing
+    // on the map (items, filth, plants, pawns, buildings, ...).
     foreach (Map map in Find.Maps)
     {
-      foreach (Building_Tunnel thing in map.listerThings.AllThings.OfType<Building_Tunnel>())
+      foreach (Thing thing in map.listerThings.ThingsOfDef(MSSFPDefOf.MSSFP_TunnelEntrance))
       {
-        if (thing.innerContainer.OfType<Pawn>().Any(p => p.Faction == Faction.OfPlayer))
+        if (thing is Building_Tunnel tunnel && tunnel.innerContainer.OfType<Pawn>().Any(p => p.Faction == Faction.OfPlayer))
         {
           return true;
         }
@@ -71,9 +73,9 @@ public static class GameOver_Patch
     Map map = Find.Maps.FirstOrDefault(m => m.mapPawns == __instance);
     if (map == null) return;
 
-    foreach (Building_Tunnel thing in map.listerThings.AllThings.OfType<Building_Tunnel>())
+    foreach (Thing thing in map.listerThings.ThingsOfDef(MSSFPDefOf.MSSFP_TunnelEntrance))
     {
-      if (thing.innerContainer.OfType<Pawn>().Any(p => p.Faction == Faction.OfPlayer))
+      if (thing is Building_Tunnel tunnel && tunnel.innerContainer.OfType<Pawn>().Any(p => p.Faction == Faction.OfPlayer))
       {
         __result = true;
         return;

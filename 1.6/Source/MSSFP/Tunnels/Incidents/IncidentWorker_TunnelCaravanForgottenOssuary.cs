@@ -46,11 +46,17 @@ public class IncidentWorker_TunnelCaravanForgottenOssuary : IncidentWorker_Tunne
         IntVec3 shrineCell = FindCellNearCenter(map);
 
         // Spawn shrine — Reliquary if Ideology is active, otherwise NatureShrine_Large.
+        // NatureShrine_Large is [MayRequireRoyalty], so without either DLC there's no
+        // shrine def to spawn at all; skip the shrine and just leave the corpses/loot
+        // arranged around shrineCell as the anchor point.
         // Pass GenStuff.DefaultStuffFor to silence the madeFromStuff warning on Reliquary.
         ThingDef shrineDef = ModsConfig.IdeologyActive
             ? ThingDefOf.Reliquary
-            : ThingDefOf.NatureShrine_Large;
-        GenSpawn.Spawn(ThingMaker.MakeThing(shrineDef, GenStuff.DefaultStuffFor(shrineDef)), shrineCell, map, Rot4.South);
+            : ModsConfig.RoyaltyActive
+                ? ThingDefOf.NatureShrine_Large
+                : null;
+        if (shrineDef != null)
+            GenSpawn.Spawn(ThingMaker.MakeThing(shrineDef, GenStuff.DefaultStuffFor(shrineDef)), shrineCell, map, Rot4.South);
 
         // Spawn 5–8 skeleton corpses in a radial arc in front of the shrine.
         int corpseCount = Rand.RangeInclusive(5, 8);
