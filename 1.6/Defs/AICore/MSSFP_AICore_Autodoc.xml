@@ -20,7 +20,7 @@
         <labelShort>Autodoc</labelShort>
         <description>A first-generation autodoc persona core. Bottom-shelf surgical AI. Cheerfully announces a 100% survival rate at all times, regardless of intra-operative evidence. Has never been "wrong" in its own bookkeeping. Treats post-mortems as administrative errors.</description>
         <textColor>(255, 255, 255)</textColor>
-        <iconPath>UI/Icons/AI/MSSFP_Autodoc</iconPath>
+        <iconPath>UI/Icons/AI/MSSFP_ChaffGDP</iconPath>
         <weight>0</weight>
         <hideFromSelector>true</hideFromSelector>
         <ambientChatter>MSSFP_RP_AICore_Autodoc_Chatter</ambientChatter>

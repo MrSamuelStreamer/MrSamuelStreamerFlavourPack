@@ -11,7 +11,7 @@
         BootCheck logs a warning if this attachment fails (e.g. another mod later replaces the
         <parts> list).
     -->
-    <Operation Class="PatchOperationSequence">
+    <Operation Class="PatchOperationSequence" MayRequire="Ludeon.RimWorld.Odyssey">
         <operations>
             <li Class="PatchOperationConditional">
                 <xpath>Defs/StatDef[defName="GravshipRange"]/parts</xpath>

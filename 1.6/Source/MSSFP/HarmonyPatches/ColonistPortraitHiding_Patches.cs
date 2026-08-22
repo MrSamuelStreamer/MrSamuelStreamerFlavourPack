@@ -45,6 +45,12 @@ public static class ColonistBar_CheckRecacheEntries_Patch
     private static readonly AccessTools.FieldRef<ColonistBar, List<Vector2>> CachedDrawLocsRef =
         AccessTools.FieldRefAccess<ColonistBar, List<Vector2>>("cachedDrawLocs");
 
+    private static readonly AccessTools.FieldRef<ColonistBar, ColonistBarDrawLocsFinder> DrawLocsFinderRef =
+        AccessTools.FieldRefAccess<ColonistBar, ColonistBarDrawLocsFinder>("drawLocsFinder");
+
+    private static readonly AccessTools.FieldRef<ColonistBar, float> CachedScaleRef =
+        AccessTools.FieldRefAccess<ColonistBar, float>("cachedScale");
+
     [HarmonyPostfix]
     public static void Postfix(ColonistBar __instance)
     {
@@ -60,20 +66,32 @@ public static class ColonistBar_CheckRecacheEntries_Patch
 
         List<ColonistBar.Entry> cachedEntries = CachedEntriesRef(__instance);
         List<Vector2> cachedDrawLocs = CachedDrawLocsRef(__instance);
+        ColonistBarDrawLocsFinder drawLocsFinder = DrawLocsFinderRef(__instance);
 
-        if (cachedEntries != null && cachedDrawLocs != null)
+        if (cachedEntries == null || cachedDrawLocs == null || drawLocsFinder == null)
+            return;
+
+        bool removedAny = false;
+        for (int i = cachedEntries.Count - 1; i >= 0; i--)
         {
-            for (int i = cachedEntries.Count - 1; i >= 0; i--)
+            var entry = cachedEntries[i];
+            if (entry.pawn != null && entry.pawn.IsColonist && worldComp.IsHidden(entry.pawn))
             {
-                var entry = cachedEntries[i];
-                if (entry.pawn != null && entry.pawn.IsColonist && worldComp.IsHidden(entry.pawn))
-                {
-                    cachedEntries.RemoveAt(i);
-                    if (i < cachedDrawLocs.Count)
-                        cachedDrawLocs.RemoveAt(i);
-                }
+                cachedEntries.RemoveAt(i);
+                removedAny = true;
             }
         }
+
+        if (!removedAny)
+            return;
+
+        // Vanilla computes cachedDrawLocs for the full (unfiltered) entry list above.
+        // Removing entries without recomputing leaves the survivors at positions sized
+        // for the larger bar, opening gaps where hidden colonists were. Recalculate
+        // draw locations for the trimmed entry list so the bar closes up correctly.
+        int groupsCount = cachedEntries.Select(entry => entry.group).Distinct().Count();
+        drawLocsFinder.CalculateDrawLocs(cachedDrawLocs, out float scale, groupsCount);
+        CachedScaleRef(__instance) = scale;
     }
 }
 

@@ -1,4 +1,3 @@
-using System.Reflection;
 using HarmonyLib;
 using MSSFP.Holo;
 using Verse;
@@ -35,14 +34,16 @@ namespace MSSFP.HarmonyPatches;
 [HarmonyPatch(typeof(PawnRenderer), "PawnNeedsHediffMaterial")]
 public static class PawnRenderer_HoloAtlasBypass_Patch
 {
-    private static readonly FieldInfo PawnField = AccessTools.Field(typeof(PawnRenderer), "pawn");
+    private static readonly AccessTools.FieldRef<PawnRenderer, Pawn> PawnRef =
+        AccessTools.FieldRefAccess<PawnRenderer, Pawn>("pawn");
 
     [HarmonyPostfix]
     public static void Postfix(PawnRenderer __instance, ref bool __result)
     {
         if (__result) return;
         if (__instance == null) return;
-        if (PawnField?.GetValue(__instance) is not Pawn p) return;
+        Pawn p = PawnRef(__instance);
+        if (p == null) return;
         if (!MSSFPHoloUtil.IsHolo(p)) return;
         __result = true;
     }

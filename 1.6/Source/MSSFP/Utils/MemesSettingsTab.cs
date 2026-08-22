@@ -83,6 +83,20 @@ public class MemesSettingsTab(ModSettings settings, Mod mod) : SettingsTab(setti
             ref scrollViewHeight
         );
 
+        DrawCheckBox(
+            options,
+            "MSS_FP_Settings_EnableRavenCreepJoiner".Translate(),
+            ref Settings.EnableRavenCreepJoiner,
+            ref scrollViewHeight
+        );
+        if (Settings.EnableRavenCreepJoiner)
+        {
+            Settings.RavenCreepJoinerChanceMultiplier = options.SliderLabeled(
+                "MSS_FP_Settings_RavenCreepJoinerChanceMultiplier".Translate(Settings.RavenCreepJoinerChanceMultiplier.ToString("F1")),
+                Settings.RavenCreepJoinerChanceMultiplier, 0.1f, 5.0f);
+            scrollViewHeight += 30f;
+        }
+
         // Unconditional — kept outside the EnableIEDPodRaids gate above because
         // traps already scattered by a past raid must keep decaying even if the
         // player later disables the raid itself.
@@ -159,9 +173,12 @@ public class MemesSettingsTab(ModSettings settings, Mod mod) : SettingsTab(setti
         Scribe_Values.Look(ref Settings.EnableTrekBeamers, "EnableTrekBeamers", true);
         Scribe_Values.Look(ref Settings.EnableSkylanternRaids, "EnableSkylanternRaids", false);
         Scribe_Values.Look(ref Settings.EnableIEDPodRaids, "EnableIEDPodRaids", true);
+        Scribe_Values.Look(ref Settings.EnableRavenCreepJoiner, "EnableRavenCreepJoiner", true);
+        Scribe_Values.Look(ref Settings.RavenCreepJoinerChanceMultiplier, "RavenCreepJoinerChanceMultiplier", 1.0f);
         Scribe_Values.Look(ref Settings.IEDLifespanDays, "IEDLifespanDays", 45);
         Scribe_Values.Look(ref Settings.IEDDecayDetonateChance, "IEDDecayDetonateChance", 0.3f);
         Scribe_Values.Look(ref Settings.EnableMercenaryHiring, "EnableMercenaryHiring", true);
+        Scribe_Values.Look(ref Settings.useMrStreamerMercenaries, "useMrStreamerMercenaries", false);
         Scribe_Values.Look(ref Settings.DaysForFission, "DaysForFission", 7);
         Scribe_Values.Look(ref Settings.EnableCodexPunch, "EnableCodexPunch", true);
         Scribe_Values.Look(ref Settings.CodexPunchChanceMultiplier, "CodexPunchChanceMultiplier", 1.0f);

@@ -23,6 +23,24 @@ public class TunnelCaravan : Caravan
 
     private int _lastIncidentTileIndex = -1;
 
+    // Cached tunnel path (origin → destination) plus the TunnelGenData.graphVersion it was
+    // computed against. FindTunnelPath is a full BFS over the tunnel graph, so recomputing
+    // it every tick/render-frame per in-transit caravan is wasteful — the path only ever
+    // changes when the underlying graph mutates (tunnel overlay/clear), not tick-to-tick.
+    private List<int> _cachedPath;
+    private int _cachedPathGraphVersion = -1;
+
+    private List<int> GetCachedPath(TunnelGenData tunnelGenData)
+    {
+        if (_cachedPath == null || _cachedPathGraphVersion != tunnelGenData.graphVersion)
+        {
+            _cachedPath = tunnelGenData.FindTunnelPath(origin, destination);
+            _cachedPathGraphVersion = tunnelGenData.graphVersion;
+        }
+
+        return _cachedPath;
+    }
+
     public override void ExposeData()
     {
         base.ExposeData();
@@ -60,7 +78,7 @@ public class TunnelCaravan : Caravan
             TunnelGenData tunnelGenData = TunnelGenData.Instance;
             if (tunnelGenData != null)
             {
-                List<int> nodes = tunnelGenData.FindTunnelPath(origin, destination);
+                List<int> nodes = GetCachedPath(tunnelGenData);
                 if (nodes != null && nodes.Count > 1)
                 {
                     float floatIndex = totalProgress * (nodes.Count - 1);
@@ -101,7 +119,7 @@ public class TunnelCaravan : Caravan
         TunnelGenData tunnelGenData = TunnelGenData.Instance;
         if (tunnelGenData != null)
         {
-            List<int> nodes = tunnelGenData.FindTunnelPath(origin, destination);
+            List<int> nodes = GetCachedPath(tunnelGenData);
             if (nodes != null && nodes.Count > 0)
             {
                 int index = Mathf.FloorToInt(progress * (nodes.Count - 1));
@@ -146,9 +164,14 @@ public class TunnelCaravan : Caravan
 
     private void TryFireCategory(IncidentCategoryDef category, float mtbTiles)
     {
-        if (!Rand.MTBEventOccurs(mtbTiles, 1f, 1f))
+        // Higher weight multiplier → shorter mean-time-between → more frequent incidents.
+        // Floor matches the settings slider's minimum, avoiding a divide-by-zero blowout.
+        float weightMultiplier = Mathf.Max(MSSFPMod.settings.TunnelIncidentWeightMultiplier, 0.05f);
+        float adjustedMtbTiles = mtbTiles / weightMultiplier;
+
+        if (!Rand.MTBEventOccurs(adjustedMtbTiles, 1f, 1f))
         {
-            ModLog.Debug($"[TunnelCaravan] TryFireCategory {category.defName}: MTB check failed (mtbTiles={mtbTiles})");
+            ModLog.Debug($"[TunnelCaravan] TryFireCategory {category.defName}: MTB check failed (mtbTiles={adjustedMtbTiles})");
             return;
         }
 

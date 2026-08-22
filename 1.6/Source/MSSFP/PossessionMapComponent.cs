@@ -38,7 +38,9 @@ public class PossessionMapComponent(Map map) : MapComponent(map)
                 }
             }
 
-            Pawn target = possessedOrNearPossessed.RandomElementWithFallback();
+            Pawn target = possessedOrNearPossessed
+                .Where(p => p.RaceProps.Humanlike && p.needs?.mood != null)
+                .RandomElementWithFallback();
             if (target != null)
             {
                 target.needs.mood.thoughts.memories.TryGainMemory(

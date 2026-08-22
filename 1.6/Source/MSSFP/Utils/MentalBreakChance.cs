@@ -1,12 +1,12 @@
 using System.Xml;
+using RimWorld;
 using Verse;
 
 namespace MSSFP.Utils;
 
-public class MentalBreakChance
+public class MentalBreakChance : ChanceEntryBase
 {
     public MentalBreakDef mentalBreak;
-    public float chance;
 
     public MentalBreakChance() { }
 
@@ -16,11 +16,5 @@ public class MentalBreakChance
         this.chance = chance;
     }
 
-    public void LoadDataFromXmlCustom(XmlNode xmlNode)
-    {
-        XmlAttribute mayRequire = xmlNode?.Attributes?["MayRequire"];
-        XmlAttribute mayRequireAnyOf = xmlNode?.Attributes?["MayRequireAnyOf"];
-        DirectXmlCrossRefLoader.RegisterObjectWantsCrossRef(this, "mentalBreak", xmlNode?.Name, mayRequire?.Value.ToLower(), mayRequireAnyOf?.Value.ToLower());
-        chance = ParseHelper.FromString<float>(xmlNode?.FirstChild.Value?? "0");
-    }
+    public void LoadDataFromXmlCustom(XmlNode xmlNode) => LoadEntryFromXml(xmlNode, "mentalBreak");
 }

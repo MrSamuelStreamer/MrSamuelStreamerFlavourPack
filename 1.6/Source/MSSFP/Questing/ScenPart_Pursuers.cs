@@ -237,6 +237,7 @@ public class ScenPart_Pursuers : ScenPart
         Scribe_Collections.Look(ref mapWarningTimers, "mapWarningTimers", LookMode.Reference, LookMode.Value, ref tmpWarningKeys, ref tmpWarningValues);
         Scribe_Collections.Look(ref mapRaidTimers, "mapRaidTimers", LookMode.Reference, LookMode.Value, ref tmpRaidKeys, ref tmpRaidValues);
         Scribe_Values.Look(ref questCompleted, "questCompleted");
+        Scribe_Collections.Look(ref eternallySafeMaps, "eternallySafeMaps", LookMode.Value);
         Scribe_Values.Look(ref initialWarningDelay, "initialWarningDelay", PursuersModExt.Value.initialWarningDelay);
         Scribe_Values.Look(ref initialRaidDelay, "initialRaidDelay", PursuersModExt.Value.initialRaidDelay);
         Scribe_Values.Look(ref warningDelayRange, "warningDelayRange", PursuersModExt.Value.warningDelayRange);

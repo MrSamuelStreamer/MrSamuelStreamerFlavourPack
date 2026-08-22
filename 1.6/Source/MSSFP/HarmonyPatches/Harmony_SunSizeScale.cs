@@ -27,6 +27,15 @@ public static class Harmony_SunSizeScale
 
     private static FieldInfo _subMeshesField;
 
+    /// <summary>
+    /// Clears the growth anchor so the sun starts over at 1x on the next render.
+    /// _startTick is a plain static, not scribed, so it must be reset explicitly on
+    /// every load/new-game (see <see cref="GameLoad_Patch"/>) — otherwise switching
+    /// saves in the same session carries the previous colony's elapsed-time anchor
+    /// into the new one, and the sun can render already scaled up on day one.
+    /// </summary>
+    public static void ResetStartTick() => _startTick = -1;
+
     public static void Toggle(Harmony harmony, bool enable)
     {
         if (harmony == null) return;

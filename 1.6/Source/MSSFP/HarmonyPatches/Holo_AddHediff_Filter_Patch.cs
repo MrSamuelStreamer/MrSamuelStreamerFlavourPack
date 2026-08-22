@@ -20,6 +20,13 @@ namespace MSSFP.HarmonyPatches
             Pawn pawn = __instance?.hediffSet?.pawn;
             if (!MSSFPHoloUtil.IsHolo(pawn)) return true;
             if (HoloHediffPolicy.IsAllowed(pawn, hediff.def)) return true;
+
+            // Skip the add. This overload returns void, so no __result is needed (and
+            // Harmony rejects one): the Hediff-returning AddHediff(HediffDef, ...)
+            // overload constructs the hediff itself, calls this one, and returns the
+            // constructed instance regardless — so callers chaining off the return
+            // value (e.g. `AddHediff(def).Severity = x`) still get a non-null,
+            // never-added Hediff when the holo filter skips the add.
             return false;
         }
     }

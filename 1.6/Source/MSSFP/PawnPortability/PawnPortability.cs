@@ -112,6 +112,13 @@ namespace MSSFP.PawnPortability
 
         // ── Duplicate Prevention ──────────────────────────────
 
+        // Cache of the last live-pawn resolution per template def, keyed by def and
+        // refreshed after a short TTL. FindLivePawn is invoked from storyteller incident
+        // checks (CanFireNowSub) once per template per evaluation, which without caching
+        // means a full all-maps + world-pawns scan per template per check.
+        private const int LivePawnCacheTtlTicks = 60;
+        private static readonly Dictionary<PawnTemplateDef, (int tick, Pawn pawn)> livePawnCache = new();
+
         public static bool IsAlive(PawnTemplateDef def)
         {
             return FindLivePawn(def) != null;
@@ -121,6 +128,18 @@ namespace MSSFP.PawnPortability
         {
             if (def?.name == null) return null;
 
+            int now = Find.TickManager?.TicksGame ?? 0;
+            if (livePawnCache.TryGetValue(def, out var cached)
+                && now - cached.tick < LivePawnCacheTtlTicks)
+                return cached.pawn;
+
+            Pawn found = FindLivePawnUncached(def);
+            livePawnCache[def] = (now, found);
+            return found;
+        }
+
+        private static Pawn FindLivePawnUncached(PawnTemplateDef def)
+        {
             string first = def.name.first;
             string last = def.name.last;
 

@@ -40,6 +40,8 @@ public class LoversRetreatMapComponent(Verse.Map map) : MapComponent(map), IThin
         Scribe_Deep.Look(ref innerContainer, "innerContainer", this);
 
         innerContainer ??= new ThingOwner<Pawn>(this);
+        pairs ??= [];
+        PawnsToStoreNextTick ??= [];
     }
 
     public virtual void AddPair(Pawn first, Pawn second, int ticksAway)
@@ -67,8 +69,6 @@ public class LoversRetreatMapComponent(Verse.Map map) : MapComponent(map), IThin
         {
             if (pair.ExpectedBackTick <= Find.TickManager.TicksGame)
             {
-                toRemove.Add(pair);
-
                 if (
                     RCellFinder.TryFindRandomPawnEntryCell(
                         out IntVec3 loc,
@@ -77,10 +77,15 @@ public class LoversRetreatMapComponent(Verse.Map map) : MapComponent(map), IThin
                     )
                 )
                 {
-                    GenSpawn.Spawn(pair.firstLover, loc, map);
-                    GenSpawn.Spawn(pair.secondLover, loc, map);
+                    // Only mark the pair as resolved once a valid entry cell is found;
+                    // otherwise leave it in place so we retry on the next interval
+                    // instead of stranding the pawns in innerContainer forever.
+                    toRemove.Add(pair);
+
                     innerContainer.Remove(pair.firstLover);
                     innerContainer.Remove(pair.secondLover);
+                    GenSpawn.Spawn(pair.firstLover, loc, map);
+                    GenSpawn.Spawn(pair.secondLover, loc, map);
 
                     bool allowAnyPregnant = MSSFPMod.settings.allowAnyPregnant;
 

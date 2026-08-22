@@ -44,6 +44,8 @@
     <MSS_FP_Settings_EnableIEDPodRaids>Enable IED pod scatter raids</MSS_FP_Settings_EnableIEDPodRaids>
     <MSS_FP_Settings_IEDLifespanDays>IED lifespan before decay -> {0} days (0 = never)</MSS_FP_Settings_IEDLifespanDays>
     <MSS_FP_Settings_IEDDecayDetonateChance>Chance a decaying IED detonates instead of fizzling [x{0}]</MSS_FP_Settings_IEDDecayDetonateChance>
+    <MSS_FP_Settings_EnableRavenCreepJoiner>Enable raven creep joiner (a sapient raven may wander into your colony)</MSS_FP_Settings_EnableRavenCreepJoiner>
+    <MSS_FP_Settings_RavenCreepJoinerChanceMultiplier>Raven creep joiner frequency [x{0}]</MSS_FP_Settings_RavenCreepJoinerChanceMultiplier>
 
     <MSS_FP_GeneEventChance>Gene Event Chance</MSS_FP_GeneEventChance>
     <MSS_FP_GeneEventChance_Tooltop>The chance for gene selections to appear on e.g. growth moments</MSS_FP_GeneEventChance_Tooltop>

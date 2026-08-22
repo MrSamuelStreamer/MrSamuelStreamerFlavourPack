@@ -34,6 +34,11 @@ public static class SanguophageUtility_Patch
         Gene_VoidsEmbrace voidsEmbraceGene = pawn.genes?.GetFirstGeneOfType<Gene_VoidsEmbrace>();
         if (voidsEmbraceGene == null) return true;
 
+        // Pawns carrying the gene can still lack a skills/story tracker (sapient
+        // animals, mutants/ghouls, other gene-copying mods) — let vanilla handle
+        // those rather than NRE mid-deathrest processing.
+        if (pawn.skills?.skills == null || pawn.story?.traits == null) return true;
+
         // Partial skill loss: 0–5 points per skill
         foreach (SkillRecord skill in pawn.skills.skills)
         {

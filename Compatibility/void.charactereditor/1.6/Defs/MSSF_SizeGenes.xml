@@ -37,11 +37,11 @@
 	<LifeStageDef ParentName="SZHumanSizeBase">
 		<defName>MSS_HumanSize_02</defName>
 		<label>bodysize02</label>
-		<bodySizeFactor>0.3</bodySizeFactor>
+		<bodySizeFactor>0.2</bodySizeFactor>
 		<bodyWidth>1.0</bodyWidth>
 		<healthScaleFactor>1.0</healthScaleFactor>
-		<hungerRateFactor>0.3</hungerRateFactor>
-		<meleeDamageFactor>0.3</meleeDamageFactor>
+		<hungerRateFactor>0.2</hungerRateFactor>
+		<meleeDamageFactor>0.2</meleeDamageFactor>
 		<headSizeFactor>0.5</headSizeFactor>
 	</LifeStageDef>
 
@@ -54,11 +54,11 @@
 	<LifeStageDef ParentName="SZHumanSizeBase">
 		<defName>MSS_HumanSize_01</defName>
 		<label>bodysize01</label>
-		<bodySizeFactor>0.3</bodySizeFactor>
+		<bodySizeFactor>0.1</bodySizeFactor>
 		<bodyWidth>1.0</bodyWidth>
 		<healthScaleFactor>1.0</healthScaleFactor>
-		<hungerRateFactor>0.3</hungerRateFactor>
-		<meleeDamageFactor>0.3</meleeDamageFactor>
+		<hungerRateFactor>0.1</hungerRateFactor>
+		<meleeDamageFactor>0.1</meleeDamageFactor>
 		<headSizeFactor>0.4</headSizeFactor>
 	</LifeStageDef>
 

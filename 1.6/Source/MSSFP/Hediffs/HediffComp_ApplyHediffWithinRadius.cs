@@ -11,6 +11,9 @@ public class HediffComp_ApplyHediffWithinRadius: HediffComp
     {
         base.CompPostTick(ref severityAdjustment);
 
+        if (parent.pawn.Map == null)
+            return;
+
         if (parent.pawn.IsHashIntervalTick(Props.ticksBetweenChecks))
         {
             foreach (Pawn pawn in GenRadial.RadialDistinctThingsAround(parent.pawn.Position, parent.pawn.Map, Props.proximityRadius, true).OfType<Pawn>().Except([parent.pawn]).Where(CheckPawn))

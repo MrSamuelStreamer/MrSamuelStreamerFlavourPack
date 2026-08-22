@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using RimWorld;
 using Verse;
 
@@ -44,21 +43,30 @@ public class TrekBeamerMapComponent(Verse.Map map) : MapComponent(map)
             return;
         if (PawnsToBeam == null)
             PawnsToBeam = [];
-        foreach (
-            PawnBeamer beamer in PawnsToBeam
-                .Where(key => key.ticks <= Find.TickManager.TicksGame)
-                .ToList()
-        )
+        if (PawnsToBeam.Count == 0)
+            return;
+
+        int now = Find.TickManager.TicksGame;
+        for (int i = PawnsToBeam.Count - 1; i >= 0; i--)
         {
-            SendLetter(beamer.pawn);
-            Effecter e = EffecterDefOf.Skip_ExitNoDelay.Spawn(beamer.pawn.Position, map);
+            PawnBeamer beamer = PawnsToBeam[i];
+            if (beamer.ticks > now)
+                continue;
+
+            PawnsToBeam.RemoveAt(i);
+
+            Pawn pawn = beamer.pawn;
+            if (pawn == null || pawn.Destroyed || !pawn.Spawned)
+                continue;
+
+            SendLetter(pawn);
+            Effecter e = EffecterDefOf.Skip_ExitNoDelay.Spawn(pawn.Position, map);
             e.Trigger(
-                new TargetInfo(beamer.pawn.Position, map),
-                new TargetInfo(beamer.pawn.Position, map)
+                new TargetInfo(pawn.Position, map),
+                new TargetInfo(pawn.Position, map)
             );
-            PawnsToBeam.Remove(beamer);
-            beamer.pawn.DeSpawn();
-            Find.WorldPawns.PassToWorld(beamer.pawn);
+            pawn.DeSpawn();
+            Find.WorldPawns.PassToWorld(pawn);
         }
     }
 

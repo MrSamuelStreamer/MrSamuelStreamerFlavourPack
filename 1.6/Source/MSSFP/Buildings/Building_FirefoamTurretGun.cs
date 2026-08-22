@@ -11,16 +11,17 @@ public class Building_FirefoamTurretGun : Building_TurretGun
     {
         IAttackTargetSearcher searcher = this;
         Faction faction = searcher.Thing.Faction;
-        float range = AttackVerb.verbProps.range;
+        float rangeSquared = AttackVerb.verbProps.range * AttackVerb.verbProps.range;
 
         if (
             Rand.Value < 0.5
-            && faction.IsPlayer
-            && Map.listerThings.AllThings.Where(x =>
+            && faction is { IsPlayer: true }
+            && Map.listerThings.ThingsOfDef(ThingDefOf.Fire)
+                .Where(x =>
                 {
-                    float num = AttackVerb.verbProps.EffectiveMinRange((LocalTargetInfo)x, this);
+                    float minRange = AttackVerb.verbProps.EffectiveMinRange((LocalTargetInfo)x, this);
                     float squared = x.Position.DistanceToSquared(Position);
-                    return squared > num * (double)num && squared < range * (double)range;
+                    return squared > minRange * (double)minRange && squared < rangeSquared;
                 })
                 .Where(IsValidTarget)
                 .TryRandomElement(out Thing result)

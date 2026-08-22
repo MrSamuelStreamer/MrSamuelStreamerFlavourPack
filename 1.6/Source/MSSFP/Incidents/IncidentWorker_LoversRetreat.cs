@@ -14,6 +14,37 @@ public class IncidentWorker_LoversRetreat : IncidentWorker
 {
     public IntRange TimeAway = new IntRange(GenDate.TicksPerHour * 6, GenDate.TicksPerDay);
 
+    /// <summary>
+    /// Candidate colonists eligible for a lovers' retreat on the given map: free adult
+    /// colonists, not downed, not pregnant (unless allowAnyPregnant), each paired with the
+    /// spouses that are themselves eligible (on the same map, not downed, not pregnant, and
+    /// able to produce a child unless allowAnyPregnant). Shared by CanFireNowSub and GetPawn
+    /// so both use identical filters.
+    /// </summary>
+    public virtual IEnumerable<(Pawn pawn, List<Pawn> spouses)> GetEligibleCouples(Map map)
+    {
+        bool allowAnyPregnant = MSSFPMod.settings.allowAnyPregnant;
+
+        foreach (Pawn pawn in map.mapPawns.FreeAdultColonistsSpawned.Where(pawn => !pawn.Downed))
+        {
+            if (pawn.health.hediffSet.HasHediff(HediffDefOf.PregnantHuman))
+                continue;
+
+            List<Pawn> eligibleSpouses = pawn
+                .GetSpouses(false)
+                .Where(spouse =>
+                    spouse.Map == map
+                    && !spouse.Downed
+                    && !spouse.health.hediffSet.HasHediff(HediffDefOf.PregnantHuman)
+                    && (allowAnyPregnant || PregnancyUtility.CanEverProduceChild(pawn, spouse).Accepted)
+                )
+                .ToList();
+
+            if (eligibleSpouses.Count > 0)
+                yield return (pawn, eligibleSpouses);
+        }
+    }
+
     public virtual bool ColonyHasRomanticCoupleAvailable(IncidentParms parms)
     {
         if (parms.target is not Map map)
@@ -21,33 +52,7 @@ public class IncidentWorker_LoversRetreat : IncidentWorker
             return false;
         }
 
-        bool allowAnyPregnant = MSSFPMod.settings.allowAnyPregnant;
-
-        foreach (Pawn pawn in map.mapPawns.FreeAdultColonistsSpawned.Where(pawn => !pawn.Downed))
-        {
-            if (!pawn.health.hediffSet.HasHediff(HediffDefOf.PregnantHuman))
-            {
-                foreach (Pawn spouse in pawn.GetSpouses(false))
-                {
-                    if (
-                        !spouse.health.hediffSet.HasHediff(HediffDefOf.PregnantHuman)
-                        && spouse.Map == map
-                    )
-                    {
-                        // If following normal rules, check if they can produce a child
-                        if (
-                            allowAnyPregnant
-                            || PregnancyUtility.CanEverProduceChild(pawn, spouse).Accepted
-                        )
-                        {
-                            return true;
-                        }
-                    }
-                }
-            }
-        }
-
-        return false;
+        return GetEligibleCouples(map).Any();
     }
 
     public override float ChanceFactorNow(IIncidentTarget target) => 1f;
@@ -62,24 +67,23 @@ public class IncidentWorker_LoversRetreat : IncidentWorker
             && !map.mapPawns.AllPawns.Any(p => p.HostileTo(Faction.OfPlayer));
     }
 
-    public virtual Pawn GetPawn(IncidentParms parms)
+    public virtual (Pawn pawn, Pawn spouse) GetPawnAndSpouse(IncidentParms parms)
     {
-        return parms.target is not Map map
-            ? null
-            : map
-                .mapPawns.AllPawnsSpawned.Where(pawn =>
-                    pawn.ageTracker.Adult
-                    && !pawn.Downed
-                    && pawn.GetSpouses(false).Any(spouse => spouse.Map == map)
-                )
-                .RandomElementWithFallback();
+        if (parms.target is not Map map)
+            return (null, null);
+
+        List<(Pawn pawn, List<Pawn> spouses)> couples = GetEligibleCouples(map).ToList();
+        if (couples.Count == 0)
+            return (null, null);
+
+        (Pawn pawn, List<Pawn> spouses) couple = couples.RandomElement();
+        return (couple.pawn, couple.spouses.RandomElement());
     }
 
     protected override bool TryExecuteWorker(IncidentParms parms)
     {
-        Pawn pawn = GetPawn(parms);
-        Pawn spouse = pawn?.GetSpouses(false).RandomElement();
-        if (spouse is null)
+        (Pawn pawn, Pawn spouse) = GetPawnAndSpouse(parms);
+        if (pawn is null || spouse is null)
             return false;
         if (
             !RCellFinder.TryFindBestExitSpot(pawn, out IntVec3 pawnSpot, TraverseMode.ByPawn, false)

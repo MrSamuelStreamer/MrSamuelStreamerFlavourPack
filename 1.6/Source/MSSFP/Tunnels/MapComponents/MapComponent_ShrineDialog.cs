@@ -27,13 +27,15 @@ public class MapComponent_ShrineDialog : MapComponent
 
     // Parameterless constructor required by RimWorld's reflection-based
     // MapComponent auto-instantiation (Map.FillComponents). _active stays false
-    // so the component is inert on any map that didn't get the active constructor.
+    // so the component is inert until Activate() is called.
     public MapComponent_ShrineDialog(Map map) : base(map) { }
 
-    public MapComponent_ShrineDialog(Map map, bool active) : base(map)
-    {
-        _active = active;
-    }
+    /// <summary>
+    /// Marks this component as live. Call exactly once from PostSetupEncounterMap
+    /// on the auto-instantiated component fetched via map.GetComponent&lt;T&gt;() —
+    /// never construct a second instance.
+    /// </summary>
+    public void Activate() => _active = true;
 
     public override void MapComponentTick()
     {

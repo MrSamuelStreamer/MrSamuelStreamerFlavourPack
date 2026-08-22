@@ -69,6 +69,8 @@ namespace MSSFP.Incidents
             if (!TryFindSpawnCell(map, target.Position, out IntVec3 spawnCell))
             {
                 ModLog.Warn("[CodexPunch] Could not find a valid spawn cell near target");
+                // Codex was created but never spawned — discard it so it doesn't leak.
+                codex.Destroy(DestroyMode.Vanish);
                 return false;
             }
 
