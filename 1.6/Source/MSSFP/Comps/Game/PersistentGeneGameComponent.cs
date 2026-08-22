@@ -49,9 +49,10 @@ public class PersistentGeneGameComponent(Verse.Game game) : GameComponent
 
     public void Notify_PawnDied(Pawn pawn)
     {
+        Verse.Map deathMap = pawn.Corpse?.MapHeld ?? pawn.MapHeld;
         RespawnContext ctx = new RespawnContext(
             pawn,
-            pawn.Map,
+            deathMap,
             Find.TickManager.TicksGame + RespawnDelayRange.RandomInRange
         );
         RespawnJobs.Add(ctx);
@@ -72,9 +73,16 @@ public class PersistentGeneGameComponent(Verse.Game game) : GameComponent
 
             foreach (RespawnContext respawnContext in valid)
             {
+                if (respawnContext.pawn == null)
+                    continue;
+
+                Verse.Map targetMap = respawnContext.map ?? Find.AnyPlayerHomeMap;
+                if (targetMap == null)
+                    continue;
+
                 if (ResurrectionUtility.TryResurrect(respawnContext.pawn, parms))
                 {
-                    IncidentParms p = new() { target = respawnContext.map };
+                    IncidentParms p = new() { target = targetMap };
                     PawnsArrivalModeDefOf.EdgeWalkIn.Worker.TryResolveRaidSpawnCenter(p);
                     PawnsArrivalModeDefOf.EdgeWalkIn.Worker.Arrive([respawnContext.pawn], p);
 
