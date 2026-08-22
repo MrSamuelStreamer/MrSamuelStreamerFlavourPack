@@ -321,7 +321,14 @@ public class Settings : ModSettings
 
         foreach (SettingsTab settingsTab in Tabs)
         {
-            settingsTab.ExposeData();
+            try
+            {
+                settingsTab.ExposeData();
+            }
+            catch (Exception ex)
+            {
+                ModLog.Error($"Failed to expose data for tab {settingsTab.GetType().FullName}: {ex}");
+            }
         }
     }
 }
