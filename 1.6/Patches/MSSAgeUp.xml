@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <Patch>
-    <Operation Class="PatchOperationAddModExtension">
+    <Operation Class="PatchOperationAddModExtension" MayRequire="Ludeon.RimWorld.Biotech">
         <xpath>Defs/GeneDef[defName="Beauty_Pretty"]</xpath>
         <value>
             <li Class="MSSFP.ModExtensions.AgeUpGeneModDefExtension">
@@ -13,7 +13,7 @@
             </li>
         </value>
     </Operation>
-    <Operation Class="PatchOperationAddModExtension">
+    <Operation Class="PatchOperationAddModExtension" MayRequire="Ludeon.RimWorld.Biotech">
         <xpath>Defs/GeneDef[defName="Beauty_Ugly"]</xpath>
         <value>
             <li Class="MSSFP.ModExtensions.AgeUpGeneModDefExtension">
@@ -26,7 +26,7 @@
             </li>
         </value>
     </Operation>
-    <Operation Class="PatchOperationAddModExtension">
+    <Operation Class="PatchOperationAddModExtension" MayRequire="Ludeon.RimWorld.Biotech">
         <xpath>Defs/GeneDef[defName="Beauty_VeryUgly"]</xpath>
         <value>
             <li Class="MSSFP.ModExtensions.AgeUpGeneModDefExtension">
@@ -39,7 +39,7 @@
             </li>
         </value>
     </Operation>
-    <Operation Class="PatchOperationAddModExtension">
+    <Operation Class="PatchOperationAddModExtension" MayRequire="Ludeon.RimWorld.Biotech">
         <xpath>Defs/GeneDef[defName="Beauty_Beautiful"]</xpath>
         <value>
             <li Class="MSSFP.ModExtensions.AgeUpGeneModDefExtension">
@@ -52,7 +52,7 @@
             </li>
         </value>
     </Operation>
-    <Operation Class="PatchOperationAddModExtension">
+    <Operation Class="PatchOperationAddModExtension" MayRequire="Ludeon.RimWorld.Biotech">
         <xpath>Defs/GeneDef[defName="Body_Fat"]</xpath>
         <value>
             <li Class="MSSFP.ModExtensions.AgeUpGeneModDefExtension">
@@ -65,7 +65,7 @@
             </li>
         </value>
     </Operation>
-    <Operation Class="PatchOperationAddModExtension">
+    <Operation Class="PatchOperationAddModExtension" MayRequire="Ludeon.RimWorld.Biotech">
         <xpath>Defs/GeneDef[defName="Body_Thin"]</xpath>
         <value>
             <li Class="MSSFP.ModExtensions.AgeUpGeneModDefExtension">
@@ -78,7 +78,7 @@
             </li>
         </value>
     </Operation>
-    <Operation Class="PatchOperationAddModExtension">
+    <Operation Class="PatchOperationAddModExtension" MayRequire="Ludeon.RimWorld.Biotech">
         <xpath>Defs/GeneDef[defName="Body_Hulk"]</xpath>
         <value>
             <li Class="MSSFP.ModExtensions.AgeUpGeneModDefExtension">
@@ -91,7 +91,7 @@
             </li>
         </value>
     </Operation>
-    <Operation Class="PatchOperationAddModExtension">
+    <Operation Class="PatchOperationAddModExtension" MayRequire="Ludeon.RimWorld.Biotech">
         <xpath>Defs/GeneDef[defName="Body_Standard"]</xpath>
         <value>
             <li Class="MSSFP.ModExtensions.AgeUpGeneModDefExtension">
@@ -104,7 +104,7 @@
             </li>
         </value>
     </Operation>
-    <Operation Class="PatchOperationAddModExtension">
+    <Operation Class="PatchOperationAddModExtension" MayRequire="Ludeon.RimWorld.Biotech">
         <xpath>Defs/GeneDef[defName="Immunity_Weak"]</xpath>
         <value>
             <li Class="MSSFP.ModExtensions.AgeUpGeneModDefExtension">
@@ -116,7 +116,7 @@
             </li>
         </value>
     </Operation>
-    <Operation Class="PatchOperationAddModExtension">
+    <Operation Class="PatchOperationAddModExtension" MayRequire="Ludeon.RimWorld.Biotech">
         <xpath>Defs/GeneDef[defName="Immunity_Strong"]</xpath>
         <value>
             <li Class="MSSFP.ModExtensions.AgeUpGeneModDefExtension">
@@ -128,7 +128,7 @@
             </li>
         </value>
     </Operation>
-    <Operation Class="PatchOperationAddModExtension">
+    <Operation Class="PatchOperationAddModExtension" MayRequire="Ludeon.RimWorld.Biotech">
         <xpath>Defs/GeneDef[defName="Immunity_SuperStrong"]</xpath>
         <value>
             <li Class="MSSFP.ModExtensions.AgeUpGeneModDefExtension">
@@ -140,7 +140,7 @@
             </li>
         </value>
     </Operation>
-    <Operation Class="PatchOperationAddModExtension">
+    <Operation Class="PatchOperationAddModExtension" MayRequire="Ludeon.RimWorld.Biotech">
         <xpath>Defs/GeneDef[defName="Libido_Low"]</xpath>
         <value>
             <li Class="MSSFP.ModExtensions.AgeUpGeneModDefExtension">
@@ -151,7 +151,7 @@
             </li>
         </value>
     </Operation>
-    <Operation Class="PatchOperationAddModExtension">
+    <Operation Class="PatchOperationAddModExtension" MayRequire="Ludeon.RimWorld.Biotech">
         <xpath>Defs/GeneDef[defName="Libido_High"]</xpath>
         <value>
             <li Class="MSSFP.ModExtensions.AgeUpGeneModDefExtension">
@@ -162,7 +162,7 @@
             </li>
         </value>
     </Operation>
-    <Operation Class="PatchOperationAddModExtension">
+    <Operation Class="PatchOperationAddModExtension" MayRequire="Ludeon.RimWorld.Biotech">
         <xpath>Defs/GeneDef[defName="Fertile"]</xpath>
         <value>
             <li Class="MSSFP.ModExtensions.AgeUpGeneModDefExtension">
@@ -170,7 +170,7 @@
             </li>
         </value>
     </Operation>
-    <Operation Class="PatchOperationAddModExtension">
+    <Operation Class="PatchOperationAddModExtension" MayRequire="Ludeon.RimWorld.Biotech">
         <xpath>Defs/GeneDef[defName="KindInstinct"]</xpath>
         <value>
             <li Class="MSSFP.ModExtensions.AgeUpGeneModDefExtension">
@@ -178,7 +178,7 @@
             </li>
         </value>
     </Operation>
-    <Operation Class="PatchOperationAddModExtension">
+    <Operation Class="PatchOperationAddModExtension" MayRequire="Ludeon.RimWorld.Biotech">
         <xpath>Defs/GeneDef[defName="LongjumpLegs"]</xpath>
         <value>
             <li Class="MSSFP.ModExtensions.AgeUpGeneModDefExtension">

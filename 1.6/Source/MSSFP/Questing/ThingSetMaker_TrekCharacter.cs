@@ -10,14 +10,24 @@ namespace MSSFP.Questing;
 public class ThingSetMaker_TrekCharacter : ThingSetMaker
 {
     private const float RelationWithColonistWeight = 20f;
+    private const int MaxTries = 20;
 
     public static List<TraitDef> Traits =>
         [TraitDefOf.Bisexual, TraitDefOf.Joyous, TraitDefOf.GreatMemory];
     public static List<XenotypeDef> XenoTypes =>
-        [XenotypeDefOf.Baseliner, DefDatabase<XenotypeDef>.GetNamed("Genie")];
+        new List<XenotypeDef> { XenotypeDefOf.Baseliner, DefDatabase<XenotypeDef>.GetNamedSilentFail("Genie") }
+            .Where(x => x != null)
+            .ToList();
 
     protected override void Generate(ThingSetMakerParams parms, List<Thing> outThings)
     {
+        List<XenotypeDef> xenoTypes = XenoTypes;
+        if (xenoTypes.Count == 0)
+        {
+            Log.Warning("[MSSFP] TrekCharacter: no valid xenotypes available; skipping pawn generation.");
+            return;
+        }
+
         PawnGenerationRequest request = new(
             MSSFPDefOf.MSSFP_TrekCrasher,
             null,
@@ -26,11 +36,11 @@ public class ThingSetMaker_TrekCharacter : ThingSetMaker
             forceRecruitable: true,
             biologicalAgeRange: new FloatRange(18, 65),
             forcedTraits: Traits,
-            allowedXenotypes: XenoTypes
+            allowedXenotypes: xenoTypes
         );
         int tries = 0;
         Pawn pawn = null;
-        string reason;
+        string reason = null;
         do
         {
             reason = null;
@@ -38,15 +48,18 @@ public class ThingSetMaker_TrekCharacter : ThingSetMaker
                 Find.WorldPawns.PassToWorld(pawn, PawnDiscardDecideMode.Discard);
             pawn = PawnGenerator.GeneratePawn(request);
             HealthUtility.DamageUntilDowned(pawn);
-        } while (tries++ < 500 && !ValidatePawn(pawn, out reason));
+        } while (tries++ < MaxTries && !ValidatePawn(pawn, out reason));
 
-        if (tries >= 500)
-            throw new Exception("Failed to generate a pawn in 500 tries");
+        if (pawn == null)
+        {
+            Log.Warning($"[MSSFP] TrekCharacter: failed to generate any pawn in {MaxTries} tries.");
+            return;
+        }
 
         if (reason != null)
-            throw new Exception(reason);
+            Log.Warning($"[MSSFP] TrekCharacter: using best-effort pawn after {MaxTries} tries ({reason}).");
 
-        pawn?.health.AddHediff(
+        pawn.health.AddHediff(
             HediffDefOf.LoveEnhancer,
             pawn.RaceProps.body.GetPartsWithDef(BodyPartDefOf.Torso).FirstOrDefault()
         );
