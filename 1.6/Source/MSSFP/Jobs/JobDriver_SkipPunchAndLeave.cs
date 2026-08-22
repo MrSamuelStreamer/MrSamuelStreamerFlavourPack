@@ -30,6 +30,10 @@ namespace MSSFP.Jobs
             this.FailOnDespawnedOrNull(TargetIndex.A);
             this.FailOn(() => Target.Dead);
 
+            // Ensure the Codex is despawned regardless of which path the job ends on
+            // (success, fail condition, or interruption), not just the happy-path toils.
+            AddFinishAction(_ => SkipDespawn(pawn));
+
             // Toil 1: Sprint to target
             Toil gotoToil = Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.Touch);
             gotoToil.defaultCompleteMode = ToilCompleteMode.PatherArrival;

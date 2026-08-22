@@ -32,7 +32,6 @@ public class DamageWorker_DestructiveExtinguish : DamageWorker_AddInjury
 
         if (fire is { Destroyed: false })
         {
-            base.Apply(dinfo, victim);
             fire.fireSize -= dinfo.Amount * 0.1f;
             if (fire.fireSize < 0.1f)
                 fire.Destroy(DestroyMode.Vanish);

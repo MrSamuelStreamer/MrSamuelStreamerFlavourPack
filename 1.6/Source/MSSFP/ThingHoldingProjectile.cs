@@ -90,7 +90,7 @@ public class ThingHoldingProjectile : Bullet, IThingHolder
                 ExactRotation.eulerAngles.y,
                 launcher,
                 // weapon: equipmentDef,
-                weapon: HeldThing.def,
+                weapon: HeldThing?.def ?? equipmentDef,
                 intendedTarget: intendedTarget.Thing,
                 instigatorGuilty: instigatorGuilty
             );
