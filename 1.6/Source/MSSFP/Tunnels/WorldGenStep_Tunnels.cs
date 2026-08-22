@@ -24,7 +24,11 @@ public class WorldGenStep_Tunnels : WorldGenStep
 
     public bool RegenerateNeeded(PlanetTile tile)
     {
-        return !TunnelGenData.Instance.potentialTunnels.ContainsKey((SurfaceTile)tile.Tile);
+        // Membership in tunnelNodes (not potentialTunnels, which is now a pure lookup
+        // and never gains entries just from being queried) tracks whether this tile
+        // is already a known network node.
+        return !TunnelGenData.Instance.tunnelNodes.TryGetValue(tile.Layer, out List<PlanetTile> nodes)
+               || !nodes.Contains(tile);
     }
 
     public void Regenerate(PlanetLayer layer)

@@ -78,7 +78,7 @@ public class IncidentWorker_TunnelCaravanTollCollector : IncidentWorker_TunnelCa
         map.components.Add(new MapComponent_SuppressBattleWon(map));
 
         // Dialog component fires on first player-visible tick.
-        map.components.Add(new MapComponent_TollCollectorDialog(map, _tollCollector));
+        map.GetComponent<MapComponent_TollCollectorDialog>().Activate(_tollCollector);
     }
 
     protected override LordJob CreateLordJob(List<Pawn> generatedPawns, IncidentParms parms)

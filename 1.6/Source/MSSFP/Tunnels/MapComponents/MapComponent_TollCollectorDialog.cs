@@ -31,7 +31,12 @@ public class MapComponent_TollCollectorDialog : MapComponent
     // MapComponent auto-instantiation. _active = false → tick does nothing.
     public MapComponent_TollCollectorDialog(Map map) : base(map) { }
 
-    public MapComponent_TollCollectorDialog(Map map, Pawn tollCollector) : base(map)
+    /// <summary>
+    /// Marks this component as live. Call exactly once from
+    /// PostProcessGeneratedPawnsAfterSpawning on the auto-instantiated component
+    /// fetched via map.GetComponent&lt;T&gt;() — never construct a second instance.
+    /// </summary>
+    public void Activate(Pawn tollCollector)
     {
         _tollCollector = tollCollector;
         _active = true;

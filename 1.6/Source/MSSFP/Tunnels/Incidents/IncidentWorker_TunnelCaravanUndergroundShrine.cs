@@ -75,7 +75,7 @@ public class IncidentWorker_TunnelCaravanUndergroundShrine : IncidentWorker_Tunn
             TrySpawnOffering(shrineCell, map);
 
         // Dialog component fires the prayer choice when the map is viewed.
-        map.components.Add(new MapComponent_ShrineDialog(map, active: true));
+        map.GetComponent<MapComponent_ShrineDialog>().Activate();
     }
 
     // ── Helpers ───────────────────────────────────────────────────────────────

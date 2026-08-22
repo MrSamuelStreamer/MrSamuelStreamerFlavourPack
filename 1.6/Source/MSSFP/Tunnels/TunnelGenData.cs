@@ -268,13 +268,20 @@ public class TunnelGenData(World world) : WorldComponent(world)
         {
             if (Find.TickManager.TicksGame < caravan.travelEndsAtTick) continue;
 
+            caravan.mapGenerating = true;
+
             WorldObject wo = Find.WorldObjects.WorldObjectAt<WorldObject>(caravan.destination);
+            PlanetTile destinationTile = caravan.destination;
             LongEventHandler.QueueLongEvent(() =>
             {
-                Map map = Current.Game.FindMap(wo.Tile);
+                if (caravan.done || !caravan.mapGenerating)
+                    return;
+
+                PlanetTile mapTile = wo?.Tile ?? destinationTile;
+                Map map = Current.Game.FindMap(mapTile);
                 if (map == null)
                 {
-                    map = GetOrGenerateMapUtility.GetOrGenerateMap(wo.Tile, wo.def, null);
+                    map = GetOrGenerateMapUtility.GetOrGenerateMap(mapTile, wo?.def, null);
                 }
 
                 ModLog.Debug("Generated map for caravan");
