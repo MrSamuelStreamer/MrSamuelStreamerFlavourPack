@@ -54,23 +54,37 @@ public class MSSFPMod : Mod
         SocioButterfly_GetFood_NullGuard.TryRegister(_harmony);
 
         Type NC = AccessTools.Inner(typeof(Dialog_NamePawn), "NameContext");
-        ConstructorInfo CI = AccessTools.Constructor(
-            NC,
-            [
-                typeof(string),
-                typeof(int),
-                typeof(string),
-                typeof(int),
-                typeof(bool),
-                typeof(List<string>),
-            ]
-        );
-        MethodInfo MI = AccessTools.Method(
-            typeof(NameContext_Patch),
-            nameof(NameContext_Patch.Postfix)
-        );
+        ConstructorInfo CI = NC == null
+            ? null
+            : AccessTools.Constructor(
+                NC,
+                [
+                    typeof(string),
+                    typeof(int),
+                    typeof(string),
+                    typeof(int),
+                    typeof(bool),
+                    typeof(List<string>),
+                ]
+            );
 
-        _harmony.Patch(CI, null, new HarmonyMethod(MI));
+        if (CI == null)
+        {
+            // A RimWorld update changed Dialog_NamePawn+NameContext's signature — skip this
+            // patch rather than letting Harmony throw from the mod constructor and abort
+            // everything registered after it (settlement-defeat toggle, sky patches, etc).
+            ModLog.Warn(
+                "Couldn't resolve Dialog_NamePawn+NameContext constructor — skipping max name length patch."
+            );
+        }
+        else
+        {
+            MethodInfo MI = AccessTools.Method(
+                typeof(NameContext_Patch),
+                nameof(NameContext_Patch.Postfix)
+            );
+            _harmony.Patch(CI, null, new HarmonyMethod(MI));
+        }
 
         ToggleSettlementDefeatPatch(settings.ReformationPointsPerDefeatedFaction > 0 && settings.EnableExtraReformationPoints);
 

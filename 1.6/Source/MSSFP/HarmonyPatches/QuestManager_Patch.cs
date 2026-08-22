@@ -42,7 +42,7 @@ public static class QuestManager_Patch
                 if (gene.gene == null)
                 {
                     ModLog.Warn($"Couldn't find a gene to give {baby}");
-                    return;
+                    continue;
                 }
                 if (
                     !pawn.genes.Xenogenes.Any(g => g.def.ConflictsWith(gene.gene))
