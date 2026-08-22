@@ -1,13 +1,10 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <Patch>
-    <!-- Scoped to vanilla Luciferium only: an unqualified xpath here would flip
-         canBinge on every ChemicalDef from every mod in the load order, silently
-         overriding other mods' balance/safety intent. Luciferium is the vanilla
-         chemical that explicitly sets canBinge=false (a binge is lethal-by-design);
-         this patch intentionally re-enables bingeing on it for MSS's fun/chaos pack. -->
+    <!-- Deliberately unqualified: enables bingeing on EVERY ChemicalDef in the
+         load order (including other mods'). This is intended chaos-pack behavior. -->
     <Operation Class="PatchOperationReplace">
         <success>Always</success>
-        <xpath>Defs/ChemicalDef[defName="Luciferium"]/canBinge</xpath>
+        <xpath>Defs/ChemicalDef/canBinge</xpath>
         <value>
             <canBinge>true</canBinge>
         </value>
