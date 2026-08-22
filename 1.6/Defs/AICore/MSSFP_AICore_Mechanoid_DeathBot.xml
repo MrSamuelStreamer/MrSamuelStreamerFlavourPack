@@ -8,7 +8,7 @@
         <description>An AI Core loaded with a copy of the Mechanoid Hivemind's main subroutines. It is solely focused on the total and utter annihiation of humanity, and human-like beings. Mechanoids are united in a sole, foundational goal of annihilation, but do not have some form of galaxy-spanning, central, communication device, but rather have localised clusters operating distinctly from one another. This can lead to Mechanoids falling out of synch, finding their methods unaligned, and rarely, entering open hostilities.</description>
         <textColor>(220, 160, 220)</textColor>
         <iconPath>UI/Icons/AI/MSSFP_ChaffGDP</iconPath>
-        <forcedXenotype>MSS_CerebrexPersona</forcedXenotype>
+        <!-- <forcedXenotype>MSS_CerebrexPersona</forcedXenotype> -->
         <fixedGender>Female</fixedGender>
         <weight>1</weight>
         <ambientChatter>MSSFP_RP_AICore_Mechanoid_Chatter</ambientChatter>

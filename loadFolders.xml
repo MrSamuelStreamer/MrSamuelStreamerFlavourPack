@@ -17,5 +17,6 @@
         <li IfModActive="RER.GravshipLoanScenario">Compatibility/RER.GravshipLoanScenario/1.6</li>
         <li IfModActive="vanillaexpanded.gravship">Compatibility/vanillaexpanded.gravship/1.6</li>
         <li IfModNotActive="keyz182.superpack">Compatibility/No.VillainsFlavourPack/1.6</li>
+        <li IfModActive="ludeon.rimworld.ideology">Compatibility/ludeon.rimworld.ideology/1.6</li>
     </v1.6>
 </loadFolders>
