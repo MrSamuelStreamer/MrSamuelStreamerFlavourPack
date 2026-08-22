@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LanguageData>
+    <MSSFP_Tunnels_ScenPart_Summary>Enable tunnel network on world generation.</MSSFP_Tunnels_ScenPart_Summary>
+    <MSSFP_Tunnels_Settings_Tab>Tunnels</MSSFP_Tunnels_Settings_Tab>
+    <MSSFP_Tunnels_Settings_EnableCheckbox>Enable tunnels on new worlds</MSSFP_Tunnels_Settings_EnableCheckbox>
+    <MSSFP_Tunnels_Settings_EnableTooltip>New worlds only. Existing saves unaffected. Add via scenario editor for per-playthrough opt-in.</MSSFP_Tunnels_Settings_EnableTooltip>
+    <MSSFP_Tunnels_Settings_StatusEnabled>Current save: enabled (locked at world-gen)</MSSFP_Tunnels_Settings_StatusEnabled>
+    <MSSFP_Tunnels_Settings_StatusDisabled>Current save: disabled (locked at world-gen)</MSSFP_Tunnels_Settings_StatusDisabled>
+    <MSSFP_Tunnels_Settings_StatusNoWorld>No world loaded</MSSFP_Tunnels_Settings_StatusNoWorld>
+
+    <!-- Commit 2: core world-gen, travel, entrance building -->
+    <MSSFP_Tunnels_CaravanProgress>{0} until {1} arrives</MSSFP_Tunnels_CaravanProgress>
+    <MSSFP_Tunnels_CaravanProgressItemsOnly>{0} until goods arrive</MSSFP_Tunnels_CaravanProgressItemsOnly>
+    <MSSFP_Tunnels_RubyVeinGlint>You notice a glint of ruby in the tunnel wall.</MSSFP_Tunnels_RubyVeinGlint>
+
+    <!-- Commit 3: tunnel-caravan incidents -->
+
+    <!-- Cave-In encounter strings -->
+    <MSSFP_Tunnels_Incidents_CaveInReformBlocked>The passage is still blocked. Mine through the fallen rock first.</MSSFP_Tunnels_Incidents_CaveInReformBlocked>
+    <MSSFP_Tunnels_Incidents_CaveInClearedLabel>Path cleared</MSSFP_Tunnels_Incidents_CaveInClearedLabel>
+    <MSSFP_Tunnels_Incidents_CaveInClearedText>The caravan has broken through the cave-in. The passage ahead is open — the journey can continue.</MSSFP_Tunnels_Incidents_CaveInClearedText>
+
+    <!-- Underground Shrine encounter strings -->
+    <MSSFP_Tunnels_Incidents_ShrineDialogText>The altar is worked stone, very old. Offerings lie at its base — coins, bones, scraps of cloth. Whoever left them, they are gone. The shrine remains.
+
+The caravan's leader stands at the entrance.</MSSFP_Tunnels_Incidents_ShrineDialogText>
+    <MSSFP_Tunnels_Incidents_ShrinePrayOption>Approach and pray.</MSSFP_Tunnels_Incidents_ShrinePrayOption>
+    <MSSFP_Tunnels_Incidents_ShrineLeaveOption>Leave it undisturbed.</MSSFP_Tunnels_Incidents_ShrineLeaveOption>
+    <MSSFP_Tunnels_Incidents_ShrineBlessedMsg>The caravan's leader placed something at the base of the altar. For a moment, everything felt very still. The caravan feels — lighter, somehow.</MSSFP_Tunnels_Incidents_ShrineBlessedMsg>
+    <MSSFP_Tunnels_Incidents_ShrineNeutralMsg>The leader stood at the altar for a long moment. Nothing happened. Or nothing that could be seen.</MSSFP_Tunnels_Incidents_ShrineNeutralMsg>
+    <MSSFP_Tunnels_Incidents_ShrineCursedMsg>Something shifted in the stone as the leader touched the altar. Everyone felt it — a pressure behind the eyes, a sound too low to hear. One of them stumbled.</MSSFP_Tunnels_Incidents_ShrineCursedMsg>
+
+    <!-- Voice in the Dark encounter strings -->
+    <MSSFP_Tunnels_Incidents_VoiceInTheDark_Letter>{PAWN} stops short. From somewhere deep in the rock — distant at first, then booming — a voice echoes through the tunnel walls:
+
+"Can I get a hoo-ya in tunnel system?"
+
+Booming laughter follows. Then silence.
+
+No one can explain it.</MSSFP_Tunnels_Incidents_VoiceInTheDark_Letter>
+
+    <!-- Toll Collector encounter strings -->
+    <MSSFP_Tunnels_Incidents_TollCollectorDialogText>A figure stands in the passage ahead, one hand resting on their weapon. Their eyes move over the caravan without hurry.
+
+"Nothing passes without a toll. One hundred and fifty silver."
+
+They seem prepared to wait.</MSSFP_Tunnels_Incidents_TollCollectorDialogText>
+    <MSSFP_Tunnels_Incidents_TollCollectorPayOption>Pay {0} silver.</MSSFP_Tunnels_Incidents_TollCollectorPayOption>
+    <MSSFP_Tunnels_Incidents_TollCollectorRefuseOption>Refuse. Prepare to fight.</MSSFP_Tunnels_Incidents_TollCollectorRefuseOption>
+    <MSSFP_Tunnels_Incidents_TollCollectorNotEnoughSilver>Not enough silver ({0} available).</MSSFP_Tunnels_Incidents_TollCollectorNotEnoughSilver>
+    <MSSFP_Tunnels_Incidents_TollPaidMsg>The toll collector pockets the silver and steps aside without a word.</MSSFP_Tunnels_Incidents_TollPaidMsg>
+
+    <!-- Commit 4: Harmony patches -->
+
+    <!-- Tunnel caravan reform dialog: mass bar replacement -->
+    <MSSFP_Tunnels_TunnelReform_NoWeightLimit>No weight limit</MSSFP_Tunnels_TunnelReform_NoWeightLimit>
+    <MSSFP_Tunnels_TunnelReform_NoWeightLimitTip>Tunnel caravans travel through underground passages on minecart rails. They are not limited by the weight of their cargo.</MSSFP_Tunnels_TunnelReform_NoWeightLimitTip>
+
+    <!-- Commit 5: full settings tab -->
+    <MSSFP_Tunnels_Settings_Section_TravelSpeed>Travel speed</MSSFP_Tunnels_Settings_Section_TravelSpeed>
+    <MSSFP_Tunnels_Settings_DefaultTilesPerHour>Default tiles/hour: {0}</MSSFP_Tunnels_Settings_DefaultTilesPerHour>
+    <MSSFP_Tunnels_Settings_ResearchedTilesPerHour>Researched tiles/hour: {0}</MSSFP_Tunnels_Settings_ResearchedTilesPerHour>
+
+    <MSSFP_Tunnels_Settings_Section_MapGeneration>Map generation</MSSFP_Tunnels_Settings_Section_MapGeneration>
+    <MSSFP_Tunnels_Settings_RubyVeinSpawnChance>Ruby vein spawn chance: {0}</MSSFP_Tunnels_Settings_RubyVeinSpawnChance>
+
+    <MSSFP_Tunnels_Settings_Section_Incidents>Incidents</MSSFP_Tunnels_Settings_Section_Incidents>
+    <MSSFP_Tunnels_Settings_DisableTunnelIncidents>Disable tunnel incidents entirely</MSSFP_Tunnels_Settings_DisableTunnelIncidents>
+    <MSSFP_Tunnels_Settings_IncidentWeightMultiplier>Incident weight multiplier: {0}</MSSFP_Tunnels_Settings_IncidentWeightMultiplier>
+    <MSSFP_Tunnels_Settings_AllowCombatTunnelIncidents>Allow combat tunnel incidents (insects, factions)</MSSFP_Tunnels_Settings_AllowCombatTunnelIncidents>
+
+    <MSSFP_Tunnels_Settings_Section_QuestSites>Quest sites</MSSFP_Tunnels_Settings_Section_QuestSites>
+    <MSSFP_Tunnels_Settings_QuestSiteRadiusStep>Quest site radius step (0 = disabled): {0}</MSSFP_Tunnels_Settings_QuestSiteRadiusStep>
+    <MSSFP_Tunnels_Settings_QuestSiteMinRadiusStep>Quest site min radius step: {0}</MSSFP_Tunnels_Settings_QuestSiteMinRadiusStep>
+</LanguageData>

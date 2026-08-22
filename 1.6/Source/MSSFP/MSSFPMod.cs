@@ -73,7 +73,16 @@ public class MSSFPMod : Mod
         _harmony.Patch(CI, null, new HarmonyMethod(MI));
 
         ToggleSettlementDefeatPatch(settings.ReformationPointsPerDefeatedFaction > 0 && settings.EnableExtraReformationPoints);
+
+        Harmony_BlackHoleSun.Toggle(_harmony, settings.BlackHoleEnabled);
+        Harmony_SunSizeScale.Toggle(_harmony, settings.SunSizeScaleEnabled);
     }
+
+    public static void ToggleBlackHoleSunPatch(bool enable) =>
+        Harmony_BlackHoleSun.Toggle(_harmony, enable);
+
+    public static void ToggleSunSizeScalePatch(bool enable) =>
+        Harmony_SunSizeScale.Toggle(_harmony, enable);
 
     public static void ToggleSettlementDefeatPatch(bool enable)
     {
@@ -108,6 +117,9 @@ public class MSSFPMod : Mod
         ApplySettingsToDefs();
 
         ToggleSettlementDefeatPatch(settings.ReformationPointsPerDefeatedFaction > 0 && settings.EnableExtraReformationPoints);
+
+        // Sync the world condition when the black hole toggle changes at save-time.
+        MSSFP.Comps.World.WorldComponent_MSSFPBlackHole.SyncActiveStateWithSetting();
 
         // Snapshot and clear before iterating so a throwing action doesn't
         // leave stale entries or cause duplicate execution on next save.

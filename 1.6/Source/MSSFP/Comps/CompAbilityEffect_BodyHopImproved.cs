@@ -4,6 +4,7 @@ using System.Linq;
 using HarmonyLib;
 using MSSFP.Hediffs;
 using RimWorld;
+using VEF.Maps;
 using Verse;
 using PawnGraphicUtils = MSSFP.Utils.PawnGraphicUtils;
 
@@ -16,6 +17,7 @@ public class CompAbilityEffect_BodyHopImproved : CompAbilityEffect
 
     public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
     {
+
         base.Apply(target, dest);
         Pawn caster = parent.pawn;
         if (target.Thing is not Pawn host)

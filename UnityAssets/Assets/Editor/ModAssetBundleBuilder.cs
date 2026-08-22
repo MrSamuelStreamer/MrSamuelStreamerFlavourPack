@@ -77,6 +77,22 @@ public class ModAssetBundleBuilder
         BuildPipeline.BuildAssetBundles(OutputDirectoryRoot, bundles,
             BuildAssetBundleOptions.ChunkBasedCompression, BuildTarget.StandaloneWindows64);
 
+        // Unity emits a bundle named after the output directory ("AssetBundles")
+        // alongside the per-platform bundles. RimWorld does not need it and it
+        // collides with same-named master bundles from other mods, which prevents
+        // the platform bundles from loading. Delete it so only the platform bundles
+        // ship. Also drop the sibling .manifest to keep the directory tidy.
+        string masterBundle = System.IO.Path.Combine(OutputDirectoryRoot, "AssetBundles");
+        string masterManifest = masterBundle + ".manifest";
+        foreach (string stray in new[] { masterBundle, masterManifest })
+        {
+            if (System.IO.File.Exists(stray))
+            {
+                System.IO.File.Delete(stray);
+                Debug.Log($"Deleted stray master bundle artifact: {stray}");
+            }
+        }
+
         Debug.Log("MSSFP asset bundles built successfully to " + OutputDirectoryRoot);
     }
 }

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <IncidentDef>
+    <defName>MSSFP_TunnelCaravanInsectAttack</defName>
+    <label>tunnel insect attack</label>
+    <category>ThreatBig</category>
+    <targetTags>
+      <li>MSSFP_TunnelEntrance</li>
+    </targetTags>
+    <workerClass>MSSFP.Tunnels.Incidents.IncidentWorker_TunnelCaravanInsectAttack</workerClass>
+    <baseChance>6.0</baseChance>
+    <minRefireDays>10</minRefireDays>
+    <letterLabel>Insect attack!</letterLabel>
+    <letterText>A tunnel caravan has encountered a swarm of hostile insects in the underground passages!\n\nThe caravan must fight their way through or find an escape route.</letterText>
+    <letterDef>ThreatBig</letterDef>
+    <pointsScaleable>true</pointsScaleable>
+    <minThreatPoints>300</minThreatPoints>
+  </IncidentDef>
+
+
+  <IncidentDef>
+    <defName>MSSFP_TunnelCaravanFactionAmbush</defName>
+    <label>tunnel ambush</label>
+    <category>ThreatBig</category>
+    <targetTags>
+      <li>MSSFP_TunnelEntrance</li>
+    </targetTags>
+    <workerClass>MSSFP.Tunnels.Incidents.IncidentWorker_TunnelCaravanFactionAmbush</workerClass>
+    <baseChance>4.0</baseChance>
+    <minRefireDays>15</minRefireDays>
+    <letterLabel>Tunnel ambush!</letterLabel>
+    <!-- {0}=caravan name, {1}=faction pawn type plural, {2}=faction name (colored) -->
+    <letterText>{0} has been ambushed by {1} of the {2} in the underground passages!\n\nThe caravan must fight their way through the tunnels or be destroyed.</letterText>
+    <letterDef>ThreatBig</letterDef>
+    <pointsScaleable>true</pointsScaleable>
+    <minThreatPoints>300</minThreatPoints>
+  </IncidentDef>
+
+</Defs>

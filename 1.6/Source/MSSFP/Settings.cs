@@ -99,6 +99,32 @@ public class Settings : ModSettings
     public float GoldenCubeImplantRaidChance = 0.005f;
     public float GoldenCubeTransferChance = 0.5f;
 
+    // Black Hole cosmetic feature (default disabled)
+    public bool BlackHoleEnabled = false;
+    public float BlackHoleLightCap = 0.25f;
+    public bool BlackHoleGrowthEnabled = true;
+    public float BlackHoleGrowthRate = 1f;
+    public float BlackHoleGrowthMax = 16f;
+
+    // Independent sun-size growth (separate from black hole; default disabled)
+    public bool SunSizeScaleEnabled = false;
+    public float SunSizeScaleRate = 1f;
+    public float SunSizeScaleMax = 4f;
+
+    // Tunnel system port (default disabled). tunnelsEnabledForNewWorlds is snapshot
+    // at world-gen (see TunnelGenData); all other tunable fields are live-read.
+    public bool TunnelsEnabledForNewWorlds = false;
+    public float TunnelDefaultTilesPerHour = 3f;
+    public float TunnelResearchedTilesPerHour = 12f;
+    public float RubyVeinSpawnChance = 0.005f;
+    public float TunnelIncidentWeightMultiplier = 1f;
+    public bool AllowCombatTunnelIncidents = true;
+    public bool DisableTunnelIncidents = false;
+    // Quest-site radius override step (0 = disabled, matches vanilla behavior).
+    // This is an orthogonal MSSFP setting, not gated on the tunnel system itself.
+    public int QuestSiteRadiusStep = 0;
+    public int QuestSiteMinRadiusStep = 0;
+
     // Fields for optional assembly tabs — these MUST live here (not on the tab)
     // so they survive save/load cycles when the optional assembly is removed.
     public bool GeneratorEnableFasterUpgrades = false;
@@ -268,6 +294,26 @@ public class Settings : ModSettings
         Scribe_Values.Look(ref EnableGoldenCubeImplant, "EnableGoldenCubeImplant", true);
         Scribe_Values.Look(ref GoldenCubeImplantRaidChance, "GoldenCubeImplantRaidChance", 0.005f);
         Scribe_Values.Look(ref GoldenCubeTransferChance, "GoldenCubeTransferChance", 0.5f);
+
+        Scribe_Values.Look(ref BlackHoleEnabled, "BlackHoleEnabled", false);
+        Scribe_Values.Look(ref BlackHoleLightCap, "BlackHoleLightCap", 0.25f);
+        Scribe_Values.Look(ref BlackHoleGrowthEnabled, "BlackHoleGrowthEnabled", true);
+        Scribe_Values.Look(ref BlackHoleGrowthRate, "BlackHoleGrowthRate", 1f);
+        Scribe_Values.Look(ref BlackHoleGrowthMax, "BlackHoleGrowthMax", 16f);
+
+        Scribe_Values.Look(ref SunSizeScaleEnabled, "SunSizeScaleEnabled", false);
+        Scribe_Values.Look(ref SunSizeScaleRate, "SunSizeScaleRate", 1f);
+        Scribe_Values.Look(ref SunSizeScaleMax, "SunSizeScaleMax", 4f);
+
+        Scribe_Values.Look(ref TunnelsEnabledForNewWorlds, "TunnelsEnabledForNewWorlds", false);
+        Scribe_Values.Look(ref TunnelDefaultTilesPerHour, "TunnelDefaultTilesPerHour", 3f);
+        Scribe_Values.Look(ref TunnelResearchedTilesPerHour, "TunnelResearchedTilesPerHour", 12f);
+        Scribe_Values.Look(ref RubyVeinSpawnChance, "RubyVeinSpawnChance", 0.005f);
+        Scribe_Values.Look(ref TunnelIncidentWeightMultiplier, "TunnelIncidentWeightMultiplier", 1f);
+        Scribe_Values.Look(ref AllowCombatTunnelIncidents, "AllowCombatTunnelIncidents", true);
+        Scribe_Values.Look(ref DisableTunnelIncidents, "DisableTunnelIncidents", false);
+        Scribe_Values.Look(ref QuestSiteRadiusStep, "QuestSiteRadiusStep", 0);
+        Scribe_Values.Look(ref QuestSiteMinRadiusStep, "QuestSiteMinRadiusStep", 0);
 
         // Optional assembly tab fields — saved here so they persist when the assembly is removed
         Scribe_Values.Look(ref GeneratorEnableFasterUpgrades, "GeneratorEnableFasterUpgrades", false);

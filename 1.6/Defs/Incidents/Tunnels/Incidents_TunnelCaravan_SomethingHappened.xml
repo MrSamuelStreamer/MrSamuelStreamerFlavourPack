@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- BrendaKillsBarbas: a mysterious woman executes her dog, then attacks the caravan.
+       Letter text is deliberately vague — the player discovers what happened on the map. -->
+  <IncidentDef>
+    <defName>MSSFP_TunnelCaravanBrendaKillsBarbas</defName>
+    <label>tunnel delay</label>
+    <category>ThreatBig</category>
+    <targetTags>
+      <li>MSSFP_TunnelEntrance</li>
+    </targetTags>
+    <workerClass>MSSFP.Tunnels.Incidents.IncidentWorker_TunnelCaravanBrendaKillsBarbas</workerClass>
+    <baseChance>100</baseChance>
+    <minRefireDays>60</minRefireDays>
+    <letterLabel>Tunnel delay</letterLabel>
+    <letterText>The tunnel caravan's minecarts have ground to a halt somewhere in the underground passages. Something is blocking the way ahead.\n\nThe caravan has been forced to stop and investigate.</letterText>
+    <letterDef>ThreatBig</letterDef>
+    <pointsScaleable>false</pointsScaleable>
+  </IncidentDef>
+
+
+  <!-- ForgottenOssuary: a natural chamber holds an ancient shrine and the skeletons
+       of those who came to worship and never left. Non-combat discovery event.
+       Fires at most once per save — tracked on TunnelGenData.ossuaryFired. -->
+  <IncidentDef>
+    <defName>MSSFP_TunnelCaravanForgottenOssuary</defName>
+    <label>tunnel delay</label>
+    <category>Misc</category>
+    <targetTags>
+      <li>MSSFP_TunnelEntrance</li>
+    </targetTags>
+    <workerClass>MSSFP.Tunnels.Incidents.IncidentWorker_TunnelCaravanForgottenOssuary</workerClass>
+    <baseChance>2.0</baseChance>
+    <minRefireDays>30</minRefireDays>
+    <letterLabel>Tunnel delay</letterLabel>
+    <letterText>The tunnel caravan's minecarts have ground to a halt somewhere in the underground passages. Something is blocking the way ahead.\n\nThe caravan has been forced to stop and investigate.</letterText>
+    <letterDef>NeutralEvent</letterDef>
+    <pointsScaleable>false</pointsScaleable>
+  </IncidentDef>
+
+
+  <!-- CaveIn: the tunnel ceiling collapses, sealing the passage with fallen rock.
+       Non-combat; the caravan must mine through the debris before they can reform.
+       Reform is blocked by the (commit 4) reform-blocking patch until
+       MapComponent_CaveInBlocker.IsCleared. -->
+  <IncidentDef>
+    <defName>MSSFP_TunnelCaravanCaveIn</defName>
+    <label>tunnel delay</label>
+    <category>Misc</category>
+    <targetTags>
+      <li>MSSFP_TunnelEntrance</li>
+    </targetTags>
+    <workerClass>MSSFP.Tunnels.Incidents.IncidentWorker_TunnelCaravanCaveIn</workerClass>
+    <baseChance>2.0</baseChance>
+    <minRefireDays>30</minRefireDays>
+    <letterLabel>Tunnel collapse</letterLabel>
+    <letterText>A deep crack and rumble shakes the tunnel. Rock and earth pour from the ceiling, sealing the passage ahead.\n\nThe caravan is trapped. The debris must be cleared before they can move on.</letterText>
+    <letterDef>NeutralEvent</letterDef>
+    <pointsScaleable>false</pointsScaleable>
+  </IncidentDef>
+
+
+  <!-- TradingCaravan: a friendly trading outfit is encountered inside the tunnel.
+       Non-combat; player trades at leisure and reforms normally whenever ready. -->
+  <IncidentDef>
+    <defName>MSSFP_TunnelCaravanTradingCaravan</defName>
+    <label>tunnel delay</label>
+    <category>Misc</category>
+    <targetTags>
+      <li>MSSFP_TunnelEntrance</li>
+    </targetTags>
+    <workerClass>MSSFP.Tunnels.Incidents.IncidentWorker_TunnelCaravanTradingCaravan</workerClass>
+    <baseChance>6.0</baseChance>
+    <minRefireDays>15</minRefireDays>
+    <letterLabel>Tunnel delay</letterLabel>
+    <letterText>Muffled voices drift through the tunnel walls ahead. The minecart slows.\n\nA trading outfit has stopped to rest in a wider chamber deeper in the passage. They seem friendly — and they have goods to sell.</letterText>
+    <letterDef>NeutralEvent</letterDef>
+    <pointsScaleable>false</pointsScaleable>
+  </IncidentDef>
+
+
+  <!-- AbandonedCache: scattered cargo from a previous expedition. No combat; pure loot event. -->
+  <IncidentDef>
+    <defName>MSSFP_TunnelCaravanAbandonedCache</defName>
+    <label>tunnel delay</label>
+    <category>Misc</category>
+    <targetTags>
+      <li>MSSFP_TunnelEntrance</li>
+    </targetTags>
+    <workerClass>MSSFP.Tunnels.Incidents.IncidentWorker_TunnelCaravanAbandonedCache</workerClass>
+    <baseChance>4.0</baseChance>
+    <minRefireDays>25</minRefireDays>
+    <letterLabel>Tunnel delay</letterLabel>
+    <letterText>The minecart rolls to a stop. Something is blocking the passage — or rather, something was left there long ago.\n\nAbandoned cargo sits in a natural alcove. Whoever left it is gone. The supplies remain.</letterText>
+    <letterDef>NeutralEvent</letterDef>
+    <pointsScaleable>false</pointsScaleable>
+  </IncidentDef>
+
+
+  <!-- TollCollector: a lone armed figure demands silver to let the caravan pass.
+       Non-combat by default; escalates to assault if the player refuses. -->
+  <IncidentDef>
+    <defName>MSSFP_TunnelCaravanTollCollector</defName>
+    <label>tunnel delay</label>
+    <category>Misc</category>
+    <targetTags>
+      <li>MSSFP_TunnelEntrance</li>
+    </targetTags>
+    <workerClass>MSSFP.Tunnels.Incidents.IncidentWorker_TunnelCaravanTollCollector</workerClass>
+    <baseChance>1.6</baseChance>
+    <minRefireDays>40</minRefireDays>
+    <letterLabel>Tunnel delay</letterLabel>
+    <letterText>The minecart's lights fall on a figure in the passage. They are armed and they are waiting.\n\nThey want payment to let the caravan pass. They seem prepared to enforce the toll.</letterText>
+    <letterDef>NeutralEvent</letterDef>
+    <pointsScaleable>false</pointsScaleable>
+  </IncidentDef>
+
+
+  <!-- AncientDefences: dormant mechanoid sentinels activate when the caravan passes.
+       Combat event; mechanoids fight to destruction (no timeout or flee). -->
+  <IncidentDef>
+    <defName>MSSFP_TunnelCaravanAncientDefences</defName>
+    <label>tunnel delay</label>
+    <category>ThreatSmall</category>
+    <targetTags>
+      <li>MSSFP_TunnelEntrance</li>
+    </targetTags>
+    <workerClass>MSSFP.Tunnels.Incidents.IncidentWorker_TunnelCaravanAncientDefences</workerClass>
+    <baseChance>2.0</baseChance>
+    <minRefireDays>30</minRefireDays>
+    <letterLabel>Tunnel delay</letterLabel>
+    <letterText>The minecart's lights sweep across worked stone — and something moves in the dark.\n\nDormant mechanoid sentinels, silent for centuries, have detected the caravan. They are activating.</letterText>
+    <letterDef>ThreatSmall</letterDef>
+    <pointsScaleable>false</pointsScaleable>
+  </IncidentDef>
+
+  <!-- UndergroundShrine: an ancient altar in a domed chamber. -->
+  <IncidentDef>
+    <defName>MSSFP_TunnelCaravanUndergroundShrine</defName>
+    <label>tunnel delay</label>
+    <category>Misc</category>
+    <targetTags>
+      <li>MSSFP_TunnelEntrance</li>
+    </targetTags>
+    <workerClass>MSSFP.Tunnels.Incidents.IncidentWorker_TunnelCaravanUndergroundShrine</workerClass>
+    <baseChance>1.2</baseChance>
+    <minRefireDays>90</minRefireDays>
+    <letterLabel>Tunnel delay</letterLabel>
+    <letterText>The tunnel opens into a domed chamber. At its centre stands a stone altar — old, silent, covered in offerings left by hands long dead.\n\nThe caravan has stopped. Nobody moves.</letterText>
+    <letterDef>NeutralEvent</letterDef>
+    <pointsScaleable>false</pointsScaleable>
+  </IncidentDef>
+
+
+  <!-- VoiceInTheDark: a random colonist hears a distant voice shout "Can I get a hoo-ya
+       in tunnel system?" followed by booming laughter. No combat, no reward, no NPCs.
+       The caravan can reform immediately. Recurring flavour event. -->
+  <IncidentDef>
+    <defName>MSSFP_TunnelCaravanVoiceInTheDark</defName>
+    <label>tunnel delay</label>
+    <category>Misc</category>
+    <targetTags>
+      <li>MSSFP_TunnelEntrance</li>
+    </targetTags>
+    <workerClass>MSSFP.Tunnels.Incidents.IncidentWorker_TunnelCaravanVoiceInTheDark</workerClass>
+    <baseChance>2.0</baseChance>
+    <minRefireDays>30</minRefireDays>
+    <letterLabel>Tunnel delay</letterLabel>
+    <letterText>The caravan comes to a halt in the dark. One of the travellers freezes, listening. Something has been heard in the rock.</letterText>
+    <letterDef>NeutralEvent</letterDef>
+    <pointsScaleable>false</pointsScaleable>
+  </IncidentDef>
+
+</Defs>

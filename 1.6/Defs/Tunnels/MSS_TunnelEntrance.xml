@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <ThingDef ParentName="BuildingBase">
+        <defName>MSSFP_TunnelEntrance</defName>
+        <label>tunnel network entrance</label>
+        <description>tunnel network entrance</description>
+        <size>(2,2)</size>
+        <useHitPoints>true</useHitPoints>
+        <thingClass>MSSFP.Tunnels.Building_Tunnel</thingClass>
+        <tickerType>Normal</tickerType>
+        <rotatable>false</rotatable>
+        <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+        <canOverlapZones>false</canOverlapZones>
+        <designationCategory>Structure</designationCategory>
+        <costList>
+            <WoodLog>200</WoodLog>
+        </costList>
+        <graphicData>
+            <graphicClass>Graphic_Single</graphicClass>
+            <texPath>Things/Buildings/MSS_TunnelEntrance</texPath>
+            <drawSize>(2,2)</drawSize>
+        </graphicData>
+        <altitudeLayer>FloorEmplacement</altitudeLayer>
+        <holdsRoof>true</holdsRoof>
+        <destroyable>true</destroyable>
+        <building>
+            <isEdifice>true</isEdifice>
+            <deconstructible>true</deconstructible>
+            <isTargetable>true</isTargetable>
+            <isInert>true</isInert>
+            <claimable>true</claimable>
+            <expandHomeArea>false</expandHomeArea>
+        </building>
+        <statBases>
+            <MaxHitPoints>1000</MaxHitPoints>
+            <Flammability>0</Flammability>
+            <WorkToMake>3000</WorkToMake>
+        </statBases>
+        <inspectorTabs>
+            <li>MSSFP.Tunnels.ITab_ContentsTunnel</li>
+        </inspectorTabs>
+        <comps>
+            <li Class="CompProperties_LeaveFilthOnDestroyed">
+                <filthDef>Filth_LooseGround</filthDef>
+                <thickness>5</thickness>
+            </li>
+        </comps>
+    </ThingDef>
+</Defs>

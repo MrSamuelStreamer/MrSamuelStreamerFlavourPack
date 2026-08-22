@@ -54,8 +54,12 @@ public static class JobDriver_Resurrect_Patch
             return false;
         }
 
-        Hediff hediff = pawn.health.AddHediff(MSSFPDefOf.MSS_VoidInsanity);
-        hediff.Severity = severity;
+        if (ModsConfig.AnomalyActive)
+        {
+            Hediff hediff = pawn.health.AddHediff(MSSFPDefOf.MSS_VoidInsanity);
+            hediff.Severity = severity;
+        }
+
         return true;
     }
 
