@@ -41,6 +41,9 @@ public class IncidentWorker_RavenCreepJoinerJoin : IncidentWorker_WandererJoin
         if (DefDatabase<PawnKindDef>.GetNamedSilentFail("MSSFP_Raven") == null)
             return false;
 
+        if (SwapMethod == null)
+            return false;
+
         return CanSpawnJoiner(map);
     }
 

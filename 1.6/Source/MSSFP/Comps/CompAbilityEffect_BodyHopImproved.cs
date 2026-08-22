@@ -102,8 +102,6 @@ public class CompAbilityEffect_BodyHopImproved : CompAbilityEffect
             }
         }
 
-        //Find.PawnDuplicator.CopyHediffs(caster, host);
-
         List<Hediff> hediffs = caster.health.hediffSet.hediffs.ToList();
         foreach (Hediff item in hediffs)
         {
