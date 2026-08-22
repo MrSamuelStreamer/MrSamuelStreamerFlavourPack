@@ -163,7 +163,15 @@ public class HediffComp_HauntProgression : HediffComp
             return false;
 
         float current = parent.pawn.records.GetValue(trigger.recordDef);
-        recordSnapshots.TryGetValue(trigger.recordDef, out float previous);
+
+        // No snapshot yet for this trigger (e.g. added to the def after this comp already
+        // had other snapshots, or restored from a save with a corrupted dictionary) — take
+        // the baseline now instead of comparing lifetime totals against an implicit 0.
+        if (!recordSnapshots.TryGetValue(trigger.recordDef, out float previous))
+        {
+            recordSnapshots[trigger.recordDef] = current;
+            return false;
+        }
 
         if (current > previous)
         {
@@ -227,6 +235,17 @@ public class HediffComp_HauntProgression : HediffComp
         Scribe_Collections.Look(ref recordSnapshots, "recordSnapshots", LookMode.Def, LookMode.Value);
         Scribe_Values.Look(ref awakeningGeneFired, "awakeningGeneFired", false);
         Scribe_Values.Look(ref previousStage, "previousStage", -1);
+
+        if (Scribe.mode == LoadSaveMode.PostLoadInit)
+        {
+            // A RecordDef removed by a modlist change becomes a null key on load, which
+            // can otherwise corrupt/drop the whole dictionary; prune instead of trusting it.
+            recordSnapshots ??= new Dictionary<RecordDef, float>();
+            if (recordSnapshots.Keys.Any(k => k == null))
+                recordSnapshots = recordSnapshots
+                    .Where(kv => kv.Key != null)
+                    .ToDictionary(kv => kv.Key, kv => kv.Value);
+        }
     }
 
     public override IEnumerable<Gizmo> CompGetGizmos()

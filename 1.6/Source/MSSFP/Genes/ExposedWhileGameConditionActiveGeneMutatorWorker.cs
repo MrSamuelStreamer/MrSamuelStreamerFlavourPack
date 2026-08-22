@@ -126,6 +126,7 @@ public class ExposedWhileGameConditionActiveGeneMutatorWorker : GeneMutatorWorke
             IEnumerable<GeneDef> validGenePool = DefDatabase<GeneDef>.AllDefs.Except(pawnGenes);
 
             List<GeneDef> selected = validGenePool
+                .InRandomOrder()
                 .Take(def.pinataModeChance.RandomInRange)
                 .ToList();
 

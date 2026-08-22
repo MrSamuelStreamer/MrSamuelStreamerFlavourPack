@@ -268,7 +268,7 @@ public class HediffComp_Haunt : HediffComp
         if (Props.onlyRenderWhenDrafted && !draftOverride && Pawn.drafter is not { Drafted: true })
             return;
 
-        if (Props.graphicData.Graphic is PawnHauntGraphic && TexPath == null)
+        if (Props.graphicData?.Graphic is PawnHauntGraphic && TexPath == null)
             return;
 
         if (Props.graphicData?.Graphic is PawnHauntGraphic gfx && TexPath != null)
@@ -426,7 +426,7 @@ public class HediffComp_Haunt : HediffComp
         texPath = PawnGraphicUtils.SavePawnTexture(pawn);
         pawnTexture = null; // force PawnTexture property to reload from disk on next render
 
-        if (pawnToDraw.skills != null)
+        if (pawnToDraw.skills != null && pawnToDraw.skills.skills.Count > 0)
         {
             SkillRecord maxSkill = pawnToDraw.skills.skills.MaxBy(pawnSkill => pawnSkill.Level);
 

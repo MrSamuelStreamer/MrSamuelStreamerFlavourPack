@@ -258,7 +258,7 @@ public class HediffComp_Echo : HediffComp_Haunt
     {
         if (Find.TickManager.TicksGame % GenDate.TicksPerDay == 0)
         {
-            pawnToShow = pawns.RandomElement();
+            pawnToShow = pawns.RandomElementWithFallback();
         }
     }
 

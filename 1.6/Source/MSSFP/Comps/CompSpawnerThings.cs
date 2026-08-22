@@ -7,11 +7,13 @@ namespace MSSFP.Comps;
 public class CompSpawnerThings : ThingComp
 {
     private int ticksUntilSpawn;
+    private CompCanBeDormant dormantComp;
 
     public CompProperties_SpawnerThings PropsSpawner => (CompProperties_SpawnerThings)props;
 
     public override void PostSpawnSetup(bool respawningAfterLoad)
     {
+        dormantComp = parent.GetComp<CompCanBeDormant>();
         if (respawningAfterLoad)
             return;
         ResetCountdown();
@@ -25,10 +27,9 @@ public class CompSpawnerThings : ThingComp
     {
         if (!parent.Spawned)
             return;
-        CompCanBeDormant comp = parent.GetComp<CompCanBeDormant>();
-        if (comp != null)
+        if (dormantComp != null)
         {
-            if (!comp.Awake)
+            if (!dormantComp.Awake)
                 return;
         }
         else if (parent.Position.Fogged(parent.Map))
@@ -80,19 +81,24 @@ public class CompSpawnerThings : ThingComp
         if (!CompSpawner.TryFindSpawnCell(parent, thingToSpawn, countToSpawn, out result))
             return false;
         Thing thing = ThingMaker.MakeThing(thingToSpawn);
-        thing.stackCount = countToSpawn;
         if (thing == null)
+        {
             Log.Error("Could not spawn anything for " + parent);
+            return false;
+        }
+        thing.stackCount = countToSpawn;
         if (PropsSpawner.inheritFaction && thing.Faction != parent.Faction)
             thing.SetFaction(parent.Faction);
         Thing lastResultingThing;
-        GenPlace.TryPlaceThing(
+        bool placed = GenPlace.TryPlaceThing(
             thing,
             result,
             parent.Map,
             ThingPlaceMode.Direct,
             out lastResultingThing
         );
+        if (!placed || lastResultingThing == null)
+            return false;
         if (PropsSpawner.spawnForbidden)
             lastResultingThing.SetForbidden(true);
         if (PropsSpawner.showMessageIfOwned && parent.Faction == Faction.OfPlayer)

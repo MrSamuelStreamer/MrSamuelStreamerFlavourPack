@@ -35,15 +35,22 @@ public class HauntEventMapComponent(Verse.Map map) : MapComponent(map)
     {
         int now = Find.TickManager.TicksGame;
 
-        // Restore flickered lights
+        // Restore flickered lights. Build the id→Thing lookup at most once per tick,
+        // and only when a restore is actually due, instead of a linear AllThings scan
+        // per pending entry.
+        Dictionary<int, Thing> thingsById = null;
         for (int i = pendingRestoreIds.Count - 1; i >= 0; i--)
         {
             if (now < pendingRestoreTicks[i])
                 continue;
-            Thing thing = map.listerThings.AllThings.Find(t => t.thingIDNumber == pendingRestoreIds[i]);
-            CompFlickable flick = thing?.TryGetComp<CompFlickable>();
-            if (flick != null)
-                flick.SwitchIsOn = true;
+
+            thingsById ??= BuildThingIdLookup();
+            if (thingsById.TryGetValue(pendingRestoreIds[i], out Thing thing))
+            {
+                CompFlickable flick = thing.TryGetComp<CompFlickable>();
+                if (flick != null)
+                    flick.SwitchIsOn = true;
+            }
             pendingRestoreIds.RemoveAt(i);
             pendingRestoreTicks.RemoveAt(i);
         }
@@ -82,6 +89,14 @@ public class HauntEventMapComponent(Verse.Map map) : MapComponent(map)
     {
         pendingRestoreIds.Add(thingId);
         pendingRestoreTicks.Add(atTick);
+    }
+
+    private Dictionary<int, Thing> BuildThingIdLookup()
+    {
+        Dictionary<int, Thing> lookup = new(map.listerThings.AllThings.Count);
+        foreach (Thing thing in map.listerThings.AllThings)
+            lookup[thing.thingIDNumber] = thing;
+        return lookup;
     }
 
     private void TryFireEvent()
