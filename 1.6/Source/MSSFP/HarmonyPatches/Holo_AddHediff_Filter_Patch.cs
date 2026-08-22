@@ -14,18 +14,19 @@ namespace MSSFP.HarmonyPatches
         new[] { typeof(Hediff), typeof(BodyPartRecord), typeof(DamageInfo?), typeof(DamageWorker.DamageResult) })]
     public static class Holo_AddHediff_Filter_Patch
     {
-        public static bool Prefix(Pawn_HealthTracker __instance, Hediff hediff, ref Hediff __result)
+        public static bool Prefix(Pawn_HealthTracker __instance, Hediff hediff)
         {
             if (hediff == null) return true;
             Pawn pawn = __instance?.hediffSet?.pawn;
             if (!MSSFPHoloUtil.IsHolo(pawn)) return true;
             if (HoloHediffPolicy.IsAllowed(pawn, hediff.def)) return true;
 
-            // Skip the add, but hand back the constructed (never-added) Hediff instead of
-            // null — vanilla and modded callers commonly chain straight off the return
-            // value (e.g. `pawn.health.AddHediff(def).Severity = x`), and a null there
-            // throws in unrelated code with no clue the holo filter was the cause.
-            __result = hediff;
+            // Skip the add. This overload returns void, so no __result is needed (and
+            // Harmony rejects one): the Hediff-returning AddHediff(HediffDef, ...)
+            // overload constructs the hediff itself, calls this one, and returns the
+            // constructed instance regardless — so callers chaining off the return
+            // value (e.g. `AddHediff(def).Severity = x`) still get a non-null,
+            // never-added Hediff when the holo filter skips the add.
             return false;
         }
     }

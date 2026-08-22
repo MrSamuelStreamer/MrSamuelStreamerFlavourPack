@@ -15,5 +15,5 @@ public class ThoughtChance : ChanceEntryBase
         this.chance = chance;
     }
 
-    public void LoadDataFromXmlCustom(XmlNode xmlNode) => LoadDataFromXmlCustom(xmlNode, "though");
+    public void LoadDataFromXmlCustom(XmlNode xmlNode) => LoadEntryFromXml(xmlNode, "though");
 }

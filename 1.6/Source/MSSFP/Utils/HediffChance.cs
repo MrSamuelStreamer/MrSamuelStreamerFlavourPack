@@ -15,5 +15,5 @@ public class HediffChance : ChanceEntryBase
         this.chance = chance;
     }
 
-    public void LoadDataFromXmlCustom(XmlNode xmlNode) => LoadDataFromXmlCustom(xmlNode, "hediff");
+    public void LoadDataFromXmlCustom(XmlNode xmlNode) => LoadEntryFromXml(xmlNode, "hediff");
 }

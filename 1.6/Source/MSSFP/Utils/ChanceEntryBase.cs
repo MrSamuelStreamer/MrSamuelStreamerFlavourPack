@@ -14,7 +14,11 @@ public abstract class ChanceEntryBase
 {
     public float chance;
 
-    protected void LoadDataFromXmlCustom(XmlNode xmlNode, string fieldName)
+    // NOTE: deliberately NOT named LoadDataFromXmlCustom — RimWorld's
+    // XmlToObjectUtils.CustomDataLoadMethodOf uses Type.GetMethod(name) which throws
+    // AmbiguousMatchException if two methods share that name (base overload + the
+    // subclass's public single-arg entry point).
+    protected void LoadEntryFromXml(XmlNode xmlNode, string fieldName)
     {
         XmlAttribute mayRequire = xmlNode?.Attributes?["MayRequire"];
         XmlAttribute mayRequireAnyOf = xmlNode?.Attributes?["MayRequireAnyOf"];

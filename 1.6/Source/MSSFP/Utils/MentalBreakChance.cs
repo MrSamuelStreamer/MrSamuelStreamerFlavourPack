@@ -16,5 +16,5 @@ public class MentalBreakChance : ChanceEntryBase
         this.chance = chance;
     }
 
-    public void LoadDataFromXmlCustom(XmlNode xmlNode) => LoadDataFromXmlCustom(xmlNode, "mentalBreak");
+    public void LoadDataFromXmlCustom(XmlNode xmlNode) => LoadEntryFromXml(xmlNode, "mentalBreak");
 }
