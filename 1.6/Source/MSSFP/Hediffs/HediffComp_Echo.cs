@@ -280,5 +280,8 @@ public class HediffComp_Echo : HediffComp_Haunt
 
         // Skill boost removal is automatic — base CompPostPostRemoved calls
         // RebuildCacheForPawn which will exclude this comp's contributions.
+        // base call also unregisters this comp from HauntsCache — required or
+        // the cache entry (and this comp's skill boosts) leak indefinitely.
+        base.CompPostPostRemoved();
     }
 }
