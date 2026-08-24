@@ -3,8 +3,8 @@
   <XenotypeDef>
 		<defName>MSS_sawclone</defName>
     <label>Sawclone</label>
-    <description>A lethal, </description>
-    <descriptionShort>A repurposed AI core recovered from the central complex of a mechanoid hive.</descriptionShort>
+    <description>A cyborg monstrosity, designed to act as a disposable, melee combatant capable of rapidly closing gaps between themselves and enemy combatants and armed with blades capable of carving through even the most dense of Cataphract armour.</description>
+    <descriptionShort>A dangerous melee cyborg that can move quickly and has lethal melee potential.</descriptionShort>
     <iconPath>UI/Icons/Xenotypes/Custom/Genie_6</iconPath>
 		<inheritable>True</inheritable>
 		<genes>
@@ -18,15 +18,15 @@
 			<li>KillThirst</li>
 			<li>Body_FemaleOnly</li>
 			<li>Sterile</li>
-      <li MayRequire="sarg.alphagenes">AG_VFEI_PredatorStomach</li>
-      <li MayRequire="sarg.alphagenes">AG_Mood_Unfeeling</li>
-			<li MayRequire="sarg.alphagenes">AG_ChainsawHands</li>
-      <li MayRequire="sarg.alphagenes">AG_FasterAging</li>
+            <li MayRequire="sarg.alphagenes">AG_VFEI_PredatorStomach</li>
+            <li MayRequire="sarg.alphagenes">AG_Mood_Unfeeling</li>
+            <li MayRequire="sarg.alphagenes">AG_ChainsawHands</li>
+            <li MayRequire="sarg.alphagenes">AG_FasterAging</li>
 			<li MayRequire="sarg.alphagenes">AG_ArmourMedium</li>
-      <li MayRequire="redmattis.bigsmall.core">BS_CannotWearClothingOrArmor</li>
-      <li MayRequire="redmattis.bigsmall.core">BS_NoEquip</li>
+            <li MayRequire="redmattis.bigsmall.core">BS_CannotWearClothingOrArmor</li>
+            <li MayRequire="redmattis.bigsmall.core">BS_NoEquip</li>
 			<li MayRequire="redmattis.bigsmall.core">BS_Unarmed_VeryStrong</li>
-      <li MayRequire="redmattis.bigsmall.core">BS_BrokenTitanHead</li>
+            <li MayRequire="redmattis.bigsmall.core">BS_BrokenTitanHead</li>
 			<li MayRequire="redmattis.bigsmall.core">BS_BloodHair</li>
 			<li MayRequire="redmattis.bigsmall.core">BS_BatteryChargeable</li>
 		</genes>
