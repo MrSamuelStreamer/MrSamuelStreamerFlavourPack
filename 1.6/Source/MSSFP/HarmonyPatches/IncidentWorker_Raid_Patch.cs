@@ -46,6 +46,13 @@ public static class IncidentWorker_Raid_Patch
         // Pawn.SpawnSetup automatically removes the pawn from WorldPawns; despawn
         // will PassToWorld them back when the raid ends.
         parms.raidArrivalMode.Worker.Arrive([leader], parms);
+        if (!leader.Spawned)
+        {
+            // Arrive() failed to place the leader on the map (e.g. no usable drop/edge
+            // cells) — leave them in WorldPawns rather than adding an unspawned pawn
+            // to the raid's lord.
+            return;
+        }
         pawns.Add(leader);
 
         ModLog.Debug($"[FactionLeader] {leader.LabelShort} ({parms.faction.Name}) joined their faction's raid.");

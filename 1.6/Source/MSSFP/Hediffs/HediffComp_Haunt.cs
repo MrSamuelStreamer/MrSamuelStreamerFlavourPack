@@ -227,29 +227,32 @@ public class HediffComp_Haunt : HediffComp
         if (Props.AlwaysOn)
             return true;
 
-        if (OffUntilTick < 0)
-            OffUntilTick = Find.TickManager.TicksGame + Props.OffTimeTicksRange.RandomInRange;
+        int now = Find.TickManager.TicksGame;
 
-        if (OnUntilTick < OffUntilTick && OnUntilTick > Find.TickManager.TicksGame)
+        if (OffUntilTick < 0 && OnUntilTick < 0)
         {
-            if (OffUntilTick < OnUntilTick)
-            {
-                OffUntilTick = OnUntilTick + Props.OffTimeTicksRange.RandomInRange;
-            }
-
-            return true;
+            // First evaluation ever — start in the off phase.
+            OffUntilTick = now + Props.OffTimeTicksRange.RandomInRange;
         }
-        if (OffUntilTick > Find.TickManager.TicksGame)
-        {
-            if (OnUntilTick < OffUntilTick)
-            {
-                OnUntilTick = OffUntilTick + Props.OnTimeTicksRange.RandomInRange;
-            }
 
+        // Whichever of the two timestamps is currently larger marks the end of the
+        // active phase; the other is a stale leftover from the previous phase.
+        if (OnUntilTick > OffUntilTick)
+        {
+            if (now < OnUntilTick)
+                return true;
+
+            // On-phase just ended — start the off-phase.
+            OffUntilTick = now + Props.OffTimeTicksRange.RandomInRange;
             return false;
         }
 
-        return false;
+        if (now < OffUntilTick)
+            return false;
+
+        // Off-phase just ended — start the on-phase.
+        OnUntilTick = now + Props.OnTimeTicksRange.RandomInRange;
+        return true;
     }
 
     public virtual void DrawAt(Vector3 drawPos)
@@ -265,7 +268,7 @@ public class HediffComp_Haunt : HediffComp
         if (Props.onlyRenderWhenDrafted && !draftOverride && Pawn.drafter is not { Drafted: true })
             return;
 
-        if (Props.graphicData.Graphic is PawnHauntGraphic && TexPath == null)
+        if (Props.graphicData?.Graphic is PawnHauntGraphic && TexPath == null)
             return;
 
         if (Props.graphicData?.Graphic is PawnHauntGraphic gfx && TexPath != null)
@@ -423,7 +426,7 @@ public class HediffComp_Haunt : HediffComp
         texPath = PawnGraphicUtils.SavePawnTexture(pawn);
         pawnTexture = null; // force PawnTexture property to reload from disk on next render
 
-        if (pawnToDraw.skills != null)
+        if (pawnToDraw.skills != null && pawnToDraw.skills.skills.Count > 0)
         {
             SkillRecord maxSkill = pawnToDraw.skills.skills.MaxBy(pawnSkill => pawnSkill.Level);
 

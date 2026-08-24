@@ -179,17 +179,28 @@ public class Settings : ModSettings
         // get all SettingsTab subtypes
         foreach (Assembly assembly in assemblies)
         {
-            foreach (Type type in assembly.GetTypes()
+            Type[] assemblyTypes;
+            try
+            {
+                assemblyTypes = assembly.GetTypes();
+            }
+            catch (ReflectionTypeLoadException ex)
+            {
+                // A type in this assembly failed to load (e.g. a missing optional
+                // dependency); still use the types that did resolve.
+                assemblyTypes = ex.Types.Where(t => t != null).ToArray();
+                ModLog.Error($"Some types failed to load from assembly {assembly.FullName}: {ex}");
+            }
+            catch (Exception ex)
+            {
+                ModLog.Error($"Failed to load types from assembly {assembly.FullName}: {ex}");
+                continue;
+            }
+
+            foreach (Type type in assemblyTypes
                          .Where(t => !t.IsAbstract && typeof(SettingsTab).IsAssignableFrom(t)))
             {
-                try
-                {
-                    types.Add(type);
-                }
-                catch (Exception ex)
-                {
-                    ModLog.Error($"Failed to load types from assembly {assembly.FullName}: {ex}");
-                }
+                types.Add(type);
             }
         }
 
@@ -321,7 +332,14 @@ public class Settings : ModSettings
 
         foreach (SettingsTab settingsTab in Tabs)
         {
-            settingsTab.ExposeData();
+            try
+            {
+                settingsTab.ExposeData();
+            }
+            catch (Exception ex)
+            {
+                ModLog.Error($"Failed to expose data for tab {settingsTab.GetType().FullName}: {ex}");
+            }
         }
     }
 }

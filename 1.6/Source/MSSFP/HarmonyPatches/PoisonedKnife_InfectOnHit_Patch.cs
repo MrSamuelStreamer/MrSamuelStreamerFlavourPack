@@ -40,6 +40,9 @@ namespace MSSFP.HarmonyPatches
 
         private static bool CausedBleeding(DamageWorker.DamageResult damageResult)
         {
+            if (damageResult?.hediffs == null)
+                return false;
+
             foreach (var hediff in damageResult.hediffs)
             {
                 if (hediff is Hediff_Injury injury && injury.Bleeding)

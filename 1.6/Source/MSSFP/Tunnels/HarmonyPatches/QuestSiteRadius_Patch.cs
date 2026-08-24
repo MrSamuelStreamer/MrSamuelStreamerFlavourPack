@@ -39,6 +39,7 @@ public static class QuestSiteRadiusHelper
     {
         int step = MSSFPMod.settings.QuestSiteRadiusStep;
         if (step <= 0) return vanillaMax;
+        step = Math.Min(step, Multipliers.Length - 1);
         int multiplier = Multipliers[step];
         if (multiplier == int.MaxValue) return int.MaxValue;
         return vanillaMax * multiplier;
@@ -52,6 +53,7 @@ public static class QuestSiteRadiusHelper
     {
         int step = MSSFPMod.settings.QuestSiteMinRadiusStep;
         if (step <= 0) return vanillaMin;
+        step = Math.Min(step, MinMultipliers.Length - 1);
         return vanillaMin * MinMultipliers[step];
     }
 

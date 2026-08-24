@@ -13,7 +13,7 @@ public class Verb_AbilityShootThingHolder : Verb_AbilityShoot
 
         if (Caster is not Pawn pawn)
             return false;
-        Thing selectedThing = pawn.inventory.innerContainer.RandomElement();
+        Thing selectedThing = pawn.inventory.innerContainer.RandomElementWithFallback();
         return selectedThing != null;
     }
 
@@ -23,14 +23,26 @@ public class Verb_AbilityShootThingHolder : Verb_AbilityShoot
         if (Caster is not Pawn pawn)
             return false;
 
-        Thing selectedThing = pawn.inventory.innerContainer.RandomElement();
+        Thing selectedThing = pawn.inventory.innerContainer.RandomElementWithFallback();
 
         if (selectedThing == null)
             return false;
 
         SelectedThing = selectedThing.SplitOff(1);
 
-        return base.TryCastShot();
+        bool succeeded = base.TryCastShot();
+        if (!succeeded)
+        {
+            // Launch never happened (LOS lost, verb interrupted) — return the split item
+            // to the pawn's inventory instead of letting it vanish unreferenced.
+            if (SelectedThing != null && !SelectedThing.Destroyed)
+            {
+                pawn.inventory.innerContainer.TryAddOrTransfer(SelectedThing);
+            }
+            SelectedThing = null;
+        }
+
+        return succeeded;
     }
 
     public void ModifyProjectile(Projectile projectile)

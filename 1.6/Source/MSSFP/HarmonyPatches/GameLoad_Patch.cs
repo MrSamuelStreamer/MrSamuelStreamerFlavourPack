@@ -14,6 +14,8 @@ public static class GameLoad_Patch
     public static void LoadGame_Prefix()
     {
         HauntsCache.Clear();
+        Harmony_SunSizeScale.ResetStartTick();
+        SubNormalSpeedComponent.ClearCache();
     }
 
     [HarmonyPatch("InitNewGame")]
@@ -21,6 +23,8 @@ public static class GameLoad_Patch
     public static void InitNewGame_Prefix()
     {
         HauntsCache.Clear();
+        Harmony_SunSizeScale.ResetStartTick();
+        SubNormalSpeedComponent.ClearCache();
     }
 
     [HarmonyPatch("FinalizeInit")]

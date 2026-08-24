@@ -522,7 +522,7 @@
         <ritualRoleIds />
     </AbilityGroupDef>
 
-    <AbilityDef ParentName="PsycastBase">
+    <AbilityDef ParentName="PsycastBase" MayRequire="Ludeon.RimWorld.Royalty">
         <defName>MSS_FP_ShowStand</defName>
         <label>show stand</label>
         <description>Focus on the inner spirit travelling with you.</description>
@@ -573,7 +573,7 @@
         </comps>
     </AbilityDef>
 
-    <AbilityDef ParentName="PsycastBase">
+    <AbilityDef ParentName="PsycastBase" MayRequire="Ludeon.RimWorld.Royalty">
         <defName>MSS_FP_HideStand</defName>
         <label>hide stand</label>
         <description>Allow the inner spirit travelling with you to fade into your unconscious.</description>

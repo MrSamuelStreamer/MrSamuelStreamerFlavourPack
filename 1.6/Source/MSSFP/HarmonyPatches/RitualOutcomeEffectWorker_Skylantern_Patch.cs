@@ -23,10 +23,13 @@ public static class RitualOutcomeEffectWorker_Skylantern_Patch
         ref LookTargets letterLookTargets
     )
     {
-        if (outcome.Positive && Rand.Chance(0.1f))
+        // Raid chance: 10% on a positive outcome (occasional bad luck), 50% on a
+        // negative one (skylanterns went awry and landed in someone else's colony).
+        // The gates below skip the raid on the COMPLEMENT of that chance.
+        if (outcome.Positive && !Rand.Chance(0.1f))
             return;
 
-        if (!outcome.Positive && Rand.Chance(0.5f))
+        if (!outcome.Positive && !Rand.Chance(0.5f))
             return;
 
         IncidentParms parms = new() { target = jobRitual.Map };

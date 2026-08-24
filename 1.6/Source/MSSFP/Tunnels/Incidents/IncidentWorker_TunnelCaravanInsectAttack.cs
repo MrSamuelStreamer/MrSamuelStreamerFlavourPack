@@ -16,6 +16,7 @@ public class IncidentWorker_TunnelCaravanInsectAttack : IncidentWorker_TunnelCar
     protected override bool CanFireNowSub(IncidentParms parms)
     {
         if (!MSSFPMod.settings.AllowCombatTunnelIncidents) return false;
+        if (Find.FactionManager.FirstFactionOfDef(FactionDefOf.Insect) == null) return false;
         return base.CanFireNowSub(parms);
     }
 
@@ -26,7 +27,10 @@ public class IncidentWorker_TunnelCaravanInsectAttack : IncidentWorker_TunnelCar
 
     protected override List<Pawn> GeneratePawns(IncidentParms parms)
     {
-        parms.faction = Faction.OfInsects;
+        Faction insectFaction = Find.FactionManager.FirstFactionOfDef(FactionDefOf.Insect);
+        if (insectFaction == null) return new List<Pawn>();
+
+        parms.faction = insectFaction;
 
         List<Pawn> insects = new List<Pawn>();
 
@@ -49,7 +53,7 @@ public class IncidentWorker_TunnelCaravanInsectAttack : IncidentWorker_TunnelCar
 
             Pawn insect = PawnGenerator.GeneratePawn(new PawnGenerationRequest(
                 insectKind,
-                Faction.OfInsects,
+                insectFaction,
                 PawnGenerationContext.NonPlayer,
                 -1,
                 forceGenerateNewPawn: false,

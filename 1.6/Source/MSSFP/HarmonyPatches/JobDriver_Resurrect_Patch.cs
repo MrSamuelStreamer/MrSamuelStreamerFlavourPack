@@ -72,9 +72,9 @@ public static class JobDriver_Resurrect_Patch
         {
             SoundDefOf.MechSerumUsed.PlayOneShot(SoundInfo.InMap((TargetInfo) (Thing) innerPawn));
             Messages.Message("MessagePawnResurrected".Translate((NamedArgument) (Thing) innerPawn), (Thing) innerPawn, MessageTypeDefOf.PositiveEvent);
-            if (comp.Props.moteDef != null)
+            if (comp?.Props.moteDef != null)
                 MoteMaker.MakeAttachedOverlay(innerPawn, comp.Props.moteDef, Vector3.zero);
-            if (comp.Props.addsHediff != null)
+            if (comp?.Props.addsHediff != null)
                 innerPawn.health.AddHediff(comp.Props.addsHediff);
 
             if (ext is { EnableGuaranteedDownsides: true })

@@ -13,7 +13,7 @@ public static class BookUtility_Patch
     [HarmonyPrefix]
     public static bool CanReadEver(Pawn reader, ref bool __result)
     {
-        if (reader.genes.HasActiveGene(MSSFPDefOf.MSSFP_Illiterate))
+        if (reader?.genes?.HasActiveGene(MSSFPDefOf.MSSFP_Illiterate) == true)
         {
             __result = false;
             return false;

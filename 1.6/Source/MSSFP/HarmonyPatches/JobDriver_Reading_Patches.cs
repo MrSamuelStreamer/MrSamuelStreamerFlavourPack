@@ -16,7 +16,7 @@ public static class JobDriver_Reading_Patches
         ref bool __result
     )
     {
-        if (__instance.pawn.genes.HasActiveGene(MSSFPDefOf.MSSFP_Illiterate))
+        if (__instance.pawn?.genes?.HasActiveGene(MSSFPDefOf.MSSFP_Illiterate) == true)
         {
             __result = false;
             return false;

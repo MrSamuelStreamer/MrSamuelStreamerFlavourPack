@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Patch>
-    <Operation Class="PatchOperationReplace">
+    <Operation Class="PatchOperationReplace" MayRequire="Ludeon.RimWorld.Biotech">
         <xpath>Defs/ThingDef[defName="Mech_WarUrchin"]/label</xpath>
         <value>
             <label>war orchin</label>
         </value>
     </Operation>
-    <Operation Class="PatchOperationReplace">
+    <Operation Class="PatchOperationReplace" MayRequire="Ludeon.RimWorld.Biotech">
         <xpath>Defs/PawnKindDef[defName="Mech_WarUrchin"]/label</xpath>
         <value>
             <label>war orchin</label>
         </value>
     </Operation>
-    <Operation Class="PatchOperationReplace">
+    <Operation Class="PatchOperationReplace" MayRequire="Ludeon.RimWorld.Biotech">
         <xpath>Defs/PawnKindDef[defName="Mech_WarUrchin"]/labelPlural</xpath>
         <value>
             <labelPlural>war orchins</labelPlural>

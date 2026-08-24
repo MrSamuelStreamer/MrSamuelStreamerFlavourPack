@@ -82,4 +82,9 @@ public static class OrbGravshipAssist
             Cache[key] = (now, orb);
         return orb != null;
     }
+
+    /// <summary>Drops all cached entries. Call on map/world unload (see
+    /// <see cref="Patch_AICoreClearBubbles"/>) so stale <see cref="CompTrueAICore"/>/Thing
+    /// references from a previous game don't survive a quit-to-menu or load.</summary>
+    public static void ClearCache() => Cache.Clear();
 }

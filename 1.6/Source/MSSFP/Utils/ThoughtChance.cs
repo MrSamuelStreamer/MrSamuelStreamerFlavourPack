@@ -1,14 +1,11 @@
 using System.Xml;
 using RimWorld;
-using Verse;
 
 namespace MSSFP.Utils;
 
-public class ThoughtChance
+public class ThoughtChance : ChanceEntryBase
 {
-
     public ThoughtDef though;
-    public float chance;
 
     public ThoughtChance() { }
 
@@ -18,11 +15,5 @@ public class ThoughtChance
         this.chance = chance;
     }
 
-    public void LoadDataFromXmlCustom(XmlNode xmlNode)
-    {
-        XmlAttribute mayRequire = xmlNode?.Attributes?["MayRequire"];
-        XmlAttribute mayRequireAnyOf = xmlNode?.Attributes?["MayRequireAnyOf"];
-        DirectXmlCrossRefLoader.RegisterObjectWantsCrossRef(this, "though", xmlNode?.Name, mayRequire?.Value.ToLower(), mayRequireAnyOf?.Value.ToLower());
-        chance = ParseHelper.FromString<float>(xmlNode?.FirstChild.Value?? "0");
-    }
+    public void LoadDataFromXmlCustom(XmlNode xmlNode) => LoadEntryFromXml(xmlNode, "though");
 }

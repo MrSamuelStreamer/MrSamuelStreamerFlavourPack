@@ -17,7 +17,7 @@ public class CompStats : ThingComp
         StatModifier factor = Props.factors.FirstOrDefault(o => o.stat == stat);
         if (factor == null)
             return base.GetStatFactor(stat);
-        return base.GetStatOffset(stat) * factor.value;
+        return base.GetStatFactor(stat) * factor.value;
     }
 
     public override float GetStatOffset(StatDef stat)
@@ -27,7 +27,7 @@ public class CompStats : ThingComp
         StatModifier offset = Props.offsets.FirstOrDefault(o => o.stat == stat);
         if (offset == null)
             return base.GetStatOffset(stat);
-        return base.GetStatOffset(stat) * offset.value;
+        return base.GetStatOffset(stat) + offset.value;
     }
 
     public override void GetStatsExplanation(StatDef stat, StringBuilder sb, string whitespace = "")

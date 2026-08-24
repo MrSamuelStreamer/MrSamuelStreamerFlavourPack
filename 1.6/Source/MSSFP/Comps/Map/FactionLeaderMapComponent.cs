@@ -14,13 +14,16 @@ namespace MSSFP.Comps.Map;
 // is intentional: a leader appearing on a brand-new map is worth re-notifying.
 public class FactionLeaderMapComponent(Verse.Map map) : MapComponent(map)
 {
-    public List<Pawn> NotifiedLeaders;
+    // thingIDNumbers rather than hard Pawn refs — avoids keeping dead/replaced leaders
+    // alive in WorldPawns for the rest of the playthrough, and HashSet lookup is O(1)
+    // instead of the O(n) List<Pawn>.Contains scan this replaced.
+    public HashSet<int> NotifiedLeaderIds = [];
 
     public override void ExposeData()
     {
         base.ExposeData();
-        Scribe_Collections.Look(ref NotifiedLeaders, "NotifiedLeaders", LookMode.Reference);
-        NotifiedLeaders?.RemoveAll(p => p == null);
+        Scribe_Collections.Look(ref NotifiedLeaderIds, "NotifiedLeaderIds", LookMode.Value);
+        NotifiedLeaderIds ??= [];
     }
 
     public override void MapComponentTick()
@@ -29,15 +32,13 @@ public class FactionLeaderMapComponent(Verse.Map map) : MapComponent(map)
         if (Find.TickManager.TicksGame % GenTicks.TickRareInterval != 0) return;
         if (map?.mapPawns == null) return;
 
-        NotifiedLeaders ??= [];
-
         foreach (Pawn pawn in map.mapPawns.AllPawnsSpawned)
         {
             if (pawn.Faction == null || pawn.Faction.IsPlayer) continue;
             if (pawn.Faction.leader != pawn) continue;
-            if (NotifiedLeaders.Contains(pawn)) continue;
+            if (NotifiedLeaderIds.Contains(pawn.thingIDNumber)) continue;
 
-            NotifiedLeaders.Add(pawn);
+            NotifiedLeaderIds.Add(pawn.thingIDNumber);
 
             LetterDef letterDef = pawn.Faction.HostileTo(Faction.OfPlayer)
                 ? LetterDefOf.ThreatBig

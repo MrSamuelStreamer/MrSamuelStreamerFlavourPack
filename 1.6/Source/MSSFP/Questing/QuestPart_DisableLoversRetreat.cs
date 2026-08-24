@@ -15,4 +15,10 @@ public class QuestPart_DisableLoversRetreat : QuestPart
 
         Current.Game.GetComponent<LoversRetreatGameomponent>().LoversRetreatEnabled = false;
     }
+
+    public override void ExposeData()
+    {
+        base.ExposeData();
+        Scribe_Values.Look(ref inSignal, "inSignal");
+    }
 }

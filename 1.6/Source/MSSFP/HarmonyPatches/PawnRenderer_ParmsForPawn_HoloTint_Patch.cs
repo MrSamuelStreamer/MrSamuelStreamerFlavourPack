@@ -1,4 +1,3 @@
-using System.Reflection;
 using HarmonyLib;
 using MSSFP.Holo;
 using Verse;
@@ -25,7 +24,8 @@ namespace MSSFP.HarmonyPatches;
 /// ShouldRecache + AppendRequests) AND RenderPawnInternal → Draw → PreDraw → matPropBlock.
 ///
 /// PAWN ACCESS: <c>PawnRenderer.pawn</c> is <c>private readonly Pawn</c>. Reflected once
-/// into a cached <see cref="FieldInfo"/>.
+/// into a cached <see cref="AccessTools.FieldRef{PawnRenderer, Pawn}"/> for a zero-alloc,
+/// non-reflective read.
 ///
 /// PRIORITY: <see cref="Priority.Last"/> — our tint is the final write so other mods'
 /// flasher/invisibility tints compose first and we multiply on top.
@@ -40,7 +40,8 @@ namespace MSSFP.HarmonyPatches;
 [HarmonyPatch(typeof(PawnRenderer), "GetDrawParms")]
 public static class PawnRenderer_ParmsForPawn_HoloTint_Patch
 {
-    private static readonly FieldInfo PawnField = AccessTools.Field(typeof(PawnRenderer), "pawn");
+    private static readonly AccessTools.FieldRef<PawnRenderer, Pawn> PawnRef =
+        AccessTools.FieldRefAccess<PawnRenderer, Pawn>("pawn");
 
     [HarmonyPostfix]
     [HarmonyPriority(Priority.Last)]
@@ -48,7 +49,7 @@ public static class PawnRenderer_ParmsForPawn_HoloTint_Patch
     {
         if (__instance == null)
             return;
-        Pawn p = PawnField.GetValue(__instance) as Pawn;
+        Pawn p = PawnRef(__instance);
         if (p == null)
             return;
         CompHoloProjected comp = p.TryGetComp<CompHoloProjected>();

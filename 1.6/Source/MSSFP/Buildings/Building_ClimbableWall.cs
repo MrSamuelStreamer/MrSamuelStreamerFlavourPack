@@ -1,3 +1,7 @@
+using System;
+using System.Collections.Generic;
+using System.Reflection;
+using HarmonyLib;
 using RimWorld;
 using UnityEngine;
 using Verse;
@@ -6,6 +10,28 @@ namespace MSSFP.Buildings
 {
     public class Building_ClimbableWallProxy : Building
     {
+        private static readonly MethodInfo GiveShortHashMethod = AccessTools.Method(
+            typeof(ShortHashGiver),
+            "GiveShortHash"
+        );
+
+        private static readonly Dictionary<Type, HashSet<ushort>> TakenHashesPerDeftype =
+            (Dictionary<Type, HashSet<ushort>>)
+                AccessTools.Field(typeof(ShortHashGiver), "takenHashesPerDeftype").GetValue(null);
+
+        private static HashSet<ushort> TakenHashesForThingDefs
+        {
+            get
+            {
+                if (!TakenHashesPerDeftype.TryGetValue(typeof(ThingDef), out var taken))
+                {
+                    taken = new HashSet<ushort>();
+                    TakenHashesPerDeftype[typeof(ThingDef)] = taken;
+                }
+                return taken;
+            }
+        }
+
         private Building originalWall;
         private bool isClimbable = false;
         private int ticksRemaining = 0;
@@ -18,9 +44,18 @@ namespace MSSFP.Buildings
             originalWall = wall;
 
             var originalDef = wall.def;
-            var customDef = new ThingDef();
+            string proxyDefName = originalDef.defName + "_ClimbableProxy";
+            var customDef = DefDatabase<ThingDef>.GetNamedSilentFail(proxyDefName);
+            if (customDef != null)
+            {
+                this.def = customDef;
+                ApplyProxyState(wall);
+                return;
+            }
 
-            customDef.defName = originalDef.defName + "_ClimbableProxy";
+            customDef = new ThingDef();
+
+            customDef.defName = proxyDefName;
             customDef.label = originalDef.label;
             customDef.description = originalDef.description;
             customDef.thingClass = originalDef.thingClass;
@@ -51,7 +86,20 @@ namespace MSSFP.Buildings
             customDef.pathCost = 80;
             customDef.tickerType = TickerType.Normal;
 
+            // ShortHashGiver.GiveShortHash is private; invoke via Harmony reflection so the
+            // runtime def gets a valid shortHash and survives Scribe save/load.
+            GiveShortHashMethod.Invoke(
+                null,
+                new object[] { customDef, typeof(ThingDef), TakenHashesForThingDefs }
+            );
+            DefDatabase<ThingDef>.Add(customDef);
+
             this.def = customDef;
+            ApplyProxyState(wall);
+        }
+
+        private void ApplyProxyState(Building wall)
+        {
             this.Position = wall.Position;
             this.Rotation = wall.Rotation;
             this.HitPoints = wall.HitPoints;

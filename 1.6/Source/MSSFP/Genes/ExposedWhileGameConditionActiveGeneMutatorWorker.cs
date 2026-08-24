@@ -87,10 +87,12 @@ public class ExposedWhileGameConditionActiveGeneMutatorWorker : GeneMutatorWorke
 
                     if (Rand.Chance(def.chanceToApply.Value / 2))
                     {
+                        // Snapshot before removing — RemoveGene mutates Xenogenes,
+                        // which would throw InvalidOperationException if enumerated directly.
                         foreach (
-                            Gene gene in pawn.genes.Xenogenes.Take(
-                                def.pinataModeChance.RandomInRange
-                            )
+                            Gene gene in pawn
+                                .genes.Xenogenes.Take(def.pinataModeChance.RandomInRange)
+                                .ToList()
                         )
                         {
                             pawn.genes.RemoveGene(gene);
@@ -124,6 +126,7 @@ public class ExposedWhileGameConditionActiveGeneMutatorWorker : GeneMutatorWorke
             IEnumerable<GeneDef> validGenePool = DefDatabase<GeneDef>.AllDefs.Except(pawnGenes);
 
             List<GeneDef> selected = validGenePool
+                .InRandomOrder()
                 .Take(def.pinataModeChance.RandomInRange)
                 .ToList();
 

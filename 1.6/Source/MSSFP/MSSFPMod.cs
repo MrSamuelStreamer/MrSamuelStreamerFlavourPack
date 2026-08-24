@@ -54,23 +54,37 @@ public class MSSFPMod : Mod
         SocioButterfly_GetFood_NullGuard.TryRegister(_harmony);
 
         Type NC = AccessTools.Inner(typeof(Dialog_NamePawn), "NameContext");
-        ConstructorInfo CI = AccessTools.Constructor(
-            NC,
-            [
-                typeof(string),
-                typeof(int),
-                typeof(string),
-                typeof(int),
-                typeof(bool),
-                typeof(List<string>),
-            ]
-        );
-        MethodInfo MI = AccessTools.Method(
-            typeof(NameContext_Patch),
-            nameof(NameContext_Patch.Postfix)
-        );
+        ConstructorInfo CI = NC == null
+            ? null
+            : AccessTools.Constructor(
+                NC,
+                [
+                    typeof(string),
+                    typeof(int),
+                    typeof(string),
+                    typeof(int),
+                    typeof(bool),
+                    typeof(List<string>),
+                ]
+            );
 
-        _harmony.Patch(CI, null, new HarmonyMethod(MI));
+        if (CI == null)
+        {
+            // A RimWorld update changed Dialog_NamePawn+NameContext's signature — skip this
+            // patch rather than letting Harmony throw from the mod constructor and abort
+            // everything registered after it (settlement-defeat toggle, sky patches, etc).
+            ModLog.Warn(
+                "Couldn't resolve Dialog_NamePawn+NameContext constructor — skipping max name length patch."
+            );
+        }
+        else
+        {
+            MethodInfo MI = AccessTools.Method(
+                typeof(NameContext_Patch),
+                nameof(NameContext_Patch.Postfix)
+            );
+            _harmony.Patch(CI, null, new HarmonyMethod(MI));
+        }
 
         ToggleSettlementDefeatPatch(settings.ReformationPointsPerDefeatedFaction > 0 && settings.EnableExtraReformationPoints);
 
@@ -84,19 +98,31 @@ public class MSSFPMod : Mod
     public static void ToggleSunSizeScalePatch(bool enable) =>
         Harmony_SunSizeScale.Toggle(_harmony, enable);
 
+    private static bool _settlementDefeatPatched;
+
     public static void ToggleSettlementDefeatPatch(bool enable)
     {
+        // Guard against WriteSettings calling this repeatedly with the same value:
+        // Harmony doesn't dedupe identical Patch() calls, so re-patching an already-
+        // patched method would stack duplicate prefixes/postfixes and fire the
+        // reformation-points signal multiple times per real defeat.
+        if (enable == _settlementDefeatPatched) return;
+
         MethodInfo original = AccessTools.Method(typeof(SettlementDefeatUtility), nameof(SettlementDefeatUtility.CheckDefeated));
         MethodInfo prefix = AccessTools.Method(typeof(SettlementDefeatUtility_Patch), nameof(SettlementDefeatUtility_Patch.CheckDefeated_Prefix));
+        MethodInfo postfix = AccessTools.Method(typeof(SettlementDefeatUtility_Patch), nameof(SettlementDefeatUtility_Patch.CheckDefeated_Postfix));
 
         if (enable)
         {
-            _harmony.Patch(original, prefix: new HarmonyMethod(prefix));
+            _harmony.Patch(original, prefix: new HarmonyMethod(prefix), postfix: new HarmonyMethod(postfix));
         }
         else
         {
             _harmony.Unpatch(original, prefix);
+            _harmony.Unpatch(original, postfix);
         }
+
+        _settlementDefeatPatched = enable;
     }
 
     internal static void ApplySettingsToDefs()

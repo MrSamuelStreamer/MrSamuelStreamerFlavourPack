@@ -83,9 +83,7 @@ public class IncidentWorker_TunnelCaravanCaveIn : IncidentWorker_TunnelCaravanNo
 
         PlacePawnsInCentre(map, centreX, centreZ);
 
-        var blocker = new MapComponent_CaveInBlocker(map);
-        blocker.Activate();
-        map.components.Add(blocker);
+        map.GetComponent<MapComponent_CaveInBlocker>().Activate();
     }
 
     // ── Pawn relocation ────────────────────────────────────────────────────────

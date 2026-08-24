@@ -15,8 +15,10 @@ namespace MSSFP.Comps.Map;
 public class HauntedMapComponent(Verse.Map map) : MapComponent(map)
 {
     public int LastFiredTick = 0;
-    // GenRadial.RadialCellsAround hard-caps at 200 cells radius.
-    public int SearchRadius => Math.Min(MSSFPMod.settings.HauntProximityRadius, 200);
+    // GenRadial's precomputed pattern only covers up to ~56 cells; anything above that
+    // makes GenRadial.NumCellsInRadius log an error and silently truncate the radius.
+    public int SearchRadius =>
+        Math.Min(MSSFPMod.settings.HauntProximityRadius, (int)GenRadial.MaxRadialPatternRadius);
 
     /// <summary>
     /// Sum of all haunt severities on this map. Updated lazily when the dashboard renders.
@@ -28,12 +30,16 @@ public class HauntedMapComponent(Verse.Map map) : MapComponent(map)
         map.listerBuildings.AllBuildingsColonistOfClass<Building_Grave>()
             .Where(g => g.Corpse != null);
 
-    public IEnumerable<Pawn> PawnsNearGraves =>
-        Graves
-            .SelectMany(thing => GenRadial.RadialCellsAround(thing.Position, SearchRadius, true))
-            .Distinct()
-            .SelectMany(cell => map.thingGrid.ThingsAt(cell))
-            .OfType<Pawn>();
+    public IEnumerable<Pawn> PawnsNearGraves
+    {
+        get
+        {
+            List<Building_Grave> graves = Graves.ToList();
+            return map.mapPawns.AllPawnsSpawned.Where(pawn =>
+                graves.Any(g => g.Position.InHorDistOf(pawn.Position, SearchRadius))
+            );
+        }
+    }
 
     public IEnumerable<Pawn> PawnPool =>
         PawnsNearGraves.Where(pawn =>
@@ -54,18 +60,18 @@ public class HauntedMapComponent(Verse.Map map) : MapComponent(map)
         if (LastFiredTick + MSSFPMod.settings.HauntMinCooldownDays * GenDate.TicksPerDay >= Find.TickManager.TicksGame)
             return;
 
-        LastFiredTick = Find.TickManager.TicksGame + MSSFPMod.settings.HauntMinCooldownDays * GenDate.TicksPerDay;
+        // Mark this as the last attempt regardless of outcome, so a failed attempt
+        // only pays the base cooldown, not the (larger) post-fire cooldown too.
+        LastFiredTick = Find.TickManager.TicksGame;
 
         Pawn pawn = PickWeightedPawn();
         if (pawn == null)
             return;
 
-        Building_Grave grave = GenRadial
-            .RadialCellsAround(pawn.Position, SearchRadius, true)
-            .SelectMany(cell => Graves.Where(g => g.Position == cell))
+        List<Building_Grave> graves = Graves.ToList();
+        Building_Grave grave = graves
+            .Where(g => g.Position.InHorDistOf(pawn.Position, SearchRadius))
             .RandomElementWithFallback();
-
-        LastFiredTick += MSSFPMod.settings.HauntPostFireCooldownDays * GenDate.TicksPerDay;
 
         if (grave == null)
             return;
@@ -75,14 +81,14 @@ public class HauntedMapComponent(Verse.Map map) : MapComponent(map)
             return;
 
         // One spirit can only haunt one living pawn at a time.
-        // If the haunted pawn has left this map (caravan, world), remove the old haunt
-        // and fall through to assign a new target.
+        // If the haunted pawn has left this map (caravan, world) or died, remove the
+        // old haunt and fall through to assign a new target.
         if (IsAlreadyHaunting(spirit))
         {
             HediffComp_Haunt existingComp = HauntsCache.GetHauntForSpirit(spirit.thingIDNumber);
             Pawn hauntedPawn = existingComp?.parent?.pawn;
-            if (hauntedPawn?.MapHeld == map)
-                return; // Still here — don't reassign.
+            if (hauntedPawn is { Dead: false } && hauntedPawn.MapHeld == map)
+                return; // Still here, still alive — don't reassign.
 
             // Pawn left the map or reference is stale — clean up, then reassign.
             if (existingComp?.parent != null)
@@ -93,6 +99,10 @@ public class HauntedMapComponent(Verse.Map map) : MapComponent(map)
                     HauntsCache.RemoveHaunt(hauntedPawn.thingIDNumber, existingComp);
             }
         }
+
+        // A haunt actually fired — charge the additional post-fire cooldown on top
+        // of the base cooldown already recorded above.
+        LastFiredTick += MSSFPMod.settings.HauntPostFireCooldownDays * GenDate.TicksPerDay;
 
         Hediff hediff = pawn.health.AddHediff(MSSFPDefOf.MSS_FP_PawnDisplayer);
         hediff.Severity = 0.05f;

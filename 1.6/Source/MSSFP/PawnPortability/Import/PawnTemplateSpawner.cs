@@ -224,8 +224,12 @@ namespace MSSFP.PawnPortability.Import
         {
             if (def.genes == null || pawn.genes == null) return;
 
-            pawn.genes.Endogenes.Clear();
-            pawn.genes.Xenogenes.Clear();
+            // Use RemoveGene (not a raw list Clear) so PostRemove runs for each gene,
+            // cleaning up any hediffs/abilities/stat effects it granted.
+            foreach (Gene gene in pawn.genes.Endogenes.ToList())
+                pawn.genes.RemoveGene(gene);
+            foreach (Gene gene in pawn.genes.Xenogenes.ToList())
+                pawn.genes.RemoveGene(gene);
 
             if (def.genes.xenotype != null)
             {

@@ -125,11 +125,22 @@ internal static class TimeControls_SubNormalSpeed_Patch
     private static Texture2D TextureFor(SlowLevel level) =>
         level switch
         {
-            SlowLevel.Half => ContentFinder<Texture2D>.Get("UI/MSS_FP_SpeedHalf", true),
-            SlowLevel.Quarter => ContentFinder<Texture2D>.Get("UI/MSS_FP_SpeedQuarter", true),
-            SlowLevel.Eighth => ContentFinder<Texture2D>.Get("UI/MSS_FP_SpeedEighth", true),
+            SlowLevel.Half => Textures.Half,
+            SlowLevel.Quarter => Textures.Quarter,
+            SlowLevel.Eighth => Textures.Eighth,
             _ => BaseContent.BadTex,
         };
+
+    /// <summary>Textures load on the main thread at startup and are cached for the lifetime
+    /// of the process, avoiding a ContentFinder lookup (which walks the running-mods list)
+    /// on every button draw.</summary>
+    [StaticConstructorOnStartup]
+    private static class Textures
+    {
+        public static readonly Texture2D Half = ContentFinder<Texture2D>.Get("UI/MSS_FP_SpeedHalf", true);
+        public static readonly Texture2D Quarter = ContentFinder<Texture2D>.Get("UI/MSS_FP_SpeedQuarter", true);
+        public static readonly Texture2D Eighth = ContentFinder<Texture2D>.Get("UI/MSS_FP_SpeedEighth", true);
+    }
 
     private static string TooltipFor(SlowLevel level) =>
         level switch

@@ -102,29 +102,20 @@ public class CompAbilityEffect_BodyHopImproved : CompAbilityEffect
             }
         }
 
-        //Find.PawnDuplicator.CopyHediffs(caster, host);
-
-        List<Hediff> hediffs = caster.health.hediffSet.hediffs;
+        List<Hediff> hediffs = caster.health.hediffSet.hediffs.ToList();
         foreach (Hediff item in hediffs)
         {
             if (item.def == MSSFPDefOf.MSS_FP_PawnDisplayerPossession)
                 continue;
-            // if (!item.def.duplicationAllowed ||
-            //     (item.Part != null && !host.health.hediffSet.HasBodyPart(item.Part)) ||
-            //     (item is Hediff_AddedPart && !item.def.organicAddedBodypart) ||
-            //     (item is Hediff_Implant && !item.def.organicAddedBodypart))
-            // {
-            //     continue;
-            // }
-            //
-            // Hediff hediff = HediffMaker.MakeHediff(item.def, host, item.Part);
-            // hediff.CopyFrom(item);
-            // host.health.hediffSet.AddDirect(hediff);
 
-            host.health.hediffSet.hediffs.Add(item);
-            item.pawn = host;
-            item.Notify_Spawned();
-            item.PostAdd(null);
+            // Clone rather than reparent the caster's own Hediff instance —
+            // the source object must stay on the caster's hediffSet untouched.
+            Hediff hediff = HediffMaker.MakeHediff(item.def, host, item.Part);
+            hediff.CopyFrom(item);
+            host.health.hediffSet.hediffs.Add(hediff);
+            hediff.pawn = host;
+            hediff.Notify_Spawned();
+            hediff.PostAdd(null);
         }
 
         host.needs ??= new Pawn_NeedsTracker(host);

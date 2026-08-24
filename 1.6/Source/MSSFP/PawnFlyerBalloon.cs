@@ -225,16 +225,40 @@ public class PawnFlyerBalloon : PawnFlyer
 
     public void SpawnInBed(Pawn pawn, out IntVec3 pos)
     {
+        Map bedMap = (bed != null && !bed.Destroyed) ? bed.MapHeld : null;
+        if (bed == null || bed.Destroyed || bedMap == null)
+        {
+            // Bed was destroyed or lost its map (e.g. flyer's owning colony died) —
+            // fall back to dropping the pawn at the flyer's own position/map.
+            Map fallbackMap = this.Map ?? Find.AnyPlayerHomeMap;
+            if (fallbackMap == null)
+            {
+                pos = IntVec3.Invalid;
+                return;
+            }
+
+            pos = Position;
+            innerContainer.TryDrop(
+                pawn,
+                pos,
+                fallbackMap,
+                ThingPlaceMode.Direct,
+                out Thing _,
+                playDropSound: false
+            );
+            return;
+        }
+
         innerContainer.TryDrop(
             pawn,
             bed.Position,
-            bed.Map,
+            bedMap,
             ThingPlaceMode.Direct,
             out Thing _,
             playDropSound: false
         );
 
-        if (pawn.Map == bed.Map && bed.Spawned && !bed.Destroyed)
+        if (pawn.Map == bedMap && bed.Spawned && !bed.Destroyed)
         {
             try
             {
