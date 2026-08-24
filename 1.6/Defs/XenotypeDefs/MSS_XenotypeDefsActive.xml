@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <XenotypeDef>
+		<defName>MSS_sawclone</defName>
+    <label>Sawclone</label>
+    <description>A lethal, </description>
+    <descriptionShort>A repurposed AI core recovered from the central complex of a mechanoid hive.</descriptionShort>
+    <iconPath>UI/Icons/Xenotypes/Custom/Genie_6</iconPath>
+		<inheritable>True</inheritable>
+		<genes>
+			<li>ArchiteMetabolism</li>
+			<li>DiseaseFree</li>
+			<li>PerfectImmunity</li>
+			<li>Hair_ShortOnly</li>
+			<li>Skin_SlateGray</li>
+			<li>MoveSpeed_Quick</li>
+			<li>Aggression_HyperAggressive</li>
+			<li>KillThirst</li>
+			<li>Body_FemaleOnly</li>
+			<li>Sterile</li>
+      <li MayRequire="sarg.alphagenes">AG_VFEI_PredatorStomach</li>
+      <li MayRequire="sarg.alphagenes">AG_Mood_Unfeeling</li>
+			<li MayRequire="sarg.alphagenes">AG_ChainsawHands</li>
+      <li MayRequire="sarg.alphagenes">AG_FasterAging</li>
+			<li MayRequire="sarg.alphagenes">AG_ArmourMedium</li>
+      <li MayRequire="redmattis.bigsmall.core">BS_CannotWearClothingOrArmor</li>
+      <li MayRequire="redmattis.bigsmall.core">BS_NoEquip</li>
+			<li MayRequire="redmattis.bigsmall.core">BS_Unarmed_VeryStrong</li>
+      <li MayRequire="redmattis.bigsmall.core">BS_BrokenTitanHead</li>
+			<li MayRequire="redmattis.bigsmall.core">BS_BloodHair</li>
+			<li MayRequire="redmattis.bigsmall.core">BS_BatteryChargeable</li>
+		</genes>
+	</XenotypeDef>
+</Defs>

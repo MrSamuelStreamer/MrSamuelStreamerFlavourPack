@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Patch>
+    <Operation Class="PatchOperationReplace">
+        <xpath>Defs/CPAbilities.CPAbilityDef[defName="CP_Discombobulate"]/abilityCooldownTicks</xpath>
+        <value>
+            <abilityCooldownTicks>300000</abilityCooldownTicks>
+        </value>
+    </Operation>
+    <Operation Class="PatchOperationReplace">
+        <xpath>Defs/CPAbilities.CPAbilityDef[defName="CP_Ability_GloryKill"]/abilityCooldownTicks</xpath>
+        <value>
+            <abilityCooldownTicks>300000</abilityCooldownTicks>
+        </value>
+    </Operation>
+    <Operation Class="PatchOperationReplace">
+        <xpath>Defs/CPAbilities.CPAbilityDef[defName="CP_Ability_PhantomPunch"]/abilityCooldownTicks</xpath>
+        <value>
+            <abilityCooldownTicks>300000</abilityCooldownTicks>
+        </value>
+    </Operation>
+    <Operation Class="PatchOperationReplace">
+        <xpath>Defs/CPAbilities.CPAbilityDef[defName="CP_Ability_KneeStrike"]/abilityCooldownTicks</xpath>
+        <value>
+            <abilityCooldownTicks>300000</abilityCooldownTicks>
+        </value>
+    </Operation>
+    <Operation Class="PatchOperationReplace">
+        <xpath>Defs/CPAbilities.CPAbilityDef[defName="CP_Ability_Roundhouse"]/abilityCooldownTicks</xpath>
+        <value>
+            <abilityCooldownTicks>300000</abilityCooldownTicks>
+        </value>
+    </Operation>
+    <Operation Class="PatchOperationReplace">
+        <xpath>Defs/CPAbilities.CPAbilityDef[defName="CP_CQC_Throw"]/abilityCooldownTicks</xpath>
+        <value>
+            <abilityCooldownTicks>300000</abilityCooldownTicks>
+        </value>
+    </Operation>
+    <Operation Class="PatchOperationReplace">
+        <xpath>Defs/CPAbilities.CPAbilityDef[defName="CP_CQC_Pummel"]/abilityCooldownTicks</xpath>
+        <value>
+            <abilityCooldownTicks>300000</abilityCooldownTicks>
+        </value>
+    </Operation>
+    <Operation Class="PatchOperationReplace">
+        <xpath>Defs/CPAbilities.CPAbilityDef[defName="CP_Ability_RKO"]/abilityCooldownTicks</xpath>
+        <value>
+            <abilityCooldownTicks>300000</abilityCooldownTicks>
+        </value>
+    </Operation>
+    <Operation Class="PatchOperationReplace">
+        <xpath>Defs/CPAbilities.CPAbilityDef[defName="CP_Ability_LegSweep"]/abilityCooldownTicks</xpath>
+        <value>
+            <abilityCooldownTicks>300000</abilityCooldownTicks>
+        </value>
+    </Operation>
+</Patch>
