@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- Item label. {0} is the source implant's label, e.g. "bionic arm". -->
+  <MSSFP_IS_BiocodedLabel>{0} (biocoded)</MSSFP_IS_BiocodedLabel>
+
+  <!-- Prepended to the source description so it survives inspect-pane truncation. -->
+  <MSSFP_IS_BiocodedDesc>The previous owner's biocoding is fused into this part and cannot be stripped. It will not accept a new host, so no surgeon can install it. It is worth something to a trader who only wants the materials.</MSSFP_IS_BiocodedDesc>
+
+  <!-- Shown when an extraction yields a biocoded part. {0} is the item label. -->
+  <MSSFP_IS_BiocodedMessage>{0} came out biocoded to its dead owner. It cannot be installed, only sold.</MSSFP_IS_BiocodedMessage>
+
+  <!-- Settings tab. -->
+  <MSSFP_IS_Settings_Blurb>Implants cut from a corpse may still carry the dead owner's biocoding. A biocoded part can never be installed, and sells for a quarter of the normal price. This is on top of Implant Salvage's own chance to destroy the implant outright.</MSSFP_IS_Settings_Blurb>
+  <MSSFP_IS_Settings_BiocodeChance>Chance a surviving implant is biocoded: {0}</MSSFP_IS_Settings_BiocodeChance>
+
+</LanguageData>

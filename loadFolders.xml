@@ -19,5 +19,6 @@
         <li IfModNotActive="keyz182.superpack">Compatibility/No.VillainsFlavourPack/1.6</li>
         <li IfModActive="ludeon.rimworld.ideology">Compatibility/ludeon.rimworld.ideology/1.6</li>
         <li IfModActive="rh2.handtohand">Compatibility/rh2.handtohand/1.6</li>
+        <li IfModActive="luke.implantsalvage">Compatibility/luke.implantsalvage/1.6</li>
     </v1.6>
 </loadFolders>
