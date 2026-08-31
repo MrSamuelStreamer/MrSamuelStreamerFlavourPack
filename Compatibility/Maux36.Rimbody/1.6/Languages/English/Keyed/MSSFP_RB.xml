@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+    <MSSFP_RB_Settings_Blurb>Colonists strong enough for it can use another pawn as a free weight, as a Rimbody strength workout. Requires Rimbody.</MSSFP_RB_Settings_Blurb>
+    <MSSFP_RB_Settings_Enable>Enable pawn lifting</MSSFP_RB_Settings_Enable>
+    <MSSFP_RB_Settings_FollowHulkThreshold>Follow Rimbody's hulk muscle threshold (currently {0})</MSSFP_RB_Settings_FollowHulkThreshold>
+    <MSSFP_RB_Settings_MuscleThreshold>Minimum muscle mass to lift a pawn: {0}</MSSFP_RB_Settings_MuscleThreshold>
+    <MSSFP_RB_Settings_AllowIdleColonists>Allow lifting idle colonists</MSSFP_RB_Settings_AllowIdleColonists>
+    <MSSFP_RB_Settings_AllowPrisoners>Allow lifting prisoners</MSSFP_RB_Settings_AllowPrisoners>
+    <MSSFP_RB_Settings_AllowDowned>Allow lifting downed pawns</MSSFP_RB_Settings_AllowDowned>
+    <MSSFP_RB_Settings_LifteeThought>Lifted pawns resent it</MSSFP_RB_Settings_LifteeThought>
+
+</LanguageData>

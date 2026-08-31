@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ThoughtDef>
+        <defName>MSSFP_LiftedAsWeight</defName>
+        <thoughtClass>Thought_MemorySocial</thoughtClass>
+        <durationDays>1</durationDays>
+        <stackLimit>1</stackLimit>
+        <stackedEffectMultiplier>0.75</stackedEffectMultiplier>
+        <stages>
+            <li>
+                <label>used me as a barbell</label>
+                <description>They picked me up and did repetitions with me. I am not gym equipment.</description>
+                <baseOpinionOffset>-1</baseOpinionOffset>
+            </li>
+        </stages>
+    </ThoughtDef>
+
+</Defs>

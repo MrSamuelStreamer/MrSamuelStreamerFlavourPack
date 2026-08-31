@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <!--
+      GiverIgnore is true on purpose. Rimbody's own strength JobGiver can only hand out
+      non-target jobs whose target it knows how to find (a chunk, a workout mat), and it has
+      no concept of "find another pawn". Registering here still puts the def in
+      RimbodyDB.JobModExDB and still assigns it a workout id, so scoring, workout memory and
+      gain all work, it just never gets selected by Rimbody itself. MSSFP's postfix on
+      JobGiver_DoStrengthBuilding.TryGiveJobActual does the selecting, scoring it with
+      Rimbody's own comparator so it competes rather than pre-empts.
+
+      strength 2.2 against chunk lifting's 1.8: a colonist is a heavier, more awkward load
+      than a stone chunk. It is a baseline for an average adult, the JobDriver scales it by
+      the liftee's body size relative to the lifter's.
+    -->
+    <JobDef>
+        <defName>MSSFP_DoPawnLift</defName>
+        <driverClass>MSSFP.RB.JobDrivers.JobDriver_DoPawnLift</driverClass>
+        <reportString>lifting TargetA.</reportString>
+        <joyKind>Rimbody_WorkoutJoy</joyKind>
+        <modExtensions>
+            <li Class="Maux36.Rimbody.ModExtensionRimbodyJob">
+                <Category>Strength</Category>
+                <GiverIgnore>true</GiverIgnore>
+                <cardio>0.35</cardio>
+                <strength>2.2</strength>
+                <!-- shoulders, chest, biceps, triceps, back, core, glutes, quads, hams -->
+                <strengthParts>
+                    <li>0.75</li>
+                    <li>1</li>
+                    <li>1.5</li>
+                    <li>0.25</li>
+                    <li>0.75</li>
+                    <li>0.5</li>
+                    <li>0</li>
+                    <li>0</li>
+                    <li>0</li>
+                </strengthParts>
+            </li>
+        </modExtensions>
+    </JobDef>
+
+</Defs>
