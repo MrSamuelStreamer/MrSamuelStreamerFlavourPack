@@ -1,0 +1,8 @@
+# CSharpier 1.x formats XML as well as C#, so .csproj and .xml are in scope by default —
+# the overrides block in .csharpierrc.yaml only tunes that, it does not enable it, and there
+# is no "formatter: none" to opt a pattern out. This file is the only lever.
+#
+# Both are hand-managed here. The csproj Condition expressions in particular read worse
+# escaped: csharpier rewrites -> as -&gt; inside the attribute.
+*.csproj
+*.xml

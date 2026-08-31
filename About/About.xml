@@ -18,6 +18,7 @@
     </modDependencies>
     <loadAfter>
         <li>brrainz.harmony</li>
+        <li>Mlie.GraffitiMod</li>
         <li>Ludeon.RimWorld</li>
         <li>Ludeon.RimWorld.Ideology</li>
         <li>Ludeon.RimWorld.Royalty</li>

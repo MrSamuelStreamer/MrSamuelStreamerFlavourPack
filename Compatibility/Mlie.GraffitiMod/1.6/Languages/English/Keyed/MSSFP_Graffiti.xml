@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- Settings tab. -->
+  <MSSFP_GRF_Settings_Blurb>Colonists treat graffiti as a mess and will scrub it off once it is inside the home area. Turn this on to make painted graffiti stay where it was painted.</MSSFP_GRF_Settings_Blurb>
+  <MSSFP_GRF_Settings_Permanent>Graffiti is permanent</MSSFP_GRF_Settings_Permanent>
+  <MSSFP_GRF_Settings_PermanentTip>Colonists will no longer take jobs to clean graffiti off. Deconstructing it, or building or smoothing over the surface, still removes it. A cleaning job already underway will finish.</MSSFP_GRF_Settings_PermanentTip>
+
+</LanguageData>
