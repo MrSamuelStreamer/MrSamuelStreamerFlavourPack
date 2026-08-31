@@ -6,4 +6,7 @@
   <MSSFP_GRF_Settings_Permanent>Graffiti is permanent</MSSFP_GRF_Settings_Permanent>
   <MSSFP_GRF_Settings_PermanentTip>Colonists will no longer take jobs to clean graffiti off. Deconstructing it, or building or smoothing over the surface, still removes it. A cleaning job already underway will finish.</MSSFP_GRF_Settings_PermanentTip>
 
+  <!-- Right-click option on a piece of graffiti with a pawn selected. -->
+  <MSSFP_GRF_CleanGraffiti>Clean graffiti</MSSFP_GRF_CleanGraffiti>
+
 </LanguageData>

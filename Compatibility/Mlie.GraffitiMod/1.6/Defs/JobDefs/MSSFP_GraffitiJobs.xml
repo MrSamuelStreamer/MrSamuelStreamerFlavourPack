@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!--
+    Player-ordered clean of a single piece of graffiti, offered from the right-click menu.
+    Separate from Graffiti Mod's own GraffitiMod_CleanJob, which drives off a target queue
+    and refuses to work outside the home area - both fine for its WorkGiver, wrong for a
+    direct player order.
+  -->
+  <JobDef>
+    <defName>MSSFP_CleanGraffitiManual</defName>
+    <driverClass>MSSFP.GRF.JobDriver_CleanGraffitiManual</driverClass>
+    <reportString>cleaning TargetA.</reportString>
+    <playerInterruptible>true</playerInterruptible>
+    <casualInterruptible>true</casualInterruptible>
+  </JobDef>
+
+</Defs>
