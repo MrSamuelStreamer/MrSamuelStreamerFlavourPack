@@ -33,6 +33,8 @@ public static class MSSFPDefOf
     public static readonly DesignationDef MSSFP_DisarmIEDDesignation;
     public static readonly WorkTypeDef MSSFP_Minesweeping;
 
+    public static readonly JobDef MSSFP_LockpickDoor;
+
     public static readonly HediffDef Burn;
 
     public static readonly GeneDef MSS_VoidsEmbrace;

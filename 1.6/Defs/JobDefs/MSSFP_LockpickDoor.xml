@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <JobDef>
+        <defName>MSSFP_LockpickDoor</defName>
+        <driverClass>MSSFP.Jobs.JobDriver_LockpickDoor</driverClass>
+        <reportString>lockpicking TargetA.</reportString>
+        <casualInterruptible>false</casualInterruptible>
+        <playerInterruptible>true</playerInterruptible>
+        <allowOpportunisticPrefix>false</allowOpportunisticPrefix>
+    </JobDef>
+
+</Defs>

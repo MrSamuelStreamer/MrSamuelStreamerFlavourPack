@@ -5,6 +5,7 @@ using Verse;
 
 namespace MSSFP.HarmonyPatches;
 
+[StaticConstructorOnStartup]
 [HarmonyPatch(typeof(PlaySettings), nameof(PlaySettings.DoPlaySettingsGlobalControls))]
 internal static class PlaySettings_ElevationOverlay_Patch
 {

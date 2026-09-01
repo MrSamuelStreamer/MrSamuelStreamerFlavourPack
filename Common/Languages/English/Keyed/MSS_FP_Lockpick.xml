@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LanguageData>
+    <MSSFP_Lockpick>Lockpick {0}</MSSFP_Lockpick>
+    <MSSFP_CannotLockpick>Cannot lockpick {0}</MSSFP_CannotLockpick>
+    <MSSFP_DoorLockpicked>Lockpicked — colonists can open this door.</MSSFP_DoorLockpicked>
+    <MSSFP_LockpickMinigame_Title>{0} lockpicking {1}</MSSFP_LockpickMinigame_Title>
+    <MSSFP_LockpickMinigame_Hint>Click when the marker is in the green zone.</MSSFP_LockpickMinigame_Hint>
+    <MSSFP_LockpickMinigame_Tumblers>Tumblers: {0}/{1}</MSSFP_LockpickMinigame_Tumblers>
+    <MSSFP_LockpickMinigame_Tries>Tries remaining: {0}</MSSFP_LockpickMinigame_Tries>
+</LanguageData>
