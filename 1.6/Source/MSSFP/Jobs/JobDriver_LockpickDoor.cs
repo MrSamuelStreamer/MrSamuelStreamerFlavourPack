@@ -7,8 +7,11 @@ using Verse.AI;
 namespace MSSFP.Jobs;
 
 /// <summary>
-/// Walk to a hostile-faction door, run a Manipulation-scaled progress bar, then
-/// permanently mark it lockpicked so player pawns can open it without claiming it.
+/// Walk to a hostile-faction door, then spend the Manipulation-scaled lockpick
+/// wait. After that wait, either auto-succeed or open the timing-bar minigame.
+/// Success marks the door lockpicked without claiming it. The minigame uses
+/// forcePause, so the Window callback must EndJobWith — job ticks do not run
+/// while the dialog is open.
 /// </summary>
 public class JobDriver_LockpickDoor : JobDriver
 {
@@ -37,6 +40,42 @@ public class JobDriver_LockpickDoor : JobDriver
         wait.handlingFacing = true;
         yield return wait;
 
-        yield return Toils_General.Do(() => LockpickUtility.ApplySuccess(pawn, Door));
+        if (MSSFPMod.settings?.EnableLockpickingMinigame != true)
+        {
+            yield return Toils_General.Do(() => LockpickUtility.ApplySuccess(pawn, Door));
+            yield break;
+        }
+
+        Toil play = ToilMaker.MakeToil("LockpickMinigame");
+        play.initAction = () =>
+        {
+            Building_Door door = Door;
+            JobDriver driver = this;
+            Find.WindowStack.Add(
+                new Dialog_LockpickMinigame(
+                    pawn,
+                    door,
+                    ok =>
+                    {
+                        if (pawn.jobs?.curDriver != driver)
+                            return;
+                        if (ok)
+                        {
+                            LockpickUtility.ApplySuccess(pawn, door);
+                            pawn.skills?.Learn(
+                                SkillDefOf.Crafting,
+                                LockpickUtility.MinigameWinCraftingXp
+                            );
+                        }
+                        driver.EndJobWith(
+                            ok ? JobCondition.Succeeded : JobCondition.Incompletable
+                        );
+                    }
+                )
+            );
+        };
+        play.defaultCompleteMode = ToilCompleteMode.Never;
+        play.handlingFacing = true;
+        yield return play;
     }
 }

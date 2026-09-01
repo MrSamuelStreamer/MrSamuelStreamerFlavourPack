@@ -49,6 +49,36 @@ public static class LockpickUtility
         return !door.PawnCanOpen(pawn);
     }
 
+    public const int MinigameTumblers = 3;
+    public const int MinigameTries = 3;
+    public const float MinigameZoneMin = 0.10f;
+    public const float MinigameZoneMax = 0.26f;
+    public const float MinigameNeedleSpeed = 1.15f;
+    public const float MinigameSpeedPerTumbler = 1.08f;
+    public const float MinigameWinCraftingXp = 200f;
+    public const float MinigameClickDebounce = 0.15f;
+
+    public static float ManipulationLevel(Pawn pawn)
+    {
+        float manip = pawn?.health?.capacities?.GetLevel(PawnCapacityDefOf.Manipulation) ?? 1f;
+        return Mathf.Clamp01(manip);
+    }
+
+    public static float MinigameZoneWidth(Pawn pawn)
+    {
+        return Mathf.Lerp(MinigameZoneMin, MinigameZoneMax, ManipulationLevel(pawn));
+    }
+
+    public static void RandomizeZone(float width, out float start)
+    {
+        start = Rand.Range(0f, Mathf.Max(0f, 1f - width));
+    }
+
+    public static float MinigameNeedleSpeedFor(int tumblersDone)
+    {
+        return MinigameNeedleSpeed * Mathf.Pow(MinigameSpeedPerTumbler, Mathf.Max(0, tumblersDone));
+    }
+
     public static bool PlayerCanUsePickedDoor(Pawn pawn)
     {
         if (pawn?.Faction != Faction.OfPlayer)

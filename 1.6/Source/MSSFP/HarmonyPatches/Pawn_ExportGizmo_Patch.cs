@@ -7,6 +7,7 @@ using Verse;
 
 namespace MSSFP.HarmonyPatches
 {
+    [StaticConstructorOnStartup]
     [HarmonyPatch(typeof(Pawn), nameof(Pawn.GetGizmos))]
     public static class Pawn_ExportGizmo_Patch
     {

@@ -109,6 +109,16 @@ public class MainSettingsTab(ModSettings settings, Mod mod) : SettingsTab(settin
         );
         scrollViewHeight += 24f + options.verticalSpacing;
 
+        if (Settings.EnableLockpicking)
+        {
+            options.CheckboxLabeled(
+                "MSS_FP_Settings_EnableLockpickingMinigame".Translate(),
+                ref Settings.EnableLockpickingMinigame,
+                "MSS_FP_Settings_EnableLockpickingMinigame_Tooltip".Translate()
+            );
+            scrollViewHeight += 24f + options.verticalSpacing;
+        }
+
         // --- Mechanics ---
         DrawSectionHeader(options, "MSS_FP_Settings_Section_Mechanics".Translate(), ref scrollViewHeight);
 

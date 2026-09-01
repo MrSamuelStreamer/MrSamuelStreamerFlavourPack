@@ -15,6 +15,8 @@
     <MSS_FP_Settings_EnableSubNormalSpeeds_Tooltip>Adds three new buttons above the speed bar that run the game at 1/2, 1/4, or 1/8 of normal speed. Useful for combat pacing and complex builds. Some other mods may behave unexpectedly at slow speeds.</MSS_FP_Settings_EnableSubNormalSpeeds_Tooltip>
     <MSS_FP_Settings_EnableLockpicking>Enable lockpicking hostile-faction doors</MSS_FP_Settings_EnableLockpicking>
     <MSS_FP_Settings_EnableLockpicking_Tooltip>When enabled, colonists can right-click a door owned by a hostile faction and lockpick it. The door stays enemy-owned, but player pawns can open it afterwards. Duration depends on Manipulation.</MSS_FP_Settings_EnableLockpicking_Tooltip>
+    <MSS_FP_Settings_EnableLockpickingMinigame>Lockpicking minigame</MSS_FP_Settings_EnableLockpickingMinigame>
+    <MSS_FP_Settings_EnableLockpickingMinigame_Tooltip>After the lockpick wait finishes, a timing minigame opens (click when the marker is in the green zone). Turn off to auto-succeed when the wait completes.</MSS_FP_Settings_EnableLockpickingMinigame_Tooltip>
     <MSSFP_TimeSpeed_Half_Tooltip>Half speed (1/2 of Normal).</MSSFP_TimeSpeed_Half_Tooltip>
     <MSSFP_TimeSpeed_Quarter_Tooltip>Quarter speed (1/4 of Normal).</MSSFP_TimeSpeed_Quarter_Tooltip>
     <MSSFP_TimeSpeed_Eighth_Tooltip>Eighth speed (1/8 of Normal).</MSSFP_TimeSpeed_Eighth_Tooltip>
