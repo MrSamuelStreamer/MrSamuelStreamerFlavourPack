@@ -24,21 +24,17 @@ public class JobDriver_LockpickDoor : JobDriver
     protected override IEnumerable<Toil> MakeNewToils()
     {
         this.FailOnDespawnedNullOrForbidden(DoorInd);
-        this.FailOn(() => !LockpickUtility.Enabled);
         this.FailOn(() => !pawn.health.capacities.CapableOf(PawnCapacityDefOf.Manipulation));
-        this.FailOn(() => Door == null);
-        this.FailOn(() => Door != null && !LockpickUtility.IsFactionBlocked(Door, pawn));
+        this.FailOn(() => Door == null || !LockpickUtility.IsLockpickTarget(Door, pawn));
 
-        Toil goToDoor = Toils_Goto.GotoThing(DoorInd, PathEndMode.Touch);
-        goToDoor.FailOn(() => LockpickUtility.IsPicked(Door));
-        yield return goToDoor;
+        yield return Toils_Goto.GotoThing(DoorInd, PathEndMode.Touch);
 
         int workTicks = LockpickUtility.WorkTicksFor(pawn);
         Toil wait = Toils_General.Wait(workTicks, DoorInd);
         wait.WithProgressBarToilDelay(DoorInd);
         wait.activeSkill = () => SkillDefOf.Crafting;
+        wait.tickAction = () => pawn.skills?.Learn(SkillDefOf.Crafting, 0.1f);
         wait.handlingFacing = true;
-        wait.FailOn(() => LockpickUtility.IsPicked(Door));
         yield return wait;
 
         yield return Toils_General.Do(() => LockpickUtility.ApplySuccess(pawn, Door));

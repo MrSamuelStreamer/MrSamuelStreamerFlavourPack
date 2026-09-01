@@ -1,7 +1,6 @@
 using RimWorld;
 using UnityEngine;
 using Verse;
-using Verse.AI;
 
 namespace MSSFP.Lockpicking;
 
@@ -35,18 +34,9 @@ public static class LockpickUtility
         return door is Building_HackableDoor || door is Building_JammedDoor;
     }
 
-    public static bool IsFactionBlocked(Building_Door door, Pawn pawn)
-    {
-        if (door.Faction == null)
-            return false;
-        if (pawn.Faction != null && door.Faction == pawn.Faction)
-            return false;
-        return !GenAI.MachinesLike(door.Faction, pawn);
-    }
-
     /// <summary>
-    /// True when this door is a hostile-faction lockpick target for the pawn
-    /// (not already picked, not a DLC hack/jam door).
+    /// True when this door is a lockpick target for the pawn. Uses
+    /// postfix returns true) and anything the pawn can already open drop out.
     /// </summary>
     public static bool IsLockpickTarget(Building_Door door, Pawn pawn)
     {
@@ -56,9 +46,7 @@ public static class LockpickUtility
             return false;
         if (IsSpecialLockedDoor(door))
             return false;
-        if (IsPicked(door))
-            return false;
-        return IsFactionBlocked(door, pawn);
+        return !door.PawnCanOpen(pawn);
     }
 
     public static bool PlayerCanUsePickedDoor(Pawn pawn)

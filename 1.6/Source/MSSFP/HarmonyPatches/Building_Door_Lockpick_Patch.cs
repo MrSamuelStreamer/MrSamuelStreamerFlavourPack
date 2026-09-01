@@ -9,6 +9,8 @@ namespace MSSFP.HarmonyPatches;
 /// After a door is lockpicked, player pawns that can use doors may open it
 /// even though it still belongs to a hostile faction. Inspect string notes
 /// the picked state.
+/// itself (and overrides that call base). A subclass that overrides PawnCanOpen and
+/// never calls base will not pick up lockpicked-door passage.
 /// </summary>
 [HarmonyPatch(typeof(Building_Door), nameof(Building_Door.PawnCanOpen))]
 public static class Building_Door_Lockpick_Patch
