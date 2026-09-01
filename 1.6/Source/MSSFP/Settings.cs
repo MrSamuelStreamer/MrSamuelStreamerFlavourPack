@@ -54,6 +54,7 @@ public class Settings : ModSettings
     public bool EnableTrekBeamers = true;
     public bool EnableMercenaryHiring = true;
     public bool useMrStreamerMercenaries = false;
+    public bool EnableLockpicking = true;
     public bool EnableWanderDelayModification = false;
     public bool WanderDelayIncludeHumanoids = false;
     public int WanderDelayTicks = 0;
@@ -270,6 +271,7 @@ public class Settings : ModSettings
     {
         ModLog.Debug($"ExposeData {Scribe.mode} - {Tabs.Count}");
         // Save/load main settings directly to ensure they persist
+        Scribe_Values.Look(ref EnableLockpicking, "EnableLockpicking", true);
         Scribe_Values.Look(
             ref EnableWanderDelayModification,
             "EnableWanderDelayModification",

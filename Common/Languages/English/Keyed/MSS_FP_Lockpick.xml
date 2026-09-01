@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LanguageData>
+    <MSSFP_Lockpick>Lockpick {0}</MSSFP_Lockpick>
+    <MSSFP_CannotLockpick>Cannot lockpick {0}</MSSFP_CannotLockpick>
+    <MSSFP_DoorLockpicked>Lockpicked — colonists can open this door.</MSSFP_DoorLockpicked>
+</LanguageData>

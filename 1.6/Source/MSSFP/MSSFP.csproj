@@ -58,7 +58,8 @@
             <Private>False</Private>
         </Reference>
         <Reference Include="VEF">
-          <HintPath>..\..\..\..\..\..\..\..\workshop\content\294100\2023507013\1.6\Assemblies\VEF.dll</HintPath>
+          <HintPath Condition="Exists('..\..\..\..\..\..\..\workshop\content\294100\2023507013\1.6\Assemblies\VEF.dll')">..\..\..\..\..\..\..\workshop\content\294100\2023507013\1.6\Assemblies\VEF.dll</HintPath>
+          <HintPath Condition="Exists('..\..\..\..\..\..\..\..\workshop\content\294100\2023507013\1.6\Assemblies\VEF.dll')">..\..\..\..\..\..\..\..\workshop\content\294100\2023507013\1.6\Assemblies\VEF.dll</HintPath>
             <Private>False</Private>
         </Reference>
     </ItemGroup>
