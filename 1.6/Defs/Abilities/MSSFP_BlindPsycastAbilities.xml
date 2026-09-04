@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <AbilityDef>
+    <defName>MSSFP_Echolocation</defName>
+    <label>blackout blindsight</label>
+    <description>Plunge the map into total darkness for a time. Every sighted creature loses their sight - your senses heightened, you alone still know exactly where everything is.</description>
+    <iconPath>UI/Memes/Blindsight</iconPath>
+    <hostile>false</hostile>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <cooldownTicksRange>60000~60000</cooldownTicksRange>
+    <displayOrder>500</displayOrder>
+    <targetRequired>false</targetRequired>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <drawAimPie>false</drawAimPie>
+      <warmupTime>0.1</warmupTime>
+      <range>-1</range>
+      <targetParams>
+        <canTargetSelf>true</canTargetSelf>
+        <canTargetLocations>false</canTargetLocations>
+        <canTargetPawns>false</canTargetPawns>
+        <canTargetBuildings>false</canTargetBuildings>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="MSSFP.Comps.CompProperties_AbilityEcholocation">
+          <durationTicks>600</durationTicks>
+      </li>
+    </comps>
+  </AbilityDef>
+
+</Defs>
