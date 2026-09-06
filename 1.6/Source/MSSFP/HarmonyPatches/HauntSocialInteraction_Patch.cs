@@ -42,6 +42,9 @@ public static class HauntSocialInteraction_Patch
 
     private static HediffComp_Haunt GetNamedHaunt(Pawn pawn)
     {
+        if (pawn.health?.hediffSet?.hediffs == null)
+            return null;
+
         foreach (Hediff hediff in pawn.health.hediffSet.hediffs)
         {
             if (hediff is not HediffWithComps hwc)
