@@ -112,7 +112,8 @@ public static class ColonistBar_ProcessInput_Patch
         {
             Vector2 mousePos = Event.current.mousePosition;
 
-            for (int i = 0; i < __instance.Entries.Count; i++)
+            int entryCount = Mathf.Min(__instance.Entries.Count, __instance.DrawLocs.Count);
+            for (int i = 0; i < entryCount; i++)
             {
                 var entry = __instance.Entries[i];
                 if (entry.pawn?.RaceProps?.Humanlike == true)
