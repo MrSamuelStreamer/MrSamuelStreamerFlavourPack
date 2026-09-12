@@ -53,6 +53,13 @@ public class MSSFPMod : Mod
         // throws an NRE that ThinkNode_PrioritySorter catches and logs.
         SocioButterfly_GetFood_NullGuard.TryRegister(_harmony);
 
+        // Conditional cross-mod compat patch — silently no-ops when Expanded Incidents
+        // (Continued) is absent. Guards a confirmed CTD: EI's own InteractionWorker_Interacted
+        // prefix NRE's every tick on pawns caught by a stale clique/faction reference, and
+        // vanilla's per-thing tick catch can't stop the resulting per-second log-write flood
+        // from eventually taking the process down.
+        ExpandedIncidents_NullGuard.TryRegister(_harmony);
+
         Type NC = AccessTools.Inner(typeof(Dialog_NamePawn), "NameContext");
         ConstructorInfo CI = NC == null
             ? null

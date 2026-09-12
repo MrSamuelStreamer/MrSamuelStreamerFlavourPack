@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Generic scrap standing in for any biocoded implant/limb Extract_Patch nerfs.
+       No per-source variant: same def regardless of what was removed. -->
+  <ThingDef ParentName="ResourceBase">
+    <defName>MSS_Biocoded_Thing</defName>
+    <label>biocoded remains</label>
+    <description>Salvage from a removed implant, still fused to its dead owner's biocoding. It cannot be installed in anyone else and is fit only for scrap.</description>
+    <graphicData>
+      <texPath>Things/Item/Health/BionicArm</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <useHitPoints>false</useHitPoints>
+    <stackLimit>75</stackLimit>
+    <statBases>
+      <MarketValue>15</MarketValue>
+      <Mass>1</Mass>
+      <Flammability>0.5</Flammability>
+    </statBases>
+    <thingCategories>
+      <li>ResourcesRaw</li>
+    </thingCategories>
+    <tradeability>Sellable</tradeability>
+  </ThingDef>
+
+</Defs>

@@ -78,14 +78,34 @@ namespace MSSFP.Jobs
         }
 
         /// <summary>
+        /// Pawns currently mid-<see cref="SkipUtility.SkipDeSpawn"/>. Reentrancy guard —
+        /// see the remarks on <see cref="SkipDespawn"/> for why this is required, not just
+        /// defensive.
+        /// </summary>
+        private static readonly HashSet<Pawn> despawnInProgress = new();
+
+        /// <summary>
         /// Skip-teleport the pawn away. The world pawn system will
         /// garbage-collect the factionless pawn on its own schedule.
         /// We avoid PassToWorld(Discard) because other systems (letters,
         /// battle log) may still hold references this frame.
+        ///
+        /// MUST be reentrancy-guarded. Both the leave toil and the AddFinishAction in
+        /// <see cref="MakeNewToils"/> can call this for the same pawn, and
+        /// <c>SkipUtility.SkipDeSpawn</c> -&gt; <c>Thing.DeSpawnOrDeselect</c> -&gt;
+        /// <c>Pawn.DeSpawn</c> calls <c>jobs.StopAll()</c> BEFORE it clears
+        /// <c>Spawned</c> (see Verse/Pawn.cs). StopAll interrupts the current job, which
+        /// fires the finish action, which calls this method again — <c>p.Spawned</c> is
+        /// still true at that point, so an unguarded call recurses into
+        /// SkipUtility.SkipDeSpawn -&gt; DeSpawnOrDeselect -&gt; DeSpawn -&gt; StopAll -&gt;
+        /// finish action -&gt; ... without end, crashing the process with a native stack
+        /// overflow (confirmed from a player CTD log, 2026-09-12 — uncatchable, the
+        /// existing try/catch below never even runs).
         /// </summary>
         private static void SkipDespawn(Pawn p)
         {
             if (!p.Spawned) return;
+            if (!despawnInProgress.Add(p)) return; // already despawning this pawn — reentrant call, no-op
 
             try
             {
@@ -96,6 +116,10 @@ namespace MSSFP.Jobs
                 // Fallback if skip effect fails for any reason
                 if (p.Spawned)
                     p.DeSpawn(DestroyMode.Vanish);
+            }
+            finally
+            {
+                despawnInProgress.Remove(p);
             }
         }
     }

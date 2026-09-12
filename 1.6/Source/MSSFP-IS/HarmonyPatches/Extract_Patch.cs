@@ -36,10 +36,19 @@ public static class Extract_Patch
 
     private const float SearchRadius = 3f;
 
+    /// <summary>
+    /// One generic def stands in for every biocoded implant/limb — no per-source variant,
+    /// no preserved identity, just scrap. Resolved lazily: def generation runs after this
+    /// patch's static constructor.
+    /// </summary>
+    private static ThingDef biocodedDef;
+
+    private static ThingDef BiocodedDef =>
+        biocodedDef ??= DefDatabase<ThingDef>.GetNamed("MSS_Biocoded_Thing");
+
     public class ExtractContext
     {
         public ThingDef Product;
-        public ThingDef Biocoded;
         public HashSet<int> PreExisting;
         public int CorpseId;
         public int ImplantLoadId;
@@ -52,9 +61,6 @@ public static class Extract_Patch
 
         ThingDef product = implant?.def?.spawnThingOnRemoved;
         if (product == null || corpse == null || surgeon?.Map == null)
-            return;
-
-        if (!BiocodedImplantDefs.TryGetBiocoded(product, out ThingDef biocoded))
             return;
 
         HashSet<int> preExisting = new();
@@ -75,7 +81,6 @@ public static class Extract_Patch
         __state = new ExtractContext
         {
             Product = product,
-            Biocoded = biocoded,
             PreExisting = preExisting,
             CorpseId = corpse.thingIDNumber,
             ImplantLoadId = implant.loadID,
@@ -102,11 +107,11 @@ public static class Extract_Patch
         // Place the replacement BEFORE destroying the original. The reverse order opens a
         // window where a failed placement leaves the player with nothing at all — the
         // extraction succeeded, but the item silently evaporated.
-        Thing replacement = ThingMaker.MakeThing(__state.Biocoded);
+        Thing replacement = ThingMaker.MakeThing(BiocodedDef);
         if (!GenPlace.TryPlaceThing(replacement, pos, map, ThingPlaceMode.Near))
         {
             ModLog.Error(
-                $"[MSSFP.IS] Could not place {__state.Biocoded.defName} at {pos}; "
+                $"[MSSFP.IS] Could not place {BiocodedDef.defName} at {pos}; "
                     + "leaving the un-biocoded implant in place rather than destroying it."
             );
             return;
