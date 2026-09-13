@@ -86,6 +86,8 @@ public class Settings : ModSettings
     public bool NoReplaceFactionLeader = false;
     public bool EnableCodexPunch = true;
     public float CodexPunchChanceMultiplier = 1.0f;
+    public bool EnableNonLethalBloodCourtDuels = true;
+    public int BloodCourtDuelCooldownDays = 15;
     public bool EnableUserTemplateLoading = true;
     public bool EnableTemplateWandererJoin = false;
     public float TemplateWandererJoinChanceMultiplier = 1.0f;
@@ -283,6 +285,8 @@ public class Settings : ModSettings
         Scribe_Values.Look(ref EnableGenesOnGrowthMoment, "EnableGenesOnGrowthMoment", false);
         Scribe_Values.Look(ref Active10SecondsToSpeed, "Active10SecondsToSpeed", false);
         Scribe_Values.Look(ref EnableSubNormalSpeeds, "EnableSubNormalSpeeds", true);
+        Scribe_Values.Look(ref EnableNonLethalBloodCourtDuels, "EnableNonLethalBloodCourtDuels", true);
+        Scribe_Values.Look(ref BloodCourtDuelCooldownDays, "BloodCourtDuelCooldownDays", 15);
         Scribe_Values.Look(ref MechFormingSpeedBaseValue, "MechFormingSpeedBaseValue", 1f);
         Scribe_Values.Look(ref OverrideFactionLeaderSpawn, "OverrideFactionLeaderSpawn", true);
         Scribe_Values.Look(ref BoostChanceToSpawnExistingPawns, "BoostChanceToSpawnExistingPawns", true);

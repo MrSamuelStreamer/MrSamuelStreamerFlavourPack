@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Globalization;
 using UnityEngine;
 using Verse;
@@ -117,6 +117,29 @@ public class MainSettingsTab(ModSettings settings, Mod mod) : SettingsTab(settin
                 "MSS_FP_Settings_EnableLockpickingMinigame_Tooltip".Translate()
             );
             scrollViewHeight += 24f + options.verticalSpacing;
+        }
+
+        if (ModsConfig.IsActive("VanillaExpanded.VMemesE"))
+        {
+            DrawSectionHeader(options, "MSS_FP_Settings_Section_Ideology".Translate(), ref scrollViewHeight);
+            DrawCheckBox(
+                options,
+                "MSS_FP_Settings_EnableNonLethalBloodCourtDuels".Translate(),
+                ref Settings.EnableNonLethalBloodCourtDuels,
+                ref scrollViewHeight
+            );
+            if (Settings.EnableNonLethalBloodCourtDuels)
+            {
+                Settings.BloodCourtDuelCooldownDays = Mathf.RoundToInt(
+                    options.SliderLabeled(
+                        "MSS_FP_Settings_BloodCourtDuelCooldownDays".Translate(Settings.BloodCourtDuelCooldownDays),
+                        Settings.BloodCourtDuelCooldownDays,
+                        1f,
+                        60f
+                    )
+                );
+                scrollViewHeight += 30f;
+            }
         }
 
         // --- Mechanics ---
