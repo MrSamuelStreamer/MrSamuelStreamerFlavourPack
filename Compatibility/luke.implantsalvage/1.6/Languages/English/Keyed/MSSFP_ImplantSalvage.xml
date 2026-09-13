@@ -2,7 +2,7 @@
 <LanguageData>
 
   <!-- Shown when an extraction yields biocoded salvage. {0} is the item label. -->
-  <MSSFP_IS_BiocodedMessage>{0} came out biocoded to its dead owner. It cannot be installed, only sold.</MSSFP_IS_BiocodedMessage>
+  <MSSFP_IS_BiocodedMessage>{0} came out biocoded to its dead owner. It cannot be installed, only sold or dismantled at a Machining Table.</MSSFP_IS_BiocodedMessage>
 
   <!-- Settings tab. -->
   <MSSFP_IS_Settings_Blurb>Implants cut from a corpse may still carry the dead owner's biocoding. A biocoded part can never be installed, and sells for a quarter of the normal price. This is on top of Implant Salvage's own chance to destroy the implant outright.</MSSFP_IS_Settings_Blurb>

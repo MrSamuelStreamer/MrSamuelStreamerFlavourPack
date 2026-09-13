@@ -8,7 +8,7 @@
     <label>biocoded remains</label>
     <description>Salvage from a removed implant, still fused to its dead owner's biocoding. It cannot be installed in anyone else and is fit only for scrap.</description>
     <graphicData>
-      <texPath>Things/Item/Health/BionicArm</texPath>
+      <texPath>Things/MSS_biocodedBox</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
     <useHitPoints>false</useHitPoints>
@@ -23,5 +23,36 @@
     </thingCategories>
     <tradeability>Sellable</tradeability>
   </ThingDef>
+
+  <RecipeDef>
+    <defName>MSS_RecycleBiocodedBionic</defName>
+    <label>recycle biocoded bionic</label>
+    <description>Extract useful components from biocoded bionics.</description>
+    <jobString>Recycling biocoded bionic.</jobString>
+    <workAmount>400</workAmount>
+    <workSpeedStat>SmeltingSpeed</workSpeedStat>
+    <effectWorking>Smelt</effectWorking>
+    <soundWorking>Recipe_Smelt</soundWorking>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>MSS_Biocoded_Thing</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <products>
+      <!-- Lower total value than just selling the biocoded item -->
+      <Plasteel>10</Plasteel>
+      <ComponentIndustrial>2</ComponentIndustrial> 
+    </products>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>MSS_Biocoded_Thing</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+  </RecipeDef>
 
 </Defs>
