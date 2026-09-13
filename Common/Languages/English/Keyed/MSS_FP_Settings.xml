@@ -39,6 +39,7 @@
     <MSS_FP_Settings_Section_KillHaunts>Kill Haunts</MSS_FP_Settings_Section_KillHaunts>
     <MSS_FP_Settings_Section_Poltergeist>Poltergeist</MSS_FP_Settings_Section_Poltergeist>
     <MSS_FP_Settings_Section_HauntCooldowns>Proximity &amp; Cooldowns</MSS_FP_Settings_Section_HauntCooldowns>
+    <MSS_FP_Settings_Section_Ideology>Ideology</MSS_FP_Settings_Section_Ideology>
     <MSS_FP_Settings_Section_Social>Social</MSS_FP_Settings_Section_Social>
     <MSS_FP_Settings_Section_Events>Events</MSS_FP_Settings_Section_Events>
     <MSS_FP_Settings_Section_Combat>Combat</MSS_FP_Settings_Section_Combat>
@@ -200,6 +201,12 @@
     <MSS_FP_CodexPunch_LetterLabel>A Failed God-Puncher Returns</MSS_FP_CodexPunch_LetterLabel>
     <MSS_FP_CodexPunch_LetterText>After ascending to a higher plane and swinging at a god — and missing — Codex has been cast back to the mortal realm. He retains some of his godlike powers, including the ability to teleport at will.\n\nUnfortunately, he has decided that the reason he missed was insufficient punching practice. He now intends to punch every mortal being in existence before ascending again.\n\n{0} appears to be next on his list.</MSS_FP_CodexPunch_LetterText>
     <MSS_FP_CodexPunch_PunchMsg>Codex punched {0}!</MSS_FP_CodexPunch_PunchMsg>
+
+    <!-- Blood Court (Vanilla Ideology Expanded - Memes) -->
+    <MSS_FP_Settings_EnableNonLethalBloodCourtDuels>Blood Court leadership duels end on knockdown (non-lethal)</MSS_FP_Settings_EnableNonLethalBloodCourtDuels>
+    <MSS_FP_Settings_BloodCourtDuelCooldownDays>Days before another leadership challenge can be held [{0}]</MSS_FP_Settings_BloodCourtDuelCooldownDays>
+    <MSS_FP_BloodCourt_RitualOnCooldown>A leadership challenge was held recently. Wait {0} day(s).</MSS_FP_BloodCourt_RitualOnCooldown>
+    <MSS_FP_BloodCourt_NonLethalOutcomeDesc>This is a duel until the first fighter is knocked down. Whoever wins will get (or keep) the leader title.</MSS_FP_BloodCourt_NonLethalOutcomeDesc>
 
     <!-- Generator Mod -->
     <MSS_FP_Settings_GeneratorEnableFasterUpgrades>Speed up Genetron upgrades by 4x</MSS_FP_Settings_GeneratorEnableFasterUpgrades>
