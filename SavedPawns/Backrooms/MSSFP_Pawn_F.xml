@@ -151,7 +151,7 @@
                 <def>BT_Charismatic</def>
                 <degree>0</degree>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <def>Recluse</def>
                 <degree>0</degree>
             </li>
@@ -248,7 +248,7 @@
             <li MayRequire="eo3.skeletalefflorescence">Beauty_Eerie</li>
             <li MayRequire="ebsg.aio">EBSG_Preacher</li>
             <li MayRequire="ebsg.archite">EBSG_ArchiteEnhancedSuave</li>
-            <li MayRequire="ludeon.rimworld.biotech">Hair_BaldOnly</li>
+            <li >Hair_BaldOnly</li>
             <li MayRequire="rimsenal.zohar">Gene_Psychopath</li>
             <li MayRequire="ebsg.archite">MBSG_MinorArchite_Intellectual</li>
             <li MayRequire="hautarche.hautstraits">HVT_AEruditeGene</li>
@@ -256,16 +256,16 @@
             <li MayRequire="neronix17.outland.genetics">Outland_Wings_Fey</li>
             <li MayRequire="eo3.skeletalefflorescence">Eo3_BoneCrown</li>
             <li MayRequire="mss.flavourpack">MSS_FP_MemoryAwakening_Wanderer</li>
-            <li MayRequire="ludeon.rimworld.biotech">Beard_NoBeardOnly</li>
+            <li >Beard_NoBeardOnly</li>
             <li MayRequire="jtc.grineer">G_Geneticloyal</li>
             <li MayRequire="jtc.grineer">Eyes_Gorange</li>
-            <li MayRequire="ludeon.rimworld.biotech">MinTemp_LargeDecrease</li>
+            <li >MinTemp_LargeDecrease</li>
             <li MayRequire="redmattis.bigsmall.core">BS_FastAging</li>
-            <li MayRequire="ludeon.rimworld.biotech">Pain_Reduced</li>
+            <li >Pain_Reduced</li>
             <li>Skin_Melanin9</li>
-            <li MayRequire="ludeon.rimworld.biotech">PsychicAbility_Extreme</li>
-            <li MayRequire="ludeon.rimworld.biotech">Fertile</li>
-            <li MayRequire="ludeon.rimworld.biotech">DarkVision</li>
+            <li >PsychicAbility_Extreme</li>
+            <li >Fertile</li>
+            <li >DarkVision</li>
             <li MayRequire="ebsg.aio">EBSG_HyperJoviality</li>
             <li MayRequire="sarg.alphagenes">AG_NereidFins</li>
             <li MayRequire="ebsg.archite">EBSG_ArchiteNeverSleep</li>

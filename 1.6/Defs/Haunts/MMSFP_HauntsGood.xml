@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
-     <!--Haunt Defs Begin-->
+    <!--Haunt Defs Begin-->
     <!--Frog Def-->
     <HediffDef>
         <defName>MSS_FP_FrogHaunt</defName>
@@ -220,12 +220,12 @@
                     <WorkSpeedGlobal>0.81</WorkSpeedGlobal>
                     <NegotiationAbility>0.81</NegotiationAbility>
                     <DrugSellPriceImprovement>1.14</DrugSellPriceImprovement>
-                    <ToxicEnvironmentResistance MayRequire="Ludeon.RimWorld.Biotech">1.14</ToxicEnvironmentResistance>
+                    <ToxicEnvironmentResistance >1.14</ToxicEnvironmentResistance>
                     <PawnBeauty>1.23</PawnBeauty>
                     <SocialImpact>0.90</SocialImpact>
                     <DeepDrillingSpeed>1.23</DeepDrillingSpeed>
                     <MentalBreakThreshold>1.23</MentalBreakThreshold>
-                    <Fertility MayRequire="Ludeon.RimWorld.Biotech">1.23</Fertility>
+                    <Fertility >1.23</Fertility>
                 </statFactors>
                 <statOffsets>
                     <SlaveSuppressionOffset MayRequire="Ludeon.RimWorld.Ideology">-0.07</SlaveSuppressionOffset>
@@ -267,12 +267,12 @@
                     <WorkSpeedGlobal>0.61</WorkSpeedGlobal>
                     <NegotiationAbility>0.61</NegotiationAbility>
                     <DrugSellPriceImprovement>1.28</DrugSellPriceImprovement>
-                    <ToxicEnvironmentResistance MayRequire="Ludeon.RimWorld.Biotech">1.28</ToxicEnvironmentResistance>
+                    <ToxicEnvironmentResistance >1.28</ToxicEnvironmentResistance>
                     <PawnBeauty>1.46</PawnBeauty>
                     <SocialImpact>0.79</SocialImpact>
                     <DeepDrillingSpeed>1.46</DeepDrillingSpeed>
                     <MentalBreakThreshold>1.46</MentalBreakThreshold>
-                    <Fertility MayRequire="Ludeon.RimWorld.Biotech">1.46</Fertility>
+                    <Fertility >1.46</Fertility>
                 </statFactors>
                 <statOffsets>
                     <SlaveSuppressionOffset MayRequire="Ludeon.RimWorld.Ideology">-0.13</SlaveSuppressionOffset>
@@ -314,12 +314,12 @@
                     <WorkSpeedGlobal>0.420</WorkSpeedGlobal>
                     <NegotiationAbility>0.420</NegotiationAbility>
                     <DrugSellPriceImprovement>1.420</DrugSellPriceImprovement>
-                    <ToxicEnvironmentResistance MayRequire="Ludeon.RimWorld.Biotech">1.420</ToxicEnvironmentResistance>
+                    <ToxicEnvironmentResistance >1.420</ToxicEnvironmentResistance>
                     <PawnBeauty>1.69</PawnBeauty>
                     <SocialImpact>0.69</SocialImpact>
                     <DeepDrillingSpeed>1.69</DeepDrillingSpeed>
                     <MentalBreakThreshold>1.69</MentalBreakThreshold>
-                    <Fertility MayRequire="Ludeon.RimWorld.Biotech">1.69</Fertility>
+                    <Fertility >1.69</Fertility>
                 </statFactors>
                 <statOffsets>
                     <SlaveSuppressionOffset MayRequire="Ludeon.RimWorld.Ideology">-0.2</SlaveSuppressionOffset>
@@ -393,7 +393,7 @@
                 <statFactors>
                     <WorkSpeedGlobal>0.97</WorkSpeedGlobal>
                     <SocialImpact>0.97</SocialImpact>
-                    <Fertility MayRequire="Ludeon.RimWorld.Biotech">0.73</Fertility>
+                    <Fertility >0.73</Fertility>
                 </statFactors>
                 <statOffsets>
                     <RestRateMultiplier>-0.03</RestRateMultiplier>
@@ -406,7 +406,7 @@
                 <statFactors>
                     <WorkSpeedGlobal>0.93</WorkSpeedGlobal>
                     <SocialImpact>0.93</SocialImpact>
-                    <Fertility MayRequire="Ludeon.RimWorld.Biotech">0.47</Fertility>
+                    <Fertility >0.47</Fertility>
                 </statFactors>
                 <statOffsets>
                     <RestRateMultiplier>-0.07</RestRateMultiplier>
@@ -419,7 +419,7 @@
                 <statFactors>
                     <WorkSpeedGlobal>0.9</WorkSpeedGlobal>
                     <SocialImpact>0.9</SocialImpact>
-                    <Fertility MayRequire="Ludeon.RimWorld.Biotech">0.2</Fertility>
+                    <Fertility >0.2</Fertility>
                     <MentalBreakThreshold>1.3</MentalBreakThreshold>
                 </statFactors>
                 <statOffsets>
@@ -499,6 +499,75 @@
                     <texPath>Haunts/Jade/Jade</texPath>
                     <graphicClass>Graphic_Multi</graphicClass>
                     <drawSize>2.5</drawSize>
+                    <shaderType>MoteGlow</shaderType>
+                </graphicData>
+                <offsets>
+                    <li>(0.3, 1.6, -0.55)</li> <!-- North -->
+                    <li>(-0.5, 1.1, -0.35)</li> <!-- East -->
+                    <li>(0.3, -1.6, 0.65)</li> <!-- South -->
+                    <li>(0.5, 1.1, -0.35)</li> <!-- West -->
+                </offsets>
+                <onlyRenderWhenDrafted>true</onlyRenderWhenDrafted>
+                <archetype>MSS_FP_Archetype_Aggressive</archetype>
+                <ambientFleck>MicroSparks</ambientFleck>
+            </li>
+            <li Class="MSSFP.Hediffs.HediffCompProperties_HauntProgression" />
+        </comps>
+    </HediffDef>
+
+    <!-- Randy Silverhand -->
+
+    <HediffDef>
+        <defName>MSS_FP_RandySilverhandHaunt</defName>
+        <label>Enfranchised by Randy Silverhand</label>
+        <description>This pawn is liberated by the spirit of Randy Silverhand, famous anti-empire dissident and martyr.</description>
+        <hediffClass>HediffWithComps</hediffClass>
+        <defaultLabelColor>(0.1,0.2,0.8)</defaultLabelColor>
+        <maxSeverity>1.0</maxSeverity>
+        <scenarioCanAdd>true</scenarioCanAdd>
+        <isBad>false</isBad>
+        <stages>
+            <li>
+                <minSeverity>0</minSeverity>
+                <label>sensing Randy Silverhand</label>
+                <hungerRateFactor>1.17</hungerRateFactor>
+                <statFactors>
+                    <CertaintyLossFactor>0.5</CertaintyLossFactor>
+                </statFactors>
+                <statOffsets>
+                    <ShootingAccuracyPawn>1.2</ShootingAccuracyPawn>
+                </statOffsets>
+            </li>
+            <li>
+                <minSeverity>0.34</minSeverity>
+                <label>accompanied by Randy Silverhand</label>
+                <hungerRateFactor>1.33</hungerRateFactor>
+                <statFactors>
+                    <CertaintyLossFactor>0.3</CertaintyLossFactor>
+                </statFactors>
+                <statOffsets>
+                    <ShootingAccuracyPawn>1.5</ShootingAccuracyPawn>
+                </statOffsets>
+            </li>
+            <li>
+                <minSeverity>0.67</minSeverity>
+                <label>empowered by Randy Silverhand</label>
+                <hungerRateFactor>1.5</hungerRateFactor>
+                <statFactors>
+                    <CertaintyLossFactor>0.1</CertaintyLossFactor>
+                </statFactors>
+                <statOffsets>
+                    <ShootingAccuracyPawn>2</ShootingAccuracyPawn>
+                </statOffsets>
+            </li>
+        </stages>
+        <comps>
+            <li Class="MSSFP.Hediffs.HediffCompProperties_Haunt">
+                <isGood>true</isGood>
+                <graphicData>
+                    <texPath>Haunts/RandySilverhand/RandySilverhand</texPath>
+                    <graphicClass>Graphic_Multi</graphicClass>
+                    <drawSize>1.7</drawSize>
                     <shaderType>MoteGlow</shaderType>
                 </graphicData>
                 <offsets>

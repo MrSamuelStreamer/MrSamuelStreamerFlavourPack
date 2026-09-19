@@ -211,25 +211,25 @@
             <li MayRequire="redmattis.bigsmall.core">JotunFrame</li>
             <li MayRequire="redmattis.bigsmall.core">BS_JotunArchiteMetabolism</li>
             <li MayRequire="redmattis.bigsmall.core">HalfJotunFrame</li>
-            <li MayRequire="ludeon.rimworld.biotech">Body_Standard</li>
-            <li MayRequire="ludeon.rimworld.biotech">Aggression_Aggressive</li>
+            <li >Body_Standard</li>
+            <li >Aggression_Aggressive</li>
             <li MayRequire="redmattis.bigsmall.core">MinTemp_HugeDecrease</li>
-            <li MayRequire="ludeon.rimworld.biotech">MaxTemp_SmallDecrease</li>
-            <li MayRequire="ludeon.rimworld.biotech">Immunity_SuperStrong</li>
-            <li MayRequire="ludeon.rimworld.biotech">StrongStomach</li>
-            <li MayRequire="ludeon.rimworld.biotech">Unstoppable</li>
-            <li MayRequire="ludeon.rimworld.biotech">Robust</li>
-            <li MayRequire="ludeon.rimworld.biotech">Superclotting</li>
+            <li >MaxTemp_SmallDecrease</li>
+            <li >Immunity_SuperStrong</li>
+            <li >StrongStomach</li>
+            <li >Unstoppable</li>
+            <li >Robust</li>
+            <li >Superclotting</li>
             <li MayRequire="redmattis.bigsmall.core">Jotun_Horns_Small</li>
             <li MayRequire="redmattis.bigsmall.core">BS_SkinPermafrost</li>
             <li MayRequire="redmattis.bigsmall.core">BS_HairPermafrost</li>
             <li MayRequire="redmattis.bigsmall.core">BS_EverFertile</li>
-            <li MayRequire="ludeon.rimworld.biotech">Hair_LongOnly</li>
+            <li >Hair_LongOnly</li>
             <li MayRequire="redmattis.bigsmall.core">BS_VerySlowAging</li>
-            <li MayRequire="ludeon.rimworld.biotech">AptitudePoor_Artistic</li>
-            <li MayRequire="ludeon.rimworld.biotech">AptitudeTerrible_Plants</li>
-            <li MayRequire="ludeon.rimworld.biotech">AptitudePoor_Intellectual</li>
-            <li MayRequire="ludeon.rimworld.biotech">AptitudePoor_Cooking</li>
+            <li >AptitudePoor_Artistic</li>
+            <li >AptitudeTerrible_Plants</li>
+            <li >AptitudePoor_Intellectual</li>
+            <li >AptitudePoor_Cooking</li>
             <li>Skin_Melanin7</li>
         </endogenes>
     </genes>

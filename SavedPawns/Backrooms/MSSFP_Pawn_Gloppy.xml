@@ -56,7 +56,7 @@
         </li>
         <li>
             <packageId>ny.smeltedloong</packageId>
-            <name>中式龙娘——冶龍 SMELTED LOONG</name>
+            <name>中弝龙娘——冶龝 SMELTED LOONG</name>
         </li>
         <li>
             <packageId>redmattis.bigsmall.core</packageId>
@@ -190,22 +190,22 @@
             <li MayRequire="ny.smeltedloong">NY_gene_SmeltedLoongHornGP</li>
             <li MayRequire="ny.smeltedloong">NY_gene_SmeltedLoongTailGP</li>
             <li MayRequire="ny.smeltedloong">NY_gene_SmeltedLoongMilk</li>
-            <li MayRequire="ludeon.rimworld.biotech">Immunity_Weak</li>
-            <li MayRequire="ludeon.rimworld.biotech">WoundHealing_SuperFast</li>
-            <li MayRequire="ludeon.rimworld.biotech">Mood_Sanguine</li>
-            <li MayRequire="ludeon.rimworld.biotech">FireWeakness</li>
-            <li MayRequire="ludeon.rimworld.biotech">Aggression_DeadCalm</li>
-            <li MayRequire="ludeon.rimworld.biotech">MeleeDamage_Weak</li>
-            <li MayRequire="ludeon.rimworld.biotech">Sleepy</li>
-            <li MayRequire="ludeon.rimworld.biotech">Libido_High</li>
-            <li MayRequire="ludeon.rimworld.biotech">Fertile</li>
-            <li MayRequire="ludeon.rimworld.biotech">Beauty_Pretty</li>
+            <li >Immunity_Weak</li>
+            <li >WoundHealing_SuperFast</li>
+            <li >Mood_Sanguine</li>
+            <li >FireWeakness</li>
+            <li >Aggression_DeadCalm</li>
+            <li >MeleeDamage_Weak</li>
+            <li >Sleepy</li>
+            <li >Libido_High</li>
+            <li >Fertile</li>
+            <li >Beauty_Pretty</li>
             <li>Hair_SnowWhite</li>
             <li>Hair_Gray</li>
-            <li MayRequire="ludeon.rimworld.biotech">AptitudePoor_Shooting</li>
-            <li MayRequire="ludeon.rimworld.biotech">AptitudePoor_Melee</li>
-            <li MayRequire="ludeon.rimworld.biotech">AptitudeRemarkable_Plants</li>
-            <li MayRequire="ludeon.rimworld.biotech">AptitudeStrong_Medicine</li>
+            <li >AptitudePoor_Shooting</li>
+            <li >AptitudePoor_Melee</li>
+            <li >AptitudeRemarkable_Plants</li>
+            <li >AptitudeStrong_Medicine</li>
             <li>Skin_Melanin2</li>
             <li MayRequire="redmattis.bigsmall.core">BS_ChocolateProduction</li>
         </endogenes>

@@ -71,10 +71,10 @@
         </skills>
 
         <genes>
-            <xenotype MayRequire="Ludeon.RimWorld.Biotech">Baseliner</xenotype>
+            <xenotype >Baseliner</xenotype>
             <endogenes>
-                <li MayRequire="Ludeon.RimWorld.Biotech">Skin_Melanin4</li>
-                <li MayRequire="Ludeon.RimWorld.Biotech">Hair_DarkReddish</li>
+                <li >Skin_Melanin4</li>
+                <li >Hair_DarkReddish</li>
             </endogenes>
         </genes>
 
@@ -154,10 +154,10 @@
         </skills>
 
         <genes>
-            <xenotype MayRequire="Ludeon.RimWorld.Biotech">Baseliner</xenotype>
+            <xenotype >Baseliner</xenotype>
             <endogenes>
-                <li MayRequire="Ludeon.RimWorld.Biotech">Skin_Melanin6</li>
-                <li MayRequire="Ludeon.RimWorld.Biotech">Hair_DarkReddish</li>
+                <li >Skin_Melanin6</li>
+                <li >Hair_DarkReddish</li>
             </endogenes>
         </genes>
 
@@ -230,10 +230,10 @@
         </skills>
 
         <genes>
-            <xenotype MayRequire="Ludeon.RimWorld.Biotech">Baseliner</xenotype>
+            <xenotype >Baseliner</xenotype>
             <endogenes>
-                <li MayRequire="Ludeon.RimWorld.Biotech">Skin_Melanin8</li>
-                <li MayRequire="Ludeon.RimWorld.Biotech">Hair_DarkReddish</li>
+                <li >Skin_Melanin8</li>
+                <li >Hair_DarkReddish</li>
             </endogenes>
         </genes>
 
@@ -314,10 +314,10 @@
         </skills>
 
         <genes>
-            <xenotype MayRequire="Ludeon.RimWorld.Biotech">Baseliner</xenotype>
+            <xenotype >Baseliner</xenotype>
             <endogenes>
-                <li MayRequire="Ludeon.RimWorld.Biotech">Skin_Melanin8</li>
-                <li MayRequire="Ludeon.RimWorld.Biotech">Hair_DarkSaturatedReddish</li>
+                <li >Skin_Melanin8</li>
+                <li >Hair_DarkSaturatedReddish</li>
             </endogenes>
         </genes>
 
@@ -398,10 +398,10 @@
         </skills>
 
         <genes>
-            <xenotype MayRequire="Ludeon.RimWorld.Biotech">Baseliner</xenotype>
+            <xenotype >Baseliner</xenotype>
             <endogenes>
-                <li MayRequire="Ludeon.RimWorld.Biotech">Skin_Melanin5</li>
-                <li MayRequire="Ludeon.RimWorld.Biotech">Hair_DarkBrown</li>
+                <li >Skin_Melanin5</li>
+                <li >Hair_DarkBrown</li>
             </endogenes>
         </genes>
 
@@ -534,7 +534,7 @@
             </li>
         </skills>
         <genes>
-            <xenotype MayRequire="ludeon.rimworld.biotech">Baseliner</xenotype>
+            <xenotype >Baseliner</xenotype>
             <endogenes>
                 <li MayRequire="ludeon.rimworld">Skin_Melanin6</li>
                 <li MayRequire="ludeon.rimworld">Hair_DarkBrown</li>

@@ -10,7 +10,7 @@
         the skill-scaled colonist math; see Building_IEDTrap.MechWorkTicks /
         MechSuccessChance.
     -->
-    <Operation Class="PatchOperationAdd" MayRequire="Ludeon.RimWorld.Biotech">
+    <Operation Class="PatchOperationAdd" >
         <xpath>Defs/ThingDef[defName="Mech_Cleansweeper"]/race/mechEnabledWorkTypes</xpath>
         <value>
             <li>MSSFP_Minesweeping</li>

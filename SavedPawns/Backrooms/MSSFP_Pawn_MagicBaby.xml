@@ -225,13 +225,13 @@
             <li>Hair_ReddishBrown</li>
             <li MayRequire="redmattis.bigsmall.core">VU_UltraRapidAging</li>
             <li MayRequire="ebsg.aio">EBSG_BadVision</li>
-            <li MayRequire="ludeon.rimworld.biotech">MeleeDamage_Weak</li>
-            <li MayRequire="ludeon.rimworld.biotech">KindInstinct</li>
+            <li >MeleeDamage_Weak</li>
+            <li >KindInstinct</li>
             <li MayRequire="ebsg.aio">EBSG_SlowSleeper</li>
-            <li MayRequire="ludeon.rimworld.biotech">Delicate</li>
-            <li MayRequire="ludeon.rimworld.biotech">Pain_Reduced</li>
+            <li >Delicate</li>
+            <li >Pain_Reduced</li>
             <li>Hair_Gray</li>
-            <li MayRequire="ludeon.rimworld.biotech">Learning_Slow</li>
+            <li >Learning_Slow</li>
             <li MayRequire="hautarche.hautstraits">HVT_ALuminaryGene</li>
             <li MayRequire="mss.flavourpack">MSS_VoidsEmbrace</li>
             <li MayRequire="neronix17.archotech.genetics">ArchoGenes_Hair_Archotech</li>
@@ -244,12 +244,12 @@
             <li MayRequire="mss.flavourpack">MSS_FP_MemoryAwakening_Wanderer</li>
         </endogenes>
         <xenogenes>
-            <li MayRequire="ludeon.rimworld.biotech">PerfectImmunity</li>
-            <li MayRequire="ludeon.rimworld.biotech">DiseaseFree</li>
-            <li MayRequire="ludeon.rimworld.biotech">TotalHealing</li>
-            <li MayRequire="ludeon.rimworld.biotech">Ageless</li>
-            <li MayRequire="ludeon.rimworld.biotech">Deathless</li>
-            <li MayRequire="ludeon.rimworld.biotech">ArchiteMetabolism</li>
+            <li >PerfectImmunity</li>
+            <li >DiseaseFree</li>
+            <li >TotalHealing</li>
+            <li >Ageless</li>
+            <li >Deathless</li>
+            <li >ArchiteMetabolism</li>
             <li MayRequire="neronix17.archotech.genetics">ArchoGenes_ArchotechSkin</li>
             <li MayRequire="neronix17.archotech.genetics">ArchoGenes_ArchotechSight</li>
             <li MayRequire="neronix17.archotech.genetics">ArchoGenes_ArchotechPain</li>

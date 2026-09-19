@@ -56,7 +56,7 @@
         </li>
         <li>
             <packageId>nz.rimimmortal.bizarre</packageId>
-            <name>边缘仙路-道诡异仙 RimImmortal-Bizarre</name>
+            <name>边缘仙路-靓诡异仙 RimImmortal-Bizarre</name>
         </li>
         <li>
             <packageId>redmattis.betterprerequisites</packageId>
@@ -194,29 +194,29 @@
         </li>
     </skills>
     <genes>
-        <xenotype MayRequire="ludeon.rimworld.biotech">Baseliner</xenotype>
+        <xenotype >Baseliner</xenotype>
         <endogenes>
             <li>Skin_Melanin3</li>
             <li>Hair_DarkSaturatedReddish</li>
             <li MayRequire="redmattis.betterprerequisites">BS_FacialAnimDisabled</li>
-            <li MayRequire="ludeon.rimworld.biotech">TotalHealing</li>
-            <li MayRequire="ludeon.rimworld.biotech">PerfectImmunity</li>
-            <li MayRequire="ludeon.rimworld.biotech">DiseaseFree</li>
-            <li MayRequire="ludeon.rimworld.biotech">Ageless</li>
-            <li MayRequire="ludeon.rimworld.biotech">ToxResist_Total</li>
-            <li MayRequire="ludeon.rimworld.biotech">ToxicEnvironmentResistance_Total</li>
-            <li MayRequire="ludeon.rimworld.biotech">FireResistant</li>
-            <li MayRequire="ludeon.rimworld.biotech">DarkVision</li>
-            <li MayRequire="ludeon.rimworld.biotech">Unstoppable</li>
-            <li MayRequire="ludeon.rimworld.biotech">AddictionImmune_Alcohol</li>
-            <li MayRequire="ludeon.rimworld.biotech">AddictionImmune_Smokeleaf</li>
-            <li MayRequire="ludeon.rimworld.biotech">AddictionImmune_Psychite</li>
-            <li MayRequire="ludeon.rimworld.biotech">AddictionImmune_GoJuice</li>
-            <li MayRequire="ludeon.rimworld.biotech">AddictionImmune_WakeUp</li>
-            <li MayRequire="ludeon.rimworld.biotech">MoveSpeed_VeryQuick</li>
-            <li MayRequire="ludeon.rimworld.biotech">Hair_Grayless</li>
-            <li MayRequire="ludeon.rimworld.biotech">PsychicAbility_Enhanced</li>
-            <li MayRequire="ludeon.rimworld.biotech">Deathless</li>
+            <li >TotalHealing</li>
+            <li >PerfectImmunity</li>
+            <li >DiseaseFree</li>
+            <li >Ageless</li>
+            <li >ToxResist_Total</li>
+            <li >ToxicEnvironmentResistance_Total</li>
+            <li >FireResistant</li>
+            <li >DarkVision</li>
+            <li >Unstoppable</li>
+            <li >AddictionImmune_Alcohol</li>
+            <li >AddictionImmune_Smokeleaf</li>
+            <li >AddictionImmune_Psychite</li>
+            <li >AddictionImmune_GoJuice</li>
+            <li >AddictionImmune_WakeUp</li>
+            <li >MoveSpeed_VeryQuick</li>
+            <li >Hair_Grayless</li>
+            <li >PsychicAbility_Enhanced</li>
+            <li >Deathless</li>
         </endogenes>
     </genes>
     <hediffs>

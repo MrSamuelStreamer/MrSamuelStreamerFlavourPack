@@ -190,8 +190,8 @@
         <endogenes>
             <li MayRequire="tolgrim.rimzonezero.ellenjoe">Thiren_SharkTail</li>
             <li MayRequire="tolgrim.rimzonezero.ellenjoe">Thiren_SharkBite</li>
-            <li MayRequire="ludeon.rimworld.biotech">MinTemp_SmallDecrease</li>
-            <li MayRequire="ludeon.rimworld.biotech">Sleepy</li>
+            <li >MinTemp_SmallDecrease</li>
+            <li >Sleepy</li>
             <li>Skin_Melanin4</li>
             <li>Hair_DarkBlack</li>
             <li MayRequire="neronix17.outland.genetics">Outland_FireImmune</li>
@@ -200,7 +200,7 @@
         </endogenes>
     </genes>
     <hediffs>
-        <li MayRequire="ludeon.rimworld.biotech">
+        <li >
             <def>MechlinkImplant</def>
             <severity>0.50</severity>
             <bodyPart>Brain</bodyPart>

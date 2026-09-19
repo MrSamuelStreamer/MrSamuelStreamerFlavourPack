@@ -122,7 +122,7 @@
         <chronologicalAgeTicks>408143758</chronologicalAgeTicks>
     </age>
     <story>
-        <bodyType MayRequire="ludeon.rimworld.biotech">Child</bodyType>
+        <bodyType >Child</bodyType>
         <headType>MSS_LeaperHead</headType>
         <hairDef>Bald</hairDef>
         <hairColor>(0.980, 0.980, 0.980)</hairColor>
@@ -238,7 +238,7 @@
         </li>
     </skills>
     <genes>
-        <xenotype MayRequire="ludeon.rimworld.biotech">Baseliner</xenotype>
+        <xenotype >Baseliner</xenotype>
         <endogenes>
             <li MayRequire="redmattis.bigsmall.core">BS_Fast_TotalHealing</li>
             <li MayRequire="mss.flavourpack">MSS_VoidsEmbrace</li>
@@ -250,16 +250,16 @@
             <li MayRequire="stocksounds.anomalygenes">ReeseGenes_Terror</li>
             <li MayRequire="sarg.alphagenes">AG_TarBlood</li>
             <li MayRequire="sarg.alphagenes">AG_EfficientMandibles</li>
-            <li MayRequire="ludeon.rimworld.biotech">MoveSpeed_Quick</li>
+            <li >MoveSpeed_Quick</li>
             <li MayRequire="redmattis.bigsmall.core">BS_NoEquip</li>
             <li MayRequire="redmattis.bigsmall.core">BS_Bloodlust</li>
-            <li MayRequire="ludeon.rimworld.biotech">MeleeDamage_Strong</li>
+            <li >MeleeDamage_Strong</li>
             <li MayRequire="ebsg.aio">EBSG_VoidBorn</li>
             <li MayRequire="milkman.biotechcosmeticgenesmm">MM_GreatSplitHalo</li>
             <li MayRequire="sarg.alphagenes">AG_EldritchVisage</li>
             <li MayRequire="ebsg.aio">EBSG_HyperTerrifying</li>
-            <li MayRequire="ludeon.rimworld.biotech">Hair_BaldOnly</li>
-            <li MayRequire="ludeon.rimworld.biotech">Beard_NoBeardOnly</li>
+            <li >Hair_BaldOnly</li>
+            <li >Beard_NoBeardOnly</li>
             <li MayRequire="sarg.alphagenes">MSS_LeaperTongue</li>
             <li MayRequire="sarg.alphagenes">MSS_LeaperHead</li>
             <li MayRequire="sarg.alphagenes">MSS_LeaperBody</li>
@@ -275,9 +275,9 @@
             <li MayRequire="morebiotechstylegenes.mod">AptitudeInept_Intellectual</li>
             <li MayRequire="hautarche.hautstraits">HVT_HerculeanGene</li>
             <li MayRequire="redmattis.betterprerequisites">BS_FacialAnimDisabled</li>
-            <li MayRequire="ludeon.rimworld.biotech">Body_Thin</li>
+            <li >Body_Thin</li>
             <li MayRequire="void.charactereditor">SZBodySize_20</li>
-            <li MayRequire="ludeon.rimworld.biotech">Body_Standard</li>
+            <li >Body_Standard</li>
         </endogenes>
     </genes>
     <hediffs>

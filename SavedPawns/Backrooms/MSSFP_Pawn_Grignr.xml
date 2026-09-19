@@ -184,30 +184,30 @@
             <li MayRequire="sarg.alphagenes">AG_HardBones</li>
             <li MayRequire="sarg.alphagenes">AG_Filthy</li>
             <li MayRequire="turnovus.biotech.integratedgenes">Turn_Gene_SlowNeuralHeat</li>
-            <li MayRequire="ludeon.rimworld.biotech">Aggression_Aggressive</li>
-            <li MayRequire="ludeon.rimworld.biotech">Body_Hulk</li>
+            <li >Aggression_Aggressive</li>
+            <li >Body_Hulk</li>
             <li>Hair_SandyBlonde</li>
-            <li MayRequire="ludeon.rimworld.biotech">Learning_Slow</li>
-            <li MayRequire="ludeon.rimworld.biotech">MaxTemp_LargeIncrease</li>
-            <li MayRequire="ludeon.rimworld.biotech">MeleeDamage_Strong</li>
-            <li MayRequire="ludeon.rimworld.biotech">MinTemp_LargeDecrease</li>
-            <li MayRequire="ludeon.rimworld.biotech">NakedSpeed</li>
-            <li MayRequire="ludeon.rimworld.biotech">Nearsighted</li>
-            <li MayRequire="ludeon.rimworld.biotech">Robust</li>
-            <li MayRequire="ludeon.rimworld.biotech">Unstoppable</li>
-            <li MayRequire="ludeon.rimworld.biotech">WoundHealing_Fast</li>
+            <li >Learning_Slow</li>
+            <li >MaxTemp_LargeIncrease</li>
+            <li >MeleeDamage_Strong</li>
+            <li >MinTemp_LargeDecrease</li>
+            <li >NakedSpeed</li>
+            <li >Nearsighted</li>
+            <li >Robust</li>
+            <li >Unstoppable</li>
+            <li >WoundHealing_Fast</li>
             <li MayRequire="sarg.alphagenes">AlphaGenes_AnimalSumMajor_Bear_Polar</li>
-            <li MayRequire="ludeon.rimworld.biotech">AptitudeTerrible_Shooting</li>
-            <li MayRequire="ludeon.rimworld.biotech">AptitudeTerrible_Crafting</li>
-            <li MayRequire="ludeon.rimworld.biotech">AptitudeTerrible_Artistic</li>
-            <li MayRequire="ludeon.rimworld.biotech">AptitudeTerrible_Medicine</li>
-            <li MayRequire="ludeon.rimworld.biotech">AptitudeTerrible_Intellectual</li>
-            <li MayRequire="ludeon.rimworld.biotech">ChemicalDependency_Alcohol</li>
+            <li >AptitudeTerrible_Shooting</li>
+            <li >AptitudeTerrible_Crafting</li>
+            <li >AptitudeTerrible_Artistic</li>
+            <li >AptitudeTerrible_Medicine</li>
+            <li >AptitudeTerrible_Intellectual</li>
+            <li >ChemicalDependency_Alcohol</li>
             <li>Skin_Melanin2</li>
         </endogenes>
     </genes>
     <hediffs>
-        <li MayRequire="ludeon.rimworld.biotech">
+        <li >
             <def>MechlinkImplant</def>
             <severity>0.50</severity>
             <bodyPart>Brain</bodyPart>

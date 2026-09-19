@@ -4,267 +4,267 @@
         <defName>MSSFP_GoodGenes</defName>
         <type>good</type>
         <genes>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>FireSpew</gene>
                 <weight>0.1</weight>
                 <geneClassification>ability</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>FoamSpray</gene>
                 <weight>0.1</weight>
                 <geneClassification>ability</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>LongjumpLegs</gene>
                 <weight>0.1</weight>
                 <geneClassification>ability</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>AnimalWarcall</gene>
                 <weight>0.1</weight>
                 <geneClassification>ability</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Bloodfeeder</gene>
                 <weight>0.1</weight>
                 <geneClassification>ability</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Coagulate</gene>
                 <weight>0.1</weight>
                 <geneClassification>ability</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>XenogermReimplanter</gene>
                 <weight>0.1</weight>
                 <geneClassification>ability</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>PiercingSpine</gene>
                 <weight>0.1</weight>
                 <geneClassification>ability</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>AcidSpray</gene>
                 <weight>0.1</weight>
                 <geneClassification>ability</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>WoundHealing_Fast</gene>
                 <weight>0.1</weight>
                 <geneClassification>health</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>WoundHealing_SuperFast</gene>
                 <weight>0.05</weight>
                 <geneClassification>health</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Immunity_Strong</gene>
                 <weight>0.1</weight>
                 <geneClassification>health</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Immunity_SuperStrong</gene>
                 <weight>0.05</weight>
                 <geneClassification>health</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>ToxicEnvironmentResistance_Partial</gene>
                 <weight>0.2</weight>
                 <geneClassification>health</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>ToxicEnvironmentResistance_Total</gene>
                 <weight>0.1</weight>
                 <geneClassification>health</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Fertile</gene>
                 <weight>0.2</weight>
                 <geneClassification>health</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Superclotting</gene>
                 <weight>0.1</weight>
                 <geneClassification>health</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>KindInstinct</gene>
                 <weight>0.5</weight>
                 <geneClassification>mental</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>StrongStomach</gene>
                 <weight>0.2</weight>
                 <geneClassification>health</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>DarkVision</gene>
                 <weight>0.2</weight>
                 <geneClassification>ability</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>FireResistant</gene>
                 <weight>0.2</weight>
                 <geneClassification>ability</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>RobustDigestion</gene>
                 <weight>0.5</weight>
                 <geneClassification>health</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>PsychicBonding</gene>
                 <weight>0.1</weight>
                 <geneClassification>mental</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>PollutionRush</gene>
                 <weight>0.1</weight>
                 <geneClassification>ability</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Unstoppable</gene>
                 <weight>0.1</weight>
                 <geneClassification>ability</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>PerfectImmunity</gene>
                 <weight>0.1</weight>
                 <geneClassification>health</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>DiseaseFree</gene>
                 <weight>0.1</weight>
                 <geneClassification>health</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>TotalHealing</gene>
                 <weight>0.05</weight>
                 <geneClassification>health</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Ageless</gene>
                 <weight>0.05</weight>
                 <geneClassification>health</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Deathless</gene>
                 <weight>0.05</weight>
                 <geneClassification>health</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>ArchiteMetabolism</gene>
                 <weight>0.05</weight>
                 <geneClassification>health</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>MinTemp_SmallDecrease</gene>
                 <weight>0.5</weight>
                 <geneClassification>health</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>MinTemp_LargeDecrease</gene>
                 <weight>0.1</weight>
                 <geneClassification>health</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>MaxTemp_LargeIncrease</gene>
                 <weight>0.1</weight>
                 <geneClassification>health</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>MaxTemp_SmallIncrease</gene>
                 <weight>0.5</weight>
                 <geneClassification>health</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>PsychicAbility_Enhanced</gene>
                 <weight>0.5</weight>
                 <geneClassification>psychic</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>PsychicAbility_Extreme</gene>
                 <weight>0.1</weight>
                 <geneClassification>psychic</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>MoveSpeed_Quick</gene>
                 <weight>0.5</weight>
                 <geneClassification>skill</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>MoveSpeed_VeryQuick</gene>
                 <weight>0.1</weight>
                 <geneClassification>skill</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Beauty_Pretty</gene>
                 <weight>0.1</weight>
                 <geneClassification>cosmetic</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Beauty_Beautiful</gene>
                 <weight>0.5</weight>
                 <geneClassification>cosmetic</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Learning_Fast</gene>
                 <weight>0.5</weight>
                 <geneClassification>skill</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Mood_Optimist</gene>
                 <weight>0.5</weight>
                 <geneClassification>mental</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Mood_Sanguine</gene>
                 <weight>0.1</weight>
                 <geneClassification>mental</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>ToxResist_Partial</gene>
                 <weight>0.5</weight>
                 <geneClassification>health</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>ToxResist_Total</gene>
                 <weight>0.1</weight>
                 <geneClassification>health</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Robust</gene>
                 <weight>0.5</weight>
                 <geneClassification>health</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Pain_Reduced</gene>
                 <weight>0.2</weight>
                 <geneClassification>health</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Aggression_DeadCalm</gene>
                 <weight>0.2</weight>
                 <geneClassification>mental</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>LowSleep</gene>
                 <weight>0.5</weight>
                 <geneClassification>mental</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Neversleep</gene>
                 <weight>0.1</weight>
                 <geneClassification>mental</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>MeleeDamage_Strong</gene>
                 <weight>0.2</weight>
                 <geneClassification>skill</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Libido_High</gene>
                 <weight>0.5</weight>
                 <geneClassification>health</geneClassification>
@@ -1098,172 +1098,172 @@
                 <weight>0.05</weight>
                 <geneClassification />
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>AptitudeStrong_Shooting</gene>
                 <weight>0.05</weight>
                 <geneClassification />
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>AptitudeStrong_Melee</gene>
                 <weight>0.05</weight>
                 <geneClassification />
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>AptitudeStrong_Construction</gene>
                 <weight>0.05</weight>
                 <geneClassification />
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>AptitudeStrong_Mining</gene>
                 <weight>0.05</weight>
                 <geneClassification />
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>AptitudeStrong_Cooking</gene>
                 <weight>0.05</weight>
                 <geneClassification />
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>AptitudeStrong_Plants</gene>
                 <weight>0.05</weight>
                 <geneClassification />
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>AptitudeStrong_Animals</gene>
                 <weight>0.05</weight>
                 <geneClassification />
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>AptitudeStrong_Crafting</gene>
                 <weight>0.05</weight>
                 <geneClassification />
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>AptitudeStrong_Artistic</gene>
                 <weight>0.05</weight>
                 <geneClassification />
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>AptitudeStrong_Medicine</gene>
                 <weight>0.05</weight>
                 <geneClassification />
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>AptitudeStrong_Social</gene>
                 <weight>0.05</weight>
                 <geneClassification />
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>AptitudeStrong_Intellectual</gene>
                 <weight>0.05</weight>
                 <geneClassification />
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>AptitudeRemarkable_Shooting</gene>
                 <weight>0.025</weight>
                 <geneClassification />
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>AptitudeRemarkable_Melee</gene>
                 <weight>0.025</weight>
                 <geneClassification />
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>AptitudeRemarkable_Construction</gene>
                 <weight>0.025</weight>
                 <geneClassification />
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>AptitudeRemarkable_Mining</gene>
                 <weight>0.025</weight>
                 <geneClassification />
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>AptitudeRemarkable_Cooking</gene>
                 <weight>0.025</weight>
                 <geneClassification />
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>AptitudeRemarkable_Plants</gene>
                 <weight>0.025</weight>
                 <geneClassification />
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>AptitudeRemarkable_Animals</gene>
                 <weight>0.025</weight>
                 <geneClassification />
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>AptitudeRemarkable_Crafting</gene>
                 <weight>0.025</weight>
                 <geneClassification />
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>AptitudeRemarkable_Artistic</gene>
                 <weight>0.025</weight>
                 <geneClassification />
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>AptitudeRemarkable_Medicine</gene>
                 <weight>0.025</weight>
                 <geneClassification />
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>AptitudeRemarkable_Social</gene>
                 <weight>0.025</weight>
                 <geneClassification />
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>AptitudeRemarkable_Intellectual</gene>
                 <weight>0.025</weight>
                 <geneClassification />
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>AddictionResistant_Alcohol</gene>
                 <weight>0.0025</weight>
                 <geneClassification />
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>AddictionResistant_GoJuice</gene>
                 <weight>0.0025</weight>
                 <geneClassification />
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>AddictionResistant_Psychite</gene>
                 <weight>0.0025</weight>
                 <geneClassification />
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>AddictionResistant_Smokeleaf</gene>
                 <weight>0.0025</weight>
                 <geneClassification />
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>AddictionResistant_WakeUp</gene>
                 <weight>0.0025</weight>
                 <geneClassification />
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>AddictionImmune_Alcohol</gene>
                 <weight>0.0001</weight>
                 <geneClassification />
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>AddictionImmune_GoJuice</gene>
                 <weight>0.0001</weight>
                 <geneClassification />
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>AddictionImmune_Psychite</gene>
                 <weight>0.0001</weight>
                 <geneClassification />
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>AddictionImmune_Smokeleaf</gene>
                 <weight>0.0001</weight>
                 <geneClassification />
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>AddictionImmune_WakeUp</gene>
                 <weight>0.0001</weight>
                 <geneClassification />
@@ -1349,167 +1349,167 @@
         <defName>MSSFP_BadGenes</defName>
         <type>bad</type>
         <genes>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>MSSFP_Illiterate</gene>
                 <weight>0.2</weight>
                 <geneClassification>mental</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>WoundHealing_Slow</gene>
                 <weight>0.2</weight>
                 <geneClassification>health</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Immunity_Weak</gene>
                 <weight>0.3</weight>
                 <geneClassification>health</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Sterile</gene>
                 <weight>0.4</weight>
                 <geneClassification>health</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>ViolenceDisabled</gene>
                 <weight>0.3</weight>
                 <geneClassification>mental</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Nearsighted</gene>
                 <weight>0.5</weight>
                 <geneClassification>health</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>KillThirst</gene>
                 <weight>0.2</weight>
                 <geneClassification>ability</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Inbred</gene>
                 <weight>0.5</weight>
                 <geneClassification>health</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Instability_Mild</gene>
                 <weight>0.5</weight>
                 <geneClassification>health</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Instability_Major</gene>
                 <weight>0.3</weight>
                 <geneClassification>health</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>NakedSpeed</gene>
                 <weight>0.5</weight>
                 <geneClassification>ability</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>FireWeakness</gene>
                 <weight>0.5</weight>
                 <geneClassification>mental</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>FireTerror</gene>
                 <weight>0.25</weight>
                 <geneClassification>mental</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>MinTemp_SmallIncrease</gene>
                 <weight>0.5</weight>
                 <geneClassification>health</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>MaxTemp_SmallDecrease</gene>
                 <weight>0.5</weight>
                 <geneClassification>health</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>PsychicAbility_Deaf</gene>
                 <weight>0.1</weight>
                 <geneClassification>psychic</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>PsychicAbility_Dull</gene>
                 <weight>0.5</weight>
                 <geneClassification>psychic</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>MoveSpeed_Slow</gene>
                 <weight>0.5</weight>
                 <geneClassification>skill</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Beauty_VeryUgly</gene>
                 <weight>0.2</weight>
                 <geneClassification>cosmetic</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Beauty_Ugly</gene>
                 <weight>0.1</weight>
                 <geneClassification>cosmetic</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Learning_Slow</gene>
                 <weight>0.5</weight>
                 <geneClassification>skill</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Mood_Depressive</gene>
                 <weight>0.5</weight>
                 <geneClassification>mental</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Mood_Pessimist</gene>
                 <weight>0.5</weight>
                 <geneClassification>mental</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Delicate</gene>
                 <weight>0.5</weight>
                 <geneClassification>health</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Pain_Extra</gene>
                 <weight>0.2</weight>
                 <geneClassification>health</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Aggression_Aggressive</gene>
                 <weight>0.5</weight>
                 <geneClassification>mental</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Aggression_HyperAggressive</gene>
                 <weight>0.2</weight>
                 <geneClassification>mental</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>VerySleepy</gene>
                 <weight>0.2</weight>
                 <geneClassification>mental</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Sleepy</gene>
                 <weight>0.5</weight>
                 <geneClassification>mental</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>MeleeDamage_Weak</gene>
                 <weight>0.5</weight>
                 <geneClassification>skill</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>UVSensitivity_Mild</gene>
                 <weight>0.5</weight>
                 <geneClassification>health</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>UVSensitivity_Intense</gene>
                 <weight>0.2</weight>
                 <geneClassification>health</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Libido_Low</gene>
                 <weight>0.5</weight>
                 <geneClassification>health</geneClassification>
@@ -1796,147 +1796,147 @@
                 <weight>0.01</weight>
                 <geneClassification />
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>AptitudeTerrible_Shooting</gene>
                 <weight>0.005</weight>
                 <geneClassification />
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>AptitudeTerrible_Melee</gene>
                 <weight>0.005</weight>
                 <geneClassification />
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>AptitudeTerrible_Construction</gene>
                 <weight>0.005</weight>
                 <geneClassification />
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>AptitudeTerrible_Mining</gene>
                 <weight>0.005</weight>
                 <geneClassification />
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>AptitudeTerrible_Cooking</gene>
                 <weight>0.005</weight>
                 <geneClassification />
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>AptitudeTerrible_Plants</gene>
                 <weight>0.005</weight>
                 <geneClassification />
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>AptitudeTerrible_Animals</gene>
                 <weight>0.005</weight>
                 <geneClassification />
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>AptitudeTerrible_Crafting</gene>
                 <weight>0.005</weight>
                 <geneClassification />
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>AptitudeTerrible_Artistic</gene>
                 <weight>0.005</weight>
                 <geneClassification />
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>AptitudeTerrible_Medicine</gene>
                 <weight>0.005</weight>
                 <geneClassification />
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>AptitudeTerrible_Social</gene>
                 <weight>0.005</weight>
                 <geneClassification />
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>AptitudeTerrible_Intellectual</gene>
                 <weight>0.005</weight>
                 <geneClassification />
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>AptitudePoor_Shooting</gene>
                 <weight>0.01</weight>
                 <geneClassification />
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>AptitudePoor_Melee</gene>
                 <weight>0.01</weight>
                 <geneClassification />
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>AptitudePoor_Construction</gene>
                 <weight>0.01</weight>
                 <geneClassification />
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>AptitudePoor_Mining</gene>
                 <weight>0.01</weight>
                 <geneClassification />
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>AptitudePoor_Cooking</gene>
                 <weight>0.01</weight>
                 <geneClassification />
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>AptitudePoor_Plants</gene>
                 <weight>0.01</weight>
                 <geneClassification />
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>AptitudePoor_Animals</gene>
                 <weight>0.01</weight>
                 <geneClassification />
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>AptitudePoor_Crafting</gene>
                 <weight>0.01</weight>
                 <geneClassification />
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>AptitudePoor_Artistic</gene>
                 <weight>0.01</weight>
                 <geneClassification />
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>AptitudePoor_Medicine</gene>
                 <weight>0.01</weight>
                 <geneClassification />
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>AptitudePoor_Social</gene>
                 <weight>0.01</weight>
                 <geneClassification />
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>AptitudePoor_Intellectual</gene>
                 <weight>0.01</weight>
                 <geneClassification />
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>ChemicalDependency_Alcohol</gene>
                 <weight>0.005</weight>
                 <geneClassification />
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>ChemicalDependency_GoJuice</gene>
                 <weight>0.001</weight>
                 <geneClassification />
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>ChemicalDependency_Psychite</gene>
                 <weight>0.005</weight>
                 <geneClassification />
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>ChemicalDependency_Smokeleaf</gene>
                 <weight>0.005</weight>
                 <geneClassification />
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>ChemicalDependency_WakeUp</gene>
                 <weight>0.001</weight>
                 <geneClassification />
@@ -2082,262 +2082,262 @@
                 <weight>0.5</weight>
                 <geneClassification>cosmetic</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Hair_BaldOnly</gene>
                 <weight>0.5</weight>
                 <geneClassification>cosmetic</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Hair_ShortOnly</gene>
                 <weight>0.5</weight>
                 <geneClassification>cosmetic</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Hair_LongOnly</gene>
                 <weight>0.5</weight>
                 <geneClassification>cosmetic</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Hair_Grayless</gene>
                 <weight>0.5</weight>
                 <geneClassification>cosmetic</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Beard_BushyOnly</gene>
                 <weight>0.5</weight>
                 <geneClassification>cosmetic</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Beard_NoBeardOnly</gene>
                 <weight>0.5</weight>
                 <geneClassification>cosmetic</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Beard_Always</gene>
                 <weight>0.5</weight>
                 <geneClassification>cosmetic</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Skin_InkBlack</gene>
                 <weight>0.5</weight>
                 <geneClassification>cosmetic</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Skin_SlateGray</gene>
                 <weight>0.5</weight>
                 <geneClassification>cosmetic</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Skin_LightGray</gene>
                 <weight>0.5</weight>
                 <geneClassification>cosmetic</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Skin_SheerWhite</gene>
                 <weight>0.5</weight>
                 <geneClassification>cosmetic</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Skin_Blue</gene>
                 <weight>0.5</weight>
                 <geneClassification>cosmetic</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Skin_Purple</gene>
                 <weight>0.5</weight>
                 <geneClassification>cosmetic</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Skin_PaleRed</gene>
                 <weight>0.5</weight>
                 <geneClassification>cosmetic</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Skin_DeepRed</gene>
                 <weight>0.5</weight>
                 <geneClassification>cosmetic</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Skin_PaleYellow</gene>
                 <weight>0.5</weight>
                 <geneClassification>cosmetic</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Skin_DeepYellow</gene>
                 <weight>0.5</weight>
                 <geneClassification>cosmetic</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Skin_Orange</gene>
                 <weight>0.5</weight>
                 <geneClassification>cosmetic</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Skin_Green</gene>
                 <weight>0.5</weight>
                 <geneClassification>cosmetic</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Furskin</gene>
                 <weight>0.5</weight>
                 <geneClassification>cosmetic</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Eyes_Red</gene>
                 <weight>0.5</weight>
                 <geneClassification>cosmetic</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Eyes_Gray</gene>
                 <weight>0.5</weight>
                 <geneClassification>cosmetic</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Brow_Heavy</gene>
                 <weight>0.5</weight>
                 <geneClassification>cosmetic</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Tail_Furry</gene>
                 <weight>0.5</weight>
                 <geneClassification>cosmetic</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Tail_Smooth</gene>
                 <weight>0.5</weight>
                 <geneClassification>cosmetic</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>FacialRidges</gene>
                 <weight>0.5</weight>
                 <geneClassification>cosmetic</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Body_Fat</gene>
                 <weight>0.5</weight>
                 <geneClassification>cosmetic</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Body_Thin</gene>
                 <weight>0.5</weight>
                 <geneClassification>cosmetic</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Body_Hulk</gene>
                 <weight>0.5</weight>
                 <geneClassification>cosmetic</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Body_Standard</gene>
                 <weight>0.5</weight>
                 <geneClassification>cosmetic</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Ears_Human</gene>
                 <weight>0.5</weight>
                 <geneClassification>cosmetic</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Ears_Pig</gene>
                 <weight>0.5</weight>
                 <geneClassification>cosmetic</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Ears_Floppy</gene>
                 <weight>0.5</weight>
                 <geneClassification>cosmetic</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Ears_Cat</gene>
                 <weight>0.5</weight>
                 <geneClassification>cosmetic</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Ears_Pointed</gene>
                 <weight>0.5</weight>
                 <geneClassification>cosmetic</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Nose_Human</gene>
                 <weight>0.5</weight>
                 <geneClassification>cosmetic</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Nose_Pig</gene>
                 <weight>0.5</weight>
                 <geneClassification>cosmetic</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Jaw_Baseline</gene>
                 <weight>0.5</weight>
                 <geneClassification>cosmetic</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Jaw_Heavy</gene>
                 <weight>0.5</weight>
                 <geneClassification>cosmetic</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Head_Gaunt</gene>
                 <weight>0.5</weight>
                 <geneClassification>cosmetic</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Hands_Human</gene>
                 <weight>0.5</weight>
                 <geneClassification>cosmetic</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Hands_Pig</gene>
                 <weight>0.5</weight>
                 <geneClassification>cosmetic</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>ElongatedFingers</gene>
                 <weight>0.5</weight>
                 <geneClassification>skill</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Headbone_Human</gene>
                 <weight>0.5</weight>
                 <geneClassification>cosmetic</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Headbone_MiniHorns</gene>
                 <weight>0.5</weight>
                 <geneClassification>cosmetic</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Headbone_CenterHorn</gene>
                 <weight>0.5</weight>
                 <geneClassification>cosmetic</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Voice_Human</gene>
                 <weight>0.5</weight>
                 <geneClassification>cosmetic</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>VoicePig</gene>
                 <weight>0.5</weight>
                 <geneClassification>cosmetic</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>VoiceRoar</gene>
                 <weight>0.5</weight>
                 <geneClassification>cosmetic</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Hemogenic</gene>
                 <weight>0.3</weight>
                 <geneClassification>ability</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>HemogenDrain</gene>
                 <weight>0.3</weight>
                 <geneClassification>ability</geneClassification>
             </li>
-            <li MayRequire="ludeon.rimworld.biotech">
+            <li >
                 <gene>Deathrest</gene>
                 <weight>0.1</weight>
                 <geneClassification>health</geneClassification>

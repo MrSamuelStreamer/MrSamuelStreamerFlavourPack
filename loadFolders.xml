@@ -23,5 +23,6 @@
         <li IfModActive="maux36.rimbody">Compatibility/Maux36.Rimbody/1.6</li>
         <li IfModActive="Mlie.GraffitiMod">Compatibility/Mlie.GraffitiMod/1.6</li>
         <li IfModActive="VanillaExpanded.VMemesE,vanillaexpanded.vmemese">Compatibility/VanillaExpanded.VMemesE/1.6</li>
+        <li IfModActive="Ludeon.RimWorld.Biotech">Compatibility/Ludeon.RimWorld.Biotech/1.6</li>
     </v1.6>
 </loadFolders>

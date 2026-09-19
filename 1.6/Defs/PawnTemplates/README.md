@@ -111,7 +111,7 @@ Every file in this directory is loaded as standard RimWorld Defs. The root eleme
 Any Def-typed XML field or list entry can use the `MayRequire` attribute to gracefully degrade when a mod is absent:
 
 ```xml
-<xenotype MayRequire="Ludeon.RimWorld.Biotech">Baseliner</xenotype>
+<xenotype >Baseliner</xenotype>
 <li MayRequire="ludeon.rimworld.anomaly">Leather_Dread</li>
 ```
 
