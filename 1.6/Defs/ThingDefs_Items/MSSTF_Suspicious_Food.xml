@@ -3,7 +3,7 @@
 
   <!-- Base stuff -->
   <ThingDef Name="MSS_MealLavish" ParentName="MealLavishBase" Abstract="True">
-    <description>A supposed masterpiece of the culinary arts, this meal purports to nourish the body, mind, and soul.\n\nContains a dose of particular substances to effect desired outcomes during clandestine operations.</description>
+    <description>A supposed masterpiece of the culinary arts, this meal purports to nourish the body, mind, and soul.\n\nContains a dose of particular substances, usually fatal, to effect desired outcomes during clandestine operations.</description>
     <graphicData>
       <texPath>Things/Item/Meal/Lavish</texPath>
       <graphicClass>Graphic_MealVariants</graphicClass>
@@ -19,7 +19,7 @@
   </ThingDef>
 
   <RecipeDef Name="MSS_CookSuspiciousLavishMeal" ParentName="CookMealLavishBase" Abstract="True">
-    <description>Cook a very complex meal from a combination of meat and plant ingredients, as well as a "mystery" ingredient. Much of the nutritional ingredients are wasted in order to create the best eating experience.\n\nBe careful not to accidentally eat this one.</description>
+    <description>Cook a very complex meal from a combination of meat and plant ingredients, as well as a "mystery" ingredient. Much of the nutritional ingredients are wasted in order to create the best eating experience.\n\nBe careful not to accidentally eat this one, as it has been designed to neutralise targets during clandestine operations.</description>
     <jobString>Cooking suspicious lavish meal.</jobString>
     <ingredientValueGetterClass>MSSFP.Recipes.IngredientValueGetter_Nutritionless</ingredientValueGetterClass>
     <recipeUsers>
@@ -52,19 +52,19 @@
   <!-- actual stuff -->
    <ThingDef ParentName="MSS_MealLavish">
     <defName>MSS_LavishMeal_HeartAttack</defName>
-    <label>lavish meal (Heart stimulant)</label>
+    <label>lavish meal (+Synthetic tachycardic agent)</label>
     <ingestible>
       <outcomeDoers>
         <li Class="IngestionOutcomeDoer_GiveHediff">
           <hediffDef>HeartAttack</hediffDef>
-          <severity>0.69</severity>
+          <severity>0.97</severity>
         </li>
       </outcomeDoers>
     </ingestible>
   </ThingDef>
   <ThingDef ParentName="MSS_MealLavish">
     <defName>MSS_LavishMeal_FoodPoisoning</defName>
-    <label>lavish meal (Poison)</label>
+    <label>lavish meal (+Bio-purging agent)</label>
     <ingestible>
       <outcomeDoers>
         <li Class="IngestionOutcomeDoer_GiveHediff">
@@ -76,12 +76,12 @@
   </ThingDef>
   <ThingDef ParentName="MSS_MealLavish">
     <defName>MSS_LavishMeal_Toxic</defName>
-    <label>lavish meal (Toxic)</label>
+    <label>lavish meal (+Saturating cytocorrosive agent)</label>
     <ingestible>
       <outcomeDoers>
         <li Class="IngestionOutcomeDoer_GiveHediff">
           <hediffDef>ToxicBuildup</hediffDef>
-          <severity>0.99</severity>
+          <severity>1</severity>
         </li>
       </outcomeDoers>
     </ingestible>
@@ -89,15 +89,15 @@
 
   <RecipeDef ParentName="MSS_CookSuspiciousLavishMeal">
     <defName>MSS_CookSuspiciousLavishMeal_Heartattack</defName>
-    <label>cook lavish meal (Heart stimulant)</label>
+    <label>cook lavish meal (Heart attack)</label>
     <ingredients>
       <li>
         <filter>
           <thingDefs>
-            <li>Silver</li>
+            <li>WakeUp</li>
           </thingDefs>
         </filter>
-        <count>0.5</count>
+        <count>2</count>
       </li>
     </ingredients>
     <products>
@@ -106,15 +106,15 @@
   </RecipeDef>
   <RecipeDef ParentName="MSS_CookSuspiciousLavishMeal">
     <defName>MSS_CookSuspiciousLavishMeal_FoodPoisoning</defName>
-    <label>cook lavish meal (Poison)</label>
+    <label>cook lavish meal (Food poisoning)</label>
     <ingredients>
       <li>
         <filter>
           <thingDefs>
-            <li>WoodLog</li>
+            <li>InsectJelly</li>
           </thingDefs>
         </filter>
-        <count>1</count>
+        <count>2</count>
       </li>
     </ingredients>
     <products>
@@ -123,15 +123,16 @@
   </RecipeDef>
   <RecipeDef ParentName="MSS_CookSuspiciousLavishMeal">
     <defName>MSS_CookSuspiciousLavishMeal_Toxic</defName>
-    <label>cook lavish meal (Toxic)</label>
+    <description>Cook a very complex meal from a combination of meat and plant ingredients, as well as a "mystery" ingredient. Much of the nutritional ingredients are wasted in order to create the best eating experience.\n\nBe careful not to accidentally eat this one, as it has been designed to neutralise targets during clandestine operations.\n\nThe toxicity of our city has been considered during clinical design.</description>
+    <label>cook lavish meal (Toxicity)</label>
     <ingredients>
       <li>
         <filter>
           <thingDefs>
-            <li>Steel</li>
+            <li>Wastepack</li>
           </thingDefs>
         </filter>
-        <count>1</count>
+        <count>3</count>
       </li>
     </ingredients>
     <products>
