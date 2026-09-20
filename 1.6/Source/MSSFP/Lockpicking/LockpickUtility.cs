@@ -9,7 +9,7 @@ namespace MSSFP.Lockpicking;
 /// </summary>
 public static class LockpickUtility
 {
-    /// <summary>Work duration at 100% Manipulation (8 seconds).</summary>
+    /// <summary>Work duration at 100% Manipulation and 0 Crafting (8 seconds).</summary>
     public const int BaseWorkTicks = 480;
 
     /// <summary>Floor so missing fingers slow the job instead of stalling it.</summary>
@@ -52,7 +52,7 @@ public static class LockpickUtility
     public const int MinigameTumblers = 3;
     public const int MinigameTries = 3;
     public const float MinigameZoneMin = 0.10f;
-    public const float MinigameZoneMax = 0.26f;
+    public const float MinigameZoneMax = 0.35f;
     public const float MinigameNeedleSpeed = 1.15f;
     public const float MinigameSpeedPerTumbler = 1.08f;
     public const float MinigameWinCraftingXp = 200f;
@@ -64,9 +64,15 @@ public static class LockpickUtility
         return Mathf.Clamp01(manip);
     }
 
+    public static float CraftingSkillFactor(Pawn pawn)
+    {
+        float level = pawn?.skills?.GetSkill(SkillDefOf.Crafting)?.Level ?? 0f;
+        return Mathf.Clamp01(level / 20f);
+    }
+
     public static float MinigameZoneWidth(Pawn pawn)
     {
-        return Mathf.Lerp(MinigameZoneMin, MinigameZoneMax, ManipulationLevel(pawn));
+        return Mathf.Lerp(MinigameZoneMin, MinigameZoneMax, CraftingSkillFactor(pawn));
     }
 
     public static void RandomizeZone(float width, out float start)
@@ -95,7 +101,8 @@ public static class LockpickUtility
         float manip =
             pawn?.health?.capacities?.GetLevel(PawnCapacityDefOf.Manipulation) ?? 1f;
         manip = Mathf.Max(manip, MinManipulation);
-        return Mathf.Max(60, Mathf.RoundToInt(BaseWorkTicks / manip));
+        float skillMul = 1f + CraftingSkillFactor(pawn);
+        return Mathf.Max(60, Mathf.RoundToInt(BaseWorkTicks / (manip * skillMul)));
     }
 
     public static void ApplySuccess(Pawn pawn, Building_Door door)
