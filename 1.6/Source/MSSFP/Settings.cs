@@ -16,7 +16,7 @@ public class Settings : ModSettings
     public bool ShowHaunts = false;
     public bool EnableSkylanternRaids = false;
     public bool EnableIEDPodRaids = true;
-    public int IEDLifespanDays = 45;
+    public int IEDLifespanDays = 25;
     public float IEDDecayDetonateChance = 0.3f;
     public bool DrawByMrStreamer = false;
     public bool EnableViewerStructures = true;

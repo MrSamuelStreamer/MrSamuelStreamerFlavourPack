@@ -23,6 +23,11 @@ public class IncidentWorker_IEDPodRaid : IncidentWorker
     private const int MinTrapsPerPod = 4;
     private const int MaxTrapsPerPodExclusive = 9; // Rand.Range upper bound is exclusive for ints
 
+    // Hard ceiling on traps for one raid. pods scales linearly with threat points
+    // and points are unbounded late-game (rich colony on high difficulty reaches
+    // 10k+), so without this a single raid could field 1000+ traps.
+    private const int MaxTrapsPerRaid = 300;
+
     private const int MinOpenDelayTicks = 60;
     private const int MaxOpenDelayTicksInclusive = 480;
 
@@ -57,8 +62,11 @@ public class IncidentWorker_IEDPodRaid : IncidentWorker
         int batchId = Find.UniqueIDsManager.GetNextThingID();
 
         int podsLanded = 0;
+        int trapBudget = MaxTrapsPerRaid;
         for (int i = 0; i < pods; i++)
         {
+            if (trapBudget <= 0) break;
+
             if (!TryFindAcceptableLandingCell(map, radius, out IntVec3 cell))
             {
                 continue;
@@ -68,7 +76,8 @@ public class IncidentWorker_IEDPodRaid : IncidentWorker
             if (trapDef == null) continue;
 
             Thing_IEDDeployer deployer = (Thing_IEDDeployer)ThingMaker.MakeThing(MSSFPDefOf.MSSFP_IEDPodDeployer);
-            deployer.trapCount = Rand.Range(MinTrapsPerPod, MaxTrapsPerPodExclusive);
+            deployer.trapCount = Mathf.Min(Rand.Range(MinTrapsPerPod, MaxTrapsPerPodExclusive), trapBudget);
+            trapBudget -= deployer.trapCount;
             deployer.radius = radius;
             deployer.trapDef = trapDef;
             deployer.trapFaction = hostile;
