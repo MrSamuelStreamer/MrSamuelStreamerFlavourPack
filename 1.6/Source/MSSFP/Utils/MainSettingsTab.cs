@@ -119,6 +119,13 @@ public class MainSettingsTab(ModSettings settings, Mod mod) : SettingsTab(settin
             scrollViewHeight += 24f + options.verticalSpacing;
         }
 
+        options.CheckboxLabeled(
+            "MSS_FP_Settings_EnableReversePickpocket".Translate(),
+            ref Settings.EnableReversePickpocket,
+            "MSS_FP_Settings_EnableReversePickpocket_Tooltip".Translate()
+        );
+        scrollViewHeight += 24f + options.verticalSpacing;
+
         if (ModsConfig.IsActive("VanillaExpanded.VMemesE"))
         {
             DrawSectionHeader(options, "MSS_FP_Settings_Section_Ideology".Translate(), ref scrollViewHeight);

@@ -17,6 +17,8 @@
     <MSS_FP_Settings_EnableLockpicking_Tooltip>When enabled, colonists can right-click a door owned by a hostile faction and lockpick it. The door stays enemy-owned, but player pawns can open it afterwards. Duration depends on Manipulation.</MSS_FP_Settings_EnableLockpicking_Tooltip>
     <MSS_FP_Settings_EnableLockpickingMinigame>Lockpicking minigame</MSS_FP_Settings_EnableLockpickingMinigame>
     <MSS_FP_Settings_EnableLockpickingMinigame_Tooltip>After the lockpick wait finishes, a timing minigame opens (click when the marker is in the green zone). Turn off to auto-succeed when the wait completes.</MSS_FP_Settings_EnableLockpickingMinigame_Tooltip>
+    <MSS_FP_Settings_EnableReversePickpocket>Enable reverse pick-pocket</MSS_FP_Settings_EnableReversePickpocket>
+    <MSS_FP_Settings_EnableReversePickpocket_Tooltip>When enabled, a drafted colonist with a grenade belt or a mortar shell can right-click a hostile pawn and slip the explosive onto them. It goes off after 5 seconds, or at once if the target dies. The colonist then runs clear of the blast.</MSS_FP_Settings_EnableReversePickpocket_Tooltip>
     <MSSFP_TimeSpeed_Half_Tooltip>Half speed (1/2 of Normal).</MSSFP_TimeSpeed_Half_Tooltip>
     <MSSFP_TimeSpeed_Quarter_Tooltip>Quarter speed (1/4 of Normal).</MSSFP_TimeSpeed_Quarter_Tooltip>
     <MSSFP_TimeSpeed_Eighth_Tooltip>Eighth speed (1/8 of Normal).</MSSFP_TimeSpeed_Eighth_Tooltip>

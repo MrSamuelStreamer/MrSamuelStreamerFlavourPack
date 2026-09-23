@@ -56,6 +56,7 @@ public class Settings : ModSettings
     public bool useMrStreamerMercenaries = false;
     public bool EnableLockpicking = true;
     public bool EnableLockpickingMinigame = true;
+    public bool EnableReversePickpocket = true;
     public bool EnableWanderDelayModification = false;
     public bool WanderDelayIncludeHumanoids = false;
     public int WanderDelayTicks = 0;
@@ -276,6 +277,7 @@ public class Settings : ModSettings
         // Save/load main settings directly to ensure they persist
         Scribe_Values.Look(ref EnableLockpicking, "EnableLockpicking", true);
         Scribe_Values.Look(ref EnableLockpickingMinigame, "EnableLockpickingMinigame", true);
+        Scribe_Values.Look(ref EnableReversePickpocket, "EnableReversePickpocket", true);
         Scribe_Values.Look(
             ref EnableWanderDelayModification,
             "EnableWanderDelayModification",

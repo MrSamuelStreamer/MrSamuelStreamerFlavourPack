@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LanguageData>
+    <MSSFP_ReversePickpocket>Reverse pick-pocket {0}</MSSFP_ReversePickpocket>
+    <MSSFP_ReversePickpocket_AGrenade>a grenade</MSSFP_ReversePickpocket_AGrenade>
+    <MSSFP_ReversePickpocket_Planted>{0} slipped a live explosive onto {1}. {2} seconds!</MSSFP_ReversePickpocket_Planted>
+</LanguageData>

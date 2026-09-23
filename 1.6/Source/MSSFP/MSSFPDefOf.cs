@@ -38,6 +38,9 @@ public static class MSSFPDefOf
 
     public static readonly JobDef MSSFP_LockpickDoor;
 
+    public static readonly JobDef MSSFP_ReversePickpocket;
+    public static readonly HediffDef MSSFP_ReversePickpocketFuse;
+
     public static readonly HediffDef Burn;
 
     public static readonly GeneDef MSS_VoidsEmbrace;

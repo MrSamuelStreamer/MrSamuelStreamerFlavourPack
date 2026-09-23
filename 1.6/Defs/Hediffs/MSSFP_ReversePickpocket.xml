@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <!-- Added by the reverse pick-pocket job. Hediff class holds the fuse and explosion source. -->
+    <HediffDef>
+        <defName>MSSFP_ReversePickpocketFuse</defName>
+        <label>planted explosive</label>
+        <description>Someone slipped a live explosive into this person's pocket. It is about to go off.</description>
+        <hediffClass>MSSFP.Hediffs.Hediff_ReversePickpocketFuse</hediffClass>
+        <defaultLabelColor>(1, 0.5, 0.1)</defaultLabelColor>
+        <isBad>true</isBad>
+        <makesSickThought>false</makesSickThought>
+        <tendable>false</tendable>
+        <everCurableByItem>false</everCurableByItem>
+        <scenarioCanAdd>false</scenarioCanAdd>
+    </HediffDef>
+</Defs>
