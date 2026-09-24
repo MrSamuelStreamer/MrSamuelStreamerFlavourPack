@@ -217,7 +217,7 @@ public class HediffComp_Haunt : HediffComp
                 sourcePawn.health.RemoveHediff(parent);
 
                 // Skill boosts applied via SkillRecord_Patch + HauntsCache — no
-                // direct mutation needed. Cache is rebuilt by CompPostMake/CompPostPostRemoved.
+                // direct mutation needed. Cache is rebuilt by CompPostPostAdd/CompPostPostRemoved.
             }
         }
     }
@@ -406,13 +406,13 @@ public class HediffComp_Haunt : HediffComp
     public override void CompPostMake()
     {
         base.CompPostMake();
-        HauntsCache.AddHaunt(Pawn.thingIDNumber, this);
+        // Cache registration happens in CompPostPostAdd, not here: if the pawn
+        // already has this hediff, AddDirect merges and discards the new instance
+        // without calling PostRemoved, which would leave a stale comp drawing forever.
         NextProxCheck =
             Find.TickManager.TicksGame
             + Props.ProximityTransferCheckTicks
             + Rand.Range(0, GenDate.TicksPerHour);
-
-        HauntsCache.RebuildCacheForPawn(Pawn);
     }
 
     public virtual void SetPawnToDraw(Pawn pawn)
@@ -524,6 +524,7 @@ public class HediffComp_Haunt : HediffComp
     public override void CompPostPostAdd(DamageInfo? dinfo)
     {
         base.CompPostPostAdd(dinfo);
+        HauntsCache.AddHaunt(Pawn.thingIDNumber, this);
         TryAddMemory();
         HauntsCache.RebuildCacheForPawn(Pawn);
     }
