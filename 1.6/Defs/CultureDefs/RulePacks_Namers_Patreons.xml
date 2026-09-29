@@ -6,11 +6,11 @@
     <defName>NamerPatreons</defName>
     <rulePack>
       <rulesStrings>
-        <li>r_name->[BuckoneerNames]</li>
+        <li>r_name->[PatreonNames]</li>
       </rulesStrings>
 	  <rulesFiles>
-		<li>BuckoneerNames->Names/BuckoneerNames</li> 
-		<!-- BuckoneerNames.txt should be the file you need to update and should-->
+		<li>PatreonNames->Names/PatreonNames</li> 
+		<!-- PatreonNames.txt should be the file you need to update and should-->
 		<!-- be located in the mod folder at "Languages/English/Strings/Names" .-->
 	  </rulesFiles>
     </rulePack>
@@ -22,22 +22,22 @@
       <rulesStrings>
 		<li>r_name->The Patreons</li>
 		
-        <li>r_name->The [AnimalBadass]s of [BuckoneerNames]</li>
-        <li>r_name->The [PersonBadass]s of [BuckoneerNames]</li>
-        <li>r_name->The [BuckoneerNames] [groupname]</li>
-        <li>r_name->The [BuckoneerNames] [Enemy]s</li>
-        <li>r_name->The [AdjectiveBadass] [BuckoneerNames]</li>
-        <li>r_name->The [PersonAlly]s of [BuckoneerNames]</li>
-        <li>r_name(p=0.4)->The Eaters of [BuckoneerNames]'s [Gore]</li>
+        <li>r_name->The [AnimalBadass]s of [PatreonNames]</li>
+        <li>r_name->The [PersonBadass]s of [PatreonNames]</li>
+        <li>r_name->The [PatreonNames] [groupname]</li>
+        <li>r_name->The [PatreonNames] [Enemy]s</li>
+        <li>r_name->The [AdjectiveBadass] [PatreonNames]</li>
+        <li>r_name->The [PersonAlly]s of [PatreonNames]</li>
+        <li>r_name(p=0.4)->The Eaters of [PatreonNames]'s [Gore]</li>
 		
-        <li>r_name->[BuckoneerNames]'s [Enemy]s</li>
-        <li>r_name->[BuckoneerNames]'s [AnimalBadass]s</li>
-        <li>r_name->[BuckoneerNames]'s [Weapon]s</li>
-        <li>r_name->[BuckoneerNames] [groupname]</li>
-        <li>r_name->[BuckoneerNames]'s [ColorBadass] [Weapon]s</li>
-        <li>r_name->[BuckoneerNames]'s [ColorBadass] [AnimalBadass]s</li>
-        <li>r_name->[BuckoneerNames]'s [ColorBadass] [PersonBadass]s</li>
-        <li>r_name->[BuckoneerNames]'s [ColorBadass] [Enemy]s</li>
+        <li>r_name->[PatreonNames]'s [Enemy]s</li>
+        <li>r_name->[PatreonNames]'s [AnimalBadass]s</li>
+        <li>r_name->[PatreonNames]'s [Weapon]s</li>
+        <li>r_name->[PatreonNames] [groupname]</li>
+        <li>r_name->[PatreonNames]'s [ColorBadass] [Weapon]s</li>
+        <li>r_name->[PatreonNames]'s [ColorBadass] [AnimalBadass]s</li>
+        <li>r_name->[PatreonNames]'s [ColorBadass] [PersonBadass]s</li>
+        <li>r_name->[PatreonNames]'s [ColorBadass] [Enemy]s</li>
       </rulesStrings>
       <rulesFiles>
         <li>groupname->Words/Nouns/GroupNames</li>
@@ -49,18 +49,18 @@
     <defName>NamerSettlementPatreons</defName>
     <rulePack>
       <rulesStrings>
-        <li>r_name(p=4)->[buckoneerstown_combo]</li>
+        <li>r_name(p=4)->[patreontown_combo]</li>
         <li>r_name->[townname_wordgen]</li>
 
-        <li>buckoneerstown_combo->[BuckoneerNames] [geography]</li>
-        <li>buckoneerstown_combo->[BuckoneerNames]'s [geography]</li>
-        <li>buckoneerstown_combo->[BuckoneerNames]'s [ConceptBadass] [geography]</li>
-        <li>buckoneerstown_combo->[BuckoneerNames]'s [ConceptBadass]'s [geography]</li>
-        <li>buckoneerstown_combo->[BuckoneerNames]'s [Enemy]'s [geography]</li>
-        <li>buckoneerstown_combo->[BuckoneerNames]'s [Enemy] [geography]</li>
-        <li>buckoneerstown_combo->[BuckoneerNames]'s [Weapon]'s [geography]</li>
-        <li>buckoneerstown_combo->[BuckoneerNames]'s [Weapon] [geography]</li>
-        <li>buckoneerstown_combo->[BuckoneerNames]'s [ColorBadass] [geography]</li>
+        <li>patreontown_combo->[PatreonNames] [geography]</li>
+        <li>patreontown_combo->[PatreonNames]'s [geography]</li>
+        <li>patreontown_combo->[PatreonNames]'s [ConceptBadass] [geography]</li>
+        <li>patreontown_combo->[PatreonNames]'s [ConceptBadass]'s [geography]</li>
+        <li>patreontown_combo->[PatreonNames]'s [Enemy]'s [geography]</li>
+        <li>patreontown_combo->[PatreonNames]'s [Enemy] [geography]</li>
+        <li>patreontown_combo->[PatreonNames]'s [Weapon]'s [geography]</li>
+        <li>patreontown_combo->[PatreonNames]'s [Weapon] [geography]</li>
+        <li>patreontown_combo->[PatreonNames]'s [ColorBadass] [geography]</li>
         <li>geography(p=2)->[TerrainFeature]</li>
         <li>geography->[Community]</li>
 
