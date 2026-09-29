@@ -53,6 +53,8 @@ namespace MSSFP.PawnPortability.Xml
         public const string Genes = "genes";
         public const string Xenotype = "xenotype";
         public const string XenotypeName = "xenotypeName";
+        public const string XenotypeIconDef = "iconDef";
+        public const string Hybrid = "hybrid";
         public const string Endogenes = "endogenes";
         public const string Xenogenes = "xenogenes";
 

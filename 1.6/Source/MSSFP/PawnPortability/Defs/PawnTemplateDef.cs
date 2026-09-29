@@ -64,6 +64,8 @@ namespace MSSFP.PawnPortability.Defs
     {
         public XenotypeDef xenotype;
         public string xenotypeName;
+        public XenotypeIconDef iconDef;
+        public bool hybrid;
         public List<GeneDef> endogenes;
         public List<GeneDef> xenogenes;
     }

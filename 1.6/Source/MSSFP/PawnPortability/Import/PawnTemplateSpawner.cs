@@ -259,6 +259,13 @@ namespace MSSFP.PawnPortability.Import
                         ModLog.Log($"[PawnPortability] Added xenogene: {gene.defName}");
                 }
             }
+
+            // Last: SetXenotype above resets the custom name and icon.
+            if (!def.genes.xenotypeName.NullOrEmpty())
+                pawn.genes.xenotypeName = def.genes.xenotypeName;
+            if (def.genes.iconDef != null)
+                pawn.genes.iconDef = def.genes.iconDef;
+            pawn.genes.hybrid = def.genes.hybrid;
         }
 
         // f. Skills — set only specified skills

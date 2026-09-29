@@ -112,6 +112,7 @@ namespace MSSFP.PawnPortability.Export
             if (pawn.genes != null)
             {
                 if (pawn.genes.Xenotype != null) Collect(pawn.genes.Xenotype);
+                if (pawn.genes.iconDef != null) Collect(pawn.genes.iconDef);
                 if (pawn.genes.Endogenes != null)
                     foreach (Gene g in pawn.genes.Endogenes) Collect(g.def);
                 if (pawn.genes.Xenogenes != null)
@@ -375,6 +376,19 @@ namespace MSSFP.PawnPortability.Export
             if (pawn.genes.Xenotype != null)
                 AppendDefElement(doc, genesEl, PawnTemplateXmlTags.Xenotype,
                     pawn.genes.Xenotype, packageIds);
+
+            // A custom xenotype is Baseliner plus a name/icon on the tracker; without these
+            // it re-imports as an unnamed Baseliner. SetXenotype clears all three on import.
+            if (pawn.genes.UniqueXenotype)
+                AppendElement(doc, genesEl, PawnTemplateXmlTags.XenotypeName,
+                    pawn.genes.xenotypeName);
+
+            if (pawn.genes.iconDef != null)
+                AppendDefElement(doc, genesEl, PawnTemplateXmlTags.XenotypeIconDef,
+                    pawn.genes.iconDef, packageIds);
+
+            if (pawn.genes.hybrid)
+                AppendElement(doc, genesEl, PawnTemplateXmlTags.Hybrid, "true");
 
             if (pawn.genes.Endogenes?.Count > 0)
             {
