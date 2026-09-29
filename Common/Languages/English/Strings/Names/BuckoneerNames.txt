@@ -1,0 +1,392 @@
+Black Jack Tarbuck
+Anne Bonnybanks
+Calico Jack Spratt
+Bartholomew "Barnacle" Briggs
+Redbeard McGee
+Pegleg Pritchard
+Silas Saltwater
+Maggie "Madcap" Marlin
+Captain Ned Nutter
+Jolly Roger Dodds
+Barnaby Brasshook
+Cora Crowbait
+Conrad Cringe
+Stede Bonnetts
+Morgan "Morgue" Malloy
+Hector Hookhand
+Pearl Puddleduck
+Long John Short
+Samuel Scuttlebutt
+Fanny Flintlock
+Theodore Thatcherton
+Bess Broadside
+Gideon Groggins
+Thomas "Three Sheets" Turner
+Calvin Cannonball
+Mary Mainsail
+Horatio Harpoon
+Davy Jonesing
+Lucius Landlubber
+Bootleg Billy Boone
+Prudence Plunder
+Rufus Ripsnort
+Charlotte Cutlass
+Ebenezer Eight-Irons
+Abigail Anchors
+Proven Beat
+Isaac "Ironjaw" Irons
+Nathaniel Nosehook
+Martha Maroon
+Percival Plank
+Barnabas Blacklung
+Bree "the Bastard" Poodle
+Eliza Earbiter
+Fucko Drink
+Reginald Rumrunner
+Tabitha Tides
+Archibald Arrrcher
+Cornelius Crowsnest
+Sally Saltshaker
+Jasper Jollyboots
+Wilhelmina Wreckage
+Hugh "Hanging" Harold
+Benedict Bilgewater
+Rosie Redwake
+Phineas Fishbait
+Octavia Oarlock
+Ambrose Avast
+Nancy Nethersail
+Godfrey Grogwell
+Beatrice Broadside
+Cedric Cutwater
+Penelope Pegleg
+Magnus "Muttonchops" McGraw
+Cassandra Cannonade
+Horace Hullabaloo
+Matilda Mastbreaker
+Roderick Ripsail
+Euphemia Eyepatch
+Simon Scupper
+Delilah Deadreef
+Augustus Gunwale
+Poppy Plunderbucket
+Thaddeus Tallowbeard
+Isabella Islandbreaker
+Percy Powderkeg
+Mildred Mutiny
+Finbar Flint
+Rowena Redrum
+Basil "Biscuit" Blackwater
+Gertrude Grapeshot
+Cornelius Coxswain
+Wilbur Wavetooth
+Esther Explosives
+Fitzroy Fathom
+Agnes Anchorpoint
+Rupert Rumskull
+Helena Hullbreaker
+Ignatius Ivoryhook
+Balthazar Bilge
+Molly Moonwake
+Samuel "Bootylord" Streamer
+Tristram Tarsnarl
+Winifred Windlass
+Sebastian Seadog
+Constance Cutpurse
+Alaric "All Hands" Alehouse
+Bucko Think
+Jemima JollyRoger
+Mortimer Mooring
+Brigid Bootleg
+Erasmus Eelcatcher
+Gwendolyn Gunpowder
+Percival "Privateer" Pounce
+Salvador Saltspray
+Octavius Oystercutter
+Henrietta Hardtack
+Godric Gallows
+Maribel Marlinspike
+Leopold "Leaky" Lockjaw
+Rosalind Reefraker
+Thrumbo Thunderhook
+Keyz "Codemaster" 
+Ambrose Backwash
+Agatha Anchorarse
+Boris Blackwake
+Clarissa Crow's-Feet
+Horatio "Half a Chance" Hardtack
+Marmaduke Masthead
+Selma Scallywag
+Edwin Earring
+Tabitha Tumbletimber
+Ferdinand Freebooter
+Lavinia Loots
+Rutherford Rumbottle
+Betsy Bilgerat
+Alastair Anchorbone
+Maude Mutineer
+Ignatius "No Refunds" Nightridge
+Cedrella Corsair
+Percival Porthole
+Bruno Broadsides
+Harriet Hardtack
+Roderick Rumface
+Dulcinea Doubloon
+Gareth Grappling
+Beatrix Barnacle
+Silas Shipwreck
+Mabel Mainbrace
+Oswald Oarwhacker
+Esmeralda Escapewind
+Thaddeus "Two Pegs" Plank
+Conrad Cutlass
+Josephine Jollyboat
+Bramble Boomrat
+Ezekiel Eighteen-Toes
+Rosamund Rumbucket
+Cornelius "Court-Martial" Crow
+Priscilla Powdermonkey
+Gus Gallows
+Bucko Stink
+Marjorie Mainsheet
+Valentine Vulgarsail
+Hester Hook
+Bartholomew Blacktide
+Elwood Eyepatch
+Daphne Deadcalm
+Rufus Reefburner
+Cecilia Cannon
+Mortimer "No Quarters" Quill
+Benedict Brinebeard
+Lorna Lootpocket
+Thurston Thundersnout
+James Cringe
+Adelaide Avast
+Julius Jollygrogs
+Beatrice Broadaxe
+Wilfred Wreckwright
+Sophronia Scallycap
+Edgar Eelgut
+Margaret Marooner
+Theophilus Threepence
+Clementine Cutwater
+Rollo Rumbarrel
+Veronica Vengeance
+Percy "Polite Until Boarding" Plunder
+Geraldine Grapeshot
+Thaddeus Tarpit
+Nellie Nosplice
+Bartholomew Boomalope
+Horace Hardtack
+Winona Wavemaker
+Crispin Crossbones
+Agnes "Mind the Teeth" Marrow
+Chrtis the Bear Finder
+Leander Lootbeard
+Matilda Mastiff
+Jasper Jibjack
+Ophelia Oars
+Roderick Redbeard
+Beryl Blackflag
+Fergus Flotsam
+Cordelia Corsair
+Abner Anchor
+Simeon Scupper
+Miranda Mutiny
+Gideon Grog
+Eulalia Eyepatch
+Basil Bilgeboots
+Captain Abraham Arrrington
+Morris Mooring
+Sabina Saltwreck
+Thaddeus Thimblehook
+Prudence Plunderpants
+Emmett Eelstew
+Lucinda Lockjaw
+Barnaby "Bloody Sunday" Brine
+Florence Freebooter
+Dorian Doubloon
+Agatha Anchorsmash
+Percival Pistolwhip
+Beau Blackwake
+Minnie Mutiny
+Ransome Rumbottom
+Bucko Link
+Eleanor Eelcatch
+Godfrey Grappling
+Rufus Redwake
+Teslov "Grignrson" Kurwa
+Claudia Cutlass
+Sebastian "Sod the Navy" Scuttle
+Thalia Thrumblefoot
+Hugo Hullscraper
+Benedict Brimstone
+Rosie Rookery
+Ignatius Ironhook
+Martha Marlinspike
+Ambrose "Careful With That Barrel" Boomstick
+Felix Flotsam
+Tabitha Tiller
+Cornelius Corsair
+Bess Blackwater
+Roderick Raggard
+Marmaduke Mutiny
+Selene Saltscar
+Bartholomew Barnacle
+Octavia Oarcrusher
+Silvester Scupper
+Gwendolyn Gallows
+Jebediah Jollyroger
+Anne "Queen of the Bilge" Bonnet
+Horatio Hook
+Winifred Wreckage
+Boris Broadside
+Penelope Plank
+Thaddeus Tidebreaker
+Mabel Maroon
+Cassius Cannon
+Fanny Flotsam
+Leopold Loot
+Retroboy the Deckswab
+Bridget "The Uninsured" Blacktide
+Simon Saltbeard
+Daphne Doubloon
+Rupert Reefrunner
+Cora Cutwater
+Edmund Eyepatch
+Gertrude Grog
+Phineas Plunderhook
+Isolde Ironjaw
+Darcy Cringe
+Jasper Jollylegs
+Mordecai Mastbreaker
+Constance Cannonade
+Hector Hardtack
+Agnes Anchorhook
+Benedict Blackflag
+Molly Mutiny
+Tristram Trawl
+Poppy Powderkeg
+Oswald "Oops" Oarlock
+Beatrix Brine
+Rufus Ripsail
+Charlotte Corsair
+Thurston Thatch
+Miriam Mainsail
+Erasmus Eelgut
+Roderick Rumrunner
+Calpurnia Cutlass
+Davy "No, Not That One" Jones
+Magnus Maroon
+Bucko Pink
+Harold Hooknose
+Esther Eyepatch
+Ignatius "Absolutely Not a Navy Man" Irons
+Thaddeus Throttle
+Wilhelmina Wreckwright
+Gideon Gunwale
+Sally Saltwater
+Percival Porthole
+Bram Boomrat
+Rosalind Riptide
+Bartholomew Blackbeardson
+Martha Masthead
+Cedric Cannonball
+Lucius Loot
+Priscilla Plankwalk
+Alistair Anchors
+Helena Harpoon
+Cornelius "The Mildly Concerned" Crow
+Samuel Seafoam
+Agatha Aftdeck
+Boris Bilgewater
+Mabel Marlin
+Horace Hookhand
+Euphemia Eelcatcher
+Ferdinand Flotsam
+Vanora Playtester
+Delilah Doubloon
+Rufus "Read the Fine Print" Rumbottle
+Octavius Oarlock
+Nancy Nethersail
+Fitzroy Freebooter
+Betsy Broadside
+Ambrose Anchorarse
+Cassandra Cutpurse
+Theodore Tallowbeard
+Brigid Blackwake
+Jemima Jollyboat
+Percy Powdermonkey
+Matilda Marrow
+Alaric Avast
+Hester Harpoon
+Leopold Lockjaw
+Clementine Cannon
+Godric Grogwell
+Molly Mastbreaker
+Sebastian Scallywag
+Veronica Vilewake
+Benedict "Mildly Illegal" Bilge
+Rowena Reefburner
+Ezekiel Eelgut
+Sophronia Saltshaker
+Thurston Thrumbo
+Margaret Mainsheet
+Jimmy Cringe
+Julius Jibjack
+Rosamund Rumrunner
+Ignatius Ironhook
+Beatrice Bilgerat
+Barney Blacktide
+Lavinia Lootbucket
+Rollo Ripsail
+Claudia Cannonade
+Mortimer Mooring
+Eliza Eyepatch
+Gareth Grappling
+Winona Wreckage
+Nathaniel Nosplice
+Prudence Plank
+Horatio Hardtack
+Agnes "Fine, We'll Fight" Anchor
+Cedrella Corsair
+Edwin Earring
+Marmaduke Marlinspike
+Isabella Islandbreaker
+Basil Blackwater
+Phineas Fishbait
+Mildred Masthead
+Bucko Stink
+Rutherford Rumskull
+Dulcinea Deadreef
+Bramble Boomalope
+Crispin Cutlass
+Geraldine Gallowglass
+Ophelia Oarwhacker
+Fergus Flotsam
+Tabitha Tidepool
+Conrad Cannonball
+Maude Marooner
+Theophilus Thatch
+Penny Powderkeg
+Bartholomew Brasshook
+Simeon Shipwreck
+Dexter "Laboratory" Feldoh
+Florence Flintlock
+Roderick Reefraker
+Beau Bilgeboots
+Hugh Harpoon
+Maribel Maroon
+Godfrey Gunwale
+Nellie Nethersail
+Alastair Anchorsmash
+Cora Crossbones
+Tristram Tallowbeard
+Shitbag Cringe
+Selma Saltwreck
+Abigail Avast
+Oswald Oystercutter
+Miriam Mutiny
+Percival Plunder
+Hugo Hook
+Mabel "Hold My Rum" Mainbrace

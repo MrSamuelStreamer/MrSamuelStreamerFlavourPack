@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <RulePackDef>
+    <defName>MSS_NamerBuckoneer</defName>
+    <rulePack>
+      <rulesStrings>
+        <li>r_name->[BuckoneerNames]</li>
+      </rulesStrings>
+      <rulesFiles>
+        <li>BuckoneerNames->Names/BuckoneerNames</li> <!-- located in the mod folder at "Languages/English/Strings/Names" .-->
+      </rulesFiles>
+    </rulePack>
+  </RulePackDef>
+</Defs>

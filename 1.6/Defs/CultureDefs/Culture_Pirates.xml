@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-
-
 <CultureDef>
-    <defName>Benefactor</defName>
-    <label>benefactor</label>
-    <description>A broad category describing the styles and practices of the benefactor settlers.</description>
-	<pawnNameMaker>NamerPatreons</pawnNameMaker>
-	<pawnNameMakerFemale>NamerPatreons</pawnNameMakerFemale>
+    <defName>MSS_BuckoneerCulture</defName>
+    <label>Buckoneers</label>
+    <description>Yaarr, this is the real Pirate culture and way o' life. None of those space raiders, we're the real rum-drinkin', sea-sailin', hunters of booty. All the best pirate names and dress code regulations. Yarr.</description>
+	<pawnNameMaker>MSS_NamerBuckoneer</pawnNameMaker>
+	<pawnNameMakerFemale>MSS_NamerBuckoneer</pawnNameMakerFemale>
     <ideoNameMaker MayRequire="Ludeon.RimWorld.Ideology">NamerIdeoKriminul</ideoNameMaker>
     <deityNameMaker MayRequire="Ludeon.RimWorld.Ideology">NamerDeityKriminul</deityNameMaker>
     <deityTypeMaker MayRequire="Ludeon.RimWorld.Ideology">DeityTypeMakerKriminul</deityTypeMaker>
@@ -16,11 +14,11 @@
     <allowedPlaceTags>
       <li>OriginSpacer</li>
     </allowedPlaceTags>
-    <iconPath>World/WorldObjects/Expanding/PatreonTown</iconPath>
+    <iconPath>World/WorldObjects/Expanding/CorsairIcon</iconPath>
     <thingStyleCategories>
-      <li MayRequire="Ludeon.RimWorld.Ideology">
-        <category>Spikecore</category>
-        <priority>2</priority>
+      <li MayRequire="sarg.alphamemes">
+        <category>AM_Corsair</category>
+        <priority>1</priority>
       </li>
     </thingStyleCategories>
     <styleItemTags>
@@ -54,7 +52,6 @@
         <baseWeight>0.4</baseWeight>
         <weightFactor>1</weightFactor>
       </li>
-
     </styleItemTags>
   </CultureDef>
 </Defs>
