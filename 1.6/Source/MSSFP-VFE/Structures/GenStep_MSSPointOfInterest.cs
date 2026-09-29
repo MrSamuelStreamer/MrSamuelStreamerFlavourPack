@@ -57,9 +57,12 @@ public class GenStep_MSSPointOfInterest : GenStep_CustomStructureGen
         map.GetComponent<GeneratedStructureMapComponent>()?.RecordStructure(layout.defName, ext?.author);
 
         bool hasAuthoredPawns = ext?.spawnedPawns.NullOrEmpty() == false;
+        bool hasTemplatePawns = ext?.pawnTemplates.NullOrEmpty() == false;
         if (hasAuthoredPawns)
             SpawnAuthorPawns(ext, map, rect);
-        else
+        if (hasTemplatePawns)
+            StructurePawnSpawner.Spawn(ext, map, rect, DefendAssaultDelayTicks);
+        if (!hasAuthoredPawns && !hasTemplatePawns)
             ScatterFallbackPawns(map, rect);
 
         if (ext == null || ext.doLoot)

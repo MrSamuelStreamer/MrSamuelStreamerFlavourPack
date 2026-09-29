@@ -37,5 +37,8 @@ public class StructureDefModExtension : DefModExtension
     /// <summary>Specific pawns to place with the structure, typically the submitting viewer.</summary>
     public List<PawnRepr> spawnedPawns;
 
+    /// <summary>Pawns and corpses exported from a colony via the structure export designator.</summary>
+    public List<StructurePawnEntry> pawnTemplates;
+
     public List<GenStepDef> extraGenSteps;
 }

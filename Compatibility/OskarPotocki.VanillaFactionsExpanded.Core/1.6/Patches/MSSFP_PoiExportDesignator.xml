@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+  <!-- Dev-mode designator that wraps KCSG's structure export; sits beside KCSG's own export buttons. -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/DesignationCategoryDef[defName="Orders"]/specialDesignatorClasses</xpath>
+    <value>
+      <li>MSSFP.VFE.Structures.Export.Designator_ExportPointOfInterest</li>
+    </value>
+  </Operation>
+
+</Patch>
