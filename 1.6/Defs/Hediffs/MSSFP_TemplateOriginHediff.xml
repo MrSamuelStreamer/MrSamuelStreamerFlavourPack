@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Hidden marker added to pawns created from a PawnTemplateDef. Drives name
+       colouring and the "user submitted" label icon. Hediff_TemplateOrigin
+       forces Visible = false, so it never shows on the health tab. -->
+  <HediffDef>
+    <defName>MSSFP_TemplateOrigin</defName>
+    <label>template origin</label>
+    <description>This character was created from a user-submitted pawn template.</description>
+    <hediffClass>MSSFP.PawnPortability.Hediff_TemplateOrigin</hediffClass>
+    <isBad>false</isBad>
+    <everCurableByItem>false</everCurableByItem>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <keepOnBodyPartRestoration>True</keepOnBodyPartRestoration>
+  </HediffDef>
+
+</Defs>

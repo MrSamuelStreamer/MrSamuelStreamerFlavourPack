@@ -21,6 +21,7 @@ public static class MSSFPDefOf
     public static readonly FleckDef PsycastPsychicEffect;
 
     public static readonly HediffDef MSS_FP_PawnDisplayerPossession;
+    public static readonly HediffDef MSSFP_TemplateOrigin;
 
     [MayRequire("Ludeon.RimWorld.Anomaly")]
     public static readonly HediffDef MSS_VoidInsanity;

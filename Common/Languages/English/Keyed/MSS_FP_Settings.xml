@@ -197,6 +197,21 @@
     <MSS_FP_Settings_EnableTemplateWandererJoin>Enable template character wanderer joins (named characters may wander into your colony)</MSS_FP_Settings_EnableTemplateWandererJoin>
     <MSS_FP_Settings_TemplateWandererJoinChanceMultiplier>Template wanderer frequency [x{0}]</MSS_FP_Settings_TemplateWandererJoinChanceMultiplier>
 
+    <!-- Template injection into general pawn generation -->
+    <MSS_FP_Settings_EnableTemplateInjection>Template characters can appear in raids, caravans and other non-player groups</MSS_FP_Settings_EnableTemplateInjection>
+    <MSS_FP_Settings_TemplateInjectionChance>Chance per generated pawn: {0}</MSS_FP_Settings_TemplateInjectionChance>
+    <MSS_FP_Settings_TemplatesGeneratedThisGame>Templates used this game (each appears once per game): {0}</MSS_FP_Settings_TemplatesGeneratedThisGame>
+    <MSS_FP_Settings_ResetTemplatesGenerated>Reset used templates for this game</MSS_FP_Settings_ResetTemplatesGenerated>
+    <MSS_FP_Settings_ExcludedTemplates>Excluded templates (never appear randomly)</MSS_FP_Settings_ExcludedTemplates>
+    <MSS_FP_Settings_NoTemplates>No pawn templates loaded.</MSS_FP_Settings_NoTemplates>
+    <MSS_FP_Settings_TemplateNameDisplay>Template character names</MSS_FP_Settings_TemplateNameDisplay>
+    <MSS_FP_Settings_ColourTemplateNames>Colour template character names</MSS_FP_Settings_ColourTemplateNames>
+    <MSS_FP_Settings_TemplateNameColour>Name colour (name such as green, or #hex)</MSS_FP_Settings_TemplateNameColour>
+    <MSS_FP_Settings_TemplateNameColourPreview>Preview: {0}</MSS_FP_Settings_TemplateNameColourPreview>
+    <MSS_FP_Settings_TemplateNameColourInvalid>Colour not recognised. Names show without colour.</MSS_FP_Settings_TemplateNameColourInvalid>
+    <MSS_FP_Settings_ColourHostileTemplateNames>Also colour hostile template characters (off keeps the vanilla red enemy name)</MSS_FP_Settings_ColourHostileTemplateNames>
+    <MSS_FP_Settings_ShowTemplateLabelIcon>Show a "user submitted" icon beside template character map labels</MSS_FP_Settings_ShowTemplateLabelIcon>
+
     <!-- Codex Punch incident -->
     <MSS_FP_Settings_EnableCodexPunch>Enable the Codex Punch incident</MSS_FP_Settings_EnableCodexPunch>
     <MSS_FP_Settings_CodexPunchChanceMultiplier>Codex Punch frequency [x{0}]</MSS_FP_Settings_CodexPunchChanceMultiplier>

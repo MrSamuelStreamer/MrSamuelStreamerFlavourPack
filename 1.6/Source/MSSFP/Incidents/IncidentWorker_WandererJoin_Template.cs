@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using MSSFP.PawnPortability;
 using MSSFP.PawnPortability.Defs;
@@ -20,22 +21,21 @@ public class IncidentWorker_WandererJoin_Template : IncidentWorker_WandererJoin
         if (parms.target is not Map map)
             return false;
 
-        if (!PawnPortability.PawnPortability.AllDefsIncludingUser.Any(d => !PawnPortability.PawnPortability.IsAlive(d)))
-            return false;
+        return PawnPortability.PawnPortability.AvailableForRandomGeneration.Any() && CanSpawnJoiner(map);
 
-        return CanSpawnJoiner(map);
     }
 
     public override Pawn GeneratePawn(Map map)
     {
-        var available = PawnPortability.PawnPortability.AllDefsIncludingUser
-            .Where(d => !PawnPortability.PawnPortability.IsAlive(d))
-            .ToList();
+        List<PawnTemplateDef> available = [.. PawnPortability.PawnPortability.AvailableForRandomGeneration];
 
         if (!available.TryRandomElement(out PawnTemplateDef template))
             return null;
 
-        return PawnPortability.PawnPortability.Create(template.defName, Faction.OfPlayer);
+        Pawn pawn = PawnPortability.PawnPortability.Create(template, Faction.OfPlayer);
+        if (pawn != null)
+            PawnPortability.PawnPortability.RegisterRandomGeneration(template, pawn);
+        return pawn;
     }
 
     protected override bool TryExecuteWorker(IncidentParms parms)
@@ -58,7 +58,7 @@ public class IncidentWorker_WandererJoin_Template : IncidentWorker_WandererJoin
         TaggedString text = def.letterText.Formatted(pawn.Named("PAWN")).AdjustedFor(pawn, "PAWN", true);
         TaggedString label = def.letterLabel.Formatted(pawn.Named("PAWN")).AdjustedFor(pawn, "PAWN", true);
         PawnRelationUtility.TryAppendRelationsWithColonistsInfo(ref text, ref label, pawn);
-        SendStandardLetter(label, text, LetterDefOf.PositiveEvent, parms, pawn, Array.Empty<NamedArgument>());
+        SendStandardLetter(label, text, LetterDefOf.PositiveEvent, parms, pawn);
         return true;
     }
 }

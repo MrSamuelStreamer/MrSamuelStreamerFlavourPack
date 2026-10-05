@@ -61,6 +61,9 @@ namespace MSSFP.PawnPortability.Import
                 PawnGenerationRequest request = new PawnGenerationRequest(
                     kind: kind,
                     faction: resolvedFaction,
+                    // Never redress an existing world pawn: the overlay below would rewrite
+                    // that pawn's identity while its relations and records still point at it.
+                    forceGenerateNewPawn: true,
                     fixedGender: def.gender,
                     fixedBiologicalAge: bioAge,
                     fixedChronologicalAge: chronoAge,
@@ -83,9 +86,12 @@ namespace MSSFP.PawnPortability.Import
                 // Step 3: Conditional overlay — only for non-null fields
                 OverlayName(pawn, def, logging);
                 OverlayBackstories(pawn, def, logging);
-                OverlayAppearance(pawn, def, logging);
                 OverlayTraits(pawn, def, logging);
                 OverlayGenes(pawn, def, logging);
+                // After genes: removing the base pawn's xenotype genes (e.g. a raid kind's
+                // Yttakin set) re-rolls or clears body and head type.
+                OverlayAppearance(pawn, def, logging);
+                EnsureBodyType(pawn);
                 OverlaySkills(pawn, def, logging);
                 OverlayHediffs(pawn, def, logging);
                 OverlayEquipment(pawn, def, logging);
@@ -97,6 +103,11 @@ namespace MSSFP.PawnPortability.Import
                 pawn.Notify_DisabledWorkTypesChanged();
                 pawn.skills?.Notify_SkillDisablesChanged();
                 pawn.Drawer?.renderer?.SetAllGraphicsDirty();
+
+                // Step 5: Mark as template-derived (name colour, label icon). The name
+                // was set before the marker existed, so rebuild its decoration now.
+                Hediff_TemplateOrigin.Apply(pawn, def.defName);
+                HarmonyPatches.Pawn_Patch.Redecorate(pawn);
 
                 if (logging)
                     ModLog.Log($"[PawnPortability] Pawn {def.defName} created successfully");
@@ -172,6 +183,16 @@ namespace MSSFP.PawnPortability.Import
                 if (logging)
                     ModLog.Log($"[PawnPortability] Set birthLastName: {def.story.birthLastName}");
             }
+        }
+
+        // A null body type makes PawnRenderer throw every frame. Gene swaps can leave
+        // it null when the template doesn't specify one.
+        private static void EnsureBodyType(Pawn pawn)
+        {
+            if (pawn.story == null || pawn.story.bodyType != null) return;
+
+            pawn.story.bodyType = pawn.gender == Gender.Female ? BodyTypeDefOf.Female : BodyTypeDefOf.Male;
+            ModLog.Warn($"[PawnPortability] {pawn.LabelShort}: body type was null after overlay, defaulted to {pawn.story.bodyType.defName}");
         }
 
         // c. Appearance

@@ -4,6 +4,7 @@ using System.Linq;
 using MSSFP.PawnPortability.Defs;
 using MSSFP.PawnPortability.Export;
 using MSSFP.PawnPortability.Import;
+using MSSFP.PawnPortability.Settings;
 using RimWorld;
 using Verse;
 
@@ -110,6 +111,36 @@ namespace MSSFP.PawnPortability
         public static IEnumerable<PawnTemplateDef> GetDefsBySeries(string series) =>
             AllDefs.Where(d => d.originSeries == series);
 
+        // ── Random Generation ─────────────────────────────────
+
+        public static bool IsExcluded(PawnTemplateDef def) =>
+            PawnPortabilitySettings.ExcludedTemplateDefNames.Contains(def.defName);
+
+        /// <summary>
+        /// True when a template may be picked by a random source (raid injection,
+        /// template wanderer join): not excluded in settings, not yet generated this
+        /// game, and no live pawn carries its identity (backstop for older saves).
+        /// </summary>
+        public static bool IsAvailableForRandomGeneration(PawnTemplateDef def) =>
+            def != null
+            && !IsExcluded(def)
+            && TemplateGenerationTracker.Instance?.HasGenerated(def.defName) != true
+            && !IsAlive(def);
+
+        public static IEnumerable<PawnTemplateDef> AvailableForRandomGeneration =>
+            AllDefsIncludingUser.Where(IsAvailableForRandomGeneration);
+
+        /// <summary>
+        /// Records that a random source produced this template's pawn: consumes the
+        /// template for the rest of the game and primes the live-pawn cache so a
+        /// same-tick check can't pick it again before the pawn spawns.
+        /// </summary>
+        public static void RegisterRandomGeneration(PawnTemplateDef def, Pawn pawn)
+        {
+            TemplateGenerationTracker.Instance?.MarkGenerated(def.defName);
+            livePawnCache[def] = (Find.TickManager?.TicksGame ?? 0, pawn);
+        }
+
         // ── Duplicate Prevention ──────────────────────────────
 
         // Cache of the last live-pawn resolution per template def, keyed by def and
@@ -145,7 +176,8 @@ namespace MSSFP.PawnPortability
 
             bool NameMatches(Pawn p)
             {
-                if (p.Name is not NameTriple nt) return false;
+                // Raw name: the Name getter returns the colour-decorated copy.
+                if (HarmonyPatches.Pawn_Patch.RawName(p) is not NameTriple nt) return false;
                 return string.Equals(nt.First, first, StringComparison.OrdinalIgnoreCase)
                        && string.Equals(nt.Last, last, StringComparison.OrdinalIgnoreCase);
             }
