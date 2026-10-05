@@ -9,7 +9,7 @@ namespace MSSFP.LabelIcons;
 
 /// <summary>
 /// The icon table and the per-pawn evaluation behind the map-label icon row.
-/// Order matters: the first icon is drawn nearest the label and survives caps.
+/// Order matters: the first icon is drawn nearest the label.
 /// </summary>
 [StaticConstructorOnStartup]
 public static class LabelIcons
@@ -26,8 +26,7 @@ public static class LabelIcons
     private static readonly Color Yellow = new(1f, 0.85f, 0.2f);
     private static readonly Color Purple = new(0.7f, 0.4f, 1f);
 
-    // Urgency order: where a label caps its icon count (colonist bar), the
-    // most urgent states survive and sit nearest the name.
+    // Urgency order: the most urgent states sit nearest the name.
     public static readonly IReadOnlyList<LabelIcon> All = new List<LabelIcon>
     {
         // Multicolour source art: drawn untinted.
