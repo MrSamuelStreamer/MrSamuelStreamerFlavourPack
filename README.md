@@ -125,6 +125,7 @@ Keyz, Dexter Feldoh, Retroboy, ChrisB, and Mr Samuel Streamer.
 * Ghastlyskull for the Frogge visage mask
 * [Ferris](https://github.com/FerrisComplex) for bugfixes
 * stroganoff-short_4.wav by chemicalcrux -- https://freesound.org/s/429609/ -- License: Attribution 4.0
+* "Login" icon (user-submitted pawn marker) by Freepik -- Flaticon -- https://www.flaticon.com/free-icon/login_6437587
 * ProvenBeat for the new cosmetic gene graphics
 * Endrian for the Exosuit textures
 * [Oskar Potocki](https://github.com/AndroidQuazar), [Sarg Bjornson](https://github.com/juanosarg), ThatBartGuy, Endrian, and ProvenBeat for permission to use assets for their respective Haunts!
