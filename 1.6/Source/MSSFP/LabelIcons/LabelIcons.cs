@@ -9,7 +9,7 @@ namespace MSSFP.LabelIcons;
 
 /// <summary>
 /// The icon table and the per-pawn evaluation behind the map-label icon row.
-/// Order matters: the first icon is drawn nearest the label.
+/// Order matters: the first icon is drawn nearest the label and survives caps.
 /// </summary>
 [StaticConstructorOnStartup]
 public static class LabelIcons
@@ -26,17 +26,19 @@ public static class LabelIcons
     private static readonly Color Yellow = new(1f, 0.85f, 0.2f);
     private static readonly Color Purple = new(0.7f, 0.4f, 1f);
 
+    // Urgency order: where a label caps its icon count (colonist bar), the
+    // most urgent states survive and sit nearest the name.
     public static readonly IReadOnlyList<LabelIcon> All = new List<LabelIcon>
     {
-        new("Template", "UI/MSSFP/UserSubmitted", Color.white, p => Hediff_TemplateOrigin.Of(p) != null),
-        new("Drafted", "UI/MSSFP/Drafted", Red, p => p.Drafted, live: true),
-        new("Bleeding", "UI/MSSFP/Bleeding", Red, p => p.health.hediffSet.BleedRateTotal > 0f),
-        new("Toxic", "UI/MSSFP/Toxic", Green, IsToxic),
         // Multicolour source art: drawn untinted.
         new("Dying", "UI/MSSFP/Dying", Color.white, IsDying, pulse: true),
+        new("Bleeding", "UI/MSSFP/Bleeding", Red, p => p.health.hediffSet.BleedRateTotal > 0f),
         new("MentalBreak", "UI/MSSFP/MentalBreak", Orange, p => p.InMentalState, live: true),
-        new("NeedsTending", "UI/MSSFP/NeedsTending", Yellow, p => p.health.HasHediffsNeedingTend()),
+        new("Drafted", "UI/MSSFP/Drafted", Red, p => p.Drafted, live: true),
+        new("Template", "UI/MSSFP/UserSubmitted", Color.white, p => Hediff_TemplateOrigin.Of(p) != null),
         new("Sick", "UI/MSSFP/Sick", Purple, IsSick),
+        new("NeedsTending", "UI/MSSFP/NeedsTending", Yellow, p => p.health.HasHediffsNeedingTend()),
+        new("Toxic", "UI/MSSFP/Toxic", Green, IsToxic),
     };
 
     private sealed class CacheEntry
