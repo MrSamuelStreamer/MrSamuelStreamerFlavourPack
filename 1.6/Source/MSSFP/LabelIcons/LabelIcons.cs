@@ -25,6 +25,7 @@ public static class LabelIcons
     private static readonly Color Orange = new(1f, 0.55f, 0.1f);
     private static readonly Color Yellow = new(1f, 0.85f, 0.2f);
     private static readonly Color Purple = new(0.7f, 0.4f, 1f);
+    private static readonly Color Blue = new(0.25f, 0.55f, 1f);
 
     // Urgency order: the most urgent states sit nearest the name.
     public static readonly IReadOnlyList<LabelIcon> All = new List<LabelIcon>
@@ -33,7 +34,7 @@ public static class LabelIcons
         new("Dying", "UI/MSSFP/Dying", Color.white, IsDying, pulse: true),
         new("Bleeding", "UI/MSSFP/Bleeding", Red, p => p.health.hediffSet.BleedRateTotal > 0f),
         new("MentalBreak", "UI/MSSFP/MentalBreak", Orange, p => p.InMentalState, live: true),
-        new("Drafted", "UI/MSSFP/Drafted", Red, p => p.Drafted, live: true),
+        new("Drafted", "UI/MSSFP/Drafted", Blue, p => p.Drafted, live: true),
         new("Template", "UI/MSSFP/UserSubmitted", Color.white, p => Hediff_TemplateOrigin.Of(p) != null),
         new("Sick", "UI/MSSFP/Sick", Purple, IsSick),
         new("NeedsTending", "UI/MSSFP/NeedsTending", Yellow, p => p.health.HasHediffsNeedingTend()),
