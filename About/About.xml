@@ -6,7 +6,7 @@
         <li>1.6</li>
     </supportedVersions>
     <packageId>MSS.FlavourPack</packageId>
-    <description>A flavour pack for Mr Samuel Streamer's Rimworld Playthroughs\n\nIcon credits: "Login" icon by Freepik - Flaticon (https://www.flaticon.com/free-icon/login_6437587)</description>
+    <description>A flavour pack for Mr Samuel Streamer's Rimworld Playthroughs\n\nIcon credits (Flaticon): Depot Visual, Iconjam, AbtoCreative, Smashicons, Magnific, BabyCorn. Full list in the README credits.</description>
     <url>https://steamcommunity.com/id/MrSamuelStreamer/myworkshopfiles/?appid=294100</url>
 	<modDependencies>
         <li>

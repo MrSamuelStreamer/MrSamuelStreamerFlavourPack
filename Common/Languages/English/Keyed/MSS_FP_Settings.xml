@@ -210,7 +210,17 @@
     <MSS_FP_Settings_TemplateNameColourPreview>Preview: {0}</MSS_FP_Settings_TemplateNameColourPreview>
     <MSS_FP_Settings_TemplateNameColourInvalid>Colour not recognised. Names show without colour.</MSS_FP_Settings_TemplateNameColourInvalid>
     <MSS_FP_Settings_ColourHostileTemplateNames>Also colour hostile template characters (off keeps the vanilla red enemy name)</MSS_FP_Settings_ColourHostileTemplateNames>
-    <MSS_FP_Settings_ShowTemplateLabelIcon>Show a "user submitted" icon beside template character map labels</MSS_FP_Settings_ShowTemplateLabelIcon>
+
+    <!-- Map label icons -->
+    <MSS_FP_Settings_LabelIcons_Description>Icons shown beside humanlike pawns' map labels.</MSS_FP_Settings_LabelIcons_Description>
+    <MSS_FP_Settings_LabelIcon_Template>User-submitted template character</MSS_FP_Settings_LabelIcon_Template>
+    <MSS_FP_Settings_LabelIcon_Drafted>Drafted</MSS_FP_Settings_LabelIcon_Drafted>
+    <MSS_FP_Settings_LabelIcon_Bleeding>Bleeding</MSS_FP_Settings_LabelIcon_Bleeding>
+    <MSS_FP_Settings_LabelIcon_Toxic>Toxic buildup (moderate or worse)</MSS_FP_Settings_LabelIcon_Toxic>
+    <MSS_FP_Settings_LabelIcon_Dying>Dying (life-threatening condition, or bleeding out within 6 hours)</MSS_FP_Settings_LabelIcon_Dying>
+    <MSS_FP_Settings_LabelIcon_MentalBreak>Mental break</MSS_FP_Settings_LabelIcon_MentalBreak>
+    <MSS_FP_Settings_LabelIcon_NeedsTending>Needs tending</MSS_FP_Settings_LabelIcon_NeedsTending>
+    <MSS_FP_Settings_LabelIcon_Sick>Sick (disease or infection)</MSS_FP_Settings_LabelIcon_Sick>
 
     <!-- Codex Punch incident -->
     <MSS_FP_Settings_EnableCodexPunch>Enable the Codex Punch incident</MSS_FP_Settings_EnableCodexPunch>

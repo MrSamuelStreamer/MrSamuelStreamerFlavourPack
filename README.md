@@ -125,7 +125,15 @@ Keyz, Dexter Feldoh, Retroboy, ChrisB, and Mr Samuel Streamer.
 * Ghastlyskull for the Frogge visage mask
 * [Ferris](https://github.com/FerrisComplex) for bugfixes
 * stroganoff-short_4.wav by chemicalcrux -- https://freesound.org/s/429609/ -- License: Attribution 4.0
-* "Login" icon (user-submitted pawn marker) by Freepik -- Flaticon -- https://www.flaticon.com/free-icon/login_6437587
+* Map label icons from [Flaticon](https://www.flaticon.com):
+  * User-submitted marker: [Submit icons created by Depot Visual - Flaticon](https://www.flaticon.com/free-icons/submit)
+  * Drafted: [Combatant icons created by Iconjam - Flaticon](https://www.flaticon.com/free-icons/combatant)
+  * Bleeding: [Bleeding icons created by AbtoCreative - Flaticon](https://www.flaticon.com/free-icons/bleeding)
+  * Toxic buildup: [Biohazard icons created by Smashicons - Flaticon](https://www.flaticon.com/free-icons/biohazard)
+  * Dying: [Hospital icons created by Magnific - Flaticon](https://www.flaticon.com/free-icons/hospital)
+  * Mental break: [Brain icons created by BabyCorn - Flaticon](https://www.flaticon.com/free-icons/brain)
+  * Needs tending: [Bandage icons created by Magnific - Flaticon](https://www.flaticon.com/free-icons/bandage)
+  * Sick: [Temperature icons created by Magnific - Flaticon](https://www.flaticon.com/free-icons/temperature)
 * ProvenBeat for the new cosmetic gene graphics
 * Endrian for the Exosuit textures
 * [Oskar Potocki](https://github.com/AndroidQuazar), [Sarg Bjornson](https://github.com/juanosarg), ThatBartGuy, Endrian, and ProvenBeat for permission to use assets for their respective Haunts!

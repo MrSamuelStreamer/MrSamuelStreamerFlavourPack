@@ -20,10 +20,9 @@ namespace MSSFP.PawnPortability.Settings
         public float TemplateInjectionChance = 0.02f;
         public HashSet<string> ExcludedTemplateDefNames = new();
 
-        public bool ColourTemplateNames = true;
+        public bool ColourTemplateNames;
         public string TemplateNameColour = DefaultTemplateNameColour;
         public bool ColourHostileTemplateNames;
-        public bool ShowTemplateLabelIcon = true;
 
         public PawnPortabilitySettingsTab(ModSettings settings, Mod mod)
             : base(settings, mod)
@@ -175,12 +174,6 @@ namespace MSSFP.PawnPortability.Settings
                     ref scrollViewHeight);
             }
 
-            DrawCheckBox(
-                options,
-                "MSS_FP_Settings_ShowTemplateLabelIcon".Translate(),
-                ref ShowTemplateLabelIcon,
-                ref scrollViewHeight);
-
             if (colourBefore != ColourTemplateNames
                 || hostileBefore != ColourHostileTemplateNames
                 || colourTextBefore != TemplateNameColour)
@@ -235,10 +228,9 @@ namespace MSSFP.PawnPortability.Settings
             Scribe_Collections.Look(ref ExcludedTemplateDefNames, "ExcludedTemplateDefNames", LookMode.Value);
             ExcludedTemplateDefNames ??= new HashSet<string>();
 
-            Scribe_Values.Look(ref ColourTemplateNames, "ColourTemplateNames", true);
+            Scribe_Values.Look(ref ColourTemplateNames, "ColourTemplateNames", false);
             Scribe_Values.Look(ref TemplateNameColour, "TemplateNameColour", DefaultTemplateNameColour);
             Scribe_Values.Look(ref ColourHostileTemplateNames, "ColourHostileTemplateNames", false);
-            Scribe_Values.Look(ref ShowTemplateLabelIcon, "ShowTemplateLabelIcon", true);
 
             MSSFP.Settings s = settings as MSSFP.Settings;
             Scribe_Values.Look(ref s.EnableUserTemplateLoading, "EnableUserTemplateLoading", true);
@@ -266,8 +258,6 @@ namespace MSSFP.PawnPortability.Settings
         public static float TemplateInjectionChance => Tab?.TemplateInjectionChance ?? 0f;
 
         public static HashSet<string> ExcludedTemplateDefNames => Tab?.ExcludedTemplateDefNames ?? EmptySet;
-
-        public static bool TemplateLabelIconEnabled => Tab?.ShowTemplateLabelIcon ?? false;
 
         public static bool ColourHostileTemplateNames => Tab?.ColourHostileTemplateNames ?? false;
 
