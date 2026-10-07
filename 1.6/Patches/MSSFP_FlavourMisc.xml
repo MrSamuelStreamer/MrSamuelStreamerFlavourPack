@@ -19,4 +19,17 @@
         </value>
     </Operation>
 
+    <Operation Class="PatchOperationReplace" >
+        <xpath>Defs/ThingDef[defName="VBE_HotCoffee"]/label</xpath>
+        <value>
+            <label>black coffee</label>
+        </value>
+    </Operation>
+    <Operation Class="PatchOperationReplace" >
+        <xpath>Defs/ThingDef[defName="VBE_HotCoffee"]/description</xpath>
+        <value>
+            <description>A warm, bitter beverage usually complemented with sugar. A favorite among students and office workers across the galaxy due to high caffeine content and pleasing aroma.</description>
+        </value>
+    </Operation>
+
 </Patch>
