@@ -1,0 +1,427 @@
+using System.Collections.Generic;
+using System.Globalization;
+using UnityEngine;
+using Verse;
+
+namespace MSSFP.Utils;
+
+public class MainSettingsTab(ModSettings settings, Mod mod) : SettingsTab(settings, mod)
+{
+    public Settings Settings => settings as Settings;
+    public override string TabName => "Main";
+    public override bool IsDefault => true;
+    public override int TabOrder => 0;
+
+    public string AnnualReformationPointsBuffer = "";
+    public string ReformationPointsPerBabyBuffer = "";
+    public string ReformationPointsPerDefeatedFactionBuffer = "";
+    public string TechsToGetPointsBuffer = "";
+    public string ReformationPointsForTechsBuffer = "";
+    public string BreakdownMTBDaysBuffer = "";
+
+    public override void DoTabContents(
+        Listing_Standard options,
+        Rect scrollViewRect,
+        ref float scrollViewHeight
+    )
+    {
+        if (Settings == null)
+            return;
+
+        // --- Gameplay ---
+        DrawSectionHeader(options, "MSS_FP_Settings_Section_Gameplay".Translate(), ref scrollViewHeight);
+
+        DrawCheckBox(
+            options,
+            "MSS_FP_Settings_EnableWanderDelayModification".Translate(),
+            ref Settings.EnableWanderDelayModification,
+            ref scrollViewHeight
+        );
+
+        if (Settings.EnableWanderDelayModification)
+        {
+            DrawCheckBox(
+                options,
+                "MSS_FP_Settings_WanderDelayIncludeHumanoids".Translate(),
+                ref Settings.WanderDelayIncludeHumanoids,
+                ref scrollViewHeight
+            );
+
+            float wanderDelaySeconds = Settings.WanderDelayTicks / 60f;
+
+            wanderDelaySeconds = options.SliderLabeled(
+                "MSS_FP_Settings_WanderDelaySeconds".Translate((wanderDelaySeconds).ToString("F1")),
+                wanderDelaySeconds,
+                -2f,
+                200f,
+                tooltip: "MSS_FP_Settings_WanderDelaySeconds_Tooltip"
+            );
+
+            Settings.WanderDelayTicks = Mathf.RoundToInt(wanderDelaySeconds * 60f);
+            scrollViewHeight += 30f;
+        }
+
+        DrawCheckBox(
+            options,
+            "MSS_FP_Settings_Enable10SecondsToSpeed".Translate(),
+            ref Settings.Enable10SecondsToSpeed,
+            ref scrollViewHeight
+        );
+
+        if (Settings.Enable10SecondsToSpeed)
+        {
+            float delaySeconds = Settings.TenSecondsToSpeedDelay;
+
+            delaySeconds = options.SliderLabeled(
+                "MSS_FP_Settings_TenSecondsToSpeedDelay".Translate(delaySeconds.ToString("F0")),
+                delaySeconds,
+                1f,
+                60f,
+                tooltip: "MSS_FP_Settings_TenSecondsToSpeedDelay_Tooltip".Translate()
+            );
+
+            Settings.TenSecondsToSpeedDelay = Mathf.RoundToInt(delaySeconds);
+            scrollViewHeight += 30f;
+
+            options.Gap(10f);
+            options.Label("MSS_FP_Settings_MonitorSpeeds".Translate());
+            scrollViewHeight += 30f;
+
+            Rect speedButtonRect = options.GetRect(30f);
+            if (Widgets.ButtonText(speedButtonRect, Settings.GetMonitoredSpeedsText()))
+            {
+                ShowSpeedSelectionMenu();
+            }
+            scrollViewHeight += 30f;
+        }
+
+        DrawCheckBox(
+            options,
+            "MSS_FP_Settings_EnableSubNormalSpeeds".Translate(),
+            ref Settings.EnableSubNormalSpeeds,
+            ref scrollViewHeight
+        );
+
+        options.CheckboxLabeled(
+            "MSS_FP_Settings_EnableLockpicking".Translate(),
+            ref Settings.EnableLockpicking,
+            "MSS_FP_Settings_EnableLockpicking_Tooltip".Translate()
+        );
+        scrollViewHeight += 24f + options.verticalSpacing;
+
+        if (Settings.EnableLockpicking)
+        {
+            options.CheckboxLabeled(
+                "MSS_FP_Settings_EnableLockpickingMinigame".Translate(),
+                ref Settings.EnableLockpickingMinigame,
+                "MSS_FP_Settings_EnableLockpickingMinigame_Tooltip".Translate()
+            );
+            scrollViewHeight += 24f + options.verticalSpacing;
+        }
+
+        options.CheckboxLabeled(
+            "MSS_FP_Settings_EnableReversePickpocket".Translate(),
+            ref Settings.EnableReversePickpocket,
+            "MSS_FP_Settings_EnableReversePickpocket_Tooltip".Translate()
+        );
+        scrollViewHeight += 24f + options.verticalSpacing;
+
+        if (ModsConfig.IsActive("VanillaExpanded.VMemesE"))
+        {
+            DrawSectionHeader(options, "MSS_FP_Settings_Section_Ideology".Translate(), ref scrollViewHeight);
+            DrawCheckBox(
+                options,
+                "MSS_FP_Settings_EnableNonLethalBloodCourtDuels".Translate(),
+                ref Settings.EnableNonLethalBloodCourtDuels,
+                ref scrollViewHeight
+            );
+            if (Settings.EnableNonLethalBloodCourtDuels)
+            {
+                Settings.BloodCourtDuelCooldownDays = Mathf.RoundToInt(
+                    options.SliderLabeled(
+                        "MSS_FP_Settings_BloodCourtDuelCooldownDays".Translate(Settings.BloodCourtDuelCooldownDays),
+                        Settings.BloodCourtDuelCooldownDays,
+                        1f,
+                        60f
+                    )
+                );
+                scrollViewHeight += 30f;
+            }
+        }
+
+        // --- Mechanics ---
+        DrawSectionHeader(options, "MSS_FP_Settings_Section_Mechanics".Translate(), ref scrollViewHeight);
+
+        Settings.MechFormingSpeedBaseValue = options.SliderLabeled("MSSFP_MechGestationTime".Translate(Settings.MechFormingSpeedBaseValue.ToString("0.###")),Settings.MechFormingSpeedBaseValue,0.025f,2.0f);
+        const float mechFormingSpeedIncrement = 0.025f;
+        Settings.MechFormingSpeedBaseValue =  Mathf.Round(Settings.MechFormingSpeedBaseValue / mechFormingSpeedIncrement) * mechFormingSpeedIncrement;
+        options.Label($"Base gestation cycle time: {48f * Settings.MechFormingSpeedBaseValue:0.#}h");
+        options.Gap();
+
+        scrollViewHeight += 60f;
+
+        // --- Spawning ---
+        DrawSectionHeader(options, "MSS_FP_Settings_Section_Spawning".Translate(), ref scrollViewHeight);
+
+        DrawCheckBox(
+            options,
+            "MSS_FP_Settings_DrawByMrStreamer".Translate(),
+            ref Settings.DrawByMrStreamer,
+            ref scrollViewHeight
+        );
+        DrawCheckBox(
+            options,
+            "MSS_FP_Settings_EnableViewerStructures".Translate(),
+            ref Settings.EnableViewerStructures,
+            ref scrollViewHeight
+        );
+
+        if (Settings.EnableViewerStructures)
+        {
+            Settings.ViewerStructureScatterMult = options.SliderLabeled(
+                "MSS_FP_Settings_ViewerStructureScatterMult".Translate(Settings.ViewerStructureScatterMult.ToString("F1")),
+                Settings.ViewerStructureScatterMult,
+                0f,
+                5f,
+                tooltip: "MSS_FP_Settings_ViewerStructureScatterMult_Tooltip".Translate()
+            );
+            scrollViewHeight += 30f;
+
+            Settings.PointOfInterestFrequencyMult = options.SliderLabeled(
+                "MSS_FP_Settings_PointOfInterestFrequencyMult".Translate(Settings.PointOfInterestFrequencyMult.ToString("F1")),
+                Settings.PointOfInterestFrequencyMult,
+                0f,
+                5f,
+                tooltip: "MSS_FP_Settings_PointOfInterestFrequencyMult_Tooltip".Translate()
+            );
+            scrollViewHeight += 30f;
+        }
+
+        DrawCheckBox(
+            options,
+            "MSS_FP_Settings_OverrideFactionLeaderSpawn".Translate(),
+            ref Settings.OverrideFactionLeaderSpawn,
+            ref scrollViewHeight
+        );
+
+        if (Settings.OverrideFactionLeaderSpawn)
+        {
+            Settings.FactionLeaderRaidChance = options.SliderLabeled(
+                "MSS_FP_Settings_FactionLeaderRaidChance".Translate(
+                    Settings.FactionLeaderRaidChance.ToStringPercent()
+                ),
+                Settings.FactionLeaderRaidChance,
+                0f,
+                1f,
+                tooltip: "MSS_FP_Settings_FactionLeaderRaidChance_Tooltip".Translate()
+            );
+            scrollViewHeight += 30f;
+        }
+
+        DrawCheckBox(
+            options,
+            "MSS_FP_Settings_BoostChanceToSpawnExistingPawns".Translate(),
+            ref Settings.BoostChanceToSpawnExistingPawns,
+            ref scrollViewHeight
+        );
+
+        // --- Reformation Points ---
+        DrawSectionHeader(options, "MSS_FP_Settings_Section_ReformationPoints".Translate(), ref scrollViewHeight);
+
+        DrawCheckBox(
+            options,
+            "MSS_FP_Settings_EnableAnnualReformationPoints".Translate(),
+            ref Settings.EnableExtraReformationPoints,
+            ref scrollViewHeight
+        );
+
+        if (Settings.EnableExtraReformationPoints)
+        {
+            options.Label("MSS_FP_Settings_AnnualReformationPoints".Translate(Settings.AnnualReformationPoints));
+            options.IntAdjuster(ref Settings.AnnualReformationPoints, 1, 0);
+
+            options.Gap(10f);
+            scrollViewHeight += 58f;
+
+            options.Label("MSS_FP_Settings_ReformationPointsPerBaby".Translate(Settings.ReformationPointsPerBaby));
+            options.IntAdjuster(ref Settings.ReformationPointsPerBaby, 1, 0);
+
+            options.Gap(10f);
+            scrollViewHeight += 58f;
+
+            options.Label("MSS_FP_Settings_ReformationPointsPerDefeatedFaction".Translate(Settings.ReformationPointsPerDefeatedFaction));
+            options.IntAdjuster(ref Settings.ReformationPointsPerDefeatedFaction, 1, 0);
+
+            options.Gap(10f);
+            scrollViewHeight += 58f;
+
+            options.Label("MSS_FP_Settings_TechsToGetPoints".Translate(Settings.TechsToGetPoints));
+            options.IntAdjuster(ref Settings.TechsToGetPoints, 1, 0);
+
+            options.Gap(10f);
+            scrollViewHeight += 58f;
+
+            options.Label("MSS_FP_Settings_ReformationPointsForTechs".Translate(Settings.ReformationPointsForTechs));
+            options.IntAdjuster(ref Settings.ReformationPointsForTechs, 1, 0);
+
+            options.Gap(10f);
+            scrollViewHeight += 58f;
+
+            options.Label("MSS_FP_Settings_ReformationPointsPerSeasonChange".Translate(Settings.ReformationPointsPerSeasonChange));
+            options.IntAdjuster(ref Settings.ReformationPointsPerSeasonChange, 1, 0);
+
+            options.Gap(10f);
+            scrollViewHeight += 58f;
+        }
+
+        // --- Colonist Bar ---
+        DrawSectionHeader(options, "MSS_FP_Settings_Section_ColonistBar".Translate(), ref scrollViewHeight);
+
+        bool oldEnableValue = Settings.EnableColonistPortraitHiding;
+        DrawCheckBox(
+            options,
+            "MSS_FP_Settings_EnableColonistPortraitHiding".Translate(),
+            ref Settings.EnableColonistPortraitHiding,
+            ref scrollViewHeight
+        );
+
+        if (oldEnableValue != Settings.EnableColonistPortraitHiding)
+        {
+            Find.ColonistBar?.MarkColonistsDirty();
+        }
+
+        if (Settings.EnableColonistPortraitHiding)
+        {
+            bool oldValue = Settings.ShowHiddenPortraits;
+            DrawCheckBox(
+                options,
+                "MSS_FP_Settings_ShowHiddenPortraits".Translate(),
+                ref Settings.ShowHiddenPortraits,
+                ref scrollViewHeight
+            );
+
+            if (oldValue != Settings.ShowHiddenPortraits)
+            {
+                Find.ColonistBar?.MarkColonistsDirty();
+            }
+
+            options.Gap(10f);
+            scrollViewHeight += 10f;
+
+            if (options.ButtonText("MSS_FP_Settings_RestoreAllHiddenColonists".Translate()))
+            {
+                var worldComp = Find.World?.GetComponent<ColonistHidingWorldComponent>();
+                if (worldComp != null)
+                {
+                    var hiddenColonists = worldComp.GetHiddenColonists();
+                    foreach (var colonist in hiddenColonists)
+                    {
+                        worldComp.ShowColonist(colonist);
+                    }
+                    Find.ColonistBar?.MarkColonistsDirty();
+                }
+            }
+            scrollViewHeight += 30f;
+        }
+
+        // --- Gravship ---
+        DrawSectionHeader(options, "MSS_FP_Settings_Section_Gravship".Translate(), ref scrollViewHeight);
+
+        DrawCheckBox(
+            options,
+            "MSS_FP_Settings_EnableOrbJumpEvents".Translate(),
+            ref Settings.EnableOrbJumpEvents,
+            ref scrollViewHeight
+        );
+
+        if (Settings.EnableOrbJumpEvents)
+        {
+            Settings.OrbJumpEventChance = options.SliderLabeled(
+                "MSS_FP_Settings_OrbJumpEventChance".Translate(Settings.OrbJumpEventChance.ToStringPercent()),
+                Settings.OrbJumpEventChance,
+                0f,
+                1f,
+                tooltip: "MSS_FP_Settings_OrbJumpEventChance_Tooltip".Translate()
+            );
+            scrollViewHeight += 30f;
+        }
+
+        // --- Technical ---
+        DrawSectionHeader(options, "MSS_FP_Settings_Section_Technical".Translate(), ref scrollViewHeight);
+
+        DrawCheckBox(
+            options,
+            "MSS_FP_Settings_NullDefSafetyPatch".Translate(),
+            ref Settings.NullDefSafetyPatch,
+            ref scrollViewHeight
+        );
+
+        // --- Factions ---
+        DrawSectionHeader(options, "MSS_FP_Settings_Section_Factions".Translate(), ref scrollViewHeight);
+
+        DrawCheckBox(
+            options,
+            "MSS_FP_Settings_NoReplaceFactionLeader".Translate(),
+            ref Settings.NoReplaceFactionLeader,
+            ref scrollViewHeight
+        );
+
+        if (Settings.BreakdownMTBDays <= 0) Settings.BreakdownMTBDays = Settings.BreakdownMTBDaysDefault;
+        if (BreakdownMTBDaysBuffer.NullOrEmpty()) BreakdownMTBDaysBuffer = Settings.BreakdownMTBDays.ToString(CultureInfo.InvariantCulture);
+        options.Label("MSS_FP_Settings_BreakdownMTBDays".Translate(Settings.BreakdownMTBDays));
+        options.TextFieldNumeric(ref Settings.BreakdownMTBDays, ref BreakdownMTBDaysBuffer);
+
+        options.Gap(10f);
+        scrollViewHeight += 58f;
+    }
+
+    public override void ExposeData()
+    {
+        if (Settings == null)
+            return;
+        Scribe_Values.Look(ref Settings.NullDefSafetyPatch, "NullDefSafetyPatch", true);
+        Scribe_Values.Look(ref Settings.NoReplaceFactionLeader, "NoReplaceFactionLeader", false);
+        Scribe_Values.Look(ref Settings.DrawByMrStreamer, "DrawByMrStreamer", false);
+        Scribe_Values.Look(ref Settings.EnableViewerStructures, "EnableViewerStructures", true);
+        Scribe_Values.Look(ref Settings.ViewerStructureScatterMult, "ViewerStructureScatterMult", 1f);
+        Scribe_Values.Look(ref Settings.PointOfInterestFrequencyMult, "PointOfInterestFrequencyMult", 1f);
+        Scribe_Values.Look(
+            ref Settings.EnableColonistPortraitHiding,
+            "EnableColonistPortraitHiding",
+            true
+        );
+        Scribe_Values.Look(ref Settings.ShowHiddenPortraits, "ShowHiddenPortraits", false);
+        Scribe_Values.Look(ref Settings.Enable10SecondsToSpeed, "Enable10SecondsToSpeed", false);
+        Scribe_Values.Look(
+            ref Settings.WanderDelayIncludeHumanoids,
+            "WanderDelayIncludeHumanoids",
+            false
+        );
+    }
+
+    private void ShowSpeedSelectionMenu()
+    {
+        if (Settings == null)
+            return;
+
+        var speedOptions = new List<FloatMenuOption>();
+
+        speedOptions.Add(
+            new FloatMenuOption(
+                "Paused",
+                () => Settings.ToggleSpeedMonitoring(Verse.TimeSpeed.Paused)
+            )
+        );
+        speedOptions.Add(
+            new FloatMenuOption(
+                "Normal",
+                () => Settings.ToggleSpeedMonitoring(Verse.TimeSpeed.Normal)
+            )
+        );
+        speedOptions.Add(
+            new FloatMenuOption("Fast", () => Settings.ToggleSpeedMonitoring(Verse.TimeSpeed.Fast))
+        );
+
+        Find.WindowStack.Add(new FloatMenu(speedOptions));
+    }
+}

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>Library</OutputType>
+        <LangVersion>latest</LangVersion>
+        <RootNamespace>MSSFP.GRF</RootNamespace>
+        <AssemblyName>MSSFP.GRF</AssemblyName>
+        <OutputPath>../../../Compatibility/Mlie.GraffitiMod/1.7/Assemblies</OutputPath>
+        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+        <SteamModsPath>$(RIMWORLD_STEAM_MODS_PATH)</SteamModsPath>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <Optimize>false</Optimize>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>portable</DebugType>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <DebugType>embedded</DebugType>
+        <DebugSymbols>false</DebugSymbols>
+        <Optimize>true</Optimize>
+    </PropertyGroup>
+    <ItemGroup>
+    </ItemGroup>
+    <ItemGroup>
+        <Content Condition="Exists('../../../../../Data')" Include="../../../../../Data/**/*">
+            <Link>Attached/Rimworld/%(RecursiveDir)/%(FileName)%(Extension)</Link>
+            <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+        </Content>
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\MSSFP\MSSFP.csproj">
+            <Private>false</Private>
+        </ProjectReference>
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="..\..\..\">
+        <Link>MrSamuelStreamerFlavourPack</Link>
+      </Folder>
+    </ItemGroup>
+    <PropertyGroup>
+        <StartAction>Program</StartAction>
+        <StartProgram>$(SolutionDir)../../../../RimWorldWin64.exe</StartProgram>
+    </PropertyGroup>
+</Project>

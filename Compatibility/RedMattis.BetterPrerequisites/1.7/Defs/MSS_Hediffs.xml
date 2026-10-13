@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Defs>
+    <HediffDef>
+        <defName>MSS_Bigger</defName>
+        <hediffClass>MSSFP.BS.Hediff_Bigger</hediffClass>
+        <label>MSS_Bigger_Label</label>
+        <labelNoun>Incorporation</labelNoun>
+        <description>MSS_Bigger_Desc</description>
+        <tendable>false</tendable>
+        <initialSeverity>1</initialSeverity>
+
+    </HediffDef>
+</Defs>

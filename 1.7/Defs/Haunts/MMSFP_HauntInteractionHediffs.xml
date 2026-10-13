@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <!-- Short-duration melee damage buff applied to both pawns during a Clash interaction -->
+    <HediffDef>
+        <defName>MSS_FP_HauntClashMeleeBuff</defName>
+        <label>ghost-fuelled rage</label>
+        <description>The clashing spirits have filled this pawn with aggressive energy.</description>
+        <hediffClass>HediffWithComps</hediffClass>
+        <isBad>false</isBad>
+        <stages>
+            <li>
+                <statFactors>
+                    <MeleeDamageFactor>1.05</MeleeDamageFactor>
+                </statFactors>
+            </li>
+        </stages>
+        <comps>
+            <li Class="HediffCompProperties_SeverityPerDay">
+                <severityPerDay>-24</severityPerDay>
+            </li>
+        </comps>
+        <initialSeverity>1</initialSeverity>
+        <maxSeverity>1</maxSeverity>
+    </HediffDef>
+</Defs>

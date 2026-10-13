@@ -1,0 +1,163 @@
+using MSSFP.Defs;
+using MSSFP.Genes;
+using MSSFP.Thoughts;
+using RimWorld;
+using Verse;
+using Verse.AI;
+
+// ReSharper disable UnassignedReadonlyField
+
+namespace MSSFP;
+
+[DefOf]
+public static class MSSFPDefOf
+{
+    public static readonly ThingDef MSSFP_Frogge;
+    public static readonly AbilityDef MSSFP_Echolocation;
+    public static readonly HediffDef MSSFP_EcholocationBlindness;
+    public static readonly HediffDef MSSFP_EcholocationCasterBuff;
+    public static readonly HediffDef MSS_FP_PawnDisplayer;
+    public static readonly HediffDef MSS_FP_PawnDisplayerBad;
+    public static readonly FleckDef PsycastPsychicEffect;
+
+    public static readonly HediffDef MSS_FP_PawnDisplayerPossession;
+    public static readonly HediffDef MSSFP_TemplateOrigin;
+
+    [MayRequire("Ludeon.RimWorld.Anomaly")]
+    public static readonly HediffDef MSS_VoidInsanity;
+
+    public static readonly IncidentDef MSSFP_RaidEnemy_Skylantern;
+
+    // IED Pod Raid
+    public static readonly IncidentDef MSSFP_RaidEnemy_IEDPods;
+    public static readonly ThingDef MSSFP_IEDPodDeployer;
+    public static readonly ThingDef MSSFP_TrapIED_HighExplosive;
+    public static readonly ThingDef MSSFP_TrapIED_Incendiary;
+    public static readonly JobDef MSSFP_DisarmIED;
+    public static readonly DesignationDef MSSFP_DisarmIEDDesignation;
+    public static readonly WorkTypeDef MSSFP_Minesweeping;
+
+    public static readonly JobDef MSSFP_LockpickDoor;
+
+    public static readonly JobDef MSSFP_ReversePickpocket;
+    public static readonly HediffDef MSSFP_ReversePickpocketFuse;
+
+    public static readonly HediffDef Burn;
+
+    public static readonly GeneDef MSS_VoidsEmbrace;
+    public static readonly IncidentDef MSSFP_Lovers_Retreat;
+
+    public static readonly ThingDef MSS_SiegeLadder;
+
+    public static readonly TaleDef MSSFP_Lovers_Retreat_Tale;
+
+    public static readonly JobDef MSSFP_GoToThen;
+
+    public static readonly GeneClassificationDef MSSFP_GoodGenes;
+    public static readonly GeneClassificationDef MSSFP_BadGenes;
+    public static readonly GeneClassificationDef MSSFP_NeutralGenes;
+
+    public static readonly HediffDef MSSFP_TouchedGrass;
+
+    public static readonly GeneDef MSSFP_Illiterate;
+
+    public static readonly BodyModCategoryDef MSSFP_NaturalMods;
+
+    public static readonly HediffDef MSS_FP_Echo;
+    public static readonly ThoughtDef MSS_FP_PossessedThought;
+    public static readonly HediffDef MSS_Need_GeneStealer_Restless;
+    public static readonly HediffDef MSS_Need_GeneStealer_Exhaustion;
+
+    public static readonly IncidentDef MSSFP_Hire_Mercenaries;
+    public static readonly LetterDef MSSFP_HireMercenariesOffer;
+
+    // public static readonly HediffDef MSSFP_Hediff_DRM;
+
+    public static readonly ThingSetMakerDef MSSFP_TrekCharacter;
+
+    public static readonly PawnKindDef MSSFP_TrekCrasher;
+
+    public static readonly QuestScriptDef MSS_TrekPodCrash;
+
+    public static readonly BackstoryDef MSSFP_Trek;
+
+    public static readonly ThingDef MSS_FP_Balloon;
+    public static readonly ThingDef MSS_FP_PawnFlyer_Balloon;
+
+    // Sun Tower
+    public static readonly ThingDef MSSFP_SunTower;
+    public static readonly GameConditionDef MSSFP_SunTowerLight;
+
+    // Black Hole cosmetic feature
+    public static readonly GameConditionDef MSSFP_BlackHole;
+
+    public static readonly JobDef MSSFP_ExtractTarget;
+
+    public static readonly JobDef MSSFP_SkipPunchAndLeave;
+
+    // True AI Core
+    public static readonly JobDef MSSFP_HaulToAICore;
+    public static readonly LetterDef MSSFP_AICoreAlert;
+
+    // Haunt archetypes
+    public static readonly HauntArchetypeDef MSS_FP_Archetype_Aggressive;
+    public static readonly HauntArchetypeDef MSS_FP_Archetype_Trickster;
+    public static readonly HauntArchetypeDef MSS_FP_Archetype_Brooding;
+
+    // Haunt susceptibility genes (6A)
+    public static readonly GeneDef MSS_FP_Gene_HauntSensitive;
+    public static readonly GeneDef MSS_FP_Gene_HauntResistant;
+    public static readonly GeneDef MSS_FP_Gene_SpiritHost;
+    public static readonly ThoughtDef MSS_FP_Gene_SenseGhost;
+
+    // Exorcism
+    public static readonly ThoughtDef MSS_FP_Exorcism_SpiritualTrauma;
+    public static readonly ThoughtDef MSS_FP_Exorcism_GhostlyBacklash;
+    public static readonly HediffDef MSS_FP_Exorcism_Hangover;
+
+    // Haunt event thoughts
+    public static readonly ThoughtDef MSS_FP_Event_ColdSpot;
+    public static readonly ThoughtDef MSS_FP_Event_EerieSound;
+    public static readonly ThoughtDef MSS_FP_Event_WitnessedApparition;
+
+    // Golden Cube Implant (Anomaly DLC only)
+    [MayRequire("Ludeon.RimWorld.Anomaly")]
+    public static readonly HediffDef MSSFP_GoldenCubeImplant;
+    [MayRequire("Ludeon.RimWorld.Anomaly")]
+    public static readonly RecipeDef MSSFP_RemoveGoldenCubeImplant;
+
+    // Haunt interaction thoughts
+    public static readonly ThoughtDef MSS_FP_HauntInteraction_GhostsAtWar;
+    public static readonly ThoughtDef MSS_FP_HauntInteraction_GhostAmused;
+    public static readonly ThoughtDef MSS_FP_HauntInteraction_GhostEnraged;
+    public static readonly ThoughtDef MSS_FP_HauntInteraction_GhostlyPranks;
+    public static readonly ThoughtDef MSS_FP_HauntInteraction_GhostTormented;
+    public static readonly ThoughtDef MSS_FP_HauntInteraction_SharedSorrow;
+    public static readonly ThoughtDef MSS_FP_HauntInteraction_EternalRivalry;
+    public static readonly ThoughtDef MSS_FP_HauntInteraction_GhostlyBickering;
+
+    // Sub-normal speed keybindings
+    public static readonly KeyBindingDef MSSFP_TimeSpeed_Half;
+    public static readonly KeyBindingDef MSSFP_TimeSpeed_Quarter;
+    public static readonly KeyBindingDef MSSFP_TimeSpeed_Eighth;
+
+    // Holo-projector (P1-A)
+    public static readonly ThingDef MSSFP_HoloPawnRace;
+    public static readonly PawnKindDef MSSFP_HoloProjection;
+    public static readonly HediffDef MSSFP_Hediff_Hologram;
+    public static readonly TraitDef MSSF_AIPersonality;
+
+    // Tunnel system port (commit 2 — core world-gen, travel, entrance building)
+    public static readonly MSSFP.Tunnels.TunnelDef MSSFP_Tunnel;
+    public static readonly ResearchProjectDef MSSFP_Minecarts;
+    public static readonly ThingDef MSSFP_TunnelEntrance;
+    public static readonly WorldObjectDef MSSFP_TunnelEntranceSite;
+    public static readonly SitePartDef MSSFP_TunnelEntranceSitePart;
+    public static readonly WorldObjectDef MSSFP_TunnelCaravanWorldObject;
+    public static readonly JobDef MSSFP_HaulToTunnel;
+    public static readonly JobDef MSSFP_EnterTunnel;
+    public static readonly JobDef MSSFP_CarryDownedPawnToPortal;
+    public static readonly DutyDef MSSFP_LoadAndEnterTunnel;
+
+    static MSSFPDefOf() => DefOfHelper.EnsureInitializedInCtor(typeof(MSSFPDefOf));
+}

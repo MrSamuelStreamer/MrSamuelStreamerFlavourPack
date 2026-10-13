@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+<!-- Neutroamine -->
+	<RecipeDef>
+		<defName>MSS_Neutroamine</defName>
+		<label>make neutroamine x8</label>
+		<description>Extract and refine 8 neutroamine from complex medicinal and psychoactive plant compounds.</description>
+    <jobString>Making 8 neutroamine.</jobString>
+		<displayPriority>1799</displayPriority>
+		<workAmount>12000</workAmount>
+		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+		<effectWorking>Cook</effectWorking>
+		<soundWorking>Recipe_Brewing</soundWorking>
+		<workSkill>Intellectual</workSkill>
+		<recipeUsers>
+			<li>DrugLab</li>
+		</recipeUsers>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>PsychoidLeaves</li>
+					</thingDefs>
+				</filter>
+				<count>8</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>MedicineHerbal</li>
+					</thingDefs>
+				</filter>
+				<count>4</count>
+			</li>
+		</ingredients>
+		<products>
+			<Neutroamine>8</Neutroamine>
+		</products>
+		<skillRequirements>
+			<Intellectual>10</Intellectual>
+		</skillRequirements>
+		<researchPrerequisite>MSS_Research_Neutroamine</researchPrerequisite>
+	</RecipeDef>
+
+  <ResearchProjectDef>
+    <defName>MSS_Research_Neutroamine</defName>
+    <label>Neutroamine</label>
+    <description>Develop techniques to extract and refine neutroamine from complex medicinal and psychoactive plant compounds.</description>
+    <baseCost>3000</baseCost>
+    <techLevel>Spacer</techLevel>
+		<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+    <prerequisites>
+      <li>MedicineProduction</li>
+    </prerequisites>
+		<researchViewX>12.00</researchViewX>
+		<researchViewY>0.00</researchViewY>
+    <techprintCount>1</techprintCount>
+    <techprintCommonality>2</techprintCommonality>
+    <techprintMarketValue>3000</techprintMarketValue>
+    <heldByFactionCategoryTags>
+      <li>Empire</li>
+      <li>Outlander</li>
+    </heldByFactionCategoryTags>
+  </ResearchProjectDef>
+  
+</Defs>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <JobDef>
+        <defName>MSSFP_ReversePickpocket</defName>
+        <driverClass>MSSFP.Jobs.JobDriver_ReversePickpocket</driverClass>
+        <reportString>reverse pick-pocketing TargetA.</reportString>
+        <casualInterruptible>false</casualInterruptible>
+        <playerInterruptible>true</playerInterruptible>
+        <allowOpportunisticPrefix>false</allowOpportunisticPrefix>
+    </JobDef>
+</Defs>

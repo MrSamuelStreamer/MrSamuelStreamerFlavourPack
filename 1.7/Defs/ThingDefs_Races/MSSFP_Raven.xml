@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Defs>
+    <ThingDef ParentName="AnimalThingBase">
+        <defName>MSSFP_Raven</defName>
+        <label>raven</label>
+        <description>Glossy black corvids with uncanny intelligence. Ravens learn complex tasks with little effort and can form lasting bonds with their handlers, mimicking sounds and even names. Folklore casts them as omens, but in practice they are loyal, curious companions.</description>
+        <statBases>
+            <MoveSpeed>3.4</MoveSpeed>
+            <MarketValue>140</MarketValue>
+            <LeatherAmount>0</LeatherAmount>
+            <ComfyTemperatureMin>-25</ComfyTemperatureMin>
+            <ComfyTemperatureMax>45</ComfyTemperatureMax>
+            <FilthRate>1</FilthRate>
+            <Wildness>0.25</Wildness>
+        </statBases>
+        <tools>
+            <li>
+                <label>claws</label>
+                <capacities>
+                    <li>Scratch</li>
+                </capacities>
+                <power>2</power>
+                <cooldownTime>1.5</cooldownTime>
+                <linkedBodyPartsGroup>Feet</linkedBodyPartsGroup>
+            </li>
+            <li>
+                <label>beak</label>
+                <capacities>
+                    <li>Bite</li>
+                </capacities>
+                <power>3.5</power>
+                <cooldownTime>2</cooldownTime>
+                <linkedBodyPartsGroup>Beak</linkedBodyPartsGroup>
+            </li>
+            <li>
+                <label>head</label>
+                <capacities>
+                    <li>Blunt</li>
+                </capacities>
+                <power>1</power>
+                <cooldownTime>1.5</cooldownTime>
+                <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+                <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+                <chanceFactor>0.2</chanceFactor>
+            </li>
+        </tools>
+        <race>
+            <body>Bird</body>
+            <baseBodySize>0.2</baseBodySize>
+            <baseHungerRate>0.10</baseHungerRate>
+            <baseHealthScale>0.18</baseHealthScale>
+            <foodType>OmnivoreAnimal, OvivoreAnimal</foodType>
+            <leatherDef>Leather_Bird</leatherDef>
+            <trainability>Advanced</trainability>
+            <petness>0.5</petness>
+            <herdAnimal>true</herdAnimal>
+            <mateMtbHours>10</mateMtbHours>
+            <gestationPeriodDays>10</gestationPeriodDays>
+            <manhunterOnDamageChance>0.10</manhunterOnDamageChance>
+            <manhunterOnTameFailChance>0.05</manhunterOnTameFailChance>
+            <nameOnTameChance>1</nameOnTameChance>
+            <lifeExpectancy>20</lifeExpectancy>
+            <soundEating>Bird_Eat</soundEating>
+            <lifeStageAges>
+                <li>
+                    <def>AnimalBabyTiny</def>
+                    <minAge>0</minAge>
+                    <soundWounded>Pawn_Chick_Call</soundWounded>
+                    <soundDeath>Pawn_Chick_Call</soundDeath>
+                    <soundCall>Pawn_Chick_Call</soundCall>
+                    <soundAngry>Pawn_Chick_Call</soundAngry>
+                </li>
+                <li>
+                    <def>AnimalJuvenile</def>
+                    <minAge>0.1</minAge>
+                </li>
+                <li>
+                    <def>AnimalAdult</def>
+                    <minAge>0.2</minAge>
+                    <soundWounded>Pawn_Chicken_Wounded</soundWounded>
+                    <soundDeath>Pawn_Chicken_Death</soundDeath>
+                    <soundCall>Pawn_Chicken_Call</soundCall>
+                    <soundAngry>Pawn_Chicken_Angry</soundAngry>
+                </li>
+            </lifeStageAges>
+            <soundMeleeHitPawn>Pawn_Melee_SmallScratch_HitPawn</soundMeleeHitPawn>
+            <soundMeleeHitBuilding>Pawn_Melee_SmallScratch_HitBuilding</soundMeleeHitBuilding>
+            <soundMeleeMiss>Pawn_Melee_SmallScratch_Miss</soundMeleeMiss>
+            <headPosPerRotation>
+                <li>(0.0, 0, 0.32)</li>
+                <li>(0.25, 0, 0.30)</li>
+                <li>(0.0, 0, 0.26)</li>
+                <li>(-0.25, 0, 0.30)</li>
+            </headPosPerRotation>
+        </race>
+        <comps>
+            <li Class="CompProperties_EggLayer">
+                <eggUnfertilizedDef>MSSFP_EggRavenUnfertilized</eggUnfertilizedDef>
+                <eggFertilizedDef>MSSFP_EggRavenFertilized</eggFertilizedDef>
+                <eggFertilizationCountMax>2</eggFertilizationCountMax>
+                <eggLayIntervalDays>3</eggLayIntervalDays>
+                <eggCountRange>1~2</eggCountRange>
+                <eggProgressUnfertilizedMax>0.5</eggProgressUnfertilizedMax>
+            </li>
+        </comps>
+        <tradeTags>
+            <li>AnimalCommon</li>
+            <li>AnimalPet</li>
+        </tradeTags>
+    </ThingDef>
+
+    <ThingDef ParentName="EggUnfertBase">
+        <defName>MSSFP_EggRavenUnfertilized</defName>
+        <label>raven egg (unfert.)</label>
+        <description>An unfertilized raven egg. It can be eaten raw, but it's much better cooked.</description>
+        <graphicData>
+            <color>(170, 170, 175)</color>
+            <drawSize>0.75</drawSize>
+        </graphicData>
+        <statBases>
+            <Nutrition>0.15</Nutrition>
+            <MarketValue>9.0</MarketValue>
+        </statBases>
+    </ThingDef>
+
+    <ThingDef ParentName="EggFertBase">
+        <defName>MSSFP_EggRavenFertilized</defName>
+        <label>raven egg (fert.)</label>
+        <description>A fertilized raven egg. If all goes well, it should hatch into a baby raven. It can be eaten raw, but it's much better cooked.</description>
+        <possessionCount>1</possessionCount>
+        <graphicData>
+            <color>(140, 140, 150)</color>
+            <drawSize>0.75</drawSize>
+        </graphicData>
+        <statBases>
+            <Nutrition>0.15</Nutrition>
+            <MarketValue>9.0</MarketValue>
+        </statBases>
+        <comps>
+            <li Class="CompProperties_Hatcher">
+                <hatcherDaystoHatch>4</hatcherDaystoHatch>
+                <hatcherPawn>MSSFP_Raven</hatcherPawn>
+            </li>
+        </comps>
+    </ThingDef>
+
+    <PawnKindDef ParentName="AnimalKindBase">
+        <defName>MSSFP_Raven</defName>
+        <label>raven</label>
+        <race>MSSFP_Raven</race>
+        <combatPower>30</combatPower>
+        <ecoSystemWeight>0.20</ecoSystemWeight>
+        <wildGroupSize>2~4</wildGroupSize>
+        <lifeStages>
+            <li>
+                <bodyGraphicData>
+                    <texPath>Things/Pawn/Animal/Raven/MSSFP_Raven</texPath>
+                    <drawSize>0.7</drawSize>
+                </bodyGraphicData>
+            </li>
+            <li>
+                <bodyGraphicData>
+                    <texPath>Things/Pawn/Animal/Raven/MSSFP_Raven</texPath>
+                    <drawSize>1.0</drawSize>
+                </bodyGraphicData>
+            </li>
+            <li>
+                <bodyGraphicData>
+                    <texPath>Things/Pawn/Animal/Raven/MSSFP_Raven</texPath>
+                    <drawSize>1.3</drawSize>
+                    <shadowData>
+                        <volume>(0.18, 0.2, 0.18)</volume>
+                        <offset>(0,0,0)</offset>
+                    </shadowData>
+                </bodyGraphicData>
+            </li>
+        </lifeStages>
+    </PawnKindDef>
+</Defs>

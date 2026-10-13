@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <ThingDef ParentName="MechSerumBase">
+        <defName>MSSFP_ProgrammableHealer</defName>
+        <label>programmable healer mech serum</label>
+        <description>A refined healer mech serum bonded to an AI persona core. When administered, the user chooses the exact effect: cure a specific ailment, strip a personality trait, or kindle a new passion. No mechanite backlash — the persona core keeps the swarm under tight control.</description>
+        <graphicData>
+            <texPath>Things/Item/Special/MechSerumHealer</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <color>(0.6,0.95,0.7)</color>
+        </graphicData>
+        <stackLimit>5</stackLimit>
+        <statBases>
+            <MarketValue>20000</MarketValue>
+        </statBases>
+        <thingCategories>
+            <li>Drugs</li>
+        </thingCategories>
+        <tradeability>Sellable</tradeability>
+        <comps>
+            <li Class="CompProperties_Usable">
+                <useJob>MSSFP_UseProgrammableHealer</useJob>
+                <useLabel>Use {0_label}</useLabel>
+                <useDuration>0</useDuration>
+                <showUseGizmo>true</showUseGizmo>
+            </li>
+            <li Class="CompProperties_Targetable">
+                <compClass>CompTargetable_SinglePawn</compClass>
+            </li>
+        </comps>
+    </ThingDef>
+</Defs>

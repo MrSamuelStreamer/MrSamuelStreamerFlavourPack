@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <!-- Partial success: haunt removed but pawn is spiritually traumatised (-15 mood, 5 days) -->
+    <ThoughtDef>
+        <defName>MSS_FP_Exorcism_SpiritualTrauma</defName>
+        <thoughtClass>Thought_Memory</thoughtClass>
+        <durationDays>5</durationDays>
+        <stages>
+            <li>
+                <label>spiritual trauma</label>
+                <description>The exorcism tore something away. I feel empty and raw where the spirit used to be.</description>
+                <baseMoodEffect>-15</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+
+    <!-- Retaliation: all pawns in the room get a mood hit (-5 mood, 1 day) -->
+    <ThoughtDef>
+        <defName>MSS_FP_Exorcism_GhostlyBacklash</defName>
+        <thoughtClass>Thought_Memory</thoughtClass>
+        <durationDays>1</durationDays>
+        <stages>
+            <li>
+                <label>ghostly backlash</label>
+                <description>When the spirit was expelled it lashed out at everything nearby. The air felt like static and rage.</description>
+                <baseMoodEffect>-5</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+
+    <!-- Retaliation: work speed debuff on the exorcised pawn (1 day) -->
+    <HediffDef>
+        <defName>MSS_FP_Exorcism_Hangover</defName>
+        <label>spiritual exhaustion</label>
+        <description>The violent expulsion of a powerful spirit has left this pawn drained and sluggish.</description>
+        <hediffClass>HediffWithComps</hediffClass>
+        <isBad>true</isBad>
+        <stages>
+            <li>
+                <statFactors>
+                    <WorkSpeedGlobal>0.7</WorkSpeedGlobal>
+                </statFactors>
+            </li>
+        </stages>
+        <comps>
+            <li Class="HediffCompProperties_SeverityPerDay">
+                <severityPerDay>-1</severityPerDay>
+            </li>
+        </comps>
+        <initialSeverity>1</initialSeverity>
+        <maxSeverity>1</maxSeverity>
+    </HediffDef>
+</Defs>

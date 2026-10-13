@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <!--
+        Disarm a hostile MSSFP IED. Driver walks to a cell adjacent to the trap,
+        runs a progress-bar wait scaled by Intellectual (6000 ticks at skill 4 →
+        1200 ticks at skill 20), then rolls success / instant spring / delayed-fuse.
+        Resolution lives in MSSFP.Things.Building_IEDTrap.ResolveDisarm so the
+        gizmo + float-menu UX surfaces can share the math (work ticks, success %)
+        for tooltip text.
+    -->
+    <JobDef>
+        <defName>MSSFP_DisarmIED</defName>
+        <driverClass>MSSFP.Jobs.JobDriver_DisarmIED</driverClass>
+        <reportString>disarming IED.</reportString>
+        <casualInterruptible>false</casualInterruptible>
+        <playerInterruptible>true</playerInterruptible>
+        <allowOpportunisticPrefix>false</allowOpportunisticPrefix>
+    </JobDef>
+
+    <!--
+        Dedicated work type for disarming hostile IEDs. Previously piggybacked
+        Research (Intellectual is Research's skill) but that meant disabling
+        Research also silently disabled IED disarming, and the work-tab column
+        was mislabelled. naturalPriority sits just above Warden — disarming a
+        live IED is more urgent than hauling but isn't a medical emergency.
+    -->
+    <WorkTypeDef>
+        <defName>MSSFP_Minesweeping</defName>
+        <labelShort>minesweep</labelShort>
+        <pawnLabel>Minesweeper</pawnLabel>
+        <gerundLabel>Minesweeping</gerundLabel>
+        <verb>Minesweep</verb>
+        <naturalPriority>760</naturalPriority>
+        <alwaysStartActive>true</alwaysStartActive>
+        <workTags>
+            <li>Intellectual</li>
+        </workTags>
+        <relevantSkills>
+            <li>Intellectual</li>
+        </relevantSkills>
+    </WorkTypeDef>
+
+    <!--
+        WorkGiverDef — min-skill gate (Intellectual ≥ 4) is enforced inside
+        WorkGiver_DisarmIED.HasJobOnThing (via Building_IEDTrap.CanDisarm), not
+        by the workType itself.
+    -->
+    <WorkGiverDef>
+        <defName>MSSFP_DisarmIED</defName>
+        <label>disarm IED</label>
+        <giverClass>MSSFP.Jobs.WorkGiver_DisarmIED</giverClass>
+        <workType>MSSFP_Minesweeping</workType>
+        <priorityInType>200</priorityInType>
+        <verb>disarm</verb>
+        <gerund>disarming</gerund>
+        <requiredCapacities>
+            <li>Manipulation</li>
+            <li>Sight</li>
+        </requiredCapacities>
+        <prioritizeSustains>true</prioritizeSustains>
+    </WorkGiverDef>
+
+    <!--
+        defName intentionally suffixed with "Designation" so the C# static field
+        on MSSFPDefOf doesn't collide with the JobDef of the same conceptual name.
+    -->
+    <DesignationDef>
+        <defName>MSSFP_DisarmIEDDesignation</defName>
+        <texturePath>Designations/Deconstruct</texturePath>
+        <targetType>Thing</targetType>
+    </DesignationDef>
+
+</Defs>

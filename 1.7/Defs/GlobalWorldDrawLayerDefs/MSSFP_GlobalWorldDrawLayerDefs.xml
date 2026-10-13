@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Registers WorldDrawLayer_BlackHole with RimWorld's world renderer.
+       WorldRenderer.DrawWorldLayers() calls Render() on every GlobalWorldDrawLayerDef
+       each frame while the world map is visible — the same mechanism used by
+       GlobalDrawLayer_Sun to draw the vanilla sun disc. -->
+  <GlobalWorldDrawLayerDef>
+    <defName>MSSFP_BlackHoleDrawLayer</defName>
+    <worldDrawLayer>MSSFP.Comps.World.WorldDrawLayer_BlackHole</worldDrawLayer>
+  </GlobalWorldDrawLayerDef>
+
+</Defs>

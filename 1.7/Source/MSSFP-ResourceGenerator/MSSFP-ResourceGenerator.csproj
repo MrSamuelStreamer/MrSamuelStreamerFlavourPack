@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>Library</OutputType>
+        <LangVersion>latest</LangVersion>
+        <RootNamespace>MSSFP.ResourceGeneratorMod</RootNamespace>
+        <AssemblyName>MSSFP.ResourceGeneratorMod</AssemblyName>
+        <OutputPath>../../../Compatibility/Mlie.ResourceGenerator/1.7/Assemblies</OutputPath>
+        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+        <SteamModsPath>$(RIMWORLD_STEAM_MODS_PATH)</SteamModsPath>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <Optimize>false</Optimize>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>portable</DebugType>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <DebugType>embedded</DebugType>
+        <DebugSymbols>false</DebugSymbols>
+        <Optimize>true</Optimize>
+    </PropertyGroup>
+    <ItemGroup>
+        <Reference Include="ResourceGenerator">
+            <HintPath Condition="Exists('../../../../ResourceGenerator/1.7/Assemblies/ResourceGenerator.dll')">../../../../ResourceGenerator/1.7/Assemblies/ResourceGenerator.dll</HintPath>
+            <HintPath Condition="Exists('../../../../../../../workshop/content/294100/2747511650/1.7/Assemblies/ResourceGenerator.dll')">../../../../../../../workshop/content/294100/2747511650/1.7/Assemblies/ResourceGenerator.dll</HintPath>
+            <HintPath Condition="Exists('../../../../2747511650/1.7/Assemblies/ResourceGenerator.dll')">../../../../2747511650/1.7/Assemblies/ResourceGenerator.dll</HintPath>
+            <HintPath Condition="Exists('../../../../../../../../workshop/content/294100/2747511650/1.7/Assemblies/ResourceGenerator.dll')">../../../../../../../../workshop/content/294100/2747511650/1.7/Assemblies/ResourceGenerator.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="../MSSFP/MSSFP.csproj">
+            <Private>false</Private>
+        </ProjectReference>
+    </ItemGroup>
+    <ItemGroup>
+        <Folder Include="../../../Compatibility/vanillaexpanded.outposts/1.7/Assemblies/">
+            <Link>ModCompatFiles/Assemblies</Link>
+        </Folder>
+        <Folder Include="../../../Compatibility/vanillaexpanded.outposts/1.7/Patches/">
+            <Link>ModCompatFiles/Patches</Link>
+        </Folder>
+    </ItemGroup>
+    <ItemGroup>
+        <Content Include="../../../Compatibility/vanillaexpanded.outposts/1.7/Defs/MSSFP_Outposts.xml">
+            <Link>ModCompatFiles/Defs/MSSFP_Outposts.xml</Link>
+        </Content>
+    </ItemGroup>
+    <PropertyGroup>
+        <StartAction>Program</StartAction>
+        <StartProgram>$(SolutionDir)../../../../RimWorldWin64.exe</StartProgram>
+    </PropertyGroup>
+</Project>

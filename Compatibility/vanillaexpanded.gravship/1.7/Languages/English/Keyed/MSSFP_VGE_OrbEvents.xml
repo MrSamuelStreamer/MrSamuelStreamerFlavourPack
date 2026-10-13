@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+    <!-- VGE-specific orb jump-events. {0} = active persona label, {1} = gravship name. -->
+    <MSSFP_OrbEvent_VGE_GravdataCorruption_Label>Gravdata corruption</MSSFP_OrbEvent_VGE_GravdataCorruption_Label>
+    <MSSFP_OrbEvent_VGE_GravdataCorruption_Text>An electromagnetic spike from {0}'s overworked solver during {1}'s descent corrupted every byte of gravdata collected on the trip. The black box was wiped clean.</MSSFP_OrbEvent_VGE_GravdataCorruption_Text>
+
+    <MSSFP_OrbEvent_VGE_GravtechWindfall_Msg>{0} wrung extra gravdata out of {1}'s route — a tidy windfall stored in the black box.</MSSFP_OrbEvent_VGE_GravtechWindfall_Msg>
+</LanguageData>

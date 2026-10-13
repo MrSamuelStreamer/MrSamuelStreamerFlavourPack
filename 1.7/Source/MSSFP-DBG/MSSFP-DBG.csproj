@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>Library</OutputType>
+        <LangVersion>latest</LangVersion>
+        <RootNamespace>MSSFP.DBG</RootNamespace>
+        <AssemblyName>MSSFP.DBG</AssemblyName>
+        <OutputPath>../../../Compatibility/RER.GravshipLoanScenario/1.7/Assemblies</OutputPath>
+        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+        <SteamModsPath>$(RIMWORLD_STEAM_MODS_PATH)</SteamModsPath>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <Optimize>false</Optimize>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>portable</DebugType>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <DebugType>embedded</DebugType>
+        <DebugSymbols>false</DebugSymbols>
+        <Optimize>true</Optimize>
+    </PropertyGroup>
+    <ItemGroup>
+        <Reference Include="LoanMod">
+            <HintPath Condition="Exists('../../../../../../../workshop/content/294100/3529144158/Assemblies/LoanMod.dll')">../../../../../../../workshop/content/294100/3529144158/Assemblies/LoanMod.dll</HintPath>
+            <HintPath Condition="Exists('../../../../../../../../workshop/content/294100/3529144158/Assemblies/LoanMod.dll')">../../../../../../../../workshop/content/294100/3529144158/Assemblies/LoanMod.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\MSSFP\MSSFP.csproj">
+            <Private>false</Private>
+        </ProjectReference>
+    </ItemGroup>
+    <PropertyGroup>
+        <StartAction>Program</StartAction>
+        <StartProgram>$(SolutionDir)../../../../RimWorldWin64.exe</StartProgram>
+    </PropertyGroup>
+</Project>

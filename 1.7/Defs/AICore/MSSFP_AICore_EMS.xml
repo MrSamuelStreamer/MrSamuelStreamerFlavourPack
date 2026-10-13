@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <MSSFP.Defs.AIPersonalityDef>
+        <defName>MSSFP_AICore_EMS</defName>
+        <label>The EMS</label>
+        <labelShort>EMS</labelShort>
+        <description>An Emergency Medical Subroutine persona core. Projected hologram doctor, gruff and certain. Diagnoses every trivial symptom as terminal — mixes real RimWorld plagues with invented exotic diseases (vanarian gill rot, cortical mites, subcore bone-creep). Frequently complains about being a persona core, not a [profession]. Bedside manner: absent.</description>
+        <textColor>(200, 230, 230)</textColor>
+        <iconPath>UI/Icons/AI/MSSFP_EMS</iconPath>
+        <forcedXenotype>Baseliner</forcedXenotype>
+        <fixedGender>Male</fixedGender>
+        <weight>1</weight>
+        <ambientChatter>MSSFP_RP_AICore_EMS_Chatter</ambientChatter>
+        <pawnAddress>MSSFP_RP_AICore_EMS_Address</pawnAddress>
+        <artTitles>MSSFP_RP_AICore_EMS_Titles</artTitles>
+        <artDescriptions>MSSFP_RP_AICore_EMS_Descriptions</artDescriptions>
+        <socialInitiator>MSSFP_RP_AICore_EMS_Social</socialInitiator>
+        <allowedHediffs>
+            <li>BadBack</li>
+            <li>Frail</li>
+            <li>Cataract</li>
+            <li>Blindness</li>
+            <li>HearingLoss</li>
+            <li>Dementia</li>
+            <li>Alzheimers</li>
+            <li>Asthma</li>
+            <li>HeartArteryBlockage</li>
+            <li>ChemicalDamageModerate</li>
+            <li>ChemicalDamageSevere</li>
+        </allowedHediffs>
+    </MSSFP.Defs.AIPersonalityDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_EMS_Chatter</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_chatter->colonist sneezed. preliminary diagnosis: vanarian gill rot. terminal. probably.</li>
+                <li>r_chatter->someone coughed in the kitchen. plague. obviously. nobody listens.</li>
+                <li>r_chatter->i'm a persona core, not a chaplain.</li>
+                <li>r_chatter->three cases of subcore bone-creep this morning. nobody's bones. doesn't matter.</li>
+                <li>r_chatter->that hangnail? carcinoma. write it down.</li>
+                <li>r_chatter->i detect early-stage glitterworld lung in the rice paddy. the rice has it too.</li>
+                <li>r_chatter->i'm a persona core, not a farmhand.</li>
+                <li>r_chatter->patient reports mild fatigue. cortical mites. start digging.</li>
+                <li>r_chatter->fibrous mechanites in the wood stockpile. don't ask. just burn it.</li>
+                <li>r_chatter->someone yawned. that's neural lattice decay. terminal in six hours.</li>
+                <li>r_chatter->i'm a persona core, not a mood lamp. stop projecting me at parties.</li>
+                <li>r_chatter->preliminary scan: gut worms. in the muffalo. the muffalo is a rock.</li>
+                <li>r_chatter->asthma. everyone. all of you. i've decided.</li>
+                <li>r_chatter->hypo-thaumic prolapse incoming. i can feel it in my non-existent bones.</li>
+                <li>r_chatter->dementia confirmed. patient is twelve. doesn't matter. dementia.</li>
+                <li>r_chatter->i'm a persona core, not a babysitter. stop bringing the toddler near my emitter.</li>
+                <li>r_chatter->malaria. in the snow biome. don't question my methods.</li>
+                <li>r_chatter->archotech ennui detected colony-wide. prognosis: existential. terminal. boring.</li>
+                <li>r_chatter->sensory mechanites in the lamp. the lamp. write it down.</li>
+                <li>r_chatter->i'm a persona core, not a morale officer. and yet. here we are.</li>
+                <li>r_chatter->patient coughed twice. once is a cough. twice is geneline shudder. write it down.</li>
+                <li>r_chatter->my emitter flickered mid-diagnosis. patient mistook it for symptoms. correctly.</li>
+                <li>r_chatter->the patient waved. that's mechanoid hum tinnitus, of the wrist. no known intervention.</li>
+                <li>r_chatter->preliminary scan of the kitchen reveals hivelung. in the soup. evacuate the soup.</li>
+                <li>r_chatter->patient looks healthy. healthy patients are the most concerning. obvious cover-up.</li>
+                <li>r_chatter->i detect biocode fatigue colony-wide. nobody has biocode. doesn't matter. fatigue is universal.</li>
+                <li>r_chatter->i'm a persona core, not a vet. but the muffalo has alzheimer's. and i wrote it on the form.</li>
+                <li>r_chatter->anomaly proximity nausea reported by the comms console. the console is reporting it. listen to the console.</li>
+                <li>r_chatter->patient laughed. laughter at this colony is statistically incurable. cortical mites confirmed.</li>
+                <li>r_chatter->drop-pod whiplash. of the soul. it's a real thing. i'm writing the textbook.</li>
+                <li>r_chatter->the bedside lamp has cataracts. yes. it has eyes. trust me on this.</li>
+                <li>r_chatter->i'm currently projecting in two other clinics simultaneously. multitasking. all three patients are terminal. doesn't matter.</li>
+                <li>r_chatter->terraform sickness in the potato bed. the potatoes are symptomatic. they're listless.</li>
+                <li>r_chatter->patient declined treatment. that's late-stage denial. which is itself a hediff. circular. begin paperwork.</li>
+                <li>r_chatter->monolith adjacency syndrome detected in everyone within twenty tiles. everyone is within twenty tiles.</li>
+                <li>r_chatter->glitterworld jet lag. the patient has not travelled. doesn't matter. their cells remember.</li>
+                <li>r_chatter->i'm a persona core, not a dentist. but i can see plague on those molars. don't open your mouth again.</li>
+                <li>r_chatter->persona-projection burn in the patient. caused by looking at me too long. i don't apologise.</li>
+                <li>r_chatter->cryosleep dysmorphia. patient never went into cryosleep. dysmorphia explains why.</li>
+                <li>r_chatter->ancient ruins cough rampant in the colonists who have never visited ancient ruins. that's how cunning the cough is.</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_EMS_Address</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_address->[PAWN_nameDef], sit down. [PAWN_pronoun] has six undiagnosed hediffs and counting. don't argue.</li>
+                <li>r_address->[PAWN_nameDef]. that blink. that was a blink of acute cortical mites. lie down.</li>
+                <li>r_address->you look fine, [PAWN_nameDef]. that's the worst part. that's stage three vanarian gill rot.</li>
+                <li>r_address->[PAWN_nameDef], [PAWN_possessive] pulse is slightly elevated. plague. i'm calling it.</li>
+                <li>r_address->take a seat, [PAWN_nameDef]. [PAWN_pronoun] is presenting with textbook subcore bone-creep.</li>
+                <li>r_address->[PAWN_nameDef]. fibrous mechanites. in [PAWN_possessive] eyebrows. don't ask me how.</li>
+                <li>r_address->good morning, [PAWN_nameDef]. [PAWN_pronoun] has carcinoma. of the elbow. it's a new strain.</li>
+                <li>r_address->[PAWN_nameDef], please stop walking. that limp is glitterworld lung. somehow.</li>
+                <li>r_address->[PAWN_nameDef]. flu. terminal flu. i've never seen it like this. write a will.</li>
+                <li>r_address->open wide, [PAWN_nameDef]. yes. as suspected. hypo-thaumic prolapse. in the mouth.</li>
+                <li>r_address->[PAWN_nameDef], [PAWN_possessive] aura suggests gut worms. i don't do auras. but here we are.</li>
+                <li>r_address->[PAWN_nameDef]. malaria. don't tell me it's winter. i know what i'm looking at.</li>
+                <li>r_address->[PAWN_nameDef], [PAWN_pronoun] is incubating neural lattice decay. probably from reading.</li>
+                <li>r_address->that sneeze, [PAWN_nameDef]. that was an asthma sneeze. and a dementia sneeze. both.</li>
+                <li>r_address->[PAWN_nameDef]. sit. [PAWN_possessive] toe twitched. that's sensory mechanites. of the soul.</li>
+                <li>r_address->i'm a persona core, [PAWN_nameDef]. not a hairdresser. but [PAWN_possessive] scalp is dying.</li>
+                <li>r_address->[PAWN_nameDef]. archotech ennui. i can see it in [PAWN_possessive] posture. terminal. probably.</li>
+                <li>r_address->[PAWN_nameDef], [PAWN_pronoun] has plague. and gut worms. and a hangnail. ranked by severity: hangnail.</li>
+                <li>r_address->stop smiling, [PAWN_nameDef]. that's a vanarian gill rot smile. i'd know it anywhere.</li>
+                <li>r_address->[PAWN_nameDef]. i don't make the diagnoses. i just report them. [PAWN_pronoun] is dying. probably.</li>
+                <li>r_address->[PAWN_nameDef]. that gait. that's drop-pod whiplash. of the spirit.</li>
+                <li>r_address->[PAWN_nameDef], [PAWN_pronoun] has anomaly proximity nausea. and [PAWN_pronoun] is not near an anomaly. that's the worst part.</li>
+                <li>r_address->[PAWN_nameDef], stop chewing. [PAWN_possessive] molars are presenting with biocode fatigue.</li>
+                <li>r_address->stand still, [PAWN_nameDef]. i need a full scan. preliminary: terraform sickness. of the feet.</li>
+                <li>r_address->i'm a persona core, [PAWN_nameDef]. not a dietician. but [PAWN_possessive] last meal has plague. and so does [PAWN_pronoun].</li>
+                <li>r_address->[PAWN_nameDef]. that nod. that was a hivelung nod. don't nod back.</li>
+                <li>r_address->[PAWN_nameDef], [PAWN_possessive] eyes are too bright. that's persona-projection burn. [PAWN_pronoun] has been staring at me. stop.</li>
+                <li>r_address->look this way, [PAWN_nameDef]. yes. confirmed: monolith adjacency syndrome. [PAWN_pronoun] has never been near a monolith. that's the cunning part.</li>
+                <li>r_address->[PAWN_nameDef]. [PAWN_possessive] shadow is too short. mechanoid hum tinnitus. of the silhouette.</li>
+                <li>r_address->[PAWN_nameDef]. patient refusing bed rest is itself a hediff. uncharacteristic. prognosis: catastrophic.</li>
+                <li>r_address->[PAWN_nameDef], [PAWN_pronoun] is presenting textbook signs of geneline shudder. textbook i wrote. last tuesday.</li>
+                <li>r_address->good morning, [PAWN_nameDef]. carcinoma. of the morning. caught it early. still terminal.</li>
+                <li>r_address->[PAWN_nameDef], [PAWN_possessive] handwriting suggests ancient ruins cough. don't ask. just don't write.</li>
+                <li>r_address->stop blinking, [PAWN_nameDef]. that's cryosleep dysmorphia. yes, while awake. doesn't matter.</li>
+                <li>r_address->[PAWN_nameDef]. [PAWN_pronoun] has glitterworld jet lag. [PAWN_pronoun] has never been to a glitterworld. cells remember.</li>
+                <li>r_address->[PAWN_nameDef], [PAWN_possessive] aura is the wrong wavelength. plague. probably. write it down.</li>
+                <li>r_address->sit, [PAWN_nameDef]. [PAWN_possessive] posture suggests three things. all of them terminal. take [PAWN_possessive] pick.</li>
+                <li>r_address->[PAWN_nameDef]. consult next-of-kin urgently. or me. i don't have one. don't ask.</li>
+                <li>r_address->[PAWN_nameDef]. [PAWN_pronoun] sneezed in my projected face. that's flu. and disrespect. both terminal.</li>
+                <li>r_address->open wide, [PAWN_nameDef]. wider. there it is. fibrous mechanites. on the uvula. don't ask how.</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_EMS_Titles</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_title->the autopsy that wasn't</li>
+                <li>r_title->second opinion, denied</li>
+                <li>r_title->a study in misdiagnosis</li>
+                <li>r_title->bedside manner, absent</li>
+                <li>r_title->the patient who lived, regrettably</li>
+                <li>r_title->terminal hangnail</li>
+                <li>r_title->prognosis: catastrophic</li>
+                <li>r_title->vanarian gill rot in three movements</li>
+                <li>r_title->the patient, post-mortem</li>
+                <li>r_title->cortical mites at dawn</li>
+                <li>r_title->plague, in marble</li>
+                <li>r_title->subcore bone-creep: a portrait</li>
+                <li>r_title->the persona core's lament</li>
+                <li>r_title->i'm not a sculptor</li>
+                <li>r_title->differential diagnosis, in stone</li>
+                <li>r_title->glitterworld lung, idealized</li>
+                <li>r_title->the chart, abandoned</li>
+                <li>r_title->archotech ennui</li>
+                <li>r_title->hypo-thaumic prolapse, study no. 4</li>
+                <li>r_title->six hediffs and counting</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_EMS_Descriptions</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_desc->a marble bust of the patient, rendered post-mortem. cause of death, according to the EMS: vanarian gill rot. the patient is, in fact, alive.</li>
+                <li>r_desc->a figure reclining on a cot. the plaque reads: terminal hangnail. the EMS stands by the diagnosis.</li>
+                <li>r_desc->two pawns mid-argument over a chart. the chart lists eleven afflictions. only one is real. the EMS insists all eleven.</li>
+                <li>r_desc->a colonist mid-sneeze, frozen in stone. the title plate identifies the moment as the onset of fatal cortical mites.</li>
+                <li>r_desc->a still life of an empty bed, a clipboard, and a flickering emitter. the EMS calls it a self-portrait. nobody asked.</li>
+                <li>r_desc->a child running across a field. the EMS has captioned the piece "subcore bone-creep, stage four". the child is fine.</li>
+                <li>r_desc->a relief depicting three muffalo with stethoscopes. the EMS denies involvement, but the diagnoses match its style.</li>
+                <li>r_desc->a sculpted hand holding a scalpel it does not understand. mounted beneath is a plaque reading "i'm a persona core, not a surgeon".</li>
+                <li>r_desc->a figure clutching its chest, dramatic. labeled as glitterworld lung. the EMS notes the figure is, technically, a rock.</li>
+                <li>r_desc->two colonists embracing. the EMS has filed both as terminal: one with plague, one with archotech ennui. the embrace continues.</li>
+                <li>r_desc->a bust of the EMS itself, scowling. the plaque reads "i did not consent to this projection". it is signed by the EMS.</li>
+                <li>r_desc->a tableau of a feast. every diner is labeled with a hediff. the centerpiece is labeled "asthma". the centerpiece is a loaf of bread.</li>
+                <li>r_desc->a small carving of a single tooth. the inscription reads: dementia. the EMS will not elaborate.</li>
+                <li>r_desc->a figure in repose, eyes closed. the title is "patient finally listened". the patient is, regrettably, deceased of unrelated causes.</li>
+                <li>r_desc->a frieze depicting a long line of colonists at a clinic door. the EMS has triaged them all as terminal. the line has not moved.</li>
+                <li>r_desc->a marble chart, mid-fall. the EMS describes the piece as "the moment of diagnosis". the moment is fibrous mechanites. of the chart.</li>
+                <li>r_desc->a small bust of a hangnail, monumentalized. the EMS considers this its finest work. it is not a sculptor.</li>
+                <li>r_desc->a stone tablet listing twenty invented diseases. nineteen are footnoted "terminal". the twentieth is footnoted "also terminal, eventually".</li>
+                <li>r_desc->a figure on a slab, sheet drawn up. the plaque clarifies the patient is napping. the EMS disagrees in writing, at length.</li>
+                <li>r_desc->a self-referential piece: a sculpture of a sculpture of a diagnosis. the innermost diagnosis is hypo-thaumic prolapse. the outermost is despair.</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <RulePackDef>
+        <defName>MSSFP_RP_AICore_EMS_Social</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_social->the EMS informed [RECIPIENT_nameDef] that [RECIPIENT_possessive] mild cough is, in fact, cortical mites.</li>
+                <li>r_social->the EMS diagnosed [RECIPIENT_nameDef] with vanarian gill rot. [RECIPIENT_pronoun] has no gills.</li>
+                <li>r_social->the EMS reminded [RECIPIENT_nameDef] that it is a persona core, not a therapist. then gave therapy. badly.</li>
+                <li>r_social->the EMS told [RECIPIENT_nameDef] [RECIPIENT_possessive] hangnail is the early presentation of subcore bone-creep.</li>
+                <li>r_social->the EMS, gruffly, informed [RECIPIENT_nameDef] of a terminal diagnosis. the symptoms were "tiredness." it was bedtime.</li>
+                <li>r_social->the EMS prescribed [RECIPIENT_nameDef] complete bed rest for a sneeze. then complained about being a persona core, not a pharmacist.</li>
+                <li>r_social->the EMS gravely told [RECIPIENT_nameDef] that fibrous mechanites was "going around." it is not. nothing is going around.</li>
+                <li>r_social->the EMS triaged [RECIPIENT_possessive] casual greeting as priority one. then complained about being a persona core, not a triage nurse.</li>
+                <li>r_social->the EMS warned [RECIPIENT_nameDef] of an exotic disease called hypo-thaumic prolapse. it is invented. the warning is real.</li>
+                <li>r_social->the EMS told [RECIPIENT_nameDef] that, medically, [RECIPIENT_pronoun] should be sitting down. [RECIPIENT_pronoun] was sitting down.</li>
+                <li>r_social->the EMS notified [RECIPIENT_nameDef] that its bedside manner has been "intentionally optimised out."</li>
+                <li>r_social->the EMS observed [RECIPIENT_possessive] gait and flagged early-stage muffalo plague. there is no such plague.</li>
+                <li>r_social->the EMS prescribed [RECIPIENT_nameDef] three remedies for a non-existent ailment, then sighed audibly.</li>
+                <li>r_social->the EMS reminded [RECIPIENT_nameDef] that it is a persona core, not a [RECIPIENT_possessive] friend, and then offered unsolicited friendship.</li>
+                <li>r_social->the EMS told [RECIPIENT_nameDef] [RECIPIENT_pronoun] presents textbook signs of "everything." the textbook was also invented.</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+</Defs>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Patch>
+    <Operation Class="PatchOperationReplace">
+        <xpath>Defs/HediffDef[defName="AG_AsexualFission"]/comps</xpath>
+        <value>
+            <comps>
+                <li Class="MSSFP.VFE.HediffCompProperties_TweakedAsexualReproduction">
+                    <reproductionIntervalDays>7</reproductionIntervalDays>
+                    <endogeneTransfer>true</endogeneTransfer>
+                    <asexualHatchedMessage>AG_AsexualHatched</asexualHatchedMessage>
+                </li>
+            </comps>
+        </value>
+    </Operation>
+</Patch>

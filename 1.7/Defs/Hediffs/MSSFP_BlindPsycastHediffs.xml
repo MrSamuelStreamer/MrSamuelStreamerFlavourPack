@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <HediffDef>
+    <defName>MSSFP_EcholocationBlindness</defName>
+    <label>echolocation blackout</label>
+    <description>Total sensory blackout — sight reduced to nothing for the duration.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.1,0.1,0.1)</defaultLabelColor>
+    <isBad>true</isBad>
+    <tendable>false</tendable>
+    <maxSeverity>1.0</maxSeverity>
+    <initialSeverity>1.0</initialSeverity>
+    <stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>Sight</capacity>
+            <setMax>0</setMax>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <HediffDef>
+    <defName>MSSFP_EcholocationCasterBuff</defName>
+    <label>echolocation focus</label>
+    <description>Heightened non-visual senses while the blackout holds — faster hands, sharper reflexes, truer aim.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.7,0.5,1)</defaultLabelColor>
+    <isBad>false</isBad>
+    <tendable>false</tendable>
+    <maxSeverity>1.0</maxSeverity>
+    <initialSeverity>1.0</initialSeverity>
+    <stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>Manipulation</capacity>
+            <postFactor>2.0</postFactor>
+          </li>
+        </capMods>
+          <statOffsets>
+              <MeleeDodgeChance>20.0</MeleeDodgeChance>
+              <ShootingAccuracyPawn>2.0</ShootingAccuracyPawn>
+          </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+
+</Defs>

@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <WorldGenStepDef>
+        <defName>MSSFP_TunnelEntrances</defName>
+        <order>551</order>
+        <worldGenStep Class="MSSFP.Tunnels.WorldGenStep_TunnelEntrances">
+            <tunnelSitesPer100kTiles>8~24</tunnelSitesPer100kTiles>
+        </worldGenStep>
+    </WorldGenStepDef>
+
+    <WorldGenStepDef>
+        <defName>MSSFP_Tunnels</defName>
+        <order>651</order>
+        <worldGenStep Class="MSSFP.Tunnels.WorldGenStep_Tunnels" />
+    </WorldGenStepDef>
+
+    <MSSFP.Tunnels.TunnelDef>
+        <defName>MSSFP_Tunnel</defName>
+        <label>tunnel</label>
+        <distortionFrequency>0.5</distortionFrequency>
+        <distortionIntensity>0.2</distortionIntensity>
+        <worldTransitionGroup>Dirt</worldTransitionGroup>
+    </MSSFP.Tunnels.TunnelDef>
+
+    <MSSFP.Tunnels.TunnelWorldLayerDef>
+        <defName>Stone</defName>
+        <order>280</order>
+        <color>(0.545, 0.27, 0.074)</color>
+    </MSSFP.Tunnels.TunnelWorldLayerDef>
+
+    <PrefabDef>
+        <defName>MSSFP_TunnelEntrancePrefab</defName>
+        <size>(5,5)</size>
+        <things>
+            <MSSFP_TunnelEntrance>
+                <position>(0, 0, 0)</position>
+            </MSSFP_TunnelEntrance>
+        </things>
+    </PrefabDef>
+
+    <StructureLayoutDef>
+        <defName>MSSFP_TunnelEntranceStructure</defName>
+        <workerClass>LayoutWorker_SimpleRuin</workerClass>
+        <canHaveMultipleLayoutsInRoom>true</canHaveMultipleLayoutsInRoom>
+
+        <roomDefs>
+            <AncientRuinsCryptosleepCasketNoThreat />
+        </roomDefs>
+    </StructureLayoutDef>
+
+    <GenStepDef>
+        <defName>MSSFP_PlaceTunnelEntrance</defName>
+        <order>400</order>
+        <genStep Class="MSSFP.Tunnels.GenStep_PlaceTunnelEntrance" />
+        <linkWithSite>MSSFP_TunnelEntranceSitePart</linkWithSite>
+    </GenStepDef>
+
+    <!-- Overrides biome terrain to cave floor + thick mountain roofing. Runs after Terrain (210). -->
+    <GenStepDef>
+        <defName>MSSFP_TunnelCaveSetup</defName>
+        <order>230</order>
+        <genStep Class="MSSFP.Tunnels.GenStep_TunnelCaveSetup" />
+    </GenStepDef>
+
+    <!--
+        Carves underground cave corridors into MapGenerator.Caves before
+        Underground_RocksFromGrid (order 200) runs.
+
+        Replicates TileMutatorWorker_UndergroundCave.GeneratePostElevationFertility,
+        which is normally triggered via pocketMapProperties.tileMutators. That path
+        only fires when isPocketMap=true; caravan attack maps use isPocketMap=false,
+        so no mutators are applied and MapGenerator.Caves stays all-zero without this step.
+    -->
+    <GenStepDef>
+        <defName>MSSFP_TunnelCaravanCaves</defName>
+        <order>15</order>
+        <genStep Class="MSSFP.Tunnels.GenStep_TunnelCaravanCaves" />
+    </GenStepDef>
+
+    <MapGeneratorDef ParentName="MapCommonBase">
+        <defName>MSSFP_TunnelEntrance</defName>
+        <genSteps>
+            <!-- Dense rock blotches give an underground cave feel -->
+            <li>Underground_RocksFromGrid</li>
+            <!-- Override surface terrain to cave floor + thick roof everywhere -->
+            <li>MSSFP_TunnelCaveSetup</li>
+            <!-- Clear area and place the entrance building -->
+            <li>MSSFP_PlaceTunnelEntrance</li>
+        </genSteps>
+    </MapGeneratorDef>
+
+    <!--
+        Map generator for TunnelCaravan insect-attack/faction-ambush encounters.
+        Produces a cave-like arena: rough stone floor, thick overhead rock,
+        and scattered rock formations for cover.
+
+        IMPORTANT: Do NOT add pocketMapProperties — caravan attack maps are not
+        pocket maps (they sit on a real world tile); doing so causes an
+        InvalidCastException inside GetOrGenerateMap.
+
+        Do NOT inherit from MapCommonBase — child genSteps append to the parent list,
+        so inheriting would silently run the entire surface pipeline before our steps.
+    -->
+    <MapGeneratorDef>
+        <defName>MSSFP_TunnelEncounter</defName>
+        <label>tunnel encounter</label>
+        <isUnderground>true</isUnderground>
+        <forceCaves>true</forceCaves>
+        <genSteps>
+            <li>ElevationFertility</li>
+            <li>MSSFP_TunnelCaravanCaves</li>
+            <li>Underground_RocksFromGrid</li>
+            <li>MSSFP_TunnelCaveSetup</li>
+            <li>RockChunks</li>
+            <li>FindPlayerStartSpot</li>
+            <li>MutatorFinal</li>
+            <li>Fog</li>
+        </genSteps>
+        <customMapComponents>
+            <li>MSSFP.Tunnels.MapComponents.MapComponent_TunnelCaravanState</li>
+        </customMapComponents>
+    </MapGeneratorDef>
+
+    <!--
+        Battlefield world object used as the map parent for TunnelCaravan insect-attack
+        encounters. Mirrors the vanilla AttackedNonPlayerCaravan def (worldObjectClass,
+        isTempIncidentMapOwner, FormCaravan + TimedDetectionRaids comps) with our own
+        cave map generator — ParentName="Ambush" does not resolve to a usable def.
+    -->
+    <WorldObjectDef ParentName="StaticWorldObjectBase">
+        <defName>MSSFP_TunnelEncounterSite</defName>
+        <label>tunnel encounter</label>
+        <worldObjectClass>CaravansBattlefield</worldObjectClass>
+        <mapGenerator>MSSFP_TunnelEncounter</mapGenerator>
+        <texture>UI/MSS_TunnelIcon</texture>
+        <expandingIconTexture>UI/MSS_TunnelIcon</expandingIconTexture>
+        <expandingIcon>true</expandingIcon>
+        <expandingIconPriority>80</expandingIconPriority>
+        <isTempIncidentMapOwner>true</isTempIncidentMapOwner>
+        <comps>
+            <li Class="WorldObjectCompProperties_FormCaravan" />
+            <li Class="WorldObjectCompProperties_TimedDetectionRaids" />
+        </comps>
+    </WorldObjectDef>
+
+    <IncidentTargetTagDef>
+        <defName>MSSFP_TunnelEntrance</defName>
+    </IncidentTargetTagDef>
+
+    <WorldObjectDef ParentName="StaticWorldObjectBase">
+        <defName>MSSFP_TunnelEntranceSite</defName>
+        <label>tunnel access</label>
+        <worldObjectClass>MSSFP.Tunnels.TunnelEntrance</worldObjectClass>
+        <mapGenerator>MSSFP_TunnelEntrance</mapGenerator>
+        <expandingIconTexture>UI/MSS_TunnelIcon</expandingIconTexture>
+        <texture>UI/MSS_TunnelIcon</texture>
+        <IncidentTargetTags>
+            <li>MSSFP_TunnelEntrance</li>
+        </IncidentTargetTags>
+        <nameMaker>MSSFP_TunnelEntranceNamer</nameMaker>
+        <expandingIcon>true</expandingIcon>
+        <expandingIconPriority>80</expandingIconPriority>
+        <comps>
+            <li Class="WorldObjectCompProperties_TimedDetectionRaids" />
+            <li Class="WorldObjectCompProperties_ItemStashContents" />
+            <li Class="WorldObjectCompProperties_FormCaravan" />
+        </comps>
+    </WorldObjectDef>
+
+    <SitePartDef>
+        <defName>MSSFP_TunnelEntranceSitePart</defName>
+        <label>Tunnel Entrance</label>
+        <description>A Tunnel Entrance.</description>
+        <workerClass>MSSFP.Tunnels.SitePartWorker_Tunnel</workerClass>
+        <siteTexture>UI/MSS_TunnelIcon</siteTexture>
+        <expandingIconTexture>UI/MSS_TunnelIcon</expandingIconTexture>
+        <applyFactionColorToSiteTexture>false</applyFactionColorToSiteTexture>
+        <showFactionInInspectString>false</showFactionInInspectString>
+        <requiresFaction>false</requiresFaction>
+        <approachOrderString>Enter {0}</approachOrderString>
+        <approachingReportString>Entering {0}.</approachingReportString>
+    </SitePartDef>
+
+    <!--
+        GenStep for the Cave-In encounter: builds the deterministic tunnel + barrier
+        rock layout and scatters loot. Runs after MSSFP_TunnelCaveSetup (230) so terrain
+        and roofing are already set, and before FindPlayerStartSpot (850) so the start
+        spot is found inside the open approach section.
+
+        Used only by MSSFP_TunnelCaveIn — NOT included in MSSFP_TunnelEncounter.
+    -->
+    <GenStepDef>
+        <defName>MSSFP_TunnelCaveInLayout</defName>
+        <order>240</order>
+        <genStep Class="MSSFP.Tunnels.GenStep_TunnelCaveInLayout" />
+    </GenStepDef>
+
+    <!--
+        Map generator for the Cave-In encounter. Fully deterministic layout: solid rock
+        outside a 5-wide central tunnel, with two 5-deep barrier bands ~20 cells either
+        side of the Z-centre.
+    -->
+    <MapGeneratorDef>
+        <defName>MSSFP_TunnelCaveIn</defName>
+        <label>tunnel cave-in</label>
+        <isUnderground>true</isUnderground>
+        <forceCaves>true</forceCaves>
+        <genSteps>
+            <li>ElevationFertility</li>
+            <li>MSSFP_TunnelCaveSetup</li>
+            <li>MSSFP_TunnelCaveInLayout</li>
+            <li>FindPlayerStartSpot</li>
+            <li>RockChunks</li>
+            <li>MutatorFinal</li>
+            <li>Fog</li>
+        </genSteps>
+        <customMapComponents>
+            <li>MSSFP.Tunnels.MapComponents.MapComponent_TunnelCaravanState</li>
+        </customMapComponents>
+    </MapGeneratorDef>
+
+    <!--
+        World object for the Cave-In encounter map. Mirrors MSSFP_TunnelEncounterSite
+        but points at the MSSFP_TunnelCaveIn map generator.
+    -->
+    <WorldObjectDef ParentName="StaticWorldObjectBase">
+        <defName>MSSFP_TunnelCaveInSite</defName>
+        <label>tunnel cave-in</label>
+        <worldObjectClass>CaravansBattlefield</worldObjectClass>
+        <mapGenerator>MSSFP_TunnelCaveIn</mapGenerator>
+        <texture>UI/MSS_TunnelIcon</texture>
+        <expandingIconTexture>UI/MSS_TunnelIcon</expandingIconTexture>
+        <expandingIcon>true</expandingIcon>
+        <expandingIconPriority>80</expandingIconPriority>
+        <isTempIncidentMapOwner>true</isTempIncidentMapOwner>
+        <comps>
+            <li Class="WorldObjectCompProperties_FormCaravan" />
+            <li Class="WorldObjectCompProperties_TimedDetectionRaids" />
+        </comps>
+    </WorldObjectDef>
+
+    <WorldObjectDef>
+        <defName>MSSFP_TunnelCaravanWorldObject</defName>
+        <label>tunnel caravan</label>
+        <description>A group of people travelling through tunnels in a minecart.</description>
+        <worldObjectClass>MSSFP.Tunnels.TunnelCaravan</worldObjectClass>
+        <texture>UI/MSS_MineCart</texture>
+        <useDynamicDrawer>true</useDynamicDrawer>
+        <expandingIconTexture>UI/MSS_MineCart</expandingIconTexture>
+        <expandingIcon>true</expandingIcon>
+        <expandingIconPriority>100</expandingIconPriority>
+        <expandMore>true</expandMore>
+        <mapGenerator>Encounter</mapGenerator>
+        <allowCaravanIncidentsWhichGenerateMap>true</allowCaravanIncidentsWhichGenerateMap>
+        <IncidentTargetTags>
+            <li>MSSFP_TunnelEntrance</li>
+        </IncidentTargetTags>
+        <inspectorTabs>
+            <li>WITab_Caravan_Health</li>
+            <li>WITab_Caravan_Needs</li>
+            <li>WITab_Caravan_Gear</li>
+            <li>WITab_Caravan_Social</li>
+            <li>WITab_Caravan_Items</li>
+            <li>WITab_Caravan_Feeding</li>
+        </inspectorTabs>
+    </WorldObjectDef>
+</Defs>

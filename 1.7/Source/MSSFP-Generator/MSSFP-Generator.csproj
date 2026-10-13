@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>Library</OutputType>
+        <LangVersion>latest</LangVersion>
+        <RootNamespace>MSSFP.GeneratorMod</RootNamespace>
+        <AssemblyName>MSSFP.GeneratorMod</AssemblyName>
+        <OutputPath>../../../Compatibility/vanillaquestsexpanded.generator/1.7/Assemblies</OutputPath>
+        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+        <SteamModsPath>$(RIMWORLD_STEAM_MODS_PATH)</SteamModsPath>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <Optimize>false</Optimize>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>portable</DebugType>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <DebugType>embedded</DebugType>
+        <DebugSymbols>false</DebugSymbols>
+        <Optimize>true</Optimize>
+    </PropertyGroup>
+    <ItemGroup>
+        <Reference Include="VanillaQuestsExpandedTheGenerator">
+            <HintPath Condition="Exists('../../../../VanillaQuestsExpanded-TheGenerator/1.7/Assemblies/VanillaQuestsExpandedTheGenerator.dll')">../../../../VanillaQuestsExpanded-TheGenerator/1.7/Assemblies/VanillaQuestsExpandedTheGenerator.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="../MSSFP/MSSFP.csproj">
+            <Private>false</Private>
+        </ProjectReference>
+    </ItemGroup>
+    <PropertyGroup>
+        <StartAction>Program</StartAction>
+        <StartProgram>$(SolutionDir)../../../../RimWorldWin64.exe</StartProgram>
+    </PropertyGroup>
+</Project>
+
