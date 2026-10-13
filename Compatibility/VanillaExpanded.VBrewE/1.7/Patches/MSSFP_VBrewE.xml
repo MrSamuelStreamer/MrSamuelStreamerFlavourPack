@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+    <!-- Vanilla Brewing Expanded has no 1.7 build yet, so only patch when the def actually loaded. -->
+    <Operation Class="PatchOperationConditional">
+        <xpath>Defs/ThingDef[defName="VBE_HotCoffee"]</xpath>
+        <match Class="PatchOperationSequence">
+            <operations>
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/ThingDef[defName="VBE_HotCoffee"]/label</xpath>
+                    <value>
+                        <label>black coffee</label>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/ThingDef[defName="VBE_HotCoffee"]/description</xpath>
+                    <value>
+                        <description>A warm, bitter beverage usually complemented with sugar. A favorite among students and office workers across the galaxy due to high caffeine content and pleasing aroma.</description>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+</Patch>

@@ -16,7 +16,6 @@
 			<li>MoveSpeed_Quick</li>
 			<li>Aggression_HyperAggressive</li>
 			<li>KillThirst</li>
-			<li>Body_FemaleOnly</li>
 			<li>Sterile</li>
             <li MayRequire="sarg.alphagenes">AG_VFEI_PredatorStomach</li>
             <li MayRequire="sarg.alphagenes">AG_Mood_Unfeeling</li>
