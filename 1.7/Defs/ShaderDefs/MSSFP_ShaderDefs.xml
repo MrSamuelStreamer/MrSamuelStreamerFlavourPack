@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Black hole billboard on the world skybox layer. Same pipeline state as vanilla "Stars". -->
+  <ShaderDef>
+    <defName>MSSFP_BlackHole</defName>
+    <shaderProgram>
+      <vertexShaderFileName>MSSFP_BlackHole.vert.glsl</vertexShaderFileName>
+      <fragmentShaderFileName>MSSFP_BlackHole.frag.glsl</fragmentShaderFileName>
+      <transparent>true</transparent>
+      <depthTest>false</depthTest>
+      <depthWrite>false</depthWrite>
+      <cullMode>None</cullMode>
+      <renderQueue>1001</renderQueue>
+    </shaderProgram>
+  </ShaderDef>
+
+</Defs>

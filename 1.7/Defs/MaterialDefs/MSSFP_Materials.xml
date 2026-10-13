@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <MaterialDef>
+    <defName>MSSFP_BlackHole</defName>
+    <resourcePath>MSSFP/BlackHole</resourcePath>
+    <shader>MSSFP_BlackHole</shader>
+  </MaterialDef>
+
+</Defs>

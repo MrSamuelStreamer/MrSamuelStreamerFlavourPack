@@ -130,10 +130,10 @@ public class GlobalDrawLayer_Stars_Spectral : WorldDrawLayerBase
         }
 
         float growthFactor  = featureEnabled ? GameCondition_BlackHole.GrowthFactor : 1f;
-        float lensDiscScale = BHRenderHelper.BHDiscScaleBase * Mathf.Min(growthFactor, LensGrowthCap);
+        float lensDiscScale = GameCondition_BlackHole.BHDiscScaleBase * Mathf.Min(growthFactor, LensGrowthCap);
         float horizonTheta  = SunVpRadius * lensDiscScale * 0.22f * VpRadiusToTheta;
         float shadowTheta   = horizonTheta * 0.87f;
-        float lensRadius    = LensRadiusBase * (lensDiscScale / BHRenderHelper.BHDiscScaleBase);
+        float lensRadius    = LensRadiusBase * (lensDiscScale / GameCondition_BlackHole.BHDiscScaleBase);
 
         bool bhActive = featureEnabled && GameCondition_BlackHole.IsActive;
 
