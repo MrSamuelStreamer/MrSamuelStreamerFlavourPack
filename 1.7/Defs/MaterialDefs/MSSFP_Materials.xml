@@ -7,4 +7,16 @@
     <shader>MSSFP_BlackHole</shader>
   </MaterialDef>
 
+  <MaterialDef>
+    <defName>MSSFP_AICoreOrb</defName>
+    <resourcePath>MSSFP/AICoreOrb</resourcePath>
+    <shader>MSSFP_AICoreOrb</shader>
+    <textures>
+      <li>
+        <name>_MainTex</name>
+        <path>Things/Building/MSSFP_AI_Core_Orb</path>
+      </li>
+    </textures>
+  </MaterialDef>
+
 </Defs>

@@ -22,8 +22,9 @@ public static class AICoreOrbRenderer
     public const float OrbWorldSize = 1.24f;
 
     /// <summary>Orb centre Z offset from building draw origin in world cells.
-    /// SVG canvas mid-y = 32, orb cy = 24.08 → orb is 7.92 units above centre → 7.92/32 = 0.25.</summary>
-    public const float OrbCenterZOffset = 0.25f;
+    /// SVG canvas mid-y = 32, orb cy = 24.08 → orb is 7.92 units above centre → 7.92/32 = 0.25.
+    /// 1.7 raises the orb by one more orb radius so it sits on the pedestal rather than in front of it.</summary>
+    public const float OrbCenterZOffset = 0.25f + OrbWorldSize * 0.5f;
 
     /// <summary>Rest-position gradient offset from UV centre. Derived from SVG
     /// gradient-centre vs orb-centre, normalised by orb radius, y-flipped to Unity UV space.</summary>
@@ -53,25 +54,18 @@ public static class AICoreOrbRenderer
     {
         OrbMesh = MeshPool.GridPlane(new Vector2(OrbWorldSize, OrbWorldSize));
 
-        Texture2D mask = ContentFinder<Texture2D>.Get(
-            "Things/Building/MSSFP_AI_Core_Orb",
-            reportFailure: false
-        );
-        if (mask == null)
+        // One shared material from the MSSFP_AICoreOrb MaterialDef (shader + orb mask texture).
+        // Per-instance _GradientCenter goes through MaterialPropertyBlock at draw time so
+        // multiple AI cores can track the cursor independently without cloning the material
+        // (which would defeat batching and bloat memory).
+        OrbMaterial = MatLoader.LoadMat("MSSFP/AICoreOrb");
+        if (OrbMaterial == null || OrbMaterial == BaseContent.BadMat)
         {
             Log.Error(
-                "[MSSFP] AI Core orb mask texture missing at "
-                    + "Things/Building/MSSFP_AI_Core_Orb. Orb will not render."
+                "[MSSFP] AI Core orb material 'MSSFP/AICoreOrb' did not load "
+                    + "(check the MSSFP_AICoreOrb ShaderDef/MaterialDef and Things/Building/MSSFP_AI_Core_Orb). "
+                    + "Orb will not render."
             );
-        }
-
-        // One shared material. Per-instance _GradientCenter goes through MaterialPropertyBlock
-        // at draw time so multiple AI cores can track the cursor independently without cloning
-        // the material (which would defeat batching and bloat memory).
-        OrbMaterial = new Material(AICoreOrbShader.Shader);
-        if (mask != null)
-        {
-            OrbMaterial.mainTexture = mask;
         }
     }
 }

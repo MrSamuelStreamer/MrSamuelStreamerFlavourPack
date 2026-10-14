@@ -4,66 +4,41 @@ using Verse;
 namespace MSSFP.Holo;
 
 /// <summary>
-/// Static cache for the HoloMono shader (built from UnityAssets/, shipped via the
-/// per-platform AssetBundles at <c>Common/AssetBundles/mssfp_{linux,mac,win}</c>).
+/// Static cache for the holo shader. In 1.7 it is the <c>MSSFP_HoloMono</c> ShaderDef
+/// (GLSL, <c>1.7/Shaders/MSSFP_HoloMono.frag.glsl</c>). The 1.6 build still uses the Unity
+/// AssetBundle shader; the two are kept in step by hand.
 ///
-/// RimWorld 1.6 auto-loads those bundles at startup and indexes their contents under
-/// <see cref="ContentFinder{T}"/>. The shader name in the AssetBundle is the
-/// ShaderLab name declared in the .shader file (<c>"MSSFP/HoloMono"</c>), NOT the file name.
+/// The 1.6 shader toggled its outline and glow through global shader keywords, which 1.7
+/// cannot do (it builds one variant). They are material flags in the GLSL shader instead
+/// (<c>_Flags</c>, both on by default, as 1.6 always enabled both).
 ///
-/// FAILURE HANDLING: when the bundle is missing or the lookup name is wrong,
-/// <see cref="ContentFinder{T}.Get"/> returns null. We log loudly once and fall back
-/// to <see cref="ShaderDatabase.Cutout"/>. Callers should still null-check
-/// <see cref="HoloMono"/> against the fallback before using it as a "is holo shader
-/// available" signal — every code path that reads it should handle the null/fallback
-/// case gracefully.
-///
-/// KEYWORDS: the shader declares <c>_OUTLINE_ON</c> and <c>_GLOW_ON</c> as global
-/// <c>multi_compile</c> keywords. Both are unconditionally enabled at startup via
-/// <see cref="Shader.EnableKeyword"/>.
+/// FAILURE HANDLING: when the ShaderDef is missing we log loudly once and fall back to
+/// <see cref="ShaderDatabase.Cutout"/>. Callers should still compare <see cref="HoloMono"/>
+/// against the fallback (see <see cref="IsLoaded"/>) before relying on holo visuals.
 /// </summary>
 [StaticConstructorOnStartup]
 public static class HoloShaders
 {
-    // itemPath into ContentFinder. The full lookup path inside the bundle is
-    //   Assets/Data/<ModFolderName>/Materials/<itemPath>.shader
-    // ModFolderName for MSSFP is "MrSamuelStreamerFlavourPack". ContentFinder
-    // handles that prefix automatically; we just provide the leaf name.
-    private const string HoloMonoShaderName = "HoloMono";
-    private const string OutlineKeyword = "_OUTLINE_ON";
-    private const string GlowKeyword = "_GLOW_ON";
+    private const string HoloMonoShaderDefName = "MSSFP_HoloMono";
 
     public static readonly Shader HoloMono;
 
     static HoloShaders()
     {
-        Shader loaded = ContentFinder<Shader>.Get(HoloMonoShaderName, reportFailure: false);
-        if (loaded == null)
+        if (DefDatabase<ShaderDef>.GetNamedSilentFail(HoloMonoShaderDefName) == null)
         {
             Log.Error(
-                $"[MSSFP] HoloMono shader '{HoloMonoShaderName}' not found in AssetBundles. "
+                $"[MSSFP] ShaderDef '{HoloMonoShaderDefName}' not found. "
                     + "Holos will render with vanilla cutout shader. "
-                    + "Verify Common/AssetBundles/mssfp_{linux,mac,win} exists and was built "
-                    + "from UnityAssets/ with Unity 2022.3.35f1."
+                    + "Check 1.7/Defs/ShaderDefs/MSSFP_ShaderDefs.xml is in the load folders."
             );
             HoloMono = ShaderDatabase.Cutout;
+            return;
         }
-        else
-        {
-            HoloMono = loaded;
-            ApplyKeywordsFromSettings();
-        }
+
+        HoloMono = ShaderDatabase.LoadShader(HoloMonoShaderDefName);
     }
 
-    /// <summary>
-    /// Enable both holo shader keywords globally. Idempotent.
-    /// </summary>
-    public static void ApplyKeywordsFromSettings()
-    {
-        Shader.EnableKeyword(OutlineKeyword);
-        Shader.EnableKeyword(GlowKeyword);
-    }
-
-    /// <summary>True iff the real holo shader loaded successfully (not the cutout fallback).</summary>
+    /// <summary>True iff the real holo shader loaded (not the cutout fallback).</summary>
     public static bool IsLoaded => HoloMono != null && HoloMono != ShaderDatabase.Cutout;
 }

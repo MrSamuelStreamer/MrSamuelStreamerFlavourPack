@@ -15,4 +15,32 @@
     </shaderProgram>
   </ShaderDef>
 
+  <!-- AI core orb: map-layer transparent quad, same pipeline state as the 1.6 Unity shader (blend, no depth write, no culling). -->
+  <ShaderDef>
+    <defName>MSSFP_AICoreOrb</defName>
+    <shaderProgram>
+      <vertexShaderFileName>MSSFP_Quad.vert.glsl</vertexShaderFileName>
+      <fragmentShaderFileName>MSSFP_AICoreOrb.frag.glsl</fragmentShaderFileName>
+      <flipTextureST>false</flipTextureST>
+      <transparent>true</transparent>
+      <depthWrite>false</depthWrite>
+      <cullMode>None</cullMode>
+      <renderQueue>3000</renderQueue>
+    </shaderProgram>
+  </ShaderDef>
+
+  <!-- Holo pawn: map-layer transparent, same pipeline state as the 1.6 Unity shader. -->
+  <ShaderDef>
+    <defName>MSSFP_HoloMono</defName>
+    <shaderProgram>
+      <vertexShaderFileName>MSSFP_Quad.vert.glsl</vertexShaderFileName>
+      <fragmentShaderFileName>MSSFP_HoloMono.frag.glsl</fragmentShaderFileName>
+      <flipTextureST>false</flipTextureST>
+      <transparent>true</transparent>
+      <depthWrite>false</depthWrite>
+      <cullMode>None</cullMode>
+      <renderQueue>3000</renderQueue>
+    </shaderProgram>
+  </ShaderDef>
+
 </Defs>
