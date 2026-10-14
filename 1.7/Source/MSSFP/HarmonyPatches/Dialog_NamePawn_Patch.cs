@@ -30,6 +30,8 @@ public static class Dialog_NamePawn_Patch
         ILGenerator generator
     )
     {
+        int replaced = 0;
+
         foreach (CodeInstruction instruction in instructions)
         {
             if (instruction.opcode == OpCodes.Ldc_I4_S)
@@ -40,10 +42,22 @@ public static class Dialog_NamePawn_Patch
                     // cannot hold 4096. Switch to Ldc_I4, which takes a full int32.
                     instruction.opcode = OpCodes.Ldc_I4;
                     instruction.operand = 4096;
+                    replaced++;
                 }
             }
 
             yield return instruction;
         }
+
+        if (replaced != ExpectedReplacements)
+        {
+            Log.Warning(
+                $"[MSSFP] Dialog_NamePawn constructor: replaced {replaced} name-length constants, expected "
+                    + $"{ExpectedReplacements}. Name limits may be wrong — a RimWorld update probably changed the constructor."
+            );
+        }
     }
+
+    // 1.7.4977 has exactly four such constants (12, 16, 12, 16), all name-length arguments (checked against the IL).
+    private const int ExpectedReplacements = 4;
 }

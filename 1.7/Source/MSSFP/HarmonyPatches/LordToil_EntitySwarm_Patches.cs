@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
 using RimWorld;
@@ -14,6 +15,8 @@ namespace MSSFP.HarmonyPatches;
 [HarmonyPatch(typeof(LordToil_EntitySwarm))]
 public static class LordToil_EntitySwarm_Patches
 {
+    private static readonly FieldInfo PatherField = AccessTools.Field(typeof(Pawn), nameof(Pawn.pather));
+
     [HarmonyPatch(nameof(LordToil_EntitySwarm.LordToilTick))]
     [HarmonyTranspiler]
     public static IEnumerable<CodeInstruction> Transpiler(
@@ -27,43 +30,52 @@ public static class LordToil_EntitySwarm_Patches
         // Find the index of the instruction to patch.
         for (int i = 0; i < codes.Count; i++)
         {
-            if (
-                codes[i].opcode == OpCodes.Ldfld
-                && codes[i].operand.ToString().Contains("Verse.Pawn::pather")
-            )
+            // Compare the real field: FieldInfo.ToString() is "Type name", never "Pawn::pather",
+            // so the old string match could not hit and the guard silently never applied.
+            if (codes[i].opcode == OpCodes.Ldfld && codes[i].operand as FieldInfo == PatherField)
             {
                 targetIndex = i;
                 break;
             }
         }
 
-        if (targetIndex != -1)
+        // The vanilla code loads the pawn (ldloc.1) right before `ldfld pather`. Insert the null
+        // check BEFORE that load so the evaluation stack is empty on both paths.
+        // Harmony may present short forms (ldloc.1) as ldloc + local, so match on the local index.
+        bool pawnLoadBeforeAnchor =
+            targetIndex >= 1
+            && codes[targetIndex - 1].IsLdloc()
+            && codes[targetIndex - 1].LocalIndex() == 1;
+
+        if (!pawnLoadBeforeAnchor)
         {
-            Label labelToReturn = il.DefineLabel();
-            Label labelAfterNullCheck = il.DefineLabel();
-
-            List<CodeInstruction> newInstructions = new List<CodeInstruction>
-            {
-                new(OpCodes.Ldloc_1), // Load ownedPawn
-                new(OpCodes.Ldfld, AccessTools.Field(typeof(Pawn), "pather")), // Load pather field
-                new(OpCodes.Brtrue_S, labelAfterNullCheck), // If not null, continue
-                // Instructions to call base.LordToilTick() and return
-                new(OpCodes.Ldarg_0), // Load 'this'
-                new(OpCodes.Call, AccessTools.Method(typeof(LordToil), "LordToilTick")), // Call base.LordToilTick()
-                new(OpCodes.Br, labelToReturn), // Return from method
-                // Label for continuing if pather is not null
-                new(OpCodes.Nop) { labels = new List<Label> { labelAfterNullCheck } }, // Define label position
-                codes[targetIndex], // Original ldfld
-                codes[targetIndex + 1], // Original callvirt
-            };
-
-            // Attach return label to the last original instruction
-            codes[codes.Count - 1].labels.Add(labelToReturn);
-
-            // Remove the original instructions and insert the new ones
-            codes.RemoveRange(targetIndex, 2);
-            codes.InsertRange(targetIndex, newInstructions);
+            string before = targetIndex >= 1 ? codes[targetIndex - 1].ToString() : "(none)";
+            Log.Error(
+                "[MSSFP] LordToil_EntitySwarm.LordToilTick: expected `ldloc.1; ldfld Pawn::pather` was not found "
+                    + $"(instruction before the anchor: {before}) — the null-pather guard is inactive. "
+                    + "A RimWorld update probably changed the method."
+            );
+            return codes;
         }
+
+        Label labelAfterNullCheck = il.DefineLabel();
+        CodeInstruction pawnLoad = codes[targetIndex - 1];
+
+        List<CodeInstruction> guard = new List<CodeInstruction>
+        {
+            // Keep any jump targets that pointed at the original pawn load.
+            new(OpCodes.Ldloc_1) { labels = new List<Label>(pawnLoad.labels) },
+            new(OpCodes.Ldfld, AccessTools.Field(typeof(Pawn), "pather")),
+            new(OpCodes.Brtrue_S, labelAfterNullCheck),
+            // pather is null: run base.LordToilTick() and return.
+            new(OpCodes.Ldarg_0),
+            new(OpCodes.Call, AccessTools.Method(typeof(LordToil), "LordToilTick")),
+            new(OpCodes.Ret),
+        };
+
+        pawnLoad.labels.Clear();
+        pawnLoad.labels.Add(labelAfterNullCheck);
+        codes.InsertRange(targetIndex - 1, guard);
 
         return codes.AsEnumerable();
     }

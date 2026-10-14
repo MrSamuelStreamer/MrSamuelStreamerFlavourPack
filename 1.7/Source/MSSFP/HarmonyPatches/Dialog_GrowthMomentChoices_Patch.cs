@@ -58,6 +58,9 @@ public static class Dialog_GrowthMomentChoices_Patch
         IEnumerable<CodeInstruction> instructionsEnumerable
     )
     {
+        int geneSelectorHooks = 0;
+        int makeChoicesHooks = 0;
+
         foreach (CodeInstruction instruction in instructionsEnumerable)
         {
             yield return instruction;
@@ -66,6 +69,7 @@ public static class Dialog_GrowthMomentChoices_Patch
                 && instruction.operand as MethodInfo == DrawTraitChoices.Value
             )
             {
+                geneSelectorHooks++;
                 yield return new CodeInstruction(OpCodes.Ldarg_0);
                 yield return new CodeInstruction(OpCodes.Ldloca_S, 2);
                 yield return new CodeInstruction(OpCodes.Call, Width.Value);
@@ -78,10 +82,20 @@ public static class Dialog_GrowthMomentChoices_Patch
                 && instruction.operand as MethodInfo == MakeChoices.Value
             )
             {
+                makeChoicesHooks++;
                 yield return new CodeInstruction(OpCodes.Ldarg_0);
                 // yield return new CodeInstruction(OpCodes.Ldc_I4_1);
                 yield return new CodeInstruction(OpCodes.Call, MakeChoicesHookInfo.Value);
             }
+        }
+
+        if (geneSelectorHooks != 1 || makeChoicesHooks != 1)
+        {
+            Log.Error(
+                $"[MSSFP] Dialog_GrowthMomentChoices.DoWindowContents: expected 1 DrawTraitChoices and 1 MakeChoices call, "
+                    + $"found {geneSelectorHooks} and {makeChoicesHooks}. The gene selector / choice hook may be inactive "
+                    + "or doubled — a RimWorld update probably changed the method."
+            );
         }
     }
 

@@ -206,6 +206,11 @@ public static class QuestNode_Root_Gravcore_TryFindSiteTile_Patch
             }
         }
 
+        // 1.7.4977 has exactly one TrueMin read, one TrueMax read and one `trueMax * 2`.
+        QuestSiteTranspilerCheck.Warn(
+            "QuestNode_Root_Gravcore.TryFindSiteTile", codes,
+            (_expandMin, 1), (_expandMax, 1), (_safeDoubleMax, 1));
+
         return codes;
     }
 }
@@ -274,6 +279,41 @@ public static class QuestNode_Root_Site_TryFindSiteTile_Patch
             }
         }
 
+        // 1.7.4977 reads TrueMin twice and TrueMax twice (see the notes above the class).
+        QuestSiteTranspilerCheck.Warn(
+            "QuestNode_Root_Site.TryFindSiteTile", codes,
+            (_expandMin, 2), (_expandMax, 2));
+
         return codes;
+    }
+}
+
+/// <summary>
+/// Counts the hooks a quest-radius transpiler injected and warns when the count differs from what the
+/// current RimWorld build is known to need, so a game update that moves an anchor is loud, not silent.
+/// </summary>
+internal static class QuestSiteTranspilerCheck
+{
+    public static void Warn(
+        string patch,
+        List<CodeInstruction> codes,
+        params (MethodInfo hook, int expected)[] hooks)
+    {
+        foreach ((MethodInfo hook, int expected) in hooks)
+        {
+            int found = 0;
+            foreach (CodeInstruction code in codes)
+            {
+                if (code.opcode == OpCodes.Call && code.operand is MethodInfo mi && mi == hook)
+                    found++;
+            }
+
+            if (found != expected)
+            {
+                Log.Warning(
+                    $"[MSSFP] {patch}: injected {found} x {hook?.Name ?? "?"}, expected {expected}. "
+                        + "The quest search radius setting may not apply — a RimWorld update probably changed the method.");
+            }
+        }
     }
 }
