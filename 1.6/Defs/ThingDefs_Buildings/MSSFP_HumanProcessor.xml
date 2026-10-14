@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <ThingDef ParentName="BuildingBase">
+        <defName>MSSFP_HumanProcessor</defName>
+        <label>Mechanoid Integument Needle Graft Extraction System</label>
+        <description>An industrial processing unit. It strips skin and blood from a human occupant, ejecting them alive and in agony.\n\nThe resulting disfigurement is permanent, and a processed human cannot be processed again.</description>
+
+        <thingClass>Building</thingClass>
+        <drawerType>MapMeshAndRealTime</drawerType>
+        <!-- CompPrisonerProcessor requires tickerType Normal. -->
+        <tickerType>Normal</tickerType>
+        <altitudeLayer>Building</altitudeLayer>
+        <size>(3,3)</size>
+        <rotatable>false</rotatable>
+        <passability>PassThroughOnly</passability>
+        <castEdgeShadows>false</castEdgeShadows>
+        <blockWind>true</blockWind>
+        <canOverlapZones>false</canOverlapZones>
+        <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+        <hasInteractionCell>true</hasInteractionCell>
+        <interactionCellOffset>(0,0,-2)</interactionCellOffset>
+        <destroyable>true</destroyable>
+        <useHitPoints>true</useHitPoints>
+        <designationCategory>Misc</designationCategory>
+        <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+        <containedPawnsSelectable>true</containedPawnsSelectable>
+
+        <graphicData>
+            <texPath>Building/PeelerNoSlicers</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(3,3)</drawSize>
+        </graphicData>
+        <researchPrerequisites>
+            <li>Machining</li>
+        </researchPrerequisites>
+        <statBases>
+            <MaxHitPoints>400</MaxHitPoints>
+            <WorkToBuild>30000</WorkToBuild>
+            <Flammability>0</Flammability>
+            <Beauty>1</Beauty>
+        </statBases>
+        <costList>
+            <Steel>200</Steel>
+            <Plasteel>40</Plasteel>
+            <ComponentIndustrial>3</ComponentIndustrial>
+        </costList>
+        <building>
+            <isEdifice>false</isEdifice>
+            <deconstructible>true</deconstructible>
+            <claimable>true</claimable>
+            <isTargetable>true</isTargetable>
+            <repairable>true</repairable>
+            <ai_neverTrashThis>false</ai_neverTrashThis>
+        </building>
+
+        <comps>
+            <li Class="CompProperties_Glower">
+                <glowRadius>6</glowRadius>
+                <glowColor>(90,240,240,0)</glowColor>
+            </li>
+            <li Class="CompProperties_Power">
+                <compClass>CompPowerTrader</compClass>
+                <basePowerConsumption>200</basePowerConsumption>
+            </li>
+            <!-- Occupant survives, permanently skinned, clothing destroyed. Blood filth and
+                 harvested products are dropped at the interaction cell. No meat: the pawn walks away. -->
+            <li Class="MSSFP.Comps.CompProperties_PrisonerProcessor">
+                <ticksToKill>7500</ticksToKill>
+                <bloodFilthMultiplier>100</bloodFilthMultiplier>
+                <products>
+                    <Leather_Human>35</Leather_Human>
+                    <HemogenPack MayRequire="Ludeon.RimWorld.Biotech">8</HemogenPack>
+                    <Cloth>20</Cloth>
+                </products>
+            </li>
+        </comps>
+    </ThingDef>
+
+</Defs>

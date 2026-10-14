@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <!--
+      painOffset 0.75 sits just under the default 0.8 pain shock threshold so the pawn
+      stays conscious after processing. Permanence is from omission: no disappears,
+      immunizable, or severity-per-day comp, and the hediff is not tendable.
+      skinColorOverride tints skin-colored nodes (the head, and body types with no
+      peeled texture). The body texture swap is Harmony_PeeledPawn.
+    -->
+    <HediffDef>
+        <defName>MSSFP_SkinnedAlive</defName>
+        <label>skinned alive</label>
+        <labelNoun>a skinning</labelNoun>
+        <description>The integument extraction process has stripped away the skin, leaving raw flesh exposed. The wound will never fully close, and the pain will never fully fade.</description>
+        <hediffClass>MSSFP.Hediffs.Hediff_SkinnedAlive</hediffClass>
+        <defaultLabelColor>(0.75, 0.25, 0.25)</defaultLabelColor>
+        <isBad>true</isBad>
+        <initialSeverity>1</initialSeverity>
+        <maxSeverity>1</maxSeverity>
+        <tendable>false</tendable>
+        <everCurableByItem>false</everCurableByItem>
+        <scenarioCanAdd>false</scenarioCanAdd>
+        <chanceToCauseNoPain>0</chanceToCauseNoPain>
+        <skinColorOverride>(0.72, 0.28, 0.26)</skinColorOverride>
+        <stages>
+            <li>
+                <painOffset>0.75</painOffset>
+            </li>
+        </stages>
+    </HediffDef>
+
+</Defs>

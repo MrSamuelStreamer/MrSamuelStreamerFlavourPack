@@ -159,5 +159,9 @@ public static class MSSFPDefOf
     public static readonly JobDef MSSFP_CarryDownedPawnToPortal;
     public static readonly DutyDef MSSFP_LoadAndEnterTunnel;
 
+    public static readonly HediffDef MSSFP_SkinnedAlive;
+    public static readonly JobDef MSSFP_CarryPawnToPrisonerProcessor;
+    public static readonly SoundDef MSSFP_HumanProcessor_Ambient;
+
     static MSSFPDefOf() => DefOfHelper.EnsureInitializedInCtor(typeof(MSSFPDefOf));
 }

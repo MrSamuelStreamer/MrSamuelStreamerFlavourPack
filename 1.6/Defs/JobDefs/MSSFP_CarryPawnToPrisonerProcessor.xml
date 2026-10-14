@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <JobDef>
+        <defName>MSSFP_CarryPawnToPrisonerProcessor</defName>
+        <driverClass>MSSFP.Jobs.JobDriver_CarryPawnToPrisonerProcessor</driverClass>
+        <reportString>taking human for processing.</reportString>
+        <casualInterruptible>false</casualInterruptible>
+    </JobDef>
+
+</Defs>
