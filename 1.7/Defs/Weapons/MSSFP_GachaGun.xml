@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <SoundDef>
+        <defName>MSSFP_GachaGun_Fire</defName>
+        <context>MapOnly</context>
+        <maxSimultaneous>1</maxSimultaneous>
+        <subSounds>
+            <li>
+                <grains>
+                    <li Class="AudioGrain_Clip">
+                        <clipPath>MSSFP_GachaGun</clipPath>
+                    </li>
+                </grains>
+                <pitchRange>0.8~1.2</pitchRange>
+                <volumeRange>30~50</volumeRange>
+            </li>
+        </subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>MSSFP_GruntBirthday</defName>
+        <context>MapOnly</context>
+        <maxSimultaneous>1</maxSimultaneous>
+        <subSounds>
+            <li>
+                <grains>
+                    <li Class="AudioGrain_Clip">
+                        <clipPath>MSSFP_GruntBirthday</clipPath>
+                    </li>
+                </grains>
+                <pitchRange>1</pitchRange>
+                <volumeRange>30~50</volumeRange>
+            </li>
+        </subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>MSSFP_BananaFall</defName>
+        <context>MapOnly</context>
+        <maxSimultaneous>1</maxSimultaneous>
+        <subSounds>
+            <li>
+                <grains>
+                    <li Class="AudioGrain_Clip">
+                        <clipPath>MSSFP_BananaFall</clipPath>
+                    </li>
+                </grains>
+                <pitchRange>1</pitchRange>
+                <volumeRange>30~50</volumeRange>
+            </li>
+        </subSounds>
+    </SoundDef>
+
+    <ThingDef ParentName="BaseHumanMakeableGun">
+        <defName>MSSFP_GachaGun</defName>
+        <label>gacha gun</label>
+        <description>An ancient weapon, powered by silver. Fires random projectiles.</description>
+        <possessionCount>1</possessionCount>
+        <drawerType>RealtimeOnly</drawerType>
+        <tickerType>Rare</tickerType>
+        <graphicData>
+            <texPath>Things/WeaponRanged/MSSFP_GachaGun</texPath>
+            <graphicClass>MSSFP.Graphic_Animated</graphicClass>
+            <shaderType>CutoutComplex</shaderType>
+            <drawSize>(2,2)</drawSize>
+        </graphicData>
+        <uiIconScale>0.8</uiIconScale>
+        <soundInteract>MSSFP_GachaGun_Fire</soundInteract>
+        <statBases>
+            <WorkToMake>4000</WorkToMake>
+            <Mass>1.4</Mass>
+            <AccuracyTouch>0.80</AccuracyTouch>
+            <AccuracyShort>0.75</AccuracyShort>
+            <AccuracyMedium>0.55</AccuracyMedium>
+            <AccuracyLong>0.40</AccuracyLong>
+            <RangedWeapon_Cooldown>1.6</RangedWeapon_Cooldown>
+        </statBases>
+        <weaponTags>
+            <li>SimpleGun</li>
+            <li>Revolver</li>
+        </weaponTags>
+        <weaponClasses>
+            <li>RangedLight</li>
+        </weaponClasses>
+        <costList>
+            <Steel>30</Steel>
+            <ComponentIndustrial>2</ComponentIndustrial>
+        </costList>
+        <recipeMaker>
+            <skillRequirements>
+                <Crafting>3</Crafting>
+            </skillRequirements>
+            <displayPriority>400</displayPriority>
+        </recipeMaker>
+        <verbs>
+            <li>
+                <verbClass>MSSFP.Verbs.Verb_ShootRandom</verbClass>
+                <hasStandardCommand>true</hasStandardCommand>
+                <defaultProjectile>Bullet_Revolver</defaultProjectile>
+                <warmupTime>0.3</warmupTime>
+                <range>25.9</range>
+                <soundCast>Shot_Revolver</soundCast>
+                <soundCastTail>GunTail_Light</soundCastTail>
+                <muzzleFlashScale>9</muzzleFlashScale>
+            </li>
+        </verbs>
+        <tools>
+            <li>
+                <label>grip</label>
+                <capacities>
+                    <li>Blunt</li>
+                </capacities>
+                <power>9</power>
+                <cooldownTime>2</cooldownTime>
+            </li>
+            <li>
+                <label>barrel</label>
+                <capacities>
+                    <li>Blunt</li>
+                    <li>Poke</li>
+                </capacities>
+                <power>9</power>
+                <cooldownTime>2</cooldownTime>
+            </li>
+        </tools>
+        <comps Inherit="False">
+            <li Class="MSSFP.Comps.CompProperties_EquippableReloadable">
+                <maxCharges>50</maxCharges>
+                <soundReload>Standard_Reload</soundReload>
+                <chargeNoun>coins</chargeNoun>
+                <ammoDef>Silver</ammoDef>
+                <ammoCountPerCharge>1</ammoCountPerCharge>
+                <baseReloadTicks>60</baseReloadTicks>
+            </li>
+            <li Class="CompProperties_Forbiddable"/>
+            <li Class="CompProperties_Styleable"/>
+            <li Class="CompProperties_Biocodable"/>
+            <li>
+                <compClass>CompQuality</compClass>
+            </li>
+            <li Class="CompProperties_Art">
+                <nameMaker>NamerArtWeaponGun</nameMaker>
+                <descriptionMaker>ArtDescription_WeaponGun</descriptionMaker>
+                <minQualityForArtistic>Excellent</minQualityForArtistic>
+            </li>
+        </comps>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseGrenadeProjectile">
+        <defName>MSSFP_GachaGun_Rats</defName>
+        <label>ratshot</label>
+        <thingClass>MSSFP.Projectiles.Projectile_SpawnsPawns</thingClass>
+        <uiIconPath>Things/Pawn/Animal/Rat/Rat_east</uiIconPath>
+        <graphicData>
+            <texPath>Things/Pawn/Animal/Rat/Rat_east</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <projectile>
+            <speed>41</speed>
+            <spawnsPawnKind>Rat</spawnsPawnKind>
+            <tryAdjacentFreeSpaces>true</tryAdjacentFreeSpaces>
+        </projectile>
+        <modExtensions>
+            <li Class="MSSFP.Projectiles.ProjectileModExtension">
+                <spawnCount>1~10</spawnCount>
+                <angry>true</angry>
+            </li>
+        </modExtensions>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseGrenadeProjectile">
+        <defName>MSSFP_GachaGun_Hares</defName>
+        <label>hareshot</label>
+        <thingClass>MSSFP.Projectiles.Projectile_SpawnsPawns</thingClass>
+        <uiIconPath>Things/Pawn/Animal/Hare/Hare_east</uiIconPath>
+        <graphicData>
+            <texPath>Things/Pawn/Animal/Hare/Hare_east</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <projectile>
+            <speed>41</speed>
+            <spawnsPawnKind>Hare</spawnsPawnKind>
+            <tryAdjacentFreeSpaces>true</tryAdjacentFreeSpaces>
+        </projectile>
+        <modExtensions>
+            <li Class="MSSFP.Projectiles.ProjectileModExtension">
+                <spawnCount>1~10</spawnCount>
+                <angry>true</angry>
+            </li>
+        </modExtensions>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseBullet">
+        <defName>MSSFP_GachaGun_Healing</defName>
+        <label>healer</label>
+        <thingClass>MSSFP.Projectiles.Projectile_Heals</thingClass>
+        <uiIconPath>Things/Projectile/Bullet_Small</uiIconPath>
+        <graphicData>
+            <texPath>Things/Projectile/Bullet_Small</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseBullet">
+        <defName>MSSFP_GachaGun_RoofCollapse</defName>
+        <label>roof collapse</label>
+        <thingClass>MSSFP.Projectiles.Projectile_RoofCollapse</thingClass>
+        <uiIconPath>Things/Projectile/Bullet_Small</uiIconPath>
+        <graphicData>
+            <texPath>Things/Projectile/Bullet_Small</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseBullet">
+        <defName>MSSFP_GachaGun_BananaPeel</defName>
+        <label>banana peel</label>
+        <thingClass>Projectile_SpawnsThing</thingClass>
+        <uiIconPath>Things/Building/MSSFP_BananaPeel</uiIconPath>
+        <graphicData>
+            <texPath>Things/Building/MSSFP_BananaPeel</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <projectile>
+            <spawnsThingDef>MSSFP_BananaPeel</spawnsThingDef>
+        </projectile>
+    </ThingDef>
+
+    <ThingDef ParentName="BuildingBase">
+        <defName>MSSFP_BananaPeel</defName>
+        <label>banana peel</label>
+        <description>A banana peel</description>
+        <thingClass>MSSFP.Buildings.Building_BananaPeel</thingClass>
+        <graphicData>
+            <texPath>Things/Building/MSSFP_BananaPeel</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <damageData>
+                <rect>(0,0,1,0.15)</rect>
+            </damageData>
+        </graphicData>
+        <altitudeLayer>Building</altitudeLayer>
+        <rotatable>false</rotatable>
+        <tickerType>Normal</tickerType>
+        <stealable>false</stealable>
+        <minifiedDef>MinifiedThing</minifiedDef>
+        <uiOrder>30</uiOrder>
+        <thingCategories>
+            <li>BuildingsSecurity</li>
+        </thingCategories>
+        <statBases>
+            <Mass>2.5</Mass>
+            <MaxHitPoints>40</MaxHitPoints>
+            <WorkToBuild>3200</WorkToBuild>
+            <Flammability>1</Flammability>
+            <Beauty>-18</Beauty>
+            <Cleanliness>-5</Cleanliness>
+            <TrapMeleeDamage>100</TrapMeleeDamage>
+            <TrapSpringChance>1.0</TrapSpringChance>
+        </statBases>
+        <costList>
+            <WoodLog>1</WoodLog>
+        </costList>
+        <designationCategory>Security</designationCategory>
+        <designationHotKey>Misc6</designationHotKey>
+        <building>
+            <isTrap>true</isTrap>
+            <trapDestroyOnSpring>true</trapDestroyOnSpring>
+            <trapDamageCategory>Sharp</trapDamageCategory>
+            <expandHomeArea>false</expandHomeArea>
+            <ai_chillDestination>false</ai_chillDestination>
+        </building>
+        <constructionSkillPrerequisite>3</constructionSkillPrerequisite>
+        <placeWorkers>
+            <li>PlaceWorker_NeverAdjacentTrap</li>
+        </placeWorkers>
+    </ThingDef>
+</Defs>

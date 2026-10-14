@@ -163,5 +163,8 @@ public static class MSSFPDefOf
     public static readonly JobDef MSSFP_CarryPawnToPrisonerProcessor;
     public static readonly SoundDef MSSFP_HumanProcessor_Ambient;
 
+    public static readonly SoundDef MSSFP_GachaGun_Fire;
+    public static readonly SoundDef MSSFP_BananaFall;
+
     static MSSFPDefOf() => DefOfHelper.EnsureInitializedInCtor(typeof(MSSFPDefOf));
 }
