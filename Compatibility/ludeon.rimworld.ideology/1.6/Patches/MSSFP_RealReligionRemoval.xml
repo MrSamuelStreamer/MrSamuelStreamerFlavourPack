@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Patch>
     <!-- Removing specific names (Christ, Allah, etc) and keeping things more generic -->
+    <!-- This whole thing is because an ideology randomly generated to discuss a gods followers getting high and "killing Allah" - I didn't want the angry comments that might cause.-->
+    <!-- Also felt weird that religions would use the same name and styles and religion iconography another 2500 years later -->
     <!-- Christian -->
     <Operation Class="PatchOperationReplace">
         <xpath>Defs/MemeDef[defName="Structure_OriginChristian"]/label</xpath>
         <value>
-            <label>Church Origin</label>
+            <label>Stauros Origin</label> <!-- Empire is vaguely Greek, Stauros is Greek for Cross -->
         </value>
     </Operation>
     <Operation Class="PatchOperationReplace">
@@ -51,7 +53,7 @@
                 <rulesStrings>
                     <li>r_deityName(p=3)->God</li>
                     <li>r_deityName->Lord</li>
-                    <li>r_deityName->Holy One</li>
+                    <li>r_deityName->The Almighty</li>
                 </rulesStrings>
             </rulePack>
         </value>
@@ -60,7 +62,7 @@
     <Operation Class="PatchOperationReplace">
         <xpath>Defs/MemeDef[defName="Structure_OriginIslamic"]/label</xpath>
         <value>
-            <label>Mosque Origin</label>
+            <label>Meniskos Origin</label>   <!-- Empire is vaguely Greek, Meniskos is Greek for Crescent -->
         </value>
     </Operation>
     <Operation Class="PatchOperationReplace">
@@ -72,23 +74,12 @@
     <Operation Class="PatchOperationReplace">
         <xpath>Defs/RulePackDef[defName="NamerDeityIslamic"]/rulePack</xpath>
         <value>
-            <rulePack>
+            <rulePack>  <!-- based on Al-Asm?? al-?usn?, the 99 names of god in Islam, while keeping it detached enough that offence wont be caused by randomiser -->
                 <rulesStrings>
-                    <li>r_deityName->Al-Ilah</li>
-                    <li>r_deityName->Ar-Rahman</li>
-                    <li>r_deityName->Al-Malik</li>
-                    <li>r_deityName->Al-Qudus</li>
-                    <li>r_deityName->As-Salam</li>
-                    <li>r_deityName->Al-Mumin</li>
-                    <li>r_deityName->Al-Aziz</li>
-                    <li>r_deityName->Al-Jabbar</li>
-                    <li>r_deityName->Al-Khaliq</li>
-                    <li>r_deityName->Al-Ghaffar</li>
-                    <li>r_deityName->Al-Qahar</li>
-                    <li>r_deityName->Al-Wahhab</li>
-                    <li>r_deityName->Al-Fattah</li>
-                    <li>r_deityName->Al-Alim</li>
-                    <li>r_deityName->Al-Hakam</li>
+                    <li>r_deityName->The God</li>
+                    <li>r_deityName->One True Deity</li>
+                    <li>r_deityName->The Beneficent</li>
+                    <li>r_deityName->The Merciful</li>
                 </rulesStrings>
             </rulePack>
         </value>
@@ -98,7 +89,7 @@
     <Operation Class="PatchOperationReplace">
         <xpath>Defs/MemeDef[defName="Structure_OriginHindu"]/label</xpath>
         <value>
-            <label>Dharma Origin</label>
+            <label>Indik? Origin</label>   <!-- Empire is vaguely Greek, Indike is Greek for India -->
         </value>
     </Operation>
     <Operation Class="PatchOperationReplace">
@@ -111,7 +102,7 @@
     <Operation Class="PatchOperationReplace">
         <xpath>Defs/MemeDef[defName="Structure_OriginBuddhist"]/label</xpath>
         <value>
-            <label>Nirvana Origin</label>
+            <label>Sarmanai Origin</label>   <!-- Empire is vaguely Greek, Sarmanai is an ancient Greek transliteration of people who were believed to follow proto-buddhist teachings -->
         </value>
     </Operation>
     <Operation Class="PatchOperationReplace">

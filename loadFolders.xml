@@ -27,5 +27,6 @@
         <li IfModActive="kindseal.ufli">Compatibility/kindseal.ufli/Textures</li>
         <li IfModActive="oskarpotocki.vfe.pirates">Compatibility/oskarpotocki.vfe.pirates/1.6</li>
         <li IfModActive="VanillaExpanded.VBrewE">Compatibility/VanillaExpanded.VBrewE/1.6</li>
+        <li IfModActive="sarg.alphamemes">Compatibility/sarg.alphamemes/1.6</li>
     </v1.6>
 </loadFolders>

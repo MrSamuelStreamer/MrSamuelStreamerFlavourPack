@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Patch>
+    <!-- Removing specific names (Christ, Allah, etc) and keeping things more generic -->
+    <!-- This whole thing is because an ideology randomly generated to discuss a gods followers getting high and "killing Allah" - I didn't want the angry comments that might cause.-->
+    <!-- Also felt weird that religions would use the same name and styles and religion iconography another 2500 years later -->
+    <!-- Shintaoism -->
+    <Operation Class="PatchOperationReplace">
+        <xpath>Defs/MemeDef[defName="VME_Structure_Shintaoism"]/label</xpath>
+        <value>
+            <label>Serica Origin</label> <!-- Empire is vaguely Greek, Serica is Greek for "land of silk", refering to east asia -->
+        </value>
+    </Operation>
+    <Operation Class="PatchOperationReplace">
+        <xpath>Defs/MemeDef[defName="VME_Structure_Shintaoism"]/description</xpath>
+        <value>
+            <description>This is a variant of the abstract theist structure. This ideoligion is a descendant of an ancient earth religions. It may have very different precepts than those of thousands of years ago, but its symbols are similar.</description>
+        </value>
+    </Operation>
+    <Operation Class="PatchOperationReplace">
+        <xpath>Defs/MemeDef[defName="VME_Structure_Shintaoism"]/generalRules</xpath>
+        <value>
+            <generalRules>
+                <rulesStrings>
+                    <li>memeAdjective->balanced</li>
+                    <li>memeAdjective->natural</li>
+                    <li>memeAdjective->compassionate</li>
+                    <li>memeAdjective->frugal</li>
+                    <li>memeAdjective->humble</li>
+                    <li>memeLeaderNoun->master</li>
+                    <li>memeLeaderAdjective->spiritual</li>
+                    <li>memeLeaderAdjective->serene</li>
+                    <li>memeMoralist->priest</li>
+                </rulesStrings>
+		</generalRules>
+        </value>
+    </Operation>
+</Patch>
