@@ -27,6 +27,7 @@ public class CompProperties_PrisonerProcessor : CompProperties
     }
 }
 
+[StaticConstructorOnStartup]
 public class CompPrisonerProcessor : ThingComp, IThingHolder
 {
     private ThingOwner innerContainer;
@@ -36,33 +37,27 @@ public class CompPrisonerProcessor : ThingComp, IThingHolder
     private int nextDamageTick;
     private readonly List<Hediff_Injury> myInjuries = new();
 
-    private static Graphic slicersStaticGraphic;
-    private static Graphic slicersBlur1Graphic;
-    private static Graphic slicersBlur2Graphic;
+    // Loaded in the static constructor so RimWorld runs GraphicDatabase.Get on the main thread.
+    private static readonly Graphic SlicersStatic = GraphicDatabase.Get<Graphic_Single>(
+        "Building/PeelerSlicersOnly",
+        ShaderDatabase.Transparent,
+        new Vector2(3f, 3f),
+        Color.white
+    );
 
-    private static Graphic SlicersStatic =>
-        slicersStaticGraphic ??= GraphicDatabase.Get<Graphic_Single>(
-            "Building/PeelerSlicersOnly",
-            ShaderDatabase.Transparent,
-            new Vector2(3f, 3f),
-            Color.white
-        );
+    private static readonly Graphic SlicersBlur1 = GraphicDatabase.Get<Graphic_Single>(
+        "Building/PeelerSlicersOnlyBlur1",
+        ShaderDatabase.Transparent,
+        new Vector2(3f, 3f),
+        Color.white
+    );
 
-    private static Graphic SlicersBlur1 =>
-        slicersBlur1Graphic ??= GraphicDatabase.Get<Graphic_Single>(
-            "Building/PeelerSlicersOnlyBlur1",
-            ShaderDatabase.Transparent,
-            new Vector2(3f, 3f),
-            Color.white
-        );
-
-    private static Graphic SlicersBlur2 =>
-        slicersBlur2Graphic ??= GraphicDatabase.Get<Graphic_Single>(
-            "Building/PeelerSlicersOnlyBlur2",
-            ShaderDatabase.Transparent,
-            new Vector2(3f, 3f),
-            Color.white
-        );
+    private static readonly Graphic SlicersBlur2 = GraphicDatabase.Get<Graphic_Single>(
+        "Building/PeelerSlicersOnlyBlur2",
+        ShaderDatabase.Transparent,
+        new Vector2(3f, 3f),
+        Color.white
+    );
 
     public CompProperties_PrisonerProcessor Props => (CompProperties_PrisonerProcessor)props;
     public Pawn Occupant => innerContainer.Count > 0 ? innerContainer[0] as Pawn : null;
