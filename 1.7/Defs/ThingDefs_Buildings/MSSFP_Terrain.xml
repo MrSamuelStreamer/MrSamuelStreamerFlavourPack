@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Defs>
+  <TerrainDef ParentName="FloorBase" MayRequire="vanillaexpanded.vfearchitect">
+    <defName>MSS_GreenScreenFloor</defName>
+    <label>green screen</label>
+    <description>green screen</description>
+    <texturePath>Terrain/MSS_greenscreen</texturePath>
+    <renderPrecedence>399</renderPrecedence>
+    <temporary>true</temporary>
+    <designationCategory>Floors</designationCategory>
+    <modExtensions>
+      <li Class="VFEArchitect.BuildExtension_RequireGodMode" />
+    </modExtensions>
+  </TerrainDef>
+  <TerrainDef ParentName="FloorBase" MayRequire="vanillaexpanded.vfearchitect">
+    <defName>MSS_BlueScreenFloor</defName>
+    <label>blue screen</label>
+    <description>blue screen</description>
+    <texturePath>Terrain/MSS_bluescreen</texturePath>
+    <renderPrecedence>399</renderPrecedence>
+    <temporary>true</temporary>
+    <designationCategory>Floors</designationCategory>
+    <modExtensions>
+      <li Class="VFEArchitect.BuildExtension_RequireGodMode" />
+    </modExtensions>
+  </TerrainDef>
+</Defs>

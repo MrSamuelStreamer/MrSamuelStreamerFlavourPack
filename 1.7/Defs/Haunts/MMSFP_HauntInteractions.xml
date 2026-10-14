@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <!-- ===================== ICONIC PAIR OVERRIDES ===================== -->
+    <!-- Checked before archetype interactions. -->
+
+    <!-- Frog + Grignr: Eternal Rivalry -->
+    <MSSFP.Defs.HauntInteractionDef>
+        <defName>MSS_FP_Interaction_EternalRivalry</defName>
+        <label>Eternal Rivalry</label>
+        <hauntDefA>MSS_FP_FrogHaunt</hauntDefA>
+        <hauntDefB>MSS_FP_GrignrHaunt</hauntDefB>
+        <chancePerSocialInteraction>0.4</chancePerSocialInteraction>
+        <thoughtForA>MSS_FP_HauntInteraction_EternalRivalry</thoughtForA>
+        <thoughtForB>MSS_FP_HauntInteraction_EternalRivalry</thoughtForB>
+        <severityDeltaA>0.03</severityDeltaA>
+        <severityDeltaB>0.03</severityDeltaB>
+    </MSSFP.Defs.HauntInteractionDef>
+
+    <!-- Oskar + Phil: Ghostly Sitcom -->
+    <MSSFP.Defs.HauntInteractionDef>
+        <defName>MSS_FP_Interaction_GhostlySitcom</defName>
+        <label>Ghostly Sitcom</label>
+        <hauntDefA>MSS_FP_OskarHaunt</hauntDefA>
+        <hauntDefB>MSS_FP_PhilHaunt</hauntDefB>
+        <chancePerSocialInteraction>0.35</chancePerSocialInteraction>
+        <thoughtForBystanders>MSS_FP_HauntInteraction_GhostlyBickering</thoughtForBystanders>
+        <bystanderRadius>5</bystanderRadius>
+    </MSSFP.Defs.HauntInteractionDef>
+
+    <!-- ===================== ARCHETYPE PAIR INTERACTIONS ===================== -->
+
+    <!-- Aggressive vs Aggressive: Clash -->
+    <MSSFP.Defs.HauntInteractionDef>
+        <defName>MSS_FP_Interaction_Clash</defName>
+        <label>Clash</label>
+        <archetypeA>MSS_FP_Archetype_Aggressive</archetypeA>
+        <archetypeB>MSS_FP_Archetype_Aggressive</archetypeB>
+        <chancePerSocialInteraction>0.25</chancePerSocialInteraction>
+        <thoughtForA>MSS_FP_HauntInteraction_GhostsAtWar</thoughtForA>
+        <thoughtForB>MSS_FP_HauntInteraction_GhostsAtWar</thoughtForB>
+        <tempHediffForA>MSS_FP_HauntClashMeleeBuff</tempHediffForA>
+        <tempHediffForB>MSS_FP_HauntClashMeleeBuff</tempHediffForB>
+    </MSSFP.Defs.HauntInteractionDef>
+
+    <!-- Aggressive vs Trickster: Provocation -->
+    <MSSFP.Defs.HauntInteractionDef>
+        <defName>MSS_FP_Interaction_Provocation</defName>
+        <label>Provocation</label>
+        <archetypeA>MSS_FP_Archetype_Aggressive</archetypeA>
+        <archetypeB>MSS_FP_Archetype_Trickster</archetypeB>
+        <chancePerSocialInteraction>0.3</chancePerSocialInteraction>
+        <!-- A = Aggressive: ghost enraged -->
+        <thoughtForA>MSS_FP_HauntInteraction_GhostEnraged</thoughtForA>
+        <!-- B = Trickster: ghost amused -->
+        <thoughtForB>MSS_FP_HauntInteraction_GhostAmused</thoughtForB>
+    </MSSFP.Defs.HauntInteractionDef>
+
+    <!-- Aggressive vs Brooding: Domination -->
+    <MSSFP.Defs.HauntInteractionDef>
+        <defName>MSS_FP_Interaction_Domination</defName>
+        <label>Domination</label>
+        <archetypeA>MSS_FP_Archetype_Aggressive</archetypeA>
+        <archetypeB>MSS_FP_Archetype_Brooding</archetypeB>
+        <chancePerSocialInteraction>0.25</chancePerSocialInteraction>
+        <!-- A = Aggressive gains severity, B = Brooding loses severity -->
+        <severityDeltaA>0.05</severityDeltaA>
+        <severityDeltaB>-0.05</severityDeltaB>
+    </MSSFP.Defs.HauntInteractionDef>
+
+    <!-- Trickster vs Trickster: Mischief -->
+    <MSSFP.Defs.HauntInteractionDef>
+        <defName>MSS_FP_Interaction_Mischief</defName>
+        <label>Mischief</label>
+        <archetypeA>MSS_FP_Archetype_Trickster</archetypeA>
+        <archetypeB>MSS_FP_Archetype_Trickster</archetypeB>
+        <chancePerSocialInteraction>0.3</chancePerSocialInteraction>
+        <thoughtForA>MSS_FP_HauntInteraction_GhostlyPranks</thoughtForA>
+        <thoughtForB>MSS_FP_HauntInteraction_GhostlyPranks</thoughtForB>
+        <teleportNearbyItem>true</teleportNearbyItem>
+    </MSSFP.Defs.HauntInteractionDef>
+
+    <!-- Trickster vs Brooding: Annoyance -->
+    <MSSFP.Defs.HauntInteractionDef>
+        <defName>MSS_FP_Interaction_Annoyance</defName>
+        <label>Annoyance</label>
+        <archetypeA>MSS_FP_Archetype_Trickster</archetypeA>
+        <archetypeB>MSS_FP_Archetype_Brooding</archetypeB>
+        <chancePerSocialInteraction>0.3</chancePerSocialInteraction>
+        <!-- B = Brooding pawn gets tormented -->
+        <thoughtForB>MSS_FP_HauntInteraction_GhostTormented</thoughtForB>
+    </MSSFP.Defs.HauntInteractionDef>
+
+    <!-- Brooding vs Brooding: Resonance -->
+    <MSSFP.Defs.HauntInteractionDef>
+        <defName>MSS_FP_Interaction_Resonance</defName>
+        <label>Resonance</label>
+        <archetypeA>MSS_FP_Archetype_Brooding</archetypeA>
+        <archetypeB>MSS_FP_Archetype_Brooding</archetypeB>
+        <chancePerSocialInteraction>0.2</chancePerSocialInteraction>
+        <thoughtForA>MSS_FP_HauntInteraction_SharedSorrow</thoughtForA>
+        <thoughtForB>MSS_FP_HauntInteraction_SharedSorrow</thoughtForB>
+    </MSSFP.Defs.HauntInteractionDef>
+</Defs>

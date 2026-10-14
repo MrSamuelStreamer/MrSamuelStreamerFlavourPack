@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Defs>
+    <ThingDef ParentName="PlantFoodRawBase">
+        <defName>MSS_FP_Mushris</defName>
+        <label>Mushris</label>
+        <description>A rare mushroom variety, said to be favoured by polar bears. Can be consumed, and can be used as an inferior alternative to devilstrand.</description>
+        <possessionCount>10</possessionCount>
+        <graphicData>
+            <texPath>Things/Item/MSS_FP_Mushris</texPath>
+            <graphicClass>Graphic_StackCount</graphicClass>
+            <drawSize>0.8,0.8</drawSize>
+        </graphicData>
+        <statBases>
+            <Nutrition>0.15</Nutrition>
+            <MarketValue>3</MarketValue>
+            <FoodPoisonChanceFixedHuman>0</FoodPoisonChanceFixedHuman>
+            <Mass>0.05</Mass>
+            <MaxHitPoints>75</MaxHitPoints>
+            <Flammability>0.3</Flammability>
+            <DeteriorationRate>3.3</DeteriorationRate>
+            <StuffPower_Armor_Sharp>1.20</StuffPower_Armor_Sharp>
+            <StuffPower_Armor_Blunt>0.26</StuffPower_Armor_Blunt>
+            <StuffPower_Armor_Heat>2.00</StuffPower_Armor_Heat>
+            <StuffPower_Insulation_Cold>15</StuffPower_Insulation_Cold>
+            <StuffPower_Insulation_Heat>18</StuffPower_Insulation_Heat>
+        </statBases>
+        <burnableByRecipe>true</burnableByRecipe>
+        <healthAffectsPrice>false</healthAffectsPrice>
+        <minRewardCount>30</minRewardCount>
+        <stuffProps>
+            <categories>
+                <li>Fabric</li>
+            </categories>
+            <commonality>0.20</commonality>
+            <color>(230,230,230)</color>
+            <statFactors>
+                <Flammability>0.3</Flammability>
+                <MaxHitPoints>1.2</MaxHitPoints>
+                <Beauty>3</Beauty>
+            </statFactors>
+        </stuffProps>
+        <comps>
+            <li Class="CompProperties_Rottable">
+                <daysToRotStart>14</daysToRotStart>
+                <rotDestroys>true</rotDestroys>
+            </li>
+            <li>
+                <compClass>CompColorable</compClass>
+            </li>
+        </comps>
+        <allowedArchonexusCount>80</allowedArchonexusCount>
+        <ingestible>
+            <preferability>RawTasty</preferability>
+            <tasteThought>MSSFP_Ate_Mushris</tasteThought>
+            <foodType>Fungus</foodType>
+        </ingestible>
+        <thingCategories>
+            <li>Textiles</li>
+        </thingCategories>
+    </ThingDef>
+
+    <ThoughtDef>
+        <defName>MSSFP_Ate_Mushris</defName>
+        <thoughtClass>Thought_Memory</thoughtClass>
+        <durationDays>1</durationDays>
+        <stages>
+            <li>
+                <label>i ate mushris</label>
+                <description>tasty!</description>
+                <baseMoodEffect>1</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+</Defs>

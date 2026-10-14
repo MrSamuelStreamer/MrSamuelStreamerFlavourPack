@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>Library</OutputType>
+        <LangVersion>latest</LangVersion>
+        <RootNamespace>MSSFP</RootNamespace>
+        <AssemblyName>MSSFP</AssemblyName>
+        <OutputPath>../../Assemblies/</OutputPath>
+        <ZipFilePath>../../../$(AssemblyName).zip</ZipFilePath>
+        <ReleasePath>../../../Release</ReleasePath>
+        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+        <SteamModsPath>$(RIMWORLD_STEAM_MODS_PATH)</SteamModsPath>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <Optimize>false</Optimize>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>portable</DebugType>
+        <CSharpier_Check>false</CSharpier_Check>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <DebugType>full</DebugType>
+        <DebugSymbols>true</DebugSymbols>
+        <Optimize>true</Optimize>
+        <CSharpier_Check>true</CSharpier_Check>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Reference Include="VEF">
+            <HintPath>$(WorkshopDir)2023507013/1.7/Assemblies/VEF.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+    </ItemGroup>
+    <ItemGroup>
+        <Content Condition="Exists('../../../../../Data')" Include="../../../../../Data/**/*">
+            <Link>Attached/Rimworld/%(RecursiveDir)/%(FileName)%(Extension)</Link>
+            <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+        </Content>
+        <Content Include="..\..\..\Examples\MSSFP_MapwideHediff.xml">
+          <Link>MrSamuelStreamerFlavourPack\Examples\MSSFP_MapwideHediff.xml</Link>
+        </Content>
+        <Content Include="..\..\..\Examples\MSSFP_OnUseDefModExtension.xml">
+          <Link>MrSamuelStreamerFlavourPack\Examples\MSSFP_OnUseDefModExtension.xml</Link>
+        </Content>
+        <Content Include="..\..\..\Examples\MSSFP_TraitModDefExtension.xml">
+          <Link>MrSamuelStreamerFlavourPack\Examples\MSSFP_TraitModDefExtension.xml</Link>
+        </Content>
+        <Content Include="..\..\..\modlist*.xml">
+            <Link>MrSamuelStreamerFlavourPack/%(FileName)%(Extension)</Link>
+        </Content>
+    </ItemGroup>
+    <PropertyGroup>
+        <StartAction>Program</StartAction>
+        <StartProgram>$(SolutionDir)../../../../RimWorldWin64.exe</StartProgram>
+    </PropertyGroup>
+    <ItemGroup>
+        <ReleaseFiles Include="../../../1.*/**" Exclude="../../../1.*/Source/**" />
+        <AboutFiles Include="../../../About/**" Exclude="../../../About/*.png~" />
+        <CommonFiles Include="../../../Common/**" />
+        <CompatibilityFiles Include="../../../Compatibility/**" />
+        <ExtraFiles Include="../../../loadFolders.xml;../../../LICENSE;../../../README.md" />
+        <CommonFiles Update="..\..\..\Common\Languages\English\Keyed\MSS_FP_Settings.xml">
+          <Link>MrSamuelStreamerFlavourPack\Common\Languages\English\Keyed\MSS_FP_Settings.xml</Link>
+        </CommonFiles>
+        <ReleaseFiles Update="..\..\Defs\MSSFP_MapwideHediff.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.7\Defs\MSSFP_MapwideHediff.xml</Link>
+        </ReleaseFiles>
+        <ReleaseFiles Include="..\..\..\Examples\MSSFP_Hediff_ApplyWithinRadius.xml">
+          <Link>MrSamuelStreamerFlavourPack\Examples\MSSFP_Hediff_ApplyWithinRadius.xml</Link>
+        </ReleaseFiles>
+        <ReleaseFiles Update="..\..\Patches\MSSFP_Resurrector.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.7\Patches\MSSFP_Resurrector.xml</Link>
+        </ReleaseFiles>
+        <ReleaseFiles Update="..\..\Defs\Hediffs\MSS_VoidInsanity.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.7\Defs\Hediffs\MSS_VoidInsanity.xml</Link>
+        </ReleaseFiles>
+        <ReleaseFiles Update="..\..\Defs\ThoughtDefs\MSSFP_VoidInsanity.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.7\Defs\ThoughtDefs\MSSFP_VoidInsanity.xml</Link>
+        </ReleaseFiles>
+        <ReleaseFiles Update="..\..\Patches\MSS_World.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.7\Patches\MSS_World.xml</Link>
+        </ReleaseFiles>
+        <ReleaseFiles Update="..\..\Defs\AICore\MSSFP_LetterDef_AICore.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.7\Defs\AICore\MSSFP_LetterDef_AICore.xml</Link>
+        </ReleaseFiles>
+        <ReleaseFiles Update="..\..\Defs\AICore\MSSFP_AICorePacks.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.7\Defs\AICore\MSSFP_AICorePacks.xml</Link>
+        </ReleaseFiles>
+        <ReleaseFiles Update="..\..\Defs\AICore\MSSFP_InteractionDef_AICore.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.7\Defs\AICore\MSSFP_InteractionDef_AICore.xml</Link>
+        </ReleaseFiles>
+        <ReleaseFiles Update="..\..\Defs\AICore\MSSFP_AIPersonalities.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.7\Defs\AICore\MSSFP_AIPersonalities.xml</Link>
+        </ReleaseFiles>
+        <ReleaseFiles Update="..\..\Patches\_Dev\MSSFP_AICore_TestChair.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.7\Patches\_Dev\MSSFP_AICore_TestChair.xml</Link>
+        </ReleaseFiles>
+        <ReleaseFiles Update="..\..\Patches\MSSFP_AICore_CoffeeMachine_Example.xml">
+          <Link>MrSamuelStreamerFlavourPack\1.7\Patches\MSSFP_AICore_CoffeeMachine_Example.xml</Link>
+        </ReleaseFiles>
+    </ItemGroup>
+    <Target Name="PostBuild" AfterTargets="Build" Condition=" '$(Configuration)' == 'Release' ">
+        <RemoveDir Condition="Exists('../../../Release')" Directories="../../../Release" />
+        <Delete Condition="Exists('../../../$(AssemblyName).zip')" Files="../../../$(AssemblyName).zip" />
+        <Copy SourceFiles="@(AboutFiles)" DestinationFiles="@(AboutFiles->'../../../Release/About/%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="true" />
+        <Copy SourceFiles="@(CommonFiles)" DestinationFiles="@(CommonFiles->'../../../Release/Common/%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="true" />
+        <Copy SourceFiles="@(CompatibilityFiles)" DestinationFiles="@(CompatibilityFiles->'../../../Release/Compatibility/%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="true" />
+        <Copy SourceFiles="@(ReleaseFiles)" DestinationFiles="@(ReleaseFiles->'../../../Release/%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="false" />
+        <!-- <Copy SourceFiles="@(ExtraFiles)" DestinationFolder="../../../Release/" SkipUnchangedFiles="false" /> -->
+        <ZipDirectory DestinationFile="../../../$(AssemblyName).zip" SourceDirectory="../../../Release" />
+        <RemoveDir Condition="Exists('$(SteamModsPath)')" Directories="$(SteamModsPath)/$(AssemblyName)" ContinueOnError="true" />
+        <Copy Condition="Exists('$(SteamModsPath)')" SourceFiles="@(ReleaseFolder)" DestinationFiles="@(ReleaseFolder->'$(SteamModsPath)/$(AssemblyName)/%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="true" />
+    </Target>
+    <Target Name="CleanRelease" AfterTargets="Clean">
+        <RemoveDir Directories="$(ReleasePath)" Condition="Exists('$(ReleasePath)')" />
+        <Delete Files="$(ZipFilePath)" Condition="Exists('$(ZipFilePath)')" />
+    </Target>
+</Project>

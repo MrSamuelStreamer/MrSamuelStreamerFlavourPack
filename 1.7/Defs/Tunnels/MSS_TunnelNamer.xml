@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <RulePackDef>
+        <defName>MSSFP_TunnelEntranceNamer</defName>
+        <include>
+            <li>TribalWordUtility</li>
+            <li>OutlanderPlaceNameUtility</li>
+        </include>
+        <rulePack>
+            <rulesStrings>
+                <li>r_name->[NamePerson]'s [noun]</li>
+                <li>r_name->[NamePerson]'s [AdjectiveNatural] [noun]</li>
+                <li>r_name->[AdjectiveNatural] [noun]</li>
+
+                <li>r_name->The [es_adj] [es_noun]</li>
+                <li>r_name->[es_adj] [es_noun]</li>
+                <li>r_name->[es_noun] of [NamePerson]</li>
+
+                <li>r_name->[dwemer_prefix][dwemer_suffix]</li>
+                <li>r_name->[dwemer_prefix][dwemer_suffix] [es_noun]</li>
+                <li>r_name->[ayleid_prefix][ayleid_suffix]</li>
+                <li>r_name->[nordic_prefix][nordic_suffix] [nordic_noun]</li>
+
+                <li>noun->hole</li>
+                <li>noun->entrance</li>
+                <li>noun->shaft</li>
+                <li>noun->deep</li>
+
+                <li>es_noun->delve</li>
+                <li>es_noun->descent</li>
+                <li>es_noun->hollow</li>
+                <li>es_noun->cavern</li>
+                <li>es_noun->grotto</li>
+                <li>es_noun->chasm</li>
+                <li>es_noun->abyss</li>
+                <li>es_noun->warrens</li>
+                <li>es_noun->sanctuary</li>
+                <li>es_noun->vault</li>
+                <li>es_noun->crevice</li>
+                <li>es_noun->gate</li>
+
+                <li>es_adj->Forgotten</li>
+                <li>es_adj->Ancient</li>
+                <li>es_adj->Lost</li>
+                <li>es_adj->Ruined</li>
+                <li>es_adj->Dark</li>
+                <li>es_adj->Bleak</li>
+                <li>es_adj->Blind</li>
+                <li>es_adj->Echoing</li>
+                <li>es_adj->Hidden</li>
+                <li>es_adj->Shadowed</li>
+                <li>es_adj->Silent</li>
+                <li>es_adj->Forsaken</li>
+
+                <li>dwemer_prefix->Nchu</li>
+                <li>dwemer_prefix->Mzu</li>
+                <li>dwemer_prefix->Ark</li>
+                <li>dwemer_prefix->Bthar</li>
+                <li>dwemer_prefix->Kag</li>
+                <li>dwemer_prefix->Irk</li>
+                <li>dwemer_prefix->Ral</li>
+                <li>dwemer_prefix->Fahl</li>
+                <li>dwemer_prefix->Mz</li>
+                <li>dwemer_prefix->Bth</li>
+
+                <li>dwemer_suffix->left</li>
+                <li>dwemer_suffix->lf</li>
+                <li>dwemer_suffix->ngthamz</li>
+                <li>dwemer_suffix->damz</li>
+                <li>dwemer_suffix->nd-Zel</li>
+                <li>dwemer_suffix->ngr</li>
+                <li>dwemer_suffix->bz</li>
+                <li>dwemer_suffix->kan</li>
+                <li>dwemer_suffix->ren</li>
+                <li>dwemer_suffix->nch</li>
+
+                <li>ayleid_prefix->Vil</li>
+                <li>ayleid_prefix->Wen</li>
+                <li>ayleid_prefix->Ri</li>
+                <li>ayleid_prefix->Sil</li>
+                <li>ayleid_prefix->Mor</li>
+                <li>ayleid_prefix->Garl</li>
+                <li>ayleid_prefix->Nen</li>
+                <li>ayleid_prefix->Mal</li>
+                <li>ayleid_prefix->Cey</li>
+
+                <li>ayleid_suffix->verin</li>
+                <li>ayleid_suffix->delbek</li>
+                <li>ayleid_suffix->elle</li>
+                <li>ayleid_suffix->dorn</li>
+                <li>ayleid_suffix->atar</li>
+                <li>ayleid_suffix->ista</li>
+                <li>ayleid_suffix->tatar</li>
+                <li>ayleid_suffix->sel</li>
+                <li>ayleid_suffix->math</li>
+
+                <li>nordic_prefix->Bleak</li>
+                <li>nordic_prefix->Falk</li>
+                <li>nordic_prefix->Kor</li>
+                <li>nordic_prefix->Volun</li>
+                <li>nordic_prefix->Ust</li>
+                <li>nordic_prefix->Ragn</li>
+                <li>nordic_prefix->Laby</li>
+
+                <li>nordic_suffix->reath</li>
+                <li>nordic_suffix->vanjund</li>
+                <li>nordic_suffix->ruud</li>
+                <li>nordic_suffix->engrav</li>
+                <li>nordic_suffix->vald</li>
+                <li>nordic_suffix->rinthian</li>
+
+                <li>nordic_noun->Barrow</li>
+                <li>nordic_noun->Tomb</li>
+                <li>nordic_noun->Crypt</li>
+                <li>nordic_noun->Cairn</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+</Defs>

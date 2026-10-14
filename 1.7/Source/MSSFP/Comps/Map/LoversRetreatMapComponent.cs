@@ -1,0 +1,197 @@
+﻿using System.Collections.Generic;
+using RimWorld;
+using Verse;
+
+namespace MSSFP.Comps.Map;
+
+public class LoversRetreatMapComponent(Verse.Map map) : MapComponent(map), IThingHolder
+{
+    private ThingOwner<Pawn> innerContainer = new ThingOwner<Pawn>();
+    public List<Pawn> PawnsToStoreNextTick = new List<Pawn>();
+
+    public class Pair : IExposable
+    {
+        public Pawn firstLover;
+        public Pawn secondLover;
+
+        public int LeftAtTick;
+        public int ExpectedBackTick;
+
+        public void ExposeData()
+        {
+            Scribe_References.Look(ref firstLover, "firstLover");
+            Scribe_References.Look(ref secondLover, "secondLover");
+            Scribe_Values.Look(ref LeftAtTick, "LeftAtTick", 0);
+            Scribe_Values.Look(ref ExpectedBackTick, "ExcpectedBackTick", 0);
+        }
+    }
+
+    public List<Pair> pairs = [];
+
+    public override void ExposeData()
+    {
+        base.ExposeData();
+        Scribe_Collections.Look(ref pairs, "pairs", LookMode.Deep);
+        Scribe_Collections.Look(
+            ref PawnsToStoreNextTick,
+            "PawnsToStoreNextTick",
+            LookMode.Reference
+        );
+        Scribe_Deep.Look(ref innerContainer, "innerContainer", this);
+
+        innerContainer ??= new ThingOwner<Pawn>(this);
+        pairs ??= [];
+        PawnsToStoreNextTick ??= [];
+    }
+
+    public virtual void AddPair(Pawn first, Pawn second, int ticksAway)
+    {
+        Pair p = new()
+        {
+            firstLover = first,
+            secondLover = second,
+            ExpectedBackTick = ticksAway + Find.TickManager.TicksGame,
+            LeftAtTick = Find.TickManager.TicksGame,
+        };
+        pairs.Add(p);
+    }
+
+    public override void MapComponentTick()
+    {
+        if (!MSSFPMod.settings.EnableLoversRetreat)
+            return;
+
+        if (Find.TickManager.TicksGame % 600 != 0)
+            return;
+
+        List<Pair> toRemove = [];
+        foreach (Pair pair in pairs)
+        {
+            if (pair.ExpectedBackTick <= Find.TickManager.TicksGame)
+            {
+                if (
+                    RCellFinder.TryFindRandomPawnEntryCell(
+                        out IntVec3 loc,
+                        map,
+                        CellFinder.EdgeRoadChance_Ignore
+                    )
+                )
+                {
+                    // Only mark the pair as resolved once a valid entry cell is found;
+                    // otherwise leave it in place so we retry on the next interval
+                    // instead of stranding the pawns in innerContainer forever.
+                    toRemove.Add(pair);
+
+                    innerContainer.Remove(pair.firstLover);
+                    innerContainer.Remove(pair.secondLover);
+                    GenSpawn.Spawn(pair.firstLover, loc, map);
+                    GenSpawn.Spawn(pair.secondLover, loc, map);
+
+                    bool allowAnyPregnant = MSSFPMod.settings.allowAnyPregnant;
+
+                    if (allowAnyPregnant)
+                    {
+                        // Allow any pawn to get pregnant (original behavior - no checks)
+                        if (Rand.Chance(0.5f))
+                        {
+                            Hediff_Pregnant preg =
+                                pair.firstLover.health.AddHediff(HediffDefOf.PregnantHuman)
+                                as Hediff_Pregnant;
+                            preg!.SetParents(
+                                pair.firstLover,
+                                pair.secondLover,
+                                PregnancyUtility.GetInheritedGeneSet(
+                                    pair.secondLover,
+                                    pair.firstLover
+                                )
+                            );
+                        }
+                        if (Rand.Chance(0.5f))
+                        {
+                            Hediff_Pregnant preg =
+                                pair.secondLover.health.AddHediff(HediffDefOf.PregnantHuman)
+                                as Hediff_Pregnant;
+                            preg!.SetParents(
+                                pair.secondLover,
+                                pair.firstLover,
+                                PregnancyUtility.GetInheritedGeneSet(
+                                    pair.firstLover,
+                                    pair.secondLover
+                                )
+                            );
+                        }
+                    }
+                    else
+                    {
+                        // Follow normal RimWorld rules - check compatibility and determine roles
+                        (bool canProduce, Pawn mother, Pawn father) =
+                            CalculatePregnancyCompatibility(pair.firstLover, pair.secondLover);
+                        if (canProduce && Rand.Chance(0.5f))
+                        {
+                            // Check if mother is already pregnant before adding pregnancy
+                            if (!mother.health.hediffSet.HasHediff(HediffDefOf.PregnantHuman))
+                            {
+                                Hediff_Pregnant preg =
+                                    mother.health.AddHediff(HediffDefOf.PregnantHuman)
+                                    as Hediff_Pregnant;
+                                preg!.SetParents(
+                                    mother,
+                                    father,
+                                    PregnancyUtility.GetInheritedGeneSet(father, mother)
+                                );
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        pairs.RemoveAll(p => toRemove.Contains(p));
+
+        foreach (Pawn pawn in PawnsToStoreNextTick)
+        {
+            IntVec3 loc = pawn.Position;
+            if (pawn.Spawned)
+                pawn.DeSpawn();
+
+            if (!innerContainer.Contains(pawn) && innerContainer.TryAdd(pawn))
+            {
+                map.mapDrawer?.MapMeshDirty(loc, MapMeshFlagDefOf.Things);
+            }
+        }
+
+        PawnsToStoreNextTick.Clear();
+    }
+
+    public void StorePawn(Pawn pawn)
+    {
+        PawnsToStoreNextTick.Add(pawn);
+    }
+
+    public void GetChildHolders(List<IThingHolder> outChildren)
+    {
+        ThingOwnerUtility.AppendThingHoldersFromThings(outChildren, GetDirectlyHeldThings());
+    }
+
+    public ThingOwner GetDirectlyHeldThings() => innerContainer;
+
+    public IThingHolder ParentHolder => null;
+
+    private (bool canProduce, Pawn mother, Pawn father) CalculatePregnancyCompatibility(
+        Pawn first,
+        Pawn second
+    )
+    {
+        AcceptanceReport canProduce = PregnancyUtility.CanEverProduceChild(first, second);
+        if (!canProduce.Accepted)
+        {
+            return (false, null, null);
+        }
+
+        // Determine which is the female (can get pregnant) and which is the male
+        Pawn mother = first.gender == Gender.Female ? first : second;
+        Pawn father = first.gender == Gender.Male ? first : second;
+
+        return (true, mother, father);
+    }
+}

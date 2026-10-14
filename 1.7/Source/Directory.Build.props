@@ -1,0 +1,32 @@
+<Project>
+    <!-- RimWorld 1.7 (Waylith, .NET 10). Managed DLLs sit in the game root; Unity types come from UnityStubs. -->
+    <PropertyGroup>
+        <RimWorldDir Condition="'$(RimWorldDir)' == ''">$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)../../../../'))</RimWorldDir>
+        <WorkshopDir Condition="'$(WorkshopDir)' == ''">$([System.IO.Path]::GetFullPath('$(RimWorldDir)../../workshop/content/294100/'))</WorkshopDir>
+        <!-- macOS keeps the managed DLLs under Contents/Resources (layout taken from the Ludeon-style csproj; untested here). -->
+        <RimWorldDir Condition="!Exists('$(RimWorldDir)Assembly-CSharp.dll') And Exists('$(RimWorldDir)Contents/Resources/Assembly-CSharp.dll')">$(RimWorldDir)Contents/Resources/</RimWorldDir>
+        <TargetFramework>net10.0</TargetFramework>
+        <GenerateDependencyFile>false</GenerateDependencyFile>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Reference Include="Assembly-CSharp">
+            <HintPath>$(RimWorldDir)Assembly-CSharp.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityStubs">
+            <HintPath>$(RimWorldDir)UnityStubs.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <!-- Engine types (Material, DrawPropertyBlock, ...) that UnityStubs signatures expose. -->
+        <Reference Include="Waylith">
+            <HintPath>$(RimWorldDir)Waylith.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <!-- Brrainz Harmony mod, 1.7 build (net10). Keep brrainz.harmony as a mod dependency. -->
+        <Reference Include="0Harmony">
+            <HintPath>$(WorkshopDir)2009463077/1.7/Assemblies/0Harmony.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+    </ItemGroup>
+</Project>

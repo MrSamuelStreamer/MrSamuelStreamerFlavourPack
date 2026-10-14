@@ -1,0 +1,38 @@
+using HarmonyLib;
+using MSSFP.Haunts;
+using MSSFP.Hediffs;
+using Verse;
+using PawnGraphicUtils = MSSFP.Utils.PawnGraphicUtils;
+
+namespace MSSFP.HarmonyPatches;
+
+[HarmonyPatch(typeof(Game))]
+public static class GameLoad_Patch
+{
+    [HarmonyPatch("LoadGame")]
+    [HarmonyPrefix]
+    public static void LoadGame_Prefix()
+    {
+        HauntsCache.Clear();
+        Harmony_SunSizeScale.ResetStartTick();
+        SubNormalSpeedComponent.ClearCache();
+    }
+
+    [HarmonyPatch("InitNewGame")]
+    [HarmonyPrefix]
+    public static void InitNewGame_Prefix()
+    {
+        HauntsCache.Clear();
+        Harmony_SunSizeScale.ResetStartTick();
+        SubNormalSpeedComponent.ClearCache();
+    }
+
+    [HarmonyPatch("FinalizeInit")]
+    [HarmonyPostfix]
+    public static void FinalizeInit_Postfix()
+    {
+        PawnGraphicUtils.CleanupOrphanedTextures();
+        HauntCleanupUtility.RecoverOrphanedHaunts();
+        HauntCleanupUtility.DeduplicateHaunts();
+    }
+}

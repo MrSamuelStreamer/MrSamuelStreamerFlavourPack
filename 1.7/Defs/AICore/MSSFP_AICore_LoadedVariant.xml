@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+    Hidden variant of The Pondering Orb. Inherits from MSSFP_AICore but swaps the
+    AIPersonaCore cost slot for MSSFP_LoadedAIPersonaCore. Does NOT appear in the
+    architect menu — only spawnable via the "Deploy Pondering Orb" gizmo on a
+    loaded persona core item.
+
+    Inherit="False" on designationCategory/designationHotKey/researchPrerequisites
+    ensures (per DA pass concern 3) that the variant doesn't leak into the canonical
+    Production menu and doesn't gate behind research re-unlock.
+-->
+<Defs>
+
+    <ThingDef ParentName="MSSFP_AICore">
+        <defName>MSSFP_AICore_LoadedVariant</defName>
+        <label>The Pondering Orb (redeployed)</label>
+        <costList Inherit="False">
+            <Steel>100</Steel>
+            <ComponentIndustrial>10</ComponentIndustrial>
+            <MSSFP_LoadedAIPersonaCore>1</MSSFP_LoadedAIPersonaCore>
+        </costList>
+        <!-- Hide from the architect menu via a PlaceWorker that returns false from
+             IsBuildDesignatorVisible. We CANNOT use <canGenerateDefaultDesignator>false</...>
+             — vanilla Ideo.MembersCanBuild treats that flag as "ideo-restricted" and blocks
+             colonists from constructing the frame with "Only X can build". Keeping the flag
+             true (inherited from parent) lets the ideo gate pass while the PlaceWorker
+             hides the auto-generated Designator_Build from the Architect menu. The loaded
+             core's "Deploy Pondering Orb" gizmo still places blueprints via the explicit
+             Designator_DeployPonderingOrb subclass which is selected directly and isn't
+             gated by Visible. -->
+        <placeWorkers>
+            <li>MSSFP.PlaceWorkers.PlaceWorker_HideFromArchitect</li>
+        </placeWorkers>
+        <designationHotKey Inherit="False" />
+        <researchPrerequisites Inherit="False" />
+    </ThingDef>
+
+</Defs>

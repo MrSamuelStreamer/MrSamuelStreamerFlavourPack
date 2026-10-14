@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <InteractionDef>
+        <defName>MSSFP_AICoreSpeech</defName>
+        <label>AI core speech</label>
+        <workerClass>InteractionWorker</workerClass>
+        <symbol>Things/Mote/SpeechSymbols/Chitchat</symbol>
+        <logRulesInitiator>
+            <rulesStrings>
+                <li>r_logentry->[INITIATOR_nameDef] addresses [RECIPIENT_nameDef].</li>
+            </rulesStrings>
+        </logRulesInitiator>
+    </InteractionDef>
+
+</Defs>

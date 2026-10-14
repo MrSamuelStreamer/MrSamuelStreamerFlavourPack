@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Black hole billboard on the world skybox layer. Same pipeline state as vanilla "Stars". -->
+  <ShaderDef>
+    <defName>MSSFP_BlackHole</defName>
+    <shaderProgram>
+      <vertexShaderFileName>MSSFP_BlackHole.vert.glsl</vertexShaderFileName>
+      <fragmentShaderFileName>MSSFP_BlackHole.frag.glsl</fragmentShaderFileName>
+      <transparent>true</transparent>
+      <depthTest>false</depthTest>
+      <depthWrite>false</depthWrite>
+      <cullMode>None</cullMode>
+      <renderQueue>1001</renderQueue>
+    </shaderProgram>
+  </ShaderDef>
+
+  <!-- AI core orb: map-layer transparent quad, same pipeline state as the 1.6 Unity shader (blend, no depth write, no culling). -->
+  <ShaderDef>
+    <defName>MSSFP_AICoreOrb</defName>
+    <shaderProgram>
+      <vertexShaderFileName>MSSFP_Quad.vert.glsl</vertexShaderFileName>
+      <fragmentShaderFileName>MSSFP_AICoreOrb.frag.glsl</fragmentShaderFileName>
+      <flipTextureST>false</flipTextureST>
+      <transparent>true</transparent>
+      <depthWrite>false</depthWrite>
+      <cullMode>None</cullMode>
+      <renderQueue>3000</renderQueue>
+    </shaderProgram>
+  </ShaderDef>
+
+  <!-- Holo pawn: map-layer transparent, same pipeline state as the 1.6 Unity shader. -->
+  <ShaderDef>
+    <defName>MSSFP_HoloMono</defName>
+    <shaderProgram>
+      <vertexShaderFileName>MSSFP_Quad.vert.glsl</vertexShaderFileName>
+      <fragmentShaderFileName>MSSFP_HoloMono.frag.glsl</fragmentShaderFileName>
+      <flipTextureST>true</flipTextureST>
+      <transparent>true</transparent>
+      <depthWrite>false</depthWrite>
+      <cullMode>None</cullMode>
+      <renderQueue>3000</renderQueue>
+    </shaderProgram>
+  </ShaderDef>
+
+</Defs>

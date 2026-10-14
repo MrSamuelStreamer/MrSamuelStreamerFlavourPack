@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+    <!-- Inject the exorcism operation into the Human race's recipe list -->
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName="Human"]/recipes</xpath>
+        <value>
+            <li>MSS_FP_Exorcism</li>
+        </value>
+    </Operation>
+</Patch>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>Library</OutputType>
+        <LangVersion>latest</LangVersion>
+        <RootNamespace>MSSFP.BS</RootNamespace>
+        <AssemblyName>MSSFP.BS</AssemblyName>
+        <OutputPath>../../../Compatibility/RedMattis.BetterPrerequisites/1.7/Assemblies</OutputPath>
+        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+        <SteamModsPath>$(RIMWORLD_STEAM_MODS_PATH)</SteamModsPath>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <Optimize>false</Optimize>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>portable</DebugType>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <DebugType>embedded</DebugType>
+        <DebugSymbols>false</DebugSymbols>
+        <Optimize>true</Optimize>
+    </PropertyGroup>
+    <ItemGroup>
+        <Reference Include="BSXeno ">
+            <HintPath Condition="Exists('../../../../BigSmall_Framework/1.7/Base/Assemblies/BSXeno.dll')">../../../../BigSmall_Framework/1.7/Base/Assemblies/BSXeno.dll</HintPath>
+            <HintPath Condition="Exists('../../../../2925432336/1.7/Base/Assemblies/BSXeno.dll')">../../../../2925432336/1.7/Base/Assemblies/BSXeno.dll</HintPath>
+            <HintPath Condition="Exists('../../../../../../../workshop/content/294100/2925432336/1.7/Base/Assemblies/BSXeno.dll')">../../../../../../../workshop/content/294100/2925432336/1.7/Base/Assemblies/BSXeno.dll</HintPath>
+            <HintPath Condition="Exists('../../../../../../../../workshop/content/294100/2925432336/1.7/Base/Assemblies/BSXeno.dll')">../../../../../../../../workshop/content/294100/2925432336/1.7/Base/Assemblies/BSXeno.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="BigAndSmall">
+            <HintPath Condition="Exists('../../../../BigSmall_Framework/1.7/Base/Assemblies/BigAndSmall.dll')">../../../../BigSmall_Framework/1.7/Base/Assemblies/BigAndSmall.dll</HintPath>
+            <HintPath Condition="Exists('../../../../2925432336/1.7/Base/Assemblies/BigAndSmall.dll')">../../../../2925432336/1.7/Base/Assemblies/BigAndSmall.dll</HintPath>
+            <HintPath Condition="Exists('../../../../../../../workshop/content/294100/2925432336/1.7/Base/Assemblies/BigAndSmall.dll')">../../../../../../../workshop/content/294100/2925432336/1.7/Base/Assemblies/BigAndSmall.dll</HintPath>
+            <HintPath Condition="Exists('../../../../../../../../workshop/content/294100/2925432336/1.7/Base/Assemblies/BigAndSmall.dll')">../../../../../../../../workshop/content/294100/2925432336/1.7/Base/Assemblies/BigAndSmall.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+    </ItemGroup>
+    <ItemGroup>
+        <Content Condition="Exists('../../../../../Data')" Include="../../../../../Data/**/*">
+            <Link>Attached/Rimworld/%(RecursiveDir)/%(FileName)%(Extension)</Link>
+            <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+        </Content>
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\MSSFP\MSSFP.csproj">
+            <Private>false</Private>
+        </ProjectReference>
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="..\..\..\">
+        <Link>MrSamuelStreamerFlavourPack</Link>
+      </Folder>
+    </ItemGroup>
+    <PropertyGroup>
+        <StartAction>Program</StartAction>
+        <StartProgram>$(SolutionDir)../../../../RimWorldWin64.exe</StartProgram>
+    </PropertyGroup>
+</Project>

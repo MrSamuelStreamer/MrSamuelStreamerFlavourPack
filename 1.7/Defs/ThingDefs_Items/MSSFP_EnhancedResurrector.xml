@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <ThingDef ParentName="MechSerumBase">
+        <defName>MSSFP_EnhancedResurrector</defName>
+        <label>enhanced resurrector mech serum</label>
+        <description>A refined resurrector mech serum stabilised by a programmable healer payload. Avoids the worst personality scars of standard resurrection, though the mechanites still occasionally leave touches of void insanity on the revived.</description>
+        <graphicData>
+            <texPath>Things/Item/Special/MechSerumResurrector</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <color>(0.7,0.9,1.0)</color>
+        </graphicData>
+        <stackLimit>5</stackLimit>
+        <statBases>
+            <MarketValue>35000</MarketValue>
+        </statBases>
+        <thingCategories>
+            <li>Drugs</li>
+        </thingCategories>
+        <tradeability>Sellable</tradeability>
+        <comps>
+            <li Class="CompProperties_Usable">
+                <useJob>UseItem</useJob>
+                <useLabel>Use {0_label}</useLabel>
+                <useDuration>0</useDuration>
+                <warmupMote>Mote_ResurrectAbility</warmupMote>
+                <showUseGizmo>true</showUseGizmo>
+            </li>
+            <li Class="CompProperties_Targetable">
+                <compClass>CompTargetable_SingleCorpse</compClass>
+                <fleshCorpsesOnly>true</fleshCorpsesOnly>
+                <nonDessicatedCorpsesOnly>true</nonDessicatedCorpsesOnly>
+            </li>
+            <li Class="CompProperties_TargetEffectResurrect">
+                <moteDef>Mote_ResurrectFlash</moteDef>
+            </li>
+        </comps>
+        <modExtensions>
+            <li Class="MSSFP.ModExtensions.ResurrectorModExtension">
+                <EnableExtraSideEffects>true</EnableExtraSideEffects>
+                <EnableGuaranteedDownsides>false</EnableGuaranteedDownsides>
+            </li>
+        </modExtensions>
+    </ThingDef>
+</Defs>

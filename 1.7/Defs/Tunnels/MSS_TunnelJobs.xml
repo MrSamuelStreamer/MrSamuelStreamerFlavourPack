@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <DutyDef>
+        <defName>MSSFP_LoadAndEnterTunnel</defName>
+        <thinkNode Class="ThinkNode_Priority">
+            <subNodes>
+                <!-- Basic needs -->
+                <li Class="ThinkNode_Subtree">
+                    <treeDef>SatisfyVeryUrgentNeeds</treeDef>
+                </li>
+
+                <!-- Haul to portal -->
+                <li Class="MSSFP.Tunnels.JobGiver_HaulToTunnel" />
+
+                <!-- Drop items if you're assigned to unload everything -->
+                <!-- (before entering the portal!) -->
+                <li Class="JobGiver_UnloadYourInventory" />
+
+                <!-- Enter -->
+                <li Class="MSSFP.Tunnels.JobGiver_EnterTunnel" />
+            </subNodes>
+        </thinkNode>
+    </DutyDef>
+
+    <WorkGiverDef>
+        <defName>MSSFP_HaulToTunnel</defName>
+        <label>haul to map</label>
+        <giverClass>MSSFP.Tunnels.WorkGiver_HaulToTunnel</giverClass>
+        <workType>Hauling</workType>
+        <verb>load</verb>
+        <gerund>loading</gerund>
+        <priorityInType>105</priorityInType>
+        <requiredCapacities>
+            <li>Manipulation</li>
+        </requiredCapacities>
+    </WorkGiverDef>
+
+    <JobDef>
+        <defName>MSSFP_HaulToTunnel</defName>
+        <driverClass>MSSFP.Tunnels.JobDriver_HaulToTunnel</driverClass>
+        <reportString>hauling TargetA.</reportString>
+        <suspendable>false</suspendable>
+        <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+        <dropThingBeforeJob>false</dropThingBeforeJob>
+    </JobDef>
+
+    <JobDef>
+        <defName>MSSFP_EnterTunnel</defName>
+        <driverClass>MSSFP.Tunnels.JobDriver_EnterTunnel</driverClass>
+        <dropThingBeforeJob>false</dropThingBeforeJob>
+        <carryThingAfterJob>true</carryThingAfterJob>
+        <reportString>entering TargetA.</reportString>
+    </JobDef>
+
+    <JobDef>
+        <defName>MSSFP_CarryDownedPawnToPortal</defName>
+        <driverClass>MSSFP.Tunnels.JobDriver_TakeAndEnterTunnel</driverClass>
+        <reportString>carrying TargetA.</reportString>
+        <casualInterruptible>false</casualInterruptible>
+        <checkOverrideOnDamage>Never</checkOverrideOnDamage>
+        <carryThingAfterJob>true</carryThingAfterJob>
+    </JobDef>
+</Defs>

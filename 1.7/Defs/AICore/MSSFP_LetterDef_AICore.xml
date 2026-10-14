@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <LetterDef>
+        <defName>MSSFP_AICoreAlert</defName>
+        <color>(170, 195, 220)</color>
+        <flashColor>(155, 200, 240)</flashColor>
+        <flashInterval>120</flashInterval>
+        <arriveSound>LetterArrive</arriveSound>
+    </LetterDef>
+
+</Defs>

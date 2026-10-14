@@ -1,0 +1,355 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
+using MSSFP.Utils;
+using RimWorld;
+using UnityEngine;
+using Verse;
+
+namespace MSSFP;
+
+public class Settings : ModSettings
+{
+    public static float BreakdownMTBDaysDefault = 13680000f / GenDate.TicksPerDay;
+
+    public bool ShowHaunts = false;
+    public bool EnableSkylanternRaids = false;
+    public bool EnableIEDPodRaids = true;
+    public int IEDLifespanDays = 25;
+    public float IEDDecayDetonateChance = 0.3f;
+    public bool DrawByMrStreamer = false;
+    public bool EnableViewerStructures = true;
+    public float ViewerStructureScatterMult = 1f;
+    public float PointOfInterestFrequencyMult = 1f;
+    public bool EnableGenesOnGrowthMoment = false;
+    public float GeneEventChance = 1f;
+    public float GoodGeneChance = 1f / 4f;
+    public float BadGeneChance = 1f / 4f;
+    public float NeutralGeneChance = 1f / 4f;
+    public float RandomGeneChance = 1f / 4f;
+    public int DaysForFission = 7;
+    public bool EnableLoversRetreat = false;
+    public bool allowAnyPregnant = false;
+    public bool SingleUseMentalFuses = false;
+    public bool EnableEcho = false;
+    public bool ShowHauntDevDashboard = true;
+    public float HauntProgressionSpeedMultiplier = 1.0f;
+    public float HauntRegressionSpeedMultiplier = 1.0f;
+    public bool AlwaysShowNamedHaunts = false;
+    public bool EnableGraveHaunts = false;
+    public bool EnablePoltergeistEvents = false;
+    public float PoltergeistIntensityMultiplier = 1.0f;
+    public float PoltergeistEventThreshold = 0.5f;
+    public int HauntProximityRadius = 50;
+    public int HauntMinCooldownDays = 2;
+    public int HauntPostFireCooldownDays = 4;
+    public bool EnableKillHaunts = true;
+    public float KillHauntBaseChance = 0.15f;
+    public int KillHauntCooldownTicks = 60000;
+    public int MaxBadHauntsPerPawn = 5;
+    public bool DisableBSIncorporateGeneLimit = false;
+    public bool EnableGeneStealerNeed = false;
+    public bool EnableGeneMutators = false;
+    public bool EnableTrekBeamers = true;
+    public bool EnableMercenaryHiring = true;
+    public bool useMrStreamerMercenaries = false;
+    public bool EnableLockpicking = true;
+    public bool EnableLockpickingMinigame = true;
+    public bool EnableReversePickpocket = true;
+    public bool EnableWanderDelayModification = false;
+    public bool WanderDelayIncludeHumanoids = false;
+    public int WanderDelayTicks = 0;
+    public bool EnableColonistPortraitHiding = true;
+    public bool ShowHiddenPortraits = false;
+    public bool Enable10SecondsToSpeed = false;
+    public bool Active10SecondsToSpeed = true;
+    public bool EnableSubNormalSpeeds = true;
+    public float MechFormingSpeedBaseValue = 1.0f;
+    public bool OverrideFactionLeaderSpawn = true;
+    public bool BoostChanceToSpawnExistingPawns = true;
+    public float FactionLeaderRaidChance = 0.4f;
+    public bool EnableExtraReformationPoints = false;
+    public int AnnualReformationPoints = 5;
+    public int ReformationPointsPerBaby = 1;
+    public int ReformationPointsPerDefeatedFaction = 5;
+    public int TechsToGetPoints = 5;
+    public int ReformationPointsForTechs = 1;
+    public int ReformationPointsPerSeasonChange = 1;
+    public int TenSecondsToSpeedDelay = 10;
+    public bool EnableRecoilDamage = false;
+    public float RecoilDamageMultiplier = 0.1f;
+    public bool EnableRecoilKnockback = false;
+    public float RecoilKnockbackMultiplier = 0.1f;
+    public bool ShowElevationOverlay = false;
+    public float BreakdownMTBDays = BreakdownMTBDaysDefault;
+    public bool NullDefSafetyPatch = true;
+    public bool NoReplaceFactionLeader = false;
+    public bool EnableCodexPunch = true;
+    public float CodexPunchChanceMultiplier = 1.0f;
+    public bool EnableNonLethalBloodCourtDuels = true;
+    public int BloodCourtDuelCooldownDays = 15;
+    public bool EnableUserTemplateLoading = true;
+    public bool EnableTemplateWandererJoin = false;
+    public float TemplateWandererJoinChanceMultiplier = 1.0f;
+    public bool EnableRavenCreepJoiner = true;
+    public float RavenCreepJoinerChanceMultiplier = 1.0f;
+
+    // Pondering Orb gravship jump-events
+    public bool EnableOrbJumpEvents = true;
+    public float OrbJumpEventChance = 0.05f;
+
+    // Golden Cube Implant (Anomaly DLC)
+    public bool EnableGoldenCubeImplant = true;
+    public float GoldenCubeImplantRaidChance = 0.005f;
+    public float GoldenCubeTransferChance = 0.5f;
+
+    // Black Hole cosmetic feature (default disabled)
+    public bool BlackHoleEnabled = false;
+    public float BlackHoleLightCap = 0.25f;
+    public bool BlackHoleGrowthEnabled = true;
+    public float BlackHoleGrowthRate = 1f;
+    public float BlackHoleGrowthMax = 16f;
+
+    // Independent sun-size growth (separate from black hole; default disabled)
+    public bool SunSizeScaleEnabled = false;
+    public float SunSizeScaleRate = 1f;
+    public float SunSizeScaleMax = 4f;
+
+    // Tunnel system port (default disabled). tunnelsEnabledForNewWorlds is snapshot
+    // at world-gen (see TunnelGenData); all other tunable fields are live-read.
+    public bool TunnelsEnabledForNewWorlds = false;
+    public float TunnelDefaultTilesPerHour = 3f;
+    public float TunnelResearchedTilesPerHour = 12f;
+    public float RubyVeinSpawnChance = 0.005f;
+    public float TunnelIncidentWeightMultiplier = 1f;
+    public bool AllowCombatTunnelIncidents = true;
+    public bool DisableTunnelIncidents = false;
+    // Quest-site radius override step (0 = disabled, matches vanilla behavior).
+    // This is an orthogonal MSSFP setting, not gated on the tunnel system itself.
+    public int QuestSiteRadiusStep = 0;
+    public int QuestSiteMinRadiusStep = 0;
+
+    // Fields for optional assembly tabs — these MUST live here (not on the tab)
+    // so they survive save/load cycles when the optional assembly is removed.
+    public bool GeneratorEnableFasterUpgrades = false;
+    public List<string> ResourceGeneratorExtraBuildables = [];
+
+    public HashSet<Verse.TimeSpeed> MonitoredSpeeds = new()
+    {
+        Verse.TimeSpeed.Paused,
+        Verse.TimeSpeed.Normal,
+    };
+
+    public bool IsSpeedMonitored(Verse.TimeSpeed speed)
+    {
+        return MonitoredSpeeds?.Contains(speed) ?? false;
+    }
+
+    public void ToggleSpeedMonitoring(Verse.TimeSpeed speed)
+    {
+        if (MonitoredSpeeds == null)
+            MonitoredSpeeds = new HashSet<Verse.TimeSpeed>();
+
+        if (MonitoredSpeeds.Contains(speed))
+            MonitoredSpeeds.Remove(speed);
+        else
+            MonitoredSpeeds.Add(speed);
+    }
+
+    public string GetMonitoredSpeedsText()
+    {
+        if (MonitoredSpeeds == null || MonitoredSpeeds.Count == 0)
+            return "None";
+
+        return string.Join(", ", MonitoredSpeeds.Select(s => s.ToString()));
+    }
+
+    public Settings()
+    {
+        Assembly[] assemblies;
+        List<Type> types = [];
+
+        // Get assemblies
+        try
+        {
+            assemblies = AppDomain.CurrentDomain.GetAssemblies().Where(a=>a.FullName.Contains("MSSFP")).ToArray();
+        }
+        catch (Exception ex)
+        {
+            ModLog.Error($"Failed to load assemblies: {ex}");
+            return;
+        }
+
+        // get all SettingsTab subtypes
+        foreach (Assembly assembly in assemblies)
+        {
+            Type[] assemblyTypes;
+            try
+            {
+                assemblyTypes = assembly.GetTypes();
+            }
+            catch (ReflectionTypeLoadException ex)
+            {
+                // A type in this assembly failed to load (e.g. a missing optional
+                // dependency); still use the types that did resolve.
+                assemblyTypes = ex.Types.Where(t => t != null).ToArray();
+                ModLog.Error($"Some types failed to load from assembly {assembly.FullName}: {ex}");
+            }
+            catch (Exception ex)
+            {
+                ModLog.Error($"Failed to load types from assembly {assembly.FullName}: {ex}");
+                continue;
+            }
+
+            foreach (Type type in assemblyTypes
+                         .Where(t => !t.IsAbstract && typeof(SettingsTab).IsAssignableFrom(t)))
+            {
+                types.Add(type);
+            }
+        }
+
+        // init all SettingsTabs
+        foreach (Type type in types.Distinct())
+        {
+            try
+            {
+                if (Activator.CreateInstance(type, this, MSSFPMod.Mod) is SettingsTab tab)
+                {
+                    RegisterTab(tab);
+                }
+            }
+            catch (Exception ex)
+            {
+                ModLog.Error($"Failed to create instance of tab {type.FullName}: {ex}");
+            }
+        }
+    }
+
+    protected List<SettingsTab> Tabs = new();
+
+    public T GetSettings<T>() where T: SettingsTab
+    {
+        return Tabs.FirstOrDefault(t => t is T) as T;
+    }
+
+    public void RegisterTab(SettingsTab tab)
+    {
+        Tabs.Add(tab);
+        Tabs = Tabs.OrderBy(t => t.TabOrder).ToList();
+    }
+
+    public SettingsTab DefaultTab => Tabs.FirstOrDefault(t => t.IsDefault);
+
+    public SettingsTab SelectedTab;
+
+    public void DoWindowContents(Rect wrect)
+    {
+        SelectedTab ??= DefaultTab;
+
+        List<TabRecord> tabRecords = new();
+        foreach (SettingsTab tab in Tabs)
+        {
+            SettingsTab localTab = tab;
+            tabRecords.Add(new TabRecord(
+                localTab.TabName,
+                () => SelectedTab = localTab,
+                SelectedTab == localTab
+            ));
+        }
+
+        // Content area — TabDrawer renders tabs in the 32f above this rect
+        Rect contentRect = new(
+            wrect.x,
+            wrect.y + TabDrawer.TabHeight,
+            wrect.width,
+            wrect.height - TabDrawer.TabHeight
+        );
+
+        TabDrawer.DrawTabs(contentRect, tabRecords);
+
+        SelectedTab?.DrawTab(contentRect);
+    }
+
+    public override void ExposeData()
+    {
+        ModLog.Debug($"ExposeData {Scribe.mode} - {Tabs.Count}");
+        // Save/load main settings directly to ensure they persist
+        Scribe_Values.Look(ref EnableLockpicking, "EnableLockpicking", true);
+        Scribe_Values.Look(ref EnableLockpickingMinigame, "EnableLockpickingMinigame", true);
+        Scribe_Values.Look(ref EnableReversePickpocket, "EnableReversePickpocket", true);
+        Scribe_Values.Look(
+            ref EnableWanderDelayModification,
+            "EnableWanderDelayModification",
+            false
+        );
+        Scribe_Values.Look(ref WanderDelayTicks, "WanderDelayTicks", 0);
+        Scribe_Values.Look(ref EnableGenesOnGrowthMoment, "EnableGenesOnGrowthMoment", false);
+        Scribe_Values.Look(ref Active10SecondsToSpeed, "Active10SecondsToSpeed", false);
+        Scribe_Values.Look(ref EnableSubNormalSpeeds, "EnableSubNormalSpeeds", true);
+        Scribe_Values.Look(ref EnableNonLethalBloodCourtDuels, "EnableNonLethalBloodCourtDuels", true);
+        Scribe_Values.Look(ref BloodCourtDuelCooldownDays, "BloodCourtDuelCooldownDays", 15);
+        Scribe_Values.Look(ref MechFormingSpeedBaseValue, "MechFormingSpeedBaseValue", 1f);
+        Scribe_Values.Look(ref OverrideFactionLeaderSpawn, "OverrideFactionLeaderSpawn", true);
+        Scribe_Values.Look(ref BoostChanceToSpawnExistingPawns, "BoostChanceToSpawnExistingPawns", true);
+        Scribe_Values.Look(ref FactionLeaderRaidChance, "FactionLeaderRaidChance", 0.4f);
+        Scribe_Values.Look(ref TenSecondsToSpeedDelay, "TenSecondsToSpeedDelay", 10);
+        Scribe_Values.Look(ref EnableExtraReformationPoints, "EnableAnnualReformationPoints", false);
+        Scribe_Values.Look(ref AnnualReformationPoints, "AnnualReformationPoints", 5);
+        Scribe_Values.Look(ref ReformationPointsPerBaby, "ReformationPointsPerBaby", 1);
+        Scribe_Values.Look(ref ReformationPointsPerDefeatedFaction, "ReformationPointsPerDefeatedFaction", 5);
+        Scribe_Values.Look(ref TechsToGetPoints, "TechsToGetPoints", 5);
+        Scribe_Values.Look(ref ReformationPointsForTechs, "ReformationPointsForTechs", 1);
+        Scribe_Values.Look(ref ReformationPointsPerSeasonChange, "ReformationPointsPerSeasonChange", 1);
+        Scribe_Values.Look(ref EnableRecoilDamage, "EnableRecoilDamage", false);
+        Scribe_Values.Look(ref RecoilDamageMultiplier, "RecoilDamageMultiplier", 0.1f);
+        Scribe_Values.Look(ref EnableRecoilKnockback, "EnableRecoilKnockback", false);
+        Scribe_Values.Look(ref RecoilKnockbackMultiplier, "RecoilKnockbackMultiplier", 0.1f);
+        Scribe_Values.Look(ref ShowElevationOverlay, "ShowElevationOverlay", false);
+        Scribe_Values.Look(ref BreakdownMTBDays, "BreakdownMTBDays", BreakdownMTBDaysDefault);
+        Scribe_Collections.Look(ref MonitoredSpeeds, "MonitoredSpeeds", LookMode.Value);
+
+        Scribe_Values.Look(ref EnableOrbJumpEvents, "EnableOrbJumpEvents", true);
+        Scribe_Values.Look(ref OrbJumpEventChance, "OrbJumpEventChance", 0.05f);
+
+        Scribe_Values.Look(ref EnableGoldenCubeImplant, "EnableGoldenCubeImplant", true);
+        Scribe_Values.Look(ref GoldenCubeImplantRaidChance, "GoldenCubeImplantRaidChance", 0.005f);
+        Scribe_Values.Look(ref GoldenCubeTransferChance, "GoldenCubeTransferChance", 0.5f);
+
+        Scribe_Values.Look(ref BlackHoleEnabled, "BlackHoleEnabled", false);
+        Scribe_Values.Look(ref BlackHoleLightCap, "BlackHoleLightCap", 0.25f);
+        Scribe_Values.Look(ref BlackHoleGrowthEnabled, "BlackHoleGrowthEnabled", true);
+        Scribe_Values.Look(ref BlackHoleGrowthRate, "BlackHoleGrowthRate", 1f);
+        Scribe_Values.Look(ref BlackHoleGrowthMax, "BlackHoleGrowthMax", 16f);
+
+        Scribe_Values.Look(ref SunSizeScaleEnabled, "SunSizeScaleEnabled", false);
+        Scribe_Values.Look(ref SunSizeScaleRate, "SunSizeScaleRate", 1f);
+        Scribe_Values.Look(ref SunSizeScaleMax, "SunSizeScaleMax", 4f);
+
+        Scribe_Values.Look(ref TunnelsEnabledForNewWorlds, "TunnelsEnabledForNewWorlds", false);
+        Scribe_Values.Look(ref TunnelDefaultTilesPerHour, "TunnelDefaultTilesPerHour", 3f);
+        Scribe_Values.Look(ref TunnelResearchedTilesPerHour, "TunnelResearchedTilesPerHour", 12f);
+        Scribe_Values.Look(ref RubyVeinSpawnChance, "RubyVeinSpawnChance", 0.005f);
+        Scribe_Values.Look(ref TunnelIncidentWeightMultiplier, "TunnelIncidentWeightMultiplier", 1f);
+        Scribe_Values.Look(ref AllowCombatTunnelIncidents, "AllowCombatTunnelIncidents", true);
+        Scribe_Values.Look(ref DisableTunnelIncidents, "DisableTunnelIncidents", false);
+        Scribe_Values.Look(ref QuestSiteRadiusStep, "QuestSiteRadiusStep", 0);
+        Scribe_Values.Look(ref QuestSiteMinRadiusStep, "QuestSiteMinRadiusStep", 0);
+
+        // Optional assembly tab fields — saved here so they persist when the assembly is removed
+        Scribe_Values.Look(ref GeneratorEnableFasterUpgrades, "GeneratorEnableFasterUpgrades", false);
+        Scribe_Collections.Look(ref ResourceGeneratorExtraBuildables, "ExtraBuildables", LookMode.Value);
+
+        foreach (SettingsTab settingsTab in Tabs)
+        {
+            try
+            {
+                settingsTab.ExposeData();
+            }
+            catch (Exception ex)
+            {
+                ModLog.Error($"Failed to expose data for tab {settingsTab.GetType().FullName}: {ex}");
+            }
+        }
+    }
+}

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <ThoughtDef>
+        <defName>MSSFP_SerumDownside_Memory</defName>
+        <thoughtClass>Thought_Memory</thoughtClass>
+        <durationDays>1.0</durationDays>
+        <stages>
+            <li>
+                <label>mechanite sickness</label>
+                <description>The mechanites left a lingering nausea behind. I feel hollow and unwell.</description>
+                <baseMoodEffect>-10</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+</Defs>

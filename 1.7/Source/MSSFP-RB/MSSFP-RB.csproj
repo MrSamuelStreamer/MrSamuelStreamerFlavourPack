@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>Library</OutputType>
+        <LangVersion>latest</LangVersion>
+        <RootNamespace>MSSFP.RB</RootNamespace>
+        <AssemblyName>MSSFP.RB</AssemblyName>
+        <OutputPath>../../../Compatibility/Maux36.Rimbody/1.7/Assemblies</OutputPath>
+        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+        <SteamModsPath>$(RIMWORLD_STEAM_MODS_PATH)</SteamModsPath>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <Optimize>false</Optimize>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>portable</DebugType>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <DebugType>embedded</DebugType>
+        <DebugSymbols>false</DebugSymbols>
+        <Optimize>true</Optimize>
+    </PropertyGroup>
+    <ItemGroup>
+        <Reference Include="Rimbody">
+            <HintPath Condition="Exists('../../../../Rimbody/1.7/Assemblies/Rimbody.dll')">../../../../Rimbody/1.7/Assemblies/Rimbody.dll</HintPath>
+            <HintPath Condition="Exists('../../../../3354086860/1.7/Assemblies/Rimbody.dll')">../../../../3354086860/1.7/Assemblies/Rimbody.dll</HintPath>
+            <HintPath Condition="Exists('../../../../../../../workshop/content/294100/3354086860/1.7/Assemblies/Rimbody.dll')">../../../../../../../workshop/content/294100/3354086860/1.7/Assemblies/Rimbody.dll</HintPath>
+            <HintPath Condition="Exists('../../../../../../../../workshop/content/294100/3354086860/1.7/Assemblies/Rimbody.dll')">../../../../../../../../workshop/content/294100/3354086860/1.7/Assemblies/Rimbody.dll</HintPath>
+            <!-- Private=False is load-bearing: copying Rimbody.dll into our Assemblies folder
+                 makes RimWorld load a SECOND RimbodyDB with its own statics, applies Rimbody's
+                 own Harmony patches twice (double muscle/fat accrual), and breaks ModExtension
+                 type identity so GetModExtension<T>() never matches. -->
+            <Private>False</Private>
+        </Reference>
+    </ItemGroup>
+    <ItemGroup>
+        <Content Condition="Exists('../../../../../Data')" Include="../../../../../Data/**/*">
+            <Link>Attached/Rimworld/%(RecursiveDir)/%(FileName)%(Extension)</Link>
+            <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+        </Content>
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\MSSFP\MSSFP.csproj">
+            <Private>false</Private>
+        </ProjectReference>
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="..\..\..\">
+        <Link>MrSamuelStreamerFlavourPack</Link>
+      </Folder>
+    </ItemGroup>
+    <PropertyGroup>
+        <StartAction>Program</StartAction>
+        <StartProgram>$(SolutionDir)../../../../RimWorldWin64.exe</StartProgram>
+    </PropertyGroup>
+</Project>

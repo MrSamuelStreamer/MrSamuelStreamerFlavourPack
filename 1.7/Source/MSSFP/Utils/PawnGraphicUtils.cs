@@ -1,0 +1,161 @@
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using MSSFP.Hediffs;
+using RimWorld;
+using Unity.Collections;
+using UnityEngine;
+using UnityEngine.Rendering;
+using Verse;
+
+namespace MSSFP.Utils;
+
+public class PawnGraphicUtils
+{
+    public static string SaveDataPath => Path.Combine(GenFilePaths.ConfigFolderPath, "Haunts");
+
+    public static Texture2D LoadTexture(string texturePath)
+    {
+        if (!File.Exists(texturePath))
+        {
+            return null;
+        }
+
+        byte[] fileData = File.ReadAllBytes(texturePath);
+        Texture2D tex = new Texture2D(256, 256);
+        tex.LoadImage(fileData);
+        return tex;
+    }
+
+    public static string SavePawnTexture(Pawn pawn, Action<bool, string> onComplete = null)
+    {
+        RenderTexture tex = PortraitsCache.Get(
+            pawn,
+            new Vector2(175f, 175f),
+            Rot4.South,
+            new Vector3(0f, 0f, 0.1f),
+            0.9f,
+            healthStateOverride: PawnHealthState.Mobile
+        );
+        Guid guid = Guid.NewGuid();
+
+        if (!Directory.Exists(SaveDataPath))
+            Directory.CreateDirectory(SaveDataPath);
+
+        string path = Path.Combine(SaveDataPath, $"{guid}.png");
+        SaveTextureToFile(
+            tex,
+            path,
+            256,
+            256,
+            (sucess, p) =>
+            {
+                ModLog.Log($"Saved texture to {p}? {sucess}");
+                onComplete?.Invoke(sucess, p);
+            }
+        );
+        return $"{guid}.png";
+    }
+
+    public static void SaveTextureToFile(
+        Texture source,
+        string filePath,
+        int width,
+        int height,
+        Action<bool, string> done = null
+    )
+    {
+        // check that the input we're getting is something we can handle:
+        if (source is not (Texture2D or RenderTexture))
+        {
+            done?.Invoke(false, filePath);
+            return;
+        }
+
+        // use the original texture size in case the input is negative:
+        if (width < 0 || height < 0)
+        {
+            width = source.width;
+            height = source.height;
+        }
+
+        // resize the original image:
+        RenderTexture resizeRT = RenderTexture.GetTemporary(width, height, 0);
+        Graphics.Blit(source, resizeRT);
+
+        // capture format before the async callback — resizeRT may be reused after release
+        var graphicsFormat = resizeRT.graphicsFormat;
+
+        // request the texture data back from the GPU (1.7: no RequestIntoNativeArray, read via GetData):
+        AsyncGPUReadback.Request(
+            resizeRT,
+            0,
+            (AsyncGPUReadbackRequest request) =>
+            {
+                RenderTexture.ReleaseTemporary(resizeRT);
+
+                bool success = false;
+                if (!request.hasError)
+                {
+                    try
+                    {
+                        NativeArray<byte> data = request.GetData<byte>();
+                        try
+                        {
+                            byte[] png = ImageConversion.EncodeArrayToPNG(
+                                data.ToArray(),
+                                graphicsFormat,
+                                (uint)width,
+                                (uint)height
+                            );
+                            System.IO.File.WriteAllBytes(filePath, png);
+                            success = true;
+                        }
+                        finally
+                        {
+                            data.Dispose();
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        ModLog.Error("Error saving texture", e);
+                    }
+                }
+
+                done?.Invoke(success, filePath);
+            }
+        );
+    }
+
+    public static void CleanupOrphanedTextures()
+    {
+        if (!Directory.Exists(SaveDataPath))
+            return;
+
+        HashSet<string> activePaths = new();
+        foreach (List<HediffComp_Haunt> haunts in HauntsCache.Haunts.Values)
+        {
+            foreach (HediffComp_Haunt haunt in haunts)
+            {
+                foreach (string path in haunt.GetAllTexPaths())
+                    activePaths.Add(path);
+            }
+        }
+
+        foreach (string file in Directory.GetFiles(SaveDataPath, "*.png"))
+        {
+            string fileName = Path.GetFileName(file);
+            if (!activePaths.Contains(fileName))
+            {
+                try
+                {
+                    File.Delete(file);
+                }
+                catch (Exception e)
+                {
+                    ModLog.Error($"Failed to delete orphaned texture {file}", e);
+                }
+            }
+        }
+    }
+}

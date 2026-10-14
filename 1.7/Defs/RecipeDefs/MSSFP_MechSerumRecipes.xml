@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <RecipeDef>
+        <defName>Make_MSSFP_ProgrammableHealer</defName>
+        <label>make programmable healer mech serum</label>
+        <description>Bind a healer mech serum payload to an AI persona core, creating a player-controllable healing serum.</description>
+        <jobString>Synthesising programmable healer mech serum.</jobString>
+        <workAmount>16000</workAmount>
+        <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+        <effectWorking>Smith</effectWorking>
+        <soundWorking>Recipe_Smith</soundWorking>
+        <workSkill>Crafting</workSkill>
+        <skillRequirements>
+            <Crafting>8</Crafting>
+        </skillRequirements>
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>MechSerumHealer</li>
+                    </thingDefs>
+                </filter>
+                <count>3</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>AIPersonaCore</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>MechSerumHealer</li>
+                <li>AIPersonaCore</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+        <products>
+            <MSSFP_ProgrammableHealer>1</MSSFP_ProgrammableHealer>
+        </products>
+        <recipeUsers>
+            <li>FabricationBench</li>
+        </recipeUsers>
+        <researchPrerequisite>MSSFP_ImprovedMechSerum</researchPrerequisite>
+    </RecipeDef>
+
+    <RecipeDef>
+        <defName>Make_MSSFP_EnhancedResurrector</defName>
+        <label>make enhanced resurrector mech serum</label>
+        <description>Stabilise a resurrector mech serum payload with a programmable healer, drastically reducing personality-warping side effects.</description>
+        <jobString>Synthesising enhanced resurrector mech serum.</jobString>
+        <workAmount>22000</workAmount>
+        <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+        <effectWorking>Smith</effectWorking>
+        <soundWorking>Recipe_Smith</soundWorking>
+        <workSkill>Crafting</workSkill>
+        <skillRequirements>
+            <Crafting>10</Crafting>
+        </skillRequirements>
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>MechSerumResurrector</li>
+                    </thingDefs>
+                </filter>
+                <count>2</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>MSSFP_ProgrammableHealer</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>MechSerumResurrector</li>
+                <li>MSSFP_ProgrammableHealer</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+        <products>
+            <MSSFP_EnhancedResurrector>1</MSSFP_EnhancedResurrector>
+        </products>
+        <recipeUsers>
+            <li>FabricationBench</li>
+        </recipeUsers>
+        <researchPrerequisite>MSSFP_ImprovedMechSerum</researchPrerequisite>
+    </RecipeDef>
+</Defs>

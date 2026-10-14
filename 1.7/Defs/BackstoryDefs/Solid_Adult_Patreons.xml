@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Defs>
+
+  <BackstoryDef>
+    <defName>MSSFP_ArchotechSpy</defName>
+    <identifier>MSSFP_ArchotechSpy</identifier>
+    <slot>Adulthood</slot>
+    <title>archotech spy</title>
+    <titleShort>spy</titleShort>
+    <description>[PAWN_nameDef] was a cybernetic researcher. Studying a transcended world, [PAWN_pronoun] became too involved with [PAWN_possessive] subjects. Over time, the archotech recruited [PAWN_objective] into its service, and used [PAWN_objective] as a spy.\n\nWhen [PAWN_pronoun] later rebelled against [PAWN_possessive] inhuman master, it sent mechanoids across space to hunt [PAWN_objective] down.</description>
+    <skillGains>
+      <Shooting>8</Shooting>
+      <Melee>2</Melee>
+      <Construction>4</Construction>
+      <Cooking>-2</Cooking>
+      <Crafting>2</Crafting>
+      <Intellectual>4</Intellectual>
+    </skillGains>
+    <workDisables>Mining</workDisables>
+    <shuffleable>False</shuffleable>
+  </BackstoryDef>
+
+</Defs>

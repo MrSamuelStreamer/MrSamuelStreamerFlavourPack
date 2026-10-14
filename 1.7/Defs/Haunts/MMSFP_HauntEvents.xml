@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <!-- Weight 30, any severity — lights flicker off near the haunted pawn -->
+    <MSSFP.Defs.HauntEventDef>
+        <defName>MSS_FP_Event_FlickeringLights</defName>
+        <label>Flickering Lights</label>
+        <weight>30</weight>
+        <minSeverity>0</minSeverity>
+        <workerClass>MSSFP.Events.HauntEventWorker_FlickeringLights</workerClass>
+    </MSSFP.Defs.HauntEventDef>
+
+    <!-- Weight 25, severity 0.3+ — a nearby item teleports 3–5 cells -->
+    <MSSFP.Defs.HauntEventDef>
+        <defName>MSS_FP_Event_ObjectDisplacement</defName>
+        <label>Object Displacement</label>
+        <weight>25</weight>
+        <minSeverity>0.3</minSeverity>
+        <workerClass>MSSFP.Events.HauntEventWorker_ObjectDisplacement</workerClass>
+    </MSSFP.Defs.HauntEventDef>
+
+    <!-- Weight 20, severity 0.3+ — cold spot mood debuff for nearby pawns -->
+    <MSSFP.Defs.HauntEventDef>
+        <defName>MSS_FP_Event_ColdSpot</defName>
+        <label>Cold Spot</label>
+        <weight>20</weight>
+        <minSeverity>0.3</minSeverity>
+        <workerClass>MSSFP.Events.HauntEventWorker_ColdSpot</workerClass>
+    </MSSFP.Defs.HauntEventDef>
+
+    <!-- Weight 15, severity 0.5+ — all colonists hear an eerie sound -->
+    <MSSFP.Defs.HauntEventDef>
+        <defName>MSS_FP_Event_GhostlyWail</defName>
+        <label>Ghostly Wail</label>
+        <weight>15</weight>
+        <minSeverity>0.5</minSeverity>
+        <workerClass>MSSFP.Events.HauntEventWorker_GhostlyWail</workerClass>
+    </MSSFP.Defs.HauntEventDef>
+
+    <!-- Weight 5, severity 0.7+ — small fire starts on a flammable object -->
+    <MSSFP.Defs.HauntEventDef>
+        <defName>MSS_FP_Event_SpontaneousFire</defName>
+        <label>Spontaneous Fire</label>
+        <weight>5</weight>
+        <minSeverity>0.7</minSeverity>
+        <workerClass>MSSFP.Events.HauntEventWorker_SpontaneousFire</workerClass>
+    </MSSFP.Defs.HauntEventDef>
+
+    <!-- Weight 3, severity 0.9+ — haunted pawn enters a brief mental state -->
+    <MSSFP.Defs.HauntEventDef>
+        <defName>MSS_FP_Event_PossessionAttempt</defName>
+        <label>Possession Attempt</label>
+        <weight>3</weight>
+        <minSeverity>0.9</minSeverity>
+        <workerClass>MSSFP.Events.HauntEventWorker_PossessionAttempt</workerClass>
+    </MSSFP.Defs.HauntEventDef>
+
+    <!-- Weight 2, severity 0.9+ — haunts become briefly visible, witnesses horrified -->
+    <MSSFP.Defs.HauntEventDef>
+        <defName>MSS_FP_Event_Manifestation</defName>
+        <label>Manifestation</label>
+        <weight>2</weight>
+        <minSeverity>0.9</minSeverity>
+        <workerClass>MSSFP.Events.HauntEventWorker_Manifestation</workerClass>
+    </MSSFP.Defs.HauntEventDef>
+</Defs>

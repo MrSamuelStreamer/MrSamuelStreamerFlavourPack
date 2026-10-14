@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/FactionDef[defName="VFEP_Junkers"]/allowedCultures/li[text()="VFEP_Khanate"]</xpath>
+    <value>
+      <li>MSS_BuckoneerCulture</li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/FactionDef[defName="VFEP_Junkers"]/VFEP_Mercenaries/li[text()="Kriminul"]</xpath>
+    <value>
+      <li>MSS_BuckoneerCulture</li>
+    </value>
+  </Operation>
+</Patch>

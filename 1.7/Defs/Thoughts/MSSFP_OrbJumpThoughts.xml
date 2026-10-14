@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <!-- Existential Broadcast orb jump-event: the persona's dread bleeds into the crew. -->
+    <ThoughtDef>
+        <defName>MSSFP_ExistentialBroadcast</defName>
+        <thoughtClass>Thought_Memory</thoughtClass>
+        <durationDays>0.75</durationDays>
+        <stages>
+            <li>
+                <label>the AI's dread</label>
+                <description>For a moment during the jump, I felt what the ship's mind feels. I wish I hadn't.</description>
+                <baseMoodEffect>-4</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+
+    <!-- Flawless Burn orb jump-event: a perfectly smooth ride. -->
+    <ThoughtDef>
+        <defName>MSSFP_FlawlessBurn</defName>
+        <thoughtClass>Thought_Memory</thoughtClass>
+        <durationDays>0.75</durationDays>
+        <stages>
+            <li>
+                <label>flawless jump</label>
+                <description>That was the smoothest gravship jump I've ever felt. The AI nailed every burn.</description>
+                <baseMoodEffect>4</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+</Defs>

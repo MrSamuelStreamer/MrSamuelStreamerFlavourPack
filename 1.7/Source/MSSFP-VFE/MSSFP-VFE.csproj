@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>Library</OutputType>
+        <LangVersion>latest</LangVersion>
+        <RootNamespace>MSSFP.VFE</RootNamespace>
+        <AssemblyName>MSSFP.VFE</AssemblyName>
+        <OutputPath>../../../Compatibility/OskarPotocki.VanillaFactionsExpanded.Core/1.7/Assemblies</OutputPath>
+        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+        <SteamModsPath>$(RIMWORLD_STEAM_MODS_PATH)</SteamModsPath>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <Optimize>false</Optimize>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>portable</DebugType>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <DebugType>embedded</DebugType>
+        <DebugSymbols>false</DebugSymbols>
+        <Optimize>true</Optimize>
+    </PropertyGroup>
+    <ItemGroup>
+        <Reference Include="VEF">
+            <HintPath Condition="Exists('../../../../VanillaExpandedFramework/1.7/Assemblies/VEF.dll')">../../../../VanillaExpandedFramework/1.7/Assemblies/VEF.dll</HintPath>
+            <HintPath Condition="Exists('../../../../2023507013/1.7/Assemblies/VEF.dll')">../../../../2023507013/1.7/Assemblies/VEF.dll</HintPath>
+            <HintPath Condition="Exists('../../../../../../../workshop/content/294100/2023507013/1.7/Assemblies/VEF.dll')">../../../../../../../workshop/content/294100/2023507013/1.7/Assemblies/VEF.dll</HintPath>
+            <HintPath Condition="Exists('../../../../../../../../workshop/content/294100/2023507013/1.7/Assemblies/VEF.dll')">../../../../../../../../workshop/content/294100/2023507013/1.7/Assemblies/VEF.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="PipeSystem">
+            <HintPath Condition="Exists('../../../../VanillaExpandedFramework/1.7/Assemblies/PipeSystem.dll')">../../../../VanillaExpandedFramework/1.7/Assemblies/PipeSystem.dll</HintPath>
+            <HintPath Condition="Exists('../../../../2023507013/1.7/Assemblies/PipeSystem.dll')">../../../../2023507013/1.7/Assemblies/PipeSystem.dll</HintPath>
+            <HintPath Condition="Exists('../../../../../../../workshop/content/294100/2023507013/1.7/Assemblies/PipeSystem.dll')">../../../../../../../workshop/content/294100/2023507013/1.7/Assemblies/PipeSystem.dll</HintPath>
+            <HintPath Condition="Exists('../../../../../../../../workshop/content/294100/2023507013/1.7/Assemblies/PipeSystem.dll')">../../../../../../../../workshop/content/294100/2023507013/1.7/Assemblies/PipeSystem.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="MVCF">
+            <HintPath Condition="Exists('../../../../VanillaExpandedFramework/1.7/Assemblies/MVCF.dll')">../../../../VanillaExpandedFramework/1.7/Assemblies/MVCF.dll</HintPath>
+            <HintPath Condition="Exists('../../../../2023507013/1.7/Assemblies/MVCF.dll')">../../../../2023507013/1.7/Assemblies/MVCF.dll</HintPath>
+            <HintPath Condition="Exists('../../../../../../../workshop/content/294100/2023507013/1.7/Assemblies/MVCF.dll')">../../../../../../../workshop/content/294100/2023507013/1.7/Assemblies/MVCF.dll</HintPath>
+            <HintPath Condition="Exists('../../../../../../../../workshop/content/294100/2023507013/1.7/Assemblies/MVCF.dll')">../../../../../../../../workshop/content/294100/2023507013/1.7/Assemblies/MVCF.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="KCSG">
+            <HintPath Condition="Exists('../../../../VanillaExpandedFramework/1.7/Assemblies/KCSG.dll')">../../../../VanillaExpandedFramework/1.7/Assemblies/KCSG.dll</HintPath>
+            <HintPath Condition="Exists('../../../../2023507013/1.7/Assemblies/KCSG.dll')">../../../../2023507013/1.7/Assemblies/KCSG.dll</HintPath>
+            <HintPath Condition="Exists('../../../../../../../workshop/content/294100/2023507013/1.7/Assemblies/KCSG.dll')">../../../../../../../workshop/content/294100/2023507013/1.7/Assemblies/KCSG.dll</HintPath>
+            <HintPath Condition="Exists('../../../../../../../../workshop/content/294100/2023507013/1.7/Assemblies/KCSG.dll')">../../../../../../../../workshop/content/294100/2023507013/1.7/Assemblies/KCSG.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="Outposts">
+            <HintPath Condition="Exists('../../../../VanillaExpandedFramework/1.7/Assemblies/Outposts.dll')">../../../../VanillaExpandedFramework/1.7/Assemblies/Outposts.dll</HintPath>
+            <HintPath Condition="Exists('../../../../2023507013/1.7/Assemblies/Outposts.dll')">../../../../2023507013/1.7/Assemblies/Outposts.dll</HintPath>
+            <HintPath Condition="Exists('../../../../../../../workshop/content/294100/2023507013/1.7/Assemblies/Outposts.dll')">../../../../../../../workshop/content/294100/2023507013/1.7/Assemblies/Outposts.dll</HintPath>
+            <HintPath Condition="Exists('../../../../../../../../workshop/content/294100/2023507013/1.7/Assemblies/Outposts.dll')">../../../../../../../../workshop/content/294100/2023507013/1.7/Assemblies/Outposts.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\MSSFP\MSSFP.csproj">
+            <Private>false</Private>
+        </ProjectReference>
+    </ItemGroup>
+    <ItemGroup>
+        <Folder Include="..\..\..\Compatibility\vanillaexpanded.outposts\1.7\Assemblies\">
+            <Link>ModCompatFiles\Assemblies</Link>
+        </Folder>
+        <Folder Include="..\..\..\Compatibility\vanillaexpanded.outposts\1.7\Patches\">
+            <Link>ModCompatFiles\Patches</Link>
+        </Folder>
+    </ItemGroup>
+    <ItemGroup>
+        <Content Include="..\..\..\Compatibility\vanillaexpanded.outposts\1.7\Defs\MSSFP_Outposts.xml">
+            <Link>ModCompatFiles\Defs\MSSFP_Outposts.xml</Link>
+        </Content>
+    </ItemGroup>
+    <PropertyGroup>
+        <StartAction>Program</StartAction>
+        <StartProgram>$(SolutionDir)../../../../RimWorldWin64.exe</StartProgram>
+    </PropertyGroup>
+</Project>

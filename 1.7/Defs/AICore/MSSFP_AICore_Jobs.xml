@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <!--
+        Haul-to-AI-Core hauling job. Driver = vanilla JobDriver_HaulToContainer.
+        Container resolution: ThingOwnerUtility.TryGetInnerInteractableThingOwner walks
+        AllComps for IThingHolder; CompTrueAICore implements it. No custom driver needed.
+    -->
+    <JobDef>
+        <defName>MSSFP_HaulToAICore</defName>
+        <driverClass>Verse.AI.JobDriver_HaulToContainer</driverClass>
+        <reportString>hauling TargetA to TargetB.</reportString>
+        <suspendable>false</suspendable>
+    </JobDef>
+
+    <WorkGiverDef>
+        <defName>MSSFP_HaulToAICore</defName>
+        <label>haul to AI core</label>
+        <giverClass>MSSFP.AICore.WorkGiver_HaulToAICore</giverClass>
+        <workType>Hauling</workType>
+        <priorityInType>50</priorityInType>
+        <verb>haul to AI core</verb>
+        <gerund>hauling to AI core</gerund>
+        <requiredCapacities>
+            <li>Manipulation</li>
+        </requiredCapacities>
+        <prioritizeSustains>true</prioritizeSustains>
+    </WorkGiverDef>
+
+</Defs>

@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Defs>
+    <IncidentDef>
+        <defName>MSS_TrekPodCrash</defName>
+        <label>Strangely arousing transport pod crash</label>
+        <category>Misc</category>
+        <targetTags>
+            <li>Map_PlayerHome</li>
+        </targetTags>
+        <workerClass>IncidentWorker_GiveQuest</workerClass>
+        <questScriptDef>MSS_TrekPodCrash</questScriptDef>
+        <baseChance>3.5</baseChance>
+        <populationEffect>IncreaseMedium</populationEffect>
+        <requireColonistsPresent>True</requireColonistsPresent>
+    </IncidentDef>
+
+    <QuestScriptDef>
+        <defName>MSS_TrekPodCrash</defName>
+        <autoAccept>true</autoAccept>
+        <defaultCharity>true</defaultCharity>
+        <successHistoryEvent MayRequire="Ludeon.RimWorld.Ideology">CharityFulfilled_RefugeePodCrash</successHistoryEvent>
+        <failedOrExpiredHistoryEvent MayRequire="Ludeon.RimWorld.Ideology">CharityRefused_RefugeePodCrash</failedOrExpiredHistoryEvent>
+        <defaultHidden>true</defaultHidden>
+        <isRootSpecial>true</isRootSpecial>
+        <questNameRules>
+            <rulesStrings>
+                <li>questName->Strangely arousing transport pod crash</li>
+            </rulesStrings>
+        </questNameRules>
+        <questDescriptionRules>
+            <rulesStrings>
+                <li>questDescription->A transport pod crashes with a mysterious space traveller. You get the distinct impression that their intentions might raise an eyebrow or two, among other things.\n\n[tale]</li>
+                <li>tale->The pod bears an emblem [shipTale]. Underneath is the name of it's originating ship, the RSS [shipName]. </li>
+                <li>shipName->Rimterprise-[letter]</li>
+                <li>letter->A</li>
+                <li>letter->B</li>
+                <li>letter->C</li>
+                <li>letter->D</li>
+                <li>letter->E</li>
+                <li>letter->F</li>
+                <li>letter->G</li>
+                <li>shipName->Rimmeger</li>
+                <li>shipName->Rim Space 9</li>
+                <li>shipName->Rimstellation</li>
+                <li>shipName->Rimfiant</li>
+                <li>shipName->Kobayashi Rimu</li>
+                <li>shipTale->that elicits visions of class and elegance, a leader</li>
+                <li>shipTale->that radiates a raw power, conjuring visions of a relentless fighter, both tough and lightning-fast</li>
+                <li>shipTale->that captures the essence of discovery, painting a portrait of an inquisitive mind driven by boundless curiosity</li>
+            </rulesStrings>
+        </questDescriptionRules>
+        <root Class="MSSFP.Questing.QuestNode_Root_TrekPodCrash" />
+    </QuestScriptDef>
+
+
+    <ThingSetMakerDef>
+        <defName>MSSFP_TrekCharacter</defName>
+        <root Class="MSSFP.Questing.ThingSetMaker_TrekCharacter" />
+    </ThingSetMakerDef>
+</Defs>

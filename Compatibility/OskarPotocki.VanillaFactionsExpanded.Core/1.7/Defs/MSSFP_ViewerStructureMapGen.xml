@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--
+    Replaces Base_Faction when a settlement rolls a viewer structure.
+    Mirrors KCSG_Base_Faction: MapCommonBase plus RocksFromGrid, with the structure GenStep
+    replacing vanilla's Settlement/SettlementPower pair. Conduits come from the layouts'
+    own spawnConduits flag, and PostGenerate reconnects power afterwards.
+  -->
+  <MapGeneratorDef ParentName="MapCommonBase">
+    <defName>MSSFP_ViewerStructureSettlement</defName>
+    <genSteps>
+      <li>RocksFromGrid</li>
+      <li>MSSFP_ViewerStructureSettlementGen</li>
+    </genSteps>
+  </MapGeneratorDef>
+
+  <!-- Settlement replacement. The chance roll already happened in the map-generator swap. -->
+  <GenStepDef>
+    <defName>MSSFP_ViewerStructureSettlementGen</defName>
+    <order>400</order>
+    <genStep Class="MSSFP.VFE.Structures.GenStep_MSSFPViewerStructure">
+      <standaloneOnly>true</standaloneOnly>
+      <spawnDefenders>true</spawnDefenders>
+      <fullClear>true</fullClear>
+      <clearFogInRect>false</clearFogInRect>
+      <spawnInRandomFreeLocation>false</spawnInRandomFreeLocation>
+    </genStep>
+  </GenStepDef>
+
+  <!--
+    Quest-site garnish, patched onto the Encounter map generator. Guards on map.Parent is Site so
+    it cannot fire on the ordinary encounter maps that also use Encounter, and rolls its own
+    chance because nothing upstream has done so.
+  -->
+  <GenStepDef>
+    <defName>MSSFP_ViewerStructureScatter</defName>
+    <order>460</order>
+    <genStep Class="MSSFP.VFE.Structures.GenStep_MSSFPViewerStructure">
+      <sitesOnly>true</sitesOnly>
+      <rollChance>true</rollChance>
+      <standaloneOnly>false</standaloneOnly>
+      <spawnDefenders>false</spawnDefenders>
+      <fullClear>true</fullClear>
+      <clearFogInRect>false</clearFogInRect>
+      <spawnInRandomFreeLocation>true</spawnInRandomFreeLocation>
+    </genStep>
+  </GenStepDef>
+
+</Defs>

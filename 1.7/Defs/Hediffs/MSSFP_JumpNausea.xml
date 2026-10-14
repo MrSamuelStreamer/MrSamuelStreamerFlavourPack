@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <!-- Applied to gravship colonists by the JumpNausea orb jump-event. Temporary, self-fades. -->
+    <HediffDef ParentName="DiseaseBase">
+        <defName>MSSFP_JumpNausea</defName>
+        <label>jump nausea</label>
+        <description>An intense, time-dilated gravship route has left this person queasy and disoriented. The effect is non-lethal and fades on its own.</description>
+        <isBad>true</isBad>
+        <initialSeverity>1.0</initialSeverity>
+        <minSeverity>0</minSeverity>
+        <maxSeverity>1.0</maxSeverity>
+        <makesSickThought>false</makesSickThought>
+        <tendable>false</tendable>
+        <everCurableByItem>false</everCurableByItem>
+        <scenarioCanAdd>false</scenarioCanAdd>
+        <comps>
+            <li Class="HediffCompProperties_SeverityPerSecond">
+                <severityPerSecond>-0.0011</severityPerSecond>
+            </li>
+        </comps>
+        <stages>
+            <li>
+                <label>queasy</label>
+                <vomitMtbDays>0.25</vomitMtbDays>
+                <capMods>
+                    <li>
+                        <capacity>Consciousness</capacity>
+                        <offset>-0.15</offset>
+                    </li>
+                    <li>
+                        <capacity>Moving</capacity>
+                        <offset>-0.15</offset>
+                    </li>
+                </capMods>
+            </li>
+        </stages>
+    </HediffDef>
+</Defs>

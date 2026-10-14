@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>Library</OutputType>
+        <LangVersion>latest</LangVersion>
+        <RootNamespace>MSSFP.IS</RootNamespace>
+        <AssemblyName>MSSFP.IS</AssemblyName>
+        <OutputPath>../../../Compatibility/luke.implantsalvage/1.7/Assemblies</OutputPath>
+        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+        <SteamModsPath>$(RIMWORLD_STEAM_MODS_PATH)</SteamModsPath>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <Optimize>false</Optimize>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>portable</DebugType>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <DebugType>embedded</DebugType>
+        <DebugSymbols>false</DebugSymbols>
+        <Optimize>true</Optimize>
+    </PropertyGroup>
+    <ItemGroup>
+        <Reference Include="ImplantSalvage">
+            <HintPath Condition="Exists('../../../../ImplantSalvage/Assemblies/ImplantSalvage.dll')">../../../../ImplantSalvage/Assemblies/ImplantSalvage.dll</HintPath>
+            <HintPath Condition="Exists('../../../../3790499628/Assemblies/ImplantSalvage.dll')">../../../../3790499628/Assemblies/ImplantSalvage.dll</HintPath>
+            <HintPath Condition="Exists('../../../../../../../workshop/content/294100/3790499628/Assemblies/ImplantSalvage.dll')">../../../../../../../workshop/content/294100/3790499628/Assemblies/ImplantSalvage.dll</HintPath>
+            <HintPath Condition="Exists('../../../../../../../../workshop/content/294100/3790499628/Assemblies/ImplantSalvage.dll')">../../../../../../../../workshop/content/294100/3790499628/Assemblies/ImplantSalvage.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+    </ItemGroup>
+    <ItemGroup>
+        <Content Condition="Exists('../../../../../Data')" Include="../../../../../Data/**/*">
+            <Link>Attached/Rimworld/%(RecursiveDir)/%(FileName)%(Extension)</Link>
+            <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+        </Content>
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\MSSFP\MSSFP.csproj">
+            <Private>false</Private>
+        </ProjectReference>
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="..\..\..\">
+        <Link>MrSamuelStreamerFlavourPack</Link>
+      </Folder>
+    </ItemGroup>
+    <PropertyGroup>
+        <StartAction>Program</StartAction>
+        <StartProgram>$(SolutionDir)../../../../RimWorldWin64.exe</StartProgram>
+    </PropertyGroup>
+</Project>

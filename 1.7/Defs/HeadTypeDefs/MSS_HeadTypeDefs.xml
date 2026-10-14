@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!-- Leaper -->
+	<HeadTypeDef ParentName="AverageBase" MayRequire="sarg.alphagenes">
+		<defName>MSS_LeaperHead</defName>
+		<graphicPath>Things/Pawn/Humanlike/Heads/MSS_LeaperHead/MSS_LeaperHead</graphicPath>
+		<randomChosen>false</randomChosen>
+		<gender>None</gender>
+		<requiredGenes>
+			<li>MSS_LeaperHead</li>
+		</requiredGenes>
+		<selectionWeight>1</selectionWeight>
+	</HeadTypeDef>
+
+	<!-- Chestnut -->
+	<HeadTypeDef ParentName="AverageBase" MayRequire="sarg.alphagenes">
+		<defName>MSS_ChestnutHead</defName>
+		<graphicPath>Things/Pawn/Humanlike/Heads/MSS_ChestnutHead/MSS_ChestnutHead</graphicPath>
+		<randomChosen>false</randomChosen>
+		<gender>None</gender>
+		<requiredGenes>
+			<li>MSS_ChestnutHead</li>
+		</requiredGenes>
+		<selectionWeight>1</selectionWeight>
+	</HeadTypeDef>
+</Defs>

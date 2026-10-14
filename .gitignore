@@ -289,6 +289,8 @@ paket-files/
 
 # JetBrains Rider
 /.idea
+/1.7/**/.idea/
+/Compatibility/*/1.7/**/.idea/
 *.sln.iml
 
 # CodeRush
