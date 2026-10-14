@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LanguageData>
+    <MSSFP_PrisonerProcessor_Complete>Integument extraction complete: {0} has been flayed alive and ejected.</MSSFP_PrisonerProcessor_Complete>
+    <MSSFP_PrisonerProcessor_AlreadyProcessed>pawn has already been processed.</MSSFP_PrisonerProcessor_AlreadyProcessed>
+    <MSSFP_PrisonerProcessor_Assign>Assign {0} to processing</MSSFP_PrisonerProcessor_Assign>
+    <MSSFP_PrisonerProcessor_NoPath>{0} (no path or reserved)</MSSFP_PrisonerProcessor_NoPath>
+    <MSSFP_PrisonerProcessor_Unavailable>{0} ({1})</MSSFP_PrisonerProcessor_Unavailable>
+    <MSSFP_PrisonerProcessor_NoProcessor>no powered empty processor reachable</MSSFP_PrisonerProcessor_NoProcessor>
+    <MSSFP_PrisonerProcessor_NoPawn>No pawn.</MSSFP_PrisonerProcessor_NoPawn>
+    <MSSFP_PrisonerProcessor_Occupied>Building is already occupied.</MSSFP_PrisonerProcessor_Occupied>
+    <MSSFP_PrisonerProcessor_Unpowered>Building is not powered.</MSSFP_PrisonerProcessor_Unpowered>
+    <MSSFP_PrisonerProcessor_NotHumanlike>Pawn must be human-like.</MSSFP_PrisonerProcessor_NotHumanlike>
+    <MSSFP_PrisonerProcessor_Dead>Pawn must be alive.</MSSFP_PrisonerProcessor_Dead>
+    <MSSFP_PrisonerProcessor_NotPrisoner>Pawn must be a prisoner.</MSSFP_PrisonerProcessor_NotPrisoner>
+    <MSSFP_PrisonerProcessor_Occupant>Occupant: {0}</MSSFP_PrisonerProcessor_Occupant>
+    <MSSFP_PrisonerProcessor_TimeRemaining>Processing time remaining: {0}</MSSFP_PrisonerProcessor_TimeRemaining>
+    <MSSFP_PrisonerProcessor_Paused>Paused: unpowered</MSSFP_PrisonerProcessor_Paused>
+</LanguageData>
