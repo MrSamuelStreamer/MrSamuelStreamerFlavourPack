@@ -35,7 +35,7 @@
     <shaderProgram>
       <vertexShaderFileName>MSSFP_Quad.vert.glsl</vertexShaderFileName>
       <fragmentShaderFileName>MSSFP_HoloMono.frag.glsl</fragmentShaderFileName>
-      <flipTextureST>false</flipTextureST>
+      <flipTextureST>true</flipTextureST>
       <transparent>true</transparent>
       <depthWrite>false</depthWrite>
       <cullMode>None</cullMode>
