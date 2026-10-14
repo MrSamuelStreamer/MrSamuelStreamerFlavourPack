@@ -23,8 +23,8 @@ public static class AICoreOrbRenderer
 
     /// <summary>Orb centre Z offset from building draw origin in world cells.
     /// SVG canvas mid-y = 32, orb cy = 24.08 → orb is 7.92 units above centre → 7.92/32 = 0.25.
-    /// 1.7 raises the orb by one more orb radius so it sits on the pedestal rather than in front of it.</summary>
-    public const float OrbCenterZOffset = 0.25f + OrbWorldSize * 0.5f;
+    /// 1.7 raises the orb by 0.4 of its diameter (0.8 of a radius) so it sits on the pedestal rather than in front of it.</summary>
+    public const float OrbCenterZOffset = 0.25f + OrbWorldSize * 0.4f;
 
     /// <summary>Rest-position gradient offset from UV centre. Derived from SVG
     /// gradient-centre vs orb-centre, normalised by orb radius, y-flipped to Unity UV space.</summary>
