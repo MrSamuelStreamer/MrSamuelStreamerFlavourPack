@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <ResearchProjectDef>
+        <defName>MSS_Dangerous_meals</defName>
+        <label>Dangerous Meals</label>
+        <description>Learn how to create deadly meals used for covert poisonings.</description>
+        <baseCost>800</baseCost>
+        <techLevel>Industrial</techLevel>
+        <researchViewX>0.00</researchViewX>
+        <researchViewY>5.65</researchViewY>
+        <prerequisites>
+            <li>WakeUpProduction</li>
+        </prerequisites>
+    </ResearchProjectDef>
+</Defs>

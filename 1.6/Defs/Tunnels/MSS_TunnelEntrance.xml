@@ -45,5 +45,6 @@
                 <thickness>5</thickness>
             </li>
         </comps>
+        <researchPrerequisite>MSSFP_Minecarts</researchPrerequisite>
     </ThingDef>
 </Defs>
