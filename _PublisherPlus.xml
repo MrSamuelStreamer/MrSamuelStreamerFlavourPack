@@ -5,6 +5,7 @@
     <exclude>.editorconfig</exclude>
     <exclude>.git</exclude>
     <exclude>1.6\Source</exclude>
+    <exclude>1.7\Source</exclude>
     <exclude>Common\Textures\Things\Building\Linked\MSS_CrackedWall\MSS_CrackedWall_Atlas_Broken.xcf</exclude>
     <exclude>Common\Textures\Things\Building\Linked\MSS_CrackedWall\MSS_CrackedWall_Atlas_Smooth_ps.psd</exclude>
     <exclude>Common\Textures\Things\Building\MSS_SunTower.svg</exclude>

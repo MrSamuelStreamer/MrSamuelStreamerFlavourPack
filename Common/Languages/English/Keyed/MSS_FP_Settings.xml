@@ -262,4 +262,9 @@
 
     <MSS_FP_Settings_Section_Factions>Factions</MSS_FP_Settings_Section_Factions>
     <MSS_FP_Settings_NoReplaceFactionLeader>Only replace faction leaders if they die</MSS_FP_Settings_NoReplaceFactionLeader>
+
+    <MSS_FP_Settings_Tab_Font>Font</MSS_FP_Settings_Tab_Font>
+    <MSS_FP_Settings_UseCadmanFont>Use the Cadman font for the game interface (easier to read for people with dyslexia)</MSS_FP_Settings_UseCadmanFont>
+    <MSS_FP_Settings_UseCadmanFont_Note>Some open windows keep the old font until you reopen them or restart the game. Cadman font by Paul James Miller, SIL Open Font License 1.1.</MSS_FP_Settings_UseCadmanFont_Note>
+    <MSS_FP_Settings_CadmanFont_Unavailable>The Cadman font could not be loaded, so this setting is not available. Check the log for details.</MSS_FP_Settings_CadmanFont_Unavailable>
 </LanguageData>
