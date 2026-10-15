@@ -120,7 +120,6 @@ Keyz, Dexter Feldoh, Retroboy, ChrisB, and Mr Samuel Streamer.
 
 * Ludeon for the Game known as [Rimworld](https://store.steampowered.com/app/294100/RimWorld/)
 * Marnador for the [Rimworld Font](https://github.com/spdskatr/RWModdingResources/raw/master/RimWordFont.ttf)
-* Paul James Miller for the [Cadman font](https://github.com/Kyles-World/Cadman-Font) (1.7 font setting) -- License: SIL Open Font License 1.1, see `1.7/Fonts/Cadman-OFL.txt`
 * Haunts implementation heavily inspired by [Athena Framework](https://github.com/SmArtKar/AthenaFramework)
 * Bruz for the Frogge artwork
 * Ghastlyskull for the Frogge visage mask

@@ -104,8 +104,8 @@ public class Settings : ModSettings
     public float GoldenCubeImplantRaidChance = 0.005f;
     public float GoldenCubeTransferChance = 0.5f;
 
-    // Cadman UI font (dyslexia-friendly), default disabled
-    public bool UseCadmanFont = false;
+    // UI font: "" = vanilla, otherwise the path of a system font file (see MSSFP.Fonts.UiFont).
+    public string UiFontId = MSSFP.Fonts.UiFont.VanillaId;
 
     // Black Hole cosmetic feature (default disabled)
     public bool BlackHoleEnabled = false;
@@ -319,7 +319,7 @@ public class Settings : ModSettings
         Scribe_Values.Look(ref GoldenCubeImplantRaidChance, "GoldenCubeImplantRaidChance", 0.005f);
         Scribe_Values.Look(ref GoldenCubeTransferChance, "GoldenCubeTransferChance", 0.5f);
 
-        Scribe_Values.Look(ref UseCadmanFont, "UseCadmanFont", false);
+        Scribe_Values.Look(ref UiFontId, "UiFontId", MSSFP.Fonts.UiFont.VanillaId);
 
         Scribe_Values.Look(ref BlackHoleEnabled, "BlackHoleEnabled", false);
         Scribe_Values.Look(ref BlackHoleLightCap, "BlackHoleLightCap", 0.25f);

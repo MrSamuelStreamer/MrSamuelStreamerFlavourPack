@@ -264,7 +264,15 @@
     <MSS_FP_Settings_NoReplaceFactionLeader>Only replace faction leaders if they die</MSS_FP_Settings_NoReplaceFactionLeader>
 
     <MSS_FP_Settings_Tab_Font>Font</MSS_FP_Settings_Tab_Font>
-    <MSS_FP_Settings_UseCadmanFont>Use the Cadman font for the game interface (easier to read for people with dyslexia)</MSS_FP_Settings_UseCadmanFont>
-    <MSS_FP_Settings_UseCadmanFont_Note>Some open windows keep the old font until you reopen them or restart the game. Cadman font by Paul James Miller, SIL Open Font License 1.1.</MSS_FP_Settings_UseCadmanFont_Note>
-    <MSS_FP_Settings_CadmanFont_Unavailable>The Cadman font could not be loaded, so this setting is not available. Check the log for details.</MSS_FP_Settings_CadmanFont_Unavailable>
+    <MSS_FP_Settings_UiFont_Vanilla>Vanilla (game default)</MSS_FP_Settings_UiFont_Vanilla>
+    <MSS_FP_Settings_UiFont_Current>Current font: {0}</MSS_FP_Settings_UiFont_Current>
+    <MSS_FP_Settings_UiFont_CurrentMissing>Chosen font: {0} (not found or could not be loaded, using the default font)</MSS_FP_Settings_UiFont_CurrentMissing>
+    <MSS_FP_Settings_UiFont_Choose>Choose font...</MSS_FP_Settings_UiFont_Choose>
+    <MSS_FP_Settings_UiFont_Reset>Reset to the default font</MSS_FP_Settings_UiFont_Reset>
+    <MSS_FP_Settings_UiFont_Note>Any font installed on this computer can be used. Some open windows keep the old font until you reopen them or restart the game.</MSS_FP_Settings_UiFont_Note>
+    <MSS_FP_Settings_UiFont_Unavailable>Changing the font is not available (no graphics backend, or it failed to start). Check the log for details.</MSS_FP_Settings_UiFont_Unavailable>
+    <MSS_FP_Settings_UiFont_DialogTitle>Choose the game font</MSS_FP_Settings_UiFont_DialogTitle>
+    <MSS_FP_Settings_UiFont_SearchHint>Search fonts...</MSS_FP_Settings_UiFont_SearchHint>
+    <MSS_FP_Settings_UiFont_NoMatches>No fonts match your search.</MSS_FP_Settings_UiFont_NoMatches>
+    <MSS_FP_Settings_UiFont_ApplyFailed>Could not use the font "{0}". The default font was restored.</MSS_FP_Settings_UiFont_ApplyFailed>
 </LanguageData>
