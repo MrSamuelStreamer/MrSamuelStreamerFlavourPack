@@ -3,8 +3,8 @@
 
     <ThingDef ParentName="BuildingBase">
         <defName>MSSFP_HumanProcessor</defName>
-        <label>Mechanoid Integument Needle Graft Extraction System</label>
-        <description>An industrial processing unit. It strips skin and blood from a human occupant, ejecting them alive and in agony.\n\nThe resulting disfigurement is permanent, and a processed human cannot be processed again.</description>
+        <label>Peeler</label>
+        <description>An industrial processing unit designed to perform automated autopsies. Cannibals and cultist remove the out safety systems to allow for live occupants. It strips skin and blood from a human occupant, ejecting them alive and in agony.\n\nThe resulting disfigurement is permanent, and a processed human cannot be processed again.</description>
 
         <thingClass>Building</thingClass>
         <drawerType>MapMeshAndRealTime</drawerType>
