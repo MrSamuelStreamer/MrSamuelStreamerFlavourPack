@@ -15,6 +15,6 @@ public class MSSFPVETMod : Mod
         Harmony.DEBUG = true;
 #endif
         Harmony harmony = new Harmony("MrSamuelStreamer.rimworld.MSSFP.VET.main");
-        harmony.PatchAll();
+        harmony.PatchAll(typeof(MSSFPVETMod).Assembly);
     }
 }

@@ -31,7 +31,7 @@ public class MSSFPMod : Mod
         Harmony.DEBUG = true;
 #endif
         _harmony = new Harmony("MrSamuelStreamer.rimworld.MSSFP.main");
-        _harmony.PatchAll();
+        _harmony.PatchAll(typeof(MSSFPMod).Assembly);
 
         // Conditional cross-mod compat patch — silently no-ops when HAR is absent.
         // Guards against NVA-removed apparel defs cascading into PawnCanWear exceptions.
@@ -59,6 +59,11 @@ public class MSSFPMod : Mod
         // vanilla's per-thing tick catch can't stop the resulting per-second log-write flood
         // from eventually taking the process down.
         ExpandedIncidents_NullGuard.TryRegister(_harmony);
+
+        // Conditional cross-mod compat patch — silently no-ops when RimHUD is absent. Grows RimHUD's
+        // fixed-height docked pane to match a UI font with taller lines (see UiFont.LineHeightScale),
+        // otherwise its rows overlap.
+        RimHUD_PaneHeight_Compat.TryRegister(_harmony);
 
         Type NC = AccessTools.Inner(typeof(Dialog_NamePawn), "NameContext");
         ConstructorInfo CI = NC == null

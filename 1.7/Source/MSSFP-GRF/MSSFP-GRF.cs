@@ -28,7 +28,7 @@ public class MSSFPGRFMod : Mod
         try
         {
             Harmony harmony = new Harmony("MrSamuelStreamer.rimworld.MSSFP.GRF.main");
-            harmony.PatchAll();
+            harmony.PatchAll(typeof(MSSFPGRFMod).Assembly);
         }
         catch (Exception e)
         {

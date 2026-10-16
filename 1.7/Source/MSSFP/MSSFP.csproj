@@ -36,15 +36,6 @@
             <Link>Attached/Rimworld/%(RecursiveDir)/%(FileName)%(Extension)</Link>
             <CopyToOutputDirectory>Never</CopyToOutputDirectory>
         </Content>
-        <Content Include="..\..\..\Examples\MSSFP_MapwideHediff.xml">
-          <Link>MrSamuelStreamerFlavourPack\Examples\MSSFP_MapwideHediff.xml</Link>
-        </Content>
-        <Content Include="..\..\..\Examples\MSSFP_OnUseDefModExtension.xml">
-          <Link>MrSamuelStreamerFlavourPack\Examples\MSSFP_OnUseDefModExtension.xml</Link>
-        </Content>
-        <Content Include="..\..\..\Examples\MSSFP_TraitModDefExtension.xml">
-          <Link>MrSamuelStreamerFlavourPack\Examples\MSSFP_TraitModDefExtension.xml</Link>
-        </Content>
         <Content Include="..\..\..\modlist*.xml">
             <Link>MrSamuelStreamerFlavourPack/%(FileName)%(Extension)</Link>
         </Content>
@@ -59,45 +50,6 @@
         <CommonFiles Include="../../../Common/**" />
         <CompatibilityFiles Include="../../../Compatibility/**" />
         <ExtraFiles Include="../../../loadFolders.xml;../../../LICENSE;../../../README.md" />
-        <CommonFiles Update="..\..\..\Common\Languages\English\Keyed\MSS_FP_Settings.xml">
-          <Link>MrSamuelStreamerFlavourPack\Common\Languages\English\Keyed\MSS_FP_Settings.xml</Link>
-        </CommonFiles>
-        <ReleaseFiles Update="..\..\Defs\MSSFP_MapwideHediff.xml">
-          <Link>MrSamuelStreamerFlavourPack\1.7\Defs\MSSFP_MapwideHediff.xml</Link>
-        </ReleaseFiles>
-        <ReleaseFiles Include="..\..\..\Examples\MSSFP_Hediff_ApplyWithinRadius.xml">
-          <Link>MrSamuelStreamerFlavourPack\Examples\MSSFP_Hediff_ApplyWithinRadius.xml</Link>
-        </ReleaseFiles>
-        <ReleaseFiles Update="..\..\Patches\MSSFP_Resurrector.xml">
-          <Link>MrSamuelStreamerFlavourPack\1.7\Patches\MSSFP_Resurrector.xml</Link>
-        </ReleaseFiles>
-        <ReleaseFiles Update="..\..\Defs\Hediffs\MSS_VoidInsanity.xml">
-          <Link>MrSamuelStreamerFlavourPack\1.7\Defs\Hediffs\MSS_VoidInsanity.xml</Link>
-        </ReleaseFiles>
-        <ReleaseFiles Update="..\..\Defs\ThoughtDefs\MSSFP_VoidInsanity.xml">
-          <Link>MrSamuelStreamerFlavourPack\1.7\Defs\ThoughtDefs\MSSFP_VoidInsanity.xml</Link>
-        </ReleaseFiles>
-        <ReleaseFiles Update="..\..\Patches\MSS_World.xml">
-          <Link>MrSamuelStreamerFlavourPack\1.7\Patches\MSS_World.xml</Link>
-        </ReleaseFiles>
-        <ReleaseFiles Update="..\..\Defs\AICore\MSSFP_LetterDef_AICore.xml">
-          <Link>MrSamuelStreamerFlavourPack\1.7\Defs\AICore\MSSFP_LetterDef_AICore.xml</Link>
-        </ReleaseFiles>
-        <ReleaseFiles Update="..\..\Defs\AICore\MSSFP_AICorePacks.xml">
-          <Link>MrSamuelStreamerFlavourPack\1.7\Defs\AICore\MSSFP_AICorePacks.xml</Link>
-        </ReleaseFiles>
-        <ReleaseFiles Update="..\..\Defs\AICore\MSSFP_InteractionDef_AICore.xml">
-          <Link>MrSamuelStreamerFlavourPack\1.7\Defs\AICore\MSSFP_InteractionDef_AICore.xml</Link>
-        </ReleaseFiles>
-        <ReleaseFiles Update="..\..\Defs\AICore\MSSFP_AIPersonalities.xml">
-          <Link>MrSamuelStreamerFlavourPack\1.7\Defs\AICore\MSSFP_AIPersonalities.xml</Link>
-        </ReleaseFiles>
-        <ReleaseFiles Update="..\..\Patches\_Dev\MSSFP_AICore_TestChair.xml">
-          <Link>MrSamuelStreamerFlavourPack\1.7\Patches\_Dev\MSSFP_AICore_TestChair.xml</Link>
-        </ReleaseFiles>
-        <ReleaseFiles Update="..\..\Patches\MSSFP_AICore_CoffeeMachine_Example.xml">
-          <Link>MrSamuelStreamerFlavourPack\1.7\Patches\MSSFP_AICore_CoffeeMachine_Example.xml</Link>
-        </ReleaseFiles>
     </ItemGroup>
     <Target Name="PostBuild" AfterTargets="Build" Condition=" '$(Configuration)' == 'Release' ">
         <RemoveDir Condition="Exists('../../../Release')" Directories="../../../Release" />
