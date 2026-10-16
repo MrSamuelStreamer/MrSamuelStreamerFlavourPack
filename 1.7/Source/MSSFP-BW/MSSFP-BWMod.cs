@@ -27,7 +27,7 @@ namespace MSSFP.BW
         public Brainwash_Patch(ModContentPack content) : base(content)
         {
             var harmony = new Harmony("MSSFP.BW.RandomiseTraitsPassions");
-            harmony.PatchAll();
+            harmony.PatchAll(typeof(Brainwash_Patch).Assembly);
         }
     }
 

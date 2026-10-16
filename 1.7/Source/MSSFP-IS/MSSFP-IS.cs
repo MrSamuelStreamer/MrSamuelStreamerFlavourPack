@@ -14,6 +14,6 @@ public class MSSFPISMod : Mod
         Harmony.DEBUG = true;
 #endif
         Harmony harmony = new Harmony("MrSamuelStreamer.rimworld.MSSFP.IS.main");
-        harmony.PatchAll();
+        harmony.PatchAll(typeof(MSSFPISMod).Assembly);
     }
 }

@@ -16,7 +16,7 @@ public class MSSFPGeneratorMod : Mod
         if (MSSFPMod.settings.GeneratorEnableFasterUpgrades)
         {
             Harmony harmony = new Harmony("MrSamuelStreamer.rimworld.MSSFP.Generator.main");
-            harmony.PatchAll();
+            harmony.PatchAll(typeof(MSSFPGeneratorMod).Assembly);
         }
     }
 }

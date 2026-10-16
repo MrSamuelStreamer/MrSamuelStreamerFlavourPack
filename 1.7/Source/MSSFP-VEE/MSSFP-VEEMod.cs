@@ -14,6 +14,6 @@ public class MSSFPVEEMod : Mod
         Harmony.DEBUG = true;
 #endif
         Harmony harmony = new Harmony("MrSamuelStreamer.rimworld.MSSFP.VEE.main");
-        harmony.PatchAll();
+        harmony.PatchAll(typeof(MSSFPVEEMod).Assembly);
     }
 }

@@ -16,7 +16,7 @@ namespace MSSFP.DBG
         public MSSFP_DBG_Mod(ModContentPack content) : base(content)
         {
             Harmony harmony = new Harmony("MSSFP.DBG.RaiseCaps");
-            harmony.PatchAll();
+            harmony.PatchAll(typeof(MSSFP_DBG_Mod).Assembly);
         }
     }
 }

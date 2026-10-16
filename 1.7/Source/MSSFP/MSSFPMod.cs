@@ -31,7 +31,7 @@ public class MSSFPMod : Mod
         Harmony.DEBUG = true;
 #endif
         _harmony = new Harmony("MrSamuelStreamer.rimworld.MSSFP.main");
-        _harmony.PatchAll();
+        _harmony.PatchAll(typeof(MSSFPMod).Assembly);
 
         // Conditional cross-mod compat patch — silently no-ops when HAR is absent.
         // Guards against NVA-removed apparel defs cascading into PawnCanWear exceptions.
