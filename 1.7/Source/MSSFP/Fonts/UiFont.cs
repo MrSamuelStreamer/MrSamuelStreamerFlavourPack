@@ -34,6 +34,9 @@ public static class UiFont
 
     private const int NumFonts = 3;
 
+    // A font with absurdly tall lines must not be allowed to blow layouts up with it.
+    private const float MaxLineHeightScale = 1.5f;
+
     private static readonly GUIStyle[][] StyleSets =
     [
         Text.fontStyles,
@@ -48,10 +51,27 @@ public static class UiFont
     // id -> one registered font per GameFont size
     private static readonly Dictionary<string, Font[]> Registered = new();
 
+    private static float vanillaSmallLineHeight;
+
     public static bool Available { get; private set; }
 
     /// <summary>The id of the font currently on screen.</summary>
     public static string Current { get; private set; } = VanillaId;
+
+    /// <summary>
+    /// How much taller the current font's lines are than vanilla's (1 = same or shorter). Layouts
+    /// built for a fixed height, such as RimHUD's docked pane, grow by this factor so their rows
+    /// still fit. Capped at <see cref="MaxLineHeightScale"/>.
+    /// </summary>
+    public static float LineHeightScale
+    {
+        get
+        {
+            if (!Available || Current == VanillaId || vanillaSmallLineHeight <= 0f)
+                return 1f;
+            return Mathf.Clamp(Text.LineHeightOf(GameFont.Small) / vanillaSmallLineHeight, 1f, MaxLineHeightScale);
+        }
+    }
 
     static UiFont()
     {
@@ -108,6 +128,7 @@ public static class UiFont
             for (int i = 0; i < NumFonts; i++)
                 VanillaFonts[set][i] = StyleSets[set][i].font;
         }
+        vanillaSmallLineHeight = Text.LineHeightOf(GameFont.Small);
         return true;
     }
 

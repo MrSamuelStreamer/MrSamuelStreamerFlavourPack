@@ -60,6 +60,11 @@ public class MSSFPMod : Mod
         // from eventually taking the process down.
         ExpandedIncidents_NullGuard.TryRegister(_harmony);
 
+        // Conditional cross-mod compat patch — silently no-ops when RimHUD is absent. Grows RimHUD's
+        // fixed-height docked pane to match a UI font with taller lines (see UiFont.LineHeightScale),
+        // otherwise its rows overlap.
+        RimHUD_PaneHeight_Compat.TryRegister(_harmony);
+
         Type NC = AccessTools.Inner(typeof(Dialog_NamePawn), "NameContext");
         ConstructorInfo CI = NC == null
             ? null
