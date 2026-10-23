@@ -45,6 +45,7 @@ public static class MSSFPDefOf
     public static readonly HediffDef Burn;
 
     public static readonly GeneDef MSS_VoidsEmbrace;
+    public static readonly VoidsEmbraceConfigDef MSSFP_VoidsEmbraceConfig;
     public static readonly IncidentDef MSSFP_Lovers_Retreat;
 
     public static readonly ThingDef MSS_SiegeLadder;

@@ -153,6 +153,7 @@
 
     <MSS_VoidsEmbraceSkillsReset>{PAWN_nameDef} passed through the void and left part of themselves behind. Their skills have degraded.</MSS_VoidsEmbraceSkillsReset>
     <MSS_VoidsEmbraceTraitGained>The void has left its mark on {PAWN_nameDef} — they have become {TRAITS}.</MSS_VoidsEmbraceTraitGained>
+    <MSS_VoidsEmbraceBoonGained>The void also left a gift: {PAWN_nameDef} has become {TRAIT}.</MSS_VoidsEmbraceBoonGained>
 
     <!-- IED Pod Raid -->
     <MSSFP_IEDPodRaidLetterLabel>IED pod scatter</MSSFP_IEDPodRaidLetterLabel>

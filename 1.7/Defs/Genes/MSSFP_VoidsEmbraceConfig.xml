@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <!-- Tuning for the traits Void's Embrace gives on each near-death.
+         Severity of a trait = |market value offset| * 10, +3 if it disables work, +2 if it
+         causes mental states. Entries below override that: vetoed traits are never given,
+         `severity` sets a fixed cost, `boon` forces a trait into the positive pool.
+         Mods can add entries with a PatchOperation on this def's <traits> list. -->
+    <MSSFP.Defs.VoidsEmbraceConfigDef>
+        <defName>MSSFP_VoidsEmbraceConfig</defName>
+        <curseBudget>4</curseBudget>
+        <minCurses>1</minCurses>
+        <maxCurses>4</maxCurses>
+        <boonChance>0.25</boonChance>
+        <traits>
+            <li>
+                <trait>Pyromaniac</trait>
+                <vetoed>true</vetoed>
+            </li>
+            <!-- depressive -->
+            <li>
+                <trait>NaturalMood</trait>
+                <degree>-2</degree>
+                <vetoed>true</vetoed>
+            </li>
+            <!-- chemical fascination -->
+            <li>
+                <trait>DrugDesire</trait>
+                <degree>2</degree>
+                <vetoed>true</vetoed>
+            </li>
+            <!-- Vanilla Factions Expanded - Pirates: warcasket status traits -->
+            <li MayRequire="OskarPotocki.VFE.Pirates">
+                <trait>VFEP_Shellcasket</trait>
+                <vetoed>true</vetoed>
+            </li>
+            <li MayRequire="OskarPotocki.VFE.Pirates">
+                <trait>VFEP_WarcasketTrait</trait>
+                <vetoed>true</vetoed>
+            </li>
+
+            <!-- Boons: vanilla gives its good traits a market value offset of 0, so the void
+                 only knows them by name. Single-degree traits match any degree; traits with
+                 good and bad degrees list the good degrees explicitly. -->
+            <li>
+                <trait>Kind</trait>
+                <boon>true</boon>
+            </li>
+            <li>
+                <trait>Nimble</trait>
+                <boon>true</boon>
+            </li>
+            <li>
+                <trait>Tough</trait>
+                <boon>true</boon>
+            </li>
+            <li>
+                <trait>FastLearner</trait>
+                <boon>true</boon>
+            </li>
+            <li>
+                <trait>GreatMemory</trait>
+                <boon>true</boon>
+            </li>
+            <li>
+                <trait>QuickSleeper</trait>
+                <boon>true</boon>
+            </li>
+            <li>
+                <trait>Industriousness</trait>
+                <degree>1</degree>
+                <boon>true</boon>
+            </li>
+            <li>
+                <trait>Industriousness</trait>
+                <degree>2</degree>
+                <boon>true</boon>
+            </li>
+            <li>
+                <trait>Beauty</trait>
+                <degree>1</degree>
+                <boon>true</boon>
+            </li>
+            <li>
+                <trait>Beauty</trait>
+                <degree>2</degree>
+                <boon>true</boon>
+            </li>
+            <li>
+                <trait>NaturalMood</trait>
+                <degree>1</degree>
+                <boon>true</boon>
+            </li>
+            <li>
+                <trait>NaturalMood</trait>
+                <degree>2</degree>
+                <boon>true</boon>
+            </li>
+            <li>
+                <trait>Nerves</trait>
+                <degree>1</degree>
+                <boon>true</boon>
+            </li>
+            <li>
+                <trait>Nerves</trait>
+                <degree>2</degree>
+                <boon>true</boon>
+            </li>
+            <li>
+                <trait>SpeedOffset</trait>
+                <degree>1</degree>
+                <boon>true</boon>
+            </li>
+            <li>
+                <trait>SpeedOffset</trait>
+                <degree>2</degree>
+                <boon>true</boon>
+            </li>
+            <li>
+                <trait>Immunity</trait>
+                <degree>1</degree>
+                <boon>true</boon>
+            </li>
+            <li>
+                <trait>ShootingAccuracy</trait>
+                <degree>1</degree>
+                <boon>true</boon>
+            </li>
+
+            <!-- Ghoulish gives toxic immunity and a longer life: neither a curse nor a boon -->
+            <li MayRequire="Atlas.FalloutTraits">
+                <trait>FT_Ghoulish</trait>
+                <vetoed>true</vetoed>
+            </li>
+
+            <!-- Curses by name: these traits have a market value offset of 0, so the void only
+                 knows them from this list. `severity` is the cost in curse budget points. -->
+            <li>
+                <trait>Beauty</trait>
+                <degree>-1</degree>
+                <severity>1</severity>
+            </li>
+            <li>
+                <trait>Beauty</trait>
+                <degree>-2</degree>
+                <severity>1.5</severity>
+            </li>
+            <li>
+                <trait>ShootingAccuracy</trait>
+                <degree>-1</degree>
+                <severity>1</severity>
+            </li>
+            <li>
+                <trait>SpeedOffset</trait>
+                <degree>-1</degree>
+                <severity>1.5</severity>
+            </li>
+            <li>
+                <trait>Nerves</trait>
+                <degree>-1</degree>
+                <severity>1.5</severity>
+            </li>
+            <li>
+                <trait>Nerves</trait>
+                <degree>-2</degree>
+                <severity>2.5</severity>
+            </li>
+            <li>
+                <trait>NaturalMood</trait>
+                <degree>-1</degree>
+                <severity>2</severity>
+            </li>
+            <li>
+                <trait>Industriousness</trait>
+                <degree>-1</degree>
+                <severity>2</severity>
+            </li>
+            <li>
+                <trait>Industriousness</trait>
+                <degree>-2</degree>
+                <severity>3</severity>
+            </li>
+            <li>
+                <trait>Immunity</trait>
+                <degree>-1</degree>
+                <severity>2</severity>
+            </li>
+            <li MayRequire="Ludeon.RimWorld.Biotech">
+                <trait>Delicate</trait>
+                <severity>1.5</severity>
+            </li>
+            <li MayRequire="Atlas.FalloutTraits">
+                <trait>FT_AimOffset</trait>
+                <degree>-1</degree>
+                <severity>1.5</severity>
+            </li>
+            <li MayRequire="Atlas.FalloutTraits">
+                <trait>FT_Inspiration</trait>
+                <degree>-1</degree>
+                <severity>1</severity>
+            </li>
+            <li MayRequire="dani.moreTraits">
+                <trait>BOT_WeakBody</trait>
+                <degree>1</degree>
+                <severity>2</severity>
+            </li>
+
+            <!-- Boons from other mods -->
+            <li MayRequire="Atlas.FalloutTraits">
+                <trait>FT_Endurance</trait>
+                <degree>1</degree>
+                <boon>true</boon>
+            </li>
+            <li MayRequire="Atlas.FalloutTraits">
+                <trait>FT_Agility</trait>
+                <degree>1</degree>
+                <boon>true</boon>
+            </li>
+            <li MayRequire="Atlas.FalloutTraits">
+                <trait>FT_AimOffset</trait>
+                <degree>1</degree>
+                <boon>true</boon>
+            </li>
+            <li MayRequire="Atlas.FalloutTraits">
+                <trait>FT_Survivalist</trait>
+                <boon>true</boon>
+            </li>
+            <li MayRequire="Atlas.FalloutTraits">
+                <trait>FT_HealingHands</trait>
+                <boon>true</boon>
+            </li>
+            <li MayRequire="Atlas.FalloutTraits">
+                <trait>FT_IronStomach</trait>
+                <boon>true</boon>
+            </li>
+            <li MayRequire="Atlas.FalloutTraits">
+                <trait>FT_GreenThumb</trait>
+                <boon>true</boon>
+            </li>
+            <li MayRequire="Atlas.FalloutTraits">
+                <trait>FT_Intelligence</trait>
+                <degree>1</degree>
+                <boon>true</boon>
+            </li>
+            <li MayRequire="Atlas.FalloutTraits">
+                <trait>FT_Charisma</trait>
+                <degree>1</degree>
+                <boon>true</boon>
+            </li>
+            <li MayRequire="VanillaExpanded.VanillaTraitsExpanded">
+                <trait>VTE_Brave</trait>
+                <boon>true</boon>
+            </li>
+            <li MayRequire="VanillaExpanded.VanillaTraitsExpanded">
+                <trait>VTE_Academian</trait>
+                <boon>true</boon>
+            </li>
+            <li MayRequire="VanillaExpanded.VanillaTraitsExpanded">
+                <trait>VTE_Groundbreaker</trait>
+                <boon>true</boon>
+            </li>
+            <!-- degree -1 is the good one here: "good Constitution" -->
+            <li MayRequire="dani.moreTraits">
+                <trait>BOT_StrongBody</trait>
+                <degree>-1</degree>
+                <boon>true</boon>
+            </li>
+            <li MayRequire="RedMattis.BigSmall.Core">
+                <trait>Passioned_Learning</trait>
+                <boon>true</boon>
+            </li>
+        </traits>
+    </MSSFP.Defs.VoidsEmbraceConfigDef>
+
+</Defs>
