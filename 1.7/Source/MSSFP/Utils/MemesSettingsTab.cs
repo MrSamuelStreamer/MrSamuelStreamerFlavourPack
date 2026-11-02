@@ -35,13 +35,6 @@ public class MemesSettingsTab(ModSettings settings, Mod mod) : SettingsTab(setti
             );
         }
 
-        DrawCheckBox(
-            options,
-            "MSS_FP_Settings_SingleUseMentalFuses".Translate(),
-            ref Settings.SingleUseMentalFuses,
-            ref scrollViewHeight
-        );
-
         // --- Events ---
         DrawSectionHeader(options, "MSS_FP_Settings_Section_Events".Translate(), ref scrollViewHeight);
 
@@ -167,7 +160,6 @@ public class MemesSettingsTab(ModSettings settings, Mod mod) : SettingsTab(setti
     {
         Scribe_Values.Look(ref Settings.EnableLoversRetreat, "EnableLoversRetreat", false);
         Scribe_Values.Look(ref Settings.allowAnyPregnant, "allowAnyPregnant", false);
-        Scribe_Values.Look(ref Settings.SingleUseMentalFuses, "SingleUseMentalFuses", false);
         Scribe_Values.Look(ref Settings.EnableTrekBeamers, "EnableTrekBeamers", true);
         Scribe_Values.Look(ref Settings.EnableSkylanternRaids, "EnableSkylanternRaids", false);
         Scribe_Values.Look(ref Settings.EnableIEDPodRaids, "EnableIEDPodRaids", true);

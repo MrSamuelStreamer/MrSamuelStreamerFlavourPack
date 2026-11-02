@@ -26,12 +26,6 @@ public class HauntSettingsTab(ModSettings settings, Mod mod) : SettingsTab(setti
         );
         DrawCheckBox(
             options,
-            "MSS_FP_Settings_EnableEcho".Translate(),
-            ref Settings.EnableEcho,
-            ref scrollViewHeight
-        );
-        DrawCheckBox(
-            options,
             "MSS_FP_Settings_EnableGraveHaunts".Translate(),
             ref Settings.EnableGraveHaunts,
             ref scrollViewHeight
@@ -176,7 +170,6 @@ public class HauntSettingsTab(ModSettings settings, Mod mod) : SettingsTab(setti
     public override void ExposeData()
     {
         Scribe_Values.Look(ref Settings.ShowHaunts, "ShowHaunts", false);
-        Scribe_Values.Look(ref Settings.EnableEcho, "EnableEcho", false);
         Scribe_Values.Look(ref Settings.EnableGraveHaunts, "EnableGraveHaunts", false);
         Scribe_Values.Look(ref Settings.ShowHauntDevDashboard, "ShowHauntDevDashboard", true);
         Scribe_Values.Look(ref Settings.HauntProgressionSpeedMultiplier, "HauntProgressionSpeedMultiplier", 1.0f);

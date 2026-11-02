@@ -34,7 +34,7 @@ a `PawnInfo` entry recording their name, best skill, traits, and the date of the
 The current host receives cumulative skill boosts from every previous host in the echo's history.
 Passed traits are applied directly. The **Spirit** inspector tab shows the full history.
 
-Echos must be enabled in mod settings (`Enable the echo event`). They are **harmful**
+Echos are always active; no setting turns them off. They are **harmful**
 (`isBad: true`) — the stat costs (rest drain, work speed penalty) represent the strain of
 co-existing with a foreign presence.
 
@@ -364,8 +364,8 @@ Enabled via the `Enable dynamic grave haunts` mod setting. Independent of the Ec
 
 ### Assignment
 
-`HauntedMapComponent` uses the same periodic check as named haunts but gates on
-`EnableGraveHaunts` instead of `EnableEcho`. The pawn pool is limited to humanlike colonists
+`HauntedMapComponent` uses the same periodic check as named haunts, gated on
+`EnableGraveHaunts`. The pawn pool is limited to humanlike colonists
 not already carrying `MSS_FP_PawnDisplayer` and not HauntResistant.
 
 When a colonist is selected, `HauntProfileBuilder.TryBuild(spirit)` is called on the corpse's

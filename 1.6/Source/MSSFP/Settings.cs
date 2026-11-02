@@ -31,8 +31,6 @@ public class Settings : ModSettings
     public int DaysForFission = 7;
     public bool EnableLoversRetreat = false;
     public bool allowAnyPregnant = false;
-    public bool SingleUseMentalFuses = false;
-    public bool EnableEcho = false;
     public bool ShowHauntDevDashboard = true;
     public float HauntProgressionSpeedMultiplier = 1.0f;
     public float HauntRegressionSpeedMultiplier = 1.0f;
