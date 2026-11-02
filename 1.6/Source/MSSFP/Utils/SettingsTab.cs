@@ -46,7 +46,9 @@ public abstract class SettingsTab
         float newScrollViewHeight = 0;
         scrollPosition = GUI.BeginScrollView(tabRect, scrollPosition, contentScrollContainerRect);
 
-        Listing_Standard options = new();
+        // maxOneColumn: when content outgrows the listing rect, vanilla Listing starts a
+        // new column off to the right, outside the scroll view, where it is invisible.
+        Listing_Standard options = new() { maxOneColumn = true };
         options.Begin(contentScrollContainerRect.ContractedBy(2f));
 
         try
@@ -63,7 +65,9 @@ public abstract class SettingsTab
             GUI.EndScrollView();
         }
 
-        ScrollViewHeight = newScrollViewHeight;
+        // Tabs sum their own heights, but miss the verticalSpacing gap Listing adds after
+        // each widget. Trust the listing's real height (+4 for the ContractedBy(2) margin).
+        ScrollViewHeight = Mathf.Max(newScrollViewHeight, options.CurHeight + 4f);
     }
 
     public void DrawSectionHeader(Listing_Standard options, string label, ref float svh)
