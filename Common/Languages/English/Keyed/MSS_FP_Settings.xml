@@ -47,7 +47,7 @@
     <MSS_FP_Settings_Section_Combat>Combat</MSS_FP_Settings_Section_Combat>
     <MSSFP_RGSettingsCategory>MSS Tweaks and Fun - Resource Generator</MSSFP_RGSettingsCategory>
     <MSS_FP_Settings_ShowHaunts>Show Haunts</MSS_FP_Settings_ShowHaunts>
-    <MSS_FP_Settings_NoSkylanternRaids>Disable skylantern raids</MSS_FP_Settings_NoSkylanternRaids>
+    <MSS_FP_Settings_EnableSkylanternRaids>Enable skylantern raids</MSS_FP_Settings_EnableSkylanternRaids>
     <MSS_FP_Settings_EnableIEDPodRaids>Enable IED pod scatter raids</MSS_FP_Settings_EnableIEDPodRaids>
     <MSS_FP_Settings_IEDLifespanDays>IED lifespan before decay -> {0} days (0 = never)</MSS_FP_Settings_IEDLifespanDays>
     <MSS_FP_Settings_IEDDecayDetonateChance>Chance a decaying IED detonates instead of fizzling [x{0}]</MSS_FP_Settings_IEDDecayDetonateChance>

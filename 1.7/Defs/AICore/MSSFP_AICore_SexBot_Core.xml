@@ -9,7 +9,7 @@
         <textColor>(220, 160, 220)</textColor>
         <!-- Shared fallback icon: UI/Icons/AI/MSSFP_Sexbot does not exist yet; needs dedicated art -->
         <iconPath>UI/Icons/AI/MSSFP_ChaffGDP</iconPath>
-        <!-- <forcedXenotype>MSS_CerebrexPersona</forcedXenotype> -->
+        <forcedXenotype>MSS_CerebrexPersona</forcedXenotype>
         <fixedGender>Female</fixedGender>
         <weight>1</weight>
         <ambientChatter>MSSFP_RP_AICore_Sexbot_Chatter</ambientChatter>

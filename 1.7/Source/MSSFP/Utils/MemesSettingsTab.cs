@@ -67,14 +67,12 @@ public class MemesSettingsTab(ModSettings settings, Mod mod) : SettingsTab(setti
             );
         }
 
-        bool disableSkylanternRaids = !Settings.EnableSkylanternRaids;
         DrawCheckBox(
             options,
-            "MSS_FP_Settings_NoSkylanternRaids".Translate(),
-            ref disableSkylanternRaids,
+            "MSS_FP_Settings_EnableSkylanternRaids".Translate(),
+            ref Settings.EnableSkylanternRaids,
             ref scrollViewHeight
         );
-        Settings.EnableSkylanternRaids = !disableSkylanternRaids;
 
         DrawCheckBox(
             options,

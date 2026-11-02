@@ -29,6 +29,11 @@
             <Private>False</Private>
         </Reference>
         <Reference Include="VEE">
+            <!-- Fallback: the mod ships its 1.6 net48 DLLs for 1.7. Later HintPaths win, so a real 1.7 build is preferred when present. -->
+            <HintPath Condition="Exists('../../../../VanillaEventsExpanded/1.6/Assemblies/VEE.dll')">../../../../VanillaEventsExpanded/1.6/Assemblies/VEE.dll</HintPath>
+            <HintPath Condition="Exists('../../../../1938420742/1.6/Assemblies/VEE.dll')">../../../../1938420742/1.6/Assemblies/VEE.dll</HintPath>
+            <HintPath Condition="Exists('../../../../../../../workshop/content/294100/1938420742/1.6/Assemblies/VEE.dll')">../../../../../../../workshop/content/294100/1938420742/1.6/Assemblies/VEE.dll</HintPath>
+            <HintPath Condition="Exists('../../../../../../../../workshop/content/294100/1938420742/1.6/Assemblies/VEE.dll')">../../../../../../../../workshop/content/294100/1938420742/1.6/Assemblies/VEE.dll</HintPath>
             <HintPath Condition="Exists('../../../../VanillaEventsExpanded/1.7/Assemblies/VEE.dll')">../../../../VanillaEventsExpanded/1.7/Assemblies/VEE.dll</HintPath>
             <HintPath Condition="Exists('../../../../1938420742/1.7/Assemblies/VEE.dll')">../../../../1938420742/1.7/Assemblies/VEE.dll</HintPath>
             <HintPath Condition="Exists('../../../../../../../workshop/content/294100/1938420742/1.7/Assemblies/VEE.dll')">../../../../../../../workshop/content/294100/1938420742/1.7/Assemblies/VEE.dll</HintPath>

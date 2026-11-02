@@ -2,7 +2,7 @@
 <Defs>
   
   <!-- Magic Baby -->
-  <XenotypeDef>
+  <XenotypeDef MayRequire="Ludeon.RimWorld.Biotech,redmattis.bigsmall.core">
     <defName>MSSV_TheAscendant</defName>
     <label>The Ascendant</label>
     <description>“The Ascendant” was a name whispered by the Archotechs to describe a powerful psychic entity known as “Magic Baby”.
@@ -31,14 +31,14 @@ Years later, when faced with their eventual mortality, “Magic Baby” attempte
   </XenotypeDef>
   
   <!-- F -->
-  <XenotypeDef>
+  <XenotypeDef MayRequire="Ludeon.RimWorld.Biotech">
     <defName>MSSV_TheDevourer</defName>
     <label>The Devourer</label>
     <description>“The Devourer” was a name whispered by the Archotechs to describe the powerful psychic entity known as F.
 F began as a classified Imperial experiment, and through which was granted the ability to incorporate the genetic information of others into himself at a touch. F turned the tables and began his own gruesome experiments, eventually granting himself total genetic flexibility, immense psycasting reach, and intellectual abilities.
 F’s power reached its climax when he began manifesting his plans of psychic, planetwide indoctrination. In the midst of his victory, his oldest and greatest friend was killed by the desperate denizens of the world attempting to stop the mind-control. The emotional burden was too much for F to bear, and his powerful mind turned inward, causing him to fall between realities into the Void.</description>
     <descriptionShort>A powerful, but physically and mentally unstable, psycasting and intellectual geneline.</descriptionShort>
-    <iconPath>Xenotypes/Baseliner</iconPath>
+    <iconPath>UI/Icons/Xenotypes/Baseliner</iconPath>
     <inheritable>true</inheritable>
     <genes>
       <li MayRequire="redmattis.bigsmall.core">BS_DisintegrateXenoGenes</li>
@@ -64,14 +64,14 @@ F’s power reached its climax when he began manifesting his plans of psychic, p
   </XenotypeDef>
 
   <!-- RusDio -->
-  <XenotypeDef>
+  <XenotypeDef MayRequire="Ludeon.RimWorld.Biotech">
     <defName>MSSV_TheIntruder</defName>
     <label>The Intruder</label>
     <description>“The Intruder” was a name whispered by the Archotechs to describe the powerful psychic entity known as RusDio.
 Originally an elite Imperial Jannisary. When escorting the local Stellarch, RusDio’s entourage was attacked by an experimental quantum weapon deployed by a Deserter group. The antigrain weaponry carried by RusDio reacted with the quantum entanglement used by the Deserters, and shunted RusDio out of their original timeline to a parallel reality.
 Unfortunately for him, his new maligned quantum signature caught the attention of the Archotech overseer of this new reality, and removed him from reality to bring stability back to the timeline.</description>
     <descriptionShort>A powerful time-dilated soldier xenotype that can avoid some of the consequences of time, whilst suffering greater effects of entropy from radiation and temperature.</descriptionShort>
-    <iconPath>Xenotypes/Baseliner</iconPath>
+    <iconPath>UI/Icons/Xenotypes/Baseliner</iconPath>
     <inheritable>true</inheritable>
     <genes>
       <li MayRequire="ebsg.archite">EBSG_MajorArchiteEnhancedBiosculptingSpeed</li>
@@ -94,12 +94,12 @@ Unfortunately for him, his new maligned quantum signature caught the attention o
 
   <!-- Leaper -->
 
-  <XenotypeDef>
+  <XenotypeDef MayRequire="Ludeon.RimWorld.Biotech">
     <defName>MSSV_TheThief</defName>
     <label>The Thief</label>
     <description>"The Thief" is the name given to the Leaper abomination that killed a powerful Archobeing and somehow incorporated its archoimmortality into its genetic makeup. The other Archobeings were so disgusted by the mutant that they banished it from the known universe into the void.</description>
     <descriptionShort>A titanic bioweapon designed to mindlessly destroy any target.</descriptionShort>
-    <iconPath>Xenotypes/Baseliner</iconPath>
+    <iconPath>UI/Icons/Xenotypes/Baseliner</iconPath>
     <inheritable>true</inheritable>
     <genes>
       <li MayRequire="redmattis.bigsmall.core">BS_Fast_TotalHealing</li>
@@ -143,12 +143,12 @@ Unfortunately for him, his new maligned quantum signature caught the attention o
 
   <!-- Cerebrex Core (Gravtasm AI), to be used for xenotype in "MSSFP_AICore_SexBot_Core.xml"  -->
 
-  <XenotypeDef>
+  <XenotypeDef MayRequire="Ludeon.RimWorld.Biotech">
     <defName>MSS_CerebrexPersona</defName>
     <label>Cerebrex Persona</label>
     <description>The Cerebrex Persona is a repurposed Cerebrex AI core detached from the original Mechnoid central hive, and installed in an android body. Some of the microcomponents found in the core itself have rearranged the inner workings of the Android casings and adapted it to match Mechanoid specifications. The unit remains fairly neutered, however.</description>
     <descriptionShort>A repurposed AI core recovered from the central complex of a mechanoid hive.</descriptionShort>
-    <iconPath>Xenotypes/Baseliner</iconPath>
+    <iconPath>UI/Icons/Xenotypes/Baseliner</iconPath>
     <inheritable>true</inheritable>
     <genes>
       <li MayRequire="resplice.xotr.charmweavers">RS_TemperatureInsensitive</li>
