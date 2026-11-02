@@ -88,6 +88,10 @@ public static class PawnGenerator_TemplateInjection_Patch
         PawnKindDef kind = request.KindDef;
         if (kind?.RaceProps?.Humanlike != true || kind.factionLeader) return false;
 
+        // Templates are human-bodied. Humanlike races on another body (e.g. Big and
+        // Small sapient animals such as HL_Boomalope) would get a human overlay.
+        if (kind.RaceProps.body != BodyDefOf.Human) return false;
+
         // Create() maps a null faction to the player, so factionless requests are out too.
         Faction faction = request.Faction;
         if (faction == null || faction.IsPlayer) return false;

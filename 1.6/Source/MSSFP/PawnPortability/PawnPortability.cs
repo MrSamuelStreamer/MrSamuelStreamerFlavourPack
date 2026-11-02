@@ -150,6 +150,12 @@ namespace MSSFP.PawnPortability
         private const int LivePawnCacheTtlTicks = 60;
         private static readonly Dictionary<PawnTemplateDef, (int tick, Pawn pawn)> livePawnCache = new();
 
+        /// <summary>
+        /// The cache is static, so it outlives a Game. Called when a new Game is
+        /// created (new game or load) so results from the previous game are dropped.
+        /// </summary>
+        internal static void ClearLivePawnCache() => livePawnCache.Clear();
+
         public static bool IsAlive(PawnTemplateDef def)
         {
             return FindLivePawn(def) != null;
@@ -160,8 +166,12 @@ namespace MSSFP.PawnPortability
             if (def?.name == null) return null;
 
             int now = Find.TickManager?.TicksGame ?? 0;
+            // An entry from a later tick (an earlier save loaded) or for a pawn that has
+            // since died is stale, even inside the TTL.
             if (livePawnCache.TryGetValue(def, out var cached)
-                && now - cached.tick < LivePawnCacheTtlTicks)
+                && now >= cached.tick
+                && now - cached.tick < LivePawnCacheTtlTicks
+                && (cached.pawn == null || (!cached.pawn.Dead && !cached.pawn.Destroyed)))
                 return cached.pawn;
 
             Pawn found = FindLivePawnUncached(def);

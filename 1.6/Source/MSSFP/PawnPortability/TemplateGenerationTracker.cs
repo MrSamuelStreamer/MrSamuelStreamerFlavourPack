@@ -15,6 +15,9 @@ namespace MSSFP.PawnPortability
 
         public TemplateGenerationTracker(Game game)
         {
+            // Constructed once per Game (new or loaded): drop live-pawn results
+            // cached for the previous game.
+            PawnPortability.ClearLivePawnCache();
         }
 
         public static TemplateGenerationTracker Instance =>
