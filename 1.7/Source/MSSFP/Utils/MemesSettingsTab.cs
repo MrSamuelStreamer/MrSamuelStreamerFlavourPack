@@ -1,10 +1,13 @@
-﻿using UnityEngine;
+﻿using MSSFP.SettingsTabs;
+using UnityEngine;
 using Verse;
 
 namespace MSSFP.Utils;
 
 public class MemesSettingsTab(ModSettings settings, Mod mod) : SettingsTab(settings, mod)
 {
+    private readonly GoldenCubeSettingsSection goldenCube = new();
+
     public Settings Settings => settings as Settings;
     public override string TabName => "Memes";
     public override int TabOrder => 3;
@@ -154,23 +157,25 @@ public class MemesSettingsTab(ModSettings settings, Mod mod) : SettingsTab(setti
             scrollViewHeight += 30f;
         }
 
+        DrawSectionHeader(options, "MSS_FP_Settings_Section_GoldenCube".Translate(), ref scrollViewHeight);
+        goldenCube.Draw(this, Settings, options, ref scrollViewHeight);
     }
 
     public override void ExposeData()
     {
         Scribe_Values.Look(ref Settings.EnableLoversRetreat, "EnableLoversRetreat", false);
         Scribe_Values.Look(ref Settings.allowAnyPregnant, "allowAnyPregnant", false);
-        Scribe_Values.Look(ref Settings.EnableTrekBeamers, "EnableTrekBeamers", true);
+        Scribe_Values.Look(ref Settings.EnableTrekBeamers, "EnableTrekBeamers", false);
         Scribe_Values.Look(ref Settings.EnableSkylanternRaids, "EnableSkylanternRaids", false);
-        Scribe_Values.Look(ref Settings.EnableIEDPodRaids, "EnableIEDPodRaids", true);
-        Scribe_Values.Look(ref Settings.EnableRavenCreepJoiner, "EnableRavenCreepJoiner", true);
+        Scribe_Values.Look(ref Settings.EnableIEDPodRaids, "EnableIEDPodRaids", false);
+        Scribe_Values.Look(ref Settings.EnableRavenCreepJoiner, "EnableRavenCreepJoiner", false);
         Scribe_Values.Look(ref Settings.RavenCreepJoinerChanceMultiplier, "RavenCreepJoinerChanceMultiplier", 1.0f);
         Scribe_Values.Look(ref Settings.IEDLifespanDays, "IEDLifespanDays", 45);
         Scribe_Values.Look(ref Settings.IEDDecayDetonateChance, "IEDDecayDetonateChance", 0.3f);
-        Scribe_Values.Look(ref Settings.EnableMercenaryHiring, "EnableMercenaryHiring", true);
+        Scribe_Values.Look(ref Settings.EnableMercenaryHiring, "EnableMercenaryHiring", false);
         Scribe_Values.Look(ref Settings.useMrStreamerMercenaries, "useMrStreamerMercenaries", false);
         Scribe_Values.Look(ref Settings.DaysForFission, "DaysForFission", 7);
-        Scribe_Values.Look(ref Settings.EnableCodexPunch, "EnableCodexPunch", true);
+        Scribe_Values.Look(ref Settings.EnableCodexPunch, "EnableCodexPunch", false);
         Scribe_Values.Look(ref Settings.CodexPunchChanceMultiplier, "CodexPunchChanceMultiplier", 1.0f);
     }
 }

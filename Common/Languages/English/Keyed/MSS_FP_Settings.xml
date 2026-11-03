@@ -262,6 +262,12 @@
     <MSS_FP_Settings_NoReplaceFactionLeader>Only replace faction leaders if they die</MSS_FP_Settings_NoReplaceFactionLeader>
 
     <MSS_FP_Settings_Tab_Font>Font</MSS_FP_Settings_Tab_Font>
+    <MSS_FP_Settings_Tab_UI>UI</MSS_FP_Settings_Tab_UI>
+    <MSS_FP_Settings_Tab_World>World</MSS_FP_Settings_Tab_World>
+    <MSS_FP_Settings_Section_LabelIcons>Label Icons</MSS_FP_Settings_Section_LabelIcons>
+    <MSS_FP_Settings_Section_BlackHole>Black Hole</MSS_FP_Settings_Section_BlackHole>
+    <MSS_FP_Settings_Section_Tunnels>Tunnels</MSS_FP_Settings_Section_Tunnels>
+    <MSS_FP_Settings_Section_GoldenCube>Golden Cube</MSS_FP_Settings_Section_GoldenCube>
     <MSS_FP_Settings_UiFont_Vanilla>Vanilla (game default)</MSS_FP_Settings_UiFont_Vanilla>
     <MSS_FP_Settings_UiFont_Current>Current font: {0}</MSS_FP_Settings_UiFont_Current>
     <MSS_FP_Settings_UiFont_CurrentMissing>Chosen font: {0} (not found or could not be loaded, using the default font)</MSS_FP_Settings_UiFont_CurrentMissing>

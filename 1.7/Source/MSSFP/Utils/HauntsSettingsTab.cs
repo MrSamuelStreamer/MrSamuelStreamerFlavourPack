@@ -171,7 +171,7 @@ public class HauntSettingsTab(ModSettings settings, Mod mod) : SettingsTab(setti
     {
         Scribe_Values.Look(ref Settings.ShowHaunts, "ShowHaunts", false);
         Scribe_Values.Look(ref Settings.EnableGraveHaunts, "EnableGraveHaunts", false);
-        Scribe_Values.Look(ref Settings.ShowHauntDevDashboard, "ShowHauntDevDashboard", true);
+        Scribe_Values.Look(ref Settings.ShowHauntDevDashboard, "ShowHauntDevDashboard", false);
         Scribe_Values.Look(ref Settings.HauntProgressionSpeedMultiplier, "HauntProgressionSpeedMultiplier", 1.0f);
         Scribe_Values.Look(ref Settings.HauntRegressionSpeedMultiplier, "HauntRegressionSpeedMultiplier", 1.0f);
         Scribe_Values.Look(ref Settings.AlwaysShowNamedHaunts, "AlwaysShowNamedHaunts", false);
@@ -181,7 +181,7 @@ public class HauntSettingsTab(ModSettings settings, Mod mod) : SettingsTab(setti
         Scribe_Values.Look(ref Settings.HauntProximityRadius, "HauntProximityRadius", 50);
         Scribe_Values.Look(ref Settings.HauntMinCooldownDays, "HauntMinCooldownDays", 2);
         Scribe_Values.Look(ref Settings.HauntPostFireCooldownDays, "HauntPostFireCooldownDays", 4);
-        Scribe_Values.Look(ref Settings.EnableKillHaunts, "EnableKillHaunts", true);
+        Scribe_Values.Look(ref Settings.EnableKillHaunts, "EnableKillHaunts", false);
         Scribe_Values.Look(ref Settings.KillHauntBaseChance, "KillHauntBaseChance", 0.15f);
         Scribe_Values.Look(ref Settings.KillHauntCooldownTicks, "KillHauntCooldownTicks", 60000);
         Scribe_Values.Look(ref Settings.MaxBadHauntsPerPawn, "MaxBadHauntsPerPawn", 5);

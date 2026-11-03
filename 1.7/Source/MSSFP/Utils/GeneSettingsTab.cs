@@ -151,7 +151,7 @@ public class GeneSettingsTab(ModSettings settings, Mod mod) : SettingsTab(settin
         Scribe_Values.Look(
             ref Settings.DisableBSIncorporateGeneLimit,
             "DisableBSIncorporateGeneLimit",
-            false
+            true
         );
         Scribe_Values.Look(ref Settings.EnableGeneStealerNeed, "EnableGeneStealerNeed", false);
         Scribe_Values.Look(ref Settings.EnableGeneMutators, "EnableGeneMutators", false);

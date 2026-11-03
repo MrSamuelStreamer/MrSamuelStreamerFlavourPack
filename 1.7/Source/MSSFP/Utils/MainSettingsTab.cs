@@ -380,7 +380,7 @@ public class MainSettingsTab(ModSettings settings, Mod mod) : SettingsTab(settin
         if (Settings == null)
             return;
         Scribe_Values.Look(ref Settings.NullDefSafetyPatch, "NullDefSafetyPatch", true);
-        Scribe_Values.Look(ref Settings.NoReplaceFactionLeader, "NoReplaceFactionLeader", false);
+        Scribe_Values.Look(ref Settings.NoReplaceFactionLeader, "NoReplaceFactionLeader", true);
         Scribe_Values.Look(ref Settings.DrawByMrStreamer, "DrawByMrStreamer", false);
         Scribe_Values.Look(ref Settings.EnableViewerStructures, "EnableViewerStructures", true);
         Scribe_Values.Look(ref Settings.ViewerStructureScatterMult, "ViewerStructureScatterMult", 1f);
