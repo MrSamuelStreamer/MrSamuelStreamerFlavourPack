@@ -160,7 +160,7 @@ public class MemesSettingsTab(ModSettings settings, Mod mod) : SettingsTab(setti
     {
         Scribe_Values.Look(ref Settings.EnableLoversRetreat, "EnableLoversRetreat", false);
         Scribe_Values.Look(ref Settings.allowAnyPregnant, "allowAnyPregnant", false);
-        Scribe_Values.Look(ref Settings.EnableTrekBeamers, "EnableTrekBeamers", true);
+        Scribe_Values.Look(ref Settings.EnableTrekBeamers, "EnableTrekBeamers", false);
         Scribe_Values.Look(ref Settings.EnableSkylanternRaids, "EnableSkylanternRaids", false);
         Scribe_Values.Look(ref Settings.EnableIEDPodRaids, "EnableIEDPodRaids", true);
         Scribe_Values.Look(ref Settings.EnableRavenCreepJoiner, "EnableRavenCreepJoiner", true);
