@@ -9,9 +9,9 @@
     <graphicData>
       <texPath>Things/Building/Vendingmachine/Vendingmachine</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
-      <drawSize>(3,3)</drawSize>
-      <drawOffsetNorth>(0,0,1.1)</drawOffsetNorth>
-      <drawOffsetSouth>(0,0,1.1)</drawOffsetSouth>
+      <drawSize>(3,4)</drawSize>
+      <drawOffsetNorth>(0,0,1.5)</drawOffsetNorth>
+      <drawOffsetSouth>(0,0,1.5)</drawOffsetSouth>
       <drawOffsetWest>(0,0,0.6)</drawOffsetWest>
       <drawOffsetEast>(0,0,0.6)</drawOffsetEast>
     </graphicData>
@@ -31,7 +31,7 @@
     <fillPercent>0.5</fillPercent>
     <useHitPoints>True</useHitPoints>
     <tickerType>Normal</tickerType>
-        <statBases>
+    <statBases>
       <MaxHitPoints>400</MaxHitPoints>
       <WorkToBuild>20000</WorkToBuild>
       <Mass>30</Mass>
@@ -67,8 +67,8 @@
         <idlePowerDraw>30</idlePowerDraw>
       </li>
       <li Class="CompProperties_Glower">
-        <glowRadius>3</glowRadius>
-        <glowColor>(150,150,150,0)</glowColor>
+        <glowRadius>4</glowRadius>
+        <glowColor>(39,169,245,0)</glowColor>
       </li>
       <li Class="CompProperties_Flickable" />
       <li Class="CompProperties_Breakdownable" />
@@ -83,48 +83,48 @@
 
   <!-- workgivers etc -->
   <WorkGiverDef>
-      <defName>MSSFP_Vending_DoBill</defName>
-      <label>do vending machine work</label>
-      <giverClass>WorkGiver_DoBill</giverClass>
-      <workType>Crafting</workType>
-      <priorityInType>330</priorityInType>
-      <fixedBillGiverDefs>
-          <li>MSSFP_Vending_Machine</li>
-      </fixedBillGiverDefs>
-      <verb>work at</verb>
-      <gerund>working at</gerund>
-      <requiredCapacities>
-          <li>Manipulation</li>
-      </requiredCapacities>
-      <prioritizeSustains>true</prioritizeSustains>
+    <defName>MSSFP_Vending_DoBill</defName>
+    <label>do vending machine work</label>
+    <giverClass>WorkGiver_DoBill</giverClass>
+    <workType>Crafting</workType>
+    <priorityInType>330</priorityInType>
+    <fixedBillGiverDefs>
+      <li>MSSFP_Vending_Machine</li>
+    </fixedBillGiverDefs>
+    <verb>work at</verb>
+    <gerund>working at</gerund>
+    <requiredCapacities>
+      <li>Manipulation</li>
+    </requiredCapacities>
+    <prioritizeSustains>true</prioritizeSustains>
   </WorkGiverDef>
 
   <!-- inert unless read by custom assembly -->
   <StatDef>
-      <defName>MSSFP_Vending_PowerStored</defName>
-      <label>stored power need multiplier</label>
-      <description>This value represents the multiplier of stored power needed to start forming recipes.</description>
-      <category>Building</category>
-      <defaultBaseValue>1</defaultBaseValue>
-      <minValue>0</minValue>
-      <maxValue>1</maxValue>
-      <toStringStyle>PercentZero</toStringStyle>
-      <showIfUndefined>false</showIfUndefined>
-      <displayPriorityInCategory>3000</displayPriorityInCategory>
+    <defName>MSSFP_Vending_PowerStored</defName>
+    <label>stored power need multiplier</label>
+    <description>This value represents the multiplier of stored power needed to start forming recipes.</description>
+    <category>Building</category>
+    <defaultBaseValue>1</defaultBaseValue>
+    <minValue>0</minValue>
+    <maxValue>1</maxValue>
+    <toStringStyle>PercentZero</toStringStyle>
+    <showIfUndefined>false</showIfUndefined>
+    <displayPriorityInCategory>3000</displayPriorityInCategory>
   </StatDef>
 
   <!-- inert unless read by custom assembly -->
   <StatDef>
-      <defName>MSSFP_Vending_Duration</defName>
-      <label>forming duration</label>
-      <description>This value represents the multiplier of forming recipes duration.</description>
-      <category>Building</category>
-      <defaultBaseValue>1</defaultBaseValue>
-      <minValue>0</minValue>
-      <maxValue>1</maxValue>
-      <toStringStyle>PercentZero</toStringStyle>
-      <showIfUndefined>false</showIfUndefined>
-      <displayPriorityInCategory>3000</displayPriorityInCategory>
+    <defName>MSSFP_Vending_Duration</defName>
+    <label>forming duration</label>
+    <description>This value represents the multiplier of forming recipes duration.</description>
+    <category>Building</category>
+    <defaultBaseValue>1</defaultBaseValue>
+    <minValue>0</minValue>
+    <maxValue>1</maxValue>
+    <toStringStyle>PercentZero</toStringStyle>
+    <showIfUndefined>false</showIfUndefined>
+    <displayPriorityInCategory>3000</displayPriorityInCategory>
   </StatDef>
 
 </Defs>
