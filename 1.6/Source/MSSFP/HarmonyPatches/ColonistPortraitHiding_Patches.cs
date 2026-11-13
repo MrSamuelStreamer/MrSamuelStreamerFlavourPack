@@ -7,35 +7,6 @@ using Verse;
 
 namespace MSSFP.HarmonyPatches;
 
-[HarmonyPatch(typeof(ColonistBar), "ColonistsOrCorpsesInScreenRect")]
-public static class ColonistBar_ColonistsOrCorpsesInScreenRect_Patch
-{
-    [HarmonyPostfix]
-    public static void Postfix(ref List<Thing> __result)
-    {
-        if (MSSFPMod.settings?.EnableColonistPortraitHiding != true)
-            return;
-
-        if (MSSFPMod.settings.ShowHiddenPortraits)
-            return;
-
-        var worldComp = Find.World.GetComponent<ColonistHidingWorldComponent>();
-        if (worldComp == null)
-            return;
-
-        __result = __result
-            .Where(thing =>
-            {
-                if (thing is Pawn pawn && pawn.RaceProps?.Humanlike == true)
-                {
-                    return !worldComp.IsHidden(pawn);
-                }
-                return true;
-            })
-            .ToList();
-    }
-}
-
 [HarmonyPatch(typeof(ColonistBar), "CheckRecacheEntries")]
 public static class ColonistBar_CheckRecacheEntries_Patch
 {
@@ -51,9 +22,20 @@ public static class ColonistBar_CheckRecacheEntries_Patch
     private static readonly AccessTools.FieldRef<ColonistBar, float> CachedScaleRef =
         AccessTools.FieldRefAccess<ColonistBar, float>("cachedScale");
 
-    [HarmonyPostfix]
-    public static void Postfix(ColonistBar __instance)
+    // Every ColonistBar.Entries read calls CheckRecacheEntries, including reads made by
+    // vanilla's own layout code mid-rebuild. Only filter when vanilla actually rebuilt.
+    [HarmonyPrefix]
+    public static void Prefix(bool ___entriesDirty, out bool __state)
     {
+        __state = ___entriesDirty;
+    }
+
+    [HarmonyPostfix]
+    public static void Postfix(ColonistBar __instance, bool __state)
+    {
+        if (!__state)
+            return;
+
         if (MSSFPMod.settings?.EnableColonistPortraitHiding != true)
             return;
 
@@ -71,11 +53,29 @@ public static class ColonistBar_CheckRecacheEntries_Patch
         if (cachedEntries == null || cachedDrawLocs == null || drawLocsFinder == null)
             return;
 
+        // Camps and caravans with nobody visible keep their hidden pawns so the player
+        // can still reach them from the bar. A player home map is allowed to empty out.
+        HashSet<int> offHomeGroupsAllHidden = new HashSet<int>();
+        HashSet<int> groupsWithVisiblePawn = new HashSet<int>();
+        for (int i = 0; i < cachedEntries.Count; i++)
+        {
+            ColonistBar.Entry entry = cachedEntries[i];
+            if (entry.map?.IsPlayerHome != true)
+                offHomeGroupsAllHidden.Add(entry.group);
+            if (entry.pawn != null && !worldComp.IsHidden(entry.pawn))
+                groupsWithVisiblePawn.Add(entry.group);
+        }
+        offHomeGroupsAllHidden.ExceptWith(groupsWithVisiblePawn);
+
         bool removedAny = false;
         for (int i = cachedEntries.Count - 1; i >= 0; i--)
         {
-            var entry = cachedEntries[i];
-            if (entry.pawn != null && entry.pawn.IsColonist && worldComp.IsHidden(entry.pawn))
+            ColonistBar.Entry entry = cachedEntries[i];
+            if (
+                entry.pawn != null
+                && worldComp.IsHidden(entry.pawn)
+                && !offHomeGroupsAllHidden.Contains(entry.group)
+            )
             {
                 cachedEntries.RemoveAt(i);
                 removedAny = true;
@@ -85,11 +85,25 @@ public static class ColonistBar_CheckRecacheEntries_Patch
         if (!removedAny)
             return;
 
-        // Vanilla computes cachedDrawLocs for the full (unfiltered) entry list above.
-        // Removing entries without recomputing leaves the survivors at positions sized
-        // for the larger bar, opening gaps where hidden colonists were. Recalculate
-        // draw locations for the trimmed entry list so the bar closes up correctly.
-        int groupsCount = cachedEntries.Select(entry => entry.group).Distinct().Count();
+        // Layout sizes entriesInGroup by groupsCount and indexes it by group id, so a
+        // removed home group must not leave a hole. Entry delegates capture the group,
+        // so renumbered entries have to be rebuilt rather than assigned in place.
+        int groupsCount = 0;
+        int lastGroup = -1;
+        for (int i = 0; i < cachedEntries.Count; i++)
+        {
+            ColonistBar.Entry entry = cachedEntries[i];
+            if (entry.group != lastGroup)
+            {
+                lastGroup = entry.group;
+                groupsCount++;
+            }
+
+            int newGroup = groupsCount - 1;
+            if (newGroup != entry.group)
+                cachedEntries[i] = new ColonistBar.Entry(entry.pawn, entry.map, newGroup);
+        }
+
         drawLocsFinder.CalculateDrawLocs(cachedDrawLocs, out float scale, groupsCount);
         CachedScaleRef(__instance) = scale;
     }
@@ -113,13 +127,14 @@ public static class ColonistBar_ProcessInput_Patch
             Vector2 mousePos = Event.current.mousePosition;
 
             int entryCount = Mathf.Min(__instance.Entries.Count, __instance.DrawLocs.Count);
+            Vector2 size = __instance.Size;
             for (int i = 0; i < entryCount; i++)
             {
                 var entry = __instance.Entries[i];
                 if (entry.pawn?.RaceProps?.Humanlike == true)
                 {
                     Vector2 drawLoc = __instance.DrawLocs[i];
-                    Rect colonistRect = new Rect(drawLoc.x, drawLoc.y, 48f, 48f);
+                    Rect colonistRect = new Rect(drawLoc.x, drawLoc.y, size.x, size.y);
 
                     if (colonistRect.Contains(mousePos))
                     {
